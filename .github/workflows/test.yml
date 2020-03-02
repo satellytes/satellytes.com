@@ -1,0 +1,12 @@
+name: Test
+
+on: [push, pull_request]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+      - name: Test types
+        run: yarn test:types
