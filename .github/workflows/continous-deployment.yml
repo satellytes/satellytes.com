@@ -1,0 +1,24 @@
+name: Continous Deplyoment
+
+on:
+  push:
+    branches: master
+
+env:
+  CI: true
+
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+      - name: Install
+        run: yarn
+      - build: Build
+        run: yarn build
+      - name: Deploy to Github pages
+        uses: alex-page/blazing-fast-gh-pages-deploy@v1.1.0
+        with:
+          repo-token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          site-directory: public
