@@ -6,9 +6,9 @@ on: pull_request
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      CI: true
     steps:
-      env:
-        CI: true
       - name: Checkout repository
         uses: actions/checkout@master
       - name: Test types
