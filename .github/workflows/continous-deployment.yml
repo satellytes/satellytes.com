@@ -16,7 +16,7 @@ jobs:
       - name: Install
         run: yarn
       - name: Build
-        run: yarn build
+        run: yarn build:gh-pages
       - name: Deploy to Github pages
         uses: alex-page/blazing-fast-gh-pages-deploy@v1.1.0
         with:

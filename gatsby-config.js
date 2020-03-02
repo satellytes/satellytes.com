@@ -5,6 +5,8 @@ module.exports = {
       'Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.',
     author: 'Satellytes',
   },
+  // pathPrefix is only used when build runs with --pathPrefix (needed for gh-pages)
+  pathPrefix: '/satellytes.com-new',
   plugins: [
     'gatsby-plugin-react-helmet',
     {
