@@ -5,9 +5,16 @@ module.exports = {
       'Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.',
     author: 'Satellytes',
   },
-  // pathPrefix is only used when build runs with --pathPrefix (needed for gh-pages)
+  // pathPrefix is only used when build runs with --pathPrefix (needed for gh-pages).
+  // it's the base path (https://satellytes.github.io/satellytes.com-new/)
   pathPrefix: '/satellytes.com-new',
   plugins: [
+    {
+      resolve: `gatsby-plugin-emotion`,
+      options: {
+        // Accepts all options defined by `babel-plugin-emotion` plugin.
+      },
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',

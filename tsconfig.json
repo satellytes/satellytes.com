@@ -10,7 +10,8 @@
     "esModuleInterop": true,
     "noUnusedLocals": false,
     "skipLibCheck": true,
-    "allowJs": true
+    "allowJs": true,
+    "types": ["node", "@emotion/core"]
   },
   "exclude": ["node_modules", "public", ".cache", "cypress"]
 }

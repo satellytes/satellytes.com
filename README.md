@@ -20,3 +20,4 @@ yarn build
 ## Resources
 
 - Github Actions: https://github.com/sdras/awesome-actions
+- Emotion CSS-in-JS: https://emotion.sh/
