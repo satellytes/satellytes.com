@@ -11,7 +11,7 @@
     "noUnusedLocals": false,
     "skipLibCheck": true,
     "allowJs": true,
-    "types": ["node", "@emotion/core"]
+    "types": ["@emotion/core"]
   },
   "exclude": ["node_modules", "public", ".cache", "cypress"]
 }

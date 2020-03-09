@@ -15,6 +15,10 @@ jobs:
         run: yarn
       - name: Test types
         run: yarn test:types
+      - name: Test linting
+        run: yarn test:lint
+      - name: Test formatting
+        run: yarn test:format
 
   Build:
     runs-on: ubuntu-latest
