@@ -14,7 +14,7 @@ const SomeComponent: React.FC = ({ children }) => (
 );
 
 const anotherStyle = css({
-  textDecoration: 'underline',
+  textDecoration: '',
 });
 
 const AnotherComponent: React.FC = () => (
@@ -29,7 +29,7 @@ export const EmotionTest: React.FC = () => {
   return (
     <SomeComponent>
       <AnotherComponent />
-      <SomeButton>I'm a button</SomeButton>
+      <SomeButton>I&apos;m a button</SomeButton>
     </SomeComponent>
   );
 };
