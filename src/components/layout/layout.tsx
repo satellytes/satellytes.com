@@ -8,9 +8,10 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import Header from './header';
+import Header from './../header/header';
+import '../../static/fonts/fonts.css';
 import './layout.css';
-import { EmotionTest } from './emotion';
+import { EmotionTest } from '../emotion';
 
 const Layout: React.FC = ({ children }) => {
   const data = useStaticQuery(graphql`

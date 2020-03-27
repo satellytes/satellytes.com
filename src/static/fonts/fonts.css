@@ -1,0 +1,30 @@
+/** https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization */
+@font-face {
+    font-family: 'CocoGothic';
+    font-style: normal;
+    font-weight: 400;
+    src: local('CocoGothic'),
+         url('CocoGothic.woff') format('woff'),
+         url('CocoGothic.ttf') format('truetype'),
+         url('CocoGothic.eot') format('embedded-opentype');
+}
+
+@font-face {
+    font-family: 'CocoGothic';
+    font-style: italic;
+    font-weight: 400;
+    src: local('CocoGothic Italic'),
+         url('CocoGothic-Italic.woff') format('woff'),
+         url('CocoGothic-Italic.ttf') format('truetype'),
+         url('CocoGothic-Italic.eot') format('embedded-opentype');
+}
+
+@font-face {
+    font-family: 'CocoGothic';
+    font-style: normal;
+    font-weight: 700;
+    src: local('CocoGothic Bold'),
+         url('CocoGothic-Bold.woff') format('woff'),
+         url('CocoGothic-Bold.ttf') format('truetype'),
+         url('CocoGothic-Bold.eot') format('embedded-opentype');
+}
