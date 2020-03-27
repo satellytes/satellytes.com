@@ -3,6 +3,7 @@
     font-family: 'CocoGothic';
     font-style: normal;
     font-weight: 400;
+    font-display: swap;
     src: local('CocoGothic'),
          url('CocoGothic.woff') format('woff'),
          url('CocoGothic.ttf') format('truetype'),
@@ -13,6 +14,7 @@
     font-family: 'CocoGothic';
     font-style: italic;
     font-weight: 400;
+    font-display: swap;
     src: local('CocoGothic Italic'),
          url('CocoGothic-Italic.woff') format('woff'),
          url('CocoGothic-Italic.ttf') format('truetype'),
@@ -23,6 +25,7 @@
     font-family: 'CocoGothic';
     font-style: normal;
     font-weight: 700;
+    font-display: swap;
     src: local('CocoGothic Bold'),
          url('CocoGothic-Bold.woff') format('woff'),
          url('CocoGothic-Bold.ttf') format('truetype'),
