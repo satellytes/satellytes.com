@@ -3,6 +3,7 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
+    node: true,
   },
   extends: [
     'eslint:recommended',
@@ -20,7 +21,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'emotion', 'jsx-a11y'],
+  plugins: ['react', '@typescript-eslint', 'jsx-a11y'],
   settings: {
     react: {
       version: 'detect',
@@ -29,10 +30,5 @@ module.exports = {
   rules: {
     // disabled because of https://github.com/yannickcr/eslint-plugin-react/issues/2353
     'react/prop-types': [0],
-
-    // some handy emotion rules that need to activated manually (no "recommended")
-    'emotion/no-vanilla': 'error',
-    'emotion/import-from-emotion': 'error',
-    'emotion/styled-import': 'error',
   },
 };

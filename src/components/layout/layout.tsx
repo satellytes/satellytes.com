@@ -10,8 +10,13 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import Header from './../header/header';
 import '../../static/fonts/fonts.css';
-import './layout.css';
-import { EmotionTest } from '../emotion';
+import { GlobalStyle, theme } from './theme';
+import styled, { ThemeProvider } from 'styled-components';
+
+const Tower = styled.div`
+  max-width: 640px;
+  margin: 0 auto;
+`;
 
 const Layout: React.FC = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -25,24 +30,16 @@ const Layout: React.FC = ({ children }) => {
   `);
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <Header siteTitle={data.site.siteMetadata.title} />
-      <EmotionTest />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
+      <Tower>
         <main>{children}</main>
         <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          © {new Date().getFullYear()}, Built with ❤️ by Satellytes
         </footer>
-      </div>
-    </>
+      </Tower>
+    </ThemeProvider>
   );
 };
 

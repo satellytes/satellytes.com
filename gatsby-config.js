@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Satellytes Digital Consulting GmbH',
+    title: 'Satellytes',
     description:
       'Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.',
     author: 'Satellytes',
@@ -9,12 +9,6 @@ module.exports = {
   // it's the base path (https://satellytes.github.io/satellytes.com-new/)
   pathPrefix: '/satellytes.com-new',
   plugins: [
-    {
-      resolve: `gatsby-plugin-emotion`,
-      options: {
-        // Accepts all options defined by `babel-plugin-emotion` plugin.
-      },
-    },
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
@@ -37,6 +31,7 @@ module.exports = {
         icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
       },
     },
+    'gatsby-plugin-styled-components',
     'gatsby-plugin-typescript',
   ],
 };
