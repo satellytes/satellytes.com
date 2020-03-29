@@ -9,9 +9,9 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import Header from './../header/header';
-import '../../static/fonts/fonts.css';
 import { GlobalStyle, theme } from './theme';
 import styled, { ThemeProvider } from 'styled-components';
+import { Fonts } from './fonts/fonts';
 
 const Tower = styled.div`
   max-width: 640px;
@@ -31,6 +31,7 @@ const Layout: React.FC = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
+      <Fonts />
       <GlobalStyle />
       <Header siteTitle={data.site.siteMetadata.title} />
       <Tower>
