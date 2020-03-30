@@ -14,6 +14,13 @@ export const theme: DefaultTheme = {
       footer: '#4D79FF',
     },
   },
+  breakpoints: {
+    xs: '0px',
+    sm: '600px',
+    md: '960px',
+    lg: '1280px',
+    xl: '1920px',
+  },
   typography: {
     fontFamily: 'CocoGothic',
     fontSize: '16px',
@@ -23,13 +30,15 @@ export const theme: DefaultTheme = {
 export const GlobalStyle = createGlobalStyle`
   html {
     background-color: ${(props) => props.theme.palette.background.body};
-      color: ${(props) => props.theme.palette.text.default};
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
+    color: ${(props) => props.theme.palette.text.default}; 
   }
   
   body {
-    font-family: ${(props) => props.theme.typography.fontFamily};, 'sans-serif';
+    font-family: ${(props) => props.theme.typography.fontFamily}, 
+                "Helvetica", 
+                "Lucida Grande", 
+                Tahoma, 
+                Sans-Serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

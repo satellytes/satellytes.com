@@ -9,10 +9,11 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:jsx-a11y/recommended',
 
     // prettier needs to be the last in the array to overwrite existing configs
-    'prettier',
+    'prettier/@typescript-eslint',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -30,5 +31,13 @@ module.exports = {
   rules: {
     // disabled because of https://github.com/yannickcr/eslint-plugin-react/issues/2353
     'react/prop-types': [0],
+
+    // to not need to add a return type on styled-components props
+    '@typescript-eslint/explicit-function-return-type': [
+      'error',
+      {
+        allowExpressions: true,
+      },
+    ],
   },
 };
