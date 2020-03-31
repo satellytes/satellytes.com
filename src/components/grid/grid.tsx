@@ -1,15 +1,8 @@
 import styled, { CSSProp } from 'styled-components';
-import { theme } from '../layout/theme';
-import { Breakpoints } from '../../@types/styled-components';
+import { up } from '../breakpoint/breakpoint';
 
 const GRID_GAP_DESKTOP: CSSProp = '24px';
 const GRID_GAP_MOBILE: CSSProp = '12px';
-
-const breakpoint = (breakpoint: keyof Breakpoints): string => {
-  return `
-    @media (min-width: ${theme.breakpoints[breakpoint]})
-  `;
-};
 
 export const Grid = styled.div`
   max-width: 1280px;
@@ -22,7 +15,7 @@ export const Grid = styled.div`
   justify-items: stretch;
   align-items: start;
 
-  ${breakpoint('sm')} {
+  ${up('sm')} {
     padding: 0 ${GRID_GAP_DESKTOP};
     grid-column-gap: ${GRID_GAP_DESKTOP};
   }
