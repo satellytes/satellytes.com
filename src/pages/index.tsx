@@ -8,8 +8,8 @@ const IndexPage: React.FC = () => (
   <Layout>
     <SEO title="Home" />
     <Grid>
-      <GridItem size={2} />
-      <GridItem size={8}>
+      <GridItem md={2} />
+      <GridItem md={8}>
         <h2>
           <div>Full Stack</div>
           <div>Digital Service</div>
@@ -30,7 +30,7 @@ const IndexPage: React.FC = () => (
         </div>
         <p>We are into relationships, not one-night-stands.</p>
       </GridItem>
-      <GridItem size={2} />
+      <GridItem md={2} />
     </Grid>
   </Layout>
 );
