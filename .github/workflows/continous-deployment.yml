@@ -1,3 +1,12 @@
+#
+# Continous deployment pipeline to deploy the master branch to github pages.
+#
+# Requirements:
+# - GH_PERSONAL_ACCESS_TOKEN
+#     add this env variable as secret to the project and set a personal access token as value
+#     https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
+#
+
 name: Continous Deplyoment
 
 on:
