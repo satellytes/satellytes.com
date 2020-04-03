@@ -11,6 +11,7 @@ module.exports = {
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:jsx-a11y/recommended',
+    'plugin:jest-dom/recommended',
 
     // prettier needs to be the last in the array to overwrite existing configs
     'prettier/@typescript-eslint',
@@ -22,7 +23,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'jsx-a11y'],
+  plugins: ['react', '@typescript-eslint', 'jsx-a11y', 'jest-dom'],
   settings: {
     react: {
       version: 'detect',
@@ -40,4 +41,5 @@ module.exports = {
       },
     ],
   },
+  ignorePatterns: ['gatsby-config.js', 'jest', '*.md'],
 };

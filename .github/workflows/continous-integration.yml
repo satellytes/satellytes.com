@@ -1,3 +1,7 @@
+#
+# Continues integration pipeline to test every branch.
+#
+
 name: Continous Integration
 
 on: pull_request
@@ -13,6 +17,8 @@ jobs:
         uses: actions/checkout@master
       - name: Install
         run: yarn
+      - name: Unit tests
+        run: yarn test
       - name: Test types
         run: yarn test:types
       - name: Test linting
@@ -43,6 +49,6 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: website-assets
-          # todo: add feature-branch deployment here
       - name: Print assets
+        # todo: add feature-branch deployment here
         run: ls website-assets
