@@ -44,8 +44,6 @@ interface GridItemProps {
 /**
  * The grid item can be placed inside the Grid component. If the amount of items in one row is larger then 12, the
  * overflowing grid item will be placed in the next row.
- *
- * By default, a grid item takes the whole row (12 columns) on xs.
  */
 export const GridItem = styled.div<GridItemProps>`
   /* on mobile an item takes the whole row itself by default */
