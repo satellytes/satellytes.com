@@ -3,11 +3,11 @@ import React from 'react';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 import { Grid, GridItem } from '../components/grid/grid';
-import { Typography } from '../components/typography/typography';
+import { PageTitle, SectionTitle } from '../components/typography/typography';
 import styled from 'styled-components';
-import { up, down } from '../components/breakpoint/breakpoint';
+import { up } from '../components/breakpoint/breakpoint';
 
-const Title = styled.div`
+const Title = styled(PageTitle)`
   margin-top: 108px;
   margin-bottom: 280px;
 
@@ -17,7 +17,7 @@ const Title = styled.div`
   }
 `;
 
-const Subtitle = styled.div`
+const SubTitle = styled(SectionTitle)`
   margin-top: 80px;
   margin-bottom: 80px;
 
@@ -27,49 +27,19 @@ const Subtitle = styled.div`
   }
 `;
 
-const DesktopOnlyBreak = styled.br`
-  ${down('md')} {
-    display: none;
-  }
-`;
-
 const IndexPage: React.FC = () => (
   <Layout>
     <SEO title="Home" />
     <Grid>
       <GridItem xs={0} md={2} />
       <GridItem xs={12} md={8}>
-        <Title>
-          <Typography variant="h1">
-            Full Stack <br />
-            Digital Service <br />
-            Agency
-          </Typography>
-        </Title>
-        <Subtitle>
-          <Typography variant="h2">
-            We offer only <DesktopOnlyBreak />
-            what we are <DesktopOnlyBreak />
-            truly great at.
-          </Typography>
-        </Subtitle>
+        <Title>Full Stack Digital Service Agency</Title>
+        <SubTitle>We offer only what we are truly great at.</SubTitle>
         <p>Card</p>
-        <Subtitle>
-          <Typography variant="h2">
-            We are into <DesktopOnlyBreak />
-            relationships, not <DesktopOnlyBreak />
-            one-night-stands.
-          </Typography>
-        </Subtitle>
+        <SubTitle>We are into relationships, not one-night-stands.</SubTitle>
         <p>Card</p>
         <p>List</p>
-        <Subtitle>
-          <Typography variant="h2">
-            We are on your <DesktopOnlyBreak />
-            side - and the <DesktopOnlyBreak />
-            customer&lsquo;s.
-          </Typography>
-        </Subtitle>
+        <SubTitle>We are on your side - and the customer&lsquo;s.</SubTitle>
         <p>Card</p>
       </GridItem>
     </Grid>
