@@ -7,6 +7,7 @@ import { LinkedIn } from '../icons/social/linkedin';
 import { Xing } from '../icons/social/xing';
 
 const NavWrapper = styled.div`
+  position: relative;
   width: 100%;
   height: 517px;
   background-color: transparent;
@@ -17,9 +18,26 @@ const NavWrapper = styled.div`
 `;
 
 const NavWrapperInner = styled.div`
-  position: relative;
-  background-color: #4d79ff;
   height: 100%;
+`;
+
+// following two elements create the angled background
+const NavBackground = styled.div`
+  position: absolute;
+  bottom: 0;
+  height: 70%;
+  width: 100%;
+  background: #4d79ff;
+`;
+
+const NavSlant = styled.div`
+  position: absolute;
+  top: 13%;
+  left: -10%;
+  transform: rotate(-9deg);
+  height: 200px;
+  width: 120%;
+  background: #4d79ff;
 `;
 
 const NavTitle = styled.span`
@@ -132,6 +150,8 @@ const LegalLink = styled(Link)`
 
 const Navigation: React.FC = () => (
   <NavWrapper>
+    <NavSlant />
+    <NavBackground />
     <NavWrapperInner>
       <NavTitle>Nav</NavTitle>
       <Nav>
