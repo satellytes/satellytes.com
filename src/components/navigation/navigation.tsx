@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { up } from '../breakpoint/breakpoint';
 import styled from 'styled-components';
+import { Twitter } from '../icons/social/twitter';
+import { LinkedIn } from '../icons/social/linkedin';
+import { Xing } from '../icons/social/xing';
 
 const NavWrapper = styled.div`
   width: 100%;
@@ -73,6 +76,31 @@ const NavLink = styled(Link)`
   }
 `;
 
+const SocialLinks = styled.div`
+  position: absolute;
+  bottom: 40px;
+  right: 26px;
+
+  ${up('md')} {
+    left: 80px;
+    bottom: 133px;
+    right: auto;
+  }
+`;
+
+const SocialLinkItem = styled.div`
+  cursor: pointer;
+  margin-right: 16px;
+  display: inline-block;
+`;
+
+const SocialLink = styled.a`
+  svg {
+    display: inline-block;
+    vertical-align: middle;
+  }
+`;
+
 const LegalLinks = styled.div`
   position: absolute;
   left: 31px;
@@ -95,7 +123,6 @@ const LegalLinkItem = styled.span`
 `;
 
 const LegalLink = styled(Link)`
-  font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 22px;
@@ -129,6 +156,35 @@ const Navigation: React.FC = () => (
           </NavListItem>
         </NavList>
       </Nav>
+      <SocialLinks>
+        <SocialLinkItem>
+          <SocialLink
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.twitter.com"
+          >
+            <Twitter />
+          </SocialLink>
+        </SocialLinkItem>
+        <SocialLinkItem>
+          <SocialLink
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.linkedin.com"
+          >
+            <LinkedIn />
+          </SocialLink>
+        </SocialLinkItem>
+        <SocialLinkItem>
+          <SocialLink
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.xing.com"
+          >
+            <Xing />
+          </SocialLink>
+        </SocialLinkItem>
+      </SocialLinks>
       <LegalLinks>
         <LegalLinkItem>
           <LegalLink to="/impressum">Impressum</LegalLink>
