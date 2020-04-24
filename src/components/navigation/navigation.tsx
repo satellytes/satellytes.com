@@ -6,8 +6,6 @@ import styled from 'styled-components';
 const NavWrapper = styled.div`
   width: 100%;
   height: 517px;
-  position: fixed;
-  bottom: 0;
   background-color: transparent;
 
   ${up('md')} {
@@ -75,6 +73,36 @@ const NavLink = styled(Link)`
   }
 `;
 
+const LegalLinks = styled.div`
+  position: absolute;
+  left: 31px;
+  bottom: 33px;
+
+  ${up('md')} {
+    left: 80px;
+    bottom: 91px;
+  }
+`;
+
+const LegalLinkItem = styled.span`
+  display: block;
+  cursor: pointer;
+
+  ${up('md')} {
+    display: inline-block;
+    margin-right: 16px;
+  }
+`;
+
+const LegalLink = styled(Link)`
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  color: #202840;
+  text-decoration: none;
+`;
+
 const Navigation: React.FC = () => (
   <NavWrapper>
     <NavWrapperInner>
@@ -101,6 +129,14 @@ const Navigation: React.FC = () => (
           </NavListItem>
         </NavList>
       </Nav>
+      <LegalLinks>
+        <LegalLinkItem>
+          <LegalLink to="/impressum">Impressum</LegalLink>
+        </LegalLinkItem>
+        <LegalLinkItem>
+          <LegalLink to="/datenschutz">Datenschutz</LegalLink>
+        </LegalLinkItem>
+      </LegalLinks>
     </NavWrapperInner>
   </NavWrapper>
 );
