@@ -8,13 +8,15 @@ const Teaser = styled.div``;
 const LeftContainer = styled.div<{ splitView: boolean }>`
   ${up('md')} {
     text-align: ${(props) => (props.splitView ? 'right' : 'left')};
-    padding-right: ${(props) => (props.splitView ? '60%' : '0')};
+    margin-right: ${(props) => (props.splitView ? '60%' : '0')};
+    padding-right: ${(props) => (props.splitView ? '12px' : '0')};
   }
 `;
 
 const RightContainer = styled.div<{ splitView: boolean }>`
   ${up('md')} {
-    padding-left: ${(props) => (props.splitView ? '40%' : '0')};
+    margin-left: ${(props) => (props.splitView ? '40%' : '0')};
+    padding-left: ${(props) => (props.splitView ? '12px' : '0')};
   }
 `;
 
