@@ -38,6 +38,8 @@ const NavTitle = styled.span`
   letter-spacing: 0.2em;
   text-transform: uppercase;
 
+  color: #ffffff;
+
   ${up('md')} {
     right: 81px;
     bottom: 525px;
