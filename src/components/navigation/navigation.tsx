@@ -8,9 +8,10 @@ import { Xing } from '../icons/social/xing';
 
 const NavWrapper = styled.div`
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 517px;
   background-color: transparent;
+  overflow: hidden;
 
   ${up('md')} {
     height: 660px;
@@ -21,23 +22,15 @@ const NavWrapperInner = styled.div`
   height: 100%;
 `;
 
-// following two elements create the angled background
 const NavBackground = styled.div`
   position: absolute;
-  bottom: 0;
-  height: 70%;
-  width: 100%;
+  top: 16vw;
+  right: 0;
+  left: 0;
+  height: 100%;
   background: #4d79ff;
-`;
-
-const NavSlant = styled.div`
-  position: absolute;
-  top: 13%;
-  left: -10%;
-  transform: rotate(-9deg);
-  height: 200px;
-  width: 120%;
-  background: #4d79ff;
+  transform: skewY(-9deg);
+  transform-origin: top left;
 `;
 
 const NavTitle = styled.span`
@@ -150,7 +143,7 @@ const LegalLink = styled(Link)`
 
 const Navigation: React.FC = () => (
   <NavWrapper>
-    <NavSlant />
+    {/* <NavSlant /> */}
     <NavBackground />
     <NavWrapperInner>
       <NavTitle>Nav</NavTitle>
