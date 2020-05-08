@@ -162,7 +162,7 @@ const Navigation: React.FC = () => (
         <SocialLink
           target="_blank"
           rel="noopener noreferrer"
-          href="https://www.twitter.com"
+          href="https://twitter.com/satellytes_beep"
         >
           <IconTwitter />
         </SocialLink>
@@ -171,7 +171,7 @@ const Navigation: React.FC = () => (
         <SocialLink
           target="_blank"
           rel="noopener noreferrer"
-          href="https://www.linkedin.com"
+          href="https://www.linkedin.com/company/satellytes"
         >
           <IconLinkedIn />
         </SocialLink>
@@ -180,7 +180,7 @@ const Navigation: React.FC = () => (
         <SocialLink
           target="_blank"
           rel="noopener noreferrer"
-          href="https://www.xing.com"
+          href="https://www.xing.com/companies/satellytesgmbh"
         >
           <IconXing />
         </SocialLink>
