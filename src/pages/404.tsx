@@ -2,12 +2,17 @@ import React from 'react';
 
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
+import { PageTitle } from '../components/typography/typography';
+import { Grid, GridItem } from '../components/grid/grid';
 
 const NotFoundPage: React.FC = () => (
   <Layout>
     <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    <Grid>
+      <GridItem>
+        <PageTitle>Oh sorry! Our Satellite took the wrong direction.</PageTitle>
+      </GridItem>
+    </Grid>
   </Layout>
 );
 
