@@ -8,7 +8,20 @@ import styled, { ThemeProvider } from 'styled-components';
 import { Fonts } from './fonts/fonts';
 import { GlobalStyle } from './global-style';
 
+/**
+ * this container is used to push the footer to the bottom
+ * if the page content is to short
+ */
+const FullHeightContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  /** min-height: height of screen - fixed element (in this case: header) */
+  min-height: calc(100vh - 56px);
+`;
+
 const Main = styled.main`
+  flex-grow: 1;
   padding-bottom: 400px;
 `;
 
@@ -35,10 +48,12 @@ const Layout: React.FC<LayoutProps> = (props) => {
         siteTitle={data.site.siteMetadata.title}
         light={props.isIndexPage}
       />
-      <Main>{props.children}</Main>
-      <footer>
-        <Navigation />
-      </footer>
+      <FullHeightContainer>
+        <Main>{props.children}</Main>
+        <footer>
+          <Navigation />
+        </footer>
+      </FullHeightContainer>
     </ThemeProvider>
   );
 };
