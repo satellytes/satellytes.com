@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
+import { Link } from 'gatsby';
 
 const Teaser = styled.div``;
 
@@ -33,25 +34,19 @@ const Title = styled.div`
   margin-bottom: 24px;
 `;
 
-const Text = styled.p`
-  font-size: 16px;
-  line-height: 150%;
-
-  margin-bottom: 16px;
-`;
-
-const Link = styled.a`
+const StyledLink = styled(Link)`
   font-size: 20px;
   font-weight: bold;
   color: #4d79ff;
+  text-decoration: none;
 `;
 
 interface BlockTeaserProps {
   preTitle: string;
   title: string;
-  text: string;
   splitView?: boolean;
   link?: string;
+  linkTo?: string;
 }
 
 export const BlockTeaser: React.FC<BlockTeaserProps> = (props) => {
@@ -62,8 +57,10 @@ export const BlockTeaser: React.FC<BlockTeaserProps> = (props) => {
         <Title>{props.title}</Title>
       </LeftContainer>
       <RightContainer splitView={Boolean(props.splitView)}>
-        <Text>{props.text}</Text>
-        <Link>{props.link}</Link>
+        {props.children}
+        {props.link && props.linkTo && (
+          <StyledLink to={props.linkTo}>{props.link}</StyledLink>
+        )}
       </RightContainer>
     </Teaser>
   );
