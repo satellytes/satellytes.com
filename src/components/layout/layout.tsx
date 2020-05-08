@@ -3,9 +3,10 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import Header from './../header/header';
 import Navigation from './../navigation/navigation';
-import { GlobalStyle, theme } from './theme';
+import { theme } from './theme';
 import styled, { ThemeProvider } from 'styled-components';
 import { Fonts } from './fonts/fonts';
+import { GlobalStyle } from './global-style';
 
 const Main = styled.main`
   padding-bottom: 400px;
