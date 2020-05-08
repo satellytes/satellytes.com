@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { up } from '../breakpoint/breakpoint';
 import styled from 'styled-components';
-import { Twitter } from '../icons/social/twitter';
-import { LinkedIn } from '../icons/social/linkedin';
-import { Xing } from '../icons/social/xing';
+import { IconTwitter } from '../icons/social/twitter';
+import { IconLinkedIn } from '../icons/social/linkedin';
+import { IconXing } from '../icons/social/xing';
 
 const NavWrapper = styled.div`
   position: relative;
@@ -164,7 +164,7 @@ const Navigation: React.FC = () => (
           rel="noopener noreferrer"
           href="https://www.twitter.com"
         >
-          <Twitter />
+          <IconTwitter />
         </SocialLink>
       </SocialLinkItem>
       <SocialLinkItem>
@@ -173,7 +173,7 @@ const Navigation: React.FC = () => (
           rel="noopener noreferrer"
           href="https://www.linkedin.com"
         >
-          <LinkedIn />
+          <IconLinkedIn />
         </SocialLink>
       </SocialLinkItem>
       <SocialLinkItem>
@@ -182,7 +182,7 @@ const Navigation: React.FC = () => (
           rel="noopener noreferrer"
           href="https://www.xing.com"
         >
-          <Xing />
+          <IconXing />
         </SocialLink>
       </SocialLinkItem>
     </SocialLinks>
