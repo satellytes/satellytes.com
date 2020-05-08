@@ -4,9 +4,8 @@ import { render } from '@testing-library/react';
 
 describe('<Navigation />', () => {
   it('should render', () => {
-    const title = 'Test title';
     const { getByText } = render(<Navigation />);
-    const navigation = getByText(title);
+    const navigation = getByText('Nav');
     expect(navigation).toBeInTheDocument();
   });
 });
