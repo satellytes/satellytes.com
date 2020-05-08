@@ -7,6 +7,7 @@ describe('<Navigation />', () => {
     const navigation = render(<Navigation />);
     expect(navigation).toMatchSnapshot();
   });
+
   it('should display title', () => {
     const { getByText } = render(<Navigation />);
     const navigation = getByText('Nav');

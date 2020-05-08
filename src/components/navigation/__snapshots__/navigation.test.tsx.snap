@@ -171,9 +171,9 @@ Object {
           >
             <a
               class="sc-fzplWN drbfhx"
-              href="/impressum"
+              href="/imprint"
             >
-              Impressum
+              Imprint
             </a>
           </span>
           <span
@@ -181,9 +181,9 @@ Object {
           >
             <a
               class="sc-fzplWN drbfhx"
-              href="/datenschutz"
+              href="/data-privacy"
             >
-              Datenschutz
+              Data Privacy
             </a>
           </span>
         </div>
@@ -357,9 +357,9 @@ Object {
         >
           <a
             class="sc-fzplWN drbfhx"
-            href="/impressum"
+            href="/imprint"
           >
-            Impressum
+            Imprint
           </a>
         </span>
         <span
@@ -367,9 +367,9 @@ Object {
         >
           <a
             class="sc-fzplWN drbfhx"
-            href="/datenschutz"
+            href="/data-privacy"
           >
-            Datenschutz
+            Data Privacy
           </a>
         </span>
       </div>

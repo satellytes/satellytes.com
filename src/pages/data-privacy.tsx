@@ -8,10 +8,10 @@ import { Grid, GridItem } from '../components/grid/grid';
 const DataPrivacyPage: React.FC = () => {
   return (
     <Layout>
-      <SEO title="Data privacy" />
+      <SEO title="Data Privacy" />
       <Grid>
         <GridItem>
-          <PageTitle>Data privacy</PageTitle>
+          <PageTitle>Data Privacy</PageTitle>
         </GridItem>
       </Grid>
     </Layout>
