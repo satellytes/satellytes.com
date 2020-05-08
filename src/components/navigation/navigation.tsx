@@ -8,18 +8,12 @@ import { Xing } from '../icons/social/xing';
 
 const NavWrapper = styled.div`
   position: relative;
-  width: 100vw;
   height: 517px;
-  background-color: transparent;
   overflow: hidden;
 
   ${up('md')} {
     height: 660px;
   }
-`;
-
-const NavWrapperInner = styled.div`
-  height: 100%;
 `;
 
 const NavBackground = styled.div`
@@ -66,11 +60,9 @@ const Nav = styled.nav`
 const NavList = styled.ul`
   margin: 0;
   padding: 0;
-  list-style-type: none;
 `;
 
 const NavListItem = styled.li`
-  list-style: none;
   display: block;
   text-align: right;
 `;
@@ -95,19 +87,17 @@ const SocialLinks = styled.div`
   ${up('md')} {
     left: 80px;
     bottom: 133px;
-    right: auto;
   }
 `;
 
 const SocialLinkItem = styled.div`
-  cursor: pointer;
-  margin-right: 16px;
   display: inline-block;
+  margin-right: 16px;
+  cursor: pointer;
 `;
 
 const SocialLink = styled.a`
   svg {
-    display: inline-block;
     vertical-align: middle;
   }
 `;
@@ -143,70 +133,67 @@ const LegalLink = styled(Link)`
 
 const Navigation: React.FC = () => (
   <NavWrapper>
-    {/* <NavSlant /> */}
     <NavBackground />
-    <NavWrapperInner>
-      <NavTitle>Nav</NavTitle>
-      <Nav>
-        <NavList>
-          <NavListItem>
-            <NavLink to="/services">Services</NavLink>
-          </NavListItem>
-          <NavListItem>
-            <NavLink to="/clients">Clients</NavLink>
-          </NavListItem>
-          <NavListItem>
-            <NavLink to="/about">About</NavLink>
-          </NavListItem>
-          <NavListItem>
-            <NavLink to="/career">Career</NavLink>
-          </NavListItem>
-          <NavListItem>
-            <NavLink to="/contact">Contact</NavLink>
-          </NavListItem>
-          <NavListItem>
-            <NavLink to="/blog">Blog</NavLink>
-          </NavListItem>
-        </NavList>
-      </Nav>
-      <SocialLinks>
-        <SocialLinkItem>
-          <SocialLink
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.twitter.com"
-          >
-            <Twitter />
-          </SocialLink>
-        </SocialLinkItem>
-        <SocialLinkItem>
-          <SocialLink
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.linkedin.com"
-          >
-            <LinkedIn />
-          </SocialLink>
-        </SocialLinkItem>
-        <SocialLinkItem>
-          <SocialLink
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.xing.com"
-          >
-            <Xing />
-          </SocialLink>
-        </SocialLinkItem>
-      </SocialLinks>
-      <LegalLinks>
-        <LegalLinkItem>
-          <LegalLink to="/impressum">Impressum</LegalLink>
-        </LegalLinkItem>
-        <LegalLinkItem>
-          <LegalLink to="/datenschutz">Datenschutz</LegalLink>
-        </LegalLinkItem>
-      </LegalLinks>
-    </NavWrapperInner>
+    <NavTitle>Nav</NavTitle>
+    <Nav>
+      <NavList>
+        <NavListItem>
+          <NavLink to="/services">Services</NavLink>
+        </NavListItem>
+        <NavListItem>
+          <NavLink to="/clients">Clients</NavLink>
+        </NavListItem>
+        <NavListItem>
+          <NavLink to="/about">About</NavLink>
+        </NavListItem>
+        <NavListItem>
+          <NavLink to="/career">Career</NavLink>
+        </NavListItem>
+        <NavListItem>
+          <NavLink to="/contact">Contact</NavLink>
+        </NavListItem>
+        <NavListItem>
+          <NavLink to="/blog">Blog</NavLink>
+        </NavListItem>
+      </NavList>
+    </Nav>
+    <SocialLinks>
+      <SocialLinkItem>
+        <SocialLink
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.twitter.com"
+        >
+          <Twitter />
+        </SocialLink>
+      </SocialLinkItem>
+      <SocialLinkItem>
+        <SocialLink
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.linkedin.com"
+        >
+          <LinkedIn />
+        </SocialLink>
+      </SocialLinkItem>
+      <SocialLinkItem>
+        <SocialLink
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.xing.com"
+        >
+          <Xing />
+        </SocialLink>
+      </SocialLinkItem>
+    </SocialLinks>
+    <LegalLinks>
+      <LegalLinkItem>
+        <LegalLink to="/impressum">Impressum</LegalLink>
+      </LegalLinkItem>
+      <LegalLinkItem>
+        <LegalLink to="/datenschutz">Datenschutz</LegalLink>
+      </LegalLinkItem>
+    </LegalLinks>
   </NavWrapper>
 );
 
