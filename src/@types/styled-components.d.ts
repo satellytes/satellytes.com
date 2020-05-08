@@ -14,23 +14,18 @@ declare module 'styled-components' {
     palette: {
       primary: {
         main: string;
-        // contrastText: string;
       };
       text: {
         default: string;
-        // title: string;
-        // header: string;
-        // subHeader: string;
-        // footer: string;
+        defaultLight: string;
+        header: string;
+        headerLight: string;
       };
       background: {
+        bodyLight: string;
         body: string;
         footer: string;
       };
-      // action: {
-      //   active: string;
-      //   selected: string;
-      // };
     };
     breakpoints: Breakpoints;
     typography: {

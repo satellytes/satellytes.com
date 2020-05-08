@@ -10,6 +10,10 @@ import { BlockTeaser } from '../components/teasers/block-teaser';
 import { Text } from '../components/typography/typography';
 
 const HomePageTitle = styled(PageTitle)`
+  color: #ffffff;
+
+  font-size: 32px;
+
   margin-top: 108px;
   margin-bottom: 280px;
 
@@ -40,9 +44,9 @@ const ClientList = styled.div`
 `;
 
 const IndexPage: React.FC = () => (
-  <Layout>
+  <Layout isIndexPage={true}>
     <SEO title="Home" />
-    <Grid>
+    <Grid center>
       <GridItem xs={0} md={2} />
       <GridItem xs={12} md={8}>
         <HomePageTitle>Full Stack Digital Service Agency</HomePageTitle>

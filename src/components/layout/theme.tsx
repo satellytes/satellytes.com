@@ -7,9 +7,13 @@ export const theme: DefaultTheme = {
       main: '#668CFF',
     },
     text: {
-      default: '#FFFFFF',
+      default: '#000000',
+      defaultLight: '#FFFFFF',
+      header: '#668CFF',
+      headerLight: '#FFFFFF',
     },
     background: {
+      bodyLight: '#FFFFFF',
       body: '#202840',
       footer: '#4D79FF',
     },
@@ -27,10 +31,16 @@ export const theme: DefaultTheme = {
   },
 };
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle<{ isIndexPage?: boolean }>`
   html {
-    background-color: ${(props) => props.theme.palette.background.body};
-    color: ${(props) => props.theme.palette.text.default}; 
+    background-color: ${(props) =>
+      props.isIndexPage
+        ? props.theme.palette.background.body
+        : props.theme.palette.background.bodyLight};
+    color: ${(props) =>
+      props.isIndexPage
+        ? props.theme.palette.text.defaultLight
+        : props.theme.palette.text.default}; 
   }
   
   body {

@@ -2,11 +2,16 @@ import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
 
 export const PageTitle = styled.h1`
-  font-size: 32px;
+  color: #668cff;
+  font-size: 48px;
   line-height: 110%;
+
+  margin-top: 96px;
+  margin-bottom: 40px;
 
   ${up('md')} {
     font-size: 72px;
+    margin-top: 192px;
   }
 `;
 

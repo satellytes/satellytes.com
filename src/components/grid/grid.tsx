@@ -1,4 +1,4 @@
-import styled, { CSSProp } from 'styled-components';
+import styled, { css, CSSProp } from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
 
 type GridItemSize = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
@@ -8,6 +8,7 @@ const GRID_GAP_MOBILE: CSSProp = '16px';
 
 interface GridProps {
   disableGap?: boolean;
+  center?: boolean;
 }
 
 /**
@@ -23,7 +24,12 @@ export const Grid = styled.div<GridProps>`
   padding: 0 ${(props) => (props.disableGap ? 0 : GRID_GAP_MOBILE)}; // outer gap
 
   max-width: 1280px;
-  margin: 0 auto;
+
+  ${(props) =>
+    props.center &&
+    css`
+      margin: 0 auto;
+    `};
   justify-items: stretch;
   align-items: start;
 
