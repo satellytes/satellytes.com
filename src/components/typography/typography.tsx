@@ -18,3 +18,10 @@ export const SectionTitle = styled.h2`
     font-size: 72px;
   }
 `;
+
+export const Text = styled.p`
+  font-size: 16px;
+  line-height: 150%;
+
+  margin-bottom: 16px;
+`;
