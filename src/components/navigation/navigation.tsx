@@ -188,10 +188,10 @@ const Navigation: React.FC = () => (
     </SocialLinks>
     <LegalLinks>
       <LegalLinkItem>
-        <LegalLink to="/impressum">Impressum</LegalLink>
+        <LegalLink to="/imprint">Imprint</LegalLink>
       </LegalLinkItem>
       <LegalLinkItem>
-        <LegalLink to="/datenschutz">Datenschutz</LegalLink>
+        <LegalLink to="/data-privacy">Data privacy</LegalLink>
       </LegalLinkItem>
     </LegalLinks>
   </NavWrapper>
