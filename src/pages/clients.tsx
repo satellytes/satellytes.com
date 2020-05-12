@@ -2,16 +2,40 @@ import React from 'react';
 
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
-import { PageTitle } from '../components/typography/typography';
+import {
+  CaptionText,
+  PageTitle,
+  TitleText,
+} from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
+import styled from 'styled-components';
+import { up } from '../components/breakpoint/breakpoint';
+
+const CardGridContainer = styled.div`
+  margin-top: 40px;
+
+  ${up('md')} {
+    margin-top: 80px;
+  }
+`;
 
 const ClientsPage: React.FC = () => {
   return (
     <Layout>
       <SEO title="Clients" />
       <Grid>
-        <GridItem>
+        <GridItem xs={12} md={8}>
           <PageTitle>Clients</PageTitle>
+          <TitleText>
+            We are showing clients not projects since we are aiming for long
+            term relationships.
+          </TitleText>
+          <TitleText>
+            For all of the listed clients, we have done or are still doing
+            (major parts of) their web applications.
+          </TitleText>
+          <CaptionText>Not just a set of banners or a microsite.</CaptionText>
+          <CardGridContainer>TODO: CardGrid</CardGridContainer>
         </GridItem>
       </Grid>
     </Layout>

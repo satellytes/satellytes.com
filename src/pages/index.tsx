@@ -33,7 +33,7 @@ const HomePageSubTitle = styled(SectionTitle)`
   }
 `;
 
-const ClientList = styled.div`
+const ClientListContainer = styled.div`
   margin-top: 80px;
   margin-bottom: 80px;
 
@@ -84,7 +84,7 @@ const IndexPage: React.FC = () => (
             applications and self-testing, high performance pattern libraries.
           </Text>
         </BlockTeaser>
-        <ClientList>List</ClientList>
+        <ClientListContainer>TODO: ClientList</ClientListContainer>
         <HomePageSubTitle>
           We are on your side - and the customer&lsquo;s.
         </HomePageSubTitle>
