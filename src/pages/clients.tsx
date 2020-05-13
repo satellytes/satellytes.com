@@ -5,7 +5,7 @@ import SEO from '../components/seo';
 import {
   CaptionText,
   PageTitle,
-  TitleText,
+  LargeText,
 } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
 import styled from 'styled-components';
@@ -26,14 +26,14 @@ const ClientsPage: React.FC = () => {
       <Grid>
         <GridItem xs={12} md={8}>
           <PageTitle>Clients</PageTitle>
-          <TitleText>
+          <LargeText>
             We are showing clients not projects since we are aiming for long
             term relationships.
-          </TitleText>
-          <TitleText>
+          </LargeText>
+          <LargeText>
             For all of the listed clients, we have done or are still doing
             (major parts of) their web applications.
-          </TitleText>
+          </LargeText>
           <CaptionText>Not just a set of banners or a microsite.</CaptionText>
           <CardGridContainer>TODO: CardGrid</CardGridContainer>
         </GridItem>
