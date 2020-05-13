@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
 
+/**
+ *
+ * Title
+ *
+ */
 export const PageTitle = styled.h1`
   color: #668cff;
   font-size: 48px;
@@ -33,6 +38,19 @@ export const SubTitle = styled.h3`
   }
 `;
 
+export const TextTitle = styled.h4`
+  font-size: 20px;
+  line-height: 110%;
+
+  margin-top: 40px;
+  margin-bottom: 16px;
+`;
+
+/**
+ *
+ * Text
+ *
+ */
 export const Text = styled.p`
   font-size: 16px;
   line-height: 150%;
@@ -40,7 +58,7 @@ export const Text = styled.p`
   margin-bottom: 16px;
 `;
 
-export const TitleText = styled.p`
+export const LargeText = styled.p`
   font-size: 24px;
   line-height: 110%;
   font-weight: bold;

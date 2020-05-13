@@ -5,7 +5,7 @@ import SEO from '../components/seo';
 import {
   PageTitle,
   CaptionText,
-  TitleText,
+  LargeText,
   SubTitle,
 } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
@@ -39,15 +39,15 @@ const ServicesPage: React.FC = () => {
           <PageTitle>Services</PageTitle>
         </GridItem>
         <GridItem xs={12} md={8}>
-          <TitleText>
+          <LargeText>
             We are not doing wordpress websites fire and forget style, but
             enterprise size projects, with a state of the interface and tech
             stack.
-          </TitleText>
-          <TitleText>
+          </LargeText>
+          <LargeText>
             We are really good at creating design systems for complex web
             applications and self-testing, high performance pattern libraries.
-          </TitleText>
+          </LargeText>
           <CaptionText>
             By the way: That’s what we also do with our employees. Apply
           </CaptionText>
@@ -58,10 +58,10 @@ const ServicesPage: React.FC = () => {
           <ServicesSectionTitle>
             And that’s where others are way better:
           </ServicesSectionTitle>
-          <TitleText>
+          <LargeText>
             Marketing, Texting, Photoshopping, Illustrating just to name a few
             ...
-          </TitleText>
+          </LargeText>
           <OthersCaptionText>
             but boy are we good at networking and collaborating. We can get the
             right people for you into the team.
