@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import { up } from '../breakpoint/breakpoint';
 import styled from 'styled-components';
+import BurgerMenu from '../icons/burger-menu';
 
 interface HeaderProps {
   siteTitle: string;
@@ -8,12 +10,19 @@ interface HeaderProps {
 }
 
 const StyledHeader = styled.header<{ light: boolean }>`
-  padding: 16px 24px;
-
+  height: 65px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
   border-bottom: ${(props) =>
     props.light
       ? '1px solid rgba(255, 255, 255, 0.1)'
       : '1px solid rgba(32, 40, 64, 0.05)'};
+
+  ${up('md')} {
+    padding: 0 24px;
+  }
 `;
 
 /**
@@ -23,24 +32,35 @@ const StyledHeader = styled.header<{ light: boolean }>`
  *
  * Issue: https://github.com/styled-components/styled-components/issues/1198
  */
-const StyledLink = styled(Link)<{ light: number }>`
+const SiteTitle = styled(Link)<{ light: number }>`
   font-size: 20px;
   font-weight: bold;
   text-decoration: none;
-
   color: ${(props) =>
     props.light === 1
       ? props.theme.palette.text.headerLight
       : props.theme.palette.text.header};
 `;
 
+const SiteMenu = styled.div<{ light: number }>`
+  cursor: pointer;
+
+  rect {
+    fill: ${(props) =>
+      props.light === 1
+        ? props.theme.palette.text.headerLight
+        : props.theme.palette.text.header};
+  }
+`;
+
 const Header: React.FC<HeaderProps> = (props) => (
   <StyledHeader light={Boolean(props.light)}>
-    <div>
-      <StyledLink to="/" light={props.light ? 1 : 0}>
-        {props.siteTitle}
-      </StyledLink>
-    </div>
+    <SiteTitle to="/" light={props.light ? 1 : 0}>
+      {props.siteTitle}
+    </SiteTitle>
+    <SiteMenu light={props.light ? 1 : 0}>
+      <BurgerMenu />
+    </SiteMenu>
   </StyledHeader>
 );
 
