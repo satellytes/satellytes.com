@@ -1,16 +1,21 @@
 import React from 'react';
-import {
-  StyledTabList,
-  StyledTabs,
-  StyledTabPanels,
-  StyledTab,
-  StyledTabPanel,
-} from './tabs';
+import styled from 'styled-components';
+import { StyledTabList, StyledTabPanels, StyledTab } from './tabs';
+import { Tabs, TabPanel } from '@reach/tabs';
+
+const StyledUl = styled.ul`
+  padding: 0;
+  list-style-position: inside;
+`;
+
+const StyledLi = styled.li`
+  margin-bottom: 12px;
+`;
 
 const ServicesTabs: React.FC = () => {
   return (
-    <StyledTabs defaultIndex={0}>
-      <StyledTabList id="tabList">
+    <Tabs defaultIndex={0}>
+      <StyledTabList>
         <StyledTab>UX/UI</StyledTab>
         <StyledTab>Full Stack</StyledTab>
         <StyledTab>Service Development</StyledTab>
@@ -18,7 +23,7 @@ const ServicesTabs: React.FC = () => {
       </StyledTabList>
 
       <StyledTabPanels>
-        <StyledTabPanel>
+        <TabPanel>
           <p>
             Mit rund 20 Jahren Erfahrung in der Konzeption und Umsetzung
             digitaler Interfaces kennen und können wir das gesamte Spektrum der
@@ -29,20 +34,24 @@ const ServicesTabs: React.FC = () => {
             Endgeräte, Nutzergruppen und Nutzungskontexte hinweg, erreichen die
             User und somit Sie ihr Ziel.
           </p>
-          <ul>
-            <li>Informationsarchitektur (und Navigation)</li>
-            <li>
+          <StyledUl>
+            <StyledLi>Informationsarchitektur (und Navigation)</StyledLi>
+            <StyledLi>
               Information/Content Design (Readability, Scanability, Consistency,
               Density, Sizes)
-            </li>
-            <li>User Interface Design (Atomic Design, Pattern Libraries)</li>
-            <li>Interaction Design (Clarity, Ergonomy, Ease/Joy of Use)</li>
-            <li>Brand Experience</li>
-            <li>Accessibility (WAI)</li>
-            <li>Loading, Responsive-Strategien, Performance</li>
-          </ul>
-        </StyledTabPanel>
-        <StyledTabPanel>
+            </StyledLi>
+            <StyledLi>
+              User Interface Design (Atomic Design, Pattern Libraries)
+            </StyledLi>
+            <StyledLi>
+              Interaction Design (Clarity, Ergonomy, Ease/Joy of Use)
+            </StyledLi>
+            <StyledLi>Brand Experience</StyledLi>
+            <StyledLi>Accessibility (WAI)</StyledLi>
+            <StyledLi>Loading, Responsive-Strategien, Performance</StyledLi>
+          </StyledUl>
+        </TabPanel>
+        <TabPanel>
           <p>
             Angular, React, Vue, Node, Polymer, WebComponent, Redux, Atomic
             Design... - die Liste der Buzzwords nimmt kein Ende. Ständig tauchen
@@ -60,8 +69,8 @@ const ServicesTabs: React.FC = () => {
             auseinanderzusetzen, ohne dabei die Produktionsreife eines
             Frameworks aus den Augen zu lassen.
           </p>
-        </StyledTabPanel>
-        <StyledTabPanel>
+        </TabPanel>
+        <TabPanel>
           <p>
             Oft versuchen Unternehmen ihre analogen Services eins zu eins zu
             digitalisieren. Oder sie orientieren sich am Wettbewerb und wollen
@@ -70,12 +79,12 @@ const ServicesTabs: React.FC = () => {
             Wir gehen gerne mit Ihnen den Weg ab dem ersten Schritt und
             erarbeiten Services, die zu Ihren KPIs und Kunden passen.
           </p>
-        </StyledTabPanel>
-        <StyledTabPanel>
+        </TabPanel>
+        <TabPanel>
           <p>And more...</p>
-        </StyledTabPanel>
+        </TabPanel>
       </StyledTabPanels>
-    </StyledTabs>
+    </Tabs>
   );
 };
 
