@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { up } from '../breakpoint/breakpoint';
 import { TabList, Tab, TabPanels } from '@reach/tabs';
 import '@reach/tabs/styles.css';
 
@@ -8,7 +9,11 @@ export const StyledTabList = styled(TabList)`
   overflow-x: scroll;
   transform: translateX(-14px);
   white-space: nowrap;
-  width: 100%;
+  width: 100vw;
+
+  ${up('md')} {
+    height: 100%;
+  }
 `;
 
 export const StyledTab = styled(Tab)`

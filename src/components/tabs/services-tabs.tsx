@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StyledTabList, StyledTabPanels, StyledTab } from './tabs';
-import { Tabs, TabPanel } from '@reach/tabs';
+import { TabPanel, Tabs } from '@reach/tabs';
 
 const StyledUl = styled.ul`
   padding: 0;
@@ -21,7 +21,6 @@ const ServicesTabs: React.FC = () => {
         <StyledTab>Service Development</StyledTab>
         <StyledTab>More</StyledTab>
       </StyledTabList>
-
       <StyledTabPanels>
         <TabPanel>
           <p>

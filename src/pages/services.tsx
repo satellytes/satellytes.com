@@ -31,6 +31,13 @@ const OthersCaptionText = styled(CaptionText)`
   }
 `;
 
+/* with the default GridItem, at mobile width, the Tab component overflows and stretches the page on firefox (but not chrome..). 
+this overrides that behaviour. */
+const StyledGridItem = styled(GridItem)`
+  min-width: 0;
+  min-height: 0;
+`;
+
 const ServicesPage: React.FC = () => {
   return (
     <Layout>
@@ -55,7 +62,11 @@ const ServicesPage: React.FC = () => {
           <ServicesSectionTitle>
             Here is a list of stuff we are really good at:
           </ServicesSectionTitle>
+        </GridItem>
+        <StyledGridItem xs={12} md={8}>
           <ServicesTabs />
+        </StyledGridItem>
+        <GridItem xs={12} md={8}>
           <ServicesSectionTitle>
             And that’s where others are way better:
           </ServicesSectionTitle>
