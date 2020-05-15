@@ -11,6 +11,7 @@ import {
 import { Grid, GridItem } from '../components/grid/grid';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
+import ServicesTabs from '../components/tabs/services-tabs';
 
 const ServicesSectionTitle = styled(SubTitle)`
   margin-top: 80px;
@@ -54,7 +55,7 @@ const ServicesPage: React.FC = () => {
           <ServicesSectionTitle>
             Here is a list of stuff we are really good at:
           </ServicesSectionTitle>
-          <div>TODO: TabList</div>
+          <ServicesTabs />
           <ServicesSectionTitle>
             And that’s where others are way better:
           </ServicesSectionTitle>
