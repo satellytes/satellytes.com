@@ -23,6 +23,7 @@ export const PageTitle = styled.h1`
 export const SectionTitle = styled.h2`
   font-size: 48px;
   line-height: 110%;
+  font-weight: bold;
 
   ${up('md')} {
     font-size: 72px;
@@ -55,6 +56,7 @@ export const Text = styled.p`
   font-size: 16px;
   line-height: 150%;
 
+  margin-top: 0;
   margin-bottom: 16px;
 `;
 
