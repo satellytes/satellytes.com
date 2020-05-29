@@ -1,6 +1,6 @@
 ---
 path: "/blog/how-to-do-a-blog-post"
-date: "2019-05-04"
+date: "2020-05-04"
 title: "How to do a blog post"
 ---
 
