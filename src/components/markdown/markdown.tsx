@@ -19,7 +19,10 @@ export const Markdown: React.FC<MarkdownProps> = (props) => {
     <ReactMarkdown
       source={props.data}
       /**
-       * possible renderers:
+       * Custom renderers/components mapping can be defined here. If a component
+       * is not mapped to a node, the node will be rendererd with the default
+       * fallback. All nodes and their fallback can be viewed here:
+       *
        *  - https://github.com/rexxars/react-markdown#node-types
        */
       renderers={{
