@@ -1,7 +1,7 @@
 import React from 'react';
 import { SectionTitle, SubTitle, Text } from '../typography/typography';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { prism } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { prism } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import styled from 'styled-components';
 
 /**
@@ -41,8 +41,10 @@ interface ReactMarkdownCodeRendererProps {
 export const CodeRender: React.FC<ReactMarkdownCodeRendererProps> = (props) => {
   return (
     /**
-     * SyntaxHighlighter docs:
+     * Code highlighting is done with a custom syntax highlighter library:
      *  - https://github.com/conorhastings/react-syntax-highlighter
+     *
+     * Note: We use the Prism renderer of this library!
      *
      * Possible styles:
      *  - https://conorhastings.github.io/react-syntax-highlighter/demo/prism.html
