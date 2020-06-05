@@ -10,10 +10,15 @@ export const theme: DefaultTheme = {
       defaultLight: '#FFFFFF',
       header: '#668CFF',
       headerLight: '#FFFFFF',
+      darkLinkColor: {
+        default: '#668CFF',
+        hover: '#4D79FF',
+      },
+      darkDefault: '#FFFFFF',
     },
     background: {
-      bodyLight: '#FFFFFF',
       body: '#202840',
+      bodyLight: '#FFFFFF',
       footer: '#4D79FF',
     },
   },

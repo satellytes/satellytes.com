@@ -20,6 +20,11 @@ declare module 'styled-components' {
         defaultLight: string;
         header: string;
         headerLight: string;
+        darkLinkColor: {
+          default: string;
+          hover: string;
+        };
+        darkDefault: string;
       };
       background: {
         bodyLight: string;

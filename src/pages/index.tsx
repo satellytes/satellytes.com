@@ -8,6 +8,8 @@ import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
 import { BlockTeaser } from '../components/teasers/block-teaser';
 import { Text } from '../components/typography/typography';
+import { ClientList } from '../components/client-list/client-list';
+import { clients } from '../components/client-list/fixtures';
 
 const HomePageTitle = styled(PageTitle)`
   color: #ffffff;
@@ -30,16 +32,6 @@ const HomePageSubTitle = styled(SectionTitle)`
   ${up('md')} {
     margin-top: 160px;
     margin-bottom: 120px;
-  }
-`;
-
-const ClientListContainer = styled.div`
-  margin-top: 80px;
-  margin-bottom: 80px;
-
-  ${up('md')} {
-    margin-top: 120px;
-    margin-bottom: 160px;
   }
 `;
 
@@ -84,7 +76,7 @@ const IndexPage: React.FC = () => (
             applications and self-testing, high performance pattern libraries.
           </Text>
         </BlockTeaser>
-        <ClientListContainer>TODO: ClientList</ClientListContainer>
+        <ClientList clients={clients} />
         <HomePageSubTitle>
           We are on your side - and the customer&lsquo;s.
         </HomePageSubTitle>
