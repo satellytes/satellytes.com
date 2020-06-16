@@ -15,6 +15,7 @@ module.exports = {
   globals: {
     // needs to be set because of gatsby https://www.gatsbyjs.org/docs/unit-testing/#2-creating-a-configuration-file-for-jest
     __PATH_PREFIX__: '',
+    __BASE_PATH__: '',
     'ts-jest': {
       // rewrite locale ts-config to work with ts-jest
       tsConfig: {
