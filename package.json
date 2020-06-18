@@ -60,6 +60,7 @@
     "eslint-plugin-jsx-a11y": "6.3.0",
     "eslint-plugin-react": "7.20.0",
     "husky": "4.2.5",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^26.0.1",
     "jsdom": "^16.2.2",
     "lint-staged": "10.2.11",

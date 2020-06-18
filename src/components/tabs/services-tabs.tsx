@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { StyledTabList, StyledTabPanels, StyledTab } from './tabs';
 import { TabPanel, Tabs } from '@reach/tabs';
+import '@reach/tabs/styles.css';
 
 const StyledUl = styled.ul`
   padding: 0;
@@ -69,7 +70,7 @@ const ServicesTabs: React.FC = () => {
             Frameworks aus den Augen zu lassen.
           </p>
         </TabPanel>
-        <TabPanel>
+        <TabPanel data-testid="services-development-content">
           <p>
             Oft versuchen Unternehmen ihre analogen Services eins zu eins zu
             digitalisieren. Oder sie orientieren sich am Wettbewerb und wollen
