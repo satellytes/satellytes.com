@@ -41,9 +41,4 @@ describe('Services Tabs', () => {
       getByRole('tabpanel', { name: 'Service Development' }),
     ).toBeVisible();
   });
-
-  it('should match snapshot', () => {
-    const Tabs = render(<ServicesTabs />);
-    expect(Tabs).toMatchSnapshot();
-  });
 });
