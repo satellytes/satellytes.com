@@ -32,6 +32,8 @@ Pop-up marfa bicycle rights fam woke. Tofu messenger bag bespoke, cronut glossie
 2. Do stuff
 3. Commit
 
+![Fancy font that shows 'A 25-step program for becoming a great designer'](https://res.cloudinary.com/satellytes/image/upload/v1592570224/satellytes-website/example-picture_crftva.png)
+
 ## Level 2 Heading
 
 You can also add code with syntax highlighting. Simply add the language after the first three backticks of a codeblock for example `` ```js``

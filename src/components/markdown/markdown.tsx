@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import {
+  CloudinaryImageRenderer,
   CodeRender,
   HeadingRenderer,
   InlineCodeRenderer,
@@ -38,6 +39,7 @@ export const Markdown: React.FC<MarkdownProps> = (props) => {
         heading: HeadingRenderer,
         code: CodeRender,
         inlineCode: InlineCodeRenderer,
+        image: CloudinaryImageRenderer,
       }}
     />
   );
