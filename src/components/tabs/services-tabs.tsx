@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { StyledTabList, StyledTabPanels, StyledTab } from './tabs';
+import { TabList, Tab, TabPanels } from '@reach/tabs';
 import { TabPanel, Tabs } from '@reach/tabs';
+import { up } from '../breakpoint/breakpoint';
 import '@reach/tabs/styles.css';
 
 const StyledUl = styled.ul`
@@ -11,6 +12,57 @@ const StyledUl = styled.ul`
 
 const StyledLi = styled.li`
   margin-bottom: 12px;
+`;
+
+const StyledTabList = styled(TabList)`
+  background: none;
+  padding-bottom: 18px;
+  overflow-x: scroll;
+  transform: translateX(-14px);
+  white-space: nowrap;
+  width: 100vw;
+
+  ${up('md')} {
+    height: 100%;
+  }
+`;
+
+const StyledTab = styled(Tab)`
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+
+  &[data-reach-tab] {
+    color: #668cff;
+    border: none;
+    display: inline-block;
+    margin: 4px 8px 0 4px;
+
+    &:last-of-type {
+      border-right: 8px solid transparent;
+    }
+  }
+
+  &[data-selected] {
+    color: #202840;
+
+    /* custom underline on selected tab */
+    &:before {
+      content: '';
+      background: black;
+      position: absolute;
+      bottom: -10px;
+      left: 12px;
+      width: 20px;
+      height: 3px;
+      border-radius: 1px;
+    }
+  }
+`;
+
+const StyledTabPanels = styled(TabPanels)`
+  line-height: 1.5;
 `;
 
 const ServicesTabs: React.FC = () => {

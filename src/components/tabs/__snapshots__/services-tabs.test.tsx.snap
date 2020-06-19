@@ -11,14 +11,14 @@ Object {
       >
         <div
           aria-orientation="horizontal"
-          class="sc-AxjAm htUUEF"
+          class="sc-AxiKw cwqAMm"
           data-reach-tab-list=""
           role="tablist"
         >
           <button
             aria-controls="tabs--20--panel--0"
             aria-selected="true"
-            class="sc-AxirZ kKrPFN"
+            class="sc-AxhCb cFjGRL"
             data-orientation="horizontal"
             data-reach-tab=""
             data-selected=""
@@ -32,7 +32,7 @@ Object {
           <button
             aria-controls="tabs--20--panel--1"
             aria-selected="false"
-            class="sc-AxirZ kKrPFN"
+            class="sc-AxhCb cFjGRL"
             data-orientation="horizontal"
             data-reach-tab=""
             id="tabs--20--tab--1"
@@ -45,7 +45,7 @@ Object {
           <button
             aria-controls="tabs--20--panel--2"
             aria-selected="false"
-            class="sc-AxirZ kKrPFN"
+            class="sc-AxhCb cFjGRL"
             data-orientation="horizontal"
             data-reach-tab=""
             id="tabs--20--tab--2"
@@ -58,7 +58,7 @@ Object {
           <button
             aria-controls="tabs--20--panel--3"
             aria-selected="false"
-            class="sc-AxirZ kKrPFN"
+            class="sc-AxhCb cFjGRL"
             data-orientation="horizontal"
             data-reach-tab=""
             id="tabs--20--tab--3"
@@ -70,7 +70,7 @@ Object {
           </button>
         </div>
         <div
-          class="sc-AxiKw bMnqbF"
+          class="sc-AxhUy kOIRNg"
           data-reach-tab-panels=""
         >
           <div
@@ -84,40 +84,40 @@ Object {
               Mit rund 20 Jahren Erfahrung in der Konzeption und Umsetzung digitaler Interfaces kennen und können wir das gesamte Spektrum der User Experience (UX). Der kleine, sichtbare Teil davon ist das User Interface (UI), der große unsichtbare (UX) jedoch viel relevanter für die Erreichung ihrer wirtschaftlichen Ziele. Denn nur mit benutzerfreundlichen, leicht verständlichen Journeys über alle Endgeräte, Nutzergruppen und Nutzungskontexte hinweg, erreichen die User und somit Sie ihr Ziel.
             </p>
             <ul
-              class="sc-AxhCb kMBKLF"
+              class="sc-AxjAm butCNa"
             >
               <li
-                class="sc-AxhUy iEtntx"
+                class="sc-AxirZ cbgdPI"
               >
                 Informationsarchitektur (und Navigation)
               </li>
               <li
-                class="sc-AxhUy iEtntx"
+                class="sc-AxirZ cbgdPI"
               >
                 Information/Content Design (Readability, Scanability, Consistency, Density, Sizes)
               </li>
               <li
-                class="sc-AxhUy iEtntx"
+                class="sc-AxirZ cbgdPI"
               >
                 User Interface Design (Atomic Design, Pattern Libraries)
               </li>
               <li
-                class="sc-AxhUy iEtntx"
+                class="sc-AxirZ cbgdPI"
               >
                 Interaction Design (Clarity, Ergonomy, Ease/Joy of Use)
               </li>
               <li
-                class="sc-AxhUy iEtntx"
+                class="sc-AxirZ cbgdPI"
               >
                 Brand Experience
               </li>
               <li
-                class="sc-AxhUy iEtntx"
+                class="sc-AxirZ cbgdPI"
               >
                 Accessibility (WAI)
               </li>
               <li
-                class="sc-AxhUy iEtntx"
+                class="sc-AxirZ cbgdPI"
               >
                 Loading, Responsive-Strategien, Performance
               </li>
@@ -171,14 +171,14 @@ Object {
     >
       <div
         aria-orientation="horizontal"
-        class="sc-AxjAm htUUEF"
+        class="sc-AxiKw cwqAMm"
         data-reach-tab-list=""
         role="tablist"
       >
         <button
           aria-controls="tabs--20--panel--0"
           aria-selected="true"
-          class="sc-AxirZ kKrPFN"
+          class="sc-AxhCb cFjGRL"
           data-orientation="horizontal"
           data-reach-tab=""
           data-selected=""
@@ -192,7 +192,7 @@ Object {
         <button
           aria-controls="tabs--20--panel--1"
           aria-selected="false"
-          class="sc-AxirZ kKrPFN"
+          class="sc-AxhCb cFjGRL"
           data-orientation="horizontal"
           data-reach-tab=""
           id="tabs--20--tab--1"
@@ -205,7 +205,7 @@ Object {
         <button
           aria-controls="tabs--20--panel--2"
           aria-selected="false"
-          class="sc-AxirZ kKrPFN"
+          class="sc-AxhCb cFjGRL"
           data-orientation="horizontal"
           data-reach-tab=""
           id="tabs--20--tab--2"
@@ -218,7 +218,7 @@ Object {
         <button
           aria-controls="tabs--20--panel--3"
           aria-selected="false"
-          class="sc-AxirZ kKrPFN"
+          class="sc-AxhCb cFjGRL"
           data-orientation="horizontal"
           data-reach-tab=""
           id="tabs--20--tab--3"
@@ -230,7 +230,7 @@ Object {
         </button>
       </div>
       <div
-        class="sc-AxiKw bMnqbF"
+        class="sc-AxhUy kOIRNg"
         data-reach-tab-panels=""
       >
         <div
@@ -244,40 +244,40 @@ Object {
             Mit rund 20 Jahren Erfahrung in der Konzeption und Umsetzung digitaler Interfaces kennen und können wir das gesamte Spektrum der User Experience (UX). Der kleine, sichtbare Teil davon ist das User Interface (UI), der große unsichtbare (UX) jedoch viel relevanter für die Erreichung ihrer wirtschaftlichen Ziele. Denn nur mit benutzerfreundlichen, leicht verständlichen Journeys über alle Endgeräte, Nutzergruppen und Nutzungskontexte hinweg, erreichen die User und somit Sie ihr Ziel.
           </p>
           <ul
-            class="sc-AxhCb kMBKLF"
+            class="sc-AxjAm butCNa"
           >
             <li
-              class="sc-AxhUy iEtntx"
+              class="sc-AxirZ cbgdPI"
             >
               Informationsarchitektur (und Navigation)
             </li>
             <li
-              class="sc-AxhUy iEtntx"
+              class="sc-AxirZ cbgdPI"
             >
               Information/Content Design (Readability, Scanability, Consistency, Density, Sizes)
             </li>
             <li
-              class="sc-AxhUy iEtntx"
+              class="sc-AxirZ cbgdPI"
             >
               User Interface Design (Atomic Design, Pattern Libraries)
             </li>
             <li
-              class="sc-AxhUy iEtntx"
+              class="sc-AxirZ cbgdPI"
             >
               Interaction Design (Clarity, Ergonomy, Ease/Joy of Use)
             </li>
             <li
-              class="sc-AxhUy iEtntx"
+              class="sc-AxirZ cbgdPI"
             >
               Brand Experience
             </li>
             <li
-              class="sc-AxhUy iEtntx"
+              class="sc-AxirZ cbgdPI"
             >
               Accessibility (WAI)
             </li>
             <li
-              class="sc-AxhUy iEtntx"
+              class="sc-AxirZ cbgdPI"
             >
               Loading, Responsive-Strategien, Performance
             </li>
