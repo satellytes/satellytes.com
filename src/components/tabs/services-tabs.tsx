@@ -17,7 +17,7 @@ const StyledLi = styled.li`
 const StyledTabList = styled(TabList)`
   background: none;
   padding-bottom: 18px;
-  overflow-x: scroll;
+  overflow-x: auto;
   transform: translateX(-14px);
   white-space: nowrap;
   width: 100vw;
