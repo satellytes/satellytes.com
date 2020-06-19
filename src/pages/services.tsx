@@ -96,7 +96,17 @@ const ServicesPage: React.FC = () => {
             but boy are we good at networking and collaborating. We can get the
             right people for you into the team.
           </OthersCaptionText>
-          <div>TODO: ImageGrid</div>
+        </GridItem>
+      </Grid>
+      <Grid>
+        <GridItem xs={6} md={3}>
+          <Image />
+        </GridItem>
+        <GridItem xs={6} md={3}>
+          <Image />
+        </GridItem>
+        <GridItem xs={6} md={3}>
+          <Image />
         </GridItem>
       </Grid>
     </Layout>
