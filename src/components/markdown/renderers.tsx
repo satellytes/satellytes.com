@@ -71,3 +71,29 @@ export const InlineCodeRenderer: React.FC<ReactMarkdownCodeRendererProps> = (
 ) => {
   return <InlineCode>{props.value}</InlineCode>;
 };
+
+/*
+ * Image
+ *
+ */
+const StyledImage = styled.img`
+  width: 100%;
+`;
+
+interface ReactMarkdownImageProps {
+  src: string;
+  alt: string;
+}
+
+export const CloudinaryImageRenderer: React.FC<ReactMarkdownImageProps> = (
+  props,
+) => {
+  // todo:
+  // - useEffect to check the what image width is needed
+
+  const srcParts = props.src.split('/');
+  const imageId = srcParts[srcParts.length - 1];
+  const transformations = 'w_814';
+  const src = `https://res.cloudinary.com/satellytes/image/upload/${transformations}/satellytes-website/${imageId}`;
+  return <StyledImage src={src} alt={props.alt} />;
+};
