@@ -18,12 +18,13 @@ const StyledTabList = styled(TabList)`
   background: none;
   padding-bottom: 18px;
   overflow-x: auto;
-  transform: translateX(-14px);
+  margin-left: -16px;
   white-space: nowrap;
-  width: 100vw;
+  width: calc(100% + 32px);
 
   ${up('md')} {
     height: 100%;
+    width: 100%;
   }
 `;
 
