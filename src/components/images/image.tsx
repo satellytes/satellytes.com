@@ -1,21 +1,50 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
-const Image: React.FC = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(relativePath: { eq: "lewandowski.png" }) {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
+interface ImageProps {
+  imageName: string;
+  alt: string;
+}
+
+const Image: React.FC<ImageProps> = ({ alt, imageName }) => (
+  <StaticQuery
+    query={graphql`
+      query {
+        images: allFile {
+          edges {
+            node {
+              relativePath
+              name
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }
-    }
-  `);
+    `}
+    render={(data) => {
+      const image = data.images.edges.find((element) => {
+        return element.node.relativePath.includes(imageName);
+      });
+      if (!image) {
+        return null;
+      }
 
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />;
-};
+      return (
+        <Img
+          alt={alt}
+          sizes={{
+            ...image.node.childImageSharp.fluid,
+            aspectRatio: 1 / 1,
+          }}
+        />
+      );
+    }}
+  />
+);
 
 export default Image;

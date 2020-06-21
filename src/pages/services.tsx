@@ -99,14 +99,17 @@ const ServicesPage: React.FC = () => {
         </GridItem>
       </Grid>
       <Grid>
-        <GridItem xs={6} md={3}>
-          <Image />
+        <GridItem xs={6} sm={3} md={2}>
+          <Image alt="Lewandowski" imageName="lewandowski.png" />
         </GridItem>
-        <GridItem xs={6} md={3}>
-          <Image />
+        <GridItem xs={6} sm={3} md={2}>
+          <Image alt="Lewandowski" imageName="lewandowski.png" />
         </GridItem>
-        <GridItem xs={6} md={3}>
-          <Image />
+        <GridItem xs={6} sm={3} md={2}>
+          <Image alt="Lewandowski" imageName="lewandowski.png" />
+        </GridItem>
+        <GridItem xs={6} sm={3} md={2}>
+          <Image alt="Lewandowski" imageName="lewandowski.png" />
         </GridItem>
       </Grid>
     </Layout>
