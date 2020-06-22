@@ -6,7 +6,7 @@ export const theme: DefaultTheme = {
       main: '#668CFF',
     },
     text: {
-      default: '#000000',
+      default: '#202840',
       defaultLight: '#FFFFFF',
       header: '#668CFF',
       headerLight: '#FFFFFF',
@@ -19,6 +19,7 @@ export const theme: DefaultTheme = {
     background: {
       body: '#202840',
       bodyLight: '#FFFFFF',
+      card: '#F5F6F7',
       footer: '#4D79FF',
     },
   },
