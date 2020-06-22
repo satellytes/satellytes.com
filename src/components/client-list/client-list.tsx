@@ -75,6 +75,7 @@ const StyledTitle = styled(Link)`
     margin-bottom: 0;
   }
 `;
+
 const StyledTimestamp = styled.div`
   color: ${theme.palette.text.darkDefault};
   font-size: 16px;

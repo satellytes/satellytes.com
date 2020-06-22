@@ -29,6 +29,7 @@ declare module 'styled-components' {
       background: {
         bodyLight: string;
         body: string;
+        card: string;
         footer: string;
       };
     };
