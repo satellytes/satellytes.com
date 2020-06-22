@@ -9,6 +9,7 @@ import {
   TextTitle,
 } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
+import ImageCard from '../components/image-card/image-card';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
 
@@ -19,6 +20,10 @@ const AboutSubTitle = styled(SubTitle)`
   ${up('md')} {
     margin-top: 160px;
   }
+`;
+
+const ImageCardGrid = styled(Grid)`
+  grid-column-gap: 24px;
 `;
 
 const AboutPage: React.FC = () => {
@@ -77,9 +82,76 @@ const AboutPage: React.FC = () => {
         </GridItem>
         <GridItem xs={12} md={8}>
           <AboutSubTitle>Team</AboutSubTitle>
-          <div>TODO: TeamCards</div>
         </GridItem>
       </Grid>
+      <ImageCardGrid>
+        <GridItem xs={6} sm={3}>
+          <ImageCard
+            alt="Lewandowski"
+            imageName="lewandowski.png"
+            title="Gholam Abdol"
+            subtitle="CEO, Partner"
+          />
+        </GridItem>
+        <GridItem xs={6} sm={3}>
+          <ImageCard
+            alt="Lewandowski"
+            imageName="lewandowski.png"
+            title="Eric Singhartinger"
+            subtitle="CEO, CXO, Partner"
+          />
+        </GridItem>
+        <GridItem xs={6} sm={3}>
+          <ImageCard
+            alt="Lewandowski"
+            imageName="lewandowski.png"
+            title="Georgios Kaleadis"
+            subtitle="Frontend, Partner"
+          />
+        </GridItem>
+        <GridItem xs={6} sm={3}>
+          <ImageCard
+            alt="Lewandowski"
+            imageName="lewandowski.png"
+            title="Verena May"
+            subtitle="UX/UI"
+          />
+        </GridItem>
+      </ImageCardGrid>
+      <ImageCardGrid>
+        <GridItem xs={6} sm={3}>
+          <ImageCard
+            alt="Lewandowski"
+            imageName="lewandowski.png"
+            title="Felix Hamann"
+            subtitle="Frontend"
+          />
+        </GridItem>
+        <GridItem xs={6} sm={3}>
+          <ImageCard
+            alt="Lewandowski"
+            imageName="lewandowski.png"
+            title="Arthur Erdös"
+            subtitle="Backend"
+          />
+        </GridItem>
+        <GridItem xs={6} sm={3}>
+          <ImageCard
+            alt="Lewandowski"
+            imageName="lewandowski.png"
+            title="Mark Altmann"
+            subtitle="Backend"
+          />
+        </GridItem>
+        <GridItem xs={6} sm={3}>
+          <ImageCard
+            alt="Lewandowski"
+            imageName="lewandowski.png"
+            title="Mauro Pereira"
+            subtitle="Frontend"
+          />
+        </GridItem>
+      </ImageCardGrid>
     </Layout>
   );
 };

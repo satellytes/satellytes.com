@@ -56,6 +56,10 @@ const StyledGridItem = styled(GridItem)`
   min-height: 0;
 `;
 
+const ImageGrid = styled(Grid)`
+  grid-column-gap: 24px;
+`;
+
 const ServicesPage: React.FC = () => {
   return (
     <Layout>
@@ -98,7 +102,7 @@ const ServicesPage: React.FC = () => {
           </OthersCaptionText>
         </GridItem>
       </Grid>
-      <Grid>
+      <ImageGrid>
         <GridItem xs={6} sm={3} md={2}>
           <Image alt="Lewandowski" imageName="lewandowski.png" />
         </GridItem>
@@ -111,7 +115,21 @@ const ServicesPage: React.FC = () => {
         <GridItem xs={6} sm={3} md={2}>
           <Image alt="Lewandowski" imageName="lewandowski.png" />
         </GridItem>
-      </Grid>
+      </ImageGrid>
+      <ImageGrid>
+        <GridItem xs={6} sm={3} md={2}>
+          <Image alt="Lewandowski" imageName="lewandowski.png" />
+        </GridItem>
+        <GridItem xs={6} sm={3} md={2}>
+          <Image alt="Lewandowski" imageName="lewandowski.png" />
+        </GridItem>
+        <GridItem xs={6} sm={3} md={2}>
+          <Image alt="Lewandowski" imageName="lewandowski.png" />
+        </GridItem>
+        <GridItem xs={6} sm={3} md={2}>
+          <Image alt="Lewandowski" imageName="lewandowski.png" />
+        </GridItem>
+      </ImageGrid>
     </Layout>
   );
 };
