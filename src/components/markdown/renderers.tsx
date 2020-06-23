@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SectionTitle, SubTitle, Text } from '../typography/typography';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { prism } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import styled from 'styled-components';
+import { useDebounce, useWindowSize } from 'react-use';
+
+const BLOG_PAGE_MAX_WIDTH_PX = 814;
 
 /**
  * Text
@@ -80,6 +83,17 @@ const StyledImage = styled.img`
   width: 100%;
 `;
 
+const transformCloudinaryUrl = (src: string, width: number): string => {
+  if (width <= 0) {
+    return '';
+  }
+
+  const srcParts = src.split('/');
+  const imageId = srcParts[srcParts.length - 1];
+  const transformations = `w_${width}`;
+  return `https://res.cloudinary.com/satellytes/image/upload/${transformations}/satellytes-website/${imageId}`;
+};
+
 interface ReactMarkdownImageProps {
   src: string;
   alt: string;
@@ -88,12 +102,26 @@ interface ReactMarkdownImageProps {
 export const CloudinaryImageRenderer: React.FC<ReactMarkdownImageProps> = (
   props,
 ) => {
-  // todo:
-  // - useEffect to check the what image width is needed
+  const [imageWidth, setImageWidth] = useState(0);
+  const { width: currentWindowSize } = useWindowSize();
 
-  const srcParts = props.src.split('/');
-  const imageId = srcParts[srcParts.length - 1];
-  const transformations = 'w_814';
-  const src = `https://res.cloudinary.com/satellytes/image/upload/${transformations}/satellytes-website/${imageId}`;
+  useDebounce(
+    () => {
+      const newImageWidth =
+        currentWindowSize >= BLOG_PAGE_MAX_WIDTH_PX
+          ? BLOG_PAGE_MAX_WIDTH_PX
+          : currentWindowSize;
+
+      // we only change the width if the picture gets better/larger
+      if (newImageWidth > imageWidth) {
+        setImageWidth(newImageWidth);
+      }
+    },
+    250,
+    [currentWindowSize],
+  );
+
+  const src = transformCloudinaryUrl(props.src, imageWidth);
+
   return <StyledImage src={src} alt={props.alt} />;
 };
