@@ -1,6 +1,7 @@
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
-import React from 'react';
 import {
   PageTitle,
   SubTitle,
@@ -27,6 +28,8 @@ const ImageCardGrid = styled(Grid)`
 `;
 
 const AboutPage: React.FC = () => {
+  const data = useStaticQuery(query);
+
   return (
     <Layout>
       <SEO title="About" />
@@ -88,7 +91,7 @@ const AboutPage: React.FC = () => {
         <GridItem xs={6} sm={3}>
           <ImageCard
             alt="Lewandowski"
-            imageName="lewandowski.png"
+            image={data.imagePlaceholder}
             title="Gholam Abdol"
             subtitle="CEO, Partner"
           />
@@ -96,7 +99,7 @@ const AboutPage: React.FC = () => {
         <GridItem xs={6} sm={3}>
           <ImageCard
             alt="Lewandowski"
-            imageName="lewandowski.png"
+            image={data.imagePlaceholder}
             title="Eric Singhartinger"
             subtitle="CEO, CXO, Partner"
           />
@@ -104,7 +107,7 @@ const AboutPage: React.FC = () => {
         <GridItem xs={6} sm={3}>
           <ImageCard
             alt="Lewandowski"
-            imageName="lewandowski.png"
+            image={data.imagePlaceholder}
             title="Georgios Kaleadis"
             subtitle="Frontend, Partner"
           />
@@ -112,7 +115,7 @@ const AboutPage: React.FC = () => {
         <GridItem xs={6} sm={3}>
           <ImageCard
             alt="Lewandowski"
-            imageName="lewandowski.png"
+            image={data.imagePlaceholder}
             title="Verena May"
             subtitle="UX/UI"
           />
@@ -122,7 +125,7 @@ const AboutPage: React.FC = () => {
         <GridItem xs={6} sm={3}>
           <ImageCard
             alt="Lewandowski"
-            imageName="lewandowski.png"
+            image={data.imagePlaceholder}
             title="Felix Hamann"
             subtitle="Frontend"
           />
@@ -130,7 +133,7 @@ const AboutPage: React.FC = () => {
         <GridItem xs={6} sm={3}>
           <ImageCard
             alt="Lewandowski"
-            imageName="lewandowski.png"
+            image={data.imagePlaceholder}
             title="Arthur Erdös"
             subtitle="Backend"
           />
@@ -138,7 +141,7 @@ const AboutPage: React.FC = () => {
         <GridItem xs={6} sm={3}>
           <ImageCard
             alt="Lewandowski"
-            imageName="lewandowski.png"
+            image={data.imagePlaceholder}
             title="Mark Altmann"
             subtitle="Backend"
           />
@@ -146,7 +149,7 @@ const AboutPage: React.FC = () => {
         <GridItem xs={6} sm={3}>
           <ImageCard
             alt="Lewandowski"
-            imageName="lewandowski.png"
+            image={data.imagePlaceholder}
             title="Mauro Pereira"
             subtitle="Frontend"
           />
@@ -157,3 +160,15 @@ const AboutPage: React.FC = () => {
 };
 
 export default AboutPage;
+
+const query = graphql`
+  query {
+    imagePlaceholder: file(relativePath: { regex: "/lewandowski/" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;

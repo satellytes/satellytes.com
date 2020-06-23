@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 import {
@@ -12,6 +13,7 @@ import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
 import ServicesTabs from '../components/tabs/services-tabs';
 import Image from '../components/image/image';
+import ImageCard from '../components/image-card/image-card';
 import { ExternalLink } from '../components/links/external-link';
 
 export const servicesTabsData = [
@@ -63,6 +65,8 @@ const ImageGrid = styled(Grid)`
 `;
 
 const ServicesPage: React.FC = () => {
+  const data = useStaticQuery(query);
+
   return (
     <Layout>
       <SEO title="Services" />
@@ -107,44 +111,44 @@ const ServicesPage: React.FC = () => {
       <ImageGrid>
         <GridItem xs={6} sm={3} md={2}>
           <ExternalLink target="_blank" href="https://www.satellytes.com">
-            <Image alt="Lewandowski" imageName="lewandowski.png" />
+            <ImageCard image={data.imagePlaceholder} alt="Lewandowski" />
           </ExternalLink>
         </GridItem>
         <GridItem xs={6} sm={3} md={2}>
           <ExternalLink target="_blank" href="https://www.satellytes.com">
-            <Image alt="Lewandowski" imageName="lewandowski.png" />
+            <ImageCard image={data.imagePlaceholder} alt="Lewandowski" />
           </ExternalLink>
         </GridItem>
         <GridItem xs={6} sm={3} md={2}>
           <ExternalLink target="_blank" href="https://www.satellytes.com">
-            <Image alt="Lewandowski" imageName="lewandowski.png" />
+            <ImageCard image={data.imagePlaceholder} alt="Lewandowski" />
           </ExternalLink>
         </GridItem>
         <GridItem xs={6} sm={3} md={2}>
           <ExternalLink target="_blank" href="https://www.satellytes.com">
-            <Image alt="Lewandowski" imageName="lewandowski.png" />
+            <ImageCard image={data.imagePlaceholder} alt="Lewandowski" />
           </ExternalLink>
         </GridItem>
       </ImageGrid>
       <ImageGrid>
         <GridItem xs={6} sm={3} md={2}>
           <ExternalLink target="_blank" href="https://www.satellytes.com">
-            <Image alt="Lewandowski" imageName="lewandowski.png" />
+            <ImageCard image={data.imagePlaceholder} alt="Lewandowski" />
           </ExternalLink>
         </GridItem>
         <GridItem xs={6} sm={3} md={2}>
           <ExternalLink target="_blank" href="https://www.satellytes.com">
-            <Image alt="Lewandowski" imageName="lewandowski.png" />
+            <ImageCard image={data.imagePlaceholder} alt="Lewandowski" />
           </ExternalLink>
         </GridItem>
         <GridItem xs={6} sm={3} md={2}>
           <ExternalLink target="_blank" href="https://www.satellytes.com">
-            <Image alt="Lewandowski" imageName="lewandowski.png" />
+            <ImageCard image={data.imagePlaceholder} alt="Lewandowski" />
           </ExternalLink>
         </GridItem>
         <GridItem xs={6} sm={3} md={2}>
           <ExternalLink target="_blank" href="https://www.satellytes.com">
-            <Image alt="Lewandowski" imageName="lewandowski.png" />
+            <ImageCard image={data.imagePlaceholder} alt="Lewandowski" />
           </ExternalLink>
         </GridItem>
       </ImageGrid>
@@ -153,3 +157,15 @@ const ServicesPage: React.FC = () => {
 };
 
 export default ServicesPage;
+
+const query = graphql`
+  query {
+    imagePlaceholder: file(relativePath: { regex: "/lewandowski/" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;

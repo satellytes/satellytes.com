@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 import {
@@ -22,6 +23,8 @@ const ImageCardGrid = styled(Grid)`
 `;
 
 const ClientsPage: React.FC = () => {
+  const data = useStaticQuery(query);
+
   return (
     <Layout>
       <SEO title="Clients" />
@@ -44,9 +47,8 @@ const ClientsPage: React.FC = () => {
           <InternalLink to="/">
             <ImageCard
               alt="Lewandowski"
-              imageName="lewandowski.png"
-              title="Client One"
-              largeTitle
+              image={data.imagePlaceholder}
+              largeTitle="Client One"
             />
           </InternalLink>
         </GridItem>
@@ -54,9 +56,8 @@ const ClientsPage: React.FC = () => {
           <InternalLink to="/">
             <ImageCard
               alt="Lewandowski"
-              imageName="lewandowski.png"
-              title="Client Two"
-              largeTitle
+              image={data.imagePlaceholder}
+              largeTitle="Client Two"
             />
           </InternalLink>
         </GridItem>
@@ -66,9 +67,8 @@ const ClientsPage: React.FC = () => {
           <InternalLink to="/">
             <ImageCard
               alt="Lewandowski"
-              imageName="lewandowski.png"
-              title="Client Three"
-              largeTitle
+              image={data.imagePlaceholder}
+              largeTitle="Client Three"
             />
           </InternalLink>
         </GridItem>
@@ -76,9 +76,8 @@ const ClientsPage: React.FC = () => {
           <InternalLink to="/">
             <ImageCard
               alt="Lewandowski"
-              imageName="lewandowski.png"
-              title="Client Four"
-              largeTitle
+              image={data.imagePlaceholder}
+              largeTitle="Client Four"
             />
           </InternalLink>
         </GridItem>
@@ -86,9 +85,8 @@ const ClientsPage: React.FC = () => {
           <InternalLink to="/">
             <ImageCard
               alt="Lewandowski"
-              imageName="lewandowski.png"
-              title="Client Five"
-              largeTitle
+              image={data.imagePlaceholder}
+              largeTitle="Client Five"
             />
           </InternalLink>
         </GridItem>
@@ -98,3 +96,15 @@ const ClientsPage: React.FC = () => {
 };
 
 export default ClientsPage;
+
+const query = graphql`
+  query {
+    imagePlaceholder: file(relativePath: { regex: "/lewandowski/" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;

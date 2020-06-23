@@ -94,7 +94,7 @@ export const ImageCardTitleLarge = styled.p`
   padding-bottom: 16px;
 `;
 
-export const ImageCardTitleSmall = styled.p`
+export const ImageCardTitle = styled.p`
   font-size: 14px;
   line-height: 150%;
   font-weight: bold;
@@ -106,7 +106,7 @@ export const ImageCardTitleSmall = styled.p`
   }
 `;
 
-export const ImageCardSubtitleSmall = styled.p`
+export const ImageCardSubtitle = styled.p`
   font-size: 14px;
   line-height: 150%;
   margin: 0;
