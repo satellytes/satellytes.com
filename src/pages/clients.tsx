@@ -10,6 +10,7 @@ import { Grid, GridItem } from '../components/grid/grid';
 import ImageCard from '../components/image-card/image-card';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
+import { InternalLink } from '../components/links/internal-link';
 
 const ImageCardGrid = styled(Grid)`
   grid-column-gap: 24px;
@@ -40,46 +41,56 @@ const ClientsPage: React.FC = () => {
       </Grid>
       <ImageCardGrid>
         <GridItem xs={12} sm={4}>
-          <ImageCard
-            alt="Lewandowski"
-            imageName="lewandowski.png"
-            title="Client One"
-            largeTitle
-          />
+          <InternalLink to="/">
+            <ImageCard
+              alt="Lewandowski"
+              imageName="lewandowski.png"
+              title="Client One"
+              largeTitle
+            />
+          </InternalLink>
         </GridItem>
         <GridItem xs={12} sm={4}>
-          <ImageCard
-            alt="Lewandowski"
-            imageName="lewandowski.png"
-            title="Client Two"
-            largeTitle
-          />
+          <InternalLink to="/">
+            <ImageCard
+              alt="Lewandowski"
+              imageName="lewandowski.png"
+              title="Client Two"
+              largeTitle
+            />
+          </InternalLink>
         </GridItem>
         <GridItem xs={12} sm={4}></GridItem>
         <GridItem xs={12} sm={4}></GridItem>
         <GridItem xs={12} sm={4}>
-          <ImageCard
-            alt="Lewandowski"
-            imageName="lewandowski.png"
-            title="Client Three"
-            largeTitle
-          />
+          <InternalLink to="/">
+            <ImageCard
+              alt="Lewandowski"
+              imageName="lewandowski.png"
+              title="Client Three"
+              largeTitle
+            />
+          </InternalLink>
         </GridItem>
         <GridItem xs={12} sm={4}>
-          <ImageCard
-            alt="Lewandowski"
-            imageName="lewandowski.png"
-            title="Client Four"
-            largeTitle
-          />
+          <InternalLink to="/">
+            <ImageCard
+              alt="Lewandowski"
+              imageName="lewandowski.png"
+              title="Client Four"
+              largeTitle
+            />
+          </InternalLink>
         </GridItem>
         <GridItem xs={12} sm={4}>
-          <ImageCard
-            alt="Lewandowski"
-            imageName="lewandowski.png"
-            title="Client Five"
-            largeTitle
-          />
+          <InternalLink to="/">
+            <ImageCard
+              alt="Lewandowski"
+              imageName="lewandowski.png"
+              title="Client Five"
+              largeTitle
+            />
+          </InternalLink>
         </GridItem>
       </ImageCardGrid>
     </Layout>

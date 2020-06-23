@@ -11,6 +11,8 @@ import { Grid, GridItem } from '../components/grid/grid';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
 import ServicesTabs from '../components/tabs/services-tabs';
+import Image from '../components/image/image';
+import { ExternalLink } from '../components/links/external-link';
 
 export const servicesTabsData = [
   {
@@ -104,30 +106,46 @@ const ServicesPage: React.FC = () => {
       </Grid>
       <ImageGrid>
         <GridItem xs={6} sm={3} md={2}>
-          <Image alt="Lewandowski" imageName="lewandowski.png" />
+          <ExternalLink target="_blank" href="https://www.satellytes.com">
+            <Image alt="Lewandowski" imageName="lewandowski.png" />
+          </ExternalLink>
         </GridItem>
         <GridItem xs={6} sm={3} md={2}>
-          <Image alt="Lewandowski" imageName="lewandowski.png" />
+          <ExternalLink target="_blank" href="https://www.satellytes.com">
+            <Image alt="Lewandowski" imageName="lewandowski.png" />
+          </ExternalLink>
         </GridItem>
         <GridItem xs={6} sm={3} md={2}>
-          <Image alt="Lewandowski" imageName="lewandowski.png" />
+          <ExternalLink target="_blank" href="https://www.satellytes.com">
+            <Image alt="Lewandowski" imageName="lewandowski.png" />
+          </ExternalLink>
         </GridItem>
         <GridItem xs={6} sm={3} md={2}>
-          <Image alt="Lewandowski" imageName="lewandowski.png" />
+          <ExternalLink target="_blank" href="https://www.satellytes.com">
+            <Image alt="Lewandowski" imageName="lewandowski.png" />
+          </ExternalLink>
         </GridItem>
       </ImageGrid>
       <ImageGrid>
         <GridItem xs={6} sm={3} md={2}>
-          <Image alt="Lewandowski" imageName="lewandowski.png" />
+          <ExternalLink target="_blank" href="https://www.satellytes.com">
+            <Image alt="Lewandowski" imageName="lewandowski.png" />
+          </ExternalLink>
         </GridItem>
         <GridItem xs={6} sm={3} md={2}>
-          <Image alt="Lewandowski" imageName="lewandowski.png" />
+          <ExternalLink target="_blank" href="https://www.satellytes.com">
+            <Image alt="Lewandowski" imageName="lewandowski.png" />
+          </ExternalLink>
         </GridItem>
         <GridItem xs={6} sm={3} md={2}>
-          <Image alt="Lewandowski" imageName="lewandowski.png" />
+          <ExternalLink target="_blank" href="https://www.satellytes.com">
+            <Image alt="Lewandowski" imageName="lewandowski.png" />
+          </ExternalLink>
         </GridItem>
         <GridItem xs={6} sm={3} md={2}>
-          <Image alt="Lewandowski" imageName="lewandowski.png" />
+          <ExternalLink target="_blank" href="https://www.satellytes.com">
+            <Image alt="Lewandowski" imageName="lewandowski.png" />
+          </ExternalLink>
         </GridItem>
       </ImageGrid>
     </Layout>
