@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 import {
@@ -12,6 +11,25 @@ import { Grid, GridItem } from '../components/grid/grid';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
 import ServicesTabs from '../components/tabs/services-tabs';
+
+export const servicesTabsData = [
+  {
+    title: 'UX/UI',
+    content:
+      'Mit rund 20 Jahren Erfahrung in der Konzeption und Umsetzung digitaler Interfaces kennen und können wir das gesamte Spektrum der User Experience (UX). Der kleine, sichtbare Teil davon ist das User Interface (UI), der große unsichtbare (UX) jedoch viel relevanter für die Erreichung ihrer wirtschaftlichen Ziele. Denn nur mit benutzerfreundlichen, leicht verständlichen Journeys über alle Endgeräte, Nutzergruppen und Nutzungskontexte hinweg, erreichen die User und somit Sie ihr Ziel.  \n\n * Informationsarchitektur (und Navigation)\n\n * Information/Content Design (Readability, Scanability, Consistency, Density, Sizes)\n\n * User Interface Design (Atomic Design, Pattern Libraries)\n\n * Interaction Design (Clarity, Ergonomy, Ease/Joy of Use)\n\n * Brand Experience\n\n * Accessibility (WAI)\n\n * Loading, Responsive-Strategien, Performance',
+  },
+  {
+    title: 'Full Stack',
+    content:
+      'Angular, React, Vue, Node, Polymer, WebComponent, Redux, Atomic Design... - die Liste der Buzzwords nimmt kein Ende. Ständig tauchen neue Bibliotheken auf, die es sich zum Ziel gesetzt haben das Internet (zumindest teilweise) zu revolutionieren und somit sowohl Betrachtern als auch Entwicklern das Leben zu erleichtern. Viele dieser neuen Technologien verbinden ähnliche grundlegende Konzepte wie Modularität und Wiederverwendbarkeit, womit sich die zur Verfügung gestellten Instrumente der unterschiedlichen Technologien einander durchaus ähneln. Umso wichtiger ist es für uns den Überblick zu behalten und die Spreu vom Weizen zu trennen, um für Ihr Projekt genau diejenige Architektur wählen zu können, die eben jene Instrumente bietet die für Ihr Projekt benötigt werden. Dafür haben wir keine Scheu uns mit dem Modernsten des Modernen auseinanderzusetzen, ohne dabei die Produktionsreife eines Frameworks aus den Augen zu lassen.',
+  },
+  {
+    title: 'Service Development',
+    content:
+      'Oft versuchen Unternehmen ihre analogen Services eins zu eins zu digitalisieren. Oder sie orientieren sich am Wettbewerb und wollen alles was die anderen auch haben – nur um auf Nummer sicher zu gehen. Vielleicht ist das aber gar nicht das was ihre Nutzer wollen? Wir gehen gerne mit Ihnen den Weg ab dem ersten Schritt und erarbeiten Services, die zu Ihren KPIs und Kunden passen.',
+  },
+  { title: 'More', content: 'And more...' },
+];
 
 const ServicesSectionTitle = styled(SubTitle)`
   margin-top: 80px;
@@ -64,7 +82,7 @@ const ServicesPage: React.FC = () => {
           </ServicesSectionTitle>
         </GridItem>
         <StyledGridItem xs={12} md={8}>
-          <ServicesTabs />
+          <ServicesTabs tabs={servicesTabsData} />
         </StyledGridItem>
         <GridItem xs={12} md={8}>
           <ServicesSectionTitle>
