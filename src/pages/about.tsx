@@ -10,7 +10,7 @@ import {
   TextTitle,
 } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
-import ImageCard from '../components/image-card/image-card';
+import TeamMemberImageGrid from '../components/image-grids/team-member-image-grid';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
 
@@ -21,10 +21,6 @@ const AboutSubTitle = styled(SubTitle)`
   ${up('md')} {
     margin-top: 160px;
   }
-`;
-
-const ImageCardGrid = styled(Grid)`
-  grid-column-gap: 24px;
 `;
 
 const AboutPage: React.FC = () => {
@@ -87,77 +83,28 @@ const AboutPage: React.FC = () => {
           <AboutSubTitle>Team</AboutSubTitle>
         </GridItem>
       </Grid>
-      <ImageCardGrid>
-        <GridItem xs={6} sm={4} md={3}>
-          <ImageCard
-            alt="Lewandowski"
-            image={data.imagePlaceholder}
-            title="Gholam Abdol"
-            subtitle="CEO, Partner"
-          />
-        </GridItem>
-        <GridItem xs={6} sm={4} md={3}>
-          <ImageCard
-            alt="Lewandowski"
-            image={data.imagePlaceholder}
-            title="Eric Singhartinger"
-            subtitle="CEO, CXO, Partner"
-          />
-        </GridItem>
-        <GridItem xs={6} sm={4} md={3}>
-          <ImageCard
-            alt="Lewandowski"
-            image={data.imagePlaceholder}
-            title="Georgios Kaleadis"
-            subtitle="Frontend, Partner"
-          />
-        </GridItem>
-        <GridItem xs={6} sm={4} md={3}>
-          <ImageCard
-            alt="Lewandowski"
-            image={data.imagePlaceholder}
-            title="Verena May"
-            subtitle="UX/UI"
-          />
-        </GridItem>
-        <GridItem xs={6} sm={4} md={3}>
-          <ImageCard
-            alt="Lewandowski"
-            image={data.imagePlaceholder}
-            title="Felix Hamann"
-            subtitle="Frontend"
-          />
-        </GridItem>
-        <GridItem xs={6} sm={4} md={3}>
-          <ImageCard
-            alt="Lewandowski"
-            image={data.imagePlaceholder}
-            title="Arthur Erdös"
-            subtitle="Backend"
-          />
-        </GridItem>
-        <GridItem xs={6} sm={4} md={3}>
-          <ImageCard
-            alt="Lewandowski"
-            image={data.imagePlaceholder}
-            title="Mark Altmann"
-            subtitle="Backend"
-          />
-        </GridItem>
-        <GridItem xs={6} sm={4} md={3}>
-          <ImageCard
-            alt="Lewandowski"
-            image={data.imagePlaceholder}
-            title="Mauro Pereira"
-            subtitle="Frontend"
-          />
-        </GridItem>
-      </ImageCardGrid>
+      <TeamMemberImageGrid
+        teamMembers={teamMemberData}
+        imagePlaceholder={data.imagePlaceholder}
+      />
     </Layout>
   );
 };
 
 export default AboutPage;
+
+// TODO: where should we put this data?
+const teamMemberData = [
+  { name: 'Gholam Abdol', role: 'CEO, Partner' },
+  { name: 'Eric Singhartinger', role: 'CEO, CXO, Partner' },
+  { name: 'Georgios Kaleadis', role: 'Frontend, Partner' },
+  { name: 'Verena May', role: 'UX/UI' },
+  { name: 'Felix Hamann', role: 'Frontend' },
+  { name: 'Arthur Erdös', role: 'Backend' },
+  { name: 'Mark Altmann', role: 'Backend' },
+  { name: 'Mauro Pereira', role: 'Frontend' },
+  { name: 'Leif Lampater', role: 'Frontend' },
+];
 
 const query = graphql`
   query {

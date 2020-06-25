@@ -8,19 +8,9 @@ import {
   LargeText,
 } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
-import ImageCard from '../components/image-card/image-card';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
-import { InternalLink } from '../components/links/links';
-
-const ImageCardGrid = styled(Grid)`
-  grid-column-gap: 24px;
-  margin-top: 40px;
-
-  ${up('md')} {
-    margin-top: 80px;
-  }
-`;
+import ClientImageGrid from '../components/image-grids/client-image-grid';
 
 const ClientsPage: React.FC = () => {
   const data = useStaticQuery(query);
@@ -42,60 +32,23 @@ const ClientsPage: React.FC = () => {
           <CaptionText>Not just a set of banners or a microsite.</CaptionText>
         </GridItem>
       </Grid>
-      <ImageCardGrid>
-        <GridItem xs={12} sm={4}>
-          <InternalLink to="/">
-            <ImageCard
-              alt="Lewandowski"
-              image={data.imagePlaceholder}
-              largeTitle="Client One"
-            />
-          </InternalLink>
-        </GridItem>
-        <GridItem xs={12} sm={4}>
-          <InternalLink to="/">
-            <ImageCard
-              alt="Lewandowski"
-              image={data.imagePlaceholder}
-              largeTitle="Client Two"
-            />
-          </InternalLink>
-        </GridItem>
-        <GridItem xs={0}></GridItem>
-        <GridItem xs={0}></GridItem>
-        <GridItem xs={12} sm={4}>
-          <InternalLink to="/">
-            <ImageCard
-              alt="Lewandowski"
-              image={data.imagePlaceholder}
-              largeTitle="Client Three"
-            />
-          </InternalLink>
-        </GridItem>
-        <GridItem xs={12} sm={4}>
-          <InternalLink to="/">
-            <ImageCard
-              alt="Lewandowski"
-              image={data.imagePlaceholder}
-              largeTitle="Client Four"
-            />
-          </InternalLink>
-        </GridItem>
-        <GridItem xs={12} sm={4}>
-          <InternalLink to="/">
-            <ImageCard
-              alt="Lewandowski"
-              image={data.imagePlaceholder}
-              largeTitle="Client Five"
-            />
-          </InternalLink>
-        </GridItem>
-      </ImageCardGrid>
+      <ClientImageGrid
+        clients={clientData}
+        imagePlaceholder={data.imagePlaceholder}
+      />
     </Layout>
   );
 };
 
 export default ClientsPage;
+
+const clientData = [
+  { name: 'Client One', link: '/' },
+  { name: 'Client Two', link: '/' },
+  { name: 'Client Three', link: '/' },
+  { name: 'Client Four', link: '/' },
+  { name: 'Client Five', link: '/' },
+];
 
 const query = graphql`
   query {
