@@ -76,6 +76,8 @@ const ServicesPage: React.FC = () => {
     }
   `);
 
+  const placeholderImage = data.imagePlaceholder.childImageSharp.fluid;
+
   return (
     <Layout>
       <SEO title="Services" />
@@ -120,44 +122,44 @@ const ServicesPage: React.FC = () => {
       <ImageGrid>
         <GridItem xs={6} sm={3} md={2}>
           <ExternalLink target="_blank" href="https://www.satellytes.com">
-            <ImageCard image={data.imagePlaceholder} alt="astronaut" />
+            <ImageCard image={placeholderImage} alt="astronaut" />
           </ExternalLink>
         </GridItem>
         <GridItem xs={6} sm={3} md={2}>
           <ExternalLink target="_blank" href="https://www.satellytes.com">
-            <ImageCard image={data.imagePlaceholder} alt="astronaut" />
+            <ImageCard image={placeholderImage} alt="astronaut" />
           </ExternalLink>
         </GridItem>
         <GridItem xs={6} sm={3} md={2}>
           <ExternalLink target="_blank" href="https://www.satellytes.com">
-            <ImageCard image={data.imagePlaceholder} alt="astronaut" />
+            <ImageCard image={placeholderImage} alt="astronaut" />
           </ExternalLink>
         </GridItem>
         <GridItem xs={6} sm={3} md={2}>
           <ExternalLink target="_blank" href="https://www.satellytes.com">
-            <ImageCard image={data.imagePlaceholder} alt="astronaut" />
+            <ImageCard image={placeholderImage} alt="astronaut" />
           </ExternalLink>
         </GridItem>
       </ImageGrid>
       <ImageGrid>
         <GridItem xs={6} sm={3} md={2}>
           <ExternalLink target="_blank" href="https://www.satellytes.com">
-            <ImageCard image={data.imagePlaceholder} alt="astronaut" />
+            <ImageCard image={placeholderImage} alt="astronaut" />
           </ExternalLink>
         </GridItem>
         <GridItem xs={6} sm={3} md={2}>
           <ExternalLink target="_blank" href="https://www.satellytes.com">
-            <ImageCard image={data.imagePlaceholder} alt="astronaut" />
+            <ImageCard image={placeholderImage} alt="astronaut" />
           </ExternalLink>
         </GridItem>
         <GridItem xs={6} sm={3} md={2}>
           <ExternalLink target="_blank" href="https://www.satellytes.com">
-            <ImageCard image={data.imagePlaceholder} alt="astronaut" />
+            <ImageCard image={placeholderImage} alt="astronaut" />
           </ExternalLink>
         </GridItem>
         <GridItem xs={6} sm={3} md={2}>
           <ExternalLink target="_blank" href="https://www.satellytes.com">
-            <ImageCard image={data.imagePlaceholder} alt="astronaut" />
+            <ImageCard image={placeholderImage} alt="astronaut" />
           </ExternalLink>
         </GridItem>
       </ImageGrid>

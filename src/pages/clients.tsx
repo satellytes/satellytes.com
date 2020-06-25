@@ -32,7 +32,7 @@ const ClientsPage: React.FC = () => {
       </Grid>
       <ClientImageGrid
         clients={clientData}
-        imagePlaceholder={data.imagePlaceholder}
+        imagePlaceholder={data.imagePlaceholder.childImageSharp.fluid}
       />
     </Layout>
   );

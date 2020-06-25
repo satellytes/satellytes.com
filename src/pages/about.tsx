@@ -85,7 +85,7 @@ const AboutPage: React.FC = () => {
       </Grid>
       <TeamMemberImageGrid
         teamMembers={teamMemberData}
-        imagePlaceholder={data.imagePlaceholder}
+        imagePlaceholder={data.imagePlaceholder.childImageSharp.fluid}
       />
     </Layout>
   );
@@ -97,13 +97,19 @@ export default AboutPage;
 const teamMemberData = [
   { name: 'Gholam Abdol', role: 'CEO, Partner' },
   { name: 'Eric Singhartinger', role: 'CEO, CXO, Partner' },
-  { name: 'Georgios Kaleadis', role: 'Frontend, Partner' },
-  { name: 'Verena May', role: 'UX/UI' },
-  { name: 'Felix Hamann', role: 'Frontend' },
-  { name: 'Arthur Erdös', role: 'Backend' },
+  { name: 'Georgios Kaleadis', role: 'CTO, Partner' },
   { name: 'Mark Altmann', role: 'Backend' },
-  { name: 'Mauro Pereira', role: 'Frontend' },
+  { name: 'Kateryna Bugaieva', role: 'Frontend' },
+  { name: 'Fabian Dietenberger', role: 'Fullstack' },
+  { name: 'Arthur Erdös', role: 'Backend' },
+  { name: 'Klara Fleischmann', role: 'Frontend' },
+  { name: 'Felix Hamann', role: 'Frontend' },
+  { name: 'Pavel Katkov', role: 'Frontend' },
   { name: 'Leif Lampater', role: 'Frontend' },
+  { name: 'Verena May', role: 'UX/UI' },
+  { name: 'Erin McGrath', role: 'Frontend' },
+  { name: 'Christian Ott', role: 'Backend' },
+  { name: 'Mauro Pereira', role: 'Frontend' },
 ];
 
 const query = graphql`

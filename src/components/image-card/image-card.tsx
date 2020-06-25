@@ -1,5 +1,5 @@
 import React from 'react';
-import Img from 'gatsby-image';
+import GatsbyImage, { FluidObject } from 'gatsby-image';
 import styled from 'styled-components';
 import {
   ImageCardTitleLarge,
@@ -9,17 +9,7 @@ import {
 import { up } from '../breakpoint/breakpoint';
 
 interface ImageCardProps {
-  image: {
-    childImageSharp: {
-      fluid: {
-        aspectRatio: number;
-        base64: string;
-        sizes: string;
-        src: string;
-        srcSet: string;
-      };
-    };
-  };
+  image: FluidObject;
   alt: string;
   title?: string;
   subtitle?: string;
@@ -30,7 +20,7 @@ const ImageCardWrapper = styled.div`
   margin-bottom: 24px;
 `;
 
-const StyledImg = styled(Img)`
+const StyledImg = styled(GatsbyImage)`
   border-radius: 4px;
 `;
 
@@ -60,13 +50,7 @@ const ImageCard: React.FC<ImageCardProps> = ({
 }) => {
   return (
     <ImageCardWrapper>
-      <StyledImg
-        alt={alt}
-        sizes={{
-          ...image.childImageSharp.fluid,
-          aspectRatio: 1 / 1,
-        }}
-      />
+      <StyledImg alt={alt} fluid={{ ...image, aspectRatio: 1 }} />
       {/* if card has a largeTitle flag, display large title. else, use regular title */}
       {largeTitle && title && (
         <StyledImageCardTitleLarge>{title}</StyledImageCardTitleLarge>

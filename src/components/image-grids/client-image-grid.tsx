@@ -4,20 +4,11 @@ import ImageCard from '../image-card/image-card';
 import styled from 'styled-components';
 import { InternalLink } from '../links/links';
 import { up } from '../breakpoint/breakpoint';
+import { FluidObject } from 'gatsby-image';
 
 interface ClientImageGridProps {
   clients: { name: string; link: string }[];
-  imagePlaceholder: {
-    childImageSharp: {
-      fluid: {
-        aspectRatio: number;
-        base64: string;
-        sizes: string;
-        src: string;
-        srcSet: string;
-      };
-    };
-  };
+  imagePlaceholder: FluidObject;
 }
 
 const ImageCardGrid = styled(Grid)`

@@ -1,21 +1,12 @@
 import React from 'react';
 import { Grid, GridItem } from '../grid/grid';
+import { FluidObject } from 'gatsby-image';
 import ImageCard from '../image-card/image-card';
 import styled from 'styled-components';
 
 interface TeamMemberImageGridProps {
   teamMembers: { name: string; role: string }[];
-  imagePlaceholder: {
-    childImageSharp: {
-      fluid: {
-        aspectRatio: number;
-        base64: string;
-        sizes: string;
-        src: string;
-        srcSet: string;
-      };
-    };
-  };
+  imagePlaceholder: FluidObject;
 }
 
 const ImageCardGrid = styled(Grid)`
