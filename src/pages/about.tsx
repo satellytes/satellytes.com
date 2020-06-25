@@ -95,11 +95,39 @@ export default AboutPage;
 
 // TODO: where should we put this data?
 const teamMemberData = [
-  { name: 'Gholam Abdol', role: 'CEO, Partner' },
-  { name: 'Eric Singhartinger', role: 'CEO, CXO, Partner' },
-  { name: 'Georgios Kaleadis', role: 'CTO, Partner' },
+  {
+    name: 'Gholam Abdol',
+    role: 'CEO, Partner',
+    links: [
+      { title: 'LinkedIn', url: 'https://de.linkedin.com/' },
+      { title: 'XING', url: 'https://www.xing.com' },
+    ],
+  },
+  {
+    name: 'Eric Singhartinger',
+    role: 'CEO, CXO, Partner',
+    links: [{ title: 'LinkedIn', url: 'https://de.linkedin.com/' }],
+  },
+  {
+    name: 'Georgios Kaleadis',
+    role: 'CTO, Partner',
+    links: [
+      { title: 'LinkedIn', url: 'https://de.linkedin.com/' },
+      { title: 'XING', url: 'https://www.xing.com' },
+      { title: 'GitHub', url: 'https://www.github.com' },
+    ],
+  },
   { name: 'Mark Altmann', role: 'Backend' },
-  { name: 'Kateryna Bugaieva', role: 'Frontend' },
+  {
+    name: 'Kateryna Bugaieva',
+    role: 'Frontend',
+    links: [
+      { title: 'LinkedIn', url: 'https://de.linkedin.com/' },
+      { title: 'XING', url: 'https://www.xing.com' },
+      { title: 'GitHub', url: 'https://www.github.com' },
+      { title: 'Twitter', url: 'https://www.twitter.com' },
+    ],
+  },
   { name: 'Fabian Dietenberger', role: 'Fullstack' },
   { name: 'Arthur Erdös', role: 'Backend' },
   { name: 'Klara Fleischmann', role: 'Frontend' },

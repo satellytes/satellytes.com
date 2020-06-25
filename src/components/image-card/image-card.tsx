@@ -5,6 +5,7 @@ import {
   ImageCardTitleLarge,
   ImageCardTitle,
   ImageCardSubtitle,
+  ImageCardLink,
 } from '../typography/typography';
 import { up } from '../breakpoint/breakpoint';
 
@@ -14,6 +15,11 @@ interface ImageCardProps {
   title?: string;
   subtitle?: string;
   largeTitle?: boolean;
+  links?: { title: string; url: string }[];
+}
+
+interface ImageCardLinksProps {
+  links: { title: string; url: string }[];
 }
 
 const ImageCardWrapper = styled.div`
@@ -41,12 +47,30 @@ const StyledImageCardSubtitle = styled(ImageCardSubtitle)`
   margin: 0;
 `;
 
+const LinkTitle = styled.div`
+  display: inline-block;
+  margin-right: 14px;
+`;
+
+const ImageCardLinks: React.FC<ImageCardLinksProps> = ({ links }) => {
+  return (
+    <>
+      {links.map((link) => (
+        <ImageCardLink to={link.url} key={link.title}>
+          <LinkTitle>{link.title} &gt;</LinkTitle>
+        </ImageCardLink>
+      ))}
+    </>
+  );
+};
+
 const ImageCard: React.FC<ImageCardProps> = ({
   alt,
   image,
   title,
   largeTitle,
   subtitle,
+  links,
 }) => {
   return (
     <ImageCardWrapper>
@@ -61,6 +85,7 @@ const ImageCard: React.FC<ImageCardProps> = ({
       {subtitle && (
         <StyledImageCardSubtitle>{subtitle}</StyledImageCardSubtitle>
       )}
+      {links && <ImageCardLinks links={links} />}
     </ImageCardWrapper>
   );
 };

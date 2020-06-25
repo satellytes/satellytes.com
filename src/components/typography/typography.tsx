@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
+import { Link } from 'gatsby';
+import { theme } from '../layout/theme';
 
 /**
  *
@@ -101,4 +103,16 @@ export const ImageCardTitle = styled.p`
 export const ImageCardSubtitle = styled.p`
   font-size: 14px;
   line-height: 150%;
+`;
+
+export const ImageCardLink = styled(Link)`
+  color: ${theme.palette.text.darkLinkColor.default};
+  font-size: 14px;
+  line-height: 150%;
+  font-weight: bold;
+  text-decoration: none;
+
+  &:hover {
+    color: ${theme.palette.text.darkLinkColor.hover};
+  }
 `;
