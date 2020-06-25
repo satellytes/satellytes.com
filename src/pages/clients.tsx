@@ -61,8 +61,8 @@ const ClientsPage: React.FC = () => {
             />
           </InternalLink>
         </GridItem>
-        <GridItem xs={12} sm={4}></GridItem>
-        <GridItem xs={12} sm={4}></GridItem>
+        <GridItem xs={0}></GridItem>
+        <GridItem xs={0}></GridItem>
         <GridItem xs={12} sm={4}>
           <InternalLink to="/">
             <ImageCard

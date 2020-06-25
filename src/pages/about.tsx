@@ -88,7 +88,7 @@ const AboutPage: React.FC = () => {
         </GridItem>
       </Grid>
       <ImageCardGrid>
-        <GridItem xs={6} sm={3}>
+        <GridItem xs={6} sm={4} md={3}>
           <ImageCard
             alt="Lewandowski"
             image={data.imagePlaceholder}
@@ -96,7 +96,7 @@ const AboutPage: React.FC = () => {
             subtitle="CEO, Partner"
           />
         </GridItem>
-        <GridItem xs={6} sm={3}>
+        <GridItem xs={6} sm={4} md={3}>
           <ImageCard
             alt="Lewandowski"
             image={data.imagePlaceholder}
@@ -104,7 +104,7 @@ const AboutPage: React.FC = () => {
             subtitle="CEO, CXO, Partner"
           />
         </GridItem>
-        <GridItem xs={6} sm={3}>
+        <GridItem xs={6} sm={4} md={3}>
           <ImageCard
             alt="Lewandowski"
             image={data.imagePlaceholder}
@@ -112,7 +112,7 @@ const AboutPage: React.FC = () => {
             subtitle="Frontend, Partner"
           />
         </GridItem>
-        <GridItem xs={6} sm={3}>
+        <GridItem xs={6} sm={4} md={3}>
           <ImageCard
             alt="Lewandowski"
             image={data.imagePlaceholder}
@@ -120,9 +120,7 @@ const AboutPage: React.FC = () => {
             subtitle="UX/UI"
           />
         </GridItem>
-      </ImageCardGrid>
-      <ImageCardGrid>
-        <GridItem xs={6} sm={3}>
+        <GridItem xs={6} sm={4} md={3}>
           <ImageCard
             alt="Lewandowski"
             image={data.imagePlaceholder}
@@ -130,7 +128,7 @@ const AboutPage: React.FC = () => {
             subtitle="Frontend"
           />
         </GridItem>
-        <GridItem xs={6} sm={3}>
+        <GridItem xs={6} sm={4} md={3}>
           <ImageCard
             alt="Lewandowski"
             image={data.imagePlaceholder}
@@ -138,7 +136,7 @@ const AboutPage: React.FC = () => {
             subtitle="Backend"
           />
         </GridItem>
-        <GridItem xs={6} sm={3}>
+        <GridItem xs={6} sm={4} md={3}>
           <ImageCard
             alt="Lewandowski"
             image={data.imagePlaceholder}
@@ -146,7 +144,7 @@ const AboutPage: React.FC = () => {
             subtitle="Backend"
           />
         </GridItem>
-        <GridItem xs={6} sm={3}>
+        <GridItem xs={6} sm={4} md={3}>
           <ImageCard
             alt="Lewandowski"
             image={data.imagePlaceholder}
