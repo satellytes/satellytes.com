@@ -108,7 +108,7 @@ const teamMemberData = [
 
 const query = graphql`
   query {
-    imagePlaceholder: file(relativePath: { regex: "/lewandowski/" }) {
+    imagePlaceholder: file(relativePath: { regex: "/astronaut/" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid

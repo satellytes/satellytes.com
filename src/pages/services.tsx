@@ -110,44 +110,44 @@ const ServicesPage: React.FC = () => {
       <ImageGrid>
         <GridItem xs={6} sm={3} md={2}>
           <ExternalLink target="_blank" href="https://www.satellytes.com">
-            <ImageCard image={data.imagePlaceholder} alt="Lewandowski" />
+            <ImageCard image={data.imagePlaceholder} alt="astronaut" />
           </ExternalLink>
         </GridItem>
         <GridItem xs={6} sm={3} md={2}>
           <ExternalLink target="_blank" href="https://www.satellytes.com">
-            <ImageCard image={data.imagePlaceholder} alt="Lewandowski" />
+            <ImageCard image={data.imagePlaceholder} alt="astronaut" />
           </ExternalLink>
         </GridItem>
         <GridItem xs={6} sm={3} md={2}>
           <ExternalLink target="_blank" href="https://www.satellytes.com">
-            <ImageCard image={data.imagePlaceholder} alt="Lewandowski" />
+            <ImageCard image={data.imagePlaceholder} alt="astronaut" />
           </ExternalLink>
         </GridItem>
         <GridItem xs={6} sm={3} md={2}>
           <ExternalLink target="_blank" href="https://www.satellytes.com">
-            <ImageCard image={data.imagePlaceholder} alt="Lewandowski" />
+            <ImageCard image={data.imagePlaceholder} alt="astronaut" />
           </ExternalLink>
         </GridItem>
       </ImageGrid>
       <ImageGrid>
         <GridItem xs={6} sm={3} md={2}>
           <ExternalLink target="_blank" href="https://www.satellytes.com">
-            <ImageCard image={data.imagePlaceholder} alt="Lewandowski" />
+            <ImageCard image={data.imagePlaceholder} alt="astronaut" />
           </ExternalLink>
         </GridItem>
         <GridItem xs={6} sm={3} md={2}>
           <ExternalLink target="_blank" href="https://www.satellytes.com">
-            <ImageCard image={data.imagePlaceholder} alt="Lewandowski" />
+            <ImageCard image={data.imagePlaceholder} alt="astronaut" />
           </ExternalLink>
         </GridItem>
         <GridItem xs={6} sm={3} md={2}>
           <ExternalLink target="_blank" href="https://www.satellytes.com">
-            <ImageCard image={data.imagePlaceholder} alt="Lewandowski" />
+            <ImageCard image={data.imagePlaceholder} alt="astronaut" />
           </ExternalLink>
         </GridItem>
         <GridItem xs={6} sm={3} md={2}>
           <ExternalLink target="_blank" href="https://www.satellytes.com">
-            <ImageCard image={data.imagePlaceholder} alt="Lewandowski" />
+            <ImageCard image={data.imagePlaceholder} alt="astronaut" />
           </ExternalLink>
         </GridItem>
       </ImageGrid>
@@ -159,7 +159,7 @@ export default ServicesPage;
 
 const query = graphql`
   query {
-    imagePlaceholder: file(relativePath: { regex: "/lewandowski/" }) {
+    imagePlaceholder: file(relativePath: { regex: "/astronaut/" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid
