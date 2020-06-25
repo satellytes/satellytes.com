@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 import {
@@ -11,6 +12,8 @@ import { Grid, GridItem } from '../components/grid/grid';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
 import ServicesTabs from '../components/tabs/services-tabs';
+import ImageCard from '../components/image-card/image-card';
+import { ExternalLink } from '../components/links/links';
 
 export const servicesTabsData = [
   {
@@ -56,7 +59,25 @@ const StyledGridItem = styled(GridItem)`
   min-height: 0;
 `;
 
+const ImageGrid = styled(Grid)`
+  grid-column-gap: 24px;
+`;
+
 const ServicesPage: React.FC = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      imagePlaceholder: file(relativePath: { regex: "/astronaut/" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
+
+  const placeholderImage = data.imagePlaceholder.childImageSharp.fluid;
+
   return (
     <Layout>
       <SEO title="Services" />
@@ -96,9 +117,52 @@ const ServicesPage: React.FC = () => {
             but boy are we good at networking and collaborating. We can get the
             right people for you into the team.
           </OthersCaptionText>
-          <div>TODO: ImageGrid</div>
         </GridItem>
       </Grid>
+      <ImageGrid>
+        <GridItem xs={6} sm={3} md={2}>
+          <ExternalLink target="_blank" href="https://www.satellytes.com">
+            <ImageCard image={placeholderImage} alt="astronaut" />
+          </ExternalLink>
+        </GridItem>
+        <GridItem xs={6} sm={3} md={2}>
+          <ExternalLink target="_blank" href="https://www.satellytes.com">
+            <ImageCard image={placeholderImage} alt="astronaut" />
+          </ExternalLink>
+        </GridItem>
+        <GridItem xs={6} sm={3} md={2}>
+          <ExternalLink target="_blank" href="https://www.satellytes.com">
+            <ImageCard image={placeholderImage} alt="astronaut" />
+          </ExternalLink>
+        </GridItem>
+        <GridItem xs={6} sm={3} md={2}>
+          <ExternalLink target="_blank" href="https://www.satellytes.com">
+            <ImageCard image={placeholderImage} alt="astronaut" />
+          </ExternalLink>
+        </GridItem>
+      </ImageGrid>
+      <ImageGrid>
+        <GridItem xs={6} sm={3} md={2}>
+          <ExternalLink target="_blank" href="https://www.satellytes.com">
+            <ImageCard image={placeholderImage} alt="astronaut" />
+          </ExternalLink>
+        </GridItem>
+        <GridItem xs={6} sm={3} md={2}>
+          <ExternalLink target="_blank" href="https://www.satellytes.com">
+            <ImageCard image={placeholderImage} alt="astronaut" />
+          </ExternalLink>
+        </GridItem>
+        <GridItem xs={6} sm={3} md={2}>
+          <ExternalLink target="_blank" href="https://www.satellytes.com">
+            <ImageCard image={placeholderImage} alt="astronaut" />
+          </ExternalLink>
+        </GridItem>
+        <GridItem xs={6} sm={3} md={2}>
+          <ExternalLink target="_blank" href="https://www.satellytes.com">
+            <ImageCard image={placeholderImage} alt="astronaut" />
+          </ExternalLink>
+        </GridItem>
+      </ImageGrid>
     </Layout>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 import {
@@ -8,18 +8,11 @@ import {
   LargeText,
 } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
-import styled from 'styled-components';
-import { up } from '../components/breakpoint/breakpoint';
-
-const CardGridContainer = styled.div`
-  margin-top: 40px;
-
-  ${up('md')} {
-    margin-top: 80px;
-  }
-`;
+import ClientImageGrid from '../components/image-grids/client-image-grid';
 
 const ClientsPage: React.FC = () => {
+  const data = useStaticQuery(query);
+
   return (
     <Layout>
       <SEO title="Clients" />
@@ -35,11 +28,34 @@ const ClientsPage: React.FC = () => {
             (major parts of) their web applications.
           </LargeText>
           <CaptionText>Not just a set of banners or a microsite.</CaptionText>
-          <CardGridContainer>TODO: CardGrid</CardGridContainer>
         </GridItem>
       </Grid>
+      <ClientImageGrid
+        clients={clientData}
+        imagePlaceholder={data.imagePlaceholder.childImageSharp.fluid}
+      />
     </Layout>
   );
 };
 
 export default ClientsPage;
+
+const clientData = [
+  { name: 'Client One', link: '/' },
+  { name: 'Client Two', link: '/' },
+  { name: 'Client Three', link: '/' },
+  { name: 'Client Four', link: '/' },
+  { name: 'Client Five', link: '/' },
+];
+
+const query = graphql`
+  query {
+    imagePlaceholder: file(relativePath: { regex: "/astronaut/" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;

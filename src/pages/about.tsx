@@ -1,6 +1,7 @@
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
-import React from 'react';
 import {
   PageTitle,
   SubTitle,
@@ -9,6 +10,7 @@ import {
   TextTitle,
 } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
+import TeamMemberImageGrid from '../components/image-grids/team-member-image-grid';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
 
@@ -22,6 +24,8 @@ const AboutSubTitle = styled(SubTitle)`
 `;
 
 const AboutPage: React.FC = () => {
+  const data = useStaticQuery(query);
+
   return (
     <Layout>
       <SEO title="About" />
@@ -77,11 +81,45 @@ const AboutPage: React.FC = () => {
         </GridItem>
         <GridItem xs={12} md={8}>
           <AboutSubTitle>Team</AboutSubTitle>
-          <div>TODO: TeamCards</div>
         </GridItem>
       </Grid>
+      <TeamMemberImageGrid
+        teamMembers={teamMemberData}
+        imagePlaceholder={data.imagePlaceholder.childImageSharp.fluid}
+      />
     </Layout>
   );
 };
 
 export default AboutPage;
+
+// TODO: where should we put this data?
+const teamMemberData = [
+  { name: 'Gholam Abdol', role: 'CEO, Partner' },
+  { name: 'Eric Singhartinger', role: 'CEO, CXO, Partner' },
+  { name: 'Georgios Kaleadis', role: 'CTO, Partner' },
+  { name: 'Mark Altmann', role: 'Backend' },
+  { name: 'Kateryna Bugaieva', role: 'Frontend' },
+  { name: 'Fabian Dietenberger', role: 'Fullstack' },
+  { name: 'Arthur Erdös', role: 'Backend' },
+  { name: 'Klara Fleischmann', role: 'Frontend' },
+  { name: 'Felix Hamann', role: 'Frontend' },
+  { name: 'Pavel Katkov', role: 'Frontend' },
+  { name: 'Leif Lampater', role: 'Frontend' },
+  { name: 'Verena May', role: 'UX/UI' },
+  { name: 'Erin McGrath', role: 'Frontend' },
+  { name: 'Christian Ott', role: 'Backend' },
+  { name: 'Mauro Pereira', role: 'Frontend' },
+];
+
+const query = graphql`
+  query {
+    imagePlaceholder: file(relativePath: { regex: "/astronaut/" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;

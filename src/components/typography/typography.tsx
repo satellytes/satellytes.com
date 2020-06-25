@@ -80,3 +80,25 @@ export const CaptionText = styled.p`
 
   color: rgba(32, 40, 64, 0.5);
 `;
+
+/**
+ *
+ * Image Card Titles & Subtitles
+ *
+ */
+export const ImageCardTitleLarge = styled.p`
+  font-size: 20px;
+  line-height: 110%;
+  font-weight: bold;
+`;
+
+export const ImageCardTitle = styled.p`
+  font-size: 14px;
+  line-height: 150%;
+  font-weight: bold;
+`;
+
+export const ImageCardSubtitle = styled.p`
+  font-size: 14px;
+  line-height: 150%;
+`;
