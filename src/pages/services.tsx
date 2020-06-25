@@ -64,7 +64,17 @@ const ImageGrid = styled(Grid)`
 `;
 
 const ServicesPage: React.FC = () => {
-  const data = useStaticQuery(query);
+  const data = useStaticQuery(graphql`
+    query {
+      imagePlaceholder: file(relativePath: { regex: "/astronaut/" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
 
   return (
     <Layout>
@@ -156,15 +166,3 @@ const ServicesPage: React.FC = () => {
 };
 
 export default ServicesPage;
-
-const query = graphql`
-  query {
-    imagePlaceholder: file(relativePath: { regex: "/astronaut/" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`;
