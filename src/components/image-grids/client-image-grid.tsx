@@ -29,14 +29,7 @@ const ImageCardGrid = styled(Grid)`
   }
 `;
 
-// empty grid items don't display on mobile
-const EmptyGridItem = styled(GridItem)`
-  display: none;
-
-  ${up('sm')} {
-    display: block;
-  }
-`;
+const EmptyGridItem = styled(GridItem)``;
 
 const ClientImageGrid: React.FC<ClientImageGridProps> = ({
   clients,
@@ -58,8 +51,8 @@ const ClientImageGrid: React.FC<ClientImageGridProps> = ({
                   />
                 </InternalLink>
               </GridItem>
-              <EmptyGridItem xs={12} sm={4} />
-              <EmptyGridItem xs={12} sm={4} />
+              <EmptyGridItem xs={0} sm={4} />
+              <EmptyGridItem xs={0} sm={4} />
             </React.Fragment>
           );
         else
