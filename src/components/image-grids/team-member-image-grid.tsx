@@ -5,7 +5,11 @@ import ImageCard from '../image-card/image-card';
 import styled from 'styled-components';
 
 interface TeamMemberImageGridProps {
-  teamMembers: { name: string; role: string }[];
+  teamMembers: {
+    name: string;
+    role: string;
+    links?: { title: string; url: string }[];
+  }[];
   imagePlaceholder: FluidObject;
 }
 
@@ -26,6 +30,7 @@ const TeamMemberImageGrid: React.FC<TeamMemberImageGridProps> = ({
             image={imagePlaceholder}
             title={teamMember.name}
             subtitle={teamMember.role}
+            links={teamMember.links}
           />
         </GridItem>
       ))}
