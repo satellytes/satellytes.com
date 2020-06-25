@@ -5,3 +5,8 @@ export const InternalLink = styled(Link)`
   text-decoration: none;
   color: inherit;
 `;
+
+export const ExternalLink = styled.a`
+  text-decoration: none;
+  color: inherit;
+`;

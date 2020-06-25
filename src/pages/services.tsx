@@ -13,7 +13,7 @@ import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
 import ServicesTabs from '../components/tabs/services-tabs';
 import ImageCard from '../components/image-card/image-card';
-import { ExternalLink } from '../components/links/external-link';
+import { ExternalLink } from '../components/links/links';
 
 export const servicesTabsData = [
   {

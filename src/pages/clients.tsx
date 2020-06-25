@@ -11,7 +11,7 @@ import { Grid, GridItem } from '../components/grid/grid';
 import ImageCard from '../components/image-card/image-card';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
-import { InternalLink } from '../components/links/internal-link';
+import { InternalLink } from '../components/links/links';
 
 const ImageCardGrid = styled(Grid)`
   grid-column-gap: 24px;
