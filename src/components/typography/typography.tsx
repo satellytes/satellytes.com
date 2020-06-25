@@ -90,24 +90,15 @@ export const ImageCardTitleLarge = styled.p`
   font-size: 20px;
   line-height: 110%;
   font-weight: bold;
-  margin-top: 16px;
-  padding-bottom: 16px;
 `;
 
 export const ImageCardTitle = styled.p`
   font-size: 14px;
   line-height: 150%;
   font-weight: bold;
-  margin-top: 8px;
-  margin-bottom: 0;
-
-  ${up('md')} {
-    margin-top: 16px;
-  }
 `;
 
 export const ImageCardSubtitle = styled.p`
   font-size: 14px;
   line-height: 150%;
-  margin: 0;
 `;

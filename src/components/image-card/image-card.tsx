@@ -6,6 +6,7 @@ import {
   ImageCardTitle,
   ImageCardSubtitle,
 } from '../typography/typography';
+import { up } from '../breakpoint/breakpoint';
 
 interface ImageCardProps {
   image: {
@@ -21,8 +22,8 @@ interface ImageCardProps {
   };
   alt: string;
   title?: string;
-  largeTitle?: string;
   subtitle?: string;
+  largeTitle?: boolean;
 }
 
 const ImageCardWrapper = styled.div`
@@ -31,6 +32,23 @@ const ImageCardWrapper = styled.div`
 
 const StyledImg = styled(Img)`
   border-radius: 4px;
+`;
+
+const StyledImageCardTitleLarge = styled(ImageCardTitleLarge)`
+  margin: 16px 0 40px 0;
+`;
+
+const StyledImageCardTitle = styled(ImageCardTitle)`
+  margin-top: 8px;
+  margin-bottom: 0;
+
+  ${up('md')} {
+    margin-top: 16px;
+  }
+`;
+
+const StyledImageCardSubtitle = styled(ImageCardSubtitle)`
+  margin: 0;
 `;
 
 const ImageCard: React.FC<ImageCardProps> = ({
@@ -49,9 +67,16 @@ const ImageCard: React.FC<ImageCardProps> = ({
           aspectRatio: 1 / 1,
         }}
       />
-      {largeTitle && <ImageCardTitleLarge>{largeTitle}</ImageCardTitleLarge>}
-      {title && <ImageCardTitle>{title}</ImageCardTitle>}
-      {subtitle && <ImageCardSubtitle>{subtitle}</ImageCardSubtitle>}
+      {/* if card has a largeTitle flag, display large title. else, use regular title */}
+      {largeTitle && title && (
+        <StyledImageCardTitleLarge>{title}</StyledImageCardTitleLarge>
+      )}
+      {!largeTitle && title && (
+        <StyledImageCardTitle>{title}</StyledImageCardTitle>
+      )}
+      {subtitle && (
+        <StyledImageCardSubtitle>{subtitle}</StyledImageCardSubtitle>
+      )}
     </ImageCardWrapper>
   );
 };

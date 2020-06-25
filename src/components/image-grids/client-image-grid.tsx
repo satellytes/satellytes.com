@@ -47,7 +47,8 @@ const ClientImageGrid: React.FC<ClientImageGridProps> = ({
                   <ImageCard
                     alt={client.name}
                     image={imagePlaceholder}
-                    largeTitle={client.name}
+                    title={client.name}
+                    largeTitle
                   />
                 </InternalLink>
               </GridItem>
@@ -62,7 +63,8 @@ const ClientImageGrid: React.FC<ClientImageGridProps> = ({
                 <ImageCard
                   alt={client.name}
                   image={imagePlaceholder}
-                  largeTitle={client.name}
+                  title={client.name}
+                  largeTitle
                 />
               </InternalLink>
             </GridItem>
