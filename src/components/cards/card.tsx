@@ -1,11 +1,12 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
+
 import { theme } from '../layout/theme';
 import { up } from '../breakpoint/breakpoint';
 import { GridItem } from '../grid/grid';
 
-export interface CardProps {
+export interface CardProps extends React.AllHTMLAttributes<HTMLElement> {
   title: string;
   text: string;
   link?: string;
@@ -23,7 +24,6 @@ export const CardWrapper = styled(GridItem)`
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-bottom: 16px;
   padding: 24px;
   border-radius: 4px;
 
@@ -44,7 +44,7 @@ export const CardText = styled.p`
   ${textStyles}
 
   flex-grow: 1;
-  margin: 0 0 24px;
+  margin: 0 0 82px;
   font-size: 14px;
   line-height: 150%;
 `;
@@ -63,9 +63,9 @@ const CardLink = styled(Link)`
   }
 `;
 
-export const Card: React.FC<CardProps> = ({ title, text, link }) => {
+export const Card: React.FC<CardProps> = ({ title, text, link, className }) => {
   return (
-    <CardWrapper sm={6} md={4}>
+    <CardWrapper sm={6} md={4} className={className}>
       <CardTitle>{title}</CardTitle>
       <CardText>{text}</CardText>
       {link && <CardLink to={link}>Apply &gt;</CardLink>}
