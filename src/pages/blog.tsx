@@ -45,7 +45,7 @@ const BlogPage: React.FC = () => {
   return (
     <Layout>
       <SEO title="Blog" />
-      <Grid>
+      <Grid center>
         <GridItem>
           <PageTitle>Blog</PageTitle>
         </GridItem>
