@@ -3,7 +3,12 @@ import React from 'react';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 import { Grid, GridItem } from '../components/grid/grid';
-import { PageTitle, SectionTitle } from '../components/typography/typography';
+import {
+  PageTitle,
+  SectionTitle,
+  TitleSvg,
+  StyledTitle,
+} from '../components/typography/typography';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
 import { BlockTeaser } from '../components/teasers/block-teaser';
@@ -12,16 +17,25 @@ import { ClientList } from '../components/client-list/client-list';
 import { clients } from '../components/client-list/fixtures';
 
 const HomePageTitle = styled(PageTitle)`
-  color: #ffffff;
-
-  font-size: 32px;
-
   margin-top: 108px;
   margin-bottom: 280px;
+
+  color: #ffffff;
 
   ${up('md')} {
     margin-top: 192px;
     margin-bottom: 360px;
+  }
+
+  ${TitleSvg} {
+    left: 2px;
+  }
+
+  ${StyledTitle} {
+    font-size: 32px;
+    ${up('md')} {
+      font-size: 72px;
+    }
   }
 `;
 

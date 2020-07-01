@@ -1,26 +1,59 @@
+import React from 'react';
 import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
 import { Link } from 'gatsby';
 import { theme } from '../layout/theme';
+import { Swoosh } from '../swoosh';
 
 /**
  *
  * Title
  *
  */
-export const PageTitle = styled.h1`
-  color: #668cff;
-  font-size: 48px;
-  line-height: 110%;
 
+const TitleContainer = styled.div`
+  position: relative;
   margin-top: 96px;
   margin-bottom: 40px;
 
+  color: #668cff;
+
   ${up('md')} {
-    font-size: 72px;
     margin-top: 192px;
   }
 `;
+
+export const TitleSvg = styled(Swoosh)`
+  position: absolute;
+  left: 3px;
+  bottom: calc(100% + 10px);
+  height: 10px;
+
+  ${up('md')} {
+    bottom: calc(100% + 15px);
+    height: 15px;
+  }
+`;
+
+export const StyledTitle = styled.h1`
+  font-size: 48px;
+  line-height: 110%;
+
+  ${up('md')} {
+    font-size: 72px;
+  }
+`;
+
+export const PageTitle: React.FC = (
+  props: React.AllHTMLAttributes<HTMLElement>,
+) => {
+  return (
+    <TitleContainer className={props.className}>
+      <TitleSvg />
+      <StyledTitle>{props.children}</StyledTitle>
+    </TitleContainer>
+  );
+};
 
 export const SectionTitle = styled.h2`
   font-size: 48px;
