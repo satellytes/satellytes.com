@@ -48,20 +48,12 @@ const BlogPageTitle = styled(PageTitle)`
   }
 `;
 
-const getDateString = (date: string): string => {
-  const now = new Date();
-  const yesterday = new Date(new Date().setDate(now.getDate() - 1));
+// input date format "yyyy-mm-dd" from markdown frontmatter
+const formattedDate = (date: string): string => {
   const parsedDate = new Date(date);
 
-  const isToday =
-    now.toISOString().slice(0, 10) === parsedDate.toISOString().slice(0, 10);
-  const isYesterday =
-    yesterday.toISOString().slice(0, 10) ===
-    parsedDate.toISOString().slice(0, 10);
-
-  if (isToday) return 'Heute';
-  else if (isYesterday) return 'Gestern';
-  else return parsedDate.toLocaleDateString(LOCALE, DATE_OPTIONS);
+  // output date format specified in LOCALE & DATE_OPTIONS
+  return parsedDate.toLocaleDateString(LOCALE, DATE_OPTIONS);
 };
 
 const BlogPage: React.FC = () => {
@@ -115,12 +107,12 @@ const BlogPage: React.FC = () => {
         {topBlogPosts.map((post) => (
           <BlogCard
             key={post.id}
-            size="L"
+            large={true}
             image={post.previewImage}
             placeholderImage={data.blogPlaceholderImage.childImageSharp.fluid}
             title={post.title}
             text={post.excerpt}
-            caption={getDateString(post.date)}
+            caption={formattedDate(post.date)}
             link={post.path}
           />
         ))}
@@ -128,12 +120,11 @@ const BlogPage: React.FC = () => {
         {remainingBlogPosts.map((post) => (
           <BlogCard
             key={post.id}
-            size="S"
             image={post.previewImage}
             placeholderImage={data.blogPlaceholderImage.childImageSharp.fluid}
             title={post.title}
             text={post.excerpt}
-            caption={getDateString(post.date)}
+            caption={formattedDate(post.date)}
             link={post.path}
           />
         ))}

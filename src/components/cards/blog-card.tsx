@@ -6,21 +6,19 @@ import { theme } from '../layout/theme';
 import { up } from '../breakpoint/breakpoint';
 import { CardProps, CardWrapper, CardTitle, CardText } from './card';
 
-type sizes = 'S' | 'L';
-
 interface BlogCardProps extends CardProps {
   link: string;
   caption?: string;
   image?: boolean;
   placeholderImage?: FluidObject;
-  size?: sizes;
+  large?: boolean;
 }
 
 const LinkWrapper = styled(Link)`
   text-decoration: none;
 `;
 
-const BlogCardWrapper = styled(CardWrapper)<{ image: boolean; size: sizes }>`
+const BlogCardWrapper = styled(CardWrapper)<{ image: boolean }>`
   padding: 24px;
   overflow: hidden;
 
@@ -33,11 +31,10 @@ const BlogCardWrapper = styled(CardWrapper)<{ image: boolean; size: sizes }>`
 
 const BlogCardImage = styled(GatsbyImage)`
   width: calc(100% + 2 * 16px);
-  margin: -24px -16px 0;
-  margin-bottom: 24px;
+  margin: -24px -16px 24px;
 `;
 
-const BlogCardTitle = styled(CardTitle)<{ image: boolean; size: sizes }>`
+const BlogCardTitle = styled(CardTitle)<{ image: boolean; large: boolean }>`
   margin-bottom: 16px;
   font-size: 32px;
 
@@ -46,7 +43,7 @@ const BlogCardTitle = styled(CardTitle)<{ image: boolean; size: sizes }>`
   }
 
   ${(props) =>
-    props.size === 'L' &&
+    props.large &&
     css`
       ${up('md')} {
         margin-bottom: 12px;
@@ -62,7 +59,7 @@ const BlogCardTitle = styled(CardTitle)<{ image: boolean; size: sizes }>`
     `}
     
   ${(props) =>
-    props.size === 'L' &&
+    props.large &&
     props.image &&
     css`
       ${up('md')} {
@@ -72,7 +69,7 @@ const BlogCardTitle = styled(CardTitle)<{ image: boolean; size: sizes }>`
     `}
 `;
 
-const BlogCardText = styled(CardText)<{ image: boolean; size: sizes }>`
+const BlogCardText = styled(CardText)<{ image: boolean; large: boolean }>`
   flex-grow: inherit;
   margin-bottom: 8px;
 
@@ -87,7 +84,7 @@ const BlogCardText = styled(CardText)<{ image: boolean; size: sizes }>`
   -webkit-box-orient: vertical;
 
   ${(props) =>
-    props.size === 'L' &&
+    props.large &&
     css`
       ${up('md')} {
         -webkit-line-clamp: 3;
@@ -114,32 +111,31 @@ export const BlogCard: React.FC<BlogCardProps> = ({
   caption = '',
   image,
   placeholderImage,
-  size = 'S',
+  large = false,
 }) => {
   return (
     <BlogCardWrapper
       as={LinkWrapper}
       to={link}
       image={image ? 1 : 0}
-      size={size}
       sm={6}
-      md={size === 'S' ? 4 : 6}
+      md={large ? 6 : 4}
     >
       {image && placeholderImage && (
         <BlogCardImage
           fluid={{
             ...placeholderImage,
-            aspectRatio: size === 'S' ? 1.56 : 1.714,
+            aspectRatio: large ? 1.714 : 1.56,
           }}
         />
       )}
 
-      <BlogCardTitle image={Boolean(image)} size={size}>
+      <BlogCardTitle image={Boolean(image)} large={Boolean(large)}>
         {title}
       </BlogCardTitle>
 
       {text.length > 0 && (
-        <BlogCardText image={Boolean(image)} size={size}>
+        <BlogCardText image={Boolean(image)} large={Boolean(large)}>
           {text}
         </BlogCardText>
       )}
