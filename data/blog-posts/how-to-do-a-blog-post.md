@@ -32,11 +32,17 @@ Pop-up marfa bicycle rights fam woke. Tofu messenger bag bespoke, cronut glossie
 2. Do stuff
 3. Commit
 
+## Images
+
+You can add images to your markdown:
+
 ![Fancy font that shows 'A 25-step program for becoming a great designer'](https://res.cloudinary.com/satellytes/image/upload/v1592570224/satellytes-website/example-picture_crftva.png)
 
-## Level 2 Heading
+*Important note:* The image needs to be hosted on Cloudinary within the Satellytes account!
 
-You can also add code with syntax highlighting. Simply add the language after the first three backticks of a codeblock for example `` ```js``
+## Code
+
+You can add code with syntax highlighting. Simply add the language after the first three backticks of a codeblock for example `` ```js``
 
 ```js
 const test = 1;

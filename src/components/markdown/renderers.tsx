@@ -83,6 +83,14 @@ const StyledImage = styled.img`
   width: 100%;
 `;
 
+const isCloudinaryUrl = (src: string): boolean => {
+  const url = new URL(src);
+  return (
+    url.hostname.includes('cloudinary.com') &&
+    url.pathname.startsWith('/satellytes')
+  );
+};
+
 const transformCloudinaryUrl = (src: string, width: number): string => {
   if (width <= 0) {
     return '';
@@ -102,6 +110,14 @@ interface ReactMarkdownImageProps {
 export const CloudinaryImageRenderer: React.FC<ReactMarkdownImageProps> = (
   props,
 ) => {
+  // we only support cloudinary urls for now
+  if (!isCloudinaryUrl(props.src)) {
+    throw new Error(
+      'Please provide a valid image URL in markdown file. The image also needs to be hosted on Cloudinary. Your invalid URL: ' +
+        props.src,
+    );
+  }
+
   const [imageWidth, setImageWidth] = useState(0);
   const { width: currentWindowSize } = useWindowSize();
 
