@@ -4,6 +4,7 @@ module.exports = {
     description:
       'Satellytes ist eine Digital-Agentur, die um große Unternehmen kreist und ihnen bei der Transformation und Optimierung digitaler Services und Interfaces hilft.',
     author: 'Satellytes',
+    siteUrl: 'https://satellytes.com',
   },
   // pathPrefix is only used when build runs with --pathPrefix (needed for gh-pages).
   // it's the base path (https://satellytes.github.io/satellytes.com-new/)
@@ -46,5 +47,25 @@ module.exports = {
     },
     'gatsby-plugin-styled-components',
     'gatsby-plugin-typescript',
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://satellytes.com',
+        sitemap: 'https://satellytes.com/sitemap.xml',
+        policy: [
+          {
+            userAgent: '*',
+            allow: '/',
+            disallow: ['/imprint', '/data-privacy'],
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: ['/imprint', '/data-privacy'],
+      },
+    },
   ],
 };
