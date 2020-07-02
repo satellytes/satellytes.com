@@ -28,9 +28,13 @@ The metadata contains:
 - `path`: The URL Path to the blog post. It should start with `/blog/`
 - `date`: The date of the blog post
 - `title`: The title of the blog post'
+- `previewImage`: Set to true if you want to display a placeholder image in the blog post preview
+
+The preview text on the blog overview page will be generated automatically by the first few sentences. You can also
+manually set a breakpoint with `<!-- end -->` to create a preview text from the blog posts start until this marker.
 
 After the frontmatter metadata, the blog post itself starts. All markdown features can be used, although not all might
-be mapped to our components. 
+be mapped to our components. For a demo of the markdown features, check out the post "[Hot to do a blog post](https://satellytes-website-new.netlify.app/blog/how-to-do-a-blog-post)".
 
 > If a component is missing (like a table), get in touch with the developers.
 
@@ -42,6 +46,9 @@ path: "/blog/your_blog_post_url"
 date: "YYYY-MM-DD"
 title: "Your title"
 ---
+
+This is a demo post.
+<!-- end -->
 
 # Level 1 Heading
 
