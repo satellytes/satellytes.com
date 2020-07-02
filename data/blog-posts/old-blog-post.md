@@ -1,8 +1,7 @@
 ---
 path: "/blog/old-blog-post"
-date: "2019-01-04"
+date: "2017-01-04"
 title: "So old"
 ---
 
-# This is a old blog post
-
+# This is a old blog post without text

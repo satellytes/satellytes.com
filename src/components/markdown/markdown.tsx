@@ -14,10 +14,18 @@ interface MarkdownProps {
   data: string;
 }
 
+/* MonkeyPatch as currently markdown comments don't get ommitted by default.*/
+const removeExcerptSeparator = (rawMarkdown: string): string => {
+  const excerptSeperator = '<!-- end -->';
+  const cleanedMarkdown = rawMarkdown.replace(excerptSeperator, '');
+
+  return cleanedMarkdown;
+};
+
 export const Markdown: React.FC<MarkdownProps> = (props) => {
   return (
     <ReactMarkdown
-      source={props.data}
+      source={removeExcerptSeparator(props.data)}
       /**
        * Custom renderers/components mapping can be defined here. If a component
        * is not mapped to a node, the node will be rendererd with the default
