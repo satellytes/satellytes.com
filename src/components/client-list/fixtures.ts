@@ -1,23 +1,23 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const clients: any = [
   {
-    title: 'FC Bayern München',
+    title: 'Client 1',
     timestamp: 'April 2018',
-    link: '/fcbayern',
+    link: '/clients',
   },
   {
-    title: 'Allianz Arena',
+    title: 'Client 2',
     timestamp: 'September 2018',
-    link: '/allianz-arena',
+    link: '/clients',
   },
   {
-    title: 'Fiducia',
+    title: 'Client 3',
     timestamp: 'June 2018',
-    link: '/fiducia',
+    link: '/clients',
   },
   {
-    title: 'FIFA',
+    title: 'Client 4',
     timestamp: 'March 2019',
-    link: '/fifa',
+    link: '/clients',
   },
 ];
