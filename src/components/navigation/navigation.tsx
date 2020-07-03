@@ -51,7 +51,8 @@ const MetaContainer = styled.div`
 `;
 
 const LegalLinks = styled.ul`
-  all: unset;
+  margin: 0;
+  padding: 0;
   order: 1;
 
   ${up('md')} {
@@ -92,8 +93,15 @@ const LegalLink = styled(Link)`
   font-size: 14px;
   line-height: 22px;
 
-  color: #202840;
   text-decoration: none;
+  color: #202840;
+
+  /**
+   * necessary for Safari
+   */
+  &:link {
+    color: #202840;
+  }
 
   ${up('md')} {
     &:not(:last-of-type) {
@@ -142,6 +150,13 @@ const SiteNavigationLink = styled(Link)`
 
   text-decoration: none;
   color: #202840;
+
+  /**
+   * necessary for Safari
+   */
+  &:link {
+    color: #202840;
+  }
 
   ${up('md')} {
     font-size: 48px;
