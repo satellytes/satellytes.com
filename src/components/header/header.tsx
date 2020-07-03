@@ -44,6 +44,14 @@ const SiteMenu = styled.button<{ light: number }>`
   all: unset;
   cursor: pointer;
 
+  /**
+   * to make it simpler to click (especially on mobile), 
+   * we make the button extra large
+   */
+  height: 100%;
+  width: 50px;
+  text-align: right;
+
   rect {
     fill: ${(props) =>
       props.light === 1
