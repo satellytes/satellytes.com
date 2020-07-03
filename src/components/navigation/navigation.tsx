@@ -6,13 +6,16 @@ import { IconTwitter } from '../icons/social/twitter';
 import { IconLinkedIn } from '../icons/social/linkedin';
 import { IconXing } from '../icons/social/xing';
 
+export const NAVIGATION_HEIGHT_MOBILE = '517px';
+export const NAVIGATION_HEIGHT_DESKTOP = '660px';
+
 const NavWrapper = styled.div`
   position: relative;
-  height: 517px;
+  height: ${NAVIGATION_HEIGHT_MOBILE};
   overflow: hidden;
 
   ${up('md')} {
-    height: 660px;
+    height: ${NAVIGATION_HEIGHT_DESKTOP};
   }
 `;
 
@@ -133,8 +136,8 @@ const LegalLink = styled(Link)`
   text-decoration: none;
 `;
 
-const Navigation: React.FC = () => (
-  <NavWrapper>
+const Navigation: React.FC = (props) => (
+  <NavWrapper {...props}>
     <NavBackground />
     <NavTitle>Nav</NavTitle>
     <Nav>
