@@ -1,16 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import { up } from '../breakpoint/breakpoint';
 import styled from 'styled-components';
 import BurgerMenu from '../icons/burger-menu';
+import { NavigationFlyout } from './menu-flyout';
 
-interface HeaderProps {
-  siteTitle: string;
-  light?: boolean;
-}
+export const HEADER_HEIGHT = '65px';
 
 const StyledHeader = styled.header<{ light: boolean }>`
-  height: 65px;
+  height: ${HEADER_HEIGHT};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,7 +40,8 @@ const SiteTitle = styled(Link)<{ light: number }>`
       : props.theme.palette.text.header};
 `;
 
-const SiteMenu = styled.div<{ light: number }>`
+const SiteMenu = styled.button<{ light: number }>`
+  all: unset;
   cursor: pointer;
 
   rect {
@@ -53,15 +52,33 @@ const SiteMenu = styled.div<{ light: number }>`
   }
 `;
 
-const Header: React.FC<HeaderProps> = (props) => (
-  <StyledHeader light={Boolean(props.light)}>
-    <SiteTitle to="/" light={props.light ? 1 : 0}>
-      {props.siteTitle}
-    </SiteTitle>
-    <SiteMenu light={props.light ? 1 : 0}>
-      <BurgerMenu />
-    </SiteMenu>
-  </StyledHeader>
-);
+interface HeaderProps {
+  siteTitle: string;
+  light?: boolean;
+}
+
+const Header: React.FC<HeaderProps> = (props) => {
+  const [isNavigationVisible, setIsNavigationVisible] = useState(false);
+
+  return (
+    <StyledHeader light={Boolean(props.light)}>
+      <SiteTitle to="/" light={props.light ? 1 : 0}>
+        {props.siteTitle}
+      </SiteTitle>
+      <SiteMenu
+        light={props.light ? 1 : 0}
+        onClick={() => {
+          setIsNavigationVisible(!isNavigationVisible);
+        }}
+      >
+        <BurgerMenu />
+      </SiteMenu>
+      <NavigationFlyout
+        visible={isNavigationVisible}
+        onClick={() => setIsNavigationVisible(!isNavigationVisible)}
+      />
+    </StyledHeader>
+  );
+};
 
 export default Header;
