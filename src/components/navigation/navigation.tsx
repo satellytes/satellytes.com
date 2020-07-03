@@ -5,100 +5,78 @@ import styled from 'styled-components';
 import { IconTwitter } from '../icons/social/twitter';
 import { IconLinkedIn } from '../icons/social/linkedin';
 import { IconXing } from '../icons/social/xing';
+import { Grid, GridItem } from '../grid/grid';
 
-export const NAVIGATION_HEIGHT_MOBILE = '517px';
-export const NAVIGATION_HEIGHT_DESKTOP = '660px';
-
-const NavWrapper = styled.div`
-  position: relative;
-  height: ${NAVIGATION_HEIGHT_MOBILE};
-  overflow: hidden;
-
-  ${up('md')} {
-    height: ${NAVIGATION_HEIGHT_DESKTOP};
-  }
-`;
-
-const NavBackground = styled.div`
-  position: absolute;
-  top: 16vw;
-  right: 0;
-  left: 0;
-  height: 100%;
+const NavigationBackground = styled.div`
   background: #4d79ff;
-  transform: skewY(-9deg);
-  transform-origin: top left;
+  clip-path: polygon(0 20%, 100% 0, 100% 100%, 0% 100%);
 `;
 
-const NavTitle = styled.span`
-  position: absolute;
-  right: 43px;
-  bottom: 422px;
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 110%;
-  text-align: right;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+const NavigationContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-  color: #ffffff;
+  padding: 80px 40px 30px 30px;
 
   ${up('md')} {
-    right: 81px;
-    bottom: 525px;
+    padding: 120px 80px 80px 80px;
+    flex-direction: row;
   }
 `;
 
-const Nav = styled.nav`
-  width: 132px;
-  position: absolute;
-  right: 43px;
-  bottom: 117px;
+/**
+ * Meta navigation
+ *
+ */
+const MetaContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  order: 2;
+
+  width: 100%;
+  margin-top: 40px;
 
   ${up('md')} {
-    width: 195px;
-    right: 81px;
-    bottom: 76px;
+    flex-direction: column;
+    align-self: flex-end;
+    align-items: flex-start;
+    order: 1;
+
+    width: auto;
+    margin-top: 0;
   }
 `;
 
-const NavList = styled.ul`
-  margin: 0;
-  padding: 0;
-`;
-
-const NavListItem = styled.li`
-  display: block;
-  text-align: right;
-`;
-
-const NavLink = styled(Link)`
-  font-size: 32px;
-  font-weight: bold;
-  line-height: 150%;
-  text-decoration: none;
-  color: #202840;
+const LegalLinks = styled.ul`
+  all: unset;
+  order: 1;
 
   ${up('md')} {
-    font-size: 48px;
+    order: 2;
   }
 `;
 
-const SocialLinks = styled.div`
-  position: absolute;
-  bottom: 40px;
-  right: 26px;
+const SocialLinks = styled.ul`
+  all: unset;
+  order: 2;
 
   ${up('md')} {
-    left: 80px;
-    bottom: 133px;
+    order: 1;
+    margin-bottom: 20px;
   }
 `;
 
-const SocialLinkItem = styled.div`
+const SocialLinkItem = styled.li`
   display: inline-block;
   margin-right: 16px;
   cursor: pointer;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
 `;
 
 const SocialLink = styled.a`
@@ -107,99 +85,140 @@ const SocialLink = styled.a`
   }
 `;
 
-const LegalLinks = styled.div`
-  position: absolute;
-  left: 31px;
-  bottom: 33px;
-
-  ${up('md')} {
-    left: 80px;
-    bottom: 91px;
-  }
-`;
-
-const LegalLinkItem = styled.span`
-  display: block;
-  cursor: pointer;
-
-  ${up('md')} {
-    display: inline-block;
-    margin-right: 16px;
-  }
-`;
-
 const LegalLink = styled(Link)`
+  display: block;
+
   font-weight: 500;
   font-size: 14px;
   line-height: 22px;
+
   color: #202840;
   text-decoration: none;
+
+  ${up('md')} {
+    &:not(:last-of-type) {
+      margin-right: 12px;
+    }
+  }
+`;
+
+/**
+ * Site navigation
+ *
+ */
+const SiteNavigation = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: right;
+  order: 1;
+
+  ${up('md')} {
+    order: 2;
+  }
+`;
+
+const SiteNavigationTitle = styled.span`
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 110%;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #ffffff;
+`;
+
+const SiteNavigationList = styled.ul`
+  margin: 0;
+`;
+
+const NavigationListItem = styled.li`
+  display: block;
+`;
+
+const SiteNavigationLink = styled(Link)`
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 150%;
+
+  text-decoration: none;
+  color: #202840;
+
+  ${up('md')} {
+    font-size: 48px;
+  }
 `;
 
 const Navigation: React.FC = (props) => (
-  <NavWrapper {...props}>
-    <NavBackground />
-    <NavTitle>Nav</NavTitle>
-    <Nav>
-      <NavList>
-        <NavListItem>
-          <NavLink to="/services">Services</NavLink>
-        </NavListItem>
-        <NavListItem>
-          <NavLink to="/clients">Clients</NavLink>
-        </NavListItem>
-        <NavListItem>
-          <NavLink to="/about">About</NavLink>
-        </NavListItem>
-        <NavListItem>
-          <NavLink to="/career">Career</NavLink>
-        </NavListItem>
-        <NavListItem>
-          <NavLink to="/contact">Contact</NavLink>
-        </NavListItem>
-        <NavListItem>
-          <NavLink to="/blog">Blog</NavLink>
-        </NavListItem>
-      </NavList>
-    </Nav>
-    <SocialLinks>
-      <SocialLinkItem>
-        <SocialLink
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://twitter.com/satellytes_beep"
-        >
-          <IconTwitter />
-        </SocialLink>
-      </SocialLinkItem>
-      <SocialLinkItem>
-        <SocialLink
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.linkedin.com/company/satellytes"
-        >
-          <IconLinkedIn />
-        </SocialLink>
-      </SocialLinkItem>
-      <SocialLinkItem>
-        <SocialLink
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.xing.com/companies/satellytesgmbh"
-        >
-          <IconXing />
-        </SocialLink>
-      </SocialLinkItem>
-    </SocialLinks>
-    <LegalLinks>
-      <LegalLinkItem>
-        <LegalLink to="/imprint">Imprint</LegalLink>
-      </LegalLinkItem>
-      <LegalLinkItem>
-        <LegalLink to="/data-privacy">Data Privacy</LegalLink>
-      </LegalLinkItem>
-    </LegalLinks>
-  </NavWrapper>
+  <NavigationBackground {...props}>
+    <Grid center>
+      <GridItem>
+        <NavigationContent>
+          <MetaContainer>
+            <SocialLinks>
+              <SocialLinkItem>
+                <SocialLink
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://twitter.com/satellytes_beep"
+                >
+                  <IconTwitter />
+                </SocialLink>
+              </SocialLinkItem>
+              <SocialLinkItem>
+                <SocialLink
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://www.linkedin.com/company/satellytes"
+                >
+                  <IconLinkedIn />
+                </SocialLink>
+              </SocialLinkItem>
+              <SocialLinkItem>
+                <SocialLink
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://www.xing.com/companies/satellytesgmbh"
+                >
+                  <IconXing />
+                </SocialLink>
+              </SocialLinkItem>
+            </SocialLinks>
+            <LegalLinks>
+              <LegalLink to="/imprint">Imprint</LegalLink>
+              <LegalLink to="/data-privacy">Data Privacy</LegalLink>
+            </LegalLinks>
+          </MetaContainer>
+          <SiteNavigation>
+            <SiteNavigationTitle>Nav</SiteNavigationTitle>
+            <nav>
+              <SiteNavigationList>
+                <NavigationListItem>
+                  <SiteNavigationLink to="/services">
+                    Services
+                  </SiteNavigationLink>
+                </NavigationListItem>
+                <NavigationListItem>
+                  <SiteNavigationLink to="/clients">Clients</SiteNavigationLink>
+                </NavigationListItem>
+                <NavigationListItem>
+                  <SiteNavigationLink to="/about">About</SiteNavigationLink>
+                </NavigationListItem>
+                <NavigationListItem>
+                  <SiteNavigationLink to="/career">Career</SiteNavigationLink>
+                </NavigationListItem>
+                <NavigationListItem>
+                  <SiteNavigationLink to="/contact">Contact</SiteNavigationLink>
+                </NavigationListItem>
+                <NavigationListItem>
+                  <SiteNavigationLink to="/blog">Blog</SiteNavigationLink>
+                </NavigationListItem>
+              </SiteNavigationList>
+            </nav>
+          </SiteNavigation>
+        </NavigationContent>
+      </GridItem>
+    </Grid>
+  </NavigationBackground>
 );
 
 export default Navigation;
