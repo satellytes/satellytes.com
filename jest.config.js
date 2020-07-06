@@ -25,6 +25,6 @@ module.exports = {
     },
   },
   moduleNameMapper: {
-    '\\.(css|less|woff|ttf|eot)$': 'identity-obj-proxy',
+    '\\.(css|less|woff|woff2|ttf|eot)$': 'identity-obj-proxy',
   },
 };
