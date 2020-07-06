@@ -5,7 +5,6 @@ import Header from './../header/header';
 import Navigation from './../navigation/navigation';
 import { theme } from './theme';
 import styled, { ThemeProvider } from 'styled-components';
-import { Fonts } from './fonts/fonts';
 import { GlobalStyle } from './global-style';
 
 /**
@@ -42,7 +41,6 @@ const Layout: React.FC<LayoutProps> = (props) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Fonts />
       <GlobalStyle isIndexPage={props.isIndexPage} />
       <Header
         siteTitle={data.site.siteMetadata.title}
