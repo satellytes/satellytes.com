@@ -1,6 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
+import CocoGothicWoff2 from './layout/fonts/CocoGothic.woff2';
+import CocoGothicBoldWoff2 from './layout/fonts/CocoGothic-Bold.woff2';
 
 interface SeoProps {
   title: string;
@@ -74,7 +76,30 @@ const SEO: React.FC<SeoProps> = ({
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+      {/*
+       * All fonts that are linked with a preload are getting loaded before any
+       * other resources, no matter if the used or not. We therefore need to
+       * only list fonts that are used in almost all places.
+       * Some browsers are smart enough to NOT preload different font types
+       * of the same font (like woff2 and woff), but as Chrome is preloading all
+       * listed font types, we will only include the most common on - woff2.
+       */}
+      <link
+        rel="preload"
+        as="font"
+        href={CocoGothicWoff2}
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+      <link
+        rel="preload"
+        as="font"
+        href={CocoGothicBoldWoff2}
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+    </Helmet>
   );
 };
 
