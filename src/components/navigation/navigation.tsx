@@ -104,6 +104,8 @@ const LegalLink = styled(Link)`
   }
 
   ${up('md')} {
+    display: inline-block;
+
     &:not(:last-of-type) {
       margin-right: 12px;
     }
