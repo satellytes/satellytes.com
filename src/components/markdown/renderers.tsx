@@ -4,6 +4,10 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { prism } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import styled from 'styled-components';
 import { useDebounce, useWindowSize } from 'react-use';
+import {
+  isCloudinaryUrl,
+  transformCloudinaryUrl,
+} from '../util/cloudinary-util';
 
 const BLOG_PAGE_MAX_WIDTH_PX = 814;
 
@@ -82,25 +86,6 @@ export const InlineCodeRenderer: React.FC<ReactMarkdownCodeRendererProps> = (
 const StyledImage = styled.img`
   width: 100%;
 `;
-
-const isCloudinaryUrl = (src: string): boolean => {
-  const url = new URL(src);
-  return (
-    url.hostname.includes('cloudinary.com') &&
-    url.pathname.startsWith('/satellytes')
-  );
-};
-
-const transformCloudinaryUrl = (src: string, width: number): string => {
-  if (width <= 0) {
-    return '';
-  }
-
-  const srcParts = src.split('/');
-  const imageId = srcParts[srcParts.length - 1];
-  const transformations = `w_${width}`;
-  return `https://res.cloudinary.com/satellytes/image/upload/${transformations}/satellytes-website/${imageId}`;
-};
 
 interface ReactMarkdownImageProps {
   src: string;
