@@ -5,7 +5,7 @@ import {
   ImageCardTitleLarge,
   ImageCardTitle,
   ImageCardSubtitle,
-  ImageCardLink,
+  TextLink,
 } from '../typography/typography';
 import { up } from '../breakpoint/breakpoint';
 
@@ -56,9 +56,9 @@ const ImageCardLinks: React.FC<ImageCardLinksProps> = ({ links }) => {
   return (
     <>
       {links.map((link) => (
-        <ImageCardLink to={link.url} key={link.title}>
+        <TextLink small to={link.url} key={link.title}>
           <LinkTitle>{link.title} &gt;</LinkTitle>
-        </ImageCardLink>
+        </TextLink>
       ))}
     </>
   );

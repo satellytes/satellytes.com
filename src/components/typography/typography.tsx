@@ -10,7 +10,6 @@ import { Swoosh } from '../swoosh';
  * Title
  *
  */
-
 const TitleContainer = styled.div`
   position: relative;
   margin-top: 96px;
@@ -138,9 +137,11 @@ export const ImageCardSubtitle = styled.p`
   line-height: 150%;
 `;
 
-export const ImageCardLink = styled(Link)`
+export const TextLink = styled(Link)<{ small?: boolean }>`
+  display: inline-block;
   color: ${theme.palette.text.darkLinkColor.default};
-  font-size: 14px;
+
+  font-size: ${(props) => (props.small ? '14px' : '16px')};
   line-height: 150%;
   font-weight: bold;
   text-decoration: none;
