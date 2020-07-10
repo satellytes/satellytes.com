@@ -3,14 +3,16 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 import {
+  LargeText,
   PageTitle,
   SubTitle,
   Text,
-  LargeText,
   TextTitle,
 } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
-import TeamMemberImageGrid from '../components/image-grids/team-member-image-grid';
+import TeamMemberImageGrid, {
+  TeamMember,
+} from '../components/image-grids/team-member-image-grid';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
 
@@ -93,49 +95,43 @@ const AboutPage: React.FC = () => {
 
 export default AboutPage;
 
-// TODO: where should we put this data?
-const teamMemberData = [
+// todo: move to json file into data folder
+const teamMemberData: TeamMember[] = [
   {
     name: 'Gholam Abdol',
     role: 'CEO, Partner',
-    links: [
-      { title: 'LinkedIn', url: 'https://de.linkedin.com/' },
-      { title: 'XING', url: 'https://www.xing.com' },
-    ],
   },
   {
     name: 'Eric Singhartinger',
     role: 'CEO, CXO, Partner',
-    links: [{ title: 'LinkedIn', url: 'https://de.linkedin.com/' }],
   },
   {
     name: 'Georgios Kaleadis',
     role: 'CTO, Partner',
-    links: [
-      { title: 'LinkedIn', url: 'https://de.linkedin.com/' },
-      { title: 'XING', url: 'https://www.xing.com' },
-      { title: 'GitHub', url: 'https://www.github.com' },
-    ],
   },
   { name: 'Mark Altmann', role: 'Backend' },
   {
     name: 'Kateryna Bugaieva',
     role: 'Frontend',
+  },
+  {
+    name: 'Fabian Dietenberger',
+    role: 'Fullstack',
     links: [
-      { title: 'LinkedIn', url: 'https://de.linkedin.com/' },
-      { title: 'XING', url: 'https://www.xing.com' },
-      { title: 'GitHub', url: 'https://www.github.com' },
-      { title: 'Twitter', url: 'https://www.twitter.com' },
+      { title: 'GitHub', url: 'https://github.com/feedm3' },
+      {
+        title: 'LinkedIn',
+        url: 'https://www.linkedin.com/in/fabiandietenberger',
+      },
+      { title: 'Website', url: 'https://dietenberger.me' },
     ],
   },
-  { name: 'Fabian Dietenberger', role: 'Fullstack' },
   { name: 'Arthur Erdös', role: 'Backend' },
   { name: 'Klara Fleischmann', role: 'Frontend' },
   { name: 'Felix Hamann', role: 'Frontend' },
   { name: 'Pavel Katkov', role: 'Frontend' },
   { name: 'Leif Lampater', role: 'Frontend' },
   { name: 'Verena May', role: 'UX/UI' },
-  { name: 'Erin McGrath', role: 'Frontend' },
   { name: 'Christian Ott', role: 'Backend' },
   { name: 'Mauro Pereira', role: 'Frontend' },
 ];

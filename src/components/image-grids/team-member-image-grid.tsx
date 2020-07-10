@@ -4,12 +4,14 @@ import { FluidObject } from 'gatsby-image';
 import ImageCard from '../image-card/image-card';
 import styled from 'styled-components';
 
+export interface TeamMember {
+  name: string;
+  role: string;
+  links?: { title: string; url: string }[];
+}
+
 interface TeamMemberImageGridProps {
-  teamMembers: {
-    name: string;
-    role: string;
-    links?: { title: string; url: string }[];
-  }[];
+  teamMembers: TeamMember[];
   imagePlaceholder: FluidObject;
 }
 
