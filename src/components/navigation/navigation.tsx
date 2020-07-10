@@ -9,7 +9,12 @@ import { Grid, GridItem } from '../grid/grid';
 
 const NavigationBackground = styled.div`
   background: #4d79ff;
-  clip-path: polygon(0 20%, 100% 0, 100% 100%, 0% 100%);
+  clip-path: polygon(
+    0 16vw /* left top */,
+    100% 0 /* right top */,
+    100% 100% /* right bottom */,
+    0% 100% /* left bottom */
+  );
 `;
 
 const NavigationContent = styled.div`
@@ -129,6 +134,7 @@ const SiteNavigation = styled.div`
 `;
 
 const SiteNavigationTitle = styled.span`
+  margin-bottom: 16px;
   font-size: 14px;
   font-weight: bold;
   line-height: 110%;
