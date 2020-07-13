@@ -81,7 +81,9 @@ export const ContactForm: React.FC = () => {
   };
 
   const handleSubmit: FormEventHandler = (e) => {
-    const encode = (data: any): string => {
+    // taken from the Netlify Blog:
+    // - https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
+    const encodeForNetlify = (data: any): string => {
       return Object.keys(data)
         .map(
           (key) =>
@@ -93,7 +95,7 @@ export const ContactForm: React.FC = () => {
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', ...state }),
+      body: encodeForNetlify({ 'form-name': 'contact', ...state }),
     })
       .then(() => {
         setRequestStatus('success');

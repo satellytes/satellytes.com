@@ -6,6 +6,7 @@ import Navigation from './../navigation/navigation';
 import { theme } from './theme';
 import styled, { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './global-style';
+import { FluidObject } from 'gatsby-image';
 
 /**
  * this container is used to push the footer to the bottom
@@ -26,6 +27,7 @@ const Main = styled.main`
 
 interface LayoutProps {
   isIndexPage?: boolean;
+  heroImage?: FluidObject;
 }
 
 const Layout: React.FC<LayoutProps> = (props) => {
@@ -44,7 +46,8 @@ const Layout: React.FC<LayoutProps> = (props) => {
       <GlobalStyle isIndexPage={props.isIndexPage} />
       <Header
         siteTitle={data.site.siteMetadata.title}
-        light={props.isIndexPage}
+        light={props.isIndexPage || Boolean(props.heroImage)}
+        heroImage={props.heroImage}
       />
       <FullHeightContainer>
         <Main>{props.children}</Main>
