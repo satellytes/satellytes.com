@@ -4,17 +4,19 @@ import { up } from '../breakpoint/breakpoint';
 import styled from 'styled-components';
 import BurgerMenu from '../icons/burger-menu';
 import { NavigationFlyout } from './menu-flyout';
+import { FluidObject } from 'gatsby-image';
+import { HeroImage } from './hero-image';
 
 export const HEADER_HEIGHT = '65px';
 
-const StyledHeader = styled.header<{ light: boolean }>`
+const StyledHeader = styled.header<{ light: number }>`
   height: ${HEADER_HEIGHT};
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 16px;
   border-bottom: ${(props) =>
-    props.light
+    props.light === 1
       ? '1px solid rgba(255, 255, 255, 0.1)'
       : '1px solid rgba(32, 40, 64, 0.05)'};
 
@@ -63,29 +65,32 @@ const SiteMenu = styled.button<{ light: number }>`
 interface HeaderProps {
   siteTitle: string;
   light?: boolean;
+  heroImage?: FluidObject;
 }
 
 const Header: React.FC<HeaderProps> = (props) => {
   const [isNavigationVisible, setIsNavigationVisible] = useState(false);
 
   return (
-    <StyledHeader light={Boolean(props.light)}>
-      <SiteTitle to="/" light={props.light ? 1 : 0}>
-        {props.siteTitle}
-      </SiteTitle>
-      <SiteMenu
-        light={props.light ? 1 : 0}
-        onClick={() => {
-          setIsNavigationVisible(!isNavigationVisible);
-        }}
-      >
-        <BurgerMenu />
-      </SiteMenu>
-      <NavigationFlyout
-        visible={isNavigationVisible}
-        onClick={() => setIsNavigationVisible(!isNavigationVisible)}
-      />
-    </StyledHeader>
+    <HeroImage fluid={props.heroImage}>
+      <StyledHeader light={props.light ? 1 : 0}>
+        <SiteTitle to="/" light={props.light ? 1 : 0}>
+          {props.siteTitle}
+        </SiteTitle>
+        <SiteMenu
+          light={props.light ? 1 : 0}
+          onClick={() => {
+            setIsNavigationVisible(!isNavigationVisible);
+          }}
+        >
+          <BurgerMenu />
+        </SiteMenu>
+        <NavigationFlyout
+          visible={isNavigationVisible}
+          onClick={() => setIsNavigationVisible(!isNavigationVisible)}
+        />
+      </StyledHeader>
+    </HeroImage>
   );
 };
 

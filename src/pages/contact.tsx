@@ -7,23 +7,41 @@ import { Grid, GridItem } from '../components/grid/grid';
 import { ContactForm } from '../components/form/contact';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
+import { graphql, useStaticQuery } from 'gatsby';
+import { FluidObject } from 'gatsby-image';
 
-const ContactSubTitle = styled(SubTitle)`
-  margin-top: 80px;
+const CONTACT_PAGE_QUERY = graphql`
+  query {
+    imagePlaceholder: file(relativePath: { regex: "/placeholder/" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
+
+const ContactSubTitle = styled(SubTitle)<{ short?: boolean }>`
+  margin-top: ${(props) => (props.short ? '40px' : '80px')};
 
   ${up('md')} {
-    margin-top: 160px;
+    margin-top: ${(props) => (props.short ? '80px' : '160px')};
   }
 `;
 
 const ContactPage: React.FC = () => {
+  const data = useStaticQuery<{
+    imagePlaceholder: { childImageSharp: { fluid: FluidObject } };
+  }>(CONTACT_PAGE_QUERY);
+
   return (
-    <Layout>
+    <Layout heroImage={data.imagePlaceholder.childImageSharp.fluid}>
       <SEO title="Contact" />
       <Grid center>
         <GridItem xs={0} md={2} />
         <GridItem xs={12} md={8}>
-          <SubTitle>Adresse</SubTitle>
+          <ContactSubTitle short>Adresse</ContactSubTitle>
           <div>
             <Text>
               <b>Satellytes Digital Consulting GmbH</b>
