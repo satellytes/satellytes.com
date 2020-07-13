@@ -6,6 +6,7 @@ import BurgerMenu from '../icons/burger-menu';
 import { NavigationFlyout } from './menu-flyout';
 import { FluidObject } from 'gatsby-image';
 import { HeroImage } from './hero-image';
+import { GRID_GAP_DESKTOP, GRID_GAP_MOBILE } from '../grid/grid';
 
 export const HEADER_HEIGHT = '65px';
 
@@ -53,6 +54,13 @@ const SiteMenu = styled.button<{ light: number }>`
   height: 100%;
   width: 50px;
   text-align: right;
+  margin-right: -${() => GRID_GAP_MOBILE};
+  padding-right: ${() => GRID_GAP_MOBILE};
+
+  ${up('md')} {
+    margin-right: -${() => GRID_GAP_DESKTOP};
+    padding-right: ${() => GRID_GAP_DESKTOP};
+  }
 
   rect {
     fill: ${(props) =>

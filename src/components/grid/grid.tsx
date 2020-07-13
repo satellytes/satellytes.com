@@ -3,8 +3,8 @@ import { up } from '../breakpoint/breakpoint';
 
 type GridItemSize = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-const GRID_GAP_DESKTOP: CSSProp = '24px';
-const GRID_GAP_MOBILE: CSSProp = '16px';
+export const GRID_GAP_DESKTOP: CSSProp = '24px';
+export const GRID_GAP_MOBILE: CSSProp = '16px';
 
 interface GridProps {
   disableGap?: boolean;

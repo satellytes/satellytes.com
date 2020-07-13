@@ -65,18 +65,18 @@ const RequestStatusMessage = styled(Text)`
 type RequestStatus = 'pending' | 'success' | 'error';
 
 export const ContactForm: React.FC = () => {
-  const initialSate = { name: '', email: '', message: '' };
-  const [state, setState] = useState(initialSate);
+  const initialFormData = { name: '', email: '', message: '' };
+  const [formData, setFormData] = useState(initialFormData);
   const [requestStatus, setRequestStatus] = useState<RequestStatus>('pending');
 
   const hasValidInput = (): boolean => {
     return Boolean(
-      state.name &&
-        state.name.length > 0 &&
-        state.email &&
-        state.email.length > 0 &&
-        state.message &&
-        state.message.length > 0,
+      formData.name &&
+        formData.name.length > 0 &&
+        formData.email &&
+        formData.email.length > 0 &&
+        formData.message &&
+        formData.message.length > 0,
     );
   };
 
@@ -95,11 +95,11 @@ export const ContactForm: React.FC = () => {
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encodeForNetlify({ 'form-name': 'contact', ...state }),
+      body: encodeForNetlify({ 'form-name': 'contact', ...formData }),
     })
       .then(() => {
         setRequestStatus('success');
-        setState(initialSate);
+        setFormData(initialFormData);
       })
       .catch((error) => {
         console.error(error);
@@ -109,10 +109,10 @@ export const ContactForm: React.FC = () => {
     e.preventDefault();
   };
 
-  const handleChange: ChangeEventHandler<
+  const handleInputChange: ChangeEventHandler<
     HTMLInputElement | HTMLTextAreaElement
   > = (e) => {
-    setState({ ...state, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
@@ -127,22 +127,22 @@ export const ContactForm: React.FC = () => {
           placeholder="Your name"
           type="text"
           name="name"
-          value={state.name}
-          onChange={handleChange}
+          value={formData.name}
+          onChange={handleInputChange}
         />
         <Input
           placeholder="Your email"
           type="email"
           name="email"
-          value={state.email}
-          onChange={handleChange}
+          value={formData.email}
+          onChange={handleInputChange}
         />
       </InputContainer>
       <TextArea
         placeholder="Your message to us"
         name="message"
-        value={state.message}
-        onChange={handleChange}
+        value={formData.message}
+        onChange={handleInputChange}
       />
       <div>
         <SendButton
@@ -161,7 +161,7 @@ export const ContactForm: React.FC = () => {
         )}
         {requestStatus === 'error' && (
           <RequestStatusMessage>
-            Something went wrong, please try again later.
+            Sorry, but something went wrong. Please try again later.
           </RequestStatusMessage>
         )}
       </div>

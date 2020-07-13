@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
 import { Link } from 'gatsby';
 import { theme } from '../layout/theme';
+import { GRID_GAP_MOBILE } from '../grid/grid';
 
 interface ClientListProps {
   clients: [ClientListEntryProps];
@@ -26,11 +27,10 @@ const linkStyles = css`
 `;
 
 const Wrapper = styled.div`
-  /* 32px = 2 x 16px (padding of page layout) */
-  width: calc(100% + 32px);
+  width: calc(100% + 2 * ${() => GRID_GAP_MOBILE});
   margin-top: 80px;
   margin-bottom: 80px;
-  margin-left: -16px;
+  margin-left: -${() => GRID_GAP_MOBILE};
 
   ${up('md')} {
     width: 100%;
@@ -66,7 +66,7 @@ const ClientListEntryWrapper = styled.li`
 `;
 
 const StyledTitle = styled(Link)`
-  ${linkStyles}
+  ${linkStyles};
   padding-right: 16px;
   margin-bottom: 8px;
 
@@ -87,7 +87,7 @@ const StyledTimestamp = styled.div`
 `;
 
 const StyledArrow = styled(Link)`
-  ${linkStyles}
+  ${linkStyles};
   position: absolute;
   right: 15px;
   color: #4d79ff;
@@ -104,7 +104,7 @@ const StyledArrow = styled(Link)`
 `;
 
 const StyledOverviewLink = styled(Link)`
-  ${linkStyles}
+  ${linkStyles};
   display: block;
   margin-top: 30px;
   margin-left: 16px;
