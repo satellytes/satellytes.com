@@ -33,7 +33,7 @@ export const CardWrapper = styled(GridItem)`
 `;
 
 export const CardTitle = styled.div`
-  ${textStyles}
+  ${textStyles};
 
   margin-bottom: 24px;
   font-size: 32px;
@@ -41,7 +41,7 @@ export const CardTitle = styled.div`
 `;
 
 export const CardText = styled.p`
-  ${textStyles}
+  ${textStyles};
 
   flex-grow: 1;
   margin: 0 0 82px;
