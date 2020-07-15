@@ -1,11 +1,16 @@
 import React, { ChangeEventHandler, FormEventHandler, useState } from 'react';
 import styled from 'styled-components';
 import { Text } from '../typography/typography';
+import { up } from '../breakpoint/breakpoint';
 
 const InputContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
+
+  ${up('md')} {
+    flex-direction: row;
+  }
 `;
 
 const Input = styled.input`
@@ -20,7 +25,13 @@ const Input = styled.input`
   background: #f5f6f7;
 
   &:not(:last-of-type) {
-    margin-right: 24px;
+    margin-bottom: 24px;
+    margin-right: 0;
+
+    ${up('md')} {
+      margin-right: 24px;
+      margin-bottom: 0;
+    }
   }
 `;
 
@@ -37,6 +48,8 @@ const TextArea = styled.textarea`
   border-radius: 4px;
   border: 0;
   background: #f5f6f7;
+
+  resize: vertical;
 `;
 
 const SendButton = styled.button`
