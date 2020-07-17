@@ -26,9 +26,11 @@ export const CardWrapper = styled(GridItem)`
   position: relative;
   padding: 24px;
   border-radius: 4px;
+  margin-bottom: 16px;
 
   ${up('md')} {
     min-height: 365px;
+    margin-bottom: 24px;
   }
 `;
 
