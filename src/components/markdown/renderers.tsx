@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SectionTitle, SubTitle, Text } from '../typography/typography';
+import { SubTitle, Text } from '../typography/typography';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { prism } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import styled from 'styled-components';
@@ -30,9 +30,6 @@ interface ReactMarkdownHeadingRendererProps {
 export const HeadingRenderer: React.FC<ReactMarkdownHeadingRendererProps> = (
   props,
 ) => {
-  if (props.level === 1) {
-    return <SectionTitle as="h1">{props.children}</SectionTitle>;
-  }
   return <SubTitle>{props.children}</SubTitle>;
 };
 
