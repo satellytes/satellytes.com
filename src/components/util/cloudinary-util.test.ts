@@ -1,20 +1,24 @@
-import { isCloudinaryUrl, transformCloudinaryUrl } from './cloudinary-util';
+import { assertCloudinaryUrl, transformCloudinaryUrl } from './cloudinary-util';
 
 describe('cloudinary-util', () => {
   it('should detect a correct url', () => {
-    expect(isCloudinaryUrl('http://cloudinary.com/satellytes')).toBeTruthy();
-    expect(isCloudinaryUrl('https://cloudinary.com/satellytes')).toBeTruthy();
-    expect(
-      isCloudinaryUrl('https://cloudinary.com/satellytes/awdoiwadwao'),
-    ).toBeTruthy();
+    expect(() =>
+      assertCloudinaryUrl('http://cloudinary.com/satellytes'),
+    ).not.toThrow();
+    expect(() =>
+      assertCloudinaryUrl('https://cloudinary.com/satellytes'),
+    ).not.toThrow();
+    expect(() =>
+      assertCloudinaryUrl('https://cloudinary.com/satellytes/awdoiwadwao'),
+    ).not.toThrow();
   });
 
   it('should detect an incorrect url', () => {
-    expect(isCloudinaryUrl(undefined as any)).toBeFalsy();
-    expect(isCloudinaryUrl(null as any)).toBeFalsy();
-    expect(isCloudinaryUrl('')).toBeFalsy();
-    expect(isCloudinaryUrl('cloudinary.com/satellytes')).toBeFalsy();
-    expect(isCloudinaryUrl('test.com')).toBeFalsy();
+    expect(() => assertCloudinaryUrl(undefined as any)).toThrow();
+    expect(() => assertCloudinaryUrl(null as any)).toThrow();
+    expect(() => assertCloudinaryUrl('')).toThrow();
+    expect(() => assertCloudinaryUrl('cloudinary.com/satellytes')).toThrow();
+    expect(() => assertCloudinaryUrl('test.com')).toThrow();
   });
 
   it('should tranform a url', () => {

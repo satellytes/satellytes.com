@@ -39,7 +39,25 @@ interface ReactMarkdownHeadingRendererProps {
 export const HeadingRenderer: React.FC<ReactMarkdownHeadingRendererProps> = (
   props,
 ) => {
-  return <SubTitle>{props.children}</SubTitle>;
+  let tag = 'h2';
+
+  switch (props.level) {
+    case 3:
+      tag = 'h3';
+      break;
+    case 4:
+      tag = 'h4';
+      break;
+    case 5:
+      tag = 'h5';
+      break;
+    case 6:
+      tag = 'h6';
+      break;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return <SubTitle as={tag as any}>{props.children}</SubTitle>;
 };
 
 /*
