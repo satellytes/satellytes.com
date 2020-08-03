@@ -27,7 +27,8 @@ const Main = styled.main`
 
 interface LayoutProps {
   isIndexPage?: boolean;
-  heroImage?: FluidObject;
+  heroImage?: FluidObject | string;
+  siteTitleUrl?: string;
 }
 
 const Layout: React.FC<LayoutProps> = (props) => {
@@ -46,6 +47,7 @@ const Layout: React.FC<LayoutProps> = (props) => {
       <GlobalStyle isIndexPage={props.isIndexPage} />
       <Header
         siteTitle={data.site.siteMetadata.title}
+        siteTitleUrl={props.siteTitleUrl}
         light={props.isIndexPage || Boolean(props.heroImage)}
         heroImage={props.heroImage}
       />

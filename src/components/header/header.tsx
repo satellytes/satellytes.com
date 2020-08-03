@@ -16,6 +16,7 @@ const StyledHeader = styled.header<{ light: number }>`
   justify-content: space-between;
   align-items: center;
   padding: 0 16px;
+
   border-bottom: ${(props) =>
     props.light === 1
       ? '1px solid rgba(255, 255, 255, 0.1)'
@@ -72,17 +73,18 @@ const SiteMenu = styled.button<{ light: number }>`
 
 interface HeaderProps {
   siteTitle: string;
+  siteTitleUrl?: string;
   light?: boolean;
-  heroImage?: FluidObject;
+  heroImage?: FluidObject | string;
 }
 
 const Header: React.FC<HeaderProps> = (props) => {
   const [isNavigationVisible, setIsNavigationVisible] = useState(false);
 
   return (
-    <HeroImage fluid={props.heroImage}>
+    <HeroImage image={props.heroImage}>
       <StyledHeader light={props.light ? 1 : 0}>
-        <SiteTitle to="/" light={props.light ? 1 : 0}>
+        <SiteTitle to={props.siteTitleUrl || '/'} light={props.light ? 1 : 0}>
           {props.siteTitle}
         </SiteTitle>
         <SiteMenu

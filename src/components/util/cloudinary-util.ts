@@ -1,12 +1,19 @@
-export const isCloudinaryUrl = (src: string): boolean => {
-  try {
-    const url = new URL(src);
-    return (
-      url.hostname.includes('cloudinary.com') &&
-      url.pathname.startsWith('/satellytes')
+/**
+ * Check if the given URL is a valid Satellytes Cloudinary URL. Throws an error
+ * if not.
+ *
+ * @param src
+ */
+export const assertCloudinaryUrl = (src: string): void => {
+  const url = new URL(src);
+  if (
+    !url.hostname.includes('cloudinary.com') ||
+    !url.pathname.startsWith('/satellytes')
+  ) {
+    throw new Error(
+      'Please provide a valid image URL in markdown file. The image needs to be hosted on Cloudinary. Your invalid URL: ' +
+        src,
     );
-  } catch {
-    return false;
   }
 };
 

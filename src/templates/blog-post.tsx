@@ -15,6 +15,7 @@ interface BlogArticleTemplateProps {
       frontmatter: {
         date: string;
         title: string;
+        image?: string;
       };
       rawMarkdownBody: string;
     };
@@ -31,7 +32,10 @@ const BlogPostTitle = styled(SectionTitle)`
 
 const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
   return (
-    <Layout>
+    <Layout
+      heroImage={data.markdownRemark.frontmatter.image}
+      siteTitleUrl={'/blog'}
+    >
       <SEO title="Blog article" />
       <Grid center>
         <GridItem xs={0} md={2} />
@@ -53,6 +57,7 @@ export const BLOG_POST_PAGE_QUERY = graphql`
         date(formatString: "MMMM DD, YYYY")
         path
         title
+        image
       }
       rawMarkdownBody
     }

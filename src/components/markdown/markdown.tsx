@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import {
+  BlockquoteRenderer,
   CloudinaryImageRenderer,
   CodeRender,
   HeadingRenderer,
@@ -19,7 +20,6 @@ interface MarkdownProps {
 const removeExcerptSeparator = (rawMarkdown: string): string => {
   const excerptSeperator = '<!-- end -->';
   const cleanedMarkdown = rawMarkdown.replace(excerptSeperator, '');
-
   return cleanedMarkdown;
 };
 
@@ -40,6 +40,7 @@ export const Markdown: React.FC<MarkdownProps> = (props) => {
         code: CodeRender,
         inlineCode: InlineCodeRenderer,
         image: CloudinaryImageRenderer,
+        blockquote: BlockquoteRenderer,
       }}
     />
   );
