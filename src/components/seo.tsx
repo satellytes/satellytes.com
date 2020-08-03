@@ -83,7 +83,7 @@ const SEO: React.FC<SeoProps> = ({
        * only list fonts that are used in almost all places.
        * Some browsers are smart enough to NOT preload different font types
        * of the same font (like woff2 and woff), but as Chrome is preloading all
-       * listed font types, we will only include the most common on - woff2.
+       * listed font types, we will only include the most common one woff2.
        */}
       <link
         rel="preload"

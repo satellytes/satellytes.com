@@ -3,6 +3,7 @@ path: "/blog/how-to-do-a-blog-post"
 date: "2020-05-04"
 title: "How to do a blog post"
 previewImage: true
+image: https://res.cloudinary.com/satellytes/image/upload/v1594992283/satellytes-website/blog-how-to-do-a-blogpost_h5txir.jpg
 ---
 
 Dear colleagues,
@@ -24,9 +25,17 @@ In general we use markdown to write blog posts with the common formatting possib
 
 ### Lists
 
+There are numbered lists: 
+
 1. Open project
 2. Do stuff
 3. Commit
+
+And bulletpoint lists:
+
+- point 1
+- point 2
+- point 3
 
 ### Images
 
@@ -48,6 +57,10 @@ console.log("Hi", test);
 
 Inline code also works: `inline code`
 
-### Block scope
+### Blockquote
+
+Text before the blockquote.
 
 > Block scope stuff
+
+Text after the blockquote.

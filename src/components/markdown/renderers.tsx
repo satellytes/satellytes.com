@@ -1,15 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SubTitle, Text } from '../typography/typography';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { prism } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import styled from 'styled-components';
-import { useDebounce, useWindowSize } from 'react-use';
-import {
-  isCloudinaryUrl,
-  transformCloudinaryUrl,
-} from '../util/cloudinary-util';
-
-const BLOG_PAGE_MAX_WIDTH_PX = 814;
+import { ResponsiveCloudinaryImage } from '../image/cloudinary-image';
 
 /**
  * Text
@@ -17,6 +11,21 @@ const BLOG_PAGE_MAX_WIDTH_PX = 814;
  */
 export const TextRenderer: React.FC = (props) => {
   return <Text>{props.children}</Text>;
+};
+
+/**
+ * Blockquote
+ *
+ */
+const Blockquote = styled.blockquote`
+  padding: 0 1em;
+  color: #6a737d;
+  border-left: 0.25em solid #dfe2e5;
+  margin: 0 0 16px 0;
+`;
+
+export const BlockquoteRenderer: React.FC = (props) => {
+  return <Blockquote>{props.children}</Blockquote>;
 };
 
 /*
@@ -53,7 +62,11 @@ export const CodeRender: React.FC<ReactMarkdownCodeRendererProps> = (props) => {
      * Possible styles:
      *  - https://conorhastings.github.io/react-syntax-highlighter/demo/prism.html
      */
-    <SyntaxHighlighter language={props.language} style={prism}>
+    <SyntaxHighlighter
+      language={props.language}
+      style={prism}
+      customStyle={{ margin: '0 0 16px 0' }}
+    >
       {props.value}
     </SyntaxHighlighter>
   );
@@ -80,10 +93,6 @@ export const InlineCodeRenderer: React.FC<ReactMarkdownCodeRendererProps> = (
  * Image
  *
  */
-const StyledImage = styled.img`
-  width: 100%;
-`;
-
 interface ReactMarkdownImageProps {
   src: string;
   alt: string;
@@ -92,34 +101,5 @@ interface ReactMarkdownImageProps {
 export const CloudinaryImageRenderer: React.FC<ReactMarkdownImageProps> = (
   props,
 ) => {
-  // we only support cloudinary urls for now
-  if (!isCloudinaryUrl(props.src)) {
-    throw new Error(
-      'Please provide a valid image URL in markdown file. The image also needs to be hosted on Cloudinary. Your invalid URL: ' +
-        props.src,
-    );
-  }
-
-  const [imageWidth, setImageWidth] = useState(0);
-  const { width: currentWindowSize } = useWindowSize();
-
-  useDebounce(
-    () => {
-      const newImageWidth =
-        currentWindowSize >= BLOG_PAGE_MAX_WIDTH_PX
-          ? BLOG_PAGE_MAX_WIDTH_PX
-          : currentWindowSize;
-
-      // we only change the width if the picture gets better/larger
-      if (newImageWidth > imageWidth) {
-        setImageWidth(newImageWidth);
-      }
-    },
-    250,
-    [currentWindowSize],
-  );
-
-  const src = transformCloudinaryUrl(props.src, imageWidth);
-
-  return <StyledImage src={src} alt={props.alt} />;
+  return <ResponsiveCloudinaryImage src={props.src} alt={props.alt} />;
 };
