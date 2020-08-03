@@ -18,13 +18,15 @@ describe('<Markdown />', () => {
     expect(container.querySelectorAll('p')).toHaveLength(2);
   });
 
-  it('should render headers', () => {
+  it('should render all headers with their appropriate level', () => {
     const { container } = render(
-      <Markdown data={'# header \n  ## header 2 \n ## header 2'} />,
+      <Markdown
+        data={'# header \n  ## header 2 \n ## header 2 \n ### header 3'}
+      />,
     );
 
-    expect(container.querySelectorAll('h1')).toHaveLength(1);
-    expect(container.querySelectorAll('h3')).toHaveLength(2);
+    expect(container.querySelectorAll('h2')).toHaveLength(3);
+    expect(container.querySelectorAll('h3')).toHaveLength(1);
   });
 
   it('should render a list', () => {
