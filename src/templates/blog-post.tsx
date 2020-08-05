@@ -8,6 +8,7 @@ import { Markdown } from '../components/markdown/markdown';
 import { SectionTitle } from '../components/typography/typography';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
+import Signature from '../components/signature/signature';
 
 interface BlogArticleTemplateProps {
   data: {
@@ -16,6 +17,7 @@ interface BlogArticleTemplateProps {
         date: string;
         title: string;
         image?: string;
+        author: string;
       };
       rawMarkdownBody: string;
     };
@@ -44,6 +46,14 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
             {data.markdownRemark.frontmatter.title}
           </BlogPostTitle>
           <Markdown data={data.markdownRemark.rawMarkdownBody} />
+          {data.markdownRemark.frontmatter.author && (
+            <Signature
+              author={data.markdownRemark.frontmatter.author}
+              date={data.markdownRemark.frontmatter.date}
+            />
+          )}
+
+          {!data.markdownRemark.frontmatter.author && 'TODO: no author error'}
         </GridItem>
       </Grid>
     </Layout>
@@ -58,6 +68,7 @@ export const BLOG_POST_PAGE_QUERY = graphql`
         path
         title
         image
+        author
       }
       rawMarkdownBody
     }

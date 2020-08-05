@@ -4,6 +4,7 @@ date: "2020-05-04"
 title: "How to do a blog post"
 previewImage: true
 image: https://res.cloudinary.com/satellytes/image/upload/v1594992283/satellytes-website/blog-how-to-do-a-blogpost_h5txir.jpg
+author: "John Doe"
 ---
 
 Dear colleagues,

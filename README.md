@@ -27,8 +27,9 @@ metadata in the frontmatter header. The blog post files live in [/data/blog-post
 The metadata contains:
 - `path`: The URL Path to the blog post. It should start with `/blog/`
 - `date`: The date of the blog post
-- `title`: The title of the blog post'
+- `title`: The title of the blog post
 - `previewImage`: Set to true if you want to display a placeholder image in the blog post preview
+-  `author`: The author of the blog post
 
 The preview text on the blog overview page will be generated automatically by the first few sentences. You can also
 manually set a breakpoint with `<!-- end -->` to create a preview text from the blog posts start until this marker.
@@ -45,6 +46,7 @@ An example of a markdown file:
 path: "/blog/your_blog_post_url"
 date: "YYYY-MM-DD"
 title: "Your title"
+author: "Your author"
 ---
 
 This is a demo post.

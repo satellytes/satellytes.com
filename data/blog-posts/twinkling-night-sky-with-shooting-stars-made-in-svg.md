@@ -2,6 +2,7 @@
 path: "/blog/twinkling-night-sky-with-shooting-stars-made-in-svg"
 date: "2018-10-27"
 title: "Twinkling night sky with shooting stars made in SVG"
+author: "Georgios Kaleadis"
 ---
 
 Have you seen the stars background effect on our start page? Here a quick post how we built it.

@@ -1,8 +1,9 @@
 ---
 path: "/blog/building-www-satellytes-com-with-gatsby-contentful-and-netlify"
-date: "2018-10-10"
+date: "2020-08-01"
 title: "Building satellytes.com with Gatsby, Contentful & Netlify"
 previewImage: true
+author: "F. Scott Fitzgerald"
 ---
 
 This page's sources are hosted on GitHub if you want to look into the sources. We are using Gatsby 2 already.
