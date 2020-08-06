@@ -52,8 +52,6 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
               date={data.markdownRemark.frontmatter.date}
             />
           )}
-
-          {!data.markdownRemark.frontmatter.author && 'TODO: no author error'}
         </GridItem>
       </Grid>
     </Layout>

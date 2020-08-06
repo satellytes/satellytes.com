@@ -1,3 +1,4 @@
+import differenceInCalendarDays from 'date-fns/differenceInCalendarDays';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -26,9 +27,7 @@ const SignatureDaysPassed = styled.p`
 `;
 
 const Signature: React.FC<SignatureProps> = ({ author, date }) => {
-  const currentDate = Date.parse(new Date().toString());
-  const incomingDate = Date.parse(new Date(date).toString());
-  const daysPassed = Math.round((currentDate - incomingDate) / 86400000);
+  const daysPassed = differenceInCalendarDays(new Date(), new Date(date));
   const daysText = daysPassed > 2 ? 'Tagen' : 'Tag';
 
   return (

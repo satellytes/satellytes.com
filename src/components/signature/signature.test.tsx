@@ -1,15 +1,19 @@
+import { render } from '@testing-library/react';
 import React from 'react';
 import Signature from './signature';
-import { render } from '@testing-library/react';
 
 const testData = [
   {
     author: 'John Doe',
-    date: '2020-05-05',
+    date: '2020-07-01',
   },
   {
     author: 'John Doe',
     date: new Date().toString(),
+  },
+  {
+    author: 'John Doe',
+    date: '2020-08-01',
   },
 ];
 
@@ -25,29 +29,30 @@ describe(Signature.name, () => {
     const { getByText } = render(
       <Signature author={testData[0].author} date={testData[0].date} />,
     );
-    const author = getByText('von John Doe');
-    expect(author).toBeTruthy();
+    expect(getByText('von John Doe')).toBeTruthy();
   });
 
   describe('days label', () => {
-    it('should render label "vor Tag" if date today', () => {
+    it('should render label "Tag" if date today', () => {
       const { findByText } = render(
         <Signature author={testData[1].author} date={testData[1].date} />,
       );
-      const date = findByText('Tag');
-      expect(date).toBeTruthy();
+      expect(findByText('Tag')).toBeTruthy();
     });
 
     it('should render label "Tagen" if date earlier than today', () => {
       const { findByText } = render(
         <Signature author={testData[0].author} date={testData[0].date} />,
       );
-      const date = findByText('Tagen');
-      expect(date).toBeTruthy();
+      expect(findByText('Tagen')).toBeTruthy();
     });
 
     it('should render correct number of days', () => {
-      pending('waiting for implementation');
+      const { getByText } = render(
+        <Signature author={testData[2].author} date={testData[2].date} />,
+      );
+      const date = getByText('vor 5 Tagen');
+      expect(date).toBeTruthy();
     });
   });
 });
