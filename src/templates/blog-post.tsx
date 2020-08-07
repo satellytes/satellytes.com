@@ -8,7 +8,7 @@ import { Markdown } from '../components/markdown/markdown';
 import { SectionTitle } from '../components/typography/typography';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
-import Signature from '../components/signature/signature';
+import Byline from '../components/byline/byline';
 
 interface BlogArticleTemplateProps {
   data: {
@@ -18,6 +18,7 @@ interface BlogArticleTemplateProps {
         title: string;
         image?: string;
         author: string;
+        authorSummary: string;
       };
       rawMarkdownBody: string;
     };
@@ -47,9 +48,10 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
           </BlogPostTitle>
           <Markdown data={data.markdownRemark.rawMarkdownBody} />
           {data.markdownRemark.frontmatter.author && (
-            <Signature
+            <Byline
               author={data.markdownRemark.frontmatter.author}
-              date={data.markdownRemark.frontmatter.date}
+              date={new Date(data.markdownRemark.frontmatter.date)}
+              authorSummary={data.markdownRemark.frontmatter.authorSummary}
             />
           )}
         </GridItem>
@@ -67,6 +69,7 @@ export const BLOG_POST_PAGE_QUERY = graphql`
         title
         image
         author
+        authorSummary
       }
       rawMarkdownBody
     }

@@ -4,6 +4,7 @@ date: "2020-08-01"
 title: "Building satellytes.com with Gatsby, Contentful & Netlify"
 previewImage: true
 author: "F. Scott Fitzgerald"
+authorSummary: "Writer" 
 ---
 
 This page's sources are hosted on GitHub if you want to look into the sources. We are using Gatsby 2 already.
