@@ -8,6 +8,8 @@ import { Markdown } from '../components/markdown/markdown';
 import { SectionTitle } from '../components/typography/typography';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
+import Byline from '../components/byline/byline';
+import parseISO from 'date-fns/parseISO';
 
 interface BlogArticleTemplateProps {
   data: {
@@ -16,6 +18,8 @@ interface BlogArticleTemplateProps {
         date: string;
         title: string;
         image?: string;
+        author?: string;
+        authorSummary?: string;
       };
       rawMarkdownBody: string;
     };
@@ -44,6 +48,14 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
             {data.markdownRemark.frontmatter.title}
           </BlogPostTitle>
           <Markdown data={data.markdownRemark.rawMarkdownBody} />
+          {data.markdownRemark.frontmatter.authorSummary &&
+            data.markdownRemark.frontmatter.author && (
+              <Byline
+                author={data.markdownRemark.frontmatter.author}
+                date={parseISO(data.markdownRemark.frontmatter.date)}
+                authorSummary={data.markdownRemark.frontmatter.authorSummary}
+              />
+            )}
         </GridItem>
       </Grid>
     </Layout>
@@ -54,10 +66,12 @@ export const BLOG_POST_PAGE_QUERY = graphql`
   query($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
+        date
         path
         title
         image
+        author
+        authorSummary
       }
       rawMarkdownBody
     }
