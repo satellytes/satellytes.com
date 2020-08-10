@@ -10,7 +10,6 @@ import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
 import Byline from '../components/byline/byline';
 import parseISO from 'date-fns/parseISO';
-import SharedPanel from '../components/shared-panel/shared-panel';
 
 interface BlogArticleTemplateProps {
   data: {
@@ -57,7 +56,6 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
                 authorSummary={data.markdownRemark.frontmatter.authorSummary}
               />
             )}
-          <SharedPanel facebookId="facebookId" />
         </GridItem>
       </Grid>
     </Layout>

@@ -20,7 +20,7 @@ export interface AuthorCredentialsProps {
 
 const SharedPanelContainer = styled.div`
   color: #668cff;
-  margin-top: 80px;
+  margin-top: 26px;
   font-weight: bold;
   font-size: 16px;
 `;
