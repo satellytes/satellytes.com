@@ -1,18 +1,18 @@
 import React from 'react';
 import {
-  EmailIcon,
   EmailShareButton,
-  FacebookIcon,
-  FacebookMessengerIcon,
   FacebookMessengerShareButton,
   FacebookShareButton,
-  TwitterIcon,
   TwitterShareButton,
-  WhatsappIcon,
   WhatsappShareButton,
 } from 'react-share';
 import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
+import { IconEmail } from '../icons/social/email';
+import { IconFacebook } from '../icons/social/facebook';
+import { IconMessenger } from '../icons/social/messenger';
+import { IconTwitter } from '../icons/social/twitter';
+import { IconWhatsapp } from '../icons/social/whatsapp';
 
 export interface AuthorCredentialsProps {
   facebookId: string;
@@ -54,8 +54,6 @@ export const SharedPanel: React.FC<AuthorCredentialsProps> = ({
 }) => {
   const shareUrl = 'https://satellytes-website-new.netlify.app';
   const title = 'Satellytes';
-  const iconSize = 26;
-  const color = '#668CFF';
 
   return (
     <SharedPanelContainer>
@@ -63,48 +61,27 @@ export const SharedPanel: React.FC<AuthorCredentialsProps> = ({
       <SocialLinks>
         <SocialLinkItem>
           <WhatsappShareButton url={shareUrl} title={title}>
-            <WhatsappIcon
-              size={iconSize}
-              round={true}
-              bgStyle={{ fill: color }}
-            />
+            <IconWhatsapp />
           </WhatsappShareButton>
         </SocialLinkItem>
         <SocialLinkItem>
           <FacebookMessengerShareButton appId={facebookId} url={shareUrl}>
-            <FacebookMessengerIcon
-              size={iconSize}
-              round={true}
-              bgStyle={{ fill: color }}
-            />
+            <IconMessenger />
           </FacebookMessengerShareButton>
         </SocialLinkItem>
         <SocialLinkItem>
           <EmailShareButton url={shareUrl} subject={title} body="body">
-            <EmailIcon
-              size={iconSize}
-              borderRadius={5}
-              bgStyle={{ fill: color }}
-            />
+            <IconEmail />
           </EmailShareButton>
         </SocialLinkItem>
         <SocialLinkItem>
           <FacebookShareButton url={shareUrl} quote={title}>
-            <FacebookIcon
-              size={iconSize}
-              borderRadius={5}
-              bgStyle={{ fill: color }}
-            />
+            <IconFacebook />
           </FacebookShareButton>
         </SocialLinkItem>
         <SocialLinkItem>
           <TwitterShareButton url={shareUrl} title={title}>
-            <TwitterIcon
-              size={iconSize}
-              round={true}
-              iconFillColor={color}
-              bgStyle={{ fill: 'white' }}
-            />
+            <IconTwitter />
           </TwitterShareButton>
         </SocialLinkItem>
       </SocialLinks>
