@@ -44,7 +44,6 @@ const SocialLinkItem = styled.li`
   display: inline-block;
   margin-right: 16px;
   cursor: pointer;
-  color: #4d79ff;
   &:last-of-type {
     margin-right: 0;
   }
@@ -55,34 +54,57 @@ export const SharedPanel: React.FC<AuthorCredentialsProps> = ({
 }) => {
   const shareUrl = 'https://satellytes-website-new.netlify.app';
   const title = 'Satellytes';
-  const iconSize = 24;
+  const iconSize = 26;
+  const color = '#668CFF';
+
   return (
     <SharedPanelContainer>
       <SharedPanelText>Artikel teilen</SharedPanelText>
       <SocialLinks>
         <SocialLinkItem>
           <WhatsappShareButton url={shareUrl} title={title}>
-            <WhatsappIcon size={iconSize} round={true} />
+            <WhatsappIcon
+              size={iconSize}
+              round={true}
+              bgStyle={{ fill: color }}
+            />
           </WhatsappShareButton>
         </SocialLinkItem>
         <SocialLinkItem>
           <FacebookMessengerShareButton appId={facebookId} url={shareUrl}>
-            <FacebookMessengerIcon size={iconSize} round={true} />
+            <FacebookMessengerIcon
+              size={iconSize}
+              round={true}
+              bgStyle={{ fill: color }}
+            />
           </FacebookMessengerShareButton>
         </SocialLinkItem>
         <SocialLinkItem>
           <EmailShareButton url={shareUrl} subject={title} body="body">
-            <EmailIcon size={iconSize} />
+            <EmailIcon
+              size={iconSize}
+              borderRadius={5}
+              bgStyle={{ fill: color }}
+            />
           </EmailShareButton>
         </SocialLinkItem>
         <SocialLinkItem>
           <FacebookShareButton url={shareUrl} quote={title}>
-            <FacebookIcon size={iconSize} borderRadius={5} />
+            <FacebookIcon
+              size={iconSize}
+              borderRadius={5}
+              bgStyle={{ fill: color }}
+            />
           </FacebookShareButton>
         </SocialLinkItem>
         <SocialLinkItem>
           <TwitterShareButton url={shareUrl} title={title}>
-            <TwitterIcon size={iconSize} round={true} />
+            <TwitterIcon
+              size={iconSize}
+              round={true}
+              iconFillColor={color}
+              bgStyle={{ fill: 'white' }}
+            />
           </TwitterShareButton>
         </SocialLinkItem>
       </SocialLinks>
