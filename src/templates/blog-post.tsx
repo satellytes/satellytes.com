@@ -19,7 +19,7 @@ interface BlogArticleTemplateProps {
         title: string;
         image?: string;
         author?: string;
-        authorSummary?: string | undefined;
+        authorSummary?: string;
       };
       rawMarkdownBody: string;
     };
