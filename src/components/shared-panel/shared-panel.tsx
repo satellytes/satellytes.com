@@ -52,8 +52,8 @@ const SocialLinkItem = styled.li`
 export const SharedPanel: React.FC<AuthorCredentialsProps> = ({
   facebookId,
 }) => {
-  const shareUrl = window.location.href;
-  const title = window.document.title;
+  const shareUrl = typeof window !== `undefined` ? window.location.href : '';
+  const title = typeof window !== `undefined` ? window.document.title : '';
 
   return (
     <SharedPanelContainer>
@@ -81,7 +81,7 @@ export const SharedPanel: React.FC<AuthorCredentialsProps> = ({
         </SocialLinkItem>
         <SocialLinkItem>
           <TwitterShareButton url={shareUrl} title={title}>
-            <IconTwitter />
+            <IconTwitter color="#668cff" />
           </TwitterShareButton>
         </SocialLinkItem>
       </SocialLinks>
