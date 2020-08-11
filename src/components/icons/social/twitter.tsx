@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface TwitterProps {
-  color: string;
+  color?: string;
 }
 
 export const IconTwitter: React.FC<TwitterProps> = (props) => (
