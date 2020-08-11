@@ -52,8 +52,8 @@ const SocialLinkItem = styled.li`
 export const SharedPanel: React.FC<AuthorCredentialsProps> = ({
   facebookId,
 }) => {
-  const shareUrl = 'https://satellytes-website-new.netlify.app';
-  const title = 'Satellytes';
+  const shareUrl = window.location.href;
+  const title = window.document.title;
 
   return (
     <SharedPanelContainer>
