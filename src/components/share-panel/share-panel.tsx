@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   EmailShareButton,
-  FacebookMessengerShareButton,
   FacebookShareButton,
   TwitterShareButton,
   WhatsappShareButton,
@@ -10,22 +9,17 @@ import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
 import { IconEmail } from '../icons/social/email';
 import { IconFacebook } from '../icons/social/facebook';
-import { IconMessenger } from '../icons/social/messenger';
 import { IconTwitter } from '../icons/social/twitter';
 import { IconWhatsapp } from '../icons/social/whatsapp';
 
-export interface AuthorCredentialsProps {
-  facebookId: string;
-}
-
-const SharedPanelContainer = styled.div`
+const SharePanelContainer = styled.div`
   color: #668cff;
   margin-top: 26px;
   font-weight: bold;
   font-size: 16px;
 `;
 
-const SharedPanelText = styled.p`
+const SharePanelText = styled.p`
   font-weight: bold;
   font-size: 16px;
 `;
@@ -49,25 +43,20 @@ const SocialLinkItem = styled.li`
   }
 `;
 
-export const SharedPanel: React.FC<AuthorCredentialsProps> = ({
-  facebookId,
-}) => {
-  const shareUrl = typeof window !== `undefined` ? window.location.href : '';
-  const title = typeof window !== `undefined` ? window.document.title : '';
+export const SharePanel: React.FC = () => {
+  const isBrowser = typeof window !== `undefined` ? true : false;
+  const shareUrl = isBrowser ? window.location.href : '';
+  const title = isBrowser ? window.document.title : '';
+  const hashtags = ['Satellytes'];
 
   return (
-    <SharedPanelContainer>
-      <SharedPanelText>Artikel teilen</SharedPanelText>
+    <SharePanelContainer>
+      <SharePanelText>Artikel teilen</SharePanelText>
       <SocialLinks>
         <SocialLinkItem>
           <WhatsappShareButton url={shareUrl} title={title}>
             <IconWhatsapp />
           </WhatsappShareButton>
-        </SocialLinkItem>
-        <SocialLinkItem>
-          <FacebookMessengerShareButton appId={facebookId} url={shareUrl}>
-            <IconMessenger />
-          </FacebookMessengerShareButton>
         </SocialLinkItem>
         <SocialLinkItem>
           <EmailShareButton url={shareUrl} subject={title} body="body">
@@ -80,13 +69,13 @@ export const SharedPanel: React.FC<AuthorCredentialsProps> = ({
           </FacebookShareButton>
         </SocialLinkItem>
         <SocialLinkItem>
-          <TwitterShareButton url={shareUrl} title={title}>
+          <TwitterShareButton url={shareUrl} title={title} hashtags={hashtags}>
             <IconTwitter color="#668cff" />
           </TwitterShareButton>
         </SocialLinkItem>
       </SocialLinks>
-    </SharedPanelContainer>
+    </SharePanelContainer>
   );
 };
 
-export default SharedPanel;
+export default SharePanel;

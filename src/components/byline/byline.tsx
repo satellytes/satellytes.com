@@ -2,7 +2,7 @@ import { formatDistanceToNow } from 'date-fns';
 import { de } from 'date-fns/locale';
 import React from 'react';
 import styled from 'styled-components';
-import SharedPanel from '../shared-panel/shared-panel';
+import SharePanel from '../share-panel/share-panel';
 
 export interface BylineProps {
   author: string;
@@ -48,7 +48,7 @@ const Byline: React.FC<BylineProps> = ({ author, date, authorSummary }) => {
       <BylineAuthor>von {author}</BylineAuthor>
       <BylineAuthorSummary>{authorSummary}</BylineAuthorSummary>
       <BylineTimeFromPosted>{timeFromPosted}</BylineTimeFromPosted>
-      <SharedPanel facebookId="facebookId" />
+      <SharePanel />
     </BylineContainer>
   );
 };
