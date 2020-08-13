@@ -29,7 +29,11 @@ const BylineTimeFromPosted = styled.p`
   margin-top: 0px;
 `;
 
-const Byline: React.FC<BylineProps> = ({ author, date, authorSummary }) => {
+const Byline: React.FC<BylineProps> = ({
+  author,
+  date,
+  authorSummary,
+}) => {
   const timeFromPosted = formatDistanceToNow(new Date(date), {
     locale: de,
     addSuffix: true,

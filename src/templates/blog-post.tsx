@@ -36,6 +36,8 @@ const BlogPostTitle = styled(SectionTitle)`
 `;
 
 const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
+  console.log(data.markdownRemark.frontmatter.title);
+  console.log(data.markdownRemark.frontmatter.image);
   return (
     <Layout
       heroImage={data.markdownRemark.frontmatter.image}
@@ -60,7 +62,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
               />
             )}
           <Markdown data={data.markdownRemark.rawMarkdownBody} />
-          <SharePanel />
+          <SharePanel title={data.markdownRemark.frontmatter.title} />
         </GridItem>
       </Grid>
     </Layout>
