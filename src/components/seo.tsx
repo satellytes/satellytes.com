@@ -8,7 +8,6 @@ interface SeoProps {
   title: string;
   description?: string;
   lang?: string;
-  meta?: [any];
   image?: string;
 }
 
@@ -17,7 +16,6 @@ interface SeoProps {
 const SEO: React.FC<SeoProps> = ({
   description = '',
   lang = 'de',
-  meta = [],
   title,
   image,
 }) => {
@@ -44,64 +42,34 @@ const SEO: React.FC<SeoProps> = ({
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-
-        //Google block:
-        {
-          itemprop: `name`,
-          content: title,
-        },
-        {
-          itemprop: `description`,
-          content: metaDescription,
-        },
-        {
-          itemprop: `image`,
-          content: image,
-        },
-
-        //facebook block:
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-
-        //twitter block:
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
     >
-      {/* if image exist*/}
+      {/* -- Primary tags -- */}
+      <meta name="title" property="name" content={title} />
+      <meta
+        name="description"
+        property="og:description"
+        content={metaDescription}
+      />
+      {image && <meta property="image" content={image} />}
+      {image && <meta itemProp="image" content={image} />}
+
+      {/* -- Facebook Meta Tags -- */}
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={title} />
       {image && <meta property="og:image" content={image} />}
-      {image && <meta property="og:image:width" content={`300px`} />}
-      {image && <meta property="og:image:height" content={`300px`} />}
-      {image && <meta name="twitter:image" content={image}></meta>}
+
+      {/* -- Twitter Meta Tags -- */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={metaDescription} />
+      <meta name="twitter:creator" content={site.siteMetadata.author} />
+      {image && <meta name="twitter:image" content={image} />}
+      {image && <meta property="twitter:image:alt" content={title} />}
+
+      {/* -- Whatsapp --*/}
+      {image && <meta property="og:image:secure_url" content={image} />}
+      {image && <meta property="og:image:width" content="256" />}
+      {image && <meta property="og:image:height" content="256" />}
 
       {/*
        * All fonts that are linked with a preload are getting loaded before any
