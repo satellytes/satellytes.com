@@ -41,7 +41,10 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
       heroImage={data.markdownRemark.frontmatter.image}
       siteTitleUrl={'/blog'}
     >
-      <SEO title="Blog article" />
+      <SEO
+        title={data.markdownRemark.frontmatter.title}
+        image={data.markdownRemark.frontmatter.image}
+      />
       <Grid center>
         <GridItem xs={0} md={2} />
         <GridItem xs={12} md={8}>
