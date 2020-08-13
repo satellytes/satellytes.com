@@ -44,7 +44,7 @@ const SocialLinkItem = styled.li`
 `;
 
 export const SharePanel: React.FC = () => {
-  const isBrowser = typeof window !== `undefined` ? true : false;
+  const isBrowser = typeof window !== `undefined`;
   const shareUrl = isBrowser ? window.location.href : '';
   const title = isBrowser ? window.document.title : '';
   const hashtags = ['Satellytes'];
