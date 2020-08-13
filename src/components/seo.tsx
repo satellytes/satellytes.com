@@ -9,6 +9,7 @@ interface SeoProps {
   description?: string;
   lang?: string;
   meta?: [any];
+  image?: string;
 }
 
 // todo: make this component nice
@@ -18,6 +19,7 @@ const SEO: React.FC<SeoProps> = ({
   lang = 'de',
   meta = [],
   title,
+  image,
 }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -47,6 +49,26 @@ const SEO: React.FC<SeoProps> = ({
           name: `description`,
           content: metaDescription,
         },
+
+        //Google block:
+        {
+          itemprop: `name`,
+          content: title,
+        },
+        {
+          itemprop: `description`,
+          content: metaDescription,
+        },
+        {
+          itemprop: `image`,
+          content: image,
+        },
+
+        //facebook block:
+        {
+          property: `og:type`,
+          content: `website`,
+        },
         {
           property: `og:title`,
           content: title,
@@ -55,10 +77,8 @@ const SEO: React.FC<SeoProps> = ({
           property: `og:description`,
           content: metaDescription,
         },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
+
+        //twitter block:
         {
           name: `twitter:card`,
           content: `summary`,
@@ -77,6 +97,12 @@ const SEO: React.FC<SeoProps> = ({
         },
       ].concat(meta)}
     >
+      {/* if image exist*/}
+      {image && <meta property="og:image" content={image} />}
+      {image && <meta property="og:image:width" content={`300px`} />}
+      {image && <meta property="og:image:height" content={`300px`} />}
+      {image && <meta name="twitter:image" content={image}></meta>}
+
       {/*
        * All fonts that are linked with a preload are getting loaded before any
        * other resources, no matter if the used or not. We therefore need to
