@@ -36,8 +36,6 @@ const BlogPostTitle = styled(SectionTitle)`
 `;
 
 const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
-  console.log(data.markdownRemark.frontmatter.title);
-  console.log(data.markdownRemark.frontmatter.image);
   return (
     <Layout
       heroImage={data.markdownRemark.frontmatter.image}
@@ -45,7 +43,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
     >
       <SEO
         title={data.markdownRemark.frontmatter.title}
-        image={data.markdownRemark.frontmatter.image}
+        imageUrl={data.markdownRemark.frontmatter.image}
       />
       <Grid center>
         <GridItem xs={0} md={2} />
