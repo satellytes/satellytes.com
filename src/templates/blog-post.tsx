@@ -1,15 +1,14 @@
-import React from 'react';
-
-import Layout from '../components/layout/layout';
-import SEO from '../components/seo';
-import { Grid, GridItem } from '../components/grid/grid';
+import parseISO from 'date-fns/parseISO';
 import { graphql } from 'gatsby';
-import { Markdown } from '../components/markdown/markdown';
-import { SectionTitle } from '../components/typography/typography';
+import React from 'react';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
 import Byline from '../components/byline/byline';
-import parseISO from 'date-fns/parseISO';
+import { Grid, GridItem } from '../components/grid/grid';
+import Layout from '../components/layout/layout';
+import { Markdown } from '../components/markdown/markdown';
+import SEO from '../components/seo';
+import { SectionTitle } from '../components/typography/typography';
 import SharePanel from '../components/share-panel/share-panel';
 
 interface BlogArticleTemplateProps {
@@ -44,6 +43,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
       <SEO
         title={data.markdownRemark.frontmatter.title}
         imageUrl={data.markdownRemark.frontmatter.image}
+        siteType="article"
       />
       <Grid center>
         <GridItem xs={0} md={2} />

@@ -1,8 +1,8 @@
+import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
-import CocoGothicWoff2 from './layout/fonts/CocoGothic.woff2';
 import CocoGothicBoldWoff2 from './layout/fonts/CocoGothic-Bold.woff2';
+import CocoGothicWoff2 from './layout/fonts/CocoGothic.woff2';
 import { transformCloudinaryUrl } from './util/cloudinary-util';
 
 interface SeoProps {
@@ -10,6 +10,7 @@ interface SeoProps {
   description?: string;
   lang?: string;
   imageUrl?: string;
+  siteType?: string;
 }
 
 const SEO: React.FC<SeoProps> = ({
@@ -17,6 +18,7 @@ const SEO: React.FC<SeoProps> = ({
   lang = 'de',
   title,
   imageUrl,
+  siteType,
 }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -33,6 +35,7 @@ const SEO: React.FC<SeoProps> = ({
   );
 
   const metaDescription = description || site.siteMetadata.description;
+  const typeOfSite = siteType || 'website';
 
   return (
     <Helmet
@@ -62,9 +65,7 @@ const SEO: React.FC<SeoProps> = ({
           content={transformCloudinaryUrl(imageUrl, 300)}
         />
       )}
-
-      {/* -- Facebook Meta Tags -- */}
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={typeOfSite} />
 
       {/* -- Twitter Meta Tags -- */}
       <meta name="twitter:card" content="summary_large_image" />
