@@ -102,20 +102,8 @@ export const ContactForm: React.FC = () => {
 
   const { register, errors, handleSubmit } = useForm();
 
-  const hasValidInput = (): boolean => {
-    console.log('errors', errors);
-    return Boolean(
-      formData.name &&
-        formData.name.length > 0 &&
-        formData.email &&
-        formData.email.length > 0 &&
-        formData.message &&
-        formData.message.length > 0,
-    );
-  };
-
-  const handleSubmit1: FormEventHandler = (e) => {
-    // taken from the Netlify Blog:
+  const onSubmit: FormEventHandler = () => {
+    // partialy taken from the Netlify Blog:
     // - https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
     const encodeForNetlify = (data: any): string => {
       return Object.keys(data)
@@ -139,12 +127,6 @@ export const ContactForm: React.FC = () => {
         console.error(error);
         setRequestStatus('error');
       });
-
-    e.preventDefault();
-  };
-
-  const onSubmit: FormEventHandler = (data: any) => {
-    console.log('onsubmit data', data);
   };
 
   const handleInputChange: ChangeEventHandler<
@@ -158,8 +140,8 @@ export const ContactForm: React.FC = () => {
       name="contact"
       method="POST"
       data-netlify="true"
-      onSubmit={handleSubmit(onSubmit)}
       data-netlify-honeypot="bot-field"
+      onSubmit={handleSubmit(onSubmit)}
     >
       <InputContainer>
         <ErrorContainer>
@@ -205,16 +187,7 @@ export const ContactForm: React.FC = () => {
       />
       {errors.message && <ErrorMessage>Please, input message</ErrorMessage>}
       <div>
-        <SendButton
-          type="submit"
-          title={
-            hasValidInput()
-              ? 'Click to send us your message'
-              : 'Please fill in all information'
-          }
-        >
-          Send &#8594;
-        </SendButton>
+        <SendButton type="submit">Send &#8594;</SendButton>
         {requestStatus === 'success' && (
           <RequestStatusMessage>Thanks for your message!</RequestStatusMessage>
         )}
