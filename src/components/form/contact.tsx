@@ -2,6 +2,7 @@ import React, { ChangeEventHandler, FormEventHandler, useState } from 'react';
 import styled from 'styled-components';
 import { Text } from '../typography/typography';
 import { up } from '../breakpoint/breakpoint';
+import { useForm } from 'react-hook-form';
 
 const InputContainer = styled.div`
   display: flex;
@@ -40,7 +41,6 @@ const TextArea = styled.textarea`
   width: 100%;
   padding: 19px 16px;
   margin-top: 24px;
-  margin-bottom: 40px;
 
   font-size: 16px;
   line-height: 110%;
@@ -53,6 +53,7 @@ const TextArea = styled.textarea`
 `;
 
 const SendButton = styled.button`
+  margin-top: 40px;
   cursor: pointer;
   padding: 13px 18px;
 
@@ -75,6 +76,23 @@ const RequestStatusMessage = styled(Text)`
   margin-left: 24px;
 `;
 
+const ErrorContainer = styled.div`
+  width: 100%;
+  margin-bottom: 0;
+
+  ${up('md')} {
+    margin-right: 24px;
+  }
+`;
+
+const ErrorMessage = styled.p`
+  color: #dc052d;
+  opacity: 0.5;
+  font-size: 14px;
+  margin-top: 8px;
+  margin-bottom: 0;
+`;
+
 type RequestStatus = 'pending' | 'success' | 'error';
 
 export const ContactForm: React.FC = () => {
@@ -82,7 +100,10 @@ export const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState(initialFormData);
   const [requestStatus, setRequestStatus] = useState<RequestStatus>('pending');
 
+  const { register, errors, handleSubmit } = useForm();
+
   const hasValidInput = (): boolean => {
+    console.log('errors', errors);
     return Boolean(
       formData.name &&
         formData.name.length > 0 &&
@@ -93,7 +114,7 @@ export const ContactForm: React.FC = () => {
     );
   };
 
-  const handleSubmit: FormEventHandler = (e) => {
+  const handleSubmit1: FormEventHandler = (e) => {
     // taken from the Netlify Blog:
     // - https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
     const encodeForNetlify = (data: any): string => {
@@ -122,6 +143,10 @@ export const ContactForm: React.FC = () => {
     e.preventDefault();
   };
 
+  const onSubmit: FormEventHandler = (data: any) => {
+    console.log('onsubmit data', data);
+  };
+
   const handleInputChange: ChangeEventHandler<
     HTMLInputElement | HTMLTextAreaElement
   > = (e) => {
@@ -133,33 +158,54 @@ export const ContactForm: React.FC = () => {
       name="contact"
       method="POST"
       data-netlify="true"
-      onSubmit={handleSubmit}
+      onSubmit={handleSubmit(onSubmit)}
+      data-netlify-honeypot="bot-field"
     >
       <InputContainer>
-        <Input
-          placeholder="Your name"
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleInputChange}
-        />
-        <Input
-          placeholder="Your email"
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleInputChange}
-        />
+        <ErrorContainer>
+          <Input
+            placeholder="Your name"
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
+            ref={register({ required: true })}
+          />
+          {errors.name && <ErrorMessage>Name is required</ErrorMessage>}
+        </ErrorContainer>
+        <ErrorContainer>
+          <Input
+            placeholder="Your email"
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            ref={register({
+              required: true,
+              pattern: /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+            })}
+          />
+          {errors.email && (
+            <ErrorMessage>
+              <strong>E-Mail-Adresse:</strong>
+              <span>
+                Integer posuere erat a ante venenatis dapibus posuere velit
+                aliquet
+              </span>
+            </ErrorMessage>
+          )}
+        </ErrorContainer>
       </InputContainer>
       <TextArea
         placeholder="Your message to us"
         name="message"
         value={formData.message}
         onChange={handleInputChange}
+        ref={register({ required: true })}
       />
+      {errors.message && <ErrorMessage>Please, input message</ErrorMessage>}
       <div>
         <SendButton
-          disabled={!hasValidInput()}
           type="submit"
           title={
             hasValidInput()
