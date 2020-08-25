@@ -71,9 +71,30 @@ const SendButton = styled.button`
   }
 `;
 
+const SentButton = styled.button`
+  margin-top: 40px;
+  cursor: pointer;
+  padding: 13px 18px;
+
+  font-size: 20px;
+  line-height: 110%;
+
+  color: #202840;
+  background: #adf2dd;
+  border-radius: 28px;
+  border: 0;
+
+  &:disabled {
+    cursor: auto;
+    opacity: 0.7;
+  }
+`;
+
 const RequestStatusMessage = styled(Text)`
   display: inline-block;
   margin-left: 24px;
+  color: #668cff;
+  font-size: 14px;
 `;
 
 const ErrorContainer = styled.div`
@@ -133,6 +154,7 @@ export const ContactForm: React.FC = () => {
     HTMLInputElement | HTMLTextAreaElement
   > = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    setRequestStatus('pending');
   };
 
   return (
@@ -187,9 +209,16 @@ export const ContactForm: React.FC = () => {
       />
       {errors.message && <ErrorMessage>Please, input message</ErrorMessage>}
       <div>
-        <SendButton type="submit">Send &#8594;</SendButton>
+        {requestStatus === 'pending' && (
+          <SendButton type="submit">Send &#8594;</SendButton>
+        )}
+        {(errors.name || errors.email || errors.message) && (
+          <RequestStatusMessage>
+            Bitte füllen Sie alle Felder aus
+          </RequestStatusMessage>
+        )}
         {requestStatus === 'success' && (
-          <RequestStatusMessage>Thanks for your message!</RequestStatusMessage>
+          <SentButton type="button">Sent &#10004;</SentButton>
         )}
         {requestStatus === 'error' && (
           <RequestStatusMessage>
