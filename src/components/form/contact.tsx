@@ -109,7 +109,7 @@ const SendButton = styled(Button)`
 
 const SentButton = styled(Button)`
   color: #202840;
-  background: #adf2dd;
+  background: #75f0c7;
 `;
 
 const RequestStatusMessage = styled(Text)`
