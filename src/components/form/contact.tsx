@@ -52,7 +52,7 @@ const TextArea = styled.textarea`
   resize: vertical;
 `;
 
-const SendButton = styled.button`
+const Button = styled.button`
   margin-top: 40px;
   cursor: pointer;
   padding: 13px 18px;
@@ -60,34 +60,18 @@ const SendButton = styled.button`
   font-size: 20px;
   line-height: 110%;
 
-  color: #ffffff;
-  background: #668cff;
   border-radius: 28px;
   border: 0;
-
-  &:disabled {
-    cursor: auto;
-    opacity: 0.7;
-  }
 `;
 
-const SentButton = styled.button`
-  margin-top: 40px;
-  cursor: pointer;
-  padding: 13px 18px;
+const SendButton = styled(Button)`
+  color: #ffffff;
+  background: #668cff;
+`;
 
-  font-size: 20px;
-  line-height: 110%;
-
+const SentButton = styled(Button)`
   color: #202840;
   background: #adf2dd;
-  border-radius: 28px;
-  border: 0;
-
-  &:disabled {
-    cursor: auto;
-    opacity: 0.7;
-  }
 `;
 
 const RequestStatusMessage = styled(Text)`
@@ -108,10 +92,13 @@ const ErrorContainer = styled.div`
 
 const ErrorMessage = styled.p`
   color: #dc052d;
-  opacity: 0.5;
   font-size: 14px;
   margin-top: 8px;
   margin-bottom: 0;
+`;
+const ErrorMessageSend = styled(ErrorMessage)`
+  display: inline-block;
+  margin-left: 24px;
 `;
 
 type RequestStatus = 'pending' | 'success' | 'error';
@@ -126,6 +113,7 @@ export const ContactForm: React.FC = () => {
   const onSubmit: FormEventHandler = () => {
     // partialy taken from the Netlify Blog:
     // - https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
+
     const encodeForNetlify = (data: any): string => {
       return Object.keys(data)
         .map(
@@ -191,7 +179,7 @@ export const ContactForm: React.FC = () => {
           />
           {errors.email && (
             <ErrorMessage>
-              <strong>E-Mail-Adresse:</strong>
+              <strong>E-Mail-Adresse: </strong>
               <span>
                 Integer posuere erat a ante venenatis dapibus posuere velit
                 aliquet
@@ -213,9 +201,7 @@ export const ContactForm: React.FC = () => {
           <SendButton type="submit">Send &#8594;</SendButton>
         )}
         {(errors.name || errors.email || errors.message) && (
-          <RequestStatusMessage>
-            Bitte füllen Sie alle Felder aus
-          </RequestStatusMessage>
+          <ErrorMessageSend>Bitte füllen Sie alle Felder aus</ErrorMessageSend>
         )}
         {requestStatus === 'success' && (
           <SentButton type="button">Sent &#10004;</SentButton>
