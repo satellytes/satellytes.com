@@ -24,6 +24,7 @@ const CONTACT_PAGE_QUERY = graphql`
 
 const ContactSubTitle = styled(SubTitle)<{ short?: boolean }>`
   margin-top: ${(props) => (props.short ? '40px' : '80px')};
+  margin-bottom: 40px !important;
 
   ${up('md')} {
     margin-top: ${(props) => (props.short ? '80px' : '160px')};

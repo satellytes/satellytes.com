@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
 import { Text } from '../typography/typography';
+import { RightArrowIcon } from '../icons/buttons-icons/right-arrow';
+import { CheckmarkIcon } from '../icons/buttons-icons/checkmark';
 
 const InputContainer = styled.div`
   display: flex;
@@ -51,6 +53,10 @@ const Input = styled.input`
 const InputError = styled(Input)`
   background: #f8cdd5;
   color: #dc052d;
+  ::placeholder {
+    color: #dc052d;
+    opacity: 1;
+  }
 `;
 
 const TextArea = styled.textarea`
@@ -70,6 +76,10 @@ const TextArea = styled.textarea`
 
 const TextAreaError = styled(TextArea)`
   background: #f8cdd5;
+  ::placeholder {
+    color: #dc052d;
+    opacity: 1;
+  }
 `;
 
 const Button = styled.button`
@@ -78,10 +88,18 @@ const Button = styled.button`
   padding: 13px 18px;
 
   font-size: 20px;
+  font-family: CocoGothic !important;
+  font-weight: bold;
+  text-align: left;
   line-height: 110%;
 
   border-radius: 28px;
   border: 0;
+  width: 147px;
+`;
+
+const ButtonText = styled.span`
+  margin-right: 40px;
 `;
 
 const SendButton = styled(Button)`
@@ -153,8 +171,8 @@ export const ContactForm: React.FC = () => {
   const handleInputChange: ChangeEventHandler<
     HTMLInputElement | HTMLTextAreaElement
   > = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
     setRequestStatus('pending');
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
@@ -187,7 +205,12 @@ export const ContactForm: React.FC = () => {
               ref={register({ required: true })}
             />
           )}
-          {errors.name && <ErrorMessage>Name is required</ErrorMessage>}
+          {errors.name && (
+            <ErrorMessage>
+              <strong>Name: </strong>
+              <span>Bitte gib einen Namen ein</span>
+            </ErrorMessage>
+          )}
         </InputWrapper>
         <InputWrapper>
           {!errors.email && (
@@ -219,10 +242,7 @@ export const ContactForm: React.FC = () => {
           {errors.email && (
             <ErrorMessage>
               <strong>E-Mail-Adresse: </strong>
-              <span>
-                Integer posuere erat a ante venenatis dapibus posuere velit
-                aliquet
-              </span>
+              <span>Bei dieser Adresse scheint etwas nicht zu stimmen</span>
             </ErrorMessage>
           )}
         </InputWrapper>
@@ -245,16 +265,22 @@ export const ContactForm: React.FC = () => {
           ref={register({ required: true })}
         />
       )}
-      {errors.message && <ErrorMessage>Please, input message</ErrorMessage>}
+      {errors.message && (
+        <ErrorMessage>Diese Nachricht ist ein bisschen zu kurz</ErrorMessage>
+      )}
       <div>
         {requestStatus === 'pending' && (
-          <SendButton type="submit">Send &#8594;</SendButton>
+          <SendButton type="submit">
+            <ButtonText>Send</ButtonText> <RightArrowIcon />
+          </SendButton>
         )}
         {(errors.name || errors.email || errors.message) && (
           <ErrorMessageSend>Bitte füllen Sie alle Felder aus</ErrorMessageSend>
         )}
         {requestStatus === 'success' && (
-          <SentButton type="button">Sent &#10004;</SentButton>
+          <SentButton type="button">
+            <ButtonText>Sent</ButtonText> <CheckmarkIcon />
+          </SentButton>
         )}
         {requestStatus === 'error' && (
           <RequestStatusMessage>
