@@ -4,6 +4,7 @@ import {
   FacebookShareButton,
   TwitterShareButton,
   WhatsappShareButton,
+  LinkedinShareButton,
 } from 'react-share';
 import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
@@ -11,6 +12,7 @@ import { IconEmail } from '../icons/social/email';
 import { IconFacebook } from '../icons/social/facebook';
 import { IconTwitter } from '../icons/social/twitter';
 import { IconWhatsapp } from '../icons/social/whatsapp';
+import { IconLinkedIn } from '../icons/social/linkedin';
 
 const SharePanelContainer = styled.div`
   color: #668cff;
@@ -72,6 +74,11 @@ export const SharePanel: React.FC = () => {
           <TwitterShareButton url={shareUrl} title={title} hashtags={hashtags}>
             <IconTwitter color="#668cff" />
           </TwitterShareButton>
+        </SocialLinkItem>
+        <SocialLinkItem>
+          <LinkedinShareButton title={title} url={shareUrl}>
+            <IconLinkedIn color="#668cff" />
+          </LinkedinShareButton>
         </SocialLinkItem>
       </SocialLinks>
     </SharePanelContainer>
