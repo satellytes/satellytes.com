@@ -1,8 +1,8 @@
 import React, { ChangeEventHandler, FormEventHandler, useState } from 'react';
-import styled from 'styled-components';
-import { Text } from '../typography/typography';
-import { up } from '../breakpoint/breakpoint';
 import { useForm } from 'react-hook-form';
+import styled from 'styled-components';
+import { up } from '../breakpoint/breakpoint';
+import { Text } from '../typography/typography';
 
 const InputContainer = styled.div`
   display: flex;
@@ -11,6 +11,19 @@ const InputContainer = styled.div`
 
   ${up('md')} {
     flex-direction: row;
+  }
+`;
+
+const InputWrapper = styled.div`
+  width: 100%;
+  margin-bottom: 24px;
+
+  &:not(:last-of-type) {
+    margin-right: 24px;
+
+    ${up('md')} {
+      margin-right: 24px;
+    }
   }
 `;
 
@@ -26,7 +39,6 @@ const Input = styled.input`
   background: #f5f6f7;
 
   &:not(:last-of-type) {
-    margin-bottom: 24px;
     margin-right: 0;
 
     ${up('md')} {
@@ -36,11 +48,15 @@ const Input = styled.input`
   }
 `;
 
+const InputError = styled(Input)`
+  background: #f8cdd5;
+  color: #dc052d;
+`;
+
 const TextArea = styled.textarea`
   height: 190px;
   width: 100%;
   padding: 19px 16px;
-  margin-top: 24px;
 
   font-size: 16px;
   line-height: 110%;
@@ -50,6 +66,10 @@ const TextArea = styled.textarea`
   background: #f5f6f7;
 
   resize: vertical;
+`;
+
+const TextAreaError = styled(TextArea)`
+  background: #f8cdd5;
 `;
 
 const Button = styled.button`
@@ -81,21 +101,13 @@ const RequestStatusMessage = styled(Text)`
   font-size: 14px;
 `;
 
-const ErrorContainer = styled.div`
-  width: 100%;
-  margin-bottom: 0;
-
-  ${up('md')} {
-    margin-right: 24px;
-  }
-`;
-
 const ErrorMessage = styled.p`
   color: #dc052d;
   font-size: 14px;
   margin-top: 8px;
   margin-bottom: 0;
 `;
+
 const ErrorMessageSend = styled(ErrorMessage)`
   display: inline-block;
   margin-left: 24px;
@@ -154,29 +166,56 @@ export const ContactForm: React.FC = () => {
       onSubmit={handleSubmit(onSubmit)}
     >
       <InputContainer>
-        <ErrorContainer>
-          <Input
-            placeholder="Your name"
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleInputChange}
-            ref={register({ required: true })}
-          />
+        <InputWrapper>
+          {!errors.name && (
+            <Input
+              placeholder="Your name"
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              ref={register({ required: true })}
+            />
+          )}
+          {errors.name && (
+            <InputError
+              placeholder="Your name"
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              ref={register({ required: true })}
+            />
+          )}
           {errors.name && <ErrorMessage>Name is required</ErrorMessage>}
-        </ErrorContainer>
-        <ErrorContainer>
-          <Input
-            placeholder="Your email"
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            ref={register({
-              required: true,
-              pattern: /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-            })}
-          />
+        </InputWrapper>
+        <InputWrapper>
+          {!errors.email && (
+            <Input
+              placeholder="Your email"
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              ref={register({
+                required: true,
+                pattern: /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+              })}
+            />
+          )}
+          {errors.email && (
+            <InputError
+              type="email"
+              name="email"
+              placeholder="Your email"
+              value={formData.email}
+              onChange={handleInputChange}
+              ref={register({
+                required: true,
+                pattern: /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+              })}
+            />
+          )}
           {errors.email && (
             <ErrorMessage>
               <strong>E-Mail-Adresse: </strong>
@@ -186,15 +225,26 @@ export const ContactForm: React.FC = () => {
               </span>
             </ErrorMessage>
           )}
-        </ErrorContainer>
+        </InputWrapper>
       </InputContainer>
-      <TextArea
-        placeholder="Your message to us"
-        name="message"
-        value={formData.message}
-        onChange={handleInputChange}
-        ref={register({ required: true })}
-      />
+      {!errors.message && (
+        <TextArea
+          placeholder="Your message to us"
+          name="message"
+          value={formData.message}
+          onChange={handleInputChange}
+          ref={register({ required: true })}
+        />
+      )}
+      {errors.message && (
+        <TextAreaError
+          placeholder="Your message to us"
+          name="message"
+          value={formData.message}
+          onChange={handleInputChange}
+          ref={register({ required: true })}
+        />
+      )}
       {errors.message && <ErrorMessage>Please, input message</ErrorMessage>}
       <div>
         {requestStatus === 'pending' && (
