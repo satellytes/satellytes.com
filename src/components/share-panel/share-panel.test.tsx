@@ -41,5 +41,8 @@ describe('SharePanel', () => {
     it('should contain twitter', () => {
       expect(sharePanel.findByRole('IconTwitter')).toBeTruthy();
     });
+    it('should contain linkedin', () => {
+      expect(sharePanel.findByRole('IconLinkedIn')).toBeTruthy();
+    });
   });
 });
