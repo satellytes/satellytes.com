@@ -35,6 +35,7 @@
     "gatsby-plugin-styled-components": "^3.3.10",
     "gatsby-plugin-typescript": "2.4.16",
     "gatsby-source-filesystem": "2.3.23",
+    "gatsby-transformer-json": "^2.4.11",
     "gatsby-transformer-remark": "^2.8.27",
     "gatsby-transformer-sharp": "2.5.12",
     "modern-normalize": "0.7.0",
