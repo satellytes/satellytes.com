@@ -1,0 +1,67 @@
+[
+  {
+    "industry": "Sports",
+    "name": "Incredible client 1",
+    "description": "Markdown string",
+    "tasks": ["Concet", "UX", "UI"],
+    "techStack": ["Angular", "React"],
+    "teamSize": 4,
+    "currentInvestInDays": 360,
+    "start": "12-23-2010",
+    "finish": null,
+    "details": "Markdown string",
+    "link": "client1"
+  },
+  {
+    "industry": "Insuarance",
+    "name": "Marvelous client 2",
+    "description": "Markdown string",
+    "tasks": ["Concet", "UX", "UI"],
+    "techStack": ["React", "Gatsby"],
+    "teamSize": 2,
+    "currentInvestInDays": 200,
+    "start": "12-23-2010",
+    "finish": null,
+    "details": "Markdown string",
+    "link": "client2"
+  },
+  {
+    "industry": "IT-consulting",
+    "name": "Awesome client 3",
+    "description": "Markdown string",
+    "tasks": ["Concet", "UX", "UI"],
+    "techStack": ["Angular", "React", "Gatsby"],
+    "teamSize": 13,
+    "currentInvestInDays": 720,
+    "start": "12-23-2010",
+    "finish": null,
+    "details": "Markdown string",
+    "link": "client3"
+  },
+  {
+    "industry": "IT-consulting",
+    "name": "Brilliant client 4",
+    "description": "Markdown string",
+    "tasks": ["Concet", "UX", "UI"],
+    "techStack": ["Angular", "React", "Gatsby"],
+    "teamSize": 13,
+    "currentInvestInDays": 720,
+    "start": "12-23-2010",
+    "finish": null,
+    "details": "Markdown string",
+    "link": "client4"
+  },
+  {
+    "industry": "IT-consulting",
+    "name": "Unbelivable client 5",
+    "description": "Markdown string",
+    "tasks": ["Concet", "UX", "UI"],
+    "techStack": ["Angular", "React", "Gatsby"],
+    "teamSize": 13,
+    "currentInvestInDays": 720,
+    "start": "12-23-2010",
+    "finish": null,
+    "details": "Markdown string",
+    "link": "client5"
+  }
+]
