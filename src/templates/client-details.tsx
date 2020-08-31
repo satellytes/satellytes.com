@@ -5,7 +5,7 @@ import SEO from '../components/seo';
 import { PageTitle } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
 import { graphql } from 'gatsby';
-import { Markdown } from '../components/markdown/markdown';
+import ClientPage from '../components/client-page/client-page';
 
 interface ClientTemplateProps {
   data: {
@@ -13,10 +13,10 @@ interface ClientTemplateProps {
       name: string;
       industry: string;
       description?: string;
-      tasks?: string[];
-      techStack?: string[];
+      tasks: string[];
+      techStack: string[];
       teamSize?: number;
-      start?: Date;
+      start: string;
       currentInvestInDays?: number;
       details?: string[];
     };
@@ -24,13 +24,14 @@ interface ClientTemplateProps {
 }
 
 const ClientDetailsTemplate: React.FC<ClientTemplateProps> = ({ data }) => {
-  console.log(data);
+  console.log('certain client in clients detail', data);
   return (
     <Layout>
       <SEO title="Client details" />
       <Grid>
         <GridItem>
           <PageTitle> {data.clientsJson.name}</PageTitle>
+          <ClientPage client={data.clientsJson} />
         </GridItem>
       </Grid>
     </Layout>

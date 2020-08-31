@@ -3,21 +3,21 @@ export const clients: any = [
   {
     title: 'Client 1',
     timestamp: 'April 2018',
-    link: '/clients',
+    link: '/clients/client1',
   },
   {
     title: 'Client 2',
     timestamp: 'September 2018',
-    link: '/clients',
+    link: '/clients/client2',
   },
   {
     title: 'Client 3',
     timestamp: 'June 2018',
-    link: '/clients',
+    link: '/clients/client3',
   },
   {
     title: 'Client 4',
     timestamp: 'March 2019',
-    link: '/clients',
+    link: '/clients/client4',
   },
 ];
