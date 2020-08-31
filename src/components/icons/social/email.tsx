@@ -1,18 +1,25 @@
 import React from 'react';
 
-export const IconEmail: React.FC = () => (
+interface EmailProps {
+  color?: string;
+}
+
+export const IconEmail: React.FC<EmailProps> = (props) => (
   <svg
-    width="28"
-    height="22"
-    viewBox="0 0 28 22"
+    width="24"
+    height="19"
+    viewBox="0 0 24 19"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    {...props}
   >
     <path
-      fillRule="evenodd"
-      clipRule="evenodd"
-      d="M2.8 0H25.2C26.74 0 28 1.2375 28 2.75V19.25C28 20.7625 26.74 22 25.2 22H2.8C1.26 22 0 20.7625 0 19.25L0.014 2.75C0.014 1.2375 1.26 0 2.8 0ZM13.9995 12.375L25.1995 5.5V2.75L13.9995 9.625L2.7995 2.75V5.5L13.9995 12.375Z"
-      fill="#668CFF"
+      d="M0 5.00006L12 11.0001L24 5.00006V16.0001C24 17.6569 22.6569 19.0001 21 19.0001H3C1.34315 19.0001 0 17.6569 0 16.0001V5.00006Z"
+      fill={props.color ? props.color : '#668CFF'}
+    />
+    <path
+      d="M24 3.00006L12 9.00006L5.24537e-07 3.00005C6.69384e-07 1.3432 1.34315 -2.01005e-05 3 -1.99557e-05L21 -1.83821e-05C22.6569 -1.82372e-05 24 1.3432 24 3.00006Z"
+      fill={props.color ? props.color : '#668CFF'}
     />
   </svg>
 );
