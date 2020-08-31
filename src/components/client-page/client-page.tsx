@@ -68,7 +68,6 @@ const ClientPage: React.FC<ClientProps> = ({ client }) => {
         <GridItem xs={12} md={8}>
           <LabelsItem>{client.industry}</LabelsItem>
           <SubTitle>{client.name}</SubTitle>
-          <Text>here will be text from markdown</Text>
 
           <Text>
             We are currently working on the relaunch of incredible client 1
@@ -87,7 +86,6 @@ const ClientPage: React.FC<ClientProps> = ({ client }) => {
         </GridItem>
       </Grid>
 
-      <br></br>
       <Grid>
         <GridItem xs={0} md={2} />
         <GridItem xs={12} sm={6} md={4}>
@@ -145,6 +143,26 @@ const ClientPage: React.FC<ClientProps> = ({ client }) => {
           <LabelsWrapper>
             <LabelsText>Internity</LabelsText>
           </LabelsWrapper>
+        </GridItem>
+      </Grid>
+
+      <Grid>
+        <GridItem xs={0} md={2} />
+        <GridItem xs={12} md={8}>
+          <Text>
+            We are currently working on the relaunch of incredible client 1
+            which will take another few months. Aenean eu leo quam. Pellentesque
+            ornare sem lacinia quam venenatis vestibulum. Etiam porta sem
+            malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus
+            commodo, tortor mauris condimentum nibh, ut fermentum massa justo
+            sit amet risus. Morbi leo risus, porta ac consectetur ac, vestibulum
+            at eros. Cras justo odio, dapibus ac facilisis in, egestas eget
+            quam. Praesent commodo cursus magna, vel scelerisque nisl
+            consectetur et. Morbi leo risus, porta ac consectetur ac, vestibulum
+            at eros. Donec sed odio dui. Integer posuere erat a ante venenatis
+            dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque
+            ornare sem lacinia quam venenatis vestibulum.´
+          </Text>
         </GridItem>
       </Grid>
     </div>

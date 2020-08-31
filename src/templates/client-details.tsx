@@ -2,7 +2,6 @@ import React from 'react';
 
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
-import { PageTitle } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
 import { graphql } from 'gatsby';
 import ClientPage from '../components/client-page/client-page';
@@ -30,7 +29,6 @@ const ClientDetailsTemplate: React.FC<ClientTemplateProps> = ({ data }) => {
       <SEO title="Client details" />
       <Grid>
         <GridItem>
-          <PageTitle> {data.clientsJson.name}</PageTitle>
           <ClientPage client={data.clientsJson} />
         </GridItem>
       </Grid>
@@ -39,8 +37,8 @@ const ClientDetailsTemplate: React.FC<ClientTemplateProps> = ({ data }) => {
 };
 
 export const CLIENT_PAGE_QUERY = graphql`
-  query {
-    clientsJson {
+  query($linkToThePage: String) {
+    clientsJson(link: { eq: $linkToThePage }) {
       industry
       currentInvestInDays
       description
@@ -55,19 +53,3 @@ export const CLIENT_PAGE_QUERY = graphql`
 `;
 
 export default ClientDetailsTemplate;
-
-/*
- query($link: String!) {
-    clientsJson(link: { eq: $link }) {
-      industry
-      currentInvestInDays
-      description
-      details
-      name
-      start
-      tasks
-      teamSize
-      techStack
-    }
-  }
- */
