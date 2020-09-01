@@ -2,17 +2,18 @@ import React from 'react';
 import {
   EmailShareButton,
   FacebookShareButton,
+  LinkedinShareButton,
   TwitterShareButton,
   WhatsappShareButton,
-  LinkedinShareButton,
 } from 'react-share';
 import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
 import { IconEmail } from '../icons/social/email';
 import { IconFacebook } from '../icons/social/facebook';
+import { IconLinkedIn } from '../icons/social/linkedin';
 import { IconTwitter } from '../icons/social/twitter';
 import { IconWhatsapp } from '../icons/social/whatsapp';
-import { IconLinkedIn } from '../icons/social/linkedin';
+import { IconXing } from '../icons/social/xing';
 
 const SharePanelContainer = styled.div`
   color: #668cff;
@@ -54,7 +55,13 @@ export const SharePanel: React.FC = () => {
   return (
     <SharePanelContainer>
       <SharePanelText>Artikel teilen</SharePanelText>
+
       <SocialLinks>
+        <SocialLinkItem>
+          <FacebookShareButton url={shareUrl} quote={title}>
+            <IconFacebook />
+          </FacebookShareButton>
+        </SocialLinkItem>
         <SocialLinkItem>
           <WhatsappShareButton url={shareUrl} title={title}>
             <IconWhatsapp />
@@ -66,11 +73,6 @@ export const SharePanel: React.FC = () => {
           </EmailShareButton>
         </SocialLinkItem>
         <SocialLinkItem>
-          <FacebookShareButton url={shareUrl} quote={title}>
-            <IconFacebook />
-          </FacebookShareButton>
-        </SocialLinkItem>
-        <SocialLinkItem>
           <TwitterShareButton url={shareUrl} title={title} hashtags={hashtags}>
             <IconTwitter color="#668cff" />
           </TwitterShareButton>
@@ -79,6 +81,9 @@ export const SharePanel: React.FC = () => {
           <LinkedinShareButton title={title} url={shareUrl}>
             <IconLinkedIn color="#668cff" />
           </LinkedinShareButton>
+        </SocialLinkItem>
+        <SocialLinkItem>
+          <IconXing color="#668cff" />
         </SocialLinkItem>
       </SocialLinks>
     </SharePanelContainer>
