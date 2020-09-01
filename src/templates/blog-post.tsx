@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
 import Byline from '../components/byline/byline';
 import parseISO from 'date-fns/parseISO';
+import SharePanel from '../components/share-panel/share-panel';
 
 interface BlogArticleTemplateProps {
   data: {
@@ -47,7 +48,6 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
           <BlogPostTitle as="h1">
             {data.markdownRemark.frontmatter.title}
           </BlogPostTitle>
-          <Markdown data={data.markdownRemark.rawMarkdownBody} />
           {data.markdownRemark.frontmatter.authorSummary &&
             data.markdownRemark.frontmatter.author && (
               <Byline
@@ -56,6 +56,8 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
                 authorSummary={data.markdownRemark.frontmatter.authorSummary}
               />
             )}
+          <Markdown data={data.markdownRemark.rawMarkdownBody} />
+          <SharePanel />
         </GridItem>
       </Grid>
     </Layout>

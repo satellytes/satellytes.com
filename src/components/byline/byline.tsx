@@ -2,7 +2,7 @@ import { formatDistanceToNow } from 'date-fns';
 import { de } from 'date-fns/locale';
 import React from 'react';
 import styled from 'styled-components';
-import SharePanel from '../share-panel/share-panel';
+import { BilyneArrow } from '../icons/bilyne-arrow';
 
 export interface BylineProps {
   author: string;
@@ -12,28 +12,20 @@ export interface BylineProps {
 
 const BylineContainer = styled.div`
   color: #668cff;
-  margin-top: 80px;
-`;
-
-const BylineDivider = styled.div`
-  border-bottom: 2px solid #668cff;
+  margin-top: 40px;
   margin-bottom: 32px;
-  width: 60px;
 `;
 
 const BylineAuthor = styled.p`
   font-weight: bold;
-  margin: 10px 0;
-`;
-
-const BylineAuthorSummary = styled.p`
   font-weight: normal;
-  margin: 10px 0;
+  margin: 0px 8px 0px 0px;
+  display: inline-block;
 `;
 
 const BylineTimeFromPosted = styled.p`
-  font-weight: normal;
-  margin: 10px 0;
+  font-weight: bold;
+  margin-top: 0px;
 `;
 
 const Byline: React.FC<BylineProps> = ({ author, date, authorSummary }) => {
@@ -44,11 +36,11 @@ const Byline: React.FC<BylineProps> = ({ author, date, authorSummary }) => {
 
   return (
     <BylineContainer>
-      <BylineDivider />
-      <BylineAuthor>von {author}</BylineAuthor>
-      <BylineAuthorSummary>{authorSummary}</BylineAuthorSummary>
       <BylineTimeFromPosted>{timeFromPosted}</BylineTimeFromPosted>
-      <SharePanel />
+      <BylineAuthor>
+        von {author}, {authorSummary}
+      </BylineAuthor>
+      <BilyneArrow />
     </BylineContainer>
   );
 };
