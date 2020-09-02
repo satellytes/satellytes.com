@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const BilyneArrow: React.FC = () => (
+export const BylineArrow: React.FC = () => (
   <svg
     width="11"
     height="11"

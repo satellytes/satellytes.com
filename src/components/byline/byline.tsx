@@ -2,7 +2,7 @@ import { formatDistanceToNow } from 'date-fns';
 import { de } from 'date-fns/locale';
 import React from 'react';
 import styled from 'styled-components';
-import { BilyneArrow } from '../icons/bilyne-arrow';
+import { BylineArrow } from '../icons/byline-arrow';
 
 export interface BylineProps {
   author: string;
@@ -20,6 +20,7 @@ const BylineAuthor = styled.p`
   font-weight: bold;
   font-weight: normal;
   margin: 0px 8px 0px 0px;
+  line-height: 150%;
   display: inline-block;
 `;
 
@@ -40,7 +41,7 @@ const Byline: React.FC<BylineProps> = ({ author, date, authorSummary }) => {
       <BylineAuthor>
         von {author}, {authorSummary}
       </BylineAuthor>
-      <BilyneArrow />
+      <BylineArrow />
     </BylineContainer>
   );
 };
