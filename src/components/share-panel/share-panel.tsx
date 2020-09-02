@@ -46,6 +46,10 @@ const SocialLinkItem = styled.li`
   }
 `;
 
+const XingShareButton = styled.a`
+  margin: 0px;
+`;
+
 export const SharePanel: React.FC = () => {
   const isBrowser = typeof window !== `undefined`;
   const shareUrl = isBrowser ? window.location.href : '';
@@ -55,7 +59,6 @@ export const SharePanel: React.FC = () => {
   return (
     <SharePanelContainer>
       <SharePanelText>Artikel teilen</SharePanelText>
-
       <SocialLinks>
         <SocialLinkItem>
           <FacebookShareButton url={shareUrl} quote={title}>
@@ -83,7 +86,13 @@ export const SharePanel: React.FC = () => {
           </LinkedinShareButton>
         </SocialLinkItem>
         <SocialLinkItem>
-          <IconXing color="#668cff" />
+          <XingShareButton
+            href={'https://www.xing.com/spi/shares/new?url=' + shareUrl}
+            title={title}
+            target="_blanc"
+          >
+            <IconXing color="#668cff" />
+          </XingShareButton>
         </SocialLinkItem>
       </SocialLinks>
     </SharePanelContainer>
