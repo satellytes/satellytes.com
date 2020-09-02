@@ -6,6 +6,9 @@ import { CheckmarkIcon } from '../icons/buttons-icons/checkmark';
 import { RightArrowIcon } from '../icons/buttons-icons/right-arrow';
 import { Text } from '../typography/typography';
 
+//https://www.codegrepper.com/code-examples/basic/form+validation+in+gatsby
+const IS_EMAIL_REGEX = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
 const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -29,11 +32,11 @@ const InputWrapper = styled.div`
   }
 `;
 
-interface InputTextProps {
-  hasError?: any;
+interface ValidationProps {
+  hasError?: boolean;
 }
 
-const Input = styled.input<InputTextProps>`
+const Input = styled.input<ValidationProps>`
   width: 100%;
   padding: 19px 16px;
 
@@ -65,7 +68,7 @@ const Input = styled.input<InputTextProps>`
   `}
 `;
 
-const TextArea = styled.textarea<InputTextProps>`
+const TextArea = styled.textarea<ValidationProps>`
   height: 190px;
   width: 100%;
   padding: 19px 16px;
@@ -96,7 +99,6 @@ const Button = styled.button`
   padding: 13px 18px;
 
   font-size: 20px;
-  font-family: CocoGothic !important;
   font-weight: bold;
   text-align: left;
   line-height: 110%;
@@ -218,7 +220,7 @@ export const ContactForm: React.FC = () => {
             onChange={handleInputChange}
             ref={register({
               required: true,
-              pattern: /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+              pattern: IS_EMAIL_REGEX,
             })}
             hasError={errors.email}
           />
