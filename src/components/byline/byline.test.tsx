@@ -4,9 +4,9 @@ import Byline from './byline';
 
 const testData = [
   {
-    author: 'John Doe',
+    author: 'Max Mustermann',
     date: new Date(Date.UTC(2020, 1, 21)),
-    authorSummary: 'Frontend developer',
+    authorSummary: 'Developer Satellytes',
   },
 ];
 
@@ -31,14 +31,11 @@ describe('Byline', () => {
     expect(byline).toBeTruthy();
   });
 
-  it('should contain author', () => {
-    const author = byline.findByText('von John Done');
+  it('should contain author and his position', () => {
+    const author = byline.findByText(
+      'von Max Mustermann, Developer Satellytes',
+    );
     expect(author).toBeTruthy();
-  });
-
-  it('should contain author summary', () => {
-    const summary = byline.getByText('Frontend developer');
-    expect(summary).toBeTruthy();
   });
 
   it('should contain date', () => {
