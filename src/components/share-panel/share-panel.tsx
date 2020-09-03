@@ -2,6 +2,7 @@ import React from 'react';
 import {
   EmailShareButton,
   FacebookShareButton,
+  LinkedinShareButton,
   TwitterShareButton,
   WhatsappShareButton,
 } from 'react-share';
@@ -9,8 +10,10 @@ import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
 import { IconEmail } from '../icons/social/email';
 import { IconFacebook } from '../icons/social/facebook';
+import { IconLinkedIn } from '../icons/social/linkedin';
 import { IconTwitter } from '../icons/social/twitter';
 import { IconWhatsapp } from '../icons/social/whatsapp';
+import { IconXing } from '../icons/social/xing';
 
 const SharePanelContainer = styled.div`
   color: #668cff;
@@ -43,6 +46,10 @@ const SocialLinkItem = styled.li`
   }
 `;
 
+const XingShareButton = styled.a`
+  margin: 0px;
+`;
+
 export const SharePanel: React.FC = () => {
   const isBrowser = typeof window !== `undefined`;
   const shareUrl = isBrowser ? window.location.href : '';
@@ -54,6 +61,11 @@ export const SharePanel: React.FC = () => {
       <SharePanelText>Artikel teilen</SharePanelText>
       <SocialLinks>
         <SocialLinkItem>
+          <FacebookShareButton url={shareUrl} quote={title}>
+            <IconFacebook />
+          </FacebookShareButton>
+        </SocialLinkItem>
+        <SocialLinkItem>
           <WhatsappShareButton url={shareUrl} title={title}>
             <IconWhatsapp />
           </WhatsappShareButton>
@@ -64,14 +76,23 @@ export const SharePanel: React.FC = () => {
           </EmailShareButton>
         </SocialLinkItem>
         <SocialLinkItem>
-          <FacebookShareButton url={shareUrl} quote={title}>
-            <IconFacebook />
-          </FacebookShareButton>
-        </SocialLinkItem>
-        <SocialLinkItem>
           <TwitterShareButton url={shareUrl} title={title} hashtags={hashtags}>
             <IconTwitter color="#668cff" />
           </TwitterShareButton>
+        </SocialLinkItem>
+        <SocialLinkItem>
+          <LinkedinShareButton title={title} url={shareUrl}>
+            <IconLinkedIn color="#668cff" />
+          </LinkedinShareButton>
+        </SocialLinkItem>
+        <SocialLinkItem>
+          <XingShareButton
+            href={'https://www.xing.com/spi/shares/new?url=' + shareUrl}
+            title={title}
+            target="_blank"
+          >
+            <IconXing color="#668cff" />
+          </XingShareButton>
         </SocialLinkItem>
       </SocialLinks>
     </SharePanelContainer>
