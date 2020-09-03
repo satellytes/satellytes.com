@@ -89,7 +89,7 @@ export const SharePanel: React.FC = () => {
           <XingShareButton
             href={'https://www.xing.com/spi/shares/new?url=' + shareUrl}
             title={title}
-            target="_blanc"
+            target="_blank"
           >
             <IconXing color="#668cff" />
           </XingShareButton>
