@@ -84,6 +84,9 @@ const SEO: React.FC<SeoProps> = ({
       )}
       {imageUrl && <meta property="og:image:width" content="300" />}
 
+      {/* -- Xing --*/}
+      <meta property="og:site_name" content={metaDescription} />
+
       {/*
        * All fonts that are linked with a preload are getting loaded before any
        * other resources, no matter if the used or not. We therefore need to

@@ -14,6 +14,7 @@ import SharePanel from '../components/share-panel/share-panel';
 interface BlogArticleTemplateProps {
   data: {
     markdownRemark: {
+      excerpt: string;
       frontmatter: {
         date: string;
         title: string;
@@ -44,6 +45,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
         title={data.markdownRemark.frontmatter.title}
         imageUrl={data.markdownRemark.frontmatter.image}
         siteType="article"
+        description={data.markdownRemark.excerpt}
       />
       <Grid center>
         <GridItem xs={0} md={2} />
@@ -70,6 +72,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
 export const BLOG_POST_PAGE_QUERY = graphql`
   query($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
+      excerpt(pruneLength: 250, truncate: true)
       frontmatter {
         date
         path
