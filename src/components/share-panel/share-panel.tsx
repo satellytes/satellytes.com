@@ -17,7 +17,7 @@ import { IconXing } from '../icons/social/xing';
 
 const SharePanelContainer = styled.div`
   color: #668cff;
-  margin-top: 26px;
+  margin-top: 80px;
   font-weight: bold;
   font-size: 16px;
 `;

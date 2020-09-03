@@ -24,6 +24,7 @@ const CONTACT_PAGE_QUERY = graphql`
 
 const ContactSubTitle = styled(SubTitle)<{ short?: boolean }>`
   margin-top: ${(props) => (props.short ? '40px' : '80px')};
+  margin-bottom: 40px !important;
 
   ${up('md')} {
     margin-top: ${(props) => (props.short ? '80px' : '160px')};
@@ -46,14 +47,14 @@ const ContactPage: React.FC = () => {
             <Text>
               <b>Satellytes Digital Consulting GmbH</b>
               <br />
-              Alpenplatz 3
+              Carola-Neher-Str. 10
               <br />
-              81541 München
+              81379 München
             </Text>
             <TextLink
               as="a"
               target="_blank"
-              href="https://goo.gl/maps/sP2K4NUzqTS1zwVs9"
+              href="https://goo.gl/maps/gRpvefWFBTe1DmAJ6"
             >
               Google Maps &gt;
             </TextLink>
