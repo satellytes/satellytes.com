@@ -3,6 +3,7 @@ import { SubTitle, Text } from '../typography/typography';
 import { Grid, GridItem } from '../grid/grid';
 import styled from 'styled-components';
 import { formattedDate } from '../../shared';
+import { up } from '../breakpoint/breakpoint';
 
 export interface ClientProps {
   client: {
@@ -34,7 +35,12 @@ const LabelsWrapper = styled.div`
   flex-wrap: wrap;
   position: relative;
   padding: 12px 0px;
-  margin-bottom: 78px;
+  margin-bottom: 40px;
+
+  ${up('md')} {
+    margin-bottom: 80px;
+    flex-direction: row;
+  }
 `;
 
 const LabelsText = styled.p`
@@ -60,16 +66,37 @@ const Items = styled.div`
   }
 `;
 
+const ClientSubTitle = styled(SubTitle)`
+  margin-bottom: 40px;
+  margin-top: 0px;
+`;
+
+const TitleLabelItem = styled(LabelsItem)`
+  margin-top: 60px;
+  ${up('md')} {
+    margin-top: 100px;
+  }
+`;
+
+const ClientDescription = styled(Text)`
+  margin-bottom: 40px;
+
+  ${up('md')} {
+    margin-bottom: 140px;
+  }
+}
+`;
+
 const ClientPage: React.FC<ClientProps> = ({ client }) => {
   return (
     <div>
       <Grid>
         <GridItem xs={0} md={2} />
         <GridItem xs={12} md={8}>
-          <LabelsItem>{client.industry}</LabelsItem>
-          <SubTitle>{client.name}</SubTitle>
+          <TitleLabelItem>{client.industry}</TitleLabelItem>
+          <ClientSubTitle>{client.name}</ClientSubTitle>
 
-          <Text>
+          <ClientDescription>
             We are currently working on the relaunch of incredible client 1
             which will take another few months. Aenean eu leo quam. Pellentesque
             ornare sem lacinia quam venenatis vestibulum. Etiam porta sem
@@ -82,7 +109,7 @@ const ClientPage: React.FC<ClientProps> = ({ client }) => {
             at eros. Donec sed odio dui. Integer posuere erat a ante venenatis
             dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque
             ornare sem lacinia quam venenatis vestibulum.´
-          </Text>
+          </ClientDescription>
         </GridItem>
       </Grid>
 
