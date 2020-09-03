@@ -56,7 +56,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     createPage({
       path: 'clients/' + node.link,
       component: clientTemplate,
-      context: {},
+      context: { linkToThePage: node.link },
     });
   });
 };
