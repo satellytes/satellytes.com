@@ -15,6 +15,10 @@ import { IconTwitter } from '../icons/social/twitter';
 import { IconWhatsapp } from '../icons/social/whatsapp';
 import { IconXing } from '../icons/social/xing';
 
+export interface ShareProps {
+  title: string;
+}
+
 const SharePanelContainer = styled.div`
   color: #668cff;
   margin-top: 80px;
@@ -50,10 +54,9 @@ const XingShareButton = styled.a`
   margin: 0px;
 `;
 
-export const SharePanel: React.FC = () => {
+export const SharePanel: React.FC<ShareProps> = ({ title }) => {
   const isBrowser = typeof window !== `undefined`;
   const shareUrl = isBrowser ? window.location.href : '';
-  const title = isBrowser ? window.document.title : '';
   const hashtags = ['Satellytes'];
 
   return (

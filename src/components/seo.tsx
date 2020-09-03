@@ -1,23 +1,24 @@
+import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
-import CocoGothicWoff2 from './layout/fonts/CocoGothic.woff2';
 import CocoGothicBoldWoff2 from './layout/fonts/CocoGothic-Bold.woff2';
+import CocoGothicWoff2 from './layout/fonts/CocoGothic.woff2';
+import { transformCloudinaryUrl } from './util/cloudinary-util';
 
 interface SeoProps {
   title: string;
   description?: string;
   lang?: string;
-  meta?: [any];
+  imageUrl?: string;
+  siteType?: string;
 }
-
-// todo: make this component nice
 
 const SEO: React.FC<SeoProps> = ({
   description = '',
   lang = 'de',
-  meta = [],
   title,
+  imageUrl,
+  siteType,
 }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -34,6 +35,7 @@ const SEO: React.FC<SeoProps> = ({
   );
 
   const metaDescription = description || site.siteMetadata.description;
+  const typeOfSite = siteType || 'website';
 
   return (
     <Helmet
@@ -42,41 +44,49 @@ const SEO: React.FC<SeoProps> = ({
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
     >
+      {/* -- Primary tags -- */}
+      <meta name="title" property="name" content={title} />
+      <meta
+        name="description"
+        property="og:description"
+        content={metaDescription}
+      />
+      {imageUrl && (
+        <meta
+          property="image"
+          content={transformCloudinaryUrl(imageUrl, 300)}
+        />
+      )}
+      <meta property="og:title" content={title} />
+      {imageUrl && (
+        <meta
+          property="og:image"
+          content={transformCloudinaryUrl(imageUrl, 300)}
+        />
+      )}
+      <meta property="og:type" content={typeOfSite} />
+
+      {/* -- Twitter Meta Tags -- */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={metaDescription} />
+      <meta name="twitter:creator" content={site.siteMetadata.author} />
+      {imageUrl && <meta name="twitter:image" content={imageUrl} />}
+      {imageUrl && <meta property="twitter:image:alt" content={title} />}
+
+      {/* -- Whatsapp --*/}
+      {imageUrl && (
+        <meta
+          property="og:image:secure_url"
+          content={transformCloudinaryUrl(imageUrl, 300)}
+        />
+      )}
+      {imageUrl && <meta property="og:image:width" content="300" />}
+
+      {/* -- Xing --*/}
+      <meta property="og:site_name" content={title} />
+
       {/*
        * All fonts that are linked with a preload are getting loaded before any
        * other resources, no matter if the used or not. We therefore need to

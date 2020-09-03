@@ -1,20 +1,20 @@
-import React from 'react';
-
-import Layout from '../components/layout/layout';
-import SEO from '../components/seo';
-import { Grid, GridItem } from '../components/grid/grid';
+import parseISO from 'date-fns/parseISO';
 import { graphql } from 'gatsby';
-import { Markdown } from '../components/markdown/markdown';
-import { SectionTitle } from '../components/typography/typography';
+import React from 'react';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
 import Byline from '../components/byline/byline';
-import parseISO from 'date-fns/parseISO';
+import { Grid, GridItem } from '../components/grid/grid';
+import Layout from '../components/layout/layout';
+import { Markdown } from '../components/markdown/markdown';
+import SEO from '../components/seo';
+import { SectionTitle } from '../components/typography/typography';
 import SharePanel from '../components/share-panel/share-panel';
 
 interface BlogArticleTemplateProps {
   data: {
     markdownRemark: {
+      excerpt: string;
       frontmatter: {
         date: string;
         title: string;
@@ -41,7 +41,12 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
       heroImage={data.markdownRemark.frontmatter.image}
       siteTitleUrl={'/blog'}
     >
-      <SEO title="Blog article" />
+      <SEO
+        title={data.markdownRemark.frontmatter.title}
+        imageUrl={data.markdownRemark.frontmatter.image}
+        siteType="article"
+        description={data.markdownRemark.excerpt}
+      />
       <Grid center>
         <GridItem xs={0} md={2} />
         <GridItem xs={12} md={8}>
@@ -57,7 +62,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
               />
             )}
           <Markdown data={data.markdownRemark.rawMarkdownBody} />
-          <SharePanel />
+          <SharePanel title={data.markdownRemark.frontmatter.title} />
         </GridItem>
       </Grid>
     </Layout>
@@ -67,6 +72,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
 export const BLOG_POST_PAGE_QUERY = graphql`
   query($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
+      excerpt(pruneLength: 250, truncate: true)
       frontmatter {
         date
         path

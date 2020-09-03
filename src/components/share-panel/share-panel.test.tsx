@@ -6,7 +6,7 @@ describe('SharePanel', () => {
   let sharePanel: any;
 
   beforeEach(() => {
-    sharePanel = render(<SharePanel />);
+    sharePanel = render(<SharePanel title="article titel" />);
   });
 
   it('should render', () => {
