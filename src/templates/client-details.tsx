@@ -1,10 +1,9 @@
+import { graphql } from 'gatsby';
 import React from 'react';
-
+import ClientPage from '../components/client-page/client-page';
+import { Grid, GridItem } from '../components/grid/grid';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
-import { Grid, GridItem } from '../components/grid/grid';
-import { graphql } from 'gatsby';
-import ClientPage from '../components/client-page/client-page';
 
 interface ClientTemplateProps {
   data: {
@@ -19,6 +18,9 @@ interface ClientTemplateProps {
       currentInvestInDays?: number;
       details?: string[];
     };
+    markdownRemark: {
+      rawMarkdownBody: string;
+    };
   };
 }
 
@@ -29,7 +31,7 @@ const ClientDetailsTemplate: React.FC<ClientTemplateProps> = ({ data }) => {
       <SEO title="Client details" />
       <Grid>
         <GridItem>
-          <ClientPage client={data.clientsJson} />
+          <ClientPage data={data} />
         </GridItem>
       </Grid>
     </Layout>
@@ -48,6 +50,12 @@ export const CLIENT_PAGE_QUERY = graphql`
       tasks
       teamSize
       techStack
+    }
+    markdownRemark(frontmatter: { path: { eq: $linkToThePage } }) {
+      frontmatter {
+        path
+      }
+      rawMarkdownBody
     }
   }
 `;

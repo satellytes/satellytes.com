@@ -16,6 +16,16 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           }
         }
       }
+
+      allMarkdownRemark {
+        edges {
+          node {
+            frontmatter {
+              path
+            }
+          }
+        }
+      }
     }
   `);
 

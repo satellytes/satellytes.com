@@ -1,21 +1,27 @@
 import React from 'react';
-import { SubTitle, Text } from '../typography/typography';
-import { Grid, GridItem } from '../grid/grid';
 import styled from 'styled-components';
 import { formattedDate } from '../../shared';
 import { up } from '../breakpoint/breakpoint';
+import { Grid, GridItem } from '../grid/grid';
+import { Markdown } from '../markdown/markdown';
+import { SubTitle } from '../typography/typography';
 
 export interface ClientProps {
-  client: {
-    name: string;
-    industry: string;
-    description?: string;
-    tasks: string[];
-    techStack: string[];
-    teamSize?: number;
-    start: string;
-    currentInvestInDays?: number;
-    details?: string[];
+  data: {
+    clientsJson: {
+      name: string;
+      industry: string;
+      description?: string;
+      tasks: string[];
+      techStack: string[];
+      teamSize?: number;
+      start: string;
+      currentInvestInDays?: number;
+      details?: string[];
+    };
+    markdownRemark: {
+      rawMarkdownBody: string;
+    };
   };
 }
 
@@ -78,7 +84,7 @@ const TitleLabelItem = styled(LabelsItem)`
   }
 `;
 
-const ClientDescription = styled(Text)`
+const ClientDescription = styled(Markdown)`
   margin-bottom: 40px;
 
   ${up('md')} {
@@ -87,29 +93,16 @@ const ClientDescription = styled(Text)`
 }
 `;
 
-const ClientPage: React.FC<ClientProps> = ({ client }) => {
+const ClientPage: React.FC<ClientProps> = ({ data }) => {
+  console.log('data in client page', data);
   return (
     <div>
       <Grid>
         <GridItem xs={0} md={2} />
         <GridItem xs={12} md={8}>
-          <TitleLabelItem>{client.industry}</TitleLabelItem>
-          <ClientSubTitle>{client.name}</ClientSubTitle>
-
-          <ClientDescription>
-            We are currently working on the relaunch of incredible client 1
-            which will take another few months. Aenean eu leo quam. Pellentesque
-            ornare sem lacinia quam venenatis vestibulum. Etiam porta sem
-            malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus
-            commodo, tortor mauris condimentum nibh, ut fermentum massa justo
-            sit amet risus. Morbi leo risus, porta ac consectetur ac, vestibulum
-            at eros. Cras justo odio, dapibus ac facilisis in, egestas eget
-            quam. Praesent commodo cursus magna, vel scelerisque nisl
-            consectetur et. Morbi leo risus, porta ac consectetur ac, vestibulum
-            at eros. Donec sed odio dui. Integer posuere erat a ante venenatis
-            dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque
-            ornare sem lacinia quam venenatis vestibulum.´
-          </ClientDescription>
+          <TitleLabelItem>{data.clientsJson.industry}</TitleLabelItem>
+          <ClientSubTitle>{data.clientsJson.name}</ClientSubTitle>
+          <ClientDescription data={data.markdownRemark.rawMarkdownBody} />
         </GridItem>
       </Grid>
 
@@ -119,7 +112,7 @@ const ClientPage: React.FC<ClientProps> = ({ client }) => {
           <LabelsItem>Tasks</LabelsItem>
 
           <LabelsWrapper>
-            {client.tasks.map((task, index) => (
+            {data.clientsJson.tasks.map((task, index) => (
               <Items key={index}>{task}</Items>
             ))}
           </LabelsWrapper>
@@ -128,7 +121,7 @@ const ClientPage: React.FC<ClientProps> = ({ client }) => {
         <GridItem xs={12} sm={6} md={4}>
           <LabelsItem>tech stack</LabelsItem>
           <LabelsWrapper>
-            {client.techStack.map((technology, index) => (
+            {data.clientsJson.techStack.map((technology, index) => (
               <Items key={index}>{technology}</Items>
             ))}
           </LabelsWrapper>
@@ -142,7 +135,7 @@ const ClientPage: React.FC<ClientProps> = ({ client }) => {
           <LabelsItem>Team size</LabelsItem>
 
           <LabelsWrapper>
-            <LabelsText>{client.teamSize} people</LabelsText>
+            <LabelsText>{data.clientsJson.teamSize} people</LabelsText>
           </LabelsWrapper>
         </GridItem>
 
@@ -150,7 +143,7 @@ const ClientPage: React.FC<ClientProps> = ({ client }) => {
           <LabelsItem>current invest</LabelsItem>
 
           <LabelsWrapper>
-            <LabelsText>{client.currentInvestInDays} days</LabelsText>
+            <LabelsText>{data.clientsJson.currentInvestInDays} days</LabelsText>
           </LabelsWrapper>
         </GridItem>
       </Grid>
@@ -161,35 +154,14 @@ const ClientPage: React.FC<ClientProps> = ({ client }) => {
           <LabelsItem>start</LabelsItem>
 
           <LabelsWrapper>
-            <LabelsText>{formattedDate(client.start)}</LabelsText>
+            <LabelsText>{formattedDate(data.clientsJson.start)}</LabelsText>
           </LabelsWrapper>
         </GridItem>
         <GridItem xs={12} sm={6} md={4}>
           <LabelsItem>finish</LabelsItem>
-
           <LabelsWrapper>
             <LabelsText>Internity</LabelsText>
           </LabelsWrapper>
-        </GridItem>
-      </Grid>
-
-      <Grid>
-        <GridItem xs={0} md={2} />
-        <GridItem xs={12} md={8}>
-          <Text>
-            We are currently working on the relaunch of incredible client 1
-            which will take another few months. Aenean eu leo quam. Pellentesque
-            ornare sem lacinia quam venenatis vestibulum. Etiam porta sem
-            malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus
-            commodo, tortor mauris condimentum nibh, ut fermentum massa justo
-            sit amet risus. Morbi leo risus, porta ac consectetur ac, vestibulum
-            at eros. Cras justo odio, dapibus ac facilisis in, egestas eget
-            quam. Praesent commodo cursus magna, vel scelerisque nisl
-            consectetur et. Morbi leo risus, porta ac consectetur ac, vestibulum
-            at eros. Donec sed odio dui. Integer posuere erat a ante venenatis
-            dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque
-            ornare sem lacinia quam venenatis vestibulum.´
-          </Text>
         </GridItem>
       </Grid>
     </div>
