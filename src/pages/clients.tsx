@@ -16,7 +16,7 @@ interface AllClientsQuery {
     nodes: {
       id: string;
       name: string;
-      link: string;
+      path: string;
     }[];
   };
   imagePlaceholder: {
@@ -33,7 +33,7 @@ const ClientsPage: React.FC = () => {
         nodes {
           id
           name
-          link
+          path
         }
       }
       imagePlaceholder: file(relativePath: { regex: "/astronaut/" }) {

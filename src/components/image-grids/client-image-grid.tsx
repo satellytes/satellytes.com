@@ -7,7 +7,7 @@ import { up } from '../breakpoint/breakpoint';
 import { FluidObject } from 'gatsby-image';
 
 interface ClientImageGridProps {
-  clients: { name: string; link: string }[];
+  clients: { name: string; path: string }[];
   imagePlaceholder: FluidObject;
 }
 
@@ -34,7 +34,7 @@ const ClientImageGrid: React.FC<ClientImageGridProps> = ({
           return (
             <React.Fragment key={client.name}>
               <GridItem xs={12} sm={4}>
-                <InternalLink to={client.link}>
+                <InternalLink to={client.path}>
                   <ImageCard
                     alt={client.name}
                     image={imagePlaceholder}
@@ -50,7 +50,7 @@ const ClientImageGrid: React.FC<ClientImageGridProps> = ({
         else
           return (
             <GridItem xs={12} sm={4} key={client.name}>
-              <InternalLink to={client.link}>
+              <InternalLink to={client.path}>
                 <ImageCard
                   alt={client.name}
                   image={imagePlaceholder}

@@ -12,7 +12,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       allClientsJson {
         edges {
           node {
-            link
+            path
           }
         }
       }
@@ -54,9 +54,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   // create a page for each client from json
   resultClient.data.allClientsJson.edges.forEach(({ node }) => {
     createPage({
-      path: 'clients/' + node.link,
+      path: node.path,
       component: clientTemplate,
-      context: { linkToThePage: node.link },
+      context: { linkToThePage: node.path },
     });
   });
 };
