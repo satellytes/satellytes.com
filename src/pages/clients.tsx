@@ -52,7 +52,6 @@ const ClientsPage: React.FC = () => {
     };
   });
 
-  console.log('clientsList comes from mapping', clientsList);
   return (
     <Layout>
       <SEO title="Clients" />

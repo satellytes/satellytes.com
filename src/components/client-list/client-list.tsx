@@ -4,15 +4,16 @@ import { up } from '../breakpoint/breakpoint';
 import { Link } from 'gatsby';
 import { theme } from '../layout/theme';
 import { GRID_GAP_MOBILE } from '../grid/grid';
+import { formattedDate } from '../../shared';
 
 interface ClientListProps {
-  clients: [ClientListEntryProps];
+  clients: ClientListEntryProps[];
 }
 
 interface ClientListEntryProps {
-  title: string;
-  timestamp: string;
-  link: string;
+  name: string;
+  start: string;
+  path: string;
 }
 
 const linkStyles = css`
@@ -116,17 +117,17 @@ const StyledOverviewLink = styled(Link)`
 `;
 
 const ClientListEntry: React.FC<ClientListEntryProps> = ({
-  title,
-  timestamp,
-  link,
+  name,
+  start,
+  path,
 }) => {
   return (
     <ClientListEntryWrapper>
-      <StyledTitle to={link} title={`Show client: ${title}`}>
-        {title}
+      <StyledTitle to={path} title={`Show client: ${name}`}>
+        {name}
       </StyledTitle>
-      <StyledTimestamp>Since {timestamp}</StyledTimestamp>
-      <StyledArrow to={link} title={`Show client: ${title}`}>
+      <StyledTimestamp>Since {formattedDate(start)}</StyledTimestamp>
+      <StyledArrow to={path} title={`Show client: ${name}`}>
         &gt;
       </StyledArrow>
     </ClientListEntryWrapper>
@@ -137,12 +138,12 @@ export const ClientList: React.FC<ClientListProps> = ({ clients }) => {
   return (
     <Wrapper>
       <ClientListContainer>
-        {clients.map(({ title, timestamp, link }) => (
+        {clients.map(({ name, start, path }) => (
           <ClientListEntry
-            key={`${title}_${timestamp}`}
-            title={title}
-            timestamp={timestamp}
-            link={link}
+            key={`${name}_${start}`}
+            name={name}
+            start={start}
+            path={path}
           />
         ))}
       </ClientListContainer>

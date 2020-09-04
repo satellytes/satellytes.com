@@ -1,20 +1,29 @@
+import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-
+import styled from 'styled-components';
+import { up } from '../components/breakpoint/breakpoint';
+import { ClientList } from '../components/client-list/client-list';
+import { Grid, GridItem } from '../components/grid/grid';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
-import { Grid, GridItem } from '../components/grid/grid';
+import { BlockTeaser } from '../components/teasers/block-teaser';
 import {
   PageTitle,
   SectionTitle,
-  TitleSvg,
   StyledTitle,
+  Text,
+  TitleSvg,
 } from '../components/typography/typography';
-import styled from 'styled-components';
-import { up } from '../components/breakpoint/breakpoint';
-import { BlockTeaser } from '../components/teasers/block-teaser';
-import { Text } from '../components/typography/typography';
-import { ClientList } from '../components/client-list/client-list';
-import { clients } from '../components/client-list/fixtures';
+
+interface AllClientsQuery {
+  allClientsJson: {
+    nodes: {
+      start: string;
+      name: string;
+      path: string;
+    }[];
+  };
+}
 
 const HomePageTitle = styled(PageTitle)`
   margin-top: 108px;
@@ -49,70 +58,85 @@ const HomePageSubTitle = styled(SectionTitle)`
   }
 `;
 
-const IndexPage: React.FC = () => (
-  <Layout isIndexPage={true}>
-    <SEO title="Home" />
-    <Grid center>
-      <GridItem xs={0} md={2} />
-      <GridItem xs={12} md={8}>
-        <HomePageTitle>Full Stack Digital Service Agency</HomePageTitle>
-        <HomePageSubTitle>
-          We offer only what we are truly great at.
-        </HomePageSubTitle>
-        <BlockTeaser
-          preTitle="Services"
-          title="Full Stack"
-          link="All Services >"
-          linkTo="/services"
-        >
-          <Text>
-            Satellytes ist eine Digital-Agentur, die um große Unternehmen kreist
-            und ihnen bei der Transformation und Optimierung digitaler Services
-            und Interfaces hilft. Wir bieten „Full Stack“ an, also den gesamten
-            Prozess von Ideation bis zur Implementierung des letzten
-            performanten Funnels und der letzten Zeile wunderschönen Codes.
-          </Text>
-        </BlockTeaser>
-        <HomePageSubTitle>
-          We are into relationships, not one-night-stands.
-        </HomePageSubTitle>
-        <BlockTeaser
-          preTitle="Clients"
-          title="Long term projects not fire & forget"
-          splitView
-        >
-          <Text>
-            We are showing clients not projects since we are aiming for long
-            term relationships.
-          </Text>
-          <Text>
-            We are really good at creating design systems for complex web
-            applications and self-testing, high performance pattern libraries.
-          </Text>
-        </BlockTeaser>
-        <ClientList clients={clients} />
-        <HomePageSubTitle>
-          We are on your side - and the customer&lsquo;s.
-        </HomePageSubTitle>
-        <BlockTeaser
-          preTitle="About"
-          title="Passionate geeks with high ambitions"
-          link="About us"
-          linkTo="/about"
-          splitView
-        >
-          <Text>
-            We are showing clients not projects since we are aiming for long
-            term relationships.
-          </Text>
-          <Text>
-            We are really good at creating design systems for complex web
-            applications and self-testing, high performance pattern libraries.
-          </Text>
-        </BlockTeaser>
-      </GridItem>
-    </Grid>
-  </Layout>
-);
+const IndexPage: React.FC = () => {
+  const data = useStaticQuery<AllClientsQuery>(graphql`
+    query {
+      allClientsJson {
+        nodes {
+          name
+          path
+          start
+        }
+      }
+    }
+  `);
+
+  return (
+    <Layout isIndexPage={true}>
+      <SEO title="Home" />
+      <Grid center>
+        <GridItem xs={0} md={2} />
+        <GridItem xs={12} md={8}>
+          <HomePageTitle>Full Stack Digital Service Agency</HomePageTitle>
+          <HomePageSubTitle>
+            We offer only what we are truly great at.
+          </HomePageSubTitle>
+          <BlockTeaser
+            preTitle="Services"
+            title="Full Stack"
+            link="All Services >"
+            linkTo="/services"
+          >
+            <Text>
+              Satellytes ist eine Digital-Agentur, die um große Unternehmen
+              kreist und ihnen bei der Transformation und Optimierung digitaler
+              Services und Interfaces hilft. Wir bieten „Full Stack“ an, also
+              den gesamten Prozess von Ideation bis zur Implementierung des
+              letzten performanten Funnels und der letzten Zeile wunderschönen
+              Codes.
+            </Text>
+          </BlockTeaser>
+          <HomePageSubTitle>
+            We are into relationships, not one-night-stands.
+          </HomePageSubTitle>
+          <BlockTeaser
+            preTitle="Clients"
+            title="Long term projects not fire & forget"
+            splitView
+          >
+            <Text>
+              We are showing clients not projects since we are aiming for long
+              term relationships.
+            </Text>
+            <Text>
+              We are really good at creating design systems for complex web
+              applications and self-testing, high performance pattern libraries.
+            </Text>
+          </BlockTeaser>
+          <ClientList clients={data.allClientsJson.nodes} />
+          <HomePageSubTitle>
+            We are on your side - and the customer&lsquo;s.
+          </HomePageSubTitle>
+          <BlockTeaser
+            preTitle="About"
+            title="Passionate geeks with high ambitions"
+            link="About us"
+            linkTo="/about"
+            splitView
+          >
+            <Text>
+              We are showing clients not projects since we are aiming for long
+              term relationships.
+            </Text>
+            <Text>
+              We are really good at creating design systems for complex web
+              applications and self-testing, high performance pattern libraries.
+            </Text>
+          </BlockTeaser>
+        </GridItem>
+      </Grid>
+    </Layout>
+  );
+};
 
 export default IndexPage;

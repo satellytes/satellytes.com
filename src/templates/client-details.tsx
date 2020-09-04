@@ -25,7 +25,6 @@ interface ClientTemplateProps {
 }
 
 const ClientDetailsTemplate: React.FC<ClientTemplateProps> = ({ data }) => {
-  console.log('certain client in clients detail', data);
   return (
     <Layout>
       <SEO title="Client details" />

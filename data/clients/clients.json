@@ -7,7 +7,7 @@
     "techStack": ["Angular", "React", "Hippo", "SAP"],
     "teamSize": 4,
     "currentInvestInDays": 360,
-    "start": "2020-08-05",
+    "start": "2020-12-05",
     "finish": null,
     "details": "Markdown string",
     "path": "/clients/client1"
@@ -20,7 +20,7 @@
     "techStack": ["React", "Gatsby"],
     "teamSize": 2,
     "currentInvestInDays": 200,
-    "start": "2020-08-05",
+    "start": "2020-01-12",
     "finish": null,
     "details": "Markdown string",
     "path": "/clients/client2"
@@ -33,7 +33,7 @@
     "techStack": ["Angular", "React", "Gatsby"],
     "teamSize": 13,
     "currentInvestInDays": 720,
-    "start": "2020-08-05",
+    "start": "2020-04-30",
     "finish": null,
     "details": "Markdown string",
     "path": "/clients/client3"
@@ -46,7 +46,7 @@
     "techStack": ["Angular", "React", "Gatsby"],
     "teamSize": 13,
     "currentInvestInDays": 720,
-    "start": "2020-08-05",
+    "start": "2019-08-05",
     "finish": null,
     "details": "Markdown string",
     "path": "/clients/client4"
@@ -59,7 +59,7 @@
     "techStack": ["Angular", "React", "Gatsby"],
     "teamSize": 13,
     "currentInvestInDays": 720,
-    "start": "2020-08-05",
+    "start": "2018-08-05",
     "finish": null,
     "details": "Markdown string",
     "path": "/clients/client5"

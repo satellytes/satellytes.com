@@ -94,7 +94,6 @@ const ClientDescription = styled(Markdown)`
 `;
 
 const ClientPage: React.FC<ClientProps> = ({ data }) => {
-  console.log('data in client page', data);
   return (
     <div>
       <Grid>
