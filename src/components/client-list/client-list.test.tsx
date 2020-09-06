@@ -38,12 +38,6 @@ describe('Client List', () => {
       expect(getByText('client name')).toBeTruthy();
     });
 
-    it('should show time information', () => {
-      const start = testClients[0].start;
-      const { getByText } = render(<ClientList clients={testClients as any} />);
-      expect(getByText(`Since April 30, 2020`)).toBeTruthy();
-    });
-
     it('title should direct to linked page', () => {
       const clientTitle = testClients[0].name;
       const clientLink = testClients[0].path;
