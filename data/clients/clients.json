@@ -2,7 +2,7 @@
   {
     "industry": "Sports",
     "name": "Incredible client 1",
-    "description": "Markdown string",
+    "description": "Awesome markdown description would be here. Donec sed odio dui. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
     "tasks": ["Concept", "UX", "UI", "Frontend", "Backend"],
     "techStack": ["Angular", "React", "Hippo", "SAP"],
     "teamSize": 4,
@@ -15,7 +15,7 @@
   {
     "industry": "Insuarance",
     "name": "Marvelous client 2",
-    "description": "Markdown string",
+    "description": "Awesome markdown description would be here. Donec sed odio dui. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
     "tasks": ["Concet", "UX", "UI"],
     "techStack": ["React", "Gatsby"],
     "teamSize": 2,
@@ -28,7 +28,7 @@
   {
     "industry": "IT-consulting",
     "name": "Awesome client 3",
-    "description": "Markdown string",
+    "description": "Awesome markdown description would be here. Donec sed odio dui. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
     "tasks": ["Concet", "UX", "UI"],
     "techStack": ["Angular", "React", "Gatsby"],
     "teamSize": 13,
@@ -54,7 +54,7 @@
   {
     "industry": "IT-consulting",
     "name": "Unbelivable client 5",
-    "description": "Markdown string",
+    "description": "Awesome markdown description would be here. Donec sed odio dui. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
     "tasks": ["Concet", "UX", "UI"],
     "techStack": ["Angular", "React", "Gatsby"],
     "teamSize": 13,

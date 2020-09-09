@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import { formattedDate } from '../../shared';
 import { up } from '../breakpoint/breakpoint';
 import { Grid, GridItem } from '../grid/grid';
-import { Markdown } from '../markdown/markdown';
-import { SubTitle } from '../typography/typography';
+import { SubTitle, Text } from '../typography/typography';
 
 export interface ClientProps {
   data: {
@@ -19,57 +18,50 @@ export interface ClientProps {
       currentInvestInDays?: number;
       details?: string[];
     };
-    markdownRemark: {
-      rawMarkdownBody: string;
-    };
   };
 }
 
 const LabelsItem = styled.p`
   color: #202840;
   opacity: 0.5;
-  font-family: CocoGothic;
   font-size: 12px;
   line-height: 110%;
   letter-spacing: 0.2em;
   text-transform: uppercase;
 `;
 
-const LabelsWrapper = styled.div`
-  align-self: stretch;
+const Wrapper = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  position: relative;
-  padding: 12px 0px;
+  list-style: none;
+  padding: 0px;
   margin-bottom: 40px;
 
   ${up('md')} {
     margin-bottom: 80px;
-    flex-direction: row;
   }
 `;
 
-const LabelsText = styled.p`
-  color: #202840;
-  font-size: 32px;
-  line-height: 110%;
-  font-weight: bold;
-  margin-top: 14px;
-`;
-
-const Items = styled.div`
+const Items = styled.li`
   font-size: 14px;
   font-weight: bold;
   line-height: 110%;
   color: #ffffff;
   background: #668cff;
-  
   border-radius: 16px;
   border: 0;
   padding: 9px 14px;
   margin: 12px;
   margin-left: 0;
   }
+`;
+
+const ClientInfoItem = styled.p`
+  color: #202840;
+  font-size: 32px;
+  line-height: 110%;
+  font-weight: bold;
+  margin-top: 14px;
 `;
 
 const ClientSubTitle = styled(SubTitle)`
@@ -84,7 +76,7 @@ const TitleLabelItem = styled(LabelsItem)`
   }
 `;
 
-const ClientDescription = styled(Markdown)`
+const ClientDescription = styled(Text)`
   margin-bottom: 40px;
 
   ${up('md')} {
@@ -101,7 +93,7 @@ const ClientPage: React.FC<ClientProps> = ({ data }) => {
         <GridItem xs={12} md={8}>
           <TitleLabelItem>{data.clientsJson.industry}</TitleLabelItem>
           <ClientSubTitle>{data.clientsJson.name}</ClientSubTitle>
-          <ClientDescription data={data.markdownRemark.rawMarkdownBody} />
+          <ClientDescription>{data.clientsJson.description}</ClientDescription>
         </GridItem>
       </Grid>
 
@@ -109,21 +101,20 @@ const ClientPage: React.FC<ClientProps> = ({ data }) => {
         <GridItem xs={0} md={2} />
         <GridItem xs={12} sm={6} md={4}>
           <LabelsItem>Tasks</LabelsItem>
-
-          <LabelsWrapper>
+          <Wrapper>
             {data.clientsJson.tasks.map((task, index) => (
               <Items key={index}>{task}</Items>
             ))}
-          </LabelsWrapper>
+          </Wrapper>
         </GridItem>
 
         <GridItem xs={12} sm={6} md={4}>
           <LabelsItem>tech stack</LabelsItem>
-          <LabelsWrapper>
+          <Wrapper>
             {data.clientsJson.techStack.map((technology, index) => (
               <Items key={index}>{technology}</Items>
             ))}
-          </LabelsWrapper>
+          </Wrapper>
         </GridItem>
       </Grid>
 
@@ -133,17 +124,19 @@ const ClientPage: React.FC<ClientProps> = ({ data }) => {
         <GridItem xs={12} sm={6} md={4}>
           <LabelsItem>Team size</LabelsItem>
 
-          <LabelsWrapper>
-            <LabelsText>{data.clientsJson.teamSize} people</LabelsText>
-          </LabelsWrapper>
+          <Wrapper>
+            <ClientInfoItem>{data.clientsJson.teamSize} people</ClientInfoItem>
+          </Wrapper>
         </GridItem>
 
         <GridItem xs={12} sm={6} md={4}>
           <LabelsItem>current invest</LabelsItem>
 
-          <LabelsWrapper>
-            <LabelsText>{data.clientsJson.currentInvestInDays} days</LabelsText>
-          </LabelsWrapper>
+          <Wrapper>
+            <ClientInfoItem>
+              {data.clientsJson.currentInvestInDays} days
+            </ClientInfoItem>
+          </Wrapper>
         </GridItem>
       </Grid>
 
@@ -152,15 +145,17 @@ const ClientPage: React.FC<ClientProps> = ({ data }) => {
         <GridItem xs={12} sm={6} md={4}>
           <LabelsItem>start</LabelsItem>
 
-          <LabelsWrapper>
-            <LabelsText>{formattedDate(data.clientsJson.start)}</LabelsText>
-          </LabelsWrapper>
+          <Wrapper>
+            <ClientInfoItem>
+              {formattedDate(data.clientsJson.start)}
+            </ClientInfoItem>
+          </Wrapper>
         </GridItem>
         <GridItem xs={12} sm={6} md={4}>
           <LabelsItem>finish</LabelsItem>
-          <LabelsWrapper>
-            <LabelsText>Internity</LabelsText>
-          </LabelsWrapper>
+          <Wrapper>
+            <ClientInfoItem>Internity</ClientInfoItem>
+          </Wrapper>
         </GridItem>
       </Grid>
     </div>

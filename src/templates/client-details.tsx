@@ -18,15 +18,12 @@ interface ClientTemplateProps {
       currentInvestInDays?: number;
       details?: string[];
     };
-    markdownRemark: {
-      rawMarkdownBody: string;
-    };
   };
 }
 
 const ClientDetailsTemplate: React.FC<ClientTemplateProps> = ({ data }) => {
   return (
-    <Layout>
+    <Layout siteTitleUrl={'/clients'}>
       <SEO title="Client details" />
       <Grid>
         <GridItem>
@@ -49,12 +46,6 @@ export const CLIENT_PAGE_QUERY = graphql`
       tasks
       teamSize
       techStack
-    }
-    markdownRemark(frontmatter: { path: { eq: $linkToThePage } }) {
-      frontmatter {
-        path
-      }
-      rawMarkdownBody
     }
   }
 `;
