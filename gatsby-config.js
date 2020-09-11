@@ -26,6 +26,14 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'clients',
+        path: `${__dirname}/data/clients`,
+        plugins: ['gatsby-transformer-json'],
+      },
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         excerpt_separator: `<!-- end -->`,

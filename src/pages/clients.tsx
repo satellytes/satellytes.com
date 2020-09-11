@@ -1,17 +1,56 @@
-import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import { FluidObject } from 'gatsby-image';
+import React from 'react';
+import { Grid, GridItem } from '../components/grid/grid';
+import ClientImageGrid from '../components/image-grids/client-image-grid';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 import {
   CaptionText,
-  PageTitle,
   LargeText,
+  PageTitle,
 } from '../components/typography/typography';
-import { Grid, GridItem } from '../components/grid/grid';
-import ClientImageGrid from '../components/image-grids/client-image-grid';
+
+interface AllClientsQuery {
+  allClientsJson: {
+    nodes: {
+      id: string;
+      name: string;
+      path: string;
+    }[];
+  };
+  imagePlaceholder: {
+    childImageSharp: {
+      fluid: FluidObject;
+    };
+  };
+}
 
 const ClientsPage: React.FC = () => {
-  const data = useStaticQuery(query);
+  const data = useStaticQuery<AllClientsQuery>(graphql`
+    query getClients {
+      allClientsJson {
+        nodes {
+          id
+          name
+          path
+        }
+      }
+      imagePlaceholder: file(relativePath: { regex: "/astronaut/" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
+
+  const clientsList = data.allClientsJson.nodes.map((clientItem) => {
+    return {
+      ...clientItem,
+    };
+  });
 
   return (
     <Layout>
@@ -31,7 +70,7 @@ const ClientsPage: React.FC = () => {
         </GridItem>
       </Grid>
       <ClientImageGrid
-        clients={clientData}
+        clients={clientsList}
         imagePlaceholder={data.imagePlaceholder.childImageSharp.fluid}
       />
     </Layout>
@@ -39,23 +78,3 @@ const ClientsPage: React.FC = () => {
 };
 
 export default ClientsPage;
-
-const clientData = [
-  { name: 'Client One', link: '/' },
-  { name: 'Client Two', link: '/' },
-  { name: 'Client Three', link: '/' },
-  { name: 'Client Four', link: '/' },
-  { name: 'Client Five', link: '/' },
-];
-
-const query = graphql`
-  query {
-    imagePlaceholder: file(relativePath: { regex: "/astronaut/" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`;
