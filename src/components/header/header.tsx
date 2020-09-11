@@ -11,6 +11,16 @@ import { GRID_GAP_DESKTOP, GRID_GAP_MOBILE } from '../grid/grid';
 export const HEADER_HEIGHT = '65px';
 
 const StyledHeader = styled.header<{ light: number }>`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+
+  background-color: ${(props) =>
+    props.light === 1
+      ? props.theme.palette.background.body
+      : props.theme.palette.background.bodyLight};
+
   height: ${HEADER_HEIGHT};
   display: flex;
   justify-content: space-between;
