@@ -6,6 +6,7 @@ import { IconTwitter } from '../icons/social/twitter';
 import { IconLinkedIn } from '../icons/social/linkedin';
 import { IconXing } from '../icons/social/xing';
 import { Grid, GridItem } from '../grid/grid';
+import { css } from '@emotion/core';
 
 const NavigationBackground = styled.div`
   background: #4d79ff;
@@ -115,6 +116,11 @@ const LegalLink = styled(Link)`
       margin-right: 12px;
     }
   }
+
+  transition: 0.3s;
+  &:hover {
+    color: #ffffff;
+  }
 `;
 
 /**
@@ -169,79 +175,89 @@ const SiteNavigationLink = styled(Link)`
   ${up('md')} {
     font-size: 48px;
   }
+
+  transition: 0.3s;
+  &:hover {
+    color: #ffffff;
+  }
 `;
 
-const Navigation: React.FC = (props) => (
-  <NavigationBackground {...props}>
-    <Grid center>
-      <GridItem>
-        <NavigationContent>
-          <MetaContainer>
-            <SocialLinks>
-              <SocialLinkItem>
-                <SocialLink
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://twitter.com/satellytes_beep"
-                >
-                  <IconTwitter />
-                </SocialLink>
-              </SocialLinkItem>
-              <SocialLinkItem>
-                <SocialLink
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://www.linkedin.com/company/satellytes"
-                >
-                  <IconLinkedIn />
-                </SocialLink>
-              </SocialLinkItem>
-              <SocialLinkItem>
-                <SocialLink
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://www.xing.com/companies/satellytesgmbh"
-                >
-                  <IconXing />
-                </SocialLink>
-              </SocialLinkItem>
-            </SocialLinks>
-            <LegalLinks>
-              <LegalLink to="/imprint">Imprint</LegalLink>
-              <LegalLink to="/data-privacy">Data Privacy</LegalLink>
-            </LegalLinks>
-          </MetaContainer>
-          <SiteNavigation>
-            <SiteNavigationTitle>Nav</SiteNavigationTitle>
-            <nav>
-              <SiteNavigationList>
-                <NavigationListItem>
-                  <SiteNavigationLink to="/services">
-                    Services
-                  </SiteNavigationLink>
-                </NavigationListItem>
-                <NavigationListItem>
-                  <SiteNavigationLink to="/clients">Clients</SiteNavigationLink>
-                </NavigationListItem>
-                <NavigationListItem>
-                  <SiteNavigationLink to="/about">About</SiteNavigationLink>
-                </NavigationListItem>
-                <NavigationListItem>
-                  <SiteNavigationLink to="/career">Career</SiteNavigationLink>
-                </NavigationListItem>
-                <NavigationListItem>
-                  <SiteNavigationLink to="/contact">Contact</SiteNavigationLink>
-                </NavigationListItem>
-                <NavigationListItem>
-                  <SiteNavigationLink to="/blog">Blog</SiteNavigationLink>
-                </NavigationListItem>
-              </SiteNavigationList>
-            </nav>
-          </SiteNavigation>
-        </NavigationContent>
-      </GridItem>
-    </Grid>
-  </NavigationBackground>
-);
-
+const Navigation: React.FC = (props) => {
+  return (
+    <NavigationBackground {...props}>
+      <Grid center>
+        <GridItem>
+          <NavigationContent>
+            <MetaContainer>
+              <SocialLinks>
+                <SocialLinkItem>
+                  <SocialLink
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://twitter.com/satellytes_beep"
+                  >
+                    <IconTwitter />
+                  </SocialLink>
+                </SocialLinkItem>
+                <SocialLinkItem>
+                  <SocialLink
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.linkedin.com/company/satellytes"
+                  >
+                    <IconLinkedIn />
+                  </SocialLink>
+                </SocialLinkItem>
+                <SocialLinkItem>
+                  <SocialLink
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.xing.com/companies/satellytesgmbh"
+                  >
+                    <IconXing />
+                  </SocialLink>
+                </SocialLinkItem>
+              </SocialLinks>
+              <LegalLinks>
+                <LegalLink to="/imprint">Imprint</LegalLink>
+                <LegalLink to="/data-privacy">Data Privacy</LegalLink>
+              </LegalLinks>
+            </MetaContainer>
+            <SiteNavigation>
+              <SiteNavigationTitle>Nav</SiteNavigationTitle>
+              <nav>
+                <SiteNavigationList>
+                  <NavigationListItem>
+                    <SiteNavigationLink to="/services">
+                      Services
+                    </SiteNavigationLink>
+                  </NavigationListItem>
+                  <NavigationListItem>
+                    <SiteNavigationLink to="/clients">
+                      Clients
+                    </SiteNavigationLink>
+                  </NavigationListItem>
+                  <NavigationListItem>
+                    <SiteNavigationLink to="/about">About</SiteNavigationLink>
+                  </NavigationListItem>
+                  <NavigationListItem>
+                    <SiteNavigationLink to="/career">Career</SiteNavigationLink>
+                  </NavigationListItem>
+                  <NavigationListItem>
+                    <SiteNavigationLink to="/contact">
+                      Contact
+                    </SiteNavigationLink>
+                  </NavigationListItem>
+                  <NavigationListItem>
+                    <SiteNavigationLink to="/blog">Blog</SiteNavigationLink>
+                  </NavigationListItem>
+                </SiteNavigationList>
+              </nav>
+            </SiteNavigation>
+          </NavigationContent>
+        </GridItem>
+      </Grid>
+    </NavigationBackground>
+  );
+};
 export default Navigation;
