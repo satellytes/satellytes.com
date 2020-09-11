@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
 import { Link } from 'gatsby';
-import { up } from '../breakpoint/breakpoint';
-import styled from 'styled-components';
-import BurgerMenu from '../icons/burger-menu';
-import { NavigationFlyout } from './menu-flyout';
 import { FluidObject } from 'gatsby-image';
-import { HeroImage } from './hero-image';
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { up } from '../breakpoint/breakpoint';
 import { GRID_GAP_DESKTOP, GRID_GAP_MOBILE } from '../grid/grid';
+import BurgerMenu from '../icons/burger-menu';
+import { CloseBurgerMenuIcon } from '../icons/buttons-icons/close-burger-menu';
+import { HeroImage } from './hero-image';
+import { NavigationFlyout } from './menu-flyout';
 
 export const HEADER_HEIGHT = '65px';
 
@@ -103,7 +104,7 @@ const Header: React.FC<HeaderProps> = (props) => {
             setIsNavigationVisible(!isNavigationVisible);
           }}
         >
-          <BurgerMenu />
+          {!isNavigationVisible ? <BurgerMenu /> : <CloseBurgerMenuIcon />}
         </SiteMenu>
         <NavigationFlyout
           visible={isNavigationVisible}
