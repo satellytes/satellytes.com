@@ -44,7 +44,7 @@ const NoScrollBody = createGlobalStyle`
 
 interface NavigationFlyoutProp {
   visible: boolean;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export const NavigationFlyout: React.FC<NavigationFlyoutProp> = (props) => {

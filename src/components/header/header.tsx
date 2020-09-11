@@ -106,10 +106,7 @@ const Header: React.FC<HeaderProps> = (props) => {
         >
           {!isNavigationVisible ? <BurgerMenu /> : <CloseBurgerMenuIcon />}
         </SiteMenu>
-        <NavigationFlyout
-          visible={isNavigationVisible}
-          onClick={() => setIsNavigationVisible(!isNavigationVisible)}
-        />
+        <NavigationFlyout visible={isNavigationVisible} />
       </StyledHeader>
     </HeroImage>
   );
