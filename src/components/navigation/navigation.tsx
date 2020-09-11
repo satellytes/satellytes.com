@@ -1,12 +1,11 @@
-import React from 'react';
 import { Link } from 'gatsby';
-import { up } from '../breakpoint/breakpoint';
+import React from 'react';
 import styled from 'styled-components';
-import { IconTwitter } from '../icons/social/twitter';
-import { IconLinkedIn } from '../icons/social/linkedin';
-import { IconXing } from '../icons/social/xing';
+import { up } from '../breakpoint/breakpoint';
 import { Grid, GridItem } from '../grid/grid';
-import { css } from '@emotion/core';
+import { IconLinkedIn } from '../icons/social/linkedin';
+import { IconTwitter } from '../icons/social/twitter';
+import { IconXing } from '../icons/social/xing';
 
 const NavigationBackground = styled.div`
   background: #4d79ff;
@@ -157,7 +156,11 @@ const NavigationListItem = styled.li`
   display: block;
 `;
 
-const SiteNavigationLink = styled(Link)`
+interface SiteNavigationLinkProps {
+  isselected: boolean;
+}
+
+const SiteNavigationLink = styled(Link)<SiteNavigationLinkProps>`
   font-size: 32px;
   font-weight: bold;
   line-height: 150%;
@@ -180,9 +183,22 @@ const SiteNavigationLink = styled(Link)`
   &:hover {
     color: #ffffff;
   }
+
+  ${({ isselected }) =>
+    isselected &&
+    `
+    color: #ffffff;
+  `}
 `;
 
 const Navigation: React.FC = (props) => {
+  const isLinkSelected = (partialLink: string): boolean => {
+    const isBrowser = typeof window !== `undefined`;
+    const url = isBrowser ? window.location.href : '';
+    const check = url.indexOf(partialLink);
+    return check === -1 ? false : true;
+  };
+
   return (
     <NavigationBackground {...props}>
       <Grid center>
@@ -228,28 +244,52 @@ const Navigation: React.FC = (props) => {
               <nav>
                 <SiteNavigationList>
                   <NavigationListItem>
-                    <SiteNavigationLink to="/services">
+                    <SiteNavigationLink
+                      to="/services"
+                      isselected={isLinkSelected('/services')}
+                    >
                       Services
                     </SiteNavigationLink>
                   </NavigationListItem>
                   <NavigationListItem>
-                    <SiteNavigationLink to="/clients">
+                    <SiteNavigationLink
+                      to="/clients"
+                      isselected={isLinkSelected('/clients')}
+                    >
                       Clients
                     </SiteNavigationLink>
                   </NavigationListItem>
                   <NavigationListItem>
-                    <SiteNavigationLink to="/about">About</SiteNavigationLink>
+                    <SiteNavigationLink
+                      to="/about"
+                      isselected={isLinkSelected('/about')}
+                    >
+                      About
+                    </SiteNavigationLink>
                   </NavigationListItem>
                   <NavigationListItem>
-                    <SiteNavigationLink to="/career">Career</SiteNavigationLink>
+                    <SiteNavigationLink
+                      to="/career"
+                      isselected={isLinkSelected('/career')}
+                    >
+                      Career
+                    </SiteNavigationLink>
                   </NavigationListItem>
                   <NavigationListItem>
-                    <SiteNavigationLink to="/contact">
+                    <SiteNavigationLink
+                      to="/contact"
+                      isselected={isLinkSelected('/contact')}
+                    >
                       Contact
                     </SiteNavigationLink>
                   </NavigationListItem>
                   <NavigationListItem>
-                    <SiteNavigationLink to="/blog">Blog</SiteNavigationLink>
+                    <SiteNavigationLink
+                      to="/blog"
+                      isselected={isLinkSelected('/blog')}
+                    >
+                      Blog
+                    </SiteNavigationLink>
                   </NavigationListItem>
                 </SiteNavigationList>
               </nav>
