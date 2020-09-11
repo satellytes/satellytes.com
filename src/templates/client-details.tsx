@@ -10,7 +10,7 @@ interface ClientTemplateProps {
     clientsJson: {
       name: string;
       industry: string;
-      description?: string;
+      description: string;
       tasks: string[];
       techStack: string[];
       teamSize?: number;

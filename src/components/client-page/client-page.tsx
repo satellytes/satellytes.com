@@ -11,7 +11,7 @@ export interface ClientProps {
     clientsJson: {
       name: string;
       industry: string;
-      description?: string;
+      description: string;
       tasks: string[];
       techStack: string[];
       teamSize?: number;
@@ -94,7 +94,7 @@ const ClientPage: React.FC<ClientProps> = ({ data }) => {
         <GridItem xs={12} md={8}>
           <TitleLabelItem>{data.clientsJson.industry}</TitleLabelItem>
           <ClientSubTitle>{data.clientsJson.name}</ClientSubTitle>
-          <ClientDescription data={data.clientsJson.description || ''} />
+          <ClientDescription data={data.clientsJson.description} />
         </GridItem>
       </Grid>
 
