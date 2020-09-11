@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import { formattedDate } from '../../shared';
 import { up } from '../breakpoint/breakpoint';
 import { Grid, GridItem } from '../grid/grid';
-import { SubTitle, Text } from '../typography/typography';
+import { SubTitle } from '../typography/typography';
+import { Markdown } from '../markdown/markdown';
 
 export interface ClientProps {
   data: {
@@ -34,7 +35,7 @@ const Wrapper = styled.ul`
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  padding: 0px;
+  padding: 0;
   margin-bottom: 40px;
 
   ${up('md')} {
@@ -66,7 +67,7 @@ const ClientInfoItem = styled.p`
 
 const ClientSubTitle = styled(SubTitle)`
   margin-bottom: 40px;
-  margin-top: 0px;
+  margin-top: 0;
 `;
 
 const TitleLabelItem = styled(LabelsItem)`
@@ -76,7 +77,7 @@ const TitleLabelItem = styled(LabelsItem)`
   }
 `;
 
-const ClientDescription = styled(Text)`
+const ClientDescription = styled(Markdown)`
   margin-bottom: 40px;
 
   ${up('md')} {
@@ -93,7 +94,7 @@ const ClientPage: React.FC<ClientProps> = ({ data }) => {
         <GridItem xs={12} md={8}>
           <TitleLabelItem>{data.clientsJson.industry}</TitleLabelItem>
           <ClientSubTitle>{data.clientsJson.name}</ClientSubTitle>
-          <ClientDescription>{data.clientsJson.description}</ClientDescription>
+          <ClientDescription data={data.clientsJson.description || ''} />
         </GridItem>
       </Grid>
 
