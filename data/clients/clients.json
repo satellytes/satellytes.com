@@ -1,0 +1,67 @@
+[
+  {
+    "industry": "Sports",
+    "name": "Incredible client 1",
+    "description": "Awesome markdown description would be here. Donec sed odio dui. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.\n\nAwesome markdown description would be here. Donec sed odio dui. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.\n\nAlso *bold* text and other stuff is __possible__.",
+    "tasks": ["Concept", "UX", "UI", "Frontend", "Backend"],
+    "techStack": ["Angular", "React", "Hippo", "SAP"],
+    "teamSize": 4,
+    "currentInvestInDays": 360,
+    "start": "2020-12-05",
+    "finish": null,
+    "details": "Markdown string",
+    "path": "/clients/client1"
+  },
+  {
+    "industry": "Insuarance",
+    "name": "Marvelous client 2",
+    "description": "Awesome markdown description would be here. Donec sed odio dui. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+    "tasks": ["Concet", "UX", "UI"],
+    "techStack": ["React", "Gatsby"],
+    "teamSize": 2,
+    "currentInvestInDays": 200,
+    "start": "2020-01-12",
+    "finish": null,
+    "details": "Markdown string",
+    "path": "/clients/client2"
+  },
+  {
+    "industry": "IT-consulting",
+    "name": "Awesome client 3",
+    "description": "Awesome markdown description would be here. Donec sed odio dui. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+    "tasks": ["Concet", "UX", "UI"],
+    "techStack": ["Angular", "React", "Gatsby"],
+    "teamSize": 13,
+    "currentInvestInDays": 720,
+    "start": "2020-04-30",
+    "finish": null,
+    "details": "Markdown string",
+    "path": "/clients/client3"
+  },
+  {
+    "industry": "IT-consulting",
+    "name": "Brilliant client 4",
+    "description": "Markdown string",
+    "tasks": ["Concet", "UX", "UI"],
+    "techStack": ["Angular", "React", "Gatsby"],
+    "teamSize": 13,
+    "currentInvestInDays": 720,
+    "start": "2019-08-05",
+    "finish": null,
+    "details": "Markdown string",
+    "path": "/clients/client4"
+  },
+  {
+    "industry": "IT-consulting",
+    "name": "Unbelivable client 5",
+    "description": "Awesome markdown description would be here. Donec sed odio dui. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+    "tasks": ["Concet", "UX", "UI"],
+    "techStack": ["Angular", "React", "Gatsby"],
+    "teamSize": 13,
+    "currentInvestInDays": 720,
+    "start": "2018-08-05",
+    "finish": null,
+    "details": "Markdown string",
+    "path": "/clients/client5"
+  }
+]
