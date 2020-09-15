@@ -3,9 +3,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
 import { Grid, GridItem } from '../grid/grid';
-import { IconLinkedIn } from '../icons/social/linkedin';
-import { IconTwitter } from '../icons/social/twitter';
-import { IconXing } from '../icons/social/xing';
+import { LinkedinWrapper } from '../icons/social/linkedin';
+import { TwitterWrapper } from '../icons/social/twitter';
+import { XingWrapper } from '../icons/social/xing';
 
 const NavigationBackground = styled.div`
   background: #4d79ff;
@@ -212,7 +212,7 @@ const Navigation: React.FC = (props) => {
                     rel="noopener noreferrer"
                     href="https://twitter.com/satellytes_beep"
                   >
-                    <IconTwitter />
+                    <TwitterWrapper />
                   </SocialLink>
                 </SocialLinkItem>
                 <SocialLinkItem>
@@ -221,7 +221,7 @@ const Navigation: React.FC = (props) => {
                     rel="noopener noreferrer"
                     href="https://www.linkedin.com/company/satellytes"
                   >
-                    <IconLinkedIn />
+                    <LinkedinWrapper />
                   </SocialLink>
                 </SocialLinkItem>
                 <SocialLinkItem>
@@ -230,7 +230,7 @@ const Navigation: React.FC = (props) => {
                     rel="noopener noreferrer"
                     href="https://www.xing.com/companies/satellytesgmbh"
                   >
-                    <IconXing />
+                    <XingWrapper />
                   </SocialLink>
                 </SocialLinkItem>
               </SocialLinks>

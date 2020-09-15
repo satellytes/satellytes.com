@@ -1,5 +1,5 @@
 import React from 'react';
-import { css } from '@emotion/core';
+import styled from 'styled-components';
 
 interface TwitterProps {
   color?: string;
@@ -12,13 +12,6 @@ export const IconTwitter: React.FC<TwitterProps> = (props) => (
     viewBox="0 0 27 22"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    css={css`
-      transition: 0.3s;
-      fill: ${props.color ? props.color : '#202840'};
-      &:hover {
-        fill: ${props.color ? props.color : '#ffffff'};
-      }
-    `}
     {...props}
   >
     <path
@@ -28,3 +21,11 @@ export const IconTwitter: React.FC<TwitterProps> = (props) => (
     />
   </svg>
 );
+
+export const TwitterWrapper = styled(IconTwitter)<TwitterProps>`
+  transition: 0.3s;
+  fill: ${(props) => (props.color ? props.color : '#202840')};
+  &:hover {
+    fill: ${(props) => (props.color ? props.color : '#ffffff')};
+  }
+`;
