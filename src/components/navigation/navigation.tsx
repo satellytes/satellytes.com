@@ -156,11 +156,7 @@ const NavigationListItem = styled.li`
   display: block;
 `;
 
-interface SiteNavigationLinkProps {
-  isselected: boolean;
-}
-
-const SiteNavigationLink = styled(Link)<SiteNavigationLinkProps>`
+const SiteNavigationLink = styled(Link)`
   font-size: 32px;
   font-weight: bold;
   line-height: 150%;
@@ -183,22 +179,9 @@ const SiteNavigationLink = styled(Link)<SiteNavigationLinkProps>`
   &:hover {
     color: #ffffff;
   }
-
-  ${({ isselected }) =>
-    isselected &&
-    `
-    color: #ffffff;
-  `}
 `;
 
 const Navigation: React.FC = (props) => {
-  const isLinkSelected = (partialLink: string): boolean => {
-    const isBrowser = typeof window !== `undefined`;
-    const url = isBrowser ? window.location.href : '';
-    const check = url.indexOf(partialLink);
-    return check === -1 ? false : true;
-  };
-
   return (
     <NavigationBackground {...props}>
       <Grid center>
@@ -244,52 +227,28 @@ const Navigation: React.FC = (props) => {
               <nav>
                 <SiteNavigationList>
                   <NavigationListItem>
-                    <SiteNavigationLink
-                      to="/services"
-                      isselected={isLinkSelected('/services')}
-                    >
+                    <SiteNavigationLink to="/services">
                       Services
                     </SiteNavigationLink>
                   </NavigationListItem>
                   <NavigationListItem>
-                    <SiteNavigationLink
-                      to="/clients"
-                      isselected={isLinkSelected('/clients')}
-                    >
+                    <SiteNavigationLink to="/clients">
                       Clients
                     </SiteNavigationLink>
                   </NavigationListItem>
                   <NavigationListItem>
-                    <SiteNavigationLink
-                      to="/about"
-                      isselected={isLinkSelected('/about')}
-                    >
-                      About
-                    </SiteNavigationLink>
+                    <SiteNavigationLink to="/about">About</SiteNavigationLink>
                   </NavigationListItem>
                   <NavigationListItem>
-                    <SiteNavigationLink
-                      to="/career"
-                      isselected={isLinkSelected('/career')}
-                    >
-                      Career
-                    </SiteNavigationLink>
+                    <SiteNavigationLink to="/career">Career</SiteNavigationLink>
                   </NavigationListItem>
                   <NavigationListItem>
-                    <SiteNavigationLink
-                      to="/contact"
-                      isselected={isLinkSelected('/contact')}
-                    >
+                    <SiteNavigationLink to="/contact">
                       Contact
                     </SiteNavigationLink>
                   </NavigationListItem>
                   <NavigationListItem>
-                    <SiteNavigationLink
-                      to="/blog"
-                      isselected={isLinkSelected('/blog')}
-                    >
-                      Blog
-                    </SiteNavigationLink>
+                    <SiteNavigationLink to="/blog">Blog</SiteNavigationLink>
                   </NavigationListItem>
                 </SiteNavigationList>
               </nav>
