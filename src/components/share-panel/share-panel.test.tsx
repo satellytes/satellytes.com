@@ -39,13 +39,13 @@ describe('SharePanel', () => {
       expect(sharePanel.findByRole('IconFacebook')).toBeTruthy();
     });
     it('should contain twitter', () => {
-      expect(sharePanel.findByRole('IconTwitter')).toBeTruthy();
+      expect(sharePanel.findByRole('TwitterWrapper')).toBeTruthy();
     });
     it('should contain linkedin', () => {
-      expect(sharePanel.findByRole('IconLinkedIn')).toBeTruthy();
+      expect(sharePanel.findByRole('LinkedinWrapper')).toBeTruthy();
     });
     it('should contain xing', () => {
-      expect(sharePanel.findByRole('IconXing')).toBeTruthy();
+      expect(sharePanel.findByRole('XingWrapper')).toBeTruthy();
     });
   });
 });

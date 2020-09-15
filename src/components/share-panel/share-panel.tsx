@@ -10,10 +10,10 @@ import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
 import { IconEmail } from '../icons/social/email';
 import { IconFacebook } from '../icons/social/facebook';
-import { IconLinkedIn } from '../icons/social/linkedin';
-import { IconTwitter } from '../icons/social/twitter';
+import { LinkedinWrapper } from '../icons/social/linkedin';
+import { TwitterWrapper } from '../icons/social/twitter';
 import { IconWhatsapp } from '../icons/social/whatsapp';
-import { IconXing } from '../icons/social/xing';
+import { XingWrapper } from '../icons/social/xing';
 
 export interface ShareProps {
   title: string;
@@ -80,12 +80,12 @@ export const SharePanel: React.FC<ShareProps> = ({ title }) => {
         </SocialLinkItem>
         <SocialLinkItem>
           <TwitterShareButton url={shareUrl} title={title} hashtags={hashtags}>
-            <IconTwitter color="#668cff" />
+            <TwitterWrapper color="#668cff" />
           </TwitterShareButton>
         </SocialLinkItem>
         <SocialLinkItem>
           <LinkedinShareButton title={title} url={shareUrl}>
-            <IconLinkedIn color="#668cff" />
+            <LinkedinWrapper color="#668cff" />
           </LinkedinShareButton>
         </SocialLinkItem>
         <SocialLinkItem>
@@ -94,7 +94,7 @@ export const SharePanel: React.FC<ShareProps> = ({ title }) => {
             title={title}
             target="_blank"
           >
-            <IconXing color="#668cff" />
+            <XingWrapper color="#668cff" />
           </XingShareButton>
         </SocialLinkItem>
       </SocialLinks>
