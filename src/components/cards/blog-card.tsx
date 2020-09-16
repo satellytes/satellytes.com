@@ -1,5 +1,5 @@
 import React from 'react';
-import GatsbyImage, { FluidObject } from 'gatsby-image';
+import GatsbyImage, { FluidObject, GatsbyImageProps } from 'gatsby-image';
 import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
 import { theme } from '../layout/theme';
@@ -29,7 +29,7 @@ const BlogCardWrapper = styled(CardWrapper)<{ image: boolean }>`
     `}
 `;
 
-const BlogCardImage = styled(GatsbyImage)`
+const BlogCardImage = styled(GatsbyImage)<GatsbyImageProps>`
   width: calc(100% + 2 * 16px);
   margin: -24px -16px 24px;
 `;

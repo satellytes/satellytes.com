@@ -1,5 +1,5 @@
 import React from 'react';
-import GatsbyImage, { FluidObject } from 'gatsby-image';
+import GatsbyImage, { FluidObject, GatsbyImageProps } from 'gatsby-image';
 import styled from 'styled-components';
 import {
   ImageCardTitleLarge,
@@ -26,7 +26,7 @@ const ImageCardWrapper = styled.div`
   margin-bottom: 24px;
 `;
 
-const StyledImg = styled(GatsbyImage)`
+const StyledImg = styled(GatsbyImage)<GatsbyImageProps>`
   border-radius: 4px;
 `;
 
