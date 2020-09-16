@@ -39,7 +39,7 @@ describe('Byline', () => {
   });
 
   it('should contain date', () => {
-    const date = byline.getByText('vor 10 Tagen');
+    const date = byline.getByText('10 days ago');
     expect(date).toBeTruthy();
   });
 });

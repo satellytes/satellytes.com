@@ -1,5 +1,5 @@
 import { formatDistanceToNow } from 'date-fns';
-import { de } from 'date-fns/locale';
+import { enGB } from 'date-fns/locale';
 import React from 'react';
 import styled from 'styled-components';
 import { BylineArrow } from '../icons/byline-arrow';
@@ -17,21 +17,19 @@ const BylineContainer = styled.div`
 `;
 
 const BylineAuthor = styled.p`
-  font-weight: bold;
-  font-weight: normal;
-  margin: 0px 8px 0px 0px;
+  margin: 0 8px 0 0;
   line-height: 150%;
   display: inline-block;
 `;
 
 const BylineTimeFromPosted = styled.p`
   font-weight: bold;
-  margin-top: 0px;
+  margin-top: 0;
 `;
 
 const Byline: React.FC<BylineProps> = ({ author, date, authorSummary }) => {
   const timeFromPosted = formatDistanceToNow(new Date(date), {
-    locale: de,
+    locale: enGB,
     addSuffix: true,
   });
 

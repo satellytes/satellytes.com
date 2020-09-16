@@ -6,9 +6,6 @@ module.exports = {
     author: 'Satellytes',
     siteUrl: 'https://satellytes.com',
   },
-  // pathPrefix is only used when build runs with --pathPrefix (needed for gh-pages).
-  // it's the base path (https://satellytes.github.io/satellytes.com-new/)
-  pathPrefix: '/satellytes.com-new',
   plugins: [
     'gatsby-plugin-react-helmet',
     {
@@ -28,8 +25,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'clients',
-        path: `${__dirname}/data/clients`,
+        path: `${__dirname}/data`,
         plugins: ['gatsby-transformer-json'],
       },
     },

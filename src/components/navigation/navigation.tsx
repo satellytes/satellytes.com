@@ -91,7 +91,7 @@ const SocialLink = styled.a`
   }
 `;
 
-const LegalLink = styled(Link)`
+const LegalLink = styled(Link)<{ isSelected: 0 | 1 }>`
   display: block;
 
   font-weight: 500;
@@ -99,13 +99,13 @@ const LegalLink = styled(Link)`
   line-height: 22px;
 
   text-decoration: none;
-  color: #202840;
+  color: ${(props) => (props.isSelected === 1 ? '#ffffff' : '#202840')};
 
   /**
    * necessary for Safari
    */
   &:link {
-    color: #202840;
+    color: ${(props) => (props.isSelected === 1 ? '#ffffff' : '#202840')};
   }
 
   ${up('md')} {
@@ -156,19 +156,19 @@ const NavigationListItem = styled.li`
   display: block;
 `;
 
-const SiteNavigationLink = styled(Link)`
+const SiteNavigationLink = styled(Link)<{ isSelected: 0 | 1 }>`
   font-size: 32px;
   font-weight: bold;
   line-height: 150%;
 
   text-decoration: none;
-  color: #202840;
+  color: ${(props) => (props.isSelected === 1 ? '#ffffff' : '#202840')};
 
   /**
    * necessary for Safari
    */
   &:link {
-    color: #202840;
+    color: ${(props) => (props.isSelected === 1 ? '#ffffff' : '#202840')};
   }
 
   ${up('md')} {
@@ -182,6 +182,10 @@ const SiteNavigationLink = styled(Link)`
 `;
 
 const Navigation: React.FC = (props) => {
+  const isOnPage = (path: string): boolean => {
+    return window.location.pathname.includes(path);
+  };
+
   return (
     <NavigationBackground {...props}>
       <Grid center>
@@ -218,8 +222,18 @@ const Navigation: React.FC = (props) => {
                 </SocialLinkItem>
               </SocialLinks>
               <LegalLinks>
-                <LegalLink to="/imprint">Imprint</LegalLink>
-                <LegalLink to="/data-privacy">Data Privacy</LegalLink>
+                <LegalLink
+                  to="/imprint"
+                  isSelected={isOnPage('/imprint') ? 1 : 0}
+                >
+                  Imprint
+                </LegalLink>
+                <LegalLink
+                  to="/data-privacy"
+                  isSelected={isOnPage('/data-privacy') ? 1 : 0}
+                >
+                  Data Privacy
+                </LegalLink>
               </LegalLinks>
             </MetaContainer>
             <SiteNavigation>
@@ -227,28 +241,52 @@ const Navigation: React.FC = (props) => {
               <nav>
                 <SiteNavigationList>
                   <NavigationListItem>
-                    <SiteNavigationLink to="/services">
+                    <SiteNavigationLink
+                      to="/services"
+                      isSelected={isOnPage('/services') ? 1 : 0}
+                    >
                       Services
                     </SiteNavigationLink>
                   </NavigationListItem>
                   <NavigationListItem>
-                    <SiteNavigationLink to="/clients">
+                    <SiteNavigationLink
+                      to="/clients"
+                      isSelected={isOnPage('/clients') ? 1 : 0}
+                    >
                       Clients
                     </SiteNavigationLink>
                   </NavigationListItem>
                   <NavigationListItem>
-                    <SiteNavigationLink to="/about">About</SiteNavigationLink>
+                    <SiteNavigationLink
+                      to="/about"
+                      isSelected={isOnPage('/about') ? 1 : 0}
+                    >
+                      About
+                    </SiteNavigationLink>
                   </NavigationListItem>
                   <NavigationListItem>
-                    <SiteNavigationLink to="/career">Career</SiteNavigationLink>
+                    <SiteNavigationLink
+                      to="/career"
+                      isSelected={isOnPage('/career') ? 1 : 0}
+                    >
+                      Career
+                    </SiteNavigationLink>
                   </NavigationListItem>
                   <NavigationListItem>
-                    <SiteNavigationLink to="/contact">
+                    <SiteNavigationLink
+                      to="/contact"
+                      isSelected={isOnPage('/contact') ? 1 : 0}
+                    >
                       Contact
                     </SiteNavigationLink>
                   </NavigationListItem>
                   <NavigationListItem>
-                    <SiteNavigationLink to="/blog">Blog</SiteNavigationLink>
+                    <SiteNavigationLink
+                      to="/blog"
+                      isSelected={isOnPage('/blog') ? 1 : 0}
+                    >
+                      Blog
+                    </SiteNavigationLink>
                   </NavigationListItem>
                 </SiteNavigationList>
               </nav>

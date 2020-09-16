@@ -4,7 +4,7 @@ import { up } from '../breakpoint/breakpoint';
 import { Link } from 'gatsby';
 import { theme } from '../layout/theme';
 import { GRID_GAP_MOBILE } from '../grid/grid';
-import { formattedDate } from '../../shared';
+import { formattedDate } from '../util/format-date';
 
 interface ClientListProps {
   clients: ClientListEntryProps[];

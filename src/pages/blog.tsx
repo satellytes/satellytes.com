@@ -9,15 +9,9 @@ import { up } from '../components/breakpoint/breakpoint';
 import { Grid, GridItem } from '../components/grid/grid';
 import { PageTitle } from '../components/typography/typography';
 import { BlogCard } from '../components/cards/blog-card';
+import { formattedDate } from '../components/util/format-date';
 
 const TOP_POST_COUNT = 2;
-
-const LOCALE = 'de-DE';
-const DATE_OPTIONS = {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-};
 
 interface AllBlogPostsQuery {
   allMarkdownRemark: {
@@ -47,14 +41,6 @@ const BlogPageTitle = styled(PageTitle)`
     margin-bottom: 80px;
   }
 `;
-
-// input date format "yyyy-mm-dd" from markdown frontmatter
-const formattedDate = (date: string): string => {
-  const parsedDate = new Date(date);
-
-  // output date format specified in LOCALE & DATE_OPTIONS
-  return parsedDate.toLocaleDateString(LOCALE, DATE_OPTIONS);
-};
 
 const BlogPage: React.FC = () => {
   const data = useStaticQuery<AllBlogPostsQuery>(graphql`

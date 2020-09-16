@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { formattedDate } from '../../shared';
 import { up } from '../breakpoint/breakpoint';
 import { Grid, GridItem } from '../grid/grid';
 import { SubTitle } from '../typography/typography';
 import { Markdown } from '../markdown/markdown';
+import { formattedDate } from '../util/format-date';
 
 export interface ClientProps {
   data: {

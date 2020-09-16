@@ -11,14 +11,16 @@ import { NavigationFlyout } from './menu-flyout';
 
 export const HEADER_HEIGHT = '65px';
 
-const StyledHeader = styled.header<{ light: number }>`
+const StyledHeader = styled.header<{ light: number; transparent: number }>`
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 100;
 
   background-color: ${(props) =>
-    props.light === 1
+    props.transparent === 1
+      ? 'none'
+      : props.light === 1
       ? props.theme.palette.background.body
       : props.theme.palette.background.bodyLight};
 
@@ -94,7 +96,10 @@ const Header: React.FC<HeaderProps> = (props) => {
 
   return (
     <HeroImage image={props.heroImage}>
-      <StyledHeader light={props.light ? 1 : 0}>
+      <StyledHeader
+        light={props.light ? 1 : 0}
+        transparent={props.heroImage ? 1 : 0}
+      >
         <SiteTitle to={props.siteTitleUrl || '/'} light={props.light ? 1 : 0}>
           {props.siteTitle}
         </SiteTitle>

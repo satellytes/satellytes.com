@@ -15,6 +15,12 @@ import TeamMemberImageGrid, {
 } from '../components/image-grids/team-member-image-grid';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
+import { FluidObject } from 'gatsby-image';
+
+interface StaticQueryResponse {
+  allTeamJson: { nodes: TeamMember[] };
+  imagePlaceholder: { childImageSharp: { fluid: FluidObject } };
+}
 
 const AboutSubTitle = styled(SubTitle)`
   margin-top: 80px;
@@ -26,7 +32,7 @@ const AboutSubTitle = styled(SubTitle)`
 `;
 
 const AboutPage: React.FC = () => {
-  const data = useStaticQuery(query);
+  const data = useStaticQuery<StaticQueryResponse>(query);
 
   return (
     <Layout>
@@ -86,7 +92,7 @@ const AboutPage: React.FC = () => {
         </GridItem>
       </Grid>
       <TeamMemberImageGrid
-        teamMembers={teamMemberData}
+        teamMembers={data.allTeamJson.nodes}
         imagePlaceholder={data.imagePlaceholder.childImageSharp.fluid}
       />
     </Layout>
@@ -95,49 +101,15 @@ const AboutPage: React.FC = () => {
 
 export default AboutPage;
 
-// todo: move to json file into data folder
-const teamMemberData: TeamMember[] = [
-  {
-    name: 'Gholam Abdol',
-    role: 'CEO, Partner',
-  },
-  {
-    name: 'Eric Singhartinger',
-    role: 'CEO, CXO, Partner',
-  },
-  {
-    name: 'Georgios Kaleadis',
-    role: 'CTO, Partner',
-  },
-  { name: 'Mark Altmann', role: 'Backend' },
-  {
-    name: 'Kateryna Bugaieva',
-    role: 'Frontend',
-  },
-  {
-    name: 'Fabian Dietenberger',
-    role: 'Fullstack',
-    links: [
-      { title: 'GitHub', url: 'https://github.com/feedm3' },
-      {
-        title: 'LinkedIn',
-        url: 'https://www.linkedin.com/in/fabiandietenberger',
-      },
-      { title: 'Website', url: 'https://dietenberger.me' },
-    ],
-  },
-  { name: 'Arthur Erdös', role: 'Backend' },
-  { name: 'Klara Fleischmann', role: 'Frontend' },
-  { name: 'Felix Hamann', role: 'Frontend' },
-  { name: 'Pavel Katkov', role: 'Frontend' },
-  { name: 'Leif Lampater', role: 'Frontend' },
-  { name: 'Verena May', role: 'UX/UI' },
-  { name: 'Christian Ott', role: 'Backend' },
-  { name: 'Mauro Pereira', role: 'Frontend' },
-];
-
 const query = graphql`
-  query {
+  query getTeam {
+    allTeamJson {
+      nodes {
+        name
+        role
+      }
+    }
+
     imagePlaceholder: file(relativePath: { regex: "/astronaut/" }) {
       childImageSharp {
         fluid {
