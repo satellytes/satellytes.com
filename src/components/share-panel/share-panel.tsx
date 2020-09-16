@@ -14,6 +14,7 @@ import { LinkedinWrapper } from '../icons/social/linkedin';
 import { TwitterWrapper } from '../icons/social/twitter';
 import { IconWhatsapp } from '../icons/social/whatsapp';
 import { XingWrapper } from '../icons/social/xing';
+import { isBrowser } from '../util/is-browser';
 
 export interface ShareProps {
   title: string;
@@ -55,8 +56,7 @@ const XingShareButton = styled.a`
 `;
 
 export const SharePanel: React.FC<ShareProps> = ({ title }) => {
-  const isBrowser = typeof window !== `undefined`;
-  const shareUrl = isBrowser ? window.location.href : '';
+  const shareUrl = isBrowser() ? window.location.href : '';
   const hashtags = ['Satellytes'];
 
   return (

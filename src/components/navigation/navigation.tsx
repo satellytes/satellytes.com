@@ -6,6 +6,7 @@ import { Grid, GridItem } from '../grid/grid';
 import { LinkedinWrapper } from '../icons/social/linkedin';
 import { TwitterWrapper } from '../icons/social/twitter';
 import { XingWrapper } from '../icons/social/xing';
+import { isBrowser } from '../util/is-browser';
 
 const NavigationBackground = styled.div`
   background: #4d79ff;
@@ -183,7 +184,7 @@ const SiteNavigationLink = styled(Link)<{ isSelected: 0 | 1 }>`
 
 const Navigation: React.FC = (props) => {
   const isOnPage = (path: string): boolean => {
-    return window.location.pathname.includes(path);
+    return isBrowser() && window.location.pathname.includes(path);
   };
 
   return (
