@@ -18,13 +18,18 @@ declare module 'styled-components' {
       text: {
         default: string;
         defaultLight: string;
+        defaultDark: string;
         header: string;
         headerLight: string;
-        darkLinkColor: {
+        link: {
           default: string;
           hover: string;
         };
-        darkDefault: string;
+        contrastLink: {
+          default: string;
+          hover: string;
+          hoverTransparent: string;
+        };
       };
       background: {
         bodyLight: string;

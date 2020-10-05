@@ -37,11 +37,11 @@ const StyledText = styled(Text)`
 `;
 
 const StyledLink = styled.a`
-  color: ${theme.palette.text.darkLinkColor.default};
+  color: ${theme.palette.text.link.default};
   text-decoration: none;
 
   &:hover {
-    color: ${theme.palette.text.darkLinkColor.hover};
+    color: ${theme.palette.text.link.hover};
   }
 `;
 

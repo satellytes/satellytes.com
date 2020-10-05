@@ -1,10 +1,10 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
-import { Link } from 'gatsby';
 import { theme } from '../layout/theme';
 import { GRID_GAP_MOBILE } from '../grid/grid';
 import { formattedDate } from '../util/format-date';
+import { InternalLink } from '../links/links';
 
 interface ClientListProps {
   clients: ClientListEntryProps[];
@@ -17,14 +17,9 @@ interface ClientListEntryProps {
 }
 
 const linkStyles = css`
-  color: ${theme.palette.text.darkLinkColor.default};
+  color: ${theme.palette.text.link.default};
   font-size: 20px;
   line-height: 110%;
-  text-decoration: none;
-
-  &:hover {
-    color: ${theme.palette.text.darkLinkColor.hover};
-  }
 `;
 
 const Wrapper = styled.div`
@@ -47,26 +42,37 @@ const ClientListContainer = styled.ul`
   padding: 0;
 `;
 
-const ClientListEntryWrapper = styled.li`
-  display: flex;
-  flex-direction: column;
-  align-items: baseline;
-  padding: 24px 16px;
+const ClientListEntryLi = styled.li`
   border-width: 1px 0 0;
   border-style: solid;
   border-color: rgba(77, 121, 255, 0.2);
 
+  list-style: none;
+
   &:last-of-type {
     border-width: 1px 0;
   }
+`;
+
+const ClientListEntryLink = styled(InternalLink)`
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  padding: 24px 16px;
 
   ${up('md')} {
     flex-direction: row;
     padding: 30px 23px 27px 24px;
   }
+
+  transition: background-color 0.3s;
+  :hover {
+    background-color: ${(props) =>
+      props.theme.palette.text.contrastLink.hoverTransparent};
+  }
 `;
 
-const StyledTitle = styled(Link)`
+const StyledTitle = styled.div`
   ${linkStyles};
   padding-right: 16px;
   margin-bottom: 8px;
@@ -78,7 +84,7 @@ const StyledTitle = styled(Link)`
 `;
 
 const StyledTimestamp = styled.div`
-  color: ${theme.palette.text.darkDefault};
+  color: ${theme.palette.text.defaultDark};
   font-size: 16px;
   line-height: 110%;
 
@@ -87,7 +93,7 @@ const StyledTimestamp = styled.div`
   }
 `;
 
-const StyledArrow = styled(Link)`
+const StyledArrow = styled.div`
   ${linkStyles};
   position: absolute;
   right: 15px;
@@ -104,12 +110,17 @@ const StyledArrow = styled(Link)`
   }
 `;
 
-const StyledOverviewLink = styled(Link)`
+const StyledOverviewLink = styled(InternalLink)`
   ${linkStyles};
   display: block;
   margin-top: 30px;
   margin-left: 16px;
   color: #4d79ff;
+  transition: color 0.3s;
+
+  :hover {
+    color: ${theme.palette.text.contrastLink.hover};
+  }
 
   ${up('md')} {
     margin-left: 24px;
@@ -122,15 +133,13 @@ const ClientListEntry: React.FC<ClientListEntryProps> = ({
   path,
 }) => {
   return (
-    <ClientListEntryWrapper>
-      <StyledTitle to={path} title={`Show client: ${name}`}>
-        {name}
-      </StyledTitle>
-      <StyledTimestamp>Since {formattedDate(start)}</StyledTimestamp>
-      <StyledArrow to={path} title={`Show client: ${name}`}>
-        &gt;
-      </StyledArrow>
-    </ClientListEntryWrapper>
+    <ClientListEntryLi>
+      <ClientListEntryLink to={path}>
+        <StyledTitle title={`Show client: ${name}`}>{name}</StyledTitle>
+        <StyledTimestamp>Since {formattedDate(start)}</StyledTimestamp>
+        <StyledArrow title={`Show client: ${name}`}>&gt;</StyledArrow>
+      </ClientListEntryLink>
+    </ClientListEntryLi>
   );
 };
 

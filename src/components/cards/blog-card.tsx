@@ -38,6 +38,7 @@ const BlogCardTitle = styled(CardTitle)<{ image: boolean; large: boolean }>`
   margin-bottom: 16px;
   font-size: 32px;
 
+  transition: color 0.3s;
   ${BlogCardWrapper}:hover & {
     color: ${theme.palette.primary.main};
   }

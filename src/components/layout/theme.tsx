@@ -8,13 +8,18 @@ export const theme: DefaultTheme = {
     text: {
       default: '#202840',
       defaultLight: '#FFFFFF',
+      defaultDark: '#FFFFFF',
       header: '#668CFF',
       headerLight: '#FFFFFF',
-      darkLinkColor: {
+      link: {
         default: '#668CFF',
         hover: '#4D79FF',
       },
-      darkDefault: '#FFFFFF',
+      contrastLink: {
+        default: '#4D79FF',
+        hover: '#FFFFFF',
+        hoverTransparent: 'rgba(77,121,255, 0.2)',
+      },
     },
     background: {
       body: '#202840',

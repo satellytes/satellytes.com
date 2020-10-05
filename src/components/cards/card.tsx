@@ -6,12 +6,6 @@ import { theme } from '../layout/theme';
 import { up } from '../breakpoint/breakpoint';
 import { GridItem } from '../grid/grid';
 
-export interface CardProps extends React.AllHTMLAttributes<HTMLElement> {
-  title: string;
-  text: string;
-  link?: string;
-}
-
 const textStyles = css`
   color: ${theme.palette.text.default};
   line-height: 110%;
@@ -52,7 +46,7 @@ export const CardText = styled.p`
 `;
 
 const CardLink = styled(Link)`
-  color: ${theme.palette.text.darkLinkColor.default};
+  color: ${theme.palette.text.link.default};
 
   align-self: flex-end;
   font-size: 15px;
@@ -60,10 +54,17 @@ const CardLink = styled(Link)`
   line-height: 110%;
   text-decoration: none;
 
+  transition: color 0.3s;
   &:hover {
-    color: ${theme.palette.text.darkLinkColor.hover};
+    color: ${theme.palette.text.link.hover};
   }
 `;
+
+export interface CardProps extends React.AllHTMLAttributes<HTMLElement> {
+  title: string;
+  text: string;
+  link?: string;
+}
 
 export const Card: React.FC<CardProps> = ({ title, text, link, className }) => {
   return (

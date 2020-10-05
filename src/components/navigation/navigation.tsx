@@ -176,7 +176,7 @@ const SiteNavigationLink = styled(Link)<{ isSelected: 0 | 1 }>`
     font-size: 48px;
   }
 
-  transition: 0.3s;
+  transition: color 0.3s;
   &:hover {
     color: #ffffff;
   }

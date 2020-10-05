@@ -39,8 +39,13 @@ const Title = styled.div`
 const StyledLink = styled(Link)`
   font-size: 20px;
   font-weight: bold;
-  color: #4d79ff;
+  color: ${(props) => props.theme.palette.text.contrastLink.default};
   text-decoration: none;
+
+  transition: color 0.3s;
+  :hover {
+    color: ${(props) => props.theme.palette.text.contrastLink.hover};
+  }
 `;
 
 interface BlockTeaserProps {
