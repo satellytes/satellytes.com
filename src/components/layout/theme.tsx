@@ -34,4 +34,5 @@ export const theme: DefaultTheme = {
     fontFamily: 'CocoGothic',
     fontSize: '16px',
   },
+  maxWidth: '1280px',
 };

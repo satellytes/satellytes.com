@@ -23,7 +23,7 @@ export const Grid = styled.div<GridProps>`
   grid-column-gap: ${(props) => (props.disableGap ? 0 : GRID_GAP_MOBILE)};
   padding: 0 ${(props) => (props.disableGap ? 0 : GRID_GAP_MOBILE)}; // outer gap
 
-  max-width: 1280px;
+  max-width: ${(props) => props.theme.maxWidth};
 
   ${(props) =>
     props.center &&

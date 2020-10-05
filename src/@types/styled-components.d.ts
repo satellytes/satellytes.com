@@ -38,5 +38,6 @@ declare module 'styled-components' {
       fontFamily: string;
       fontSize: string;
     };
+    maxWidth: string;
   }
 }
