@@ -50,7 +50,7 @@ const Layout: React.FC<LayoutProps> = (props) => {
       <Header
         siteTitle={data.site.siteMetadata.title}
         siteTitleUrl={props.siteTitleUrl}
-        light={props.isIndexPage || Boolean(props.heroImage)}
+        light={!props.isIndexPage || Boolean(props.heroImage)}
         heroImage={props.heroImage}
       />
       <FullHeightContainer>

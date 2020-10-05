@@ -22,8 +22,8 @@ const StyledHeader = styled.header<{ light: number; transparent: number }>`
     props.transparent === 1
       ? 'none'
       : props.light === 1
-      ? props.theme.palette.background.body
-      : props.theme.palette.background.bodyLight};
+      ? props.theme.palette.background.bodyLight
+      : props.theme.palette.background.body};
 
   height: ${HEADER_HEIGHT};
   display: flex;
@@ -33,8 +33,8 @@ const StyledHeader = styled.header<{ light: number; transparent: number }>`
 
   border-bottom: ${(props) =>
     props.light === 1
-      ? '1px solid rgba(255, 255, 255, 0.1)'
-      : '1px solid rgba(32, 40, 64, 0.05)'};
+      ? '1px solid rgba(32, 40, 64, 0.05)'
+      : '1px solid rgba(255, 255, 255, 0.1)'};
 
   ${up('md')} {
     padding: 0 24px;
@@ -119,11 +119,14 @@ const Header: React.FC<HeaderProps> = (props) => {
         light={props.light ? 1 : 0}
         transparent={isTransparent ? 1 : 0}
       >
-        <SiteTitle to={props.siteTitleUrl || '/'} light={props.light ? 1 : 0}>
+        <SiteTitle
+          to={props.siteTitleUrl || '/'}
+          light={!isTransparent && props.light ? 1 : 0}
+        >
           {props.siteTitle}
         </SiteTitle>
         <SiteMenu
-          light={props.light ? 1 : 0}
+          light={!isTransparent && props.light ? 1 : 0}
           onClick={() => {
             setIsNavigationVisible(!isNavigationVisible);
           }}

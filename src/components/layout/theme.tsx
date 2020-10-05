@@ -9,8 +9,8 @@ export const theme: DefaultTheme = {
       default: '#202840',
       defaultLight: '#FFFFFF',
       defaultDark: '#FFFFFF',
-      header: '#668CFF',
-      headerLight: '#FFFFFF',
+      header: '#FFFFFF',
+      headerLight: '#668CFF',
       link: {
         default: '#668CFF',
         hover: '#4D79FF',
