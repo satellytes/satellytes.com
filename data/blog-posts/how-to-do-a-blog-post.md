@@ -66,3 +66,29 @@ Text before the blockquote.
 > Block scope stuff
 
 Text after the blockquote.
+
+# Headers
+
+# H1
+
+This is H1. It gets rendered as H2.
+
+## H2
+
+This is H2.
+
+### H3
+
+This is H3.
+
+#### H4
+
+This is H4.
+
+##### H5
+
+This is H5.
+
+##### H6
+
+This is H6.

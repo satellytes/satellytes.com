@@ -6,15 +6,9 @@ import {
   CodeRender,
   HeadingRenderer,
   InlineCodeRenderer,
+  LinkRenderer,
   TextRenderer,
 } from './renderers';
-
-interface MarkdownProps {
-  /**
-   * the actual markdown text
-   */
-  data: string;
-}
 
 /* MonkeyPatch as currently markdown comments don't get ommitted by default.*/
 const removeExcerptSeparator = (rawMarkdown: string): string => {
@@ -22,6 +16,13 @@ const removeExcerptSeparator = (rawMarkdown: string): string => {
   const cleanedMarkdown = rawMarkdown.replace(excerptSeperator, '');
   return cleanedMarkdown;
 };
+
+interface MarkdownProps {
+  /**
+   * the actual markdown text
+   */
+  data: string;
+}
 
 export const Markdown: React.FC<MarkdownProps> = (props) => {
   return (
@@ -41,6 +42,7 @@ export const Markdown: React.FC<MarkdownProps> = (props) => {
         inlineCode: InlineCodeRenderer,
         image: CloudinaryImageRenderer,
         blockquote: BlockquoteRenderer,
+        link: LinkRenderer,
       }}
     />
   );

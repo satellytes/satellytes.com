@@ -1,8 +1,8 @@
 # satellytes.com
 
-This repository contains the new https://satellytes.com website.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d50cefde-6a65-4bcd-b6cc-5128242ba203/deploy-status)](https://app.netlify.com/sites/satellytes-website-new/deploys)
 
-> Note: The default branch is `main`
+This repository contains the new https://satellytes.com website.
 
 ## Run
 

@@ -4,6 +4,7 @@ import { up } from '../breakpoint/breakpoint';
 import { Link } from 'gatsby';
 import { theme } from '../layout/theme';
 import { Swoosh } from '../swoosh';
+import { HEADER_HEIGHT } from '../header/header';
 
 /**
  *
@@ -12,13 +13,13 @@ import { Swoosh } from '../swoosh';
  */
 const TitleContainer = styled.div`
   position: relative;
-  margin-top: 96px;
+  margin-top: calc(96px + ${HEADER_HEIGHT});
   margin-bottom: 40px;
 
   color: #668cff;
 
   ${up('md')} {
-    margin-top: 192px;
+    margin-top: calc(192px + ${HEADER_HEIGHT});
   }
 `;
 
@@ -37,6 +38,7 @@ export const TitleSvg = styled(Swoosh)`
 export const StyledTitle = styled.h1`
   font-size: 48px;
   line-height: 110%;
+  margin: 0;
 
   ${up('md')} {
     font-size: 72px;

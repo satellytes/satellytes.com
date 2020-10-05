@@ -1,17 +1,30 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require(`path`);
 
+const BLOG_POST_TEMPLATE_PATH = path.resolve(`src/templates/blog-post.tsx`);
+const CLIENT_TEMPLATE_PATH = path.resolve(`src/templates/client-details.tsx`);
+
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
-  const blogPostTemplate = path.resolve(`src/templates/blog-post.tsx`);
-  const clientTemplate = path.resolve(`src/templates/client-details.tsx`);
 
-  // get all clients from json file
-  const resultClient = await graphql(`
+  const clientPages = await graphql(`
     {
       allClientsJson {
-        edges {
-          node {
+        nodes {
+          path
+        }
+      }
+    }
+  `);
+
+  const markdownPages = await graphql(`
+    {
+      allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] }
+        filter: { fileAbsolutePath: { regex: "/(blog-posts)/" } }
+      ) {
+        nodes {
+          frontmatter {
             path
           }
         }
@@ -19,43 +32,25 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     }
   `);
 
-  // get all markdown files
-  const result = await graphql(`
-    {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
-        edges {
-          node {
-            frontmatter {
-              path
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  if (result.errors || resultClient.errors) {
+  if (markdownPages.errors || clientPages.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`);
     return;
   }
 
   // create a page for each markdown file
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  markdownPages.data.allMarkdownRemark.nodes.forEach((node) => {
     createPage({
       path: node.frontmatter.path,
-      component: blogPostTemplate,
+      component: BLOG_POST_TEMPLATE_PATH,
       context: {},
     });
   });
 
   // create a page for each client from json
-  resultClient.data.allClientsJson.edges.forEach(({ node }) => {
+  clientPages.data.allClientsJson.nodes.forEach(({ node }) => {
     createPage({
       path: node.path,
-      component: clientTemplate,
+      component: CLIENT_TEMPLATE_PATH,
       context: { linkToThePage: node.path },
     });
   });

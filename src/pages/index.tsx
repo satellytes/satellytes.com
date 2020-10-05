@@ -26,13 +26,11 @@ interface AllClientsQuery {
 }
 
 const HomePageTitle = styled(PageTitle)`
-  margin-top: 108px;
   margin-bottom: 280px;
 
   color: #ffffff;
 
   ${up('md')} {
-    margin-top: 192px;
     margin-bottom: 360px;
   }
 
@@ -99,6 +97,10 @@ const IndexPage: React.FC = () => {
           <HomePageSubTitle>
             We are into relationships, not one-night-stands.
           </HomePageSubTitle>
+        </GridItem>
+        <GridItem xs={0} md={2} />
+        <GridItem xs={0} md={1} />
+        <GridItem xs={12} md={10}>
           <BlockTeaser
             preTitle="Clients"
             title="Long term projects not fire & forget"
@@ -114,9 +116,17 @@ const IndexPage: React.FC = () => {
             </Text>
           </BlockTeaser>
           <ClientList clients={data.allClientsJson.nodes} />
+        </GridItem>
+        <GridItem xs={0} md={1} />
+        <GridItem xs={0} md={2} />
+        <GridItem xs={12} md={8}>
           <HomePageSubTitle>
             We are on your side - and the customer&lsquo;s.
           </HomePageSubTitle>
+        </GridItem>
+        <GridItem xs={0} md={2} />
+        <GridItem xs={0} md={1} />
+        <GridItem xs={12} md={10}>
           <BlockTeaser
             preTitle="About"
             title="Passionate geeks with high ambitions"

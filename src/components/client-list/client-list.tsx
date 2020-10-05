@@ -25,13 +25,11 @@ const linkStyles = css`
 const Wrapper = styled.div`
   width: calc(100% + 2 * ${() => GRID_GAP_MOBILE});
   margin-top: 80px;
-  margin-bottom: 80px;
   margin-left: -${() => GRID_GAP_MOBILE};
 
   ${up('md')} {
     width: 100%;
     margin-top: 120px;
-    margin-bottom: 160px;
     margin-left: 0;
   }
 `;

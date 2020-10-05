@@ -1,5 +1,5 @@
 import React from 'react';
-import { SubTitle, Text } from '../typography/typography';
+import { SubTitle, Text, TextLink, TextTitle } from '../typography/typography';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { prism } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import styled from 'styled-components';
@@ -56,8 +56,13 @@ export const HeadingRenderer: React.FC<ReactMarkdownHeadingRendererProps> = (
       break;
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return <SubTitle as={tag as any}>{props.children}</SubTitle>;
+  return props.level <= 2 ? (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    <SubTitle as={tag as any}>{props.children}</SubTitle>
+  ) : (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    <TextTitle as={tag as any}>{props.children}</TextTitle>
+  );
 };
 
 /*
@@ -120,4 +125,14 @@ export const CloudinaryImageRenderer: React.FC<ReactMarkdownImageProps> = (
   props,
 ) => {
   return <ResponsiveCloudinaryImage src={props.src} alt={props.alt} />;
+};
+
+/**
+ * Link
+ */
+interface ReactMarkdownLinkProps {
+  href: string;
+}
+export const LinkRenderer: React.FC<ReactMarkdownLinkProps> = (props) => {
+  return <TextLink to={props.href}>{props.children}</TextLink>;
 };

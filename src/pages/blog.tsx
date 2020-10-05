@@ -45,7 +45,10 @@ const BlogPageTitle = styled(PageTitle)`
 const BlogPage: React.FC = () => {
   const data = useStaticQuery<AllBlogPostsQuery>(graphql`
     query getBlogPosts {
-      allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+      allMarkdownRemark(
+        sort: { fields: frontmatter___date, order: DESC }
+        filter: { fileAbsolutePath: { regex: "/(blog-posts)/" } }
+      ) {
         nodes {
           id
           excerpt(pruneLength: 250, truncate: true)
