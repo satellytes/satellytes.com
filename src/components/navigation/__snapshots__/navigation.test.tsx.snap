@@ -9,7 +9,7 @@ Object {
         class="sc-jSFkmK fdiBZU"
       >
         <div
-          class="sc-bdnylx kiIXbX"
+          class="sc-bdnylx ctLghf"
         >
           <div
             class="sc-gtssRu jAGxIb"
@@ -108,14 +108,16 @@ Object {
                   class="sc-fujyUd chqmqo"
                 >
                   <a
-                    class="sc-iqAbSa bdnhjK"
+                    class="sc-iqAbSa gJEXbO"
                     href="/imprint"
+                    isselected="0"
                   >
                     Imprint
                   </a>
                   <a
-                    class="sc-iqAbSa bdnhjK"
+                    class="sc-iqAbSa gJEXbO"
                     href="/data-privacy"
+                    isselected="0"
                   >
                     Data Privacy
                   </a>
@@ -137,8 +139,9 @@ Object {
                       class="sc-ksluoS jbumci"
                     >
                       <a
-                        class="sc-hBMVcZ knPIca"
+                        class="sc-hBMVcZ gLHiEz"
                         href="/services"
+                        isselected="0"
                       >
                         Services
                       </a>
@@ -147,8 +150,9 @@ Object {
                       class="sc-ksluoS jbumci"
                     >
                       <a
-                        class="sc-hBMVcZ knPIca"
+                        class="sc-hBMVcZ gLHiEz"
                         href="/clients"
+                        isselected="0"
                       >
                         Clients
                       </a>
@@ -157,8 +161,9 @@ Object {
                       class="sc-ksluoS jbumci"
                     >
                       <a
-                        class="sc-hBMVcZ knPIca"
+                        class="sc-hBMVcZ gLHiEz"
                         href="/about"
+                        isselected="0"
                       >
                         About
                       </a>
@@ -167,8 +172,9 @@ Object {
                       class="sc-ksluoS jbumci"
                     >
                       <a
-                        class="sc-hBMVcZ knPIca"
+                        class="sc-hBMVcZ gLHiEz"
                         href="/career"
+                        isselected="0"
                       >
                         Career
                       </a>
@@ -177,8 +183,9 @@ Object {
                       class="sc-ksluoS jbumci"
                     >
                       <a
-                        class="sc-hBMVcZ knPIca"
+                        class="sc-hBMVcZ gLHiEz"
                         href="/contact"
+                        isselected="0"
                       >
                         Contact
                       </a>
@@ -187,8 +194,9 @@ Object {
                       class="sc-ksluoS jbumci"
                     >
                       <a
-                        class="sc-hBMVcZ knPIca"
+                        class="sc-hBMVcZ gLHiEz"
                         href="/blog"
+                        isselected="0"
                       >
                         Blog
                       </a>
@@ -207,7 +215,7 @@ Object {
       class="sc-jSFkmK fdiBZU"
     >
       <div
-        class="sc-bdnylx kiIXbX"
+        class="sc-bdnylx ctLghf"
       >
         <div
           class="sc-gtssRu jAGxIb"
@@ -306,14 +314,16 @@ Object {
                 class="sc-fujyUd chqmqo"
               >
                 <a
-                  class="sc-iqAbSa bdnhjK"
+                  class="sc-iqAbSa gJEXbO"
                   href="/imprint"
+                  isselected="0"
                 >
                   Imprint
                 </a>
                 <a
-                  class="sc-iqAbSa bdnhjK"
+                  class="sc-iqAbSa gJEXbO"
                   href="/data-privacy"
+                  isselected="0"
                 >
                   Data Privacy
                 </a>
@@ -335,8 +345,9 @@ Object {
                     class="sc-ksluoS jbumci"
                   >
                     <a
-                      class="sc-hBMVcZ knPIca"
+                      class="sc-hBMVcZ gLHiEz"
                       href="/services"
+                      isselected="0"
                     >
                       Services
                     </a>
@@ -345,8 +356,9 @@ Object {
                     class="sc-ksluoS jbumci"
                   >
                     <a
-                      class="sc-hBMVcZ knPIca"
+                      class="sc-hBMVcZ gLHiEz"
                       href="/clients"
+                      isselected="0"
                     >
                       Clients
                     </a>
@@ -355,8 +367,9 @@ Object {
                     class="sc-ksluoS jbumci"
                   >
                     <a
-                      class="sc-hBMVcZ knPIca"
+                      class="sc-hBMVcZ gLHiEz"
                       href="/about"
+                      isselected="0"
                     >
                       About
                     </a>
@@ -365,8 +378,9 @@ Object {
                     class="sc-ksluoS jbumci"
                   >
                     <a
-                      class="sc-hBMVcZ knPIca"
+                      class="sc-hBMVcZ gLHiEz"
                       href="/career"
+                      isselected="0"
                     >
                       Career
                     </a>
@@ -375,8 +389,9 @@ Object {
                     class="sc-ksluoS jbumci"
                   >
                     <a
-                      class="sc-hBMVcZ knPIca"
+                      class="sc-hBMVcZ gLHiEz"
                       href="/contact"
+                      isselected="0"
                     >
                       Contact
                     </a>
@@ -385,8 +400,9 @@ Object {
                     class="sc-ksluoS jbumci"
                   >
                     <a
-                      class="sc-hBMVcZ knPIca"
+                      class="sc-hBMVcZ gLHiEz"
                       href="/blog"
+                      isselected="0"
                     >
                       Blog
                     </a>
