@@ -4,7 +4,7 @@ import { up } from '../breakpoint/breakpoint';
 import { Grid, GridItem } from '../grid/grid';
 import { SubTitle } from '../typography/typography';
 import { Markdown } from '../markdown/markdown';
-import { formattedDate } from '../util/format-date';
+import { formatDate } from '../util/format-date';
 
 export interface ClientProps {
   data: {
@@ -148,7 +148,7 @@ const ClientPage: React.FC<ClientProps> = ({ data }) => {
 
           <Wrapper>
             <ClientInfoItem>
-              {formattedDate(data.clientsJson.start)}
+              {formatDate(data.clientsJson.start)}
             </ClientInfoItem>
           </Wrapper>
         </GridItem>

@@ -9,7 +9,7 @@ import { up } from '../components/breakpoint/breakpoint';
 import { Grid, GridItem } from '../components/grid/grid';
 import { PageTitle } from '../components/typography/typography';
 import { BlogCard } from '../components/cards/blog-card';
-import { formattedDate } from '../components/util/format-date';
+import { formatDate } from '../components/util/format-date';
 
 const TOP_POST_COUNT = 2;
 
@@ -101,7 +101,7 @@ const BlogPage: React.FC = () => {
             placeholderImage={data.blogPlaceholderImage.childImageSharp.fluid}
             title={post.title}
             text={post.excerpt}
-            caption={formattedDate(post.date)}
+            caption={formatDate(post.date)}
             link={post.path}
           />
         ))}
@@ -113,7 +113,7 @@ const BlogPage: React.FC = () => {
             placeholderImage={data.blogPlaceholderImage.childImageSharp.fluid}
             title={post.title}
             text={post.excerpt}
-            caption={formattedDate(post.date)}
+            caption={formatDate(post.date)}
             link={post.path}
           />
         ))}

@@ -9,7 +9,6 @@ import SEO from '../components/seo';
 import { BlockTeaser } from '../components/teasers/block-teaser';
 import {
   PageTitle,
-  SectionTitle,
   StyledTitle,
   Text,
   TitleSvg,
@@ -26,12 +25,12 @@ interface AllClientsQuery {
 }
 
 const HomePageTitle = styled(PageTitle)`
-  margin-bottom: 280px;
+  margin-bottom: 240px;
 
   color: #ffffff;
 
   ${up('md')} {
-    margin-bottom: 360px;
+    margin-bottom: 300px;
   }
 
   ${TitleSvg} {
@@ -46,13 +45,11 @@ const HomePageTitle = styled(PageTitle)`
   }
 `;
 
-const HomePageSubTitle = styled(SectionTitle)`
-  margin-top: 80px;
-  margin-bottom: 80px;
+const HomePageBlockTeaser = styled(BlockTeaser)`
+  margin-bottom: ${(props) => (props.link ? '160px' : '40px')};
 
   ${up('md')} {
-    margin-top: 160px;
-    margin-bottom: 120px;
+    margin-bottom: ${(props) => (props.link ? '160px' : '120px')};
   }
 `;
 
@@ -76,10 +73,7 @@ const IndexPage: React.FC = () => {
         <GridItem xs={0} md={2} />
         <GridItem xs={12} md={8}>
           <HomePageTitle>Full Stack Digital Service Agency</HomePageTitle>
-          <HomePageSubTitle>
-            We offer only what we are truly great at.
-          </HomePageSubTitle>
-          <BlockTeaser
+          <HomePageBlockTeaser
             preTitle="Services"
             title="Full Stack"
             link="All Services >"
@@ -93,15 +87,12 @@ const IndexPage: React.FC = () => {
               letzten performanten Funnels und der letzten Zeile wunderschönen
               Codes.
             </Text>
-          </BlockTeaser>
-          <HomePageSubTitle>
-            We are into relationships, not one-night-stands.
-          </HomePageSubTitle>
+          </HomePageBlockTeaser>
         </GridItem>
         <GridItem xs={0} md={2} />
         <GridItem xs={0} md={1} />
         <GridItem xs={12} md={10}>
-          <BlockTeaser
+          <HomePageBlockTeaser
             preTitle="Clients"
             title="Long term projects not fire & forget"
             splitView
@@ -114,20 +105,13 @@ const IndexPage: React.FC = () => {
               We are really good at creating design systems for complex web
               applications and self-testing, high performance pattern libraries.
             </Text>
-          </BlockTeaser>
+          </HomePageBlockTeaser>
           <ClientList clients={data.allClientsJson.nodes} />
         </GridItem>
         <GridItem xs={0} md={1} />
-        <GridItem xs={0} md={2} />
-        <GridItem xs={12} md={8}>
-          <HomePageSubTitle>
-            We are on your side - and the customer&lsquo;s.
-          </HomePageSubTitle>
-        </GridItem>
-        <GridItem xs={0} md={2} />
         <GridItem xs={0} md={1} />
         <GridItem xs={12} md={10}>
-          <BlockTeaser
+          <HomePageBlockTeaser
             preTitle="About"
             title="Passionate geeks with high ambitions"
             link="About us"
@@ -142,7 +126,7 @@ const IndexPage: React.FC = () => {
               We are really good at creating design systems for complex web
               applications and self-testing, high performance pattern libraries.
             </Text>
-          </BlockTeaser>
+          </HomePageBlockTeaser>
         </GridItem>
       </Grid>
     </Layout>

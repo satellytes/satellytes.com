@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
 import { theme } from '../layout/theme';
 import { GRID_GAP_MOBILE } from '../grid/grid';
-import { formattedDate } from '../util/format-date';
+import { formatDate } from '../util/format-date';
 import { InternalLink } from '../links/links';
 
 interface ClientListProps {
@@ -24,8 +24,8 @@ const linkStyles = css`
 
 const Wrapper = styled.div`
   width: calc(100% + 2 * ${() => GRID_GAP_MOBILE});
-  margin-top: 80px;
   margin-left: -${() => GRID_GAP_MOBILE};
+  margin-bottom: 160px;
 
   ${up('md')} {
     width: 100%;
@@ -134,7 +134,7 @@ const ClientListEntry: React.FC<ClientListEntryProps> = ({
     <ClientListEntryLi>
       <ClientListEntryLink to={path}>
         <StyledTitle title={`Show client: ${name}`}>{name}</StyledTitle>
-        <StyledTimestamp>Since {formattedDate(start)}</StyledTimestamp>
+        <StyledTimestamp>Since {formatDate(start, 'MMMM y')}</StyledTimestamp>
         <StyledArrow title={`Show client: ${name}`}>&gt;</StyledArrow>
       </ClientListEntryLink>
     </ClientListEntryLi>

@@ -56,18 +56,24 @@ interface BlockTeaserProps {
   linkTo?: string;
 }
 
-export const BlockTeaser: React.FC<BlockTeaserProps> = (props) => {
+export const BlockTeaser: React.FC<BlockTeaserProps> = ({
+  preTitle,
+  title,
+  splitView,
+  link,
+  linkTo,
+  children,
+  ...rest
+}) => {
   return (
-    <Teaser>
-      <LeftContainer splitView={Boolean(props.splitView)}>
-        <PreTitle>{props.preTitle}</PreTitle>
-        <Title>{props.title}</Title>
+    <Teaser {...rest}>
+      <LeftContainer splitView={Boolean(splitView)}>
+        <PreTitle>{preTitle}</PreTitle>
+        <Title>{title}</Title>
       </LeftContainer>
-      <RightContainer splitView={Boolean(props.splitView)}>
-        {props.children}
-        {props.link && props.linkTo && (
-          <StyledLink to={props.linkTo}>{props.link}</StyledLink>
-        )}
+      <RightContainer splitView={Boolean(splitView)}>
+        {children}
+        {link && linkTo && <StyledLink to={linkTo}>{link}</StyledLink>}
       </RightContainer>
     </Teaser>
   );
