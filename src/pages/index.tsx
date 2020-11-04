@@ -82,6 +82,7 @@ const IndexPage: React.FC = () => {
         cloudName="satellytes"
         publicId="satellytes-website/sy-image-home_l5zkwg"
         format="webp"
+        secure={true}
       />
       <Layout isIndexPage={true}>
         <SEO title="Home" />
