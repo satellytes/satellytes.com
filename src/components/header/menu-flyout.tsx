@@ -7,10 +7,6 @@ const FullscreenOverlay = styled.div<{ visible: boolean }>`
   position: fixed;
   z-index: 999;
 
-  /**
-   * Because of unknown reasons, the imported variable needs to be
-   * wrapped as function otherwise it's not working
-   */
   top: ${(props) => (props.visible ? HEADER_HEIGHT : '1000px')};
   left: 0;
   min-width: 100%;
@@ -33,6 +29,11 @@ const ScrollContainer = styled.div`
 
 const FullHeightNavigation = styled(Navigation)`
   min-height: 100%;
+
+  /**
+   * Because of unknown reasons, the imported variable needs to be
+   * wrapped as function otherwise it's not working
+   */
   padding-bottom: calc(${() => HEADER_HEIGHT});
 `;
 

@@ -95,17 +95,17 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = (props) => {
   const [isNavigationVisible, setIsNavigationVisible] = useState(false);
-  const [isTransparent, setIsTransparent] = useState<boolean>(
-    Boolean(props.heroImage || props.transparent),
+  const [isHeaderTransparent, setIsHeaderTransparent] = useState<boolean>(
+    Boolean(props.transparent),
   );
 
   useEffect(() => {
     const onScroll = (): void => {
-      if (props.heroImage || props.transparent) {
+      if (props.transparent) {
         if (window.scrollY !== 0) {
-          setIsTransparent(false);
+          setIsHeaderTransparent(false);
         } else {
-          setIsTransparent(true);
+          setIsHeaderTransparent(true);
         }
       }
     };
@@ -118,16 +118,16 @@ const Header: React.FC<HeaderProps> = (props) => {
     <HeroImage image={props.heroImage}>
       <StyledHeader
         light={props.light ? 1 : 0}
-        transparent={isTransparent ? 1 : 0}
+        transparent={isHeaderTransparent ? 1 : 0}
       >
         <SiteTitle
           to={props.siteTitleUrl || '/'}
-          light={!isTransparent && props.light ? 1 : 0}
+          light={!isHeaderTransparent && props.light ? 1 : 0}
         >
           {props.siteTitle}
         </SiteTitle>
         <SiteMenu
-          light={!isTransparent && props.light ? 1 : 0}
+          light={!isHeaderTransparent && props.light ? 1 : 0}
           onClick={() => {
             setIsNavigationVisible(!isNavigationVisible);
           }}

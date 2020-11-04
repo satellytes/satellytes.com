@@ -153,6 +153,7 @@ declare module 'cloudinary-react' {
     | 'full_hd_wifi'
     | 'full_hd_lean'
     | 'hd_lean';
+  type PlaceholderType = 'blur' | 'pixelate' | 'vectorize' | 'predominant';
 
   import { HTMLProps } from 'react';
 
@@ -238,6 +239,10 @@ declare module 'cloudinary-react' {
     publicId?: string;
   }
 
+  export interface CloudinaryPlaceholderProps extends HTMLProps<any> {
+    type?: PlaceholderType;
+  }
+
   export class CloudinaryComponent extends React.PureComponent<
     CloudinaryComponentProps,
     any
@@ -246,4 +251,8 @@ declare module 'cloudinary-react' {
   export class Video extends CloudinaryComponent {}
   export class CloudinaryContext extends CloudinaryComponent {}
   export class Transformation extends CloudinaryComponent {}
+  export class Placeholder extends React.PureComponent<
+    CloudinaryPlaceholderProps,
+    any
+  > {}
 }

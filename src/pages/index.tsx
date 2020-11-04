@@ -6,7 +6,7 @@ import { ClientList } from '../components/client-list/client-list';
 import { Grid, GridItem } from '../components/grid/grid';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
-import { Image as CloudinaryImage } from 'cloudinary-react';
+import { Image as CloudinaryImage, Placeholder } from 'cloudinary-react';
 import { BlockTeaser } from '../components/teasers/block-teaser';
 import {
   PageTitle,
@@ -82,8 +82,9 @@ const IndexPage: React.FC = () => {
         cloudName="satellytes"
         publicId="satellytes-website/sy-image-home_l5zkwg"
         format="webp"
-      />
-
+      >
+        <Placeholder type="blur" />
+      </BackgroundImage>
       <Layout isIndexPage={true}>
         <SEO title="Home" />
         <Grid center>

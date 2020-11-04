@@ -52,7 +52,7 @@ const Layout: React.FC<LayoutProps> = (props) => {
         siteTitleUrl={props.siteTitleUrl}
         light={!props.isIndexPage || Boolean(props.heroImage)}
         heroImage={props.heroImage}
-        transparent={props.isIndexPage}
+        transparent={props.isIndexPage || Boolean(props.heroImage)}
       />
       <FullHeightContainer>
         <Main>{props.children}</Main>
