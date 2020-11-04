@@ -89,12 +89,13 @@ const IndexPage: React.FC = () => {
         <Grid center>
           <GridItem xs={0} md={2} />
           <GridItem xs={12} md={8}>
-            <HomePageTitle>Full Stack Digital Service Agency</HomePageTitle>
+            <HomePageTitle>Willkommen bei Satellytes</HomePageTitle>
+
             <HomePageBlockTeaser
               margin
-              preTitle="Services"
-              title="Full Stack"
-              link="All Services >"
+              preTitle="Dienstleistungen"
+              title="Das bieten wir Ihnen"
+              link="Zu den Dienstleistungen >"
               linkTo="/services"
             >
               <Text>
@@ -111,18 +112,18 @@ const IndexPage: React.FC = () => {
           <GridItem xs={0} md={1} />
           <GridItem xs={12} md={10}>
             <HomePageBlockTeaser
-              preTitle="Clients"
-              title="Long term projects not fire & forget"
+              preTitle="Kunden"
+              title="Nachhaltige und moderne Projekte"
               splitView
+              link="Zu den Kunden >"
+              linkTo="/clients"
             >
               <Text>
-                We are showing clients not projects since we are aiming for long
-                term relationships.
-              </Text>
-              <Text>
-                We are really good at creating design systems for complex web
-                applications and self-testing, high performance pattern
-                libraries.
+                Unsere Kunden sind große Konzerne, die wir bei der Umsetzung
+                Ihrer digitalen Strategien unterstützen. Die Unternehmen selbst
+                sind weithin bekannt und schätzen unsere Diskretion. Deshalb
+                verzichten wir an dieser Stelle auf die Nennung konkreter Kunden
+                und limitieren uns auf generische Bezeichnungen.
               </Text>
             </HomePageBlockTeaser>
             <ClientList clients={data.allClientsJson.nodes} />
@@ -131,20 +132,18 @@ const IndexPage: React.FC = () => {
           <GridItem xs={0} md={1} />
           <GridItem xs={12} md={10}>
             <HomePageBlockTeaser
-              preTitle="About"
-              title="Passionate geeks with high ambitions"
-              link="About us"
-              linkTo="/about"
+              preTitle="Karriere"
+              title="Arbeite mit uns"
               splitView
+              link="Zur Karriere Seite >"
+              linkTo="/career"
             >
               <Text>
-                We are showing clients not projects since we are aiming for long
-                term relationships.
-              </Text>
-              <Text>
-                We are really good at creating design systems for complex web
-                applications and self-testing, high performance pattern
-                libraries.
+                Wir suchen Entwickler aus Leidenschaft, den Rest lernst du bei
+                uns. Du kannst schon alles? Dann finde bei uns neue
+                Herausforderungen und erfahrene Kollegen mit denen du weiter
+                wachsen kannst. Schaue dir unsere offenen Stellen an und bewirb
+                dich bei uns.
               </Text>
             </HomePageBlockTeaser>
           </GridItem>

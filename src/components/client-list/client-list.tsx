@@ -135,7 +135,7 @@ const ClientListEntry: React.FC<ClientListEntryProps> = ({
     <ClientListEntryLi>
       <ClientListEntryLink to={path}>
         <StyledTitle title={`Show client: ${name}`}>{name}</StyledTitle>
-        <StyledTimestamp>Since {formatDate(start, 'MMMM y')}</StyledTimestamp>
+        <StyledTimestamp>Seit {formatDate(start, 'MMMM y')}</StyledTimestamp>
         <StyledArrow title={`Show client: ${name}`}>&gt;</StyledArrow>
       </ClientListEntryLink>
     </ClientListEntryLi>
@@ -156,7 +156,7 @@ export const ClientList: React.FC<ClientListProps> = ({ clients }) => {
         ))}
       </ClientListContainer>
       <StyledOverviewLink to="/clients" title="Show all clients">
-        All Clients &gt;
+        Alle Kunden &gt;
       </StyledOverviewLink>
     </Wrapper>
   );

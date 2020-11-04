@@ -22,7 +22,7 @@ const FullHeightContainer = styled.div`
 
 const Main = styled.main`
   flex-grow: 1;
-  padding-bottom: 400px;
+  padding-bottom: 160px;
   max-width: ${(props) => props.theme.maxWidth};
   margin: 0 auto;
 `;

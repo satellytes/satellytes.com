@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
 import { Grid, GridItem } from '../grid/grid';
 import { LinkedinWrapper } from '../icons/social/linkedin';
-import { TwitterWrapper } from '../icons/social/twitter';
 import { XingWrapper } from '../icons/social/xing';
 import { isBrowser } from '../util/is-browser';
 
@@ -26,7 +25,7 @@ const NavigationContent = styled.div`
   padding: 80px 40px 30px 30px;
 
   ${up('md')} {
-    padding: 120px 80px 80px 80px;
+    padding: 10vw 80px 80px 80px;
     flex-direction: row;
   }
 `;
@@ -139,16 +138,6 @@ const SiteNavigation = styled.div`
   }
 `;
 
-const SiteNavigationTitle = styled.span`
-  margin-bottom: 16px;
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 110%;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #ffffff;
-`;
-
 const SiteNavigationList = styled.ul`
   margin: 0;
 `;
@@ -233,7 +222,7 @@ const Navigation: React.FC = (props) => {
                       to="/services"
                       $isSelected={isOnPage('/services')}
                     >
-                      Dienstleistungen
+                      Leistungen
                     </SiteNavigationLink>
                   </NavigationListItem>
                   <NavigationListItem>
