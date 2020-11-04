@@ -13,10 +13,10 @@ interface CareerQuery {
   };
 }
 
-const CareerPage: React.FC = () => {
+const AboutPage: React.FC = () => {
   const data = useStaticQuery<CareerQuery>(graphql`
     query {
-      markdownRemark(fileAbsolutePath: { regex: "/(pages/career)/" }) {
+      markdownRemark(fileAbsolutePath: { regex: "/(pages/about)/" }) {
         rawMarkdownBody
       }
     }
@@ -24,10 +24,10 @@ const CareerPage: React.FC = () => {
 
   return (
     <Layout>
-      <SEO title="Karriere" />
+      <SEO title="Über unsere Agentu" />
       <Grid>
         <GridItem>
-          <PageTitle>Karriere</PageTitle>
+          <PageTitle>Über unsere Agentur</PageTitle>
         </GridItem>
         <GridItem>
           <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>
@@ -37,4 +37,4 @@ const CareerPage: React.FC = () => {
   );
 };
 
-export default CareerPage;
+export default AboutPage;

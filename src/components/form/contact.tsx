@@ -195,7 +195,7 @@ export const ContactForm: React.FC = () => {
       <InputContainer>
         <InputWrapper>
           <Input
-            placeholder="Your name"
+            placeholder="Ihr Name"
             type="text"
             name="name"
             value={formData.name}
@@ -213,7 +213,7 @@ export const ContactForm: React.FC = () => {
         </InputWrapper>
         <InputWrapper>
           <Input
-            placeholder="Your email"
+            placeholder="Ihre E-Mail-Adresse"
             type="email"
             name="email"
             value={formData.email}
@@ -234,7 +234,7 @@ export const ContactForm: React.FC = () => {
         </InputWrapper>
       </InputContainer>
       <TextArea
-        placeholder="Your message to us"
+        placeholder="Ihre Nachricht an uns"
         name="message"
         value={formData.message}
         onChange={handleInputChange}

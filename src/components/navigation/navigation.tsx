@@ -198,15 +198,6 @@ const Navigation: React.FC = (props) => {
                   <SocialLink
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="https://twitter.com/satellytes_beep"
-                  >
-                    <TwitterWrapper />
-                  </SocialLink>
-                </SocialLinkItem>
-                <SocialLinkItem>
-                  <SocialLink
-                    target="_blank"
-                    rel="noopener noreferrer"
                     href="https://www.linkedin.com/company/satellytes"
                   >
                     <LinkedinWrapper />
@@ -224,18 +215,17 @@ const Navigation: React.FC = (props) => {
               </SocialLinks>
               <LegalLinks>
                 <LegalLink to="/imprint" $isSelected={isOnPage('/imprint')}>
-                  Imprint
+                  Impressum
                 </LegalLink>
                 <LegalLink
                   to="/data-privacy"
                   $isSelected={isOnPage('/data-privacy')}
                 >
-                  Data Privacy
+                  Datenschutz
                 </LegalLink>
               </LegalLinks>
             </MetaContainer>
             <SiteNavigation>
-              <SiteNavigationTitle>Nav</SiteNavigationTitle>
               <nav>
                 <SiteNavigationList>
                   <NavigationListItem>
@@ -243,7 +233,7 @@ const Navigation: React.FC = (props) => {
                       to="/services"
                       $isSelected={isOnPage('/services')}
                     >
-                      Services
+                      Dienstleistungen
                     </SiteNavigationLink>
                   </NavigationListItem>
                   <NavigationListItem>
@@ -251,15 +241,7 @@ const Navigation: React.FC = (props) => {
                       to="/clients"
                       $isSelected={isOnPage('/clients')}
                     >
-                      Clients
-                    </SiteNavigationLink>
-                  </NavigationListItem>
-                  <NavigationListItem>
-                    <SiteNavigationLink
-                      to="/about"
-                      $isSelected={isOnPage('/about')}
-                    >
-                      About
+                      Kunden
                     </SiteNavigationLink>
                   </NavigationListItem>
                   <NavigationListItem>
@@ -267,7 +249,7 @@ const Navigation: React.FC = (props) => {
                       to="/career"
                       $isSelected={isOnPage('/career')}
                     >
-                      Career
+                      Karriere
                     </SiteNavigationLink>
                   </NavigationListItem>
                   <NavigationListItem>
@@ -275,15 +257,7 @@ const Navigation: React.FC = (props) => {
                       to="/contact"
                       $isSelected={isOnPage('/contact')}
                     >
-                      Contact
-                    </SiteNavigationLink>
-                  </NavigationListItem>
-                  <NavigationListItem>
-                    <SiteNavigationLink
-                      to="/blog"
-                      $isSelected={isOnPage('/blog')}
-                    >
-                      Blog
+                      Kontakt
                     </SiteNavigationLink>
                   </NavigationListItem>
                 </SiteNavigationList>

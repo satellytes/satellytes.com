@@ -42,44 +42,30 @@ const ContactPage: React.FC = () => {
       <Grid center>
         <GridItem xs={0} md={2} />
         <GridItem xs={12} md={8}>
-          <ContactSubTitle short>Adresse</ContactSubTitle>
+          <ContactSubTitle short>Unsere Adresse</ContactSubTitle>
           <div>
             <Text>
               <b>Satellytes Digital Consulting GmbH</b>
               <br />
-              Carola-Neher-Str. 10
+              Sendlinger Straße 52
               <br />
-              81379 München
+              80331 München
             </Text>
             <TextLink
               as="a"
               target="_blank"
-              href="https://goo.gl/maps/gRpvefWFBTe1DmAJ6"
+              href="https://goo.gl/maps/EGTh9xqgR7P871aC9"
             >
               Google Maps &gt;
             </TextLink>
-            <ContactSubTitle>Events</ContactSubTitle>
-            <Text>
-              Wir lieben es Neues zu entdecken und neue Kontakte zu knüpfen.
-              Dort sind wir demnächst:
-            </Text>
-            <Text>Aktuell sind leider keine Events geplant.</Text>
-            <Text>
-              Sie haben ein Event für uns, das wir nicht verpassen sollten? Oder
-              Sie hätten gerne, dass wir auf Ihrem einen Vortrag halten? Machen
-              wir gerne.
-            </Text>
-            <TextLink as="a" href="mailto:ping@satellytes.com">
-              Schreiben Sie uns &gt;
-            </TextLink>
-            <ContactSubTitle>E-Mail</ContactSubTitle>
+            <ContactSubTitle>Schreiben Sie uns</ContactSubTitle>
+
             <Text style={{ marginBottom: '40px' }}>
               Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine
               E-Mail an{' '}
               <TextLink as="a" href="mailto:ping@satellytes.com">
                 ping@satellytes.com
               </TextLink>
-              .
             </Text>
             <ContactForm />
           </div>

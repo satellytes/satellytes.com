@@ -1,78 +1,38 @@
-import { graphql, useStaticQuery } from 'gatsby';
-import { FluidObject } from 'gatsby-image';
 import React from 'react';
-import { Grid, GridItem } from '../components/grid/grid';
-import ClientImageGrid from '../components/image-grids/client-image-grid';
+
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
-import {
-  CaptionText,
-  LargeText,
-  PageTitle,
-} from '../components/typography/typography';
+import { PageTitle } from '../components/typography/typography';
+import { Grid, GridItem } from '../components/grid/grid';
+import { Markdown } from '../components/markdown/markdown';
+import { graphql, useStaticQuery } from 'gatsby';
 
-interface AllClientsQuery {
-  allClientsJson: {
-    nodes: {
-      id: string;
-      name: string;
-      path: string;
-    }[];
-  };
-  imagePlaceholder: {
-    childImageSharp: {
-      fluid: FluidObject;
-    };
+interface ClientsQuery {
+  markdownRemark: {
+    rawMarkdownBody: string;
   };
 }
 
 const ClientsPage: React.FC = () => {
-  const data = useStaticQuery<AllClientsQuery>(graphql`
-    query getClients {
-      allClientsJson {
-        nodes {
-          id
-          name
-          path
-        }
-      }
-      imagePlaceholder: file(relativePath: { regex: "/astronaut/" }) {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
-        }
+  const data = useStaticQuery<ClientsQuery>(graphql`
+    query {
+      markdownRemark(fileAbsolutePath: { regex: "/(pages/clients)/" }) {
+        rawMarkdownBody
       }
     }
   `);
 
-  const clientsList = data.allClientsJson.nodes.map((clientItem) => {
-    return {
-      ...clientItem,
-    };
-  });
-
   return (
     <Layout>
-      <SEO title="Clients" />
+      <SEO title="Kunden" />
       <Grid>
-        <GridItem xs={12} md={8}>
-          <PageTitle>Clients</PageTitle>
-          <LargeText>
-            We are showing clients not projects since we are aiming for long
-            term relationships.
-          </LargeText>
-          <LargeText>
-            For all of the listed clients, we have done or are still doing
-            (major parts of) their web applications.
-          </LargeText>
-          <CaptionText>Not just a set of banners or a microsite.</CaptionText>
+        <GridItem>
+          <PageTitle>Kunden</PageTitle>
+        </GridItem>
+        <GridItem>
+          <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>
         </GridItem>
       </Grid>
-      <ClientImageGrid
-        clients={clientsList}
-        imagePlaceholder={data.imagePlaceholder.childImageSharp.fluid}
-      />
     </Layout>
   );
 };
