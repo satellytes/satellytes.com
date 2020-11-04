@@ -48,10 +48,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   // create a page for each client from json
   clientPages.data.allClientsJson.nodes.forEach((node) => {
-    createPage({
-      path: node.path,
-      component: CLIENT_TEMPLATE_PATH,
-      context: { linkToThePage: node.path },
-    });
+    /**
+     * commented out, as we currently only have a clients overview page
+     */
+    // createPage({
+    //   path: node.path,
+    //   component: CLIENT_TEMPLATE_PATH,
+    //   context: { linkToThePage: node.path },
+    // });
   });
 };
