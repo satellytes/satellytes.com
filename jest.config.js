@@ -17,8 +17,7 @@ module.exports = {
     __PATH_PREFIX__: '',
     __BASE_PATH__: '',
     'ts-jest': {
-      // rewrite locale ts-config to work with ts-jest
-      tsConfig: {
+      tsconfig: {
         allowJs: false,
         jsx: 'react',
       },

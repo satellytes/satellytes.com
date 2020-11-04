@@ -11,18 +11,24 @@ import {
 } from './renderers';
 
 /* MonkeyPatch as currently markdown comments don't get ommitted by default.*/
-const removeExcerptSeparator = (rawMarkdown: string): string => {
+const removeExcerptSeparator = (rawMarkdown?: string): string => {
+  if (!rawMarkdown) {
+    return '';
+  }
+
   const excerptSeperator = '<!-- end -->';
   const cleanedMarkdown = rawMarkdown.replace(excerptSeperator, '');
   return cleanedMarkdown;
 };
 
 export const Markdown: React.FC = (props) => {
-  if (typeof props.children !== 'string') {
+  if (props.children && typeof props.children !== 'string') {
     throw new Error(
       'Markdown component can only contain a markdown string as children',
     );
   }
+
+  const markdown = removeExcerptSeparator(props.children?.toString());
 
   return (
     <ReactMarkdown
@@ -43,7 +49,7 @@ export const Markdown: React.FC = (props) => {
         link: LinkRenderer,
       }}
     >
-      {removeExcerptSeparator(props.children)}
+      {markdown}
     </ReactMarkdown>
   );
 };
