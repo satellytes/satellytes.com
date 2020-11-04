@@ -58,7 +58,7 @@ const HomePageBlockTeaser = styled(BlockTeaser)<{
 
 const BackgroundImage = styled(CloudinaryImage)`
   position: absolute;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   object-fit: cover;
 `;
