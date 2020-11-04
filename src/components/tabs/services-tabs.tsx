@@ -69,14 +69,14 @@ const ServicesTabs: React.FC<ServicesTabsProps> = ({ tabs }) => {
   return (
     <Tabs defaultIndex={0}>
       <StyledTabList>
-        {tabs.map((tab) => (
-          <StyledTab key={tab.title}>{tab.title}</StyledTab>
+        {tabs.map((tab, index) => (
+          <StyledTab key={index}>{tab.title}</StyledTab>
         ))}
       </StyledTabList>
       <StyledTabPanels>
-        {tabs.map((tab) => (
-          <TabPanel key={tab.content}>
-            <Markdown data={tab.content} />
+        {tabs.map((tab, index) => (
+          <TabPanel key={index}>
+            <Markdown>{tab.content}</Markdown>
           </TabPanel>
         ))}
       </StyledTabPanels>

@@ -30,7 +30,7 @@ const ImprintPage: React.FC = () => {
           <PageTitle>Imprint</PageTitle>
         </GridItem>
         <GridItem>
-          <Markdown data={data.markdownRemark.rawMarkdownBody} />
+          <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>
         </GridItem>
       </Grid>
     </Layout>

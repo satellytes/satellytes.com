@@ -17,17 +17,15 @@ const removeExcerptSeparator = (rawMarkdown: string): string => {
   return cleanedMarkdown;
 };
 
-interface MarkdownProps {
-  /**
-   * the actual markdown text
-   */
-  data: string;
-}
+export const Markdown: React.FC = (props) => {
+  if (typeof props.children !== 'string') {
+    throw new Error(
+      'Markdown component can only contain a markdown string as children',
+    );
+  }
 
-export const Markdown: React.FC<MarkdownProps> = (props) => {
   return (
     <ReactMarkdown
-      source={removeExcerptSeparator(props.data)}
       /**
        * Custom renderers/components mapping can be defined here. If a component
        * is not mapped to a node, the node will be rendererd with the default
@@ -44,6 +42,8 @@ export const Markdown: React.FC<MarkdownProps> = (props) => {
         blockquote: BlockquoteRenderer,
         link: LinkRenderer,
       }}
-    />
+    >
+      {removeExcerptSeparator(props.children)}
+    </ReactMarkdown>
   );
 };

@@ -92,7 +92,7 @@ const SocialLink = styled.a`
   }
 `;
 
-const LegalLink = styled(Link)<{ isSelected: 0 | 1 }>`
+const LegalLink = styled(Link)<{ $isSelected: boolean }>`
   display: block;
 
   font-weight: 500;
@@ -100,13 +100,13 @@ const LegalLink = styled(Link)<{ isSelected: 0 | 1 }>`
   line-height: 22px;
 
   text-decoration: none;
-  color: ${(props) => (props.isSelected === 1 ? '#ffffff' : '#202840')};
+  color: ${(props) => (props.$isSelected ? '#ffffff' : '#202840')};
 
   /**
    * necessary for Safari
    */
   &:link {
-    color: ${(props) => (props.isSelected === 1 ? '#ffffff' : '#202840')};
+    color: ${(props) => (props.$isSelected ? '#ffffff' : '#202840')};
   }
 
   ${up('md')} {
@@ -157,19 +157,19 @@ const NavigationListItem = styled.li`
   display: block;
 `;
 
-const SiteNavigationLink = styled(Link)<{ isSelected: 0 | 1 }>`
+const SiteNavigationLink = styled(Link)<{ $isSelected: boolean }>`
   font-size: 32px;
   font-weight: bold;
   line-height: 150%;
 
   text-decoration: none;
-  color: ${(props) => (props.isSelected === 1 ? '#ffffff' : '#202840')};
+  color: ${(props) => (props.$isSelected ? '#ffffff' : '#202840')};
 
   /**
    * necessary for Safari
    */
   &:link {
-    color: ${(props) => (props.isSelected === 1 ? '#ffffff' : '#202840')};
+    color: ${(props) => (props.$isSelected ? '#ffffff' : '#202840')};
   }
 
   ${up('md')} {
@@ -223,15 +223,12 @@ const Navigation: React.FC = (props) => {
                 </SocialLinkItem>
               </SocialLinks>
               <LegalLinks>
-                <LegalLink
-                  to="/imprint"
-                  isSelected={isOnPage('/imprint') ? 1 : 0}
-                >
+                <LegalLink to="/imprint" $isSelected={isOnPage('/imprint')}>
                   Imprint
                 </LegalLink>
                 <LegalLink
                   to="/data-privacy"
-                  isSelected={isOnPage('/data-privacy') ? 1 : 0}
+                  $isSelected={isOnPage('/data-privacy')}
                 >
                   Data Privacy
                 </LegalLink>
@@ -244,7 +241,7 @@ const Navigation: React.FC = (props) => {
                   <NavigationListItem>
                     <SiteNavigationLink
                       to="/services"
-                      isSelected={isOnPage('/services') ? 1 : 0}
+                      $isSelected={isOnPage('/services')}
                     >
                       Services
                     </SiteNavigationLink>
@@ -252,7 +249,7 @@ const Navigation: React.FC = (props) => {
                   <NavigationListItem>
                     <SiteNavigationLink
                       to="/clients"
-                      isSelected={isOnPage('/clients') ? 1 : 0}
+                      $isSelected={isOnPage('/clients')}
                     >
                       Clients
                     </SiteNavigationLink>
@@ -260,7 +257,7 @@ const Navigation: React.FC = (props) => {
                   <NavigationListItem>
                     <SiteNavigationLink
                       to="/about"
-                      isSelected={isOnPage('/about') ? 1 : 0}
+                      $isSelected={isOnPage('/about')}
                     >
                       About
                     </SiteNavigationLink>
@@ -268,7 +265,7 @@ const Navigation: React.FC = (props) => {
                   <NavigationListItem>
                     <SiteNavigationLink
                       to="/career"
-                      isSelected={isOnPage('/career') ? 1 : 0}
+                      $isSelected={isOnPage('/career')}
                     >
                       Career
                     </SiteNavigationLink>
@@ -276,7 +273,7 @@ const Navigation: React.FC = (props) => {
                   <NavigationListItem>
                     <SiteNavigationLink
                       to="/contact"
-                      isSelected={isOnPage('/contact') ? 1 : 0}
+                      $isSelected={isOnPage('/contact')}
                     >
                       Contact
                     </SiteNavigationLink>
@@ -284,7 +281,7 @@ const Navigation: React.FC = (props) => {
                   <NavigationListItem>
                     <SiteNavigationLink
                       to="/blog"
-                      isSelected={isOnPage('/blog') ? 1 : 0}
+                      $isSelected={isOnPage('/blog')}
                     >
                       Blog
                     </SiteNavigationLink>

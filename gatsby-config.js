@@ -26,7 +26,6 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/data`,
-        plugins: ['gatsby-transformer-json'],
       },
     },
     {
@@ -35,6 +34,7 @@ module.exports = {
         excerpt_separator: `<!-- end -->`,
       },
     },
+    'gatsby-transformer-json',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {

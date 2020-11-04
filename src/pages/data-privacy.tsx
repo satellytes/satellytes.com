@@ -30,7 +30,7 @@ const DataPrivacyPage: React.FC = () => {
           <PageTitle>Data Privacy</PageTitle>
         </GridItem>
         <GridItem>
-          <Markdown data={data.markdownRemark.rawMarkdownBody} />
+          <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>
         </GridItem>
       </Grid>
     </Layout>

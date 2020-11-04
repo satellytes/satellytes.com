@@ -61,7 +61,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
                 authorSummary={data.markdownRemark.frontmatter.authorSummary}
               />
             )}
-          <Markdown data={data.markdownRemark.rawMarkdownBody} />
+          <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>
           <SharePanel title={data.markdownRemark.frontmatter.title} />
         </GridItem>
       </Grid>
