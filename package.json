@@ -23,6 +23,7 @@
   "dependencies": {
     "@reach/tabs": "^0.11.2",
     "babel-plugin-styled-components": "^1.11.1",
+    "cloudinary-react": "^1.6.7",
     "date-fns": "^2.16.1",
     "gatsby": "2.25.2",
     "gatsby-background-image": "^1.1.2",

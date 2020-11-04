@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
 import { Link } from 'gatsby';
 import { theme } from '../layout/theme';
-import { Swoosh } from '../swoosh';
+import { Swoosh } from '../icons/swoosh';
 import { HEADER_HEIGHT } from '../header/header';
 
 /**
@@ -12,7 +12,6 @@ import { HEADER_HEIGHT } from '../header/header';
  *
  */
 const TitleContainer = styled.div`
-  position: relative;
   margin-top: calc(96px + ${HEADER_HEIGHT});
   margin-bottom: 40px;
 
@@ -36,6 +35,7 @@ export const TitleSvg = styled(Swoosh)`
 `;
 
 export const StyledTitle = styled.h1`
+  position: relative;
   font-size: 48px;
   line-height: 110%;
   margin: 0;
@@ -50,8 +50,10 @@ export const PageTitle: React.FC = (
 ) => {
   return (
     <TitleContainer className={props.className}>
-      <TitleSvg />
-      <StyledTitle>{props.children}</StyledTitle>
+      <StyledTitle>
+        <TitleSvg />
+        {props.children}
+      </StyledTitle>
     </TitleContainer>
   );
 };

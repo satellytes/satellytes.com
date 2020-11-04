@@ -26,11 +26,12 @@ const Wrapper = styled.div`
   width: calc(100% + 2 * ${() => GRID_GAP_MOBILE});
   margin-left: -${() => GRID_GAP_MOBILE};
   margin-bottom: 160px;
+  margin-top: 40px;
 
   ${up('md')} {
     width: 100%;
-    margin-top: 120px;
     margin-left: 0;
+    margin-top: 120px;
   }
 `;
 

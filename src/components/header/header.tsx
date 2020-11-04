@@ -90,17 +90,18 @@ interface HeaderProps {
   siteTitleUrl?: string;
   light?: boolean;
   heroImage?: FluidObject | string;
+  transparent?: boolean;
 }
 
 const Header: React.FC<HeaderProps> = (props) => {
   const [isNavigationVisible, setIsNavigationVisible] = useState(false);
   const [isTransparent, setIsTransparent] = useState<boolean>(
-    Boolean(props.heroImage),
+    Boolean(props.heroImage || props.transparent),
   );
 
   useEffect(() => {
     const onScroll = (): void => {
-      if (props.heroImage) {
+      if (props.heroImage || props.transparent) {
         if (window.scrollY !== 0) {
           setIsTransparent(false);
         } else {
