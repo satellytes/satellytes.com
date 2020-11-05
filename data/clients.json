@@ -6,7 +6,6 @@
     "tasks": ["Concept", "UX", "UI", "Frontend", "Backend"],
     "techStack": [
       "Rea",
-      "Jest",
       "Gatsby",
       "Typescript",
       "Styled-Components",
