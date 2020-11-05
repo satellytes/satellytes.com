@@ -80,7 +80,7 @@ const IndexPage: React.FC = () => {
     <>
       <BackgroundImage
         cloudName="satellytes"
-        publicId="satellytes-website/sy-image-home_l5zkwg"
+        publicId="satellytes-website/sy-home_epitno.png"
         format="webp"
         secure={true}
       />
@@ -90,7 +90,6 @@ const IndexPage: React.FC = () => {
           <GridItem xs={0} md={2} />
           <GridItem xs={12} md={8}>
             <HomePageTitle>Willkommen bei Satellytes</HomePageTitle>
-
             <HomePageBlockTeaser
               margin
               preTitle="Dienstleistungen"
