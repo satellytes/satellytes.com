@@ -29,7 +29,7 @@ const CareerPage: React.FC = () => {
         <GridItem>
           <PageTitle>Karriere</PageTitle>
         </GridItem>
-        <GridItem>
+        <GridItem xs={12} md={8}>
           <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>
         </GridItem>
       </Grid>

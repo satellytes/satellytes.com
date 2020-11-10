@@ -29,7 +29,7 @@ const ClientsPage: React.FC = () => {
         <GridItem>
           <PageTitle>Kunden</PageTitle>
         </GridItem>
-        <GridItem>
+        <GridItem xs={12} md={8}>
           <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>
         </GridItem>
       </Grid>
