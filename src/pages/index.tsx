@@ -80,7 +80,7 @@ const IndexPage: React.FC = () => {
     <>
       <BackgroundImage
         cloudName="satellytes"
-        publicId="satellytes-website/sy-home_epitno.png"
+        publicId="satellytes-website/sy-home.png"
         format="webp"
         secure={true}
       />
