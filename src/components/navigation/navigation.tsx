@@ -1,5 +1,5 @@
 import { Link } from 'gatsby';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
 import { Grid, GridItem } from '../grid/grid';
@@ -138,6 +138,16 @@ const SiteNavigation = styled.div`
   }
 `;
 
+const SiteNavigationTitle = styled.span`
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 110%;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #ffffff;
+`;
+
 const SiteNavigationList = styled.ul`
   margin: 0;
 `;
@@ -172,9 +182,10 @@ const SiteNavigationLink = styled(Link)<{ $isSelected: boolean }>`
 `;
 
 const Navigation: React.FC = (props) => {
-  const isOnPage = (path: string): boolean => {
-    return isBrowser() && window.location.pathname.includes(path);
-  };
+  const [activePath, setActivePath] = useState('');
+  useEffect(() => {
+    setActivePath(window.location.pathname);
+  });
 
   return (
     <NavigationBackground {...props}>
@@ -203,24 +214,28 @@ const Navigation: React.FC = (props) => {
                 </SocialLinkItem>
               </SocialLinks>
               <LegalLinks>
-                <LegalLink to="/imprint" $isSelected={isOnPage('/imprint')}>
+                <LegalLink
+                  to="/imprint"
+                  $isSelected={activePath.includes('/imprint')}
+                >
                   Impressum
                 </LegalLink>
                 <LegalLink
                   to="/data-privacy"
-                  $isSelected={isOnPage('/data-privacy')}
+                  $isSelected={activePath.includes('/data-privacy')}
                 >
                   Datenschutz
                 </LegalLink>
               </LegalLinks>
             </MetaContainer>
             <SiteNavigation>
+              <SiteNavigationTitle>Nav</SiteNavigationTitle>
               <nav>
                 <SiteNavigationList>
                   <NavigationListItem>
                     <SiteNavigationLink
                       to="/services"
-                      $isSelected={isOnPage('/services')}
+                      $isSelected={activePath.includes('/services')}
                     >
                       Leistungen
                     </SiteNavigationLink>
@@ -228,7 +243,7 @@ const Navigation: React.FC = (props) => {
                   <NavigationListItem>
                     <SiteNavigationLink
                       to="/clients"
-                      $isSelected={isOnPage('/clients')}
+                      $isSelected={activePath.includes('/clients')}
                     >
                       Kunden
                     </SiteNavigationLink>
@@ -236,7 +251,7 @@ const Navigation: React.FC = (props) => {
                   <NavigationListItem>
                     <SiteNavigationLink
                       to="/career"
-                      $isSelected={isOnPage('/career')}
+                      $isSelected={activePath.includes('/career')}
                     >
                       Karriere
                     </SiteNavigationLink>
@@ -244,7 +259,7 @@ const Navigation: React.FC = (props) => {
                   <NavigationListItem>
                     <SiteNavigationLink
                       to="/contact"
-                      $isSelected={isOnPage('/contact')}
+                      $isSelected={activePath.includes('/contact')}
                     >
                       Kontakt
                     </SiteNavigationLink>
