@@ -84,17 +84,16 @@ const IndexPage: React.FC = () => {
   return (
     <>
       <BackgroundImage
+        responsive
+        secure
         cloudName="satellytes"
         publicId="satellytes-website/SY-Image_tmjwss.png"
         format="webp"
         alt=""
         width="auto"
         crop="scale"
-        dpr="auto"
-        responsive
-        secure
       >
-        <Placeholder />
+        <Placeholder type="blur" />
       </BackgroundImage>
       <Layout isIndexPage={true}>
         <SEO title="Satellytes" />
