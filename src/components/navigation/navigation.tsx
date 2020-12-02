@@ -205,12 +205,14 @@ const Navigation: React.FC = (props) => {
                     target="_blank"
                     rel="noopener noreferrer"
                     href="https://www.linkedin.com/company/satellytes"
+                    title="Go to the Satellytes LinkedIn profile"
                   >
                     <LinkedinWrapper />
                   </SocialLink>
                 </SocialLinkItem>
                 <SocialLinkItem>
                   <SocialLink
+                    title="Go to the Satellytes Xing profile"
                     target="_blank"
                     rel="noopener noreferrer"
                     href="https://www.xing.com/companies/satellytesgmbh"

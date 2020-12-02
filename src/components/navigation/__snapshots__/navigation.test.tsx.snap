@@ -31,6 +31,7 @@ Object {
                       href="https://www.linkedin.com/company/satellytes"
                       rel="noopener noreferrer"
                       target="_blank"
+                      title="Go to the Satellytes LinkedIn profile"
                     >
                       <svg
                         class="sc-dlfnbm iAMZkD"
@@ -60,6 +61,7 @@ Object {
                       href="https://www.xing.com/companies/satellytesgmbh"
                       rel="noopener noreferrer"
                       target="_blank"
+                      title="Go to the Satellytes Xing profile"
                     >
                       <svg
                         class="sc-hKgILt hoWFJd"
@@ -192,6 +194,7 @@ Object {
                     href="https://www.linkedin.com/company/satellytes"
                     rel="noopener noreferrer"
                     target="_blank"
+                    title="Go to the Satellytes LinkedIn profile"
                   >
                     <svg
                       class="sc-dlfnbm iAMZkD"
@@ -221,6 +224,7 @@ Object {
                     href="https://www.xing.com/companies/satellytesgmbh"
                     rel="noopener noreferrer"
                     target="_blank"
+                    title="Go to the Satellytes Xing profile"
                   >
                     <svg
                       class="sc-hKgILt hoWFJd"
