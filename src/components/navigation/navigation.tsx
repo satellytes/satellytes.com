@@ -5,6 +5,7 @@ import { up } from '../breakpoint/breakpoint';
 import { Grid, GridItem } from '../grid/grid';
 import { LinkedinWrapper } from '../icons/social/linkedin';
 import { XingWrapper } from '../icons/social/xing';
+import { GithubIconWrapper } from '../icons/social/github';
 
 const NavigationBackground = styled.div`
   background: #4d79ff;
@@ -218,6 +219,16 @@ const Navigation: React.FC = (props) => {
                     href="https://www.xing.com/companies/satellytesgmbh"
                   >
                     <XingWrapper />
+                  </SocialLink>
+                </SocialLinkItem>
+                <SocialLinkItem>
+                  <SocialLink
+                    title="Go to the Satellytes Github profile"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://github.com/satellytes"
+                  >
+                    <GithubIconWrapper />
                   </SocialLink>
                 </SocialLinkItem>
               </SocialLinks>
