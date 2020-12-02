@@ -155,9 +155,6 @@ export const ClientList: React.FC<ClientListProps> = ({ clients }) => {
           />
         ))}
       </ClientListContainer>
-      <StyledOverviewLink to="/clients" title="Show all clients">
-        Alle Kunden &gt;
-      </StyledOverviewLink>
     </Wrapper>
   );
 };

@@ -8,6 +8,7 @@ Unsere vier größten Kunden sind:
 
 Diese Kunden spiegeln unsere langjährige Erfahrung in der Banken-, Versicherungs-, Automobil- und Sportbranche wider. Nachfolgend eine kurze Betrachtung der Aufgabengebiete für die jeweiligen Kundentypen:
 
+<a name="versicherungskonzern"></a>
 ## Versicherungskonzern
 Seit mehr als zwei Jahren helfen wir diesem Kunden bei der Umsetzung seiner digitalen Strategie. Geschätzt werden wir für unsere Expertise in der Frontend-Architektur und unsere nachhaltige und verlässliche Implementierung.
 
@@ -15,6 +16,7 @@ Mit unserer Hilfe entsteht auf Basis von Angular eine moderne und erweiterbare P
 
 Wollen Sie mit uns über Ihr Projekt in der Versicherungsbranche sprechen? [Kontaktieren Sie uns.](/contact)
 
+<a name="bank"></a>
 ## Bank
 Für unseren Bankkunden erarbeiten wir zentrale Bestandteile der Privat- und Geschäftskunden-Interaktionen. Mit einem großen Team aus Frontend- und Backend-Entwicklern arbeiten wir an Themen wie der Umsetzung des Online-Banking-Portals, der Infrastruktur und der Sicherheit. Wir setzen dafür die Technologien Angular und Java ein. Da dieser kritische Geschäftsbereich ein Höchstmaß an Qualität erfordert, definieren wir zudem umfangreiche Testpakete im Rahmen der Testpyramide (Unit, Integration, E2E) und lassen diese auf unterschiedlichen Ebenen automatisiert ablaufen.
 
@@ -22,6 +24,7 @@ Ein modernes Banking-Portal ist zudem auf ein schlankes, zeitgemäßes Bedienkon
 
 Wollen Sie mit uns über Ihr Projekt in der Banken- oder Finanzbranche sprechen? [Kontaktieren Sie uns.](/contact)
 
+<a name="sportverein"></a>
 ## Sportverein
 Wir sind seit Mitte 2018 stolzer Unterstützer eines weltbekannten Sportvereins. 
 
@@ -33,6 +36,7 @@ Neben der Webseite unterstützen wir den Kunden zudem in der Umsetzung einer Sel
 
 Sind Sie ein Verantwortlicher in der Sportbranche, wollen mehr erfahren oder haben ein konkretes Anliegen? [Kontaktieren Sie uns.](/contact)
 
+<a name="automobilclub"></a>
 ## Automobilclub
 Für einen großen deutschen Verkehrsclub arbeiten wir seit Herbst 2020 am Design und an der Umsetzung der zukünftigen Webplattform. Dabei greifen wir auf die erfolgreiche Nutzung von Gatsby und React zurück. 
 
