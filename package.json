@@ -2,11 +2,11 @@
   "name": "satellytes-com",
   "private": true,
   "description": "Satellytes Website",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:satellytes/satellytes.com-new.git"
+    "url": "git@github.com:satellytes/satellytes.com.git"
   },
   "scripts": {
     "build": "gatsby build",
