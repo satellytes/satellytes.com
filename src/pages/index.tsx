@@ -6,7 +6,7 @@ import { ClientList } from '../components/client-list/client-list';
 import { Grid, GridItem } from '../components/grid/grid';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
-import { Image as CloudinaryImage, Placeholder } from 'cloudinary-react';
+import { Image as CloudinaryImage } from 'cloudinary-react';
 import { BlockTeaser } from '../components/teasers/block-teaser';
 import {
   PageTitle,
@@ -92,18 +92,16 @@ const IndexPage: React.FC = () => {
             <HomePageTitle>Willkommen bei Satellytes</HomePageTitle>
             <HomePageBlockTeaser
               margin
-              preTitle="Dienstleistungen"
-              title="Das bieten wir Ihnen"
-              link="Zu den Dienstleistungen >"
+              preTitle="Leistungen"
+              title="Das bieten wir"
+              link="Zu den Leistungen >"
               linkTo="/services"
             >
               <Text>
-                Satellytes ist eine Digital-Agentur, die um große Unternehmen
-                kreist und ihnen bei der Transformation und Optimierung
-                digitaler Services und Interfaces hilft. Wir bieten „Full Stack“
-                an, also den gesamten Prozess von Ideation bis zur
-                Implementierung des letzten performanten Funnels und der letzten
-                Zeile wunderschönen Codes.
+                Satellytes – das sind ausschließlich leidenschaftliche
+                Entwickler und Designer. Wir haben großen Spaß an Technologie
+                und freuen uns auf neue Herausforderungen. Dabei fokussieren wir
+                uns auf langfristige Engagements im Konzerngeschäft.
               </Text>
             </HomePageBlockTeaser>
           </GridItem>
@@ -118,11 +116,9 @@ const IndexPage: React.FC = () => {
               linkTo="/clients"
             >
               <Text>
-                Unsere Kunden sind große Konzerne, die wir bei der Umsetzung
-                Ihrer digitalen Strategien unterstützen. Die Unternehmen selbst
-                sind weithin bekannt und schätzen unsere Diskretion. Deshalb
-                verzichten wir an dieser Stelle auf die Nennung konkreter Kunden
-                und limitieren uns auf generische Bezeichnungen.
+                Wir unterstützen große Konzerne bei der Umsetzung ihrer
+                digitalen Strategien. Finden Sie heraus für welche Kunden &
+                Branchen wir tätig sind.
               </Text>
             </HomePageBlockTeaser>
             <ClientList clients={data.allClientsJson.nodes} />
@@ -134,15 +130,16 @@ const IndexPage: React.FC = () => {
               preTitle="Karriere"
               title="Arbeite mit uns"
               splitView
-              link="Zur Karriere Seite >"
+              link="Zur Karriere-Seite >"
               linkTo="/career"
             >
               <Text>
-                Wir suchen Entwickler aus Leidenschaft, den Rest lernst du bei
-                uns. Du kannst schon alles? Dann finde bei uns neue
-                Herausforderungen und erfahrene Kollegen mit denen du weiter
-                wachsen kannst. Schaue dir unsere offenen Stellen an und bewirb
-                dich bei uns.
+                Wir suchen Entwickler aus Leidenschaft! Du hast noch nicht viel
+                Berufserfahrung? Kein Problem. Denn alles, was du wissen musst,
+                lernst Du bei uns. Du kannst schon alles? Dann findest Du bei
+                Satellytes neue Herausforderungen und erfahrene Kollegen, mit
+                denen Du weiter wachsen kannst. Schaue Dir unsere offenen
+                Stellen an. Wir freuen uns auf Deine Bewerbung.
               </Text>
             </HomePageBlockTeaser>
           </GridItem>

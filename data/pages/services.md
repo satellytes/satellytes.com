@@ -1,18 +1,38 @@
-Die Agentur Satellytes besteht ausschließlich aus leidenschaftlichen Entwicklern und Designern. Wir haben großen Spaß an Technologie und freuen uns auf jede Herausforderung. Dabei fokussieren wir uns auf langfristige Engangements, welche vor allem im Konzerngeschäft zu finden sind.
+Satellytes – das sind ausschließlich leidenschaftliche Entwickler und Designer. Wir haben großen Spaß an Technologie und freuen uns auf neue Herausforderungen. Dabei fokussieren wir uns auf langfristige Engagements im Konzerngeschäft.
 
-Dabei begegnen wir jeder Herausforderung immer mit genügend Respekt. Wir streben immer qualitative hochwertige und zeitgemäße Lösungen an. Die Wahl der Technologie ist dabei sekundär. Wir können Ihnen in den folgenden Disziplinen unterstützen.
+Neuen Aufgaben begegnen wir immer mit angemessenem Respekt. Wir streben stets  hochwertige und zeitgemäße Lösungen an – die Wahl der Technologie ist für uns dabei sekundär. Gern unterstützen wir auch Sie in den folgenden Disziplinen:
 
-## Technische Bestandsaufnahme und Analyse. 
-Beispielsweise die vollumfängliche Analyse ihrer Webseite hinsichtlich UX/UI, Ladegeschwindigkeit, technischer Aufbau, Barrierefreiheit oder Suchmaschinen-Kompatibilität. Begleitet wird eine derartige Analyse von einer Auflistung von konkreten Verbesserungsvorschlägen.
+## Enterprise Applikationen & Libraries
+Wir haben große Erfahrung in der Entwicklung moderner und verlässlicher Web-Applikationen für die Versicherungs-, Banken- und Automobilbranche. Angular hat sich für derartige Applikationen zur Standardtechnologie entwickelt. Wir bringen tiefgreifende Erfahrung mit dieser Technologie mit und liefern Ihnen eine maßgeschneiderte Lösung zu jedem Problem.
 
-Haben wir Sie mit einer derartigen Analyse überzeugt sind wir gerne Ihr Partner für Ihr zukünftiges Projekt.
+Wir sind zudem sehr erfahren in der Einführung ganzheitlicher Plattformen –beispielsweise einer Infrastruktur aus Angular-Libraries, dem Aufsetzen von CI/CD-Pipelines und der Umsetzung gut getesteter Applikationen in mehreren Sprachen und Konfigurationen.
 
-## Entwicklung von Business-Applikationen im Web
-Wir haben große Erfahrung in der Entwicklung von modernen und verlässlichen Web-Applikationen für die Branchen Versicherungen, Banken & Automobil. Angular ist für derartige Applikationen oft schon gesetzt. Wir bringen tiefgreifende Erfahrung mit dieser Technologie mit und liefern Ihnen eine maßgeschneiderte Lösung zu jedem Problem. 
+Zudem sind wir Profis für die Entwicklung von Java Backends in allen Variationen. Wir sind erfahren in der Anbindung von Bestandssystemen, der Neuentwicklung von versionierten APIs und der spezifischen Anbindung von Frontend-Applikationen auf Basis von BFF (Backend for Frontend) – oder vollkommen dezentralen Microservices.
 
-Wir sind zudem sehr erfahren in der Einführung von ganzheitlichen Plattformen. Beispielsweise eine Infrastruktur aus Angular-Libraries, das Aufsetzen von CI/CD Pipeline und die Umsetzung gut getesteter Applikationen in mehreren Sprachen und Konfigurationen.
++ Experten für Projekte in Angular & React (wir lieben aber auch Vue & Svelte)
++ UI-Library Entwicklung mit Release Management
++ Backend Begleitung mit unseren Java und Node-Experten
++ Ihr Ansprechpartner für <a href="https://en.wikipedia.org/wiki/Inner_source" target="_blank">Inner source Projekte</a> & Prozessbegleitung
 
-Im Backend versammeln wir Profis für die Entwicklung von Java Backends in allen Variationen. Wir sind erfahren in der Anbindung von Bestandssystemen, der Neu-Entwicklung von versionierten APIs und die spezifische Anbindung von Frontend-Applikationen auf Basis von BFF (Backend for Frontend) oder gleich ganz dezentralen Microservices.
+[Interesse? Kontaktieren Sie uns.](/contact)
+
+## Technische Analyse
+Wir bieten Ihnen beispielsweise die vollumfängliche Analyse ihrer Webseite: hinsichtlich UX/UI, Ladegeschwindigkeit, technischem Aufbau, Barrierefreiheit oder Suchmaschinen-Kompatibilität. Begleitet wird eine derartige Analyse von einer Auflistung konkreter Verbesserungsvorschläge.
+Sie wollen Ihre Website in den genannten Bereichen einer Analyse unterziehen? 
+
+[Interesse? Kontaktieren Sie uns.](/contact)
 
 ## UX & UI
-Satellytes bietet neben der Entwicklung den Entwurf und das Design von Web-Applikationen und nativen Apps an. 
+Mit rund 20 Jahren Erfahrung in der Konzeption und Umsetzung digitaler Interfaces bilden wir das gesamte Spektrum der User Experience (UX) ab. Der kleine, sichtbare Teil davon ist das User Interface (UI). Der große, unsichtbare (UX) ist jedoch viel relevanter für das Erreichen ihrer wirtschaftlichen Ziele. Denn nur mit benutzerfreundlichen, leicht verständlichen Journeys über alle Endgeräte, Nutzergruppen und Nutzungskontexte hinweg, erreichen die User und somit Sie ihr Ziel.
+
+Für unsere Enterprise-Kunden konzipieren und gestalten wir Websites mit modernen, ergonomischen und durchdachten Interfaces, halten uns an UX-Standards und Best Practices, beachten Accessibility Guidelines, testen, messen und optimieren ständig und stellen auf Wunsch alle Komponenten in einem gut strukturierten und erweiterbaren Design System zur Verfügung.
+
++ Informationsarchitektur (und Navigation)
++ Information/Content Design (Readability, Scanability, Consistency, Density, Sizes)
++ User Interface Design (Atomic Design, Pattern Libraries)
++ Interaction Design (Clarity, Ergonomy, Ease/Joy of Use)
++ Brand Experience
++ Accessibility (WCAG)
++ Loading-, Responsive-Strategien, Performance
+
+[Interesse? Kontaktieren Sie uns.](/contact)

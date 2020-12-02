@@ -1,16 +1,19 @@
 Pflichtangaben nach § 5 Telemediengesetz/Impressum
 
-Satellytes Digital Consulting GmbH
-Carola-Neher-Str. 10
+Satellytes Digital Consulting GmbH<br>
+Carola-Neher-Str. 10<br>
 81379 München 
 
 ### Vertreten durch
-Geschäftsführer: Gholam Abdol, Eric Singhartinger
+Geschäftsführer:<br>
+Gholam Abdol, Eric Singhartinger
 
 ### Kontakt
-E-Mail: beep@satellytes.com
+E-Mail:<br>
+beep@satellytes.com
 
-Internetadresse: https://www.satellytes.com
+Internetadresse:<br>
+https://www.satellytes.com
 
 ### Registereintrag Satellytes Digital Consulting GmbH
 Eintragung im Handelsregister

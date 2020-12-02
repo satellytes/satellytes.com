@@ -1,7 +1,7 @@
 [
   {
     "industry": "Sports",
-    "name": "Internationaler Sportverein",
+    "name": "Sportverein",
     "description": "TODO",
     "tasks": ["Concept", "UX", "UI", "Frontend", "Backend"],
     "techStack": [
@@ -24,7 +24,7 @@
     "industry": "Insurance",
     "name": "Versicherungskonzern",
     "description": "TODO",
-    "tasks": ["Concet", "UX", "UI"],
+    "tasks": ["Concept", "UX", "UI"],
     "techStack": ["Angular", "Github"],
     "teamSize": 2,
     "currentInvestInDays": 200,
@@ -35,9 +35,9 @@
   },
   {
     "industry": "Finance",
-    "name": "Eine Bank",
+    "name": "Bank",
     "description": "TODO",
-    "tasks": ["Concet", "UX", "UI"],
+    "tasks": ["Concept", "UX", "UI"],
     "techStack": ["Angular"],
     "teamSize": 13,
     "currentInvestInDays": 720,
@@ -48,9 +48,9 @@
   },
   {
     "industry": "Automotive",
-    "name": "Deutscher Verkehrsclub",
+    "name": "Automobilclub",
     "description": "Todo",
-    "tasks": ["Concet", "UX", "UI"],
+    "tasks": ["Concept", "UX", "UI"],
     "techStack": [
       "React",
       "Gatsby",

@@ -63,8 +63,8 @@ const ContactPage: React.FC = () => {
             <Text style={{ marginBottom: '40px' }}>
               Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine
               E-Mail an{' '}
-              <TextLink as="a" href="mailto:ping@satellytes.com">
-                ping@satellytes.com
+              <TextLink as="a" href="mailto:beep@satellytes.com">
+                beep@satellytes.com
               </TextLink>
             </Text>
             <ContactForm />

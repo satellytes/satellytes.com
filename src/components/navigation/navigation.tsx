@@ -229,7 +229,7 @@ const Navigation: React.FC = (props) => {
               </LegalLinks>
             </MetaContainer>
             <SiteNavigation>
-              <SiteNavigationTitle>Nav</SiteNavigationTitle>
+              <SiteNavigationTitle>Menü</SiteNavigationTitle>
               <nav>
                 <SiteNavigationList>
                   <NavigationListItem>
