@@ -24,7 +24,7 @@ const ServicesPage: React.FC = () => {
 
   return (
     <Layout>
-      <SEO title="Dienstleistungen" />
+      <SEO title="Leistungen | Satellytes" />
       <Grid>
         <GridItem>
           <PageTitle>Unsere Leistungen</PageTitle>

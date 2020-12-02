@@ -1,4 +1,4 @@
-Satellytes – das sind ausschließlich leidenschaftliche Entwickler und Designer. Wir haben großen Spaß an Technologie und freuen uns auf neue Herausforderungen. Dabei fokussieren wir uns auf langfristige Engagements im Konzerngeschäft.
+Satellytes – das sind ausschließlich leidenschaftliche Entwickler:innen und Designer:innen. Wir haben großen Spaß an Technologie und freuen uns auf neue Herausforderungen. Dabei fokussieren wir uns auf langfristige Engagements im Konzerngeschäft.
 
 Neuen Aufgaben begegnen wir immer mit angemessenem Respekt. Wir streben stets  hochwertige und zeitgemäße Lösungen an – die Wahl der Technologie ist für uns dabei sekundär. Gern unterstützen wir auch Sie in den folgenden Disziplinen:
 
