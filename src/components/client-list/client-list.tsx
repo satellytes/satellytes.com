@@ -104,8 +104,15 @@ const StyledOverviewLink = styled(InternalLink)`
   display: block;
   margin-top: 30px;
   margin-left: 16px;
-  color: #4d79ff;
   transition: color 0.3s;
+
+  font-size: 20px;
+  font-weight: bold;
+  color: ${(props) => props.theme.palette.text.contrastLink.default};
+
+  :hover {
+    color: ${(props) => props.theme.palette.text.contrastLink.hover};
+  }
 
   :hover {
     color: ${theme.palette.text.contrastLink.hover};
@@ -155,6 +162,9 @@ export const ClientList: React.FC<ClientListProps> = ({ clients }) => {
           />
         ))}
       </ClientListContainer>
+      <StyledOverviewLink to="/clients" title="Show all clients">
+        Zu den Kunden &gt;
+      </StyledOverviewLink>
     </Wrapper>
   );
 };

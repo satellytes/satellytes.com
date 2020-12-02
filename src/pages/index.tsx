@@ -113,8 +113,6 @@ const IndexPage: React.FC = () => {
               preTitle="Kunden"
               title="Nachhaltige und moderne Projekte"
               splitView
-              link="Zu den Kunden >"
-              linkTo="/clients"
             >
               <Text>
                 Wir unterstützen große Konzerne bei der Umsetzung ihrer
