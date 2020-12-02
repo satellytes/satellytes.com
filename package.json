@@ -10,7 +10,6 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "build:gh-pages": "gatsby build --prefix-paths",
     "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",

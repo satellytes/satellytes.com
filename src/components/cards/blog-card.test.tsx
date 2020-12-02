@@ -64,6 +64,6 @@ describe('BlogCard', () => {
       />,
     );
 
-    expect(queryByRole('img')).toBeNull();
+    expect(queryByRole('img')).not.toBeInTheDocument();
   });
 });
