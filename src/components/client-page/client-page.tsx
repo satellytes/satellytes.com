@@ -52,9 +52,7 @@ const Items = styled.li`
   border-radius: 16px;
   border: 0;
   padding: 9px 14px;
-  margin: 12px;
-  margin-left: 0;
-  }
+  margin: 12px 12px 12px 0;
 `;
 
 const ClientInfoItem = styled.p`
@@ -94,7 +92,7 @@ const ClientPage: React.FC<ClientProps> = ({ data }) => {
         <GridItem xs={12} md={8}>
           <TitleLabelItem>{data.clientsJson.industry}</TitleLabelItem>
           <ClientSubTitle>{data.clientsJson.name}</ClientSubTitle>
-          <ClientDescription data={data.clientsJson.description} />
+          <ClientDescription>{data.clientsJson.description}</ClientDescription>
         </GridItem>
       </Grid>
 
