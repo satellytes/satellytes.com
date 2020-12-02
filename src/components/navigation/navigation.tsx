@@ -5,7 +5,6 @@ import { up } from '../breakpoint/breakpoint';
 import { Grid, GridItem } from '../grid/grid';
 import { LinkedinWrapper } from '../icons/social/linkedin';
 import { XingWrapper } from '../icons/social/xing';
-import { isBrowser } from '../util/is-browser';
 
 const NavigationBackground = styled.div`
   background: #4d79ff;
@@ -56,12 +55,24 @@ const MetaContainer = styled.div`
 `;
 
 const LegalLinks = styled.ul`
+  list-style-type: none;
+
   margin: 0;
   padding: 0;
   order: 1;
 
   ${up('md')} {
     order: 2;
+  }
+`;
+
+const UnstyledListItem = styled.li`
+  ${up('md')} {
+    display: inline-block;
+
+    &:not(:last-of-type) {
+      margin-right: 12px;
+    }
   }
 `;
 
@@ -108,15 +119,8 @@ const LegalLink = styled(Link)<{ $isSelected: boolean }>`
     color: ${(props) => (props.$isSelected ? '#ffffff' : '#202840')};
   }
 
-  ${up('md')} {
-    display: inline-block;
-
-    &:not(:last-of-type) {
-      margin-right: 12px;
-    }
-  }
-
   transition: 0.3s;
+
   &:hover {
     color: #ffffff;
   }
@@ -167,6 +171,7 @@ const SiteNavigationLink = styled(Link)<{ $isSelected: boolean }>`
   /**
    * necessary for Safari
    */
+
   &:link {
     color: ${(props) => (props.$isSelected ? '#ffffff' : '#202840')};
   }
@@ -176,6 +181,7 @@ const SiteNavigationLink = styled(Link)<{ $isSelected: boolean }>`
   }
 
   transition: color 0.3s;
+
   &:hover {
     color: #ffffff;
   }
@@ -214,18 +220,22 @@ const Navigation: React.FC = (props) => {
                 </SocialLinkItem>
               </SocialLinks>
               <LegalLinks>
-                <LegalLink
-                  to="/imprint"
-                  $isSelected={activePath.includes('/imprint')}
-                >
-                  Impressum
-                </LegalLink>
-                <LegalLink
-                  to="/data-privacy"
-                  $isSelected={activePath.includes('/data-privacy')}
-                >
-                  Datenschutz
-                </LegalLink>
+                <UnstyledListItem>
+                  <LegalLink
+                    to="/imprint"
+                    $isSelected={activePath.includes('/imprint')}
+                  >
+                    Impressum
+                  </LegalLink>
+                </UnstyledListItem>
+                <UnstyledListItem>
+                  <LegalLink
+                    to="/data-privacy"
+                    $isSelected={activePath.includes('/data-privacy')}
+                  >
+                    Datenschutz
+                  </LegalLink>
+                </UnstyledListItem>
               </LegalLinks>
             </MetaContainer>
             <SiteNavigation>
