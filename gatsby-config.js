@@ -68,7 +68,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        exclude: ['/imprint', '/data-privacy'],
+        exclude: ['/imprint', '/data-privacy', '/blog/**'],
       },
     },
   ],
