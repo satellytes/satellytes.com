@@ -6,16 +6,6 @@ import { GRID_GAP_MOBILE } from '../grid/grid';
 import { formatDate } from '../util/format-date';
 import { InternalLink } from '../links/links';
 
-interface ClientListProps {
-  clients: ClientListEntryProps[];
-}
-
-interface ClientListEntryProps {
-  name: string;
-  start: string;
-  path: string;
-}
-
 const linkStyles = css`
   color: ${theme.palette.text.link.default};
   font-size: 20px;
@@ -126,6 +116,12 @@ const StyledOverviewLink = styled(InternalLink)`
   }
 `;
 
+interface ClientListEntryProps {
+  name: string;
+  start: string;
+  path: string;
+}
+
 const ClientListEntry: React.FC<ClientListEntryProps> = ({
   name,
   start,
@@ -141,6 +137,10 @@ const ClientListEntry: React.FC<ClientListEntryProps> = ({
     </ClientListEntryLi>
   );
 };
+
+interface ClientListProps {
+  clients: ClientListEntryProps[];
+}
 
 export const ClientList: React.FC<ClientListProps> = ({ clients }) => {
   return (

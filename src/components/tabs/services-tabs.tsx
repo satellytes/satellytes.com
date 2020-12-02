@@ -5,13 +5,6 @@ import { up } from '../breakpoint/breakpoint';
 import '@reach/tabs/styles.css';
 import { Markdown } from '../markdown/markdown';
 
-interface ServicesTabsProps {
-  tabs: {
-    title: string;
-    content: string;
-  }[];
-}
-
 const StyledTabList = styled(TabList)`
   background: none;
   padding-bottom: 18px;
@@ -64,6 +57,15 @@ const StyledTab = styled(Tab)`
 const StyledTabPanels = styled(TabPanels)`
   line-height: 1.5;
 `;
+
+export interface ServiceTab {
+  title: string;
+  content: string;
+}
+
+interface ServicesTabsProps {
+  tabs: ServiceTab[];
+}
 
 const ServicesTabs: React.FC<ServicesTabsProps> = ({ tabs }) => {
   return (
