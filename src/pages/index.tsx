@@ -83,6 +83,7 @@ const IndexPage: React.FC = () => {
         publicId="satellytes-website/sy-home.png"
         format="webp"
         secure={true}
+        alt=""
       />
       <Layout isIndexPage={true}>
         <SEO title="Home" />
