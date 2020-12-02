@@ -86,7 +86,7 @@ const IndexPage: React.FC = () => {
         alt=""
       />
       <Layout isIndexPage={true}>
-        <SEO title="Home" />
+        <SEO title="Satellytes" />
         <Grid center>
           <GridItem xs={0} md={2} />
           <GridItem xs={12} md={8}>
@@ -100,9 +100,10 @@ const IndexPage: React.FC = () => {
             >
               <Text>
                 Satellytes – das sind ausschließlich leidenschaftliche
-                Entwickler und Designer. Wir haben großen Spaß an Technologie
-                und freuen uns auf neue Herausforderungen. Dabei fokussieren wir
-                uns auf langfristige Engagements im Konzerngeschäft.
+                Entwickler:innen und Designer:innen. Wir haben großen Spaß an
+                Technologie und freuen uns auf neue Herausforderungen. Dabei
+                fokussieren wir uns auf langfristige Engagements im
+                Konzerngeschäft.
               </Text>
             </HomePageBlockTeaser>
           </GridItem>
@@ -133,11 +134,11 @@ const IndexPage: React.FC = () => {
               linkTo="/career"
             >
               <Text>
-                Wir suchen Entwickler aus Leidenschaft! Du hast noch nicht viel
-                Berufserfahrung? Kein Problem. Denn alles, was du wissen musst,
-                lernst Du bei uns. Du kannst schon alles? Dann findest Du bei
-                Satellytes neue Herausforderungen und erfahrene Kollegen, mit
-                denen Du weiter wachsen kannst. Schaue Dir unsere offenen
+                Wir suchen Entwickler:innen aus Leidenschaft! Du hast noch nicht
+                viel Berufserfahrung? Kein Problem. Denn alles, was du wissen
+                musst, lernst Du bei uns. Du kannst schon alles? Dann findest Du
+                bei Satellytes neue Herausforderungen und erfahrene Kollegen,
+                mit denen Du weiter wachsen kannst. Schaue Dir unsere offenen
                 Stellen an. Wir freuen uns auf Deine Bewerbung.
               </Text>
             </HomePageBlockTeaser>
