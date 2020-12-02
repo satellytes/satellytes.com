@@ -24,10 +24,10 @@ const DataPrivacyPage: React.FC = () => {
 
   return (
     <Layout>
-      <SEO title="Data Privacy" />
+      <SEO title="Datenschutz" />
       <Grid>
         <GridItem>
-          <PageTitle>Data Privacy</PageTitle>
+          <PageTitle>Datenschutz</PageTitle>
         </GridItem>
         <GridItem>
           <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>

@@ -1,5 +1,6 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdownWithHtml from 'react-markdown/with-html';
+
 import {
   BlockquoteRenderer,
   CloudinaryImageRenderer,
@@ -31,7 +32,8 @@ export const Markdown: React.FC = (props) => {
   const markdown = removeExcerptSeparator(props.children?.toString());
 
   return (
-    <ReactMarkdown
+    <ReactMarkdownWithHtml
+      allowDangerousHtml
       /**
        * Custom renderers/components mapping can be defined here. If a component
        * is not mapped to a node, the node will be rendererd with the default
@@ -50,6 +52,6 @@ export const Markdown: React.FC = (props) => {
       }}
     >
       {markdown}
-    </ReactMarkdown>
+    </ReactMarkdownWithHtml>
   );
 };

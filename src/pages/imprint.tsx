@@ -24,10 +24,10 @@ const ImprintPage: React.FC = () => {
 
   return (
     <Layout>
-      <SEO title="Imprint" />
+      <SEO title="Impressum" />
       <Grid>
         <GridItem>
-          <PageTitle>Imprint</PageTitle>
+          <PageTitle>Impressum</PageTitle>
         </GridItem>
         <GridItem>
           <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>
