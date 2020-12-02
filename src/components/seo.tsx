@@ -3,7 +3,9 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import CocoGothicBoldWoff2 from './layout/fonts/CocoGothic-Bold.woff2';
 import CocoGothicWoff2 from './layout/fonts/CocoGothic.woff2';
-import { transformCloudinaryUrl } from './util/cloudinary-util';
+
+const DEFAULT_IMAGE_URL =
+  'https://res.cloudinary.com/satellytes/image/upload/w_300/v1604993882/satellytes-website/sy-home.png';
 
 interface SeoProps {
   title: string;
@@ -36,6 +38,7 @@ const SEO: React.FC<SeoProps> = ({
 
   const metaDescription = description || site.siteMetadata.description;
   const typeOfSite = siteType || 'website';
+  const imgUrl = imageUrl || DEFAULT_IMAGE_URL;
 
   return (
     <Helmet
@@ -43,7 +46,6 @@ const SEO: React.FC<SeoProps> = ({
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
     >
       {/* -- Primary tags -- */}
       <meta name="title" property="name" content={title} />
@@ -52,19 +54,9 @@ const SEO: React.FC<SeoProps> = ({
         property="og:description"
         content={metaDescription}
       />
-      {imageUrl && (
-        <meta
-          property="image"
-          content={transformCloudinaryUrl(imageUrl, 300)}
-        />
-      )}
+      {imgUrl && <meta property="image" content={imgUrl} />}
       <meta property="og:title" content={title} />
-      {imageUrl && (
-        <meta
-          property="og:image"
-          content={transformCloudinaryUrl(imageUrl, 300)}
-        />
-      )}
+      {imgUrl && <meta property="og:image" content={imgUrl} />}
       <meta property="og:type" content={typeOfSite} />
 
       {/* -- Twitter Meta Tags -- */}
@@ -72,17 +64,12 @@ const SEO: React.FC<SeoProps> = ({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={metaDescription} />
       <meta name="twitter:creator" content={site.siteMetadata.author} />
-      {imageUrl && <meta name="twitter:image" content={imageUrl} />}
-      {imageUrl && <meta property="twitter:image:alt" content={title} />}
+      {imgUrl && <meta name="twitter:image" content={imgUrl} />}
+      {imgUrl && <meta property="twitter:image:alt" content={title} />}
 
       {/* -- Whatsapp --*/}
-      {imageUrl && (
-        <meta
-          property="og:image:secure_url"
-          content={transformCloudinaryUrl(imageUrl, 300)}
-        />
-      )}
-      {imageUrl && <meta property="og:image:width" content="300" />}
+      {imgUrl && <meta property="og:image:secure_url" content={imgUrl} />}
+      {imgUrl && <meta property="og:image:width" content="300" />}
 
       {/* -- Xing --*/}
       <meta property="og:site_name" content={title} />

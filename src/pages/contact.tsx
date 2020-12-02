@@ -38,7 +38,10 @@ const ContactPage: React.FC = () => {
 
   return (
     <Layout heroImage={data.imagePlaceholder.childImageSharp.fluid}>
-      <SEO title="Contact" />
+      <SEO
+        title="Kontakt | Satellytes"
+        description="Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine E-Mail an beep@satellytes.com"
+      />
       <Grid center>
         <GridItem xs={0} md={2} />
         <GridItem xs={12} md={8}>

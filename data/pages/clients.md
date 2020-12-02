@@ -18,7 +18,7 @@ Wollen Sie mit uns über Ihr Projekt in der Versicherungsbranche sprechen? [Kont
 
 <a name="bank"></a>
 ## Bank
-Für unseren Bankkunden erarbeiten wir zentrale Bestandteile der Privat- und Geschäftskunden-Interaktionen. Mit einem großen Team aus Frontend- und Backend-Entwicklern arbeiten wir an Themen wie der Umsetzung des Online-Banking-Portals, der Infrastruktur und der Sicherheit. Wir setzen dafür die Technologien Angular und Java ein. Da dieser kritische Geschäftsbereich ein Höchstmaß an Qualität erfordert, definieren wir zudem umfangreiche Testpakete im Rahmen der Testpyramide (Unit, Integration, E2E) und lassen diese auf unterschiedlichen Ebenen automatisiert ablaufen.
+Für unseren Bankkunden erarbeiten wir zentrale Bestandteile der Privat- und Geschäftskunden-Interaktionen. Mit einem großen Team aus Frontend- und Backend-Entwicklern:innen arbeiten wir an Themen wie der Umsetzung des Online-Banking-Portals, der Infrastruktur und der Sicherheit. Wir setzen dafür die Technologien Angular und Java ein. Da dieser kritische Geschäftsbereich ein Höchstmaß an Qualität erfordert, definieren wir zudem umfangreiche Testpakete im Rahmen der Testpyramide (Unit, Integration, E2E) und lassen diese auf unterschiedlichen Ebenen automatisiert ablaufen.
 
 Ein modernes Banking-Portal ist zudem auf ein schlankes, zeitgemäßes Bedienkonzept angewiesen. Wir setzen daher unsere UX/UI-Design-Experten ein und unterstützen den Kunden in der Konzeption und Umsetzung.
 

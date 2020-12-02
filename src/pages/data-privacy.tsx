@@ -24,7 +24,10 @@ const DataPrivacyPage: React.FC = () => {
 
   return (
     <Layout>
-      <SEO title="Datenschutz" />
+      <SEO
+        title="Datenschutz | Satellytes"
+        description="Information über die Erhebung personenbezogener Daten"
+      />
       <Grid>
         <GridItem>
           <PageTitle>Datenschutz</PageTitle>
