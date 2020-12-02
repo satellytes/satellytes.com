@@ -22,8 +22,13 @@ export const GlobalStyle = createGlobalStyle<{ isIndexPage?: boolean }>`
     -moz-osx-font-smoothing: grayscale;
   }
   
+  *:focus {
+    outline: none
+  }
+  
   [data-whatintent='keyboard'] *:focus {
     outline: 4px solid #f4d03f;
   }
+  
   
 `;
