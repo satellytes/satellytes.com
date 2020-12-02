@@ -127,6 +127,7 @@ const Header: React.FC<HeaderProps> = (props) => {
           {props.siteTitle}
         </SiteTitle>
         <SiteMenu
+          aria-label="Open menu"
           light={!isHeaderTransparent && props.light ? 1 : 0}
           onClick={() => {
             setIsNavigationVisible(!isNavigationVisible);
