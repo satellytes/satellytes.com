@@ -38,10 +38,6 @@
     "role": "Backend"
   },
   {
-    "name": "Klara Fleischmann",
-    "role": "Frontend"
-  },
-  {
     "name": "Felix Hamann",
     "role": "Frontend"
   },
@@ -60,5 +56,13 @@
   {
     "name": "Christian Ott",
     "role": "Backend"
+  },
+  {
+    "name": "Markus Edenhauser",
+    "role": "Frontend"
+  },
+  {
+    "name": "Wiebke Freitag",
+    "role": "Student"
   }
 ]
