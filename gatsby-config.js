@@ -6,6 +6,9 @@ module.exports = {
     author: 'Satellytes',
     siteUrl: 'https://satellytes.com',
   },
+  flags: {
+    FAST_DEV: true,
+  },
   plugins: [
     'gatsby-plugin-react-helmet',
     {
