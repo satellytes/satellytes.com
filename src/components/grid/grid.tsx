@@ -45,6 +45,12 @@ interface GridItemProps {
   md?: GridItemSize;
   lg?: GridItemSize;
   xl?: GridItemSize;
+
+  /**
+   * remove outer gap from item.
+   * up(md) only!
+   */
+  noGap?: boolean;
 }
 
 /**
@@ -54,6 +60,18 @@ interface GridItemProps {
 export const GridItem = styled.div<GridItemProps>`
   /* on mobile an item takes the whole row itself by default */
   grid-column-start: span ${(props) => props.xs || 12};
+
+  ${(props) =>
+    props.noGap &&
+    css`
+      ${up('md')} {
+        margin-left: -${GRID_GAP_DESKTOP};
+        margin-right: -${GRID_GAP_DESKTOP};
+      }
+    `}
+
+  ${up('md')} {
+  }
 
   ${(props) =>
     props.sm &&
