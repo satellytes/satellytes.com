@@ -71,7 +71,7 @@ const BackgroundImage = styled.img`
   z-index: -1;
   background-image: url('https://res.cloudinary.com/satellytes/image/upload/w_1280/e_blur:1000,q_1,f_auto/v1/satellytes-website/SY-Image_tmjwss.webp');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
 
   /**
    * props.theme is not available inside this component, as the cloudinary
