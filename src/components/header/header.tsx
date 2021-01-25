@@ -110,6 +110,9 @@ const Header: React.FC<HeaderProps> = (props) => {
       }
     };
 
+    // execute once to display properly on page refresh
+    onScroll();
+
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   });

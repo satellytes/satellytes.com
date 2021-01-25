@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   EmailShareButton,
   FacebookShareButton,
@@ -52,11 +52,17 @@ const SocialLinkItem = styled.li`
 `;
 
 const XingShareButton = styled.a`
-  margin: 0px;
+  margin: 0;
 `;
 
 export const SharePanel: React.FC<ShareProps> = ({ title }) => {
-  const shareUrl = isBrowser() ? window.location.href : '';
+  const [shareUrl, setShareUrl] = useState('');
+
+  useEffect(() => {
+    if (isBrowser()) {
+      setShareUrl(window.location.href);
+    }
+  });
   const hashtags = ['Satellytes'];
 
   return (
