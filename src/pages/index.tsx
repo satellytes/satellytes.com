@@ -11,7 +11,6 @@ import {
 } from '../components/grid/grid';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
-import { Image as CloudinaryImage, Placeholder } from 'cloudinary-react';
 import { BlockTeaser } from '../components/teasers/block-teaser';
 import {
   PageTitle,
@@ -63,13 +62,16 @@ const HomePageBlockTeaser = styled(BlockTeaser)<{
   margin-bottom: ${(props) => props.margin && '160px'};
 `;
 
-const BackgroundImage = styled(CloudinaryImage)`
+const BackgroundImage = styled.img`
   position: absolute;
   width: 100%;
   height: 100vh;
   object-fit: cover;
   object-position: bottom;
   z-index: -1;
+  background-image: url('https://res.cloudinary.com/satellytes/image/upload/w_1280/e_blur:1000,q_1,f_auto/v1/satellytes-website/SY-Image_tmjwss.webp');
+  background-repeat: no-repeat;
+  background-size: contain;
 
   /**
    * props.theme is not available inside this component, as the cloudinary
@@ -110,12 +112,13 @@ const IndexPage: React.FC = () => {
   return (
     <>
       <BackgroundImage
-        secure
-        cloudName="satellytes"
-        publicId="satellytes-website/SY-Image_tmjwss.png"
-        format="webp"
+        src="https://res.cloudinary.com/satellytes/image/upload/w_1280/e_blur:1000,q_1,f_auto/v1/satellytes-website/SY-Image_tmjwss.webp"
+        srcSet={`
+          https://res.cloudinary.com/satellytes/image/upload/w_300/v1/satellytes-website/SY-Image_tmjwss.webp 300w, 
+          https://res.cloudinary.com/satellytes/image/upload/w_768/v1/satellytes-website/SY-Image_tmjwss.webp 768w, 
+          https://res.cloudinary.com/satellytes/image/upload/v1/satellytes-website/SY-Image_tmjwss.webp 1280w
+        `}
         alt=""
-        width="auto"
       />
       <Layout isIndexPage={true}>
         <SEO title="Satellytes" />
