@@ -34,7 +34,7 @@ const ClientListContainer = styled.ul`
 const ClientListEntryLi = styled.li`
   border-width: 1px 0 0;
   border-style: solid;
-  border-color: rgba(77, 121, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.1);
 
   list-style: none;
 
