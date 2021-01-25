@@ -70,6 +70,12 @@ const BackgroundImage = styled(CloudinaryImage)`
   object-fit: cover;
   object-position: bottom;
   z-index: -1;
+
+  /**
+   * props.theme is not available inside this component, as the cloudinary
+   * component removes it
+   */
+  background-color: #202840;
 `;
 
 const ImageCopyright = styled.div`
@@ -104,16 +110,13 @@ const IndexPage: React.FC = () => {
   return (
     <>
       <BackgroundImage
-        responsive
         secure
         cloudName="satellytes"
         publicId="satellytes-website/SY-Image_tmjwss.png"
         format="webp"
         alt=""
         width="auto"
-      >
-        <Placeholder type="blur" />
-      </BackgroundImage>
+      />
       <Layout isIndexPage={true}>
         <SEO title="Satellytes" />
         <Grid center>
