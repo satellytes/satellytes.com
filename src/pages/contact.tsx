@@ -7,20 +7,6 @@ import { Grid, GridItem } from '../components/grid/grid';
 import { ContactForm } from '../components/form/contact';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
-import { graphql, useStaticQuery } from 'gatsby';
-import { FluidObject } from 'gatsby-image';
-
-const CONTACT_PAGE_QUERY = graphql`
-  query {
-    imagePlaceholder: file(relativePath: { regex: "/placeholder/" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`;
 
 const ContactSubTitle = styled(SubTitle)<{ short?: boolean }>`
   margin-top: ${(props) => (props.short ? '40px' : '80px')};
@@ -32,12 +18,8 @@ const ContactSubTitle = styled(SubTitle)<{ short?: boolean }>`
 `;
 
 const ContactPage: React.FC = () => {
-  const data = useStaticQuery<{
-    imagePlaceholder: { childImageSharp: { fluid: FluidObject } };
-  }>(CONTACT_PAGE_QUERY);
-
   return (
-    <Layout heroImage={data.imagePlaceholder.childImageSharp.fluid}>
+    <Layout heroImage="https://res.cloudinary.com/satellytes/image/upload/v1611566922/satellytes-website/sy-contact_bo49en.jpg">
       <SEO
         title="Kontakt | Satellytes"
         description="Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine E-Mail an beep@satellytes.com"

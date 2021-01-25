@@ -3,7 +3,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
 import { ClientList } from '../components/client-list/client-list';
-import { Grid, GridItem } from '../components/grid/grid';
+import {
+  Grid,
+  GRID_GAP_DESKTOP,
+  GRID_GAP_MOBILE,
+  GridItem,
+} from '../components/grid/grid';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 import { Image as CloudinaryImage, Placeholder } from 'cloudinary-react';
@@ -33,6 +38,7 @@ const HomePageTitle = styled(PageTitle)`
   padding-top: calc(96px + ${HEADER_HEIGHT});
 
   ${up('md')} {
+    height: 100vh;
     padding-top: calc(192px + ${HEADER_HEIGHT});
   }
 
@@ -66,6 +72,22 @@ const BackgroundImage = styled(CloudinaryImage)`
   z-index: -1;
 `;
 
+const ImageCopyright = styled.div`
+  position: absolute;
+  right: ${() => GRID_GAP_MOBILE};
+  // bottom = 100vh - HomePageTitle vh + GAP
+  bottom: ${() => `calc(8vh + ${GRID_GAP_MOBILE})`};
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 12px;
+  opacity: 0.6;
+
+  ${up('md')} {
+    right: ${() => GRID_GAP_DESKTOP};
+    bottom: ${() => GRID_GAP_DESKTOP};
+  }
+`;
+
 const IndexPage: React.FC = () => {
   const data = useStaticQuery<AllClientsQuery>(graphql`
     query {
@@ -89,7 +111,6 @@ const IndexPage: React.FC = () => {
         format="webp"
         alt=""
         width="auto"
-        crop="scale"
       >
         <Placeholder type="blur" />
       </BackgroundImage>
@@ -101,6 +122,7 @@ const IndexPage: React.FC = () => {
             <HomePageTitle>
               Satellytes Enterprise Web Applications
             </HomePageTitle>
+            <ImageCopyright>Photo by Riyanthi Sianturi</ImageCopyright>
           </GridItem>
           <GridItem xs={0} md={2} />
           <GridItem xs={0} md={1} />

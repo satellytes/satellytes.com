@@ -10,7 +10,7 @@ describe('<Navigation />', () => {
 
   it('should display title', () => {
     const { getByText } = render(<Navigation />);
-    const navigation = getByText('Menü');
+    const navigation = getByText('Menu');
     expect(navigation).toBeInTheDocument();
   });
 });

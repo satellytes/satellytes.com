@@ -22,10 +22,10 @@ const NavigationContent = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
-  padding: 80px 40px 30px 30px;
+  padding: 80px 0 30px 0;
 
   ${up('md')} {
-    padding: 10vw 80px 80px 80px;
+    padding: 10vw 0 80px 0;
     flex-direction: row;
   }
 `;
@@ -197,7 +197,8 @@ const Navigation: React.FC = (props) => {
   return (
     <NavigationBackground {...props}>
       <Grid center>
-        <GridItem>
+        <GridItem xs={0} md={1} />
+        <GridItem xs={12} md={10}>
           <NavigationContent>
             <MetaContainer>
               <SocialLinks>
@@ -252,7 +253,7 @@ const Navigation: React.FC = (props) => {
               </LegalLinks>
             </MetaContainer>
             <SiteNavigation>
-              <SiteNavigationTitle>Menü</SiteNavigationTitle>
+              <SiteNavigationTitle>Menu</SiteNavigationTitle>
               <nav>
                 <SiteNavigationList>
                   <NavigationListItem>
