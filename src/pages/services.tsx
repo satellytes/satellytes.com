@@ -27,7 +27,7 @@ const ServicesPage: React.FC = () => {
       <SEO title="Leistungen | Satellytes" />
       <Grid>
         <GridItem>
-          <PageTitle>Unsere Leistungen</PageTitle>
+          <PageTitle>Leistungen</PageTitle>
         </GridItem>
         <GridItem xs={12} md={8}>
           <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>

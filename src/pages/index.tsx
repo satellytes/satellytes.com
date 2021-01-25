@@ -6,11 +6,7 @@ import { ClientList } from '../components/client-list/client-list';
 import { Grid, GridItem } from '../components/grid/grid';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
-import {
-  Image as CloudinaryImage,
-  Placeholder,
-  Transformation,
-} from 'cloudinary-react';
+import { Image as CloudinaryImage, Placeholder } from 'cloudinary-react';
 import { BlockTeaser } from '../components/teasers/block-teaser';
 import {
   PageTitle,
@@ -31,7 +27,7 @@ interface AllClientsQuery {
 }
 
 const HomePageTitle = styled(PageTitle)`
-  height: 100vh;
+  height: 92vh;
   margin-bottom: 0;
   margin-top: 0;
   padding-top: calc(96px + ${HEADER_HEIGHT});
@@ -48,7 +44,8 @@ const HomePageTitle = styled(PageTitle)`
 
   ${StyledTitle} {
     font-size: 32px;
-    ${up('md')} {
+
+    ${up('sm')} {
       font-size: 72px;
     }
   }
@@ -66,6 +63,7 @@ const BackgroundImage = styled(CloudinaryImage)`
   height: 100vh;
   object-fit: cover;
   object-position: bottom;
+  z-index: -1;
 `;
 
 const IndexPage: React.FC = () => {
@@ -100,7 +98,13 @@ const IndexPage: React.FC = () => {
         <Grid center>
           <GridItem xs={0} md={2} />
           <GridItem xs={12} md={8}>
-            <HomePageTitle>Willkommen bei Satellytes</HomePageTitle>
+            <HomePageTitle>
+              Satellytes Enterprise Web Applications
+            </HomePageTitle>
+          </GridItem>
+          <GridItem xs={0} md={2} />
+          <GridItem xs={0} md={1} />
+          <GridItem xs={12} md={10}>
             <HomePageBlockTeaser
               margin
               preTitle="Leistungen"
@@ -116,10 +120,6 @@ const IndexPage: React.FC = () => {
                 Konzerngeschäft.
               </Text>
             </HomePageBlockTeaser>
-          </GridItem>
-          <GridItem xs={0} md={2} />
-          <GridItem xs={0} md={1} />
-          <GridItem xs={12} md={10}>
             <HomePageBlockTeaser
               preTitle="Kunden"
               title="Nachhaltige und moderne Projekte"
@@ -132,10 +132,6 @@ const IndexPage: React.FC = () => {
               </Text>
             </HomePageBlockTeaser>
             <ClientList clients={data.allClientsJson.nodes} />
-          </GridItem>
-          <GridItem xs={0} md={1} />
-          <GridItem xs={0} md={1} />
-          <GridItem xs={12} md={10}>
             <HomePageBlockTeaser
               preTitle="Karriere"
               title="Arbeite mit uns"
