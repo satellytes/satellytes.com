@@ -111,6 +111,7 @@ export const Text = styled.p`
 
 export const LargeText = styled.p`
   font-size: 24px;
+  font-weight: normal;
   line-height: 110%;
 
   margin-top: 0;

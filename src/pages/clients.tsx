@@ -2,7 +2,7 @@ import React from 'react';
 
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
-import { PageTitle } from '../components/typography/typography';
+import { LargeText, PageTitle } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
 import { Markdown } from '../components/markdown/markdown';
 import { graphql, useStaticQuery } from 'gatsby';
@@ -33,6 +33,10 @@ const ClientsPage: React.FC = () => {
           <PageTitle>Kunden</PageTitle>
         </GridItem>
         <GridItem xs={12} md={8}>
+          <LargeText as={'h2'}>
+            Wir unterstützen große Konzerne bei der Umsetzung ihrer digitalen
+            Strategien.
+          </LargeText>
           <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>
         </GridItem>
       </Grid>
