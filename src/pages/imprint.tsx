@@ -25,7 +25,7 @@ const ImprintPage: React.FC = () => {
   return (
     <Layout>
       <SEO
-        title="Impressum | Satellytes"
+        title="Impressum | Satellytes Digital Consulting GmbH"
         description="Pflichtangaben nach § 5 Telemediengesetz/Impressum"
       />
       <Grid>

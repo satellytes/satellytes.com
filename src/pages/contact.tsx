@@ -21,7 +21,7 @@ const ContactPage: React.FC = () => {
   return (
     <Layout heroImage="https://res.cloudinary.com/satellytes/image/upload/v1611566922/satellytes-website/sy-contact_bo49en.jpg">
       <SEO
-        title="Kontakt | Satellytes"
+        title="Kontakt | Satellytes Digital Consulting GmbH"
         description="Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine E-Mail an beep@satellytes.com"
       />
       <Grid center>

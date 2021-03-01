@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Satellytes',
+    title: 'Satellytes Digital Consulting GmbH',
     description:
       'Satellytes ist eine Digital-Agentur, die um große Unternehmen kreist und ihnen bei der Transformation und Optimierung digitaler Services und Interfaces hilft.',
     author: 'Satellytes',
