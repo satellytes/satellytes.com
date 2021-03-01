@@ -16,7 +16,7 @@ import {
   PageTitle,
   StyledTitle,
   Text,
-  TitleSvg,
+  PageTitleSwoosh,
 } from '../components/typography/typography';
 import { HEADER_HEIGHT } from '../components/header/header';
 
@@ -43,8 +43,16 @@ const HomePageTitle = styled(PageTitle)`
 
   color: #ffffff;
 
-  ${TitleSvg} {
-    left: 2px;
+  ${PageTitleSwoosh} {
+    top: -6px;
+    height: 10px;
+    width: 19px;
+
+    ${up('sm')} {
+      width: 42px;
+      top: -14px;
+      height: 15px;
+    }
   }
 
   ${StyledTitle} {

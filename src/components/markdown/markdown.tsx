@@ -8,6 +8,7 @@ import {
   HeadingRenderer,
   InlineCodeRenderer,
   LinkRenderer,
+  ListRenderer,
   TextRenderer,
 } from './renderers';
 
@@ -49,6 +50,7 @@ export const Markdown: React.FC = (props) => {
         image: CloudinaryImageRenderer,
         blockquote: BlockquoteRenderer,
         link: LinkRenderer,
+        list: ListRenderer,
       }}
     >
       {markdown}

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { up } from '../breakpoint/breakpoint';
+import { down, up } from '../breakpoint/breakpoint';
 import { Link } from 'gatsby';
 import { theme } from '../layout/theme';
 import { Swoosh } from '../icons/swoosh';
@@ -22,14 +22,17 @@ const TitleContainer = styled.div`
   }
 `;
 
-export const TitleSvg = styled(Swoosh)`
+export const PageTitleSwoosh = styled(Swoosh)`
   position: absolute;
   left: 3px;
-  bottom: calc(100% + 10px);
+
+  top: -8px;
   height: 10px;
+  width: 33px;
 
   ${up('md')} {
-    bottom: calc(100% + 15px);
+    width: 49px;
+    top: -16px;
     height: 15px;
   }
 `;
@@ -51,7 +54,7 @@ export const PageTitle: React.FC = (
   return (
     <TitleContainer className={props.className}>
       <StyledTitle>
-        <TitleSvg />
+        <PageTitleSwoosh />
         {props.children}
       </StyledTitle>
     </TitleContainer>
@@ -72,17 +75,25 @@ export const SubTitle = styled.h3`
   font-size: 32px;
   line-height: 110%;
 
+  margin-top: 80px;
+  margin-bottom: 40px;
+
   ${up('md')} {
     font-size: 48px;
   }
 `;
 
 export const TextTitle = styled.h4`
-  font-size: 20px;
+  font-size: 24px;
   line-height: 110%;
 
-  margin-top: 40px;
-  margin-bottom: 16px;
+  margin-top: 80px;
+  margin-bottom: 24px;
+
+  ${up('md')} {
+    font-size: 32px;
+    margin-top: 160px;
+  }
 `;
 
 /**
@@ -101,7 +112,6 @@ export const Text = styled.p`
 export const LargeText = styled.p`
   font-size: 24px;
   line-height: 110%;
-  font-weight: bold;
 
   margin-top: 0;
   margin-bottom: 40px;

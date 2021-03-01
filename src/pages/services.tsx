@@ -2,7 +2,7 @@ import React from 'react';
 
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
-import { PageTitle } from '../components/typography/typography';
+import { LargeText, PageTitle } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
 import { Markdown } from '../components/markdown/markdown';
 import { graphql, useStaticQuery } from 'gatsby';
@@ -30,6 +30,10 @@ const ServicesPage: React.FC = () => {
           <PageTitle>Leistungen</PageTitle>
         </GridItem>
         <GridItem xs={12} md={8}>
+          <LargeText>
+            Satellytes – das sind ausschließlich leidenschaftliche
+            Entwickler:innen und Designer:innen.
+          </LargeText>
           <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>
         </GridItem>
       </Grid>

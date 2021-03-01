@@ -136,3 +136,38 @@ interface ReactMarkdownLinkProps {
 export const LinkRenderer: React.FC<ReactMarkdownLinkProps> = (props) => {
   return <TextLink to={props.href}>{props.children}</TextLink>;
 };
+
+/**
+ * List
+ **/
+interface ReactMarkdownListProps {
+  ordered: boolean;
+}
+
+const UnorderedList = styled.ul`
+  padding-left: 0;
+  line-height: 150%;
+  list-style: inside;
+
+  > li::marker {
+    content: '· ';
+  }
+
+  > li {
+    margin-bottom: 16px;
+  }
+`;
+
+const OrderedList = styled.ol`
+  padding-left: 0;
+  line-height: 150%;
+  list-style: inside;
+`;
+
+export const ListRenderer: React.FC<ReactMarkdownListProps> = (props) => {
+  return props.ordered ? (
+    <OrderedList>{props.children}</OrderedList>
+  ) : (
+    <UnorderedList>{props.children}</UnorderedList>
+  );
+};
