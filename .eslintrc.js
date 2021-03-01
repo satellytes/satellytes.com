@@ -14,7 +14,7 @@ module.exports = {
     'plugin:jest-dom/recommended',
 
     // prettier needs to be the last in the array to overwrite existing configs
-    'prettier/@typescript-eslint',
+    'prettier',
   ],
   parserOptions: {
     ecmaFeatures: {
