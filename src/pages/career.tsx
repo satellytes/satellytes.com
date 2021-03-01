@@ -25,7 +25,7 @@ const CareerPage: React.FC = () => {
   return (
     <Layout>
       <SEO
-        title="Karriere | Satellytes Digital Consulting GmbH"
+        title="Karriere | Satellytes"
         description="Wir suchen Entwickler:innen aus Leidenschaft! Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung."
       />
       <Grid>

@@ -24,7 +24,7 @@ const ServicesPage: React.FC = () => {
 
   return (
     <Layout>
-      <SEO title="Leistungen | Satellytes Digital Consulting GmbH" />
+      <SEO title="Leistungen | Satellytes" />
       <Grid>
         <GridItem>
           <PageTitle>Leistungen</PageTitle>

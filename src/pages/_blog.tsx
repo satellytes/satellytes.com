@@ -86,7 +86,7 @@ const BlogPage: React.FC = () => {
 
   return (
     <Layout>
-      <SEO title="Blog | Satellytes Digital Consulting GmbH" />
+      <SEO title="Blog | Satellytes" />
       <Grid center>
         <GridItem>
           <BlogPageTitle>Blog</BlogPageTitle>

@@ -42,7 +42,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
       siteTitleUrl={'/blog'}
     >
       <SEO
-        title={data.markdownRemark.frontmatter.title}
+        title={`${data.markdownRemark.frontmatter.title} | Satellytes`}
         imageUrl={data.markdownRemark.frontmatter.image}
         siteType="article"
         description={data.markdownRemark.excerpt}

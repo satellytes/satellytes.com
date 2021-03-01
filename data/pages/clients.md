@@ -36,7 +36,9 @@ Rahmen der Testpyramide (Unit, Integration, E2E) und lassen diese auf unterschie
 Ein modernes Banking-Portal ist zudem auf ein schlankes, zeitgemäßes Bedienkonzept angewiesen. Wir setzen daher unsere
 UX/UI-Design-Experten ein und unterstützen den Kunden in der Konzeption und Umsetzung.
 
-Wollen Sie mit uns über Ihr Projekt in der Banken- oder Finanzbranche sprechen? [Kontaktieren Sie uns >](/contact)
+Wollen Sie mit uns über Ihr Projekt in der Banken- oder Finanzbranche sprechen? 
+
+[Kontaktieren Sie uns >](/contact)
 
 ### [Sportverein](#sportverein)
 

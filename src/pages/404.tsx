@@ -15,7 +15,7 @@ const NotFoundTitle = styled(SubTitle)`
 
 const NotFoundPage: React.FC = () => (
   <Layout>
-    <SEO title="404: Not found | Satellytes Digital Consulting GmbH" />
+    <SEO title="404: Not found | Satellytes" />
     <Grid center>
       <GridItem xs={0} md={2} />
       <GridItem xs={12} md={8}>

@@ -25,7 +25,7 @@ const ClientsPage: React.FC = () => {
   return (
     <Layout>
       <SEO
-        title="Kunden | Satellytes Digital Consulting GmbH"
+        title="Kunden | Satellytes"
         description="Wir unterstützen große Konzerne bei der Umsetzung ihrer digitalen Strategien. Finden Sie heraus für welche Kunden & Branchen wir tätig sind."
       />
       <Grid>
