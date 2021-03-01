@@ -16,7 +16,10 @@ export const Link = (props: LinkProps): JSX.Element => {
     ref,
     ...rest
   } = props;
-  const isExternalLink = to.toString().startsWith('http');
+  const isExternalLink =
+    to.toString().startsWith('http') ||
+    to.toString().startsWith('mailto') ||
+    to.toString().startsWith('tel');
 
   if (isExternalLink) {
     return (

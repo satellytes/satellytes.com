@@ -155,6 +155,7 @@ export const ImageCardSubtitle = styled.p`
 export const TextLink = styled(Link)<{ small?: boolean }>`
   display: inline-block;
   color: ${theme.palette.text.link.default};
+  margin-top: 8px;
 
   font-size: ${(props) => (props.small ? '14px' : '16px')};
   line-height: 150%;
