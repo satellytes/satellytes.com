@@ -4,7 +4,7 @@ kannst. Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung
 
 Wir suchen derzeit neue Kollegen für folgende Stellen:
 
-### Senior Frontend Engineer (m/w/d)
+### [Senior Frontend Engineer (m/w/d)](#senior-frontend-engineer)
 
 Wir suchen Dich und Deine Expertise in der Frontend-Entwicklung! Deine Erfahrung in Projekten reicht sechs Jahre oder
 länger zurück und Du bist es gewohnt im Teams zu arbeiten? JavaScript beherrscht Du fließend und Du hast tiefgreifende
@@ -19,7 +19,7 @@ Wenn Du bis hierhin ein paar mal entspannt genickt hast und jetzt gern mehr wüs
 
 Bewirb Dich am besten gleich per E-Mail an [career@satellytes.com](mailto:career@satellytes.com)
 
-### Initiativbewerbung
+### [Initiativbewerbung](#initiativbewerbung)
 
 Du glaubst, wir haben eine Stelle vergessen und Du würdest perfekt auf diesen Blindspot passen, um gemeinsam mit
 Satellytes die Zukunft zu gestalten? Dann schreib uns, wir sind neugierig.

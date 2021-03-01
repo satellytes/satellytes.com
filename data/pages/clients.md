@@ -3,7 +3,7 @@ dieser Stelle keine konkreten Namen nennen möchten, sondern uns auf generische 
 vier größten Kunden sind:
 
 - Ein Versicherungskonzern 
--  Eine Bank 
+- Eine Bank 
 - Ein Sportverein 
 - Ein Automobilclub Diese Kunden spiegeln unsere langjährige
 
@@ -21,7 +21,9 @@ unterstützen wir den Kunden in der Etablierung von nachhaltigen Governance-Stru
 unterstützen wir den Kunden in der Etablierung von nachhaltigen Governance-Strukturen durch die Ausgestaltung von
 Prozessen, der Aufbau von Teamstrukturen sowie die Anfertigung von leicht verständlichen Dokumentationen.
 
-Wollen Sie mit uns über Ihr Projekt in der Versicherungsbranche sprechen? [Kontaktieren Sie uns >](/contact)
+Wollen Sie mit uns über Ihr Projekt in der Versicherungsbranche sprechen? 
+
+[Kontaktieren Sie uns >](/contact)
 
 ### [Bank](#bank)
 
@@ -53,7 +55,9 @@ Erfahrung mit Enterprise-Projekten zurück und haben eine Softwarelösung basier
 Anforderungen der Self-Services vollumfänglich gerecht wird.
 
 Sind Sie ein Verantwortlicher in der Sportbranche, wollen mehr erfahren oder haben ein konkretes
-Anliegen? [Kontaktieren Sie uns >](/contact)
+Anliegen? 
+
+[Kontaktieren Sie uns >](/contact)
 
 ### [Automobilclub](#automobilclub)
 
@@ -64,4 +68,6 @@ Diese nutzen wir an dieser Stelle, um das CMS auf Basis von Contentful selbst mi
 die Gatsby-Cloud für die beschleunigte Ausbringung aktualisierter Inhalte einzusetzen.
 
 Sind Sie ein Verantwortlicher in der Automobilbranche, wollen mehr erfahren oder haben ein konkretes
-Anliegen? [Kontaktieren Sie uns >](/contact)
+Anliegen? 
+
+[Kontaktieren Sie uns >](/contact)
