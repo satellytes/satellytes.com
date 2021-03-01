@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import Header from './../header/header';
+import Header, { HEADER_HEIGHT } from './../header/header';
 import Navigation from './../navigation/navigation';
 import { theme } from './theme';
 import styled, { ThemeProvider } from 'styled-components';
@@ -33,6 +33,28 @@ interface LayoutProps {
   siteTitleUrl?: string;
 }
 
+const useAnchorTagScrolling = (): void => {
+  useEffect(() => {
+    if (window.location.hash) {
+      const target = document.querySelector(
+        `a[href*='${window.location.hash}']`,
+      );
+      if (target) {
+        const scrollTop =
+          target.getBoundingClientRect().top +
+          window.pageYOffset -
+          // we need to scroll past the header and a little offset
+          (Number.parseInt(HEADER_HEIGHT, 10) + 16);
+
+        window.scrollTo({
+          top: scrollTop,
+          behavior: 'smooth',
+        });
+      }
+    }
+  }, []);
+};
+
 const Layout: React.FC<LayoutProps> = (props) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -43,6 +65,8 @@ const Layout: React.FC<LayoutProps> = (props) => {
       }
     }
   `);
+
+  useAnchorTagScrolling();
 
   return (
     <ThemeProvider theme={theme}>
