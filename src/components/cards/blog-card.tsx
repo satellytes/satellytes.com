@@ -1,10 +1,10 @@
 import React from 'react';
 import GatsbyImage, { FluidObject, GatsbyImageProps } from 'gatsby-image';
 import styled, { css } from 'styled-components';
-import { Link } from 'gatsby';
 import { theme } from '../layout/theme';
 import { up } from '../breakpoint/breakpoint';
 import { CardProps, CardWrapper, CardTitle, CardText } from './card';
+import { Link } from '../links/links';
 
 interface BlogCardProps extends CardProps {
   link: string;
@@ -13,10 +13,6 @@ interface BlogCardProps extends CardProps {
   placeholderImage?: FluidObject;
   large?: boolean;
 }
-
-const LinkWrapper = styled(Link)`
-  text-decoration: none;
-`;
 
 const BlogCardWrapper = styled(CardWrapper)<{ image: boolean }>`
   padding: 24px;
@@ -116,9 +112,9 @@ export const BlogCard: React.FC<BlogCardProps> = ({
 }) => {
   return (
     <BlogCardWrapper
-      as={LinkWrapper}
+      as={Link}
       to={link}
-      image={image ? 1 : 0}
+      image={Boolean(image)}
       sm={6}
       md={large ? 6 : 4}
     >

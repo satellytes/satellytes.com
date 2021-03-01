@@ -9,9 +9,8 @@ vier größten Kunden sind:
 
 Erfahrung in der Banken-, Versicherungs-, Automobil- und Sportbranche wider. Nachfolgend eine kurze Betrachtung der
 Aufgabengebiete für die jeweiligen Kundentypen:
-<a name="versicherungskonzern"></a>
 
-### Versicherungskonzern
+### [Versicherungskonzern](#versicherungskonzern)
 
 Seit mehr als zwei Jahren helfen wir diesem Kunden bei der Umsetzung seiner digitalen Strategie. Geschätzt werden wir
 für unsere Expertise in der Frontend-Architektur und unsere nachhaltige und verlässliche Implementierung.
@@ -19,13 +18,12 @@ für unsere Expertise in der Frontend-Architektur und unsere nachhaltige und ver
 Mit unserer Hilfe entsteht auf Basis von Angular eine moderne und erweiterbare Plattform für die weltweite Skalierung
 und Angleichung der technologischen Frontend Landschaft. Neben der Architektur und der konkreten Implementierung
 unterstützen wir den Kunden in der Etablierung von nachhaltigen Governance-Strukturen durch die Ausgestaltung von
+unterstützen wir den Kunden in der Etablierung von nachhaltigen Governance-Strukturen durch die Ausgestaltung von
 Prozessen, der Aufbau von Teamstrukturen sowie die Anfertigung von leicht verständlichen Dokumentationen.
 
-Wollen Sie mit uns über Ihr Projekt in der Versicherungsbranche sprechen? [Kontaktieren Sie uns.](/contact)
+Wollen Sie mit uns über Ihr Projekt in der Versicherungsbranche sprechen? [Kontaktieren Sie uns >](/contact)
 
-<a name="bank"></a>
-
-### Bank
+### [Bank](#bank)
 
 Für unseren Bankkunden erarbeiten wir zentrale Bestandteile der Privat- und Geschäftskunden-Interaktionen. Mit einem
 großen Team aus Frontend- und Backend-Entwicklern:innen arbeiten wir an Themen wie der Umsetzung des
@@ -36,11 +34,9 @@ Rahmen der Testpyramide (Unit, Integration, E2E) und lassen diese auf unterschie
 Ein modernes Banking-Portal ist zudem auf ein schlankes, zeitgemäßes Bedienkonzept angewiesen. Wir setzen daher unsere
 UX/UI-Design-Experten ein und unterstützen den Kunden in der Konzeption und Umsetzung.
 
-Wollen Sie mit uns über Ihr Projekt in der Banken- oder Finanzbranche sprechen? [Kontaktieren Sie uns.](/contact)
+Wollen Sie mit uns über Ihr Projekt in der Banken- oder Finanzbranche sprechen? [Kontaktieren Sie uns >](/contact)
 
-<a name="sportverein"></a>
-
-### Sportverein
+### [Sportverein](#sportverein)
 
 Wir sind seit Mitte 2018 stolzer Unterstützer eines weltbekannten Sportvereins.
 
@@ -57,11 +53,9 @@ Erfahrung mit Enterprise-Projekten zurück und haben eine Softwarelösung basier
 Anforderungen der Self-Services vollumfänglich gerecht wird.
 
 Sind Sie ein Verantwortlicher in der Sportbranche, wollen mehr erfahren oder haben ein konkretes
-Anliegen? [Kontaktieren Sie uns.](/contact)
+Anliegen? [Kontaktieren Sie uns >](/contact)
 
-<a name="automobilclub"></a>
-
-### Automobilclub
+### [Automobilclub](#automobilclub)
 
 Für einen großen deutschen Verkehrsclub arbeiten wir seit Herbst 2020 am Design und an der Umsetzung der zukünftigen
 Webplattform. Dabei greifen wir auf die erfolgreiche Nutzung von Gatsby und React zurück.
@@ -70,4 +64,4 @@ Diese nutzen wir an dieser Stelle, um das CMS auf Basis von Contentful selbst mi
 die Gatsby-Cloud für die beschleunigte Ausbringung aktualisierter Inhalte einzusetzen.
 
 Sind Sie ein Verantwortlicher in der Automobilbranche, wollen mehr erfahren oder haben ein konkretes
-Anliegen? [Kontaktieren Sie uns.](/contact)
+Anliegen? [Kontaktieren Sie uns >](/contact)

@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { down, up } from '../breakpoint/breakpoint';
-import { Link } from 'gatsby';
+import { up } from '../breakpoint/breakpoint';
 import { theme } from '../layout/theme';
 import { Swoosh } from '../icons/swoosh';
 import { HEADER_HEIGHT } from '../header/header';
+import { Link } from '../links/links';
 
 /**
  *

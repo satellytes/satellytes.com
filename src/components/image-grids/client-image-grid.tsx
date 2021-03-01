@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, GridItem } from '../grid/grid';
 import ImageCard from '../image-card/image-card';
 import styled from 'styled-components';
-import { InternalLink } from '../links/links';
+import { Link } from '../links/links';
 import { up } from '../breakpoint/breakpoint';
 import { FluidObject } from 'gatsby-image';
 
@@ -34,14 +34,14 @@ const ClientImageGrid: React.FC<ClientImageGridProps> = ({
           return (
             <React.Fragment key={client.name}>
               <GridItem xs={12} sm={4}>
-                <InternalLink to={client.path}>
+                <Link to={client.path}>
                   <ImageCard
                     alt={client.name}
                     image={imagePlaceholder}
                     title={client.name}
                     largeTitle
                   />
-                </InternalLink>
+                </Link>
               </GridItem>
               <EmptyGridItem xs={0} sm={4} />
               <EmptyGridItem xs={0} sm={4} />
@@ -50,14 +50,14 @@ const ClientImageGrid: React.FC<ClientImageGridProps> = ({
         else
           return (
             <GridItem xs={12} sm={4} key={client.name}>
-              <InternalLink to={client.path}>
+              <Link to={client.path}>
                 <ImageCard
                   alt={client.name}
                   image={imagePlaceholder}
                   title={client.name}
                   largeTitle
                 />
-              </InternalLink>
+              </Link>
             </GridItem>
           );
       })}

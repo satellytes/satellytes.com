@@ -1,10 +1,10 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Link } from 'gatsby';
 
 import { theme } from '../layout/theme';
 import { up } from '../breakpoint/breakpoint';
 import { GridItem } from '../grid/grid';
+import { Link } from '../links/links';
 
 const textStyles = css`
   color: ${theme.palette.text.default};

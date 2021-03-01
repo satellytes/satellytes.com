@@ -1,4 +1,3 @@
-import { Link } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
@@ -6,6 +5,7 @@ import { Grid, GridItem } from '../grid/grid';
 import { LinkedinWrapper } from '../icons/social/linkedin';
 import { XingWrapper } from '../icons/social/xing';
 import { GithubIconWrapper } from '../icons/social/github';
+import { Link } from '../links/links';
 
 const NavigationBackground = styled.div`
   background: #4d79ff;

@@ -4,7 +4,7 @@ import { up } from '../breakpoint/breakpoint';
 import { theme } from '../layout/theme';
 import { GRID_GAP_MOBILE } from '../grid/grid';
 import { formatDate } from '../util/format-date';
-import { InternalLink } from '../links/links';
+import { Link } from '../links/links';
 
 const linkStyles = css`
   color: ${theme.palette.text.link.default};
@@ -43,7 +43,7 @@ const ClientListEntryLi = styled.li`
   }
 `;
 
-const ClientListEntryLink = styled(InternalLink)`
+const ClientListEntryLink = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: baseline;
@@ -99,7 +99,7 @@ const StyledArrow = styled.div`
   }
 `;
 
-const StyledOverviewLink = styled(InternalLink)`
+const StyledOverviewLink = styled(Link)`
   ${linkStyles};
   display: block;
   margin-top: 30px;

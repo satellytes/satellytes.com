@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
-import { Link } from 'gatsby';
+import { Link } from '../links/links';
 
 const Teaser = styled.div``;
 

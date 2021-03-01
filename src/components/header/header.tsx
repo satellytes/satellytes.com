@@ -1,4 +1,3 @@
-import { Link } from 'gatsby';
 import { FluidObject } from 'gatsby-image';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
@@ -8,6 +7,7 @@ import BurgerMenu from '../icons/burger-menu';
 import { CloseBurgerMenuIcon } from '../icons/buttons-icons/close-burger-menu';
 import { HeroImage } from './hero-image';
 import { NavigationFlyout } from './menu-flyout';
+import { Link } from '../links/links';
 
 export const HEADER_HEIGHT = '65px';
 
