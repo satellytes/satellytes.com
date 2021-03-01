@@ -33,6 +33,7 @@
     "gatsby-plugin-robots-txt": "^1.5.5",
     "gatsby-plugin-sharp": "2.14.3",
     "gatsby-plugin-sitemap": "^2.12.0",
+    "gatsby-plugin-smoothscroll": "^1.2.0",
     "gatsby-plugin-styled-components": "^3.10.0",
     "gatsby-plugin-typescript": "2.12.1",
     "gatsby-source-filesystem": "2.11.1",
