@@ -172,13 +172,13 @@ const OrderedList = styled.ol`
 
   line-height: 150%;
 
-  li {
+  > li {
     counter-increment: item;
     padding-left: 16px;
     margin-bottom: 16px;
   }
 
-  li::marker {
+  > li::marker {
     content: '(' counter(item) ') ';
     height: 100%;
   }
