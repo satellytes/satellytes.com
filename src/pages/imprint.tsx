@@ -6,12 +6,19 @@ import { PageTitle } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
 import { Markdown } from '../components/markdown/markdown';
 import { graphql, useStaticQuery } from 'gatsby';
+import styled from 'styled-components';
+import { Text } from '../components/typography/typography';
 
 interface ImprintQuery {
   markdownRemark: {
     rawMarkdownBody: string;
   };
 }
+
+const BottomNote = styled(Text)`
+  margin-top: 80px;
+  opacity: 0.8;
+`;
 
 const ImprintPage: React.FC = () => {
   const data = useStaticQuery<ImprintQuery>(graphql`
@@ -34,6 +41,9 @@ const ImprintPage: React.FC = () => {
         </GridItem>
         <GridItem>
           <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>
+          <BottomNote>
+            Aktualisiert: 16.Juli 2020, Erstellt: 12.Sep. 2018
+          </BottomNote>
         </GridItem>
       </Grid>
     </Layout>

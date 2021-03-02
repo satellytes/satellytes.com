@@ -1,5 +1,11 @@
 import React from 'react';
-import { SubTitle, Text, TextLink, TextTitle } from '../typography/typography';
+import {
+  SmallTitle,
+  SubTitle,
+  Text,
+  TextLink,
+  TextTitle,
+} from '../typography/typography';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { prism } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import styled from 'styled-components';
@@ -56,13 +62,15 @@ export const HeadingRenderer: React.FC<ReactMarkdownHeadingRendererProps> = (
       break;
   }
 
-  return props.level <= 2 ? (
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    <SubTitle as={tag as any}>{props.children}</SubTitle>
-  ) : (
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    <TextTitle as={tag as any}>{props.children}</TextTitle>
-  );
+  if (props.level <= 2) {
+    return <SubTitle as={tag as never}>{props.children}</SubTitle>;
+  }
+
+  if (props.level === 3) {
+    return <TextTitle as={tag as never}>{props.children}</TextTitle>;
+  }
+
+  return <SmallTitle as={tag as never}>{props.children}</SmallTitle>;
 };
 
 /*
@@ -159,9 +167,21 @@ const UnorderedList = styled.ul`
 `;
 
 const OrderedList = styled.ol`
-  padding-left: 0;
+  margin-top: 0;
+  padding-left: 1.3rem;
+
   line-height: 150%;
-  list-style: inside;
+
+  li {
+    counter-increment: item;
+    padding-left: 16px;
+    margin-bottom: 16px;
+  }
+
+  li::marker {
+    content: '(' counter(item) ') ';
+    height: 100%;
+  }
 `;
 
 export const ListRenderer: React.FC<ReactMarkdownListProps> = (props) => {

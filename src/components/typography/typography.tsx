@@ -96,6 +96,15 @@ export const TextTitle = styled.h4`
   }
 `;
 
+export const SmallTitle = styled.h5`
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 110%;
+
+  margin: 32px 0 8px 0;
+`;
+
 /**
  *
  * Text
@@ -132,7 +141,7 @@ export const CaptionText = styled.p`
 
 /**
  *
- * Image Card Titles & Subtitles
+ * Image Card
  *
  */
 export const ImageCardTitleLarge = styled.p`
@@ -155,7 +164,6 @@ export const ImageCardSubtitle = styled.p`
 export const TextLink = styled(Link)<{ small?: boolean }>`
   display: inline-block;
   color: ${theme.palette.text.link.default};
-  margin-top: 8px;
 
   font-size: ${(props) => (props.small ? '14px' : '16px')};
   line-height: 150%;
