@@ -39,7 +39,7 @@ const ImprintPage: React.FC = () => {
         <GridItem>
           <PageTitle>Impressum</PageTitle>
         </GridItem>
-        <GridItem>
+        <GridItem xs={12} md={8}>
           <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>
           <BottomNote>
             Aktualisiert: 16.Juli 2020, Erstellt: 12.Sep. 2018

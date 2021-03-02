@@ -50,17 +50,16 @@
    Informationen zufließen. Cookies können keine Programme ausführen oder Viren auf Ihren Computer übertragen. Sie
    dienen dazu, das Internetangebot insgesamt nutzerfreundlicher und effektiver zu machen.
 3. Einsatz von Cookies:
-   a) Diese Website nutzt folgende Arten von Cookies, deren Umfang und Funktionsweise im Folgenden erläutert werden:
-    - Transiente Cookies (dazu b)
-    - Persistente Cookies (dazu c). b) Transiente Cookies werden automatisiert gelöscht, wenn Sie den Browser schließen.
-      Dazu zählen insbesondere die Session-Cookies. Diese speichern eine sogenannte Session-ID, mit welcher sich
-      verschiedene Anfragen Ihres Browsers der gemeinsamen Sitzung zuordnen lassen. Dadurch kann Ihr Rechner
-      wiedererkannt werden, wenn Sie auf unsere Website zurückkehren. Die Session-Cookies werden gelöscht, wenn Sie sich
-      ausloggen oder den Browser schließen. c) Persistente Cookies werden automatisiert nach einer vorgegebenen Dauer
-      gelöscht, die sich je nach Cookie unterscheiden kann. Sie können die Cookies in den Sicherheitseinstellungen Ihres
-      Browsers jederzeit löschen. d) Sie können Ihre Browser-Einstellung entsprechend Ihren Wünschen konfigurieren und
-      z. B. die Annahme von Third-Party-Cookies oder allen Cookies ablehnen. Wir weisen Sie darauf hin, dass Sie
-      eventuell nicht alle Funktionen dieser Website nutzen können.
+    - a) Diese Website nutzt folgende Arten von Cookies, deren Umfang und Funktionsweise im Folgenden erläutert werden: Transiente Cookies (dazu b) und Persistente Cookies (dazu c).
+    - b) Transiente Cookies werden automatisiert gelöscht, wenn Sie den Browser schließen. Dazu zählen insbesondere die
+      Session-Cookies. Diese speichern eine sogenannte Session-ID, mit welcher sich verschiedene Anfragen Ihres Browsers
+      der gemeinsamen Sitzung zuordnen lassen. Dadurch kann Ihr Rechner wiedererkannt werden, wenn Sie auf unsere
+      Website zurückkehren. Die Session-Cookies werden gelöscht, wenn Sie sich ausloggen oder den Browser schließen.
+    - c) Persistente Cookies werden automatisiert nach einer vorgegebenen Dauer gelöscht, die sich je nach Cookie
+      unterscheiden kann. Sie können die Cookies in den Sicherheitseinstellungen Ihres Browsers jederzeit löschen.
+    - d) Sie können Ihre Browser-Einstellung entsprechend Ihren Wünschen konfigurieren und z. B. die Annahme von
+      Third-Party-Cookies oder allen Cookies ablehnen. Wir weisen Sie darauf hin, dass Sie eventuell nicht alle
+      Funktionen dieser Website nutzen können.
 
 #### §4 Weitere Funktionen und Angebote unserer Website
 

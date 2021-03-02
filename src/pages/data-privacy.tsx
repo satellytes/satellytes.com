@@ -32,7 +32,7 @@ const DataPrivacyPage: React.FC = () => {
         <GridItem>
           <PageTitle>Datenschutz</PageTitle>
         </GridItem>
-        <GridItem>
+        <GridItem xs={12} md={8}>
           <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>
         </GridItem>
       </Grid>
