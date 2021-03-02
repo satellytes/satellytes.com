@@ -2,9 +2,9 @@ Da diese meist streng geheim sind, schätzen unsere Auftraggeber Diskretion. Sie
 dieser Stelle keine konkreten Namen nennen möchten, sondern uns auf generische Branchenbezeichnungen beschränken. Unsere
 vier größten Kunden sind:
 
-- Ein Versicherungskonzern 
-- Eine Bank 
-- Ein Sportverein 
+- Ein Versicherungskonzern
+- Eine Bank
+- Ein Sportverein
 - Ein Automobilclub Diese Kunden spiegeln unsere langjährige
 
 Erfahrung in der Banken-, Versicherungs-, Automobil- und Sportbranche wider. Nachfolgend eine kurze Betrachtung der
@@ -18,10 +18,9 @@ für unsere Expertise in der Frontend-Architektur und unsere nachhaltige und ver
 Mit unserer Hilfe entsteht auf Basis von Angular eine moderne und erweiterbare Plattform für die weltweite Skalierung
 und Angleichung der technologischen Frontend Landschaft. Neben der Architektur und der konkreten Implementierung
 unterstützen wir den Kunden in der Etablierung von nachhaltigen Governance-Strukturen durch die Ausgestaltung von
-unterstützen wir den Kunden in der Etablierung von nachhaltigen Governance-Strukturen durch die Ausgestaltung von
-Prozessen, der Aufbau von Teamstrukturen sowie die Anfertigung von leicht verständlichen Dokumentationen.
+Prozessen, dem Aufbau von Teamstrukturen sowie der Anfertigung von leicht verständlichen Dokumentationen.
 
-Wollen Sie mit uns über Ihr Projekt in der Versicherungsbranche sprechen? 
+Wollen Sie mit uns über Ihr Projekt in der Versicherungsbranche sprechen?
 
 [Kontaktieren Sie uns >](/contact)
 
@@ -36,7 +35,7 @@ Rahmen der Testpyramide (Unit, Integration, E2E) und lassen diese auf unterschie
 Ein modernes Banking-Portal ist zudem auf ein schlankes, zeitgemäßes Bedienkonzept angewiesen. Wir setzen daher unsere
 UX/UI-Design-Experten ein und unterstützen den Kunden in der Konzeption und Umsetzung.
 
-Wollen Sie mit uns über Ihr Projekt in der Banken- oder Finanzbranche sprechen? 
+Wollen Sie mit uns über Ihr Projekt in der Banken- oder Finanzbranche sprechen?
 
 [Kontaktieren Sie uns >](/contact)
 
@@ -56,8 +55,7 @@ Unterstützer, die sich für Ticketkäufe, Bestellungen im Fanshop u.v.m. einlog
 Erfahrung mit Enterprise-Projekten zurück und haben eine Softwarelösung basierend auf Angular erarbeitet, die den
 Anforderungen der Self-Services vollumfänglich gerecht wird.
 
-Sind Sie ein Verantwortlicher in der Sportbranche, wollen mehr erfahren oder haben ein konkretes
-Anliegen? 
+Sind Sie ein Verantwortlicher in der Sportbranche, wollen mehr erfahren oder haben ein konkretes Anliegen?
 
 [Kontaktieren Sie uns >](/contact)
 
@@ -69,7 +67,6 @@ Webplattform. Dabei greifen wir auf die erfolgreiche Nutzung von Gatsby und Reac
 Diese nutzen wir an dieser Stelle, um das CMS auf Basis von Contentful selbst mitzuentwickeln und als Partner von Gatsby
 die Gatsby-Cloud für die beschleunigte Ausbringung aktualisierter Inhalte einzusetzen.
 
-Sind Sie ein Verantwortlicher in der Automobilbranche, wollen mehr erfahren oder haben ein konkretes
-Anliegen? 
+Sind Sie ein Verantwortlicher in der Automobilbranche, wollen mehr erfahren oder haben ein konkretes Anliegen?
 
 [Kontaktieren Sie uns >](/contact)

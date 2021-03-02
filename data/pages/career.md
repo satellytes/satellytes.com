@@ -15,7 +15,7 @@ Du hörst niemals auf zu lernen, weil Du weißt, wie schnell sich das Web entwic
 um Vertrauen in Deinen Code zu schaffen? Du hast über die Jahre Deine Fähigkeiten zur Priorisierung und Deinen
 Pragmatismus soweit geschärft, dass Du jedes unscharf formulierte Projekte zum Erfolg führen kannst?
 
-Wenn Du bis hierhin ein paar mal entspannt genickt hast und jetzt gern mehr wüsstest,dann bist Du genau richtig bei uns.
+Wenn Du bis hierhin ein paar mal entspannt genickt hast und jetzt gern mehr wüsstest, dann bist Du genau richtig bei uns.
 
 Bewirb Dich am besten gleich per E-Mail an [career@satellytes.com](mailto:career@satellytes.com)
 
