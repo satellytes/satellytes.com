@@ -153,34 +153,46 @@ interface ReactMarkdownListProps {
 }
 
 const UnorderedList = styled.ul`
-  padding-left: 0;
+  list-style: none;
   line-height: 150%;
-  list-style: inside;
 
-  > li::marker {
-    content: '· ';
+  padding-left: 0;
+
+  > li:before {
+    content: '·';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
   }
 
   > li {
+    position: relative;
+    padding-left: 16px;
     margin-bottom: 16px;
   }
 `;
 
 const OrderedList = styled.ol`
-  margin-top: 0;
-  padding-left: 1.3rem;
-
+  list-style: none;
   line-height: 150%;
 
-  > li {
-    counter-increment: item;
-    padding-left: 16px;
-    margin-bottom: 16px;
+  margin-top: 0;
+  padding-left: 0;
+
+  > li::before {
+    content: '(' counter(item) ') ';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
   }
 
-  > li::marker {
-    content: '(' counter(item) ') ';
-    height: 100%;
+  > li {
+    position: relative;
+    counter-increment: item;
+    padding-left: 32px;
+    margin-bottom: 16px;
   }
 `;
 
