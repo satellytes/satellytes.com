@@ -93,7 +93,9 @@ const ImageCopyright = styled.div`
   right: ${() => GRID_GAP_MOBILE};
   // bottom = 100vh - HomePageTitle vh + GAP
   bottom: ${() => `calc(8vh + ${GRID_GAP_MOBILE})`};
+
   writing-mode: vertical-rl;
+  text-orientation: sideways;
   transform: rotate(180deg);
   font-size: 12px;
   opacity: 0.6;
