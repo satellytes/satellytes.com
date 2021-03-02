@@ -8,6 +8,7 @@ import { CloseBurgerMenuIcon } from '../icons/buttons-icons/close-burger-menu';
 import { HeroImage } from './hero-image';
 import { NavigationFlyout } from './menu-flyout';
 import { Link } from '../links/links';
+import { Swoosh } from '../icons/swoosh';
 
 export const HEADER_HEIGHT = '65px';
 
@@ -39,6 +40,12 @@ const StyledHeader = styled.header<{ light: number; transparent: number }>`
   ${up('md')} {
     padding: 0 24px;
   }
+`;
+
+const HeaderSwoosh = styled(Swoosh)`
+  position: absolute;
+  bottom: calc(50% + 10px);
+  width: 14px;
 `;
 
 /**
@@ -127,6 +134,7 @@ const Header: React.FC<HeaderProps> = (props) => {
           to={props.siteTitleUrl || '/'}
           light={!isHeaderTransparent && props.light ? 1 : 0}
         >
+          <HeaderSwoosh />
           {props.siteTitle}
         </SiteTitle>
         <SiteMenu
