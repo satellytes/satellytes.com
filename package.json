@@ -25,7 +25,7 @@
     "@reach/tabs": "^0.13.2",
     "babel-plugin-styled-components": "^1.12.0",
     "date-fns": "^2.18.0",
-    "gatsby": "3.0.0",
+    "gatsby": "3.0.1",
     "gatsby-background-image": "^1.4.1",
     "gatsby-image": "3.0.0",
     "gatsby-plugin-manifest": "3.0.0",
@@ -76,7 +76,7 @@
     "jsdom": "^16.4.0",
     "lint-staged": "10.5.4",
     "prettier": "2.2.1",
-    "ts-jest": "^26.5.2",
+    "ts-jest": "^26.5.3",
     "typescript": "4.2.2"
   },
   "lint-staged": {
