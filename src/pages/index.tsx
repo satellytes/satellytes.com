@@ -136,7 +136,9 @@ const IndexPage: React.FC = () => {
           <GridItem xs={0} md={2} />
           <GridItem xs={12} md={8}>
             <HomePageTitle>
-              Satellytes Enterprise Web Applications
+              Satellytes
+              <br />
+              Enterprise Web Applications
             </HomePageTitle>
             <ImageCopyright>Photo by Riyanthi Sianturi</ImageCopyright>
           </GridItem>
