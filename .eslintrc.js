@@ -41,5 +41,5 @@ module.exports = {
       },
     ],
   },
-  ignorePatterns: ['gatsby-config.js', 'jest', '*.md'],
+  ignorePatterns: ['gatsby-config.js', 'gatsby-ssr.js', 'jest', '*.md'],
 };

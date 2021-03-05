@@ -12,5 +12,5 @@
     "skipLibCheck": true,
     "allowJs": true
   },
-  "exclude": ["node_modules", "public", ".cache", "cypress"]
+  "exclude": ["node_modules", "public", ".cache", "cypress", "gatsby-ssr.js"]
 }
