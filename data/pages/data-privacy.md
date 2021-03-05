@@ -90,15 +90,7 @@
    jederzeit widersprechen. Über Ihren Werbewiderspruch können Sie uns unter folgenden Kontaktdaten informieren:
    siehe [Impressum](/imprint).
 
-#### §6 Einsatz von Google Web Fonts
-
-Zur einheitlichen Darstellung von Schriftarten verwenden wir Google Web Fonts, einem Dienst der Google LLC.
-Weitergehende Informationen zu diesem Dienst finden Sie
-unter [https://developers.google.com/fonts/faq?hl=de-DE&csw=1](https://developers.google.com/fonts/faq?hl=de-DE&csw=1).
-Allgemeine Informationen zu den Datenschutzbestimmungen von Google finden Sie
-unter [https://www.google.com/intl/de-DE/policies/privacy](https://www.google.com/intl/de-DE/policies/privacy).
-
-#### §7 Einsatz von Netlify
+#### §6 Einsatz von Netlify
 
 Zur Bereitstellung der Dienste und zur Verbesserung der Qualität der Webseite und der Dienste, zur effektiveren Nutzung
 der Webseite und Dienste, zur Bewertung von Serviceniveaus, zur Bewertung von Verkehrsmustern sowie zur Messung der
@@ -112,7 +104,7 @@ unter [https://www.netlify.com/tos](https://www.netlify.com/tos/). Allgemeine In
 Datenschutzbestimmungen von Netlify finden Sie unter [https://www.netlify.com/privacy](https://www.netlify.com/privacy/)
 .
 
-#### §8 Datensicherheit
+#### §7 Datensicherheit
 
 Wir setzen zudem technische und organisatorische Sicherheitsmaßnahmen ein, um anfallende oder erhobene personenbezogene
 Daten zu schützen, insbesondere gegen zufällige oder vorsätzlich Manipulation, Verlust, Zerstörung oder gegen den
