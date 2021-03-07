@@ -5,10 +5,10 @@ vier größten Kunden sind:
 - Ein Versicherungskonzern
 - Eine Bank
 - Ein Sportverein
-- Ein Automobilclub Diese Kunden spiegeln unsere langjährige
+- Ein Automobilclub
 
-Erfahrung in der Banken-, Versicherungs-, Automobil- und Sportbranche wider. Nachfolgend eine kurze Betrachtung der
-Aufgabengebiete für die jeweiligen Kundentypen:
+Diese Kunden spiegeln unsere langjährige Erfahrung in der Banken-, Versicherungs-, Automobil- und Sportbranche wider.
+Nachfolgend eine kurze Betrachtung der Aufgabengebiete für die jeweiligen Kundentypen:
 
 ### [Versicherungskonzern](#versicherungskonzern)
 
