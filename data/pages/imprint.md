@@ -8,7 +8,8 @@ Geschäftsführer: Gholam Abdol, Eric Singhartinger
 
 #### Kontakt
 
-E-Mail: [beep@satellytes.com](beep@satellytes.com)
+E-Mail: [beep@satellytes.com](mailto:beep@satellytes.com)
+
 Internetadresse: [https://satellytes.com](https://satellytes.com)
 
 #### Registereintrag Satellytes Digital Consulting GmbH
