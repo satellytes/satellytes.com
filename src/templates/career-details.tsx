@@ -72,8 +72,18 @@ interface CareerPageProps {
 }
 
 const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
-  const descriptions = pageContext.position.jobDescriptions.jobDescription;
-
+  const descriptions = pageContext.position.jobDescriptions.jobDescription.filter(
+    ({ name }) => name !== PERSONIO_SHORT_DESCRIPTION_NAME,
+  );
+  const intro = pageContext.position.jobDescriptions.jobDescription.find(
+    ({ name }) => name === PERSONIO_SHORT_DESCRIPTION_NAME,
+  );
+  const IntroText = ({ text }) => {
+    if (!text) {
+      return null;
+    }
+    return <PersonioHtml dangerouslySetInnerHTML={{ __html: text }} />;
+  };
   return (
     <Layout siteTitleUrl="/career">
       <SEO
@@ -83,12 +93,8 @@ const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
       <Grid>
         <GridItem xs={12} md={8}>
           <Title>{pageContext.position.name}</Title>
+          <IntroText text={intro?.value} />
           {descriptions.map(({ name, value }) => {
-            // the short description is only used on the career page
-            if (name === PERSONIO_SHORT_DESCRIPTION_NAME) {
-              return null;
-            }
-
             return (
               <div key={name}>
                 <SectionTitle>{name}</SectionTitle>
