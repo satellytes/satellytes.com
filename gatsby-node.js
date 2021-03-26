@@ -62,7 +62,7 @@ const createCareerPages = async ({ actions }) => {
       (description) => description.name === PERSONIO_SHORT_DESCRIPTION_NAME,
     );
     if (!description || !description.value) {
-      console.error(
+      console.warn(
         `No description for job "${position.name}" (${position.id}) found!`,
       );
     }
