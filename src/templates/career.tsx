@@ -94,7 +94,7 @@ const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
             Wir suchen Entwickler:innen aus Leidenschaft!
           </LargeText>
           <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>
-          <PositionsTitle>Opportunities</PositionsTitle>
+          <PositionsTitle>Unsere offene Stellen</PositionsTitle>
         </GridItem>
         <GridItem xs={0} md={4} />
         {pageContext.positions.map((position) => (
@@ -109,8 +109,8 @@ const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
         <GridItem xs={12}>
           <InfoText>
             Oder schicke deine Bewerbung an:{' '}
-            <TextLink to="mailto:team@satellytes.com">
-              team@satellytes.com
+            <TextLink to="mailto:career@satellytes.com">
+              career@satellytes.com
             </TextLink>
           </InfoText>
         </GridItem>

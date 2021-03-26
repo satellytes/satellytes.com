@@ -8,6 +8,8 @@ import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
 import { TextTitle } from '../components/typography/typography';
 
+const PERSONIO_SHORT_DESCRIPTION_NAME = 'Kurzbeschreibung';
+
 const Title = styled.h1`
   font-style: normal;
   font-weight: bold;
@@ -25,7 +27,12 @@ const Title = styled.h1`
 `;
 
 const SectionTitle = styled(TextTitle)`
+  margin-top: 40px;
   margin-bottom: 16px;
+
+  ${up('md')} {
+    margin-top: 80px;
+  }
 `;
 
 export const PersonioHtml = styled.div`
@@ -75,12 +82,19 @@ const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
       <Grid>
         <GridItem xs={12} md={8}>
           <Title>{pageContext.position.name}</Title>
-          {descriptions.map(({ name, value }) => (
-            <div key={name}>
-              <SectionTitle>{name}</SectionTitle>
-              <PersonioHtml dangerouslySetInnerHTML={{ __html: value }} />
-            </div>
-          ))}
+          {descriptions.map(({ name, value }) => {
+            // the short description is only used on the career page
+            if (name === PERSONIO_SHORT_DESCRIPTION_NAME) {
+              return null;
+            }
+
+            return (
+              <div key={name}>
+                <SectionTitle>{name}</SectionTitle>
+                <PersonioHtml dangerouslySetInnerHTML={{ __html: value }} />
+              </div>
+            );
+          })}
         </GridItem>
       </Grid>
     </Layout>
