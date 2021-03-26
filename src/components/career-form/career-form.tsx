@@ -148,6 +148,36 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
             />
           </GridItem>
 
+          {/*Location*/}
+          <GridItem xs={12} md={6}>
+            <InputField
+              inputRef={register()}
+              error={errors.location}
+              name="location"
+              placeholder="Aktueller Wohnort"
+            />
+          </GridItem>
+
+          {/*Available From*/}
+          <GridItem xs={12} md={6}>
+            <InputField
+              inputRef={register()}
+              error={errors.available_from}
+              name="available_from"
+              placeholder="Verfügbar ab"
+            />
+          </GridItem>
+
+          {/*Salary Expectations*/}
+          <GridItem xs={12} md={6}>
+            <InputField
+              inputRef={register()}
+              error={errors.salary_expectations}
+              name="salary_expectations"
+              placeholder="Gehaltsvorstellung"
+            />
+          </GridItem>
+
           {/*CV File */}
           <GridItem>
             <InputField
