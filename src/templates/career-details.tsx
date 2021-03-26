@@ -6,7 +6,8 @@ import { Grid, GridItem } from '../components/grid/grid';
 import { PersonioJobPosition } from './career';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
-import { TextTitle } from '../components/typography/typography';
+import { LargeText, TextTitle } from '../components/typography/typography';
+import { CareerForm } from '../components/career-form/career-form';
 
 const PERSONIO_SHORT_DESCRIPTION_NAME = 'Kurzbeschreibung';
 
@@ -95,6 +96,16 @@ const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
               </div>
             );
           })}
+        </GridItem>
+
+        <GridItem xs={12} md={8}>
+          <SectionTitle>Bewirb dich jetzt</SectionTitle>
+          <CareerForm
+            company_id="41230"
+            recruiting_channel_id="329206"
+            access_token="89b2acfa3a239b75c7d6"
+            job_position_id={pageContext.position.id + ''}
+          />
         </GridItem>
       </Grid>
     </Layout>

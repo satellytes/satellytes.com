@@ -29,6 +29,7 @@ const ServicesPage: React.FC = () => {
         <GridItem>
           <PageTitle>Leistungen</PageTitle>
         </GridItem>
+
         <GridItem xs={12} md={8}>
           <LargeText as={'h2'}>
             Satellytes – das sind ausschließlich leidenschaftliche
