@@ -21,7 +21,7 @@ interface InputFieldProps {
   type?: 'text' | 'file';
 }
 
-export const Container = styled.div`
+export const CareerFormStyled = styled.form`
   margin-top: 32px;
 `;
 
