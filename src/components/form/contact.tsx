@@ -1,145 +1,22 @@
 import React, { ChangeEventHandler, FormEventHandler, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import styled from 'styled-components';
-import { up } from '../breakpoint/breakpoint';
 import { CheckmarkIcon } from '../icons/buttons-icons/checkmark';
 import { RightArrowIcon } from '../icons/buttons-icons/right-arrow';
-import { Text } from '../typography/typography';
+import {
+  ButtonText,
+  ErrorMessage,
+  ErrorMessageSend,
+  Input,
+  InputContainer,
+  InputWrapper,
+  RequestStatusMessage,
+  SendButton,
+  SentButton,
+  TextArea,
+} from './controls';
 
 //https://www.codegrepper.com/code-examples/basic/form+validation+in+gatsby
 const IS_EMAIL_REGEX = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-const InputContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-
-  ${up('md')} {
-    flex-direction: row;
-  }
-`;
-
-const InputWrapper = styled.div`
-  width: 100%;
-  margin-bottom: 24px;
-
-  &:not(:last-of-type) {
-    margin-right: 24px;
-
-    ${up('md')} {
-      margin-right: 24px;
-    }
-  }
-`;
-
-interface ValidationProps {
-  hasError?: boolean;
-}
-
-const Input = styled.input<ValidationProps>`
-  width: 100%;
-  padding: 19px 16px;
-
-  font-size: 16px;
-  line-height: 110%;
-
-  border-radius: 4px;
-  border: 0;
-  background: #f5f6f7;
-
-  &:not(:last-of-type) {
-    margin-right: 0;
-
-    ${up('md')} {
-      margin-right: 24px;
-      margin-bottom: 0;
-    }
-  }
-
-  ${({ hasError }) =>
-    hasError &&
-    `
-    background: #f8cdd5;
-    color: #dc052d;
-    ::placeholder {
-      color: #dc052d;
-      opacity: 1;
-    }
-  `}
-`;
-
-const TextArea = styled.textarea<ValidationProps>`
-  height: 190px;
-  width: 100%;
-  padding: 19px 16px;
-
-  font-size: 16px;
-  line-height: 110%;
-
-  border-radius: 4px;
-  border: 0;
-  background: #f5f6f7;
-
-  resize: vertical;
-
-  ${({ hasError }) =>
-    hasError &&
-    `
-  background: #f8cdd5;
-  ::placeholder {
-    color: #dc052d;
-    opacity: 1;
-  }
-`}
-`;
-
-const Button = styled.button`
-  margin-top: 40px;
-  cursor: pointer;
-  padding: 13px 18px;
-
-  font-size: 20px;
-  font-weight: bold;
-  text-align: left;
-  line-height: 110%;
-
-  border-radius: 28px;
-  border: 0;
-  width: 147px;
-`;
-
-const ButtonText = styled.span`
-  margin-right: 40px;
-`;
-
-const SendButton = styled(Button)`
-  color: #ffffff;
-  background: #668cff;
-`;
-
-const SentButton = styled(Button)`
-  color: #202840;
-  background: #75f0c7;
-`;
-
-const RequestStatusMessage = styled(Text)`
-  display: inline-block;
-  margin-left: 24px;
-  color: #668cff;
-  font-size: 14px;
-`;
-
-const ErrorMessage = styled.p`
-  color: #dc052d;
-  font-size: 14px;
-  margin-top: 8px;
-  margin-bottom: 0;
-`;
-
-const ErrorMessageSend = styled(ErrorMessage)`
-  display: inline-block;
-  margin-left: 24px;
-`;
 
 type RequestStatus = 'pending' | 'success' | 'error';
 

@@ -32,14 +32,10 @@ module.exports = {
   rules: {
     // disabled because of https://github.com/yannickcr/eslint-plugin-react/issues/2353
     'react/prop-types': 'off',
-
-    // to not need to add a return type on styled-components props
-    '@typescript-eslint/explicit-function-return-type': [
-      'error',
-      {
-        allowExpressions: true,
-      },
-    ],
+    // disable some rules that are too strict for the everyday usage for a website
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
   },
   ignorePatterns: ['gatsby-*.js', 'jest', '*.md'],
 };
