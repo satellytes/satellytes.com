@@ -94,7 +94,7 @@ const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
             Wir suchen Entwickler:innen aus Leidenschaft!
           </LargeText>
           <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>
-          <PositionsTitle>Unsere offene Stellen</PositionsTitle>
+          <PositionsTitle>Unsere offenen Stellen</PositionsTitle>
         </GridItem>
         <GridItem xs={0} md={4} />
         {pageContext.positions.map((position) => (
