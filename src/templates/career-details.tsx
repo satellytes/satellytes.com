@@ -104,7 +104,7 @@ const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
             company_id="41230"
             recruiting_channel_id="329206"
             access_token="89b2acfa3a239b75c7d6"
-            job_position_id={pageContext.position.id}
+            job_position_id={pageContext.position.id + ''}
           />
         </GridItem>
       </Grid>

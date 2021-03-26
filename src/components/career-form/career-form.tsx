@@ -5,6 +5,7 @@ import { Grid, GridItem } from '../grid/grid';
 import axios from 'axios';
 import {
   Actions,
+  Container,
   Fieldset,
   InputField,
   ProgressBar,
@@ -18,14 +19,14 @@ interface CareerFormProps {
   company_id: string;
 }
 
-type FormData = {
+interface FormData {
   first_name: string;
   last_name: string;
   email: string;
   documents: FileList;
   message: string;
   phone?: string;
-};
+}
 
 const API_ENDPOINT = 'https://api.personio.de/recruiting/applicant';
 const SIMPLE_EMAIL_PATTERN = /.+@.+\..+/;
@@ -108,84 +109,86 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit, onError)}>
-      <Fieldset disabled={isSubmitting}>
-        <Grid>
-          {/*First Name*/}
-          <GridItem xs={12} md={6}>
-            <InputField
-              inputRef={register({ required: 'Dein Vorname fehlt' })}
-              error={errors.first_name}
-              name="first_name"
-              placeholder="Vorname"
-            />
-          </GridItem>
+    <Container>
+      <form onSubmit={handleSubmit(onSubmit, onError)}>
+        <Fieldset disabled={isSubmitting}>
+          <Grid nested>
+            {/*First Name*/}
+            <GridItem xs={12} md={6}>
+              <InputField
+                inputRef={register({ required: 'Dein Vorname fehlt' })}
+                error={errors.first_name}
+                name="first_name"
+                placeholder="Vorname"
+              />
+            </GridItem>
 
-          {/*Last Name*/}
-          <GridItem xs={12} md={6}>
-            <InputField
-              inputRef={register({ required: 'Dein Nachname fehlt' })}
-              error={errors.last_name}
-              name="last_name"
-              placeholder="Nachname"
-            />
-          </GridItem>
+            {/*Last Name*/}
+            <GridItem xs={12} md={6}>
+              <InputField
+                inputRef={register({ required: 'Dein Nachname fehlt' })}
+                error={errors.last_name}
+                name="last_name"
+                placeholder="Nachname"
+              />
+            </GridItem>
 
-          {/*E-Mail*/}
-          <GridItem xs={12} md={6}>
-            <InputField
-              inputRef={register({
-                required: 'Deine E-Mail fehlt',
-                pattern: {
-                  value: SIMPLE_EMAIL_PATTERN,
-                  message: `Irgendwas stimmt an dieser E-Mail nicht`,
-                },
-              })}
-              error={errors.email}
-              name="email"
-              placeholder="E-Mail-Adresse"
-            />
-          </GridItem>
+            {/*E-Mail*/}
+            <GridItem xs={12} md={6}>
+              <InputField
+                inputRef={register({
+                  required: 'Deine E-Mail fehlt',
+                  pattern: {
+                    value: SIMPLE_EMAIL_PATTERN,
+                    message: `Irgendwas stimmt an dieser E-Mail nicht`,
+                  },
+                })}
+                error={errors.email}
+                name="email"
+                placeholder="E-Mail-Adresse"
+              />
+            </GridItem>
 
-          {/*CV File */}
-          <GridItem>
-            <InputField
-              inputRef={register({ required: 'Dein CV fehlt' })}
-              error={errors.documents}
-              name="documents"
-              type={'file'}
-              placeholder="E-Mail-Adresse"
-            />
-          </GridItem>
+            {/*CV File */}
+            <GridItem>
+              <InputField
+                inputRef={register({ required: 'Dein CV fehlt' })}
+                error={errors.documents}
+                name="documents"
+                type={'file'}
+                placeholder="E-Mail-Adresse"
+              />
+            </GridItem>
 
-          {/*Cover Letter*/}
-          <GridItem>
-            <TextArea
-              placeholder="Dein Cover Letter"
-              name="message"
-              ref={register({ required: 'Dein Anschreiben fehlt' })}
-              hasError={!!errors.message}
-            />
-            {errors.message && (
-              <ErrorMessage>
-                <span>{errors.message.message}</span>
-              </ErrorMessage>
-            )}
-          </GridItem>
+            {/*Cover Letter*/}
+            <GridItem>
+              <TextArea
+                placeholder="Dein Cover Letter"
+                name="message"
+                ref={register({ required: 'Dein Anschreiben fehlt' })}
+                hasError={!!errors.message}
+              />
+              {errors.message && (
+                <ErrorMessage>
+                  <span>{errors.message.message}</span>
+                </ErrorMessage>
+              )}
+            </GridItem>
 
-          <GridItem>
-            <ProgressBar
-              isSubmitting={isSubmitting}
-              progress={uploadProgress}
-            />
-            <Actions
-              tryAgainFn={tryAgain}
-              isSubmitting={isSubmitting}
-              error={errors.api}
-            />
-          </GridItem>
-        </Grid>
-      </Fieldset>
-    </form>
+            <GridItem>
+              <ProgressBar
+                isSubmitting={isSubmitting}
+                progress={uploadProgress}
+              />
+              <Actions
+                tryAgainFn={tryAgain}
+                isSubmitting={isSubmitting}
+                error={errors.api}
+              />
+            </GridItem>
+          </Grid>
+        </Fieldset>
+      </form>
+    </Container>
   );
 };

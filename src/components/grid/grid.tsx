@@ -9,6 +9,7 @@ export const GRID_GAP_MOBILE: CSSProp = '16px';
 interface GridProps {
   disableGap?: boolean;
   center?: boolean;
+  nested?: boolean;
 }
 
 /**
@@ -21,7 +22,8 @@ export const Grid = styled.div<GridProps>`
   grid-template-columns: repeat(12, 1fr);
 
   grid-column-gap: ${(props) => (props.disableGap ? 0 : GRID_GAP_MOBILE)};
-  padding: 0 ${(props) => (props.disableGap ? 0 : GRID_GAP_MOBILE)}; // outer gap
+  padding: 0
+    ${(props) => (props.disableGap || props.nested ? 0 : GRID_GAP_MOBILE)}; // outer gap
 
   max-width: ${(props) => props.theme.maxWidth};
 
@@ -35,7 +37,8 @@ export const Grid = styled.div<GridProps>`
 
   ${up('md')} {
     grid-column-gap: ${(props) => (props.disableGap ? 0 : GRID_GAP_DESKTOP)};
-    padding: 0 ${(props) => (props.disableGap ? 0 : GRID_GAP_DESKTOP)}; // outer gap
+    padding: 0
+      ${(props) => (props.disableGap || props.nested ? 0 : GRID_GAP_DESKTOP)}; // outer gap
   }
 `;
 

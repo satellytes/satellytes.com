@@ -21,7 +21,11 @@ interface InputFieldProps {
   type?: 'text' | 'file';
 }
 
-export const InputField: React.FC<InputFieldProps> = (props) => {
+export const Container = styled.div`
+  margin-top: 32px;
+`;
+
+export const InputField = (props: InputFieldProps) => {
   return (
     <InputContainer>
       <InputWrapper>
