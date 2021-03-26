@@ -47,7 +47,7 @@ interface PersonioJobNameValue {
 }
 
 export interface PersonioJobPosition {
-  id: number;
+  id: string;
   office: string;
   department: string;
   name: string;
