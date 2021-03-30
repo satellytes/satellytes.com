@@ -10,7 +10,7 @@ export const CheckmarkIcon: React.FC = () => (
   >
     <path
       d="M2 10L6 14L15 2"
-      stroke="#202840"
+      stroke="white"
       strokeWidth="2.5"
       strokeLinecap="round"
     />

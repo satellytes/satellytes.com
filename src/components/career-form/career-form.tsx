@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { ErrorMessage, TextArea } from '../form/controls';
 import { Grid, GridItem } from '../grid/grid';
 import axios from 'axios';
 import {
@@ -118,7 +117,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
               inputRef={register({ required: 'Dein Vorname fehlt' })}
               error={errors.first_name}
               name="first_name"
-              placeholder="Vorname"
+              label="Vorname"
             />
           </GridItem>
 
@@ -128,7 +127,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
               inputRef={register({ required: 'Dein Nachname fehlt' })}
               error={errors.last_name}
               name="last_name"
-              placeholder="Nachname"
+              label="Nachname"
             />
           </GridItem>
 
@@ -144,7 +143,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
               })}
               error={errors.email}
               name="email"
-              placeholder="E-Mail-Adresse"
+              label="E-Mail-Adresse"
             />
           </GridItem>
 
@@ -154,7 +153,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
               inputRef={register()}
               error={errors.location}
               name="location"
-              placeholder="Aktueller Wohnort"
+              label="Aktueller Wohnort"
             />
           </GridItem>
 
@@ -164,7 +163,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
               inputRef={register()}
               error={errors.available_from}
               name="available_from"
-              placeholder="Verfügbar ab"
+              label="Verfügbar ab"
             />
           </GridItem>
 
@@ -174,7 +173,18 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
               inputRef={register()}
               error={errors.salary_expectations}
               name="salary_expectations"
-              placeholder="Gehaltsvorstellung"
+              label="Gehaltsvorstellung"
+            />
+          </GridItem>
+
+          {/*Cover Letter*/}
+          <GridItem>
+            <InputField
+              inputRef={register({ required: 'Dein Anschreiben fehlt' })}
+              error={errors.message}
+              name="message"
+              label="Anschreiben"
+              type={'text-area'}
             />
           </GridItem>
 
@@ -185,23 +195,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
               error={errors.documents}
               name="documents"
               type={'file'}
-              placeholder="E-Mail-Adresse"
             />
-          </GridItem>
-
-          {/*Cover Letter*/}
-          <GridItem>
-            <TextArea
-              placeholder="Dein Cover Letter"
-              name="message"
-              ref={register({ required: 'Dein Anschreiben fehlt' })}
-              hasError={!!errors.message}
-            />
-            {errors.message && (
-              <ErrorMessage>
-                <span>{errors.message.message}</span>
-              </ErrorMessage>
-            )}
           </GridItem>
 
           <GridItem>
