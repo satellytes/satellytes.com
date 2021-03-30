@@ -4,7 +4,7 @@ import { up } from '../breakpoint/breakpoint';
 import { theme } from '../layout/theme';
 import { GRID_GAP_MOBILE } from '../grid/grid';
 import { formatDate } from '../util/format-date';
-import { Link } from '../links/links';
+import { Link, LinkButton } from '../links/links';
 
 const linkStyles = css`
   color: ${theme.palette.text.link.default};
@@ -99,28 +99,8 @@ const StyledArrow = styled.div`
   }
 `;
 
-const StyledOverviewLink = styled(Link)`
-  ${linkStyles};
-  display: block;
-  margin-top: 30px;
-  margin-left: 16px;
-  transition: color 0.3s;
-
-  font-size: 20px;
-  font-weight: bold;
-  color: ${(props) => props.theme.palette.text.contrastLink.default};
-
-  :hover {
-    color: ${(props) => props.theme.palette.text.contrastLink.hover};
-  }
-
-  :hover {
-    color: ${theme.palette.text.contrastLink.hover};
-  }
-
-  ${up('md')} {
-    margin-left: 24px;
-  }
+const ClientListLinkButton = styled(LinkButton)`
+  margin-top: 32px;
 `;
 
 interface ClientListEntryProps {
@@ -162,9 +142,9 @@ export const ClientList: React.FC<ClientListProps> = ({ clients }) => {
           />
         ))}
       </ClientListContainer>
-      <StyledOverviewLink to="/clients" title="Show all clients">
-        Zu den Kunden &gt;
-      </StyledOverviewLink>
+      <ClientListLinkButton to="/clients" title="Show all clients">
+        Zu den Kunden
+      </ClientListLinkButton>
     </Wrapper>
   );
 };

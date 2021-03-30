@@ -47,16 +47,5 @@ describe('Client List', () => {
         clientLink,
       );
     });
-
-    it('chevron should direct to linked page', () => {
-      const clientLink = testClients[0].path;
-      const { getByText } = render(
-        <ThemeProvider theme={theme}>
-          <ClientList clients={testClients as any} />
-        </ThemeProvider>,
-      );
-
-      expect(getByText('>').closest('a')).toHaveAttribute('href', clientLink);
-    });
   });
 });
