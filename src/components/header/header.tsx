@@ -12,7 +12,7 @@ import { Swoosh } from '../icons/swoosh';
 
 export const HEADER_HEIGHT = '65px';
 
-const StyledHeader = styled.header<{ light: number; transparent: number }>`
+const StyledHeader = styled.header<{ lightTheme: number; transparent: number }>`
   position: fixed;
   top: 0;
   width: 100%;
@@ -22,7 +22,7 @@ const StyledHeader = styled.header<{ light: number; transparent: number }>`
   background-color: ${(props) =>
     props.transparent === 1
       ? 'none'
-      : props.light === 1
+      : props.lightTheme === 1
       ? props.theme.palette.background.bodyLight
       : props.theme.palette.background.body};
 
@@ -33,7 +33,7 @@ const StyledHeader = styled.header<{ light: number; transparent: number }>`
   padding: 0 16px;
 
   border-bottom: ${(props) =>
-    props.light === 1
+    props.lightTheme === 1
       ? '1px solid rgba(32, 40, 64, 0.05)'
       : '1px solid rgba(255, 255, 255, 0.1)'};
 
@@ -55,17 +55,17 @@ const HeaderSwoosh = styled(Swoosh)`
  *
  * Issue: https://github.com/styled-components/styled-components/issues/1198
  */
-const SiteTitle = styled(Link)<{ light: number }>`
+const SiteTitle = styled(Link)<{ lightTheme: number }>`
   font-size: 20px;
   font-weight: bold;
   text-decoration: none;
   color: ${(props) =>
-    props.light === 1
+    props.lightTheme === 1
       ? props.theme.palette.text.headerLight
       : props.theme.palette.text.header};
 `;
 
-const SiteMenu = styled.button<{ light: number }>`
+const SiteMenu = styled.button<{ lightTheme: number }>`
   all: unset;
   cursor: pointer;
 
@@ -86,7 +86,7 @@ const SiteMenu = styled.button<{ light: number }>`
 
   rect {
     fill: ${(props) =>
-      props.light === 1
+      props.lightTheme === 1
         ? props.theme.palette.text.headerLight
         : props.theme.palette.text.header};
   }
@@ -95,7 +95,7 @@ const SiteMenu = styled.button<{ light: number }>`
 interface HeaderProps {
   siteTitle: string;
   siteTitleUrl?: string;
-  light?: boolean;
+  lightTheme?: boolean;
   heroImage?: FluidObject | string;
   transparent?: boolean;
 }
@@ -127,19 +127,19 @@ const Header: React.FC<HeaderProps> = (props) => {
   return (
     <HeroImage image={props.heroImage}>
       <StyledHeader
-        light={props.light ? 1 : 0}
+        lightTheme={props.lightTheme ? 1 : 0}
         transparent={isHeaderTransparent ? 1 : 0}
       >
         <SiteTitle
           to={props.siteTitleUrl || '/'}
-          light={!isHeaderTransparent && props.light ? 1 : 0}
+          lightTheme={!isHeaderTransparent && props.lightTheme ? 1 : 0}
         >
           <HeaderSwoosh />
           {props.siteTitle}
         </SiteTitle>
         <SiteMenu
           aria-label="Open menu"
-          light={!isHeaderTransparent && props.light ? 1 : 0}
+          lightTheme={!isHeaderTransparent && props.lightTheme ? 1 : 0}
           onClick={() => {
             setIsNavigationVisible(!isNavigationVisible);
           }}

@@ -1,15 +1,15 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyle = createGlobalStyle<{ isIndexPage?: boolean }>`
+export const GlobalStyle = createGlobalStyle<{ lightTheme?: boolean }>`
   html {
     background-color: ${(props) =>
-      props.isIndexPage
-        ? props.theme.palette.background.body
-        : props.theme.palette.background.bodyLight};
+      props.lightTheme
+        ? props.theme.palette.background.bodyLight
+        : props.theme.palette.background.body};
     color: ${(props) =>
-      props.isIndexPage
-        ? props.theme.palette.text.defaultLight
-        : props.theme.palette.text.default}; 
+      props.lightTheme
+        ? props.theme.palette.text.default
+        : props.theme.palette.text.defaultLight}; 
   }
   
   body {
