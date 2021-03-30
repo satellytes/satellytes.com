@@ -5,8 +5,10 @@ import {
   Input,
   InputContainer,
   InputWrapper,
+  Label,
   SendButton,
   SentButton,
+  TextArea,
 } from '../form/controls';
 import { CheckmarkIcon } from '../icons/buttons-icons/checkmark';
 import styled from 'styled-components';
@@ -14,11 +16,11 @@ import { rgba } from 'polished';
 import { RightArrowIcon } from '../icons/buttons-icons/right-arrow';
 
 interface InputFieldProps {
-  placeholder: string;
+  label?: string;
   name: string;
   error: any;
   inputRef: any;
-  type?: 'text' | 'file';
+  type?: 'text' | 'file' | 'text-area';
 }
 
 export const CareerFormStyled = styled.form`
@@ -26,16 +28,27 @@ export const CareerFormStyled = styled.form`
 `;
 
 export const InputField = (props: InputFieldProps) => {
+  console.log('FABI error', props.error);
   return (
     <InputContainer>
       <InputWrapper>
-        <Input
-          placeholder={props.placeholder}
-          type={props.type ?? 'text'}
-          name={props.name}
-          ref={props.inputRef}
-          hasError={props.error}
-        />
+        {props.label && <Label htmlFor="first_name">{props.label}</Label>}
+        {props.type && props.type === 'text-area' ? (
+          <TextArea
+            name="message"
+            ref={props.inputRef}
+            hasError={props.error}
+            id={props.name}
+          />
+        ) : (
+          <Input
+            type={props.type ?? 'text'}
+            id={props.name}
+            name={props.name}
+            ref={props.inputRef}
+            hasError={props.error}
+          />
+        )}
         <FormError error={props.error} />
       </InputWrapper>
     </InputContainer>

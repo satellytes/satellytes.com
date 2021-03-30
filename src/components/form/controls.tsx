@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
 import { Text } from '../typography/typography';
 
@@ -29,7 +29,18 @@ export const InputWrapper = styled.div`
   }
 `;
 
+export const Label = styled.label`
+  display: block;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 110%;
+  color: #668cff;
+  margin-bottom: 8px;
+`;
+
 export const Input = styled.input<ValidationProps>`
+  color: #fff;
   width: 100%;
   padding: 19px 16px;
 
@@ -38,7 +49,7 @@ export const Input = styled.input<ValidationProps>`
 
   border-radius: 4px;
   border: 0;
-  background: #f5f6f7;
+  background: rgba(122, 143, 204, 0.2);
 
   &:not(:last-of-type) {
     margin-right: 0;
@@ -51,54 +62,65 @@ export const Input = styled.input<ValidationProps>`
 
   ${({ hasError }) =>
     hasError &&
-    `
-    background: #f8cdd5;
-    color: #dc052d;
-    ::placeholder {
+    css`
+      background: #f8cdd5;
       color: #dc052d;
-      opacity: 1;
-    }
-  `}
+      ::placeholder {
+        color: #dc052d;
+        opacity: 1;
+      }
+    `}
 `;
 
 export const TextArea = styled.textarea<ValidationProps>`
   height: 190px;
   width: 100%;
   padding: 19px 16px;
+  color: #fff;
 
   font-size: 16px;
   line-height: 110%;
 
   border-radius: 4px;
   border: 0;
-  background: #f5f6f7;
+  background: rgba(122, 143, 204, 0.2);
 
   resize: vertical;
 
   ${({ hasError }) =>
     hasError &&
-    `
-  background: #f8cdd5;
-  ::placeholder {
-    color: #dc052d;
-    opacity: 1;
-  }
-`}
+    css`
+      background: #f8cdd5;
+      ::placeholder {
+        color: #dc052d;
+        opacity: 1;
+      }
+    `}
 `;
 
 export const Button = styled.button`
   margin-top: 40px;
   cursor: pointer;
   padding: 13px 18px;
+  color: #ffffff;
 
   font-size: 20px;
   font-weight: bold;
   text-align: left;
   line-height: 110%;
 
-  border-radius: 28px;
+  border-radius: 30px;
   border: 0;
   width: 147px;
+
+  svg {
+    transition: transform 0.2s ease-in;
+  }
+  :hover {
+    svg {
+      transform: translateX(2px);
+    }
+  }
 `;
 
 export const ButtonText = styled.span`
@@ -106,8 +128,7 @@ export const ButtonText = styled.span`
 `;
 
 export const SendButton = styled(Button)`
-  color: #ffffff;
-  background: #668cff;
+  background: linear-gradient(275.41deg, #543fd7 0%, #2756fd 100%);
 
   ${({ disabled }) =>
     disabled &&
@@ -119,20 +140,19 @@ export const SendButton = styled(Button)`
 
 export const SentButton = styled(Button)`
   cursor: default;
-  color: #202840;
-  background: #75f0c7;
+  background: linear-gradient(275.41deg, #75f0c7 0%, #2756fd 100%);
 `;
 
 export const RequestStatusMessage = styled(Text)`
   display: inline-block;
   margin-left: 24px;
   color: #668cff;
-  font-size: 14px;
+  font-size: 12px;
 `;
 
 export const ErrorMessage = styled.p`
   color: #dc052d;
-  font-size: 14px;
+  font-size: 12px;
   margin-top: 8px;
   margin-bottom: 0;
 `;
