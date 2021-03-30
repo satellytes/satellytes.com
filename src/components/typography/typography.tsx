@@ -15,10 +15,8 @@ const TitleContainer = styled.div`
   margin-top: calc(96px + ${HEADER_HEIGHT});
   margin-bottom: 40px;
 
-  color: #668cff;
-
   ${up('md')} {
-    margin-top: calc(192px + ${HEADER_HEIGHT});
+    margin-top: calc(160px + ${HEADER_HEIGHT});
   }
 `;
 

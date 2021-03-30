@@ -12,7 +12,8 @@ const JobCardContainer = styled.div`
   min-height: 400px;
   margin-bottom: 16px;
 
-  background-color: #f7f8fa;
+  background: rgba(122, 143, 204, 0.2);
+  border-radius: 4px;
 
   padding: 32px 26px 24px 24px;
 
@@ -33,7 +34,6 @@ const JobCardTitle = styled.h3`
   font-size: 32px;
   font-weight: normal;
   line-height: 110%;
-  color: #202840;
   margin-top: 0;
   margin-bottom: 24px;
 `;

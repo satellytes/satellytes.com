@@ -27,12 +27,6 @@ const Main = styled.main`
   margin: 0 auto;
 `;
 
-interface LayoutProps {
-  isIndexPage?: boolean;
-  heroImage?: FluidObject | string;
-  siteTitleUrl?: string;
-}
-
 const useAnchorTagScrolling = (): void => {
   useEffect(() => {
     if (window.location.hash) {
@@ -55,6 +49,12 @@ const useAnchorTagScrolling = (): void => {
   }, []);
 };
 
+interface LayoutProps {
+  transparentHeader?: boolean;
+  heroImage?: FluidObject | string;
+  siteTitleUrl?: string;
+}
+
 const Layout: React.FC<LayoutProps> = (props) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -70,13 +70,13 @@ const Layout: React.FC<LayoutProps> = (props) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle isIndexPage={props.isIndexPage} />
+      <GlobalStyle lightTheme={false} />
       <Header
         siteTitle={data.site.siteMetadata.title}
         siteTitleUrl={props.siteTitleUrl}
-        light={!props.isIndexPage || Boolean(props.heroImage)}
+        lightTheme={false}
         heroImage={props.heroImage}
-        transparent={props.isIndexPage || Boolean(props.heroImage)}
+        transparent={props.transparentHeader || Boolean(props.heroImage)}
       />
       <FullHeightContainer>
         <Main>{props.children}</Main>

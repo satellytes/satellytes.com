@@ -130,7 +130,7 @@ const IndexPage: React.FC = () => {
         `}
         alt=""
       />
-      <Layout isIndexPage={true}>
+      <Layout transparentHeader={true}>
         <SEO title="Satellytes" />
         <Grid center>
           <GridItem xs={0} md={2} />
