@@ -28,7 +28,7 @@ interface FormData {
 }
 
 const API_ENDPOINT = 'https://api.personio.de/recruiting/applicant';
-const SIMPLE_EMAIL_PATTERN = /.+@.+\..+/;
+export const SIMPLE_EMAIL_PATTERN = /.+@.+\..+/;
 
 export const CareerForm: React.FC<CareerFormProps> = (props) => {
   const {

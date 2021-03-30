@@ -99,7 +99,7 @@ export const TextArea = styled.textarea<ValidationProps>`
 `;
 
 export const Button = styled.button`
-  margin-top: 40px;
+  margin-top: 16px;
   cursor: pointer;
   padding: 13px 18px;
   color: #ffffff;
@@ -111,7 +111,6 @@ export const Button = styled.button`
 
   border-radius: 30px;
   border: 0;
-  width: 147px;
 
   svg {
     transition: transform 0.2s ease-in;
@@ -124,7 +123,7 @@ export const Button = styled.button`
 `;
 
 export const ButtonText = styled.span`
-  margin-right: 40px;
+  margin-right: 20px;
 `;
 
 export const SendButton = styled(Button)`
@@ -132,10 +131,10 @@ export const SendButton = styled(Button)`
 
   ${({ disabled }) =>
     disabled &&
-    `
-    background: #aaaaaa;
-    cursor: wait
-`}
+    css`
+      background: #aaaaaa;
+      cursor: wait;
+    `}
 `;
 
 export const SentButton = styled(Button)`

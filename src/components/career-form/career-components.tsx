@@ -28,7 +28,6 @@ export const CareerFormStyled = styled.form`
 `;
 
 export const InputField = (props: InputFieldProps) => {
-  console.log('FABI error', props.error);
   return (
     <InputContainer>
       <InputWrapper>
@@ -75,7 +74,7 @@ export const SuccessMessage = () => {
         geschickt und melden uns bei dir.
       </p>
       <SentButton type="button">
-        <ButtonText>Sent</ButtonText> <CheckmarkIcon />
+        <ButtonText>Abgeschickt</ButtonText> <CheckmarkIcon />
       </SentButton>
     </div>
   );
@@ -125,7 +124,7 @@ export const Actions = ({ tryAgainFn, error, isSubmitting }) => {
           Bewerbung direkt an <strong>career@satellytes.com</strong>
         </p>
         <SendButton onClick={() => tryAgainFn()}>
-          <ButtonText>Try Again</ButtonText>
+          <ButtonText>Nochmal senden</ButtonText>
         </SendButton>
       </>
     );
@@ -133,7 +132,7 @@ export const Actions = ({ tryAgainFn, error, isSubmitting }) => {
 
   return (
     <SendButton type="submit" disabled={isSubmitting}>
-      <ButtonText>Send</ButtonText>
+      <ButtonText>Senden</ButtonText>
       {!isSubmitting && <RightArrowIcon />}
       {isSubmitting && <span>...</span>}
     </SendButton>
