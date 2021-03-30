@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
-import { Link } from '../links/links';
+import { Link, LinkButton } from '../links/links';
 
 const Teaser = styled.div``;
 
@@ -36,16 +36,8 @@ const Title = styled.div`
   margin-bottom: 24px;
 `;
 
-const StyledLink = styled(Link)`
-  font-size: 20px;
-  font-weight: bold;
-  color: ${(props) => props.theme.palette.text.contrastLink.default};
-  text-decoration: none;
-
-  transition: color 0.3s;
-  :hover {
-    color: ${(props) => props.theme.palette.text.contrastLink.hover};
-  }
+const BlockTeaserLinkButton = styled(LinkButton)`
+  margin-top: 16px;
 `;
 
 interface BlockTeaserProps {
@@ -73,7 +65,9 @@ export const BlockTeaser: React.FC<BlockTeaserProps> = ({
       </LeftContainer>
       <RightContainer splitView={Boolean(splitView)}>
         {children}
-        {link && linkTo && <StyledLink to={linkTo}>{link}</StyledLink>}
+        {link && linkTo && (
+          <BlockTeaserLinkButton to={linkTo}>{link}</BlockTeaserLinkButton>
+        )}
       </RightContainer>
     </Teaser>
   );

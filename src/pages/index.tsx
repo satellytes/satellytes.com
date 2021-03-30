@@ -149,7 +149,7 @@ const IndexPage: React.FC = () => {
               margin
               preTitle="Leistungen"
               title="Das bieten wir"
-              link="Zu den Leistungen >"
+              link="Zu den Leistungen"
               linkTo="/services"
             >
               <Text>
@@ -176,7 +176,7 @@ const IndexPage: React.FC = () => {
               preTitle="Karriere"
               title="Arbeite mit uns"
               splitView
-              link="Zur Karriere-Seite >"
+              link="Zur Karriere-Seite"
               linkTo="/career"
             >
               <Text>
