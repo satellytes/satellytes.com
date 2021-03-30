@@ -8,12 +8,11 @@ import { ContactForm } from '../components/form/contact';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
 
-const ContactSubTitle = styled(SubTitle)<{ short?: boolean }>`
-  margin-top: ${(props) => (props.short ? '40px' : '80px')};
-  margin-bottom: 40px !important;
+const ContactTitle = styled(SubTitle)`
+  margin-top: 40px;
 
   ${up('md')} {
-    margin-top: ${(props) => (props.short ? '80px' : '160px')};
+    margin-top: 120px;
   }
 `;
 
@@ -27,7 +26,7 @@ const ContactPage: React.FC = () => {
       <Grid center>
         <GridItem xs={0} md={2} />
         <GridItem xs={12} md={8}>
-          <ContactSubTitle short>Unsere Adresse</ContactSubTitle>
+          <ContactTitle>Adresse</ContactTitle>
           <div>
             <Text>
               <b>Satellytes Digital Consulting GmbH</b>
@@ -43,7 +42,7 @@ const ContactPage: React.FC = () => {
             >
               Google Maps &gt;
             </TextLink>
-            <ContactSubTitle>Schreiben Sie uns</ContactSubTitle>
+            <SubTitle>E-Mail</SubTitle>
 
             <Text style={{ marginBottom: '40px' }}>
               Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine
