@@ -1,13 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyle = createGlobalStyle<{ lightTheme?: boolean }>`
+export const GlobalStyle = createGlobalStyle<{ $lightTheme?: boolean }>`
   html {
     background-color: ${(props) =>
-      props.lightTheme
+      props.$lightTheme
         ? props.theme.palette.background.bodyLight
         : props.theme.palette.background.body};
     color: ${(props) =>
-      props.lightTheme
+      props.$lightTheme
         ? props.theme.palette.text.default
         : props.theme.palette.text.defaultLight}; 
   }

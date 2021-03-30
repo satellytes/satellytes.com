@@ -52,8 +52,8 @@ export const JobCard = (props: JobCardProps): JSX.Element => {
   return (
     <JobCardContainer onClick={() => navigate(props.link)}>
       <JobCardTitle>{props.title}</JobCardTitle>
-      <JobCardText>
-        <div
+      <JobCardText as="div">
+        <p
           dangerouslySetInnerHTML={{
             __html: props.text,
           }}

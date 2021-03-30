@@ -71,11 +71,11 @@ const Layout: React.FC<LayoutProps> = (props) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle lightTheme={false} />
+      <GlobalStyle $lightTheme={false} />
       <Header
         siteTitle={data.site.siteMetadata.title}
         siteTitleUrl={props.siteTitleUrl}
-        lightTheme={false}
+        $lightTheme={false}
         heroImage={props.heroImage}
         transparent={props.transparentHeader || Boolean(props.heroImage)}
       />
