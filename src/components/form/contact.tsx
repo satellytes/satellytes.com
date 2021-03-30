@@ -1,36 +1,33 @@
-import React, { ChangeEventHandler, FormEventHandler, useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { CheckmarkIcon } from '../icons/buttons-icons/checkmark';
 import { RightArrowIcon } from '../icons/buttons-icons/right-arrow';
 import {
   ButtonText,
-  ErrorMessage,
   ErrorMessageSend,
-  Input,
-  InputContainer,
-  InputWrapper,
-  RequestStatusMessage,
   SendButton,
   SentButton,
-  TextArea,
 } from './controls';
-
-//https://www.codegrepper.com/code-examples/basic/form+validation+in+gatsby
-const IS_EMAIL_REGEX = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+import { Grid, GridItem } from '../grid/grid';
+import { InputField } from '../career-form/career-components';
+import { SIMPLE_EMAIL_PATTERN } from '../career-form/career-form';
+import { Link } from '../links/links';
 
 type RequestStatus = 'pending' | 'success' | 'error';
 
-export const ContactForm: React.FC = () => {
-  const initialFormData = { name: '', email: '', message: '' };
-  const [formData, setFormData] = useState(initialFormData);
-  const [requestStatus, setRequestStatus] = useState<RequestStatus>('pending');
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
 
+export const ContactForm: React.FC = () => {
+  const [requestStatus, setRequestStatus] = useState<RequestStatus>('pending');
   const { register, errors, handleSubmit } = useForm();
 
-  const onSubmit: FormEventHandler = () => {
+  const onSubmit = (formData: FormData) => {
     // partialy taken from the Netlify Blog:
     // - https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
-
     const encodeForNetlify = (data: any): string => {
       return Object.keys(data)
         .map(
@@ -45,9 +42,12 @@ export const ContactForm: React.FC = () => {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encodeForNetlify({ 'form-name': 'contact', ...formData }),
     })
-      .then(() => {
-        setRequestStatus('success');
-        setFormData(initialFormData);
+      .then((response) => {
+        if (!response.ok) {
+          setRequestStatus('error');
+        } else {
+          setRequestStatus('success');
+        }
       })
       .catch((error) => {
         console.error(error);
@@ -55,12 +55,6 @@ export const ContactForm: React.FC = () => {
       });
   };
 
-  const handleInputChange: ChangeEventHandler<
-    HTMLInputElement | HTMLTextAreaElement
-  > = (e) => {
-    setRequestStatus('pending');
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
   return (
     <form
       name="contact"
@@ -69,79 +63,69 @@ export const ContactForm: React.FC = () => {
       data-netlify-honeypot="bot-field"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <InputContainer>
-        <InputWrapper>
-          <Input
-            placeholder="Ihr Name"
-            type="text"
+      <Grid nested>
+        {/*First Name*/}
+        <GridItem xs={12} md={6}>
+          <InputField
+            inputRef={register({ required: 'Ihr Name fehlt' })}
+            error={errors.name}
             name="name"
-            value={formData.name}
-            onChange={handleInputChange}
-            ref={register({ required: true })}
-            hasError={errors.name}
+            label="Name"
           />
-
-          {errors.name && (
-            <ErrorMessage>
-              <strong>Name: </strong>
-              <span>Bitte geben Sie einen Namen ein</span>
-            </ErrorMessage>
-          )}
-        </InputWrapper>
-        <InputWrapper>
-          <Input
-            placeholder="Ihre E-Mail-Adresse"
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            ref={register({
-              required: true,
-              pattern: IS_EMAIL_REGEX,
+        </GridItem>
+        <GridItem xs={12} md={6}>
+          <InputField
+            inputRef={register({
+              required: 'Ihre E-Mail fehlt',
+              pattern: {
+                value: SIMPLE_EMAIL_PATTERN,
+                message: `Irgendwas stimmt an dieser E-Mail nicht`,
+              },
             })}
-            hasError={errors.email}
+            error={errors.email}
+            name="email"
+            label="E-Mail-Adresse"
           />
-
-          {errors.email && (
-            <ErrorMessage>
-              <strong>E-Mail-Adresse: </strong>
-              <span>Bei dieser Adresse scheint etwas nicht zu stimmen</span>
-            </ErrorMessage>
+        </GridItem>
+        <GridItem>
+          <InputField
+            inputRef={register({ required: 'Ihre Nachricht fehlt' })}
+            error={errors.message}
+            name="message"
+            label="Ihre Nachricht an uns"
+            type={'text-area'}
+          />
+        </GridItem>
+        <GridItem>
+          {requestStatus === 'pending' && (
+            <SendButton type="submit">
+              <ButtonText>Senden</ButtonText> <RightArrowIcon />
+            </SendButton>
           )}
-        </InputWrapper>
-      </InputContainer>
-      <TextArea
-        placeholder="Ihre Nachricht an uns"
-        name="message"
-        value={formData.message}
-        onChange={handleInputChange}
-        ref={register({ required: true })}
-        hasError={errors.message}
-      />
-
-      {errors.message && (
-        <ErrorMessage>Diese Nachricht ist ein bisschen zu kurz</ErrorMessage>
-      )}
-      <div>
-        {requestStatus === 'pending' && (
-          <SendButton type="submit">
-            <ButtonText>Send</ButtonText> <RightArrowIcon />
-          </SendButton>
-        )}
-        {(errors.name || errors.email || errors.message) && (
-          <ErrorMessageSend>Bitte füllen Sie alle Felder aus</ErrorMessageSend>
-        )}
-        {requestStatus === 'success' && (
-          <SentButton type="button">
-            <ButtonText>Sent</ButtonText> <CheckmarkIcon />
-          </SentButton>
-        )}
-        {requestStatus === 'error' && (
-          <RequestStatusMessage>
-            Sorry, but something went wrong. Please try again later.
-          </RequestStatusMessage>
-        )}
-      </div>
+          {(errors.name || errors.email || errors.message) && (
+            <ErrorMessageSend>
+              Bitte füllen Sie alle Felder aus
+            </ErrorMessageSend>
+          )}
+          {requestStatus === 'success' && (
+            <SentButton type="button">
+              <ButtonText>Abgeschickt</ButtonText> <CheckmarkIcon />
+            </SentButton>
+          )}
+          {requestStatus === 'error' && (
+            <>
+              <p>
+                Leider gab es einen Fehler. Bitte versuche es noch einmal.
+                Klappt das nicht, schicke deine Nachricht bitte direkt an{' '}
+                <Link to="mailto:beep@satellytes.com">beep@satellytes.com</Link>
+              </p>
+              <SendButton type="submit">
+                <ButtonText>Nochmal senden</ButtonText> <RightArrowIcon />
+              </SendButton>
+            </>
+          )}
+        </GridItem>
+      </Grid>
     </form>
   );
 };

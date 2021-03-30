@@ -6,8 +6,9 @@ import { Grid, GridItem } from '../components/grid/grid';
 import { PersonioJobPosition } from './career';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
-import { LargeText, TextTitle } from '../components/typography/typography';
+import { TextTitle } from '../components/typography/typography';
 import { CareerForm } from '../components/career-form/career-form';
+import { HEADER_HEIGHT } from '../components/header/header';
 
 const PERSONIO_SHORT_DESCRIPTION_NAME = 'Kurzbeschreibung';
 
@@ -17,11 +18,11 @@ const Title = styled.h1`
   font-size: 32px;
   line-height: 110%;
 
-  margin-top: 105px;
+  margin-top: calc(60px + ${HEADER_HEIGHT});
   margin-bottom: 40px;
 
   ${up('md')} {
-    margin-top: 145px;
+    margin-top: calc(120px + ${HEADER_HEIGHT});
     font-size: 48px;
   }
 `;
