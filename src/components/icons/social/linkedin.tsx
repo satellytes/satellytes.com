@@ -21,7 +21,7 @@ export const IconLinkedIn: React.FC<LinkedinProps> = (props) => (
 );
 
 export const LinkedinWrapper = styled(IconLinkedIn)<LinkedinProps>`
-  transition: 0.3s;
+  transition: fill 0.3s ease-in;
   fill: ${(props) => (props.color ? props.color : '#202840')};
   &:hover {
     fill: ${(props) => (props.color ? props.color : '#ffffff')};
