@@ -98,7 +98,7 @@ const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
         </GridItem>
         <GridItem xs={0} md={4} />
         {pageContext.positions.map((position) => (
-          <GridItem xs={12} md={4} key={position.id}>
+          <GridItem xs={12} sm={6} md={4} lg={3} key={position.id}>
             <JobCard
               title={position.name}
               text={position.satellytesShortDescription}

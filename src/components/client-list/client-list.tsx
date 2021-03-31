@@ -5,6 +5,7 @@ import { theme } from '../layout/theme';
 import { GRID_GAP_MOBILE } from '../grid/grid';
 import { formatDate } from '../util/format-date';
 import { Link, LinkButton } from '../links/links';
+import { RightArrowIcon } from '../icons/buttons-icons/right-arrow';
 
 const linkStyles = css`
   color: ${theme.palette.text.link.default};
@@ -119,7 +120,9 @@ const ClientListEntry: React.FC<ClientListEntryProps> = ({
       <ClientListEntryLink to={path}>
         <StyledTitle title={`Show client: ${name}`}>{name}</StyledTitle>
         <StyledTimestamp>Seit {formatDate(start, 'MMMM y')}</StyledTimestamp>
-        <StyledArrow title={`Show client: ${name}`}>&gt;</StyledArrow>
+        <StyledArrow title={`Show client: ${name}`}>
+          <RightArrowIcon />
+        </StyledArrow>
       </ClientListEntryLink>
     </ClientListEntryLi>
   );
@@ -143,7 +146,7 @@ export const ClientList: React.FC<ClientListProps> = ({ clients }) => {
         ))}
       </ClientListContainer>
       <ClientListLinkButton to="/clients" title="Show all clients">
-        Zu den Kunden
+        Kunden
       </ClientListLinkButton>
     </Wrapper>
   );
