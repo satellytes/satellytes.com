@@ -101,10 +101,10 @@ export const TextArea = styled.textarea<ValidationProps>`
 export const Button = styled.button`
   margin-top: 16px;
   cursor: pointer;
-  padding: 13px 18px;
+  padding: 11px 16px;
   color: #ffffff;
 
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   text-align: left;
   line-height: 110%;

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { ClientList } from './client-list';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../layout/theme';

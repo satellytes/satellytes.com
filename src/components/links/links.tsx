@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { GatsbyLinkProps, Link as GatsbyLink } from 'gatsby';
+import { RightArrowIcon } from '../icons/buttons-icons/right-arrow';
 
 interface LinkProps extends GatsbyLinkProps<void> {
   className?: string;
@@ -76,13 +77,12 @@ const LinkButtonContainer = styled(Link)`
    * todo: needs to be replaced with an svg. this also makes vertical align 
    * middle possible / simpler   
    */
-  span {
-    display: inline-block;
+  svg {
     transition: transform 0.2s ease-in;
     margin-left: 20px;
   }
   :hover {
-    span {
+    svg {
       transform: translateX(2px);
     }
   }
@@ -99,7 +99,7 @@ export const LinkButton = (props: LinkProps): JSX.Element => {
   return (
     <LinkButtonContainer {...rest}>
       {children}
-      <span>{'>'}</span>
+      <RightArrowIcon />
     </LinkButtonContainer>
   );
 };
