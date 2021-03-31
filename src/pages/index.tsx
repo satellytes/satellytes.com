@@ -32,9 +32,14 @@ interface AllClientsQuery {
 
 const HomePageTitle = styled(PageTitle)`
   height: 92vh;
+  min-height: 300px;
   margin-bottom: 0;
   margin-top: 0;
   padding-top: calc(96px + ${HEADER_HEIGHT});
+
+  ${up('sm')} {
+    min-height: 500px;
+  }
 
   ${up('md')} {
     height: 100vh;

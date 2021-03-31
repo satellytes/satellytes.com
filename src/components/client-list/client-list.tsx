@@ -56,9 +56,18 @@ const ClientListEntryLink = styled(Link)`
   }
 
   transition: background-color 0.3s;
+
+  svg {
+    transition: transform 0.3s ease-in;
+  }
+
   :hover {
     background-color: ${(props) =>
       props.theme.palette.text.contrastLink.hoverTransparent};
+
+    svg {
+      transform: translateX(2px);
+    }
   }
 `;
 

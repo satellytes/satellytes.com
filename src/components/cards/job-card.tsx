@@ -21,7 +21,7 @@ const JobCardContainer = styled.div`
     padding: 32px 28px 20px 22px;
   }
 
-  transition: transform 0.2s ease-in, box-shadow 0.2s ease-in;
+  transition: transform 0.3s ease-in, box-shadow 0.3s ease-in;
 
   :hover {
     transform: translateY(-2px);

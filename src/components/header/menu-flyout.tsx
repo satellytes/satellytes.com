@@ -18,7 +18,7 @@ const FullscreenOverlay = styled.div<{ visible: boolean }>`
   justify-content: flex-end;
 
   visibility: ${(props) => (props.visible ? 'visible' : 'hidden')};
-  transition: top 0.2s ease-in, visibility 0.2s ease-in;
+  transition: top 0.3s ease-in, visibility 0.3s ease-in;
 `;
 
 const ScrollContainer = styled.div`

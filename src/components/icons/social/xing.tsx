@@ -20,7 +20,7 @@ export const IconXing: React.FC<XingProps> = (props) => (
 );
 
 export const XingWrapper = styled(IconXing)<XingProps>`
-  transition: 0.3s;
+  transition: fill 0.3s ease-in;
   fill: ${(props) => (props.color ? props.color : '#202840')};
   &:hover {
     fill: ${(props) => (props.color ? props.color : '#ffffff')};
