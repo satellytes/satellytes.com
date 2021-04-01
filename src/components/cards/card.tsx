@@ -54,7 +54,7 @@ const CardLink = styled(Link)`
   line-height: 110%;
   text-decoration: none;
 
-  transition: color 0.3s;
+  transition: color 0.2s;
   &:hover {
     color: ${theme.palette.text.link.hover};
   }

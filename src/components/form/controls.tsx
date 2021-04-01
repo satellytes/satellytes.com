@@ -65,10 +65,6 @@ export const Input = styled.input<ValidationProps>`
     css`
       background: #f8cdd5;
       color: #dc052d;
-      ::placeholder {
-        color: #dc052d;
-        opacity: 1;
-      }
     `}
 `;
 
@@ -91,10 +87,7 @@ export const TextArea = styled.textarea<ValidationProps>`
     hasError &&
     css`
       background: #f8cdd5;
-      ::placeholder {
-        color: #dc052d;
-        opacity: 1;
-      }
+      color: #dc052d;
     `}
 `;
 
@@ -113,7 +106,7 @@ export const Button = styled.button`
   border: 0;
 
   svg {
-    transition: transform 0.3s ease-in;
+    transition: transform 0.2s ease-in;
   }
   :hover {
     svg {
@@ -150,7 +143,7 @@ export const RequestStatusMessage = styled(Text)`
 `;
 
 export const ErrorMessage = styled.p`
-  color: #dc052d;
+  color: #f19bab;
   font-size: 12px;
   margin-top: 8px;
   margin-bottom: 0;

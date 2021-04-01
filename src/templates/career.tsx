@@ -26,6 +26,11 @@ const PositionsTitle = styled(SectionTitle)`
   }
 `;
 
+const JobCardGridItem = styled(GridItem)`
+  height: 100%;
+  padding-bottom: 24px;
+`;
+
 const InfoText = styled(Text)`
   font-size: 18px;
   a {
@@ -98,13 +103,13 @@ const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
         </GridItem>
         <GridItem xs={0} md={4} />
         {pageContext.positions.map((position) => (
-          <GridItem xs={12} sm={6} md={4} lg={3} key={position.id}>
+          <JobCardGridItem xs={12} sm={6} md={4} lg={3} key={position.id}>
             <JobCard
               title={position.name}
               text={position.satellytesShortDescription}
               link={position.satellytesPath}
             />
-          </GridItem>
+          </JobCardGridItem>
         ))}
         <GridItem xs={12}>
           <InfoText>

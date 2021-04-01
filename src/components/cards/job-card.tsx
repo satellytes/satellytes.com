@@ -9,10 +9,10 @@ const JobCardContainer = styled.div`
   flex-direction: column;
 
   width: 100%;
+  height: 100%;
   min-height: 400px;
-  margin-bottom: 16px;
 
-  background: rgba(122, 143, 204, 0.2);
+  background: rgba(122, 143, 204, 0.3);
   border-radius: 4px;
 
   padding: 32px 26px 24px 24px;
@@ -21,11 +21,11 @@ const JobCardContainer = styled.div`
     padding: 32px 28px 20px 22px;
   }
 
-  transition: transform 0.3s ease-in, box-shadow 0.3s ease-in;
+  transition: transform 0.2s ease-in, box-shadow 0.2s ease-in;
 
   :hover {
-    transform: translateY(-2px);
-    box-shadow: inset 0px -2px 0px #668cff;
+    transform: translateY(-3px);
+    box-shadow: inset 0px -3px 0px #668cff;
     cursor: pointer;
   }
 `;
@@ -40,6 +40,7 @@ const JobCardTitle = styled.h3`
 
 const JobCardText = styled(ImageCardSubtitle)`
   flex-grow: 1;
+  padding-bottom: 24px;
 `;
 
 interface JobCardProps {

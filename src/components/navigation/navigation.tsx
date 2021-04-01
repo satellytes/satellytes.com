@@ -120,7 +120,7 @@ const LegalLink = styled(Link)<{ $isSelected: boolean }>`
     color: ${(props) => (props.$isSelected ? '#ffffff' : '#202840')};
   }
 
-  transition: color 0.3s;
+  transition: color 0.2s;
 
   &:hover {
     color: #ffffff;
@@ -181,7 +181,7 @@ const SiteNavigationLink = styled(Link)<{ $isSelected: boolean }>`
     font-size: 48px;
   }
 
-  transition: color 0.3s;
+  transition: color 0.2s;
 
   &:hover {
     color: #ffffff;

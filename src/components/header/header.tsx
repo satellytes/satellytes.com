@@ -20,7 +20,7 @@ const StyledHeader = styled.header<{
   top: 0;
   width: 100%;
   z-index: 100;
-  transition: background-color 0.3s;
+  transition: background-color 0.2s;
 
   background-color: ${(props) =>
     props.$transparent

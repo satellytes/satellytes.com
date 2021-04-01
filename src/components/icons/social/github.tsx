@@ -16,7 +16,7 @@ const GithubIcon: React.FC = (props) => {
 };
 
 export const GithubIconWrapper = styled(GithubIcon)`
-  transition: fill 0.3s ease-in;
+  transition: fill 0.2s ease-in;
   fill: #202840;
 
   &:hover {
