@@ -28,16 +28,19 @@ export const CareerFormStyled = styled.form`
 `;
 
 export const InputField = (props: InputFieldProps) => {
+  const required = Boolean(props.label?.includes('*'));
+
   return (
     <InputContainer>
       <InputWrapper>
-        {props.label && <Label htmlFor="first_name">{props.label}</Label>}
+        {props.label && <Label htmlFor={props.name}>{props.label}</Label>}
         {props.type && props.type === 'text-area' ? (
           <TextArea
             name="message"
             ref={props.inputRef}
             hasError={props.error}
             id={props.name}
+            aria-required={required}
           />
         ) : (
           <Input
@@ -46,6 +49,7 @@ export const InputField = (props: InputFieldProps) => {
             name={props.name}
             ref={props.inputRef}
             hasError={props.error}
+            aria-required={required}
           />
         )}
         <FormError error={props.error} />
@@ -74,7 +78,7 @@ export const SuccessMessage = () => {
         geschickt und melden uns bei dir.
       </p>
       <SentButton type="button">
-        <ButtonText>Abgeschickt</ButtonText> <CheckmarkIcon />
+        <ButtonText>Gesendet</ButtonText> <CheckmarkIcon />
       </SentButton>
     </div>
   );

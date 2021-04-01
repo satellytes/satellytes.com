@@ -78,7 +78,7 @@ const LinkButtonContainer = styled(Link)`
    * middle possible / simpler   
    */
   svg {
-    transition: transform 0.3s ease-in;
+    transition: transform 0.2s ease-in;
     margin-left: 20px;
   }
   :hover {

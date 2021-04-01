@@ -117,7 +117,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
               inputRef={register({ required: 'Dein Vorname fehlt' })}
               error={errors.first_name}
               name="first_name"
-              label="Vorname"
+              label="Vorname *"
             />
           </GridItem>
 
@@ -127,7 +127,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
               inputRef={register({ required: 'Dein Nachname fehlt' })}
               error={errors.last_name}
               name="last_name"
-              label="Nachname"
+              label="Nachname *"
             />
           </GridItem>
 
@@ -143,7 +143,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
               })}
               error={errors.email}
               name="email"
-              label="E-Mail-Adresse"
+              label="E-Mail-Adresse *"
             />
           </GridItem>
 
@@ -183,7 +183,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
               inputRef={register({ required: 'Dein Anschreiben fehlt' })}
               error={errors.message}
               name="message"
-              label="Anschreiben"
+              label="Anschreiben *"
               type={'text-area'}
             />
           </GridItem>
@@ -194,6 +194,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
               inputRef={register({ required: 'Dein CV fehlt' })}
               error={errors.documents}
               name="documents"
+              label="Dokumente *"
               type={'file'}
             />
           </GridItem>

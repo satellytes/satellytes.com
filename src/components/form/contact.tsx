@@ -70,7 +70,7 @@ export const ContactForm: React.FC = () => {
             inputRef={register({ required: 'Ihr Name fehlt' })}
             error={errors.name}
             name="name"
-            label="Name"
+            label="Name *"
           />
         </GridItem>
         <GridItem xs={12} md={6}>
@@ -84,7 +84,7 @@ export const ContactForm: React.FC = () => {
             })}
             error={errors.email}
             name="email"
-            label="E-Mail-Adresse"
+            label="E-Mail-Adresse *"
           />
         </GridItem>
         <GridItem>
@@ -92,7 +92,7 @@ export const ContactForm: React.FC = () => {
             inputRef={register({ required: 'Ihre Nachricht fehlt' })}
             error={errors.message}
             name="message"
-            label="Ihre Nachricht an uns"
+            label="Ihre Nachricht an uns *"
             type={'text-area'}
           />
         </GridItem>
@@ -109,7 +109,7 @@ export const ContactForm: React.FC = () => {
           )}
           {requestStatus === 'success' && (
             <SentButton type="button">
-              <ButtonText>Abgeschickt</ButtonText> <CheckmarkIcon />
+              <ButtonText>Gesendet</ButtonText> <CheckmarkIcon />
             </SentButton>
           )}
           {requestStatus === 'error' && (

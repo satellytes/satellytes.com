@@ -55,10 +55,10 @@ const ClientListEntryLink = styled(Link)`
     padding: 30px 23px 27px 24px;
   }
 
-  transition: background-color 0.3s;
+  transition: background-color 0.2s;
 
   svg {
-    transition: transform 0.3s ease-in;
+    transition: transform 0.2s ease-in;
   }
 
   :hover {
