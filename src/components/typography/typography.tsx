@@ -134,7 +134,7 @@ export const CaptionText = styled.p`
   line-height: 110%;
   font-weight: bold;
 
-  color: rgba(32, 40, 64, 0.5);
+  color: #668cff;
 `;
 
 /**

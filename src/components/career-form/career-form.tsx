@@ -10,6 +10,8 @@ import {
   ProgressBar,
   SuccessMessage,
 } from './career-components';
+import { CaptionText } from '../typography/typography';
+import { Sup } from '../form/controls';
 
 interface CareerFormProps {
   recruiting_channel_id: string;
@@ -39,7 +41,6 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
     errors,
     formState: { isSubmitSuccessful, isSubmitting },
   } = useForm();
-
   const [uploadProgress, setUploadProgress] = useState(0);
 
   const onSubmit = async (formValues: FormData): Promise<void> => {
@@ -114,26 +115,29 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
           {/*First Name*/}
           <GridItem xs={12} md={6}>
             <InputField
+              required={true}
               inputRef={register({ required: 'Dein Vorname fehlt' })}
               error={errors.first_name}
               name="first_name"
-              label="Vorname *"
+              label="Vorname"
             />
           </GridItem>
 
           {/*Last Name*/}
           <GridItem xs={12} md={6}>
             <InputField
+              required={true}
               inputRef={register({ required: 'Dein Nachname fehlt' })}
               error={errors.last_name}
               name="last_name"
-              label="Nachname *"
+              label="Nachname"
             />
           </GridItem>
 
           {/*E-Mail*/}
           <GridItem xs={12} md={6}>
             <InputField
+              required={true}
               inputRef={register({
                 required: 'Deine E-Mail fehlt',
                 pattern: {
@@ -143,7 +147,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
               })}
               error={errors.email}
               name="email"
-              label="E-Mail-Adresse *"
+              label="E-Mail-Adresse"
             />
           </GridItem>
 
@@ -180,10 +184,11 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
           {/*Cover Letter*/}
           <GridItem>
             <InputField
+              required={true}
               inputRef={register({ required: 'Dein Anschreiben fehlt' })}
               error={errors.message}
               name="message"
-              label="Anschreiben *"
+              label="Anschreiben"
               type={'text-area'}
             />
           </GridItem>
@@ -197,6 +202,12 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
               label="Dokumente *"
               type={'file'}
             />
+          </GridItem>
+
+          <GridItem>
+            <CaptionText>
+              <Sup>*</Sup> Pflichtfeld
+            </CaptionText>
           </GridItem>
 
           <GridItem>

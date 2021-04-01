@@ -29,7 +29,8 @@ export const InputWrapper = styled.div`
   }
 `;
 
-export const Label = styled.label`
+export const Label = styled.label<{ required?: boolean }>`
+  position: relative;
   display: block;
   font-style: normal;
   font-weight: bold;
@@ -37,6 +38,11 @@ export const Label = styled.label`
   line-height: 110%;
   color: #668cff;
   margin-bottom: 8px;
+`;
+
+export const Sup = styled.sup`
+  font-size: 1em;
+  top: -0.3em;
 `;
 
 export const Input = styled.input<ValidationProps>`

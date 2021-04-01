@@ -8,6 +8,7 @@ import {
   Label,
   SendButton,
   SentButton,
+  Sup,
   TextArea,
 } from '../form/controls';
 import { CheckmarkIcon } from '../icons/buttons-icons/checkmark';
@@ -20,6 +21,7 @@ interface InputFieldProps {
   name: string;
   error: any;
   inputRef: any;
+  required?: boolean;
   type?: 'text' | 'file' | 'text-area';
 }
 
@@ -28,19 +30,21 @@ export const CareerFormStyled = styled.form`
 `;
 
 export const InputField = (props: InputFieldProps) => {
-  const required = Boolean(props.label?.includes('*'));
-
   return (
     <InputContainer>
       <InputWrapper>
-        {props.label && <Label htmlFor={props.name}>{props.label}</Label>}
+        {props.label && (
+          <Label htmlFor={props.name}>
+            {props.label} {props.required && <Sup aria-hidden={true}>*</Sup>}
+          </Label>
+        )}
         {props.type && props.type === 'text-area' ? (
           <TextArea
             name="message"
             ref={props.inputRef}
             hasError={props.error}
             id={props.name}
-            aria-required={required}
+            aria-required={props.required}
           />
         ) : (
           <Input
@@ -49,7 +53,7 @@ export const InputField = (props: InputFieldProps) => {
             name={props.name}
             ref={props.inputRef}
             hasError={props.error}
-            aria-required={required}
+            aria-required={props.required}
           />
         )}
         <FormError error={props.error} />
