@@ -7,11 +7,13 @@ import {
   ErrorMessageSend,
   SendButton,
   SentButton,
+  Sup,
 } from './controls';
 import { Grid, GridItem } from '../grid/grid';
 import { InputField } from '../career-form/career-components';
 import { SIMPLE_EMAIL_PATTERN } from '../career-form/career-form';
 import { Link } from '../links/links';
+import { CaptionText } from '../typography/typography';
 
 type RequestStatus = 'pending' | 'success' | 'error';
 
@@ -67,14 +69,16 @@ export const ContactForm: React.FC = () => {
         {/*First Name*/}
         <GridItem xs={12} md={6}>
           <InputField
+            required={true}
             inputRef={register({ required: 'Ihr Name fehlt' })}
             error={errors.name}
             name="name"
-            label="Name *"
+            label="Name"
           />
         </GridItem>
         <GridItem xs={12} md={6}>
           <InputField
+            required={true}
             inputRef={register({
               required: 'Ihre E-Mail fehlt',
               pattern: {
@@ -84,17 +88,23 @@ export const ContactForm: React.FC = () => {
             })}
             error={errors.email}
             name="email"
-            label="E-Mail-Adresse *"
+            label="E-Mail-Adresse"
           />
         </GridItem>
         <GridItem>
           <InputField
+            required={true}
             inputRef={register({ required: 'Ihre Nachricht fehlt' })}
             error={errors.message}
             name="message"
-            label="Ihre Nachricht an uns *"
+            label="Ihre Nachricht an uns"
             type={'text-area'}
           />
+        </GridItem>
+        <GridItem>
+          <CaptionText>
+            <Sup>*</Sup> Pflichtfeld
+          </CaptionText>
         </GridItem>
         <GridItem>
           {requestStatus === 'pending' && (
