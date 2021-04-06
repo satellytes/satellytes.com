@@ -12,7 +12,7 @@ jobs:
   Test:
     runs-on: ubuntu-latest
     env:
-      GATSBY_BUILD_WEBHOOK_URL: {{ secrets.GATSBY_BUILD_WEBHOOK_URL }}
+      GATSBY_BUILD_WEBHOOK_URL: ${{ secrets.GATSBY_BUILD_WEBHOOK_URL }}
     steps:
       - name: Trigger deployment
         run: curl -X POST $GATSBY_BUILD_WEBHOOK_URL

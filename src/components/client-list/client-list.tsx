@@ -111,6 +111,11 @@ const StyledArrow = styled.div`
 
 const ClientListLinkButton = styled(LinkButton)`
   margin-top: 32px;
+  margin-left: 16px;
+
+  ${up('md')} {
+    margin-left: 0;
+  }
 `;
 
 interface ClientListEntryProps {
