@@ -5,18 +5,60 @@ import FlareTypeA from '../../images/aurora/flare-type-a.png';
 
 const FLARE_ANIMATION_DURATION = 240;
 
-interface FlareProps {
+export interface FlareProps {
+  /**
+   * what size, this translates to width & height, we always expect our image to fit into a square
+   */
   size?: number;
+
+  /**
+   * the pure walking map is normalized (steps are always 0 or 1 in size)
+   * we can use an existing css property to scale that value into a size we can see
+   * The bigger the value, the bigger the area being walked on.
+   */
   stepSize?: number;
+  /**
+   * The human eye spots similar animations really quickly
+   * that's why we want to allow to rotate the entire animation with this value
+   * This creates enough noise so it looks like a distinct animation.
+   */
   rotation?: number;
+  /**
+   * The actual animation has a fixed duration (currently 240s) to appear
+   * very slowly. This multipliers allows to scale the value. A value of 2 means
+   * half the time (120s) which makes the animation twice as fast. If you pass 0.5
+   * the animation will run 480s (half the speed)
+   */
   speedMultiplier?: number;
+  /**
+   * the actual center of the animation give by x & y
+   * This again involves a custom CSS property which is made available
+   * by the underlying animation to translate the flare into the desired location
+   * while keeping the actual animation.
+   */
   x?: string;
   y?: string;
-  flareType?: 'a' | 'b';
+  /**
+   * we have two types of flares. One is light and one is dark.
+   */
+  flareType?: FlareType;
+  /**
+   * This is again to add more noise to the human eye
+   * not to spot the fact that the actual animation is shared between all flares
+   * The offset is given as a positive number and will be transformed
+   * into a negative animation-delay (in seconds) which will cause the animation to start in-between.
+   * The negative value is required to prevent any pause in the beginning.
+   */
   animationOffset?: number;
 }
-function getFlareImage(type: 'a' | 'b') {
-  if (type === 'b') {
+
+export enum FlareType {
+  LIGHT = 'light',
+  DARK = 'dark',
+}
+
+function getFlareImage(type: FlareType) {
+  if (type === FlareType.DARK) {
     return css`
       background-image: url(${FlareTypeB});
     `;
@@ -28,12 +70,18 @@ function getFlareImage(type: 'a' | 'b') {
 }
 
 export const Flare = styled.div<FlareProps>`
+  --flare-rotate: 0deg;
+  --flare-step-size: ${(props) => props.stepSize ?? 20}px;
+  --flare-size: ${(props) => props.size ?? 100}px;
+  --flare-rotate: ${(props) => props.rotation ?? 0}deg;
+  --flare-x: ${(props) => props.x ?? 0};
+  --flare-y: ${(props) => props.y ?? 0};
+
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   display: inline-block;
 
-  --flare-rotate: 0deg;
   width: var(--flare-size, 100px);
   height: var(--flare-size, 100px);
   position: absolute;
@@ -41,13 +89,7 @@ export const Flare = styled.div<FlareProps>`
 
   top: 0;
   left: 0;
-
-  --flare-step-size: ${(props) => props.stepSize ?? 20}px;
-  --flare-size: ${(props) => props.size ?? 100}px;
-  --flare-rotate: ${(props) => props.rotation ?? 0}deg;
-  --flare-x: ${(props) => props.x ?? 0};
-  --flare-y: ${(props) => props.y ?? 0};
-  ${(props) => getFlareImage(props.flareType ?? 'a')}
+  ${(props) => getFlareImage(props.flareType ?? FlareType.LIGHT)}
   animation: ${WanderAnimation} ${(props) =>
     FLARE_ANIMATION_DURATION *
     (1 / (props.speedMultiplier ?? 1))}s infinite linear;

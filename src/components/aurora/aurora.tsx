@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 import React from 'react';
+import AuroraBlurredBackground from '../../images/aurora/bg-blur-mini.png';
+import { Flare, FlareType } from './flare';
 
 const BACKGROUND_LAYER_Z = -1;
 const FOREGROUND_LAYER_Z = 0;
 
-import AuroraBlurredBackground from '../../images/aurora/bg-blur-mini.png';
-import { Flare } from './flare';
 const AuroraBackground = styled.div`
   background-color: #202840;
   position: fixed;
@@ -30,6 +30,7 @@ const AuroraForeground = styled.div`
   bottom: 0;
   top: 0;
 `;
+
 const AuroraContainer = styled.div`
   pointer-events: none;
 `;
@@ -42,7 +43,7 @@ export const Aurora = () => {
         <Flare
           speedMultiplier={0.5}
           stepSize={-80}
-          flareType={'a'}
+          flareType={FlareType.LIGHT}
           x={'20vw'}
           y={'0vh'}
           size={400}
@@ -51,7 +52,7 @@ export const Aurora = () => {
         <Flare
           speedMultiplier={2}
           stepSize={20}
-          flareType={'a'}
+          flareType={FlareType.LIGHT}
           x={'20vw'}
           y={'100vh'}
           size={250}
@@ -59,7 +60,7 @@ export const Aurora = () => {
         />
         <Flare
           stepSize={20}
-          flareType={'b'}
+          flareType={FlareType.DARK}
           x={'50vw'}
           y={'50vw'}
           size={150}
@@ -68,7 +69,7 @@ export const Aurora = () => {
         />
         <Flare
           stepSize={40}
-          flareType={'a'}
+          flareType={FlareType.LIGHT}
           x={'80vw'}
           y={'20vw'}
           size={250}
@@ -77,7 +78,7 @@ export const Aurora = () => {
         />
         <Flare
           stepSize={0}
-          flareType={'b'}
+          flareType={FlareType.DARK}
           x={'70vw'}
           y={'300px'}
           size={100}
