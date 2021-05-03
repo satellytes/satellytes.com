@@ -54,8 +54,8 @@ export const Aurora = () => {
           stepSize={20}
           flareType={FlareType.LIGHT}
           x={'20vw'}
-          y={'100vh'}
-          size={250}
+          y={'90vh'}
+          size={550}
           rotation={0}
         />
         <Flare
