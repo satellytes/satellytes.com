@@ -3,22 +3,18 @@ import React from 'react';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
 import { ClientList } from '../components/client-list/client-list';
-import {
-  Grid,
-  GRID_GAP_DESKTOP,
-  GRID_GAP_MOBILE,
-  GridItem,
-} from '../components/grid/grid';
+import { Grid, GridItem } from '../components/grid/grid';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 import { BlockTeaser } from '../components/teasers/block-teaser';
 import {
   PageTitle,
+  PageTitleSwoosh,
   StyledTitle,
   Text,
-  PageTitleSwoosh,
 } from '../components/typography/typography';
 import { HEADER_HEIGHT } from '../components/header/header';
+import { Aurora } from '../components/aurora/aurora';
 
 interface AllClientsQuery {
   allClientsJson: {
@@ -75,42 +71,6 @@ const HomePageBlockTeaser = styled(BlockTeaser)<{
   margin-bottom: ${(props) => props.margin && '160px'};
 `;
 
-const BackgroundImage = styled.img`
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
-  object-position: bottom;
-  z-index: -1;
-  background-image: url('https://res.cloudinary.com/satellytes/image/upload/w_1280/e_blur:1000,q_1,f_auto/v1/satellytes-website/SY-Image_tmjwss.webp');
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  /**
-   * props.theme is not available inside this component, as the cloudinary
-   * component removes it
-   */
-  background-color: #202840;
-`;
-
-const ImageCopyright = styled.div`
-  position: absolute;
-  right: ${() => GRID_GAP_MOBILE};
-  // bottom = 100vh - HomePageTitle vh + GAP
-  bottom: ${() => `calc(8vh + ${GRID_GAP_MOBILE})`};
-
-  writing-mode: vertical-rl;
-  text-orientation: sideways;
-  transform: rotate(180deg);
-  font-size: 12px;
-  opacity: 0.6;
-
-  ${up('md')} {
-    right: ${() => GRID_GAP_DESKTOP};
-    bottom: ${() => GRID_GAP_DESKTOP};
-  }
-`;
-
 const IndexPage: React.FC = () => {
   const data = useStaticQuery<AllClientsQuery>(graphql`
     query {
@@ -126,15 +86,7 @@ const IndexPage: React.FC = () => {
 
   return (
     <>
-      <BackgroundImage
-        src="https://res.cloudinary.com/satellytes/image/upload/w_1280/e_blur:1000,q_1,f_auto/v1/satellytes-website/SY-Image_tmjwss.webp"
-        srcSet={`
-          https://res.cloudinary.com/satellytes/image/upload/w_300/v1/satellytes-website/SY-Image_tmjwss.webp 300w, 
-          https://res.cloudinary.com/satellytes/image/upload/w_768/v1/satellytes-website/SY-Image_tmjwss.webp 768w, 
-          https://res.cloudinary.com/satellytes/image/upload/v1/satellytes-website/SY-Image_tmjwss.webp 1280w
-        `}
-        alt=""
-      />
+      <Aurora />
       <Layout transparentHeader={true}>
         <SEO title="Satellytes" />
         <Grid center>
@@ -145,7 +97,6 @@ const IndexPage: React.FC = () => {
               <br />
               Enterprise Web Applications
             </HomePageTitle>
-            <ImageCopyright>Photo by Riyanthi Sianturi</ImageCopyright>
           </GridItem>
           <GridItem xs={0} md={2} />
           <GridItem xs={0} md={1} />
