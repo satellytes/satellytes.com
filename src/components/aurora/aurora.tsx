@@ -1,20 +1,34 @@
 import styled from 'styled-components';
 
 import React from 'react';
-import AuroraBlurredBackground from '../../images/aurora/bg-blur-mini.png';
+
+import AuroraBlurredBackgroundA from '../../images/aurora/bg-blur-a.png';
+import AuroraBlurredBackgroundB from '../../images/aurora/bg-blur-b.png';
+import AuroraBlurredBackgroundC from '../../images/aurora/bg-blur-c.png';
+
 import { Flare, FlareType } from './flare';
 
 const BACKGROUND_LAYER_Z = -1;
 const FOREGROUND_LAYER_Z = 0;
 
-const AuroraBackground = styled.div`
+export enum AuroraType {
+  Pink = 'pink',
+  Blue = 'blue',
+  BrightBlue = 'bright-blue',
+}
+
+interface AuroraBackgroundProps {
+  source: string;
+}
+
+const AuroraBackground = styled.div<AuroraBackgroundProps>`
   background-color: #202840;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url(${AuroraBlurredBackground});
+  background-image: url(${(props) => props.source});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center -20vw;
@@ -35,12 +49,28 @@ const AuroraContainer = styled.div`
   pointer-events: none;
 `;
 
-export const Aurora = () => {
+export interface AuroraProps {
+  type?: AuroraType;
+}
+
+export const Aurora = ({ type }: AuroraProps) => {
+  function getSource(type?: AuroraType) {
+    if (type === AuroraType.Pink) {
+      return AuroraBlurredBackgroundB;
+    }
+    if (type === AuroraType.Blue) {
+      return AuroraBlurredBackgroundC;
+    }
+
+    // default is the bright blue
+    return AuroraBlurredBackgroundA;
+  }
   return (
     <AuroraContainer>
-      <AuroraBackground />
+      <AuroraBackground source={getSource(type)} />
       <AuroraForeground>
         <Flare
+          opacity={0.6}
           speedMultiplier={0.5}
           stepSize={-80}
           flareType={FlareType.LIGHT}
@@ -50,6 +80,7 @@ export const Aurora = () => {
           rotation={180}
         />
         <Flare
+          opacity={0.5}
           speedMultiplier={2}
           stepSize={20}
           flareType={FlareType.LIGHT}
@@ -68,6 +99,7 @@ export const Aurora = () => {
           animationOffset={3}
         />
         <Flare
+          opacity={0.3}
           stepSize={40}
           flareType={FlareType.LIGHT}
           x={'80vw'}
