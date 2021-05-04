@@ -14,7 +14,7 @@ import {
   Text,
 } from '../components/typography/typography';
 import { HEADER_HEIGHT } from '../components/header/header';
-import { Aurora } from '../components/aurora/aurora';
+import { Aurora, AuroraType } from '../components/aurora/aurora';
 
 interface AllClientsQuery {
   allClientsJson: {
@@ -86,7 +86,7 @@ const IndexPage: React.FC = () => {
 
   return (
     <>
-      <Aurora />
+      <Aurora type={AuroraType.BrightBlue} />
       <Layout transparentHeader={true}>
         <SEO title="Satellytes" />
         <Grid center>

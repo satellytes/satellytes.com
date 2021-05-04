@@ -6,6 +6,7 @@ import { LargeText, PageTitle } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
 import { Markdown } from '../components/markdown/markdown';
 import { graphql, useStaticQuery } from 'gatsby';
+import { Aurora, AuroraType } from '../components/aurora/aurora';
 
 interface ServicesQuery {
   markdownRemark: {
@@ -23,22 +24,25 @@ const ServicesPage: React.FC = () => {
   `);
 
   return (
-    <Layout>
-      <SEO title="Leistungen | Satellytes" />
-      <Grid>
-        <GridItem>
-          <PageTitle>Leistungen</PageTitle>
-        </GridItem>
+    <>
+      <Aurora type={AuroraType.Pink} />
+      <Layout>
+        <SEO title="Leistungen | Satellytes" />
+        <Grid>
+          <GridItem>
+            <PageTitle>Leistungen</PageTitle>
+          </GridItem>
 
-        <GridItem xs={12} md={8}>
-          <LargeText as={'h2'}>
-            Satellytes – das sind ausschließlich leidenschaftliche
-            Entwickler:innen und Designer:innen.
-          </LargeText>
-          <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>
-        </GridItem>
-      </Grid>
-    </Layout>
+          <GridItem xs={12} md={8}>
+            <LargeText as={'h2'}>
+              Satellytes – das sind ausschließlich leidenschaftliche
+              Entwickler:innen und Designer:innen.
+            </LargeText>
+            <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>
+          </GridItem>
+        </Grid>
+      </Layout>
+    </>
   );
 };
 

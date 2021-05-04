@@ -15,6 +15,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { JobCard } from '../components/cards/job-card';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
+import { Aurora, AuroraType } from '../components/aurora/aurora';
 
 const PositionsTitle = styled(SectionTitle)`
   font-size: 24px;
@@ -85,42 +86,45 @@ const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
   `);
 
   return (
-    <Layout>
-      <SEO
-        title="Karriere | Satellytes"
-        description="Wir suchen Entwickler:innen aus Leidenschaft! Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung."
-      />
-      <Grid>
-        <GridItem>
-          <PageTitle>Karriere</PageTitle>
-        </GridItem>
-        <GridItem xs={12} md={8}>
-          <LargeText as={'h2'}>
-            Wir suchen Entwickler:innen aus Leidenschaft!
-          </LargeText>
-          <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>
-          <PositionsTitle>Unsere offenen Stellen</PositionsTitle>
-        </GridItem>
-        <GridItem xs={0} md={4} />
-        {pageContext.positions.map((position) => (
-          <JobCardGridItem xs={12} sm={6} md={4} lg={3} key={position.id}>
-            <JobCard
-              title={position.name}
-              text={position.satellytesShortDescription}
-              link={position.satellytesPath}
-            />
-          </JobCardGridItem>
-        ))}
-        <GridItem xs={12}>
-          <InfoText>
-            Oder schicke deine Bewerbung an:{' '}
-            <TextLink to="mailto:career@satellytes.com">
-              career@satellytes.com
-            </TextLink>
-          </InfoText>
-        </GridItem>
-      </Grid>
-    </Layout>
+    <>
+      <Aurora type={AuroraType.Pink} />
+      <Layout>
+        <SEO
+          title="Karriere | Satellytes"
+          description="Wir suchen Entwickler:innen aus Leidenschaft! Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung."
+        />
+        <Grid>
+          <GridItem>
+            <PageTitle>Karriere</PageTitle>
+          </GridItem>
+          <GridItem xs={12} md={8}>
+            <LargeText as={'h2'}>
+              Wir suchen Entwickler:innen aus Leidenschaft!
+            </LargeText>
+            <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>
+            <PositionsTitle>Unsere offenen Stellen</PositionsTitle>
+          </GridItem>
+          <GridItem xs={0} md={4} />
+          {pageContext.positions.map((position) => (
+            <JobCardGridItem xs={12} sm={6} md={4} lg={3} key={position.id}>
+              <JobCard
+                title={position.name}
+                text={position.satellytesShortDescription}
+                link={position.satellytesPath}
+              />
+            </JobCardGridItem>
+          ))}
+          <GridItem xs={12}>
+            <InfoText>
+              Oder schicke deine Bewerbung an:{' '}
+              <TextLink to="mailto:career@satellytes.com">
+                career@satellytes.com
+              </TextLink>
+            </InfoText>
+          </GridItem>
+        </Grid>
+      </Layout>
+    </>
   );
 };
 

@@ -50,6 +50,7 @@ export interface FlareProps {
    * The negative value is required to prevent any pause in the beginning.
    */
   animationOffset?: number;
+  opacity?: number;
 }
 
 export enum FlareType {
@@ -76,12 +77,13 @@ export const Flare = styled.div<FlareProps>`
   --flare-rotate: ${(props) => props.rotation ?? 0}deg;
   --flare-x: ${(props) => props.x ?? 0};
   --flare-y: ${(props) => props.y ?? 0};
+  --flare-opacity: ${(props) => props.opacity ?? 1};
 
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   display: inline-block;
-
+  opacity: var(--flare-opacity, 1);
   width: var(--flare-size, 100px);
   height: var(--flare-size, 100px);
   position: absolute;

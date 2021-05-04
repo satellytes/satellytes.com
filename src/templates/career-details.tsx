@@ -9,6 +9,7 @@ import { up } from '../components/breakpoint/breakpoint';
 import { TextTitle } from '../components/typography/typography';
 import { CareerForm } from '../components/career-form/career-form';
 import { HEADER_HEIGHT } from '../components/header/header';
+import { Aurora, AuroraType } from '../components/aurora/aurora';
 
 const PERSONIO_SHORT_DESCRIPTION_NAME = 'Kurzbeschreibung';
 
@@ -85,36 +86,39 @@ const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
     return <PersonioHtml dangerouslySetInnerHTML={{ __html: text }} />;
   };
   return (
-    <Layout siteTitleUrl="/career">
-      <SEO
-        title={`Karriere - ${pageContext.position.name} | Satellytes`}
-        description={`Wir suchen nach ${pageContext.position.name}! Schaue Dir unsere offene Stelle an. Wir freuen uns auf Deine Bewerbung.`}
-      />
-      <Grid>
-        <GridItem xs={12} md={8}>
-          <Title>{pageContext.position.name}</Title>
-          <IntroText text={intro?.value} />
-          {descriptions.map(({ name, value }) => {
-            return (
-              <div key={name}>
-                <SectionTitle>{name}</SectionTitle>
-                <PersonioHtml dangerouslySetInnerHTML={{ __html: value }} />
-              </div>
-            );
-          })}
-        </GridItem>
+    <>
+      <Aurora type={AuroraType.Pink} />
+      <Layout siteTitleUrl="/career">
+        <SEO
+          title={`Karriere - ${pageContext.position.name} | Satellytes`}
+          description={`Wir suchen nach ${pageContext.position.name}! Schaue Dir unsere offene Stelle an. Wir freuen uns auf Deine Bewerbung.`}
+        />
+        <Grid>
+          <GridItem xs={12} md={8}>
+            <Title>{pageContext.position.name}</Title>
+            <IntroText text={intro?.value} />
+            {descriptions.map(({ name, value }) => {
+              return (
+                <div key={name}>
+                  <SectionTitle>{name}</SectionTitle>
+                  <PersonioHtml dangerouslySetInnerHTML={{ __html: value }} />
+                </div>
+              );
+            })}
+          </GridItem>
 
-        <GridItem xs={12} md={8}>
-          <SectionTitle>Bewirb dich jetzt</SectionTitle>
-          <CareerForm
-            company_id="41230"
-            recruiting_channel_id="329206"
-            access_token="89b2acfa3a239b75c7d6"
-            job_position_id={pageContext.position.id + ''}
-          />
-        </GridItem>
-      </Grid>
-    </Layout>
+          <GridItem xs={12} md={8}>
+            <SectionTitle>Bewirb dich jetzt</SectionTitle>
+            <CareerForm
+              company_id="41230"
+              recruiting_channel_id="329206"
+              access_token="89b2acfa3a239b75c7d6"
+              job_position_id={pageContext.position.id + ''}
+            />
+          </GridItem>
+        </Grid>
+      </Layout>
+    </>
   );
 };
 
