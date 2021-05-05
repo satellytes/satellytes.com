@@ -4,8 +4,7 @@ import { Helmet } from 'react-helmet';
 import CocoGothicBoldWoff2 from './layout/fonts/CocoGothic-Bold.woff2';
 import CocoGothicWoff2 from './layout/fonts/CocoGothic.woff2';
 
-const DEFAULT_IMAGE_URL =
-  'https://res.cloudinary.com/satellytes/image/upload/v1614666655/satellytes-website/logo-satellytes_asvp6p.png';
+const DEFAULT_IMAGE_URL = '/sy-share-image.jpg';
 
 interface SeoProps {
   title: string;
