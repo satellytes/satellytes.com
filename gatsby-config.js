@@ -72,5 +72,8 @@ module.exports = {
         exclude: ['/imprint', '/data-privacy', '/blog/**'],
       },
     },
+    {
+      resolve: `gatsby-plugin-netlify`,
+    },
   ],
 };
