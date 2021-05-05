@@ -14,12 +14,12 @@ interface BlogCardProps extends CardProps {
   large?: boolean;
 }
 
-const BlogCardWrapper = styled(CardWrapper)<{ image: boolean }>`
+const BlogCardWrapper = styled(CardWrapper)<{ $image: boolean }>`
   padding: 24px;
   overflow: hidden;
 
   ${(props) =>
-    props.image &&
+    props.$image &&
     css`
       padding: 24px 16px;
     `}
@@ -30,7 +30,7 @@ const BlogCardImage = styled(GatsbyImage)<GatsbyImageProps>`
   margin: -24px -16px 24px;
 `;
 
-const BlogCardTitle = styled(CardTitle)<{ image: boolean; large: boolean }>`
+const BlogCardTitle = styled(CardTitle)<{ $image: boolean; large: boolean }>`
   margin-bottom: 16px;
   font-size: 32px;
 
@@ -49,7 +49,7 @@ const BlogCardTitle = styled(CardTitle)<{ image: boolean; large: boolean }>`
     `}
 
   ${(props) =>
-    props.image &&
+    props.$image &&
     css`
       margin-bottom: 8px;
       font-size: 20px;
@@ -57,7 +57,7 @@ const BlogCardTitle = styled(CardTitle)<{ image: boolean; large: boolean }>`
     
   ${(props) =>
     props.large &&
-    props.image &&
+    props.$image &&
     css`
       ${up('md')} {
         margin-bottom: 12px;
@@ -66,7 +66,7 @@ const BlogCardTitle = styled(CardTitle)<{ image: boolean; large: boolean }>`
     `}
 `;
 
-const BlogCardText = styled(CardText)<{ image: boolean; large: boolean }>`
+const BlogCardText = styled(CardText)<{ large: boolean }>`
   flex-grow: inherit;
   margin-bottom: 8px;
 
@@ -114,7 +114,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({
     <BlogCardWrapper
       as={Link}
       to={link}
-      image={Boolean(image)}
+      $image={Boolean(image)}
       sm={6}
       md={large ? 6 : 4}
     >
@@ -127,14 +127,12 @@ export const BlogCard: React.FC<BlogCardProps> = ({
         />
       )}
 
-      <BlogCardTitle image={Boolean(image)} large={Boolean(large)}>
+      <BlogCardTitle $image={Boolean(image)} large={Boolean(large)}>
         {title}
       </BlogCardTitle>
 
       {text.length > 0 && (
-        <BlogCardText image={Boolean(image)} large={Boolean(large)}>
-          {text}
-        </BlogCardText>
+        <BlogCardText large={Boolean(large)}>{text}</BlogCardText>
       )}
 
       {caption && <CardCaption>{caption}</CardCaption>}
