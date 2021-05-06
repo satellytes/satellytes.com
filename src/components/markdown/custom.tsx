@@ -19,6 +19,7 @@ import { nord as PrismTheme } from 'react-syntax-highlighter/dist/esm/styles/pri
 import styled from 'styled-components';
 import { rgba } from 'polished';
 import React from 'react';
+import { up } from '../breakpoint/breakpoint';
 
 /**
  * Override markdown generated html content with custom React components (for us mostly to pass in custom styling)
@@ -39,19 +40,39 @@ const SyntaxHighlighterStyled = styled(SyntaxHighlighter)`
   overflow-x: auto;
   outline: 1x solid red;
 `;
+/*
+the 160px margin is ridiculous and might fit single pages
+but they are not suited for blog posts as the content gets stretched too most
+and the information density is too much reduced for an article format.
+ */
+export const TextTitleCondensed = styled(TextTitle)`
+  ${up('md')} {
+    margin-top: 40px;
+  }
+`;
+
+export const SubTitleCondensed = styled(SubTitle)`
+  margin-top: 40px;
+  margin-bottom: 20px;
+
+  ${up('md')} {
+    font-size: 36px;
+  }
+`;
+
 const customSatellytesComponents: Components = {
   a(props) {
     return <TextLink to={props.href + ''}>{props.children}</TextLink>;
   },
   // define our lovely headlines from h1 to h6
   h1(props) {
-    return <SubTitle as={'h1'}>{props.children}</SubTitle>;
+    return <SubTitleCondensed as={'h1'}>{props.children}</SubTitleCondensed>;
   },
   h2(props) {
-    return <SubTitle as={'h2'}>{props.children}</SubTitle>;
+    return <SubTitleCondensed as={'h2'}>{props.children}</SubTitleCondensed>;
   },
   h3(props) {
-    return <TextTitle as={'h3'}>{props.children}</TextTitle>;
+    return <TextTitleCondensed as={'h3'}>{props.children}</TextTitleCondensed>;
   },
   h4(props) {
     return <SmallTitle as={'h4'}>{props.children}</SmallTitle>;

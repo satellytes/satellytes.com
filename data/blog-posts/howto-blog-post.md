@@ -12,10 +12,16 @@ Dear colleagues,
 
 learn how to properly write a blog post – in terms of formatting – so that everything is rendered properly & our blog looks super shiny. 💫
 
-# Markdown Syntax
+## Accessibility
+Keep in mind that blog posts do always start with a `h1` to show the blog post title.
+This means you should not use any heading with the level 1. Always start at level 2 to keep the document outline valid.
+Everything in the markdown file should belong to that foremost `h1` so there are no valid reasons to use another one
+inside your content.
+
+## Markdown Syntax
 Here examples of common formatting with markdown. We use [GitHub Flavored Markdown](https://github.github.com/gfm/) so you can enjoy the usual formatting you know from interacting with github.com or any enterprise edition. We will not highlight every possible formatting but the most important or let's say common ones to author a blog post.
 
-## General Text
+### General Text
 
 > 💡 I love quotes with some icons to highlight stuff
 
@@ -35,9 +41,7 @@ Let's also make lists beautiful. Here some facts to stress test the list feature
 + A Shot of Espresso Contains Less Caffeine Than a Cup of Coffee
 
 
-
-
-## Code
+### Code
 Super important for developers writing about code. We want our code to look as beautiful as in our own editor. 
 
 You can use a fenced code block with backticks ` ``` ` or tilde  `~~~`
@@ -52,7 +56,7 @@ cosnt myJavaScrip = true;
 
 Inline code works too: `const works = true`
 
-### JavaScript
+#### JavaScript
 
 ```javascript
 function add(x, y) {
@@ -65,7 +69,7 @@ for (let i = 0; i < 10; i++){
 }
 ```
 
-### bash
+#### bash
 
 ```bash
 $: cowsay I love Satellytes ✨
@@ -80,7 +84,7 @@ $: cowsay I love Satellytes ✨
                 ||     ||
 ```
 
-### CSS
+#### CSS
 
 ```css
 @import url(https://fonts.googleapis.com/css?family=Questrial);
@@ -104,7 +108,7 @@ footer p {
 
 ```
 
-### HTML
+#### HTML
 
 ```html
 <!DOCTYPE html>

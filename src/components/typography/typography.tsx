@@ -90,7 +90,7 @@ export const TextTitle = styled.h4`
 
   ${up('md')} {
     font-size: 32px;
-    margin-top: 80px;
+    margin-top: 160px;
   }
 `;
 

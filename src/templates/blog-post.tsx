@@ -10,6 +10,7 @@ import { Markdown } from '../components/markdown/markdown';
 import SEO from '../components/seo';
 import { SectionTitle } from '../components/typography/typography';
 import SharePanel from '../components/share-panel/share-panel';
+import { rgba } from 'polished';
 
 interface BlogArticleTemplateProps {
   data: {
@@ -28,12 +29,37 @@ interface BlogArticleTemplateProps {
 }
 
 const BlogPostTitle = styled(SectionTitle)`
+  margin-bottom: 20px;
+`;
+
+const BlogHeaderContainer = styled.div`
   margin-top: 40px;
+  margin-bottom: 80px;
 
   ${up('md')} {
     margin-top: 80px;
   }
 `;
+const BlogPostDivider = styled.hr`
+  border: none;
+  height: 2px;
+  margin-top: 20px;
+  background: radial-gradient(circle at center, #4d79ff, #202840);
+`;
+
+const BlogHeader = ({ frontmatter }) => {
+  return (
+    <BlogHeaderContainer>
+      <BlogPostTitle as="h1">{frontmatter.title}</BlogPostTitle>
+      <Byline
+        author={frontmatter.author}
+        date={parseISO(frontmatter.date)}
+        authorSummary={frontmatter.authorSummary}
+      />
+      <BlogPostDivider />
+    </BlogHeaderContainer>
+  );
+};
 
 const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
   return (
@@ -50,17 +76,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
       <Grid center>
         <GridItem xs={0} md={2} />
         <GridItem xs={12} md={8}>
-          <BlogPostTitle as="h1">
-            {data.markdownRemark.frontmatter.title}
-          </BlogPostTitle>
-          {data.markdownRemark.frontmatter.authorSummary &&
-            data.markdownRemark.frontmatter.author && (
-              <Byline
-                author={data.markdownRemark.frontmatter.author}
-                date={parseISO(data.markdownRemark.frontmatter.date)}
-                authorSummary={data.markdownRemark.frontmatter.authorSummary}
-              />
-            )}
+          <BlogHeader frontmatter={data.markdownRemark.frontmatter} />
           <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>
           <SharePanel title={data.markdownRemark.frontmatter.title} />
         </GridItem>
