@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import customSatellytesComponents from './custom';
+import customSatellytesComponents from './custom-components';
 import remarkGfm from 'remark-gfm';
 
 export const Markdown = (props) => {

@@ -39,6 +39,8 @@
     "gatsby-plugin-smoothscroll": "^1.2.0",
     "gatsby-plugin-styled-components": "^4.4.0",
     "gatsby-plugin-typescript": "3.4.0",
+    "gatsby-remark-copy-linked-files": "^4.1.0",
+    "gatsby-remark-images": "^5.1.0",
     "gatsby-source-filesystem": "3.4.0",
     "gatsby-transformer-json": "^3.4.0",
     "gatsby-transformer-remark": "^4.1.0",

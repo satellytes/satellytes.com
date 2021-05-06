@@ -62,6 +62,8 @@ const BlogHeader = ({ frontmatter }) => {
 };
 
 const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
+  console.log(data);
+
   return (
     <Layout
       heroImage={data.markdownRemark.frontmatter.image}
@@ -89,6 +91,8 @@ export const BLOG_POST_PAGE_QUERY = graphql`
   query($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       excerpt(pruneLength: 250, truncate: true)
+      html
+      htmlAst
       frontmatter {
         date
         path
