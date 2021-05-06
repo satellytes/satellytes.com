@@ -90,7 +90,7 @@ export const TextTitle = styled.h4`
 
   ${up('md')} {
     font-size: 32px;
-    margin-top: 160px;
+    margin-top: 80px;
   }
 `;
 
@@ -170,5 +170,6 @@ export const TextLink = styled(Link)<{ small?: boolean }>`
 
   &:hover {
     color: ${theme.palette.text.link.hover};
+    text-decoration: underline;
   }
 `;
