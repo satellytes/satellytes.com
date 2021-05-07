@@ -32,13 +32,16 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        excerpt_separator: `<!-- end -->`,
+        excerpt_separator: `<!-- stop excerpt -->`,
         gfm: true,
         plugins: [
           {
             resolve: 'gatsby-remark-copy-linked-files',
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
             options: {
-              destinationDir: 'downloads',
+              inlineCodeMarker: '±',
             },
           },
           {
@@ -47,9 +50,9 @@ module.exports = {
               // It's important to specify the maxWidth (in pixels) of
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
-              maxWidth: 590,
-              wrapperStyle: (fluidResult) =>
-                `flex:${_.round(fluidResult.aspectRatio, 2)};`,
+              maxWidth: 1200,
+              linkImagesToOriginal: false,
+              withWebp: true,
             },
           },
         ],

@@ -62,8 +62,6 @@ const BlogHeader = ({ frontmatter }) => {
 };
 
 const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
-  console.log(data);
-
   return (
     <Layout
       heroImage={data.markdownRemark.frontmatter.image}
