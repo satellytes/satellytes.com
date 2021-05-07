@@ -45,7 +45,11 @@ Well, that's a construction side.
 
 This should work. The html from gatsby will work but the markdown is not touched.
 
-![my alt text](./images/sy.jpg) 
+no height, img is position absolute. why that?
+![my alt text](./images/test.png)
+
+does not work yet?
+[My PDF Download](./images/test.pdf)
 
 We use `react-markdown` and pass in the raw markdown string. 
 Gatsby on the other hand usually expects to process markdown files through `gatsby-transformer-remark`, `gatsby-remark-images` & friends. That will store the resulting html in the internal graphql representation and we would have to apply it like that `dangerouslySetInnerHTML={{ __html: html }}`  

@@ -101,9 +101,13 @@ const customSatellytesComponents: Components = {
   code(props) {
     const className = String(props.className) ?? '';
     const children = String(props.children).replace(/\n$/, '');
-    const match = /language-(\w+)/.exec(className);
 
-    return !props.inline ? (
+    // react-markdown passes in props.inline, but the ast from gatsby doesn't contain it
+    // so let's check with the regex only.
+    const match = /language-(\w+)/.exec(className);
+    const useBlock = !!match;
+
+    return useBlock ? (
       <SyntaxHighlighterStyled
         showLineNumbers={true}
         style={PrismTheme}

@@ -33,7 +33,14 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         excerpt_separator: `<!-- end -->`,
+        gfm: true,
         plugins: [
+          {
+            resolve: 'gatsby-remark-copy-linked-files',
+            options: {
+              destinationDir: 'downloads',
+            },
+          },
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -41,6 +48,8 @@ module.exports = {
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
               maxWidth: 590,
+              wrapperStyle: (fluidResult) =>
+                `flex:${_.round(fluidResult.aspectRatio, 2)};`,
             },
           },
         ],

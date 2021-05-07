@@ -6,16 +6,16 @@ import { up } from '../components/breakpoint/breakpoint';
 import Byline from '../components/byline/byline';
 import { Grid, GridItem } from '../components/grid/grid';
 import Layout from '../components/layout/layout';
-import { Markdown } from '../components/markdown/markdown';
 import SEO from '../components/seo';
 import { SectionTitle } from '../components/typography/typography';
 import SharePanel from '../components/share-panel/share-panel';
-import { rgba } from 'polished';
+import { MarkdownAst } from '../components/markdown/markdown-ast';
 
 interface BlogArticleTemplateProps {
   data: {
     markdownRemark: {
       excerpt: string;
+      htmlAst;
       frontmatter: {
         date: string;
         title: string;
@@ -79,7 +79,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
         <GridItem xs={0} md={2} />
         <GridItem xs={12} md={8}>
           <BlogHeader frontmatter={data.markdownRemark.frontmatter} />
-          <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>
+          <MarkdownAst htmlAst={data.markdownRemark.htmlAst} />
           <SharePanel title={data.markdownRemark.frontmatter.title} />
         </GridItem>
       </Grid>
@@ -90,7 +90,6 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
 export const BLOG_POST_PAGE_QUERY = graphql`
   query($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
-      excerpt(pruneLength: 250, truncate: true)
       html
       htmlAst
       frontmatter {
