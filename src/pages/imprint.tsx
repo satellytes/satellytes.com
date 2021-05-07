@@ -4,14 +4,14 @@ import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 import { PageTitle } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
-import { Markdown } from '../components/markdown/markdown';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import { Text } from '../components/typography/typography';
+import { MarkdownAst } from '../components/markdown/markdown-ast';
 
 interface ImprintQuery {
   markdownRemark: {
-    rawMarkdownBody: string;
+    htmlAst: string;
   };
 }
 
@@ -24,7 +24,7 @@ const ImprintPage: React.FC = () => {
   const data = useStaticQuery<ImprintQuery>(graphql`
     query {
       markdownRemark(fileAbsolutePath: { regex: "/(pages/imprint)/" }) {
-        rawMarkdownBody
+        htmlAst
       }
     }
   `);
@@ -40,7 +40,7 @@ const ImprintPage: React.FC = () => {
           <PageTitle>Impressum</PageTitle>
         </GridItem>
         <GridItem xs={12} md={8}>
-          <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>
+          <MarkdownAst htmlAst={data.markdownRemark.htmlAst} />
           <BottomNote>
             Aktualisiert: 16.Juli 2020, Erstellt: 12.Sep. 2018
           </BottomNote>

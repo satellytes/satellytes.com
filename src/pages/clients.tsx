@@ -4,13 +4,13 @@ import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 import { LargeText, PageTitle } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
-import { Markdown } from '../components/markdown/markdown';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Aurora, AuroraType } from '../components/aurora/aurora';
+import { MarkdownAst } from '../components/markdown/markdown-ast';
 
 interface ClientsQuery {
   markdownRemark: {
-    rawMarkdownBody: string;
+    htmlAst: string;
   };
 }
 
@@ -18,7 +18,7 @@ const ClientsPage: React.FC = () => {
   const data = useStaticQuery<ClientsQuery>(graphql`
     query {
       markdownRemark(fileAbsolutePath: { regex: "/(pages/clients)/" }) {
-        rawMarkdownBody
+        htmlAst
       }
     }
   `);
@@ -40,7 +40,7 @@ const ClientsPage: React.FC = () => {
               Wir unterstützen große Konzerne bei der Umsetzung ihrer digitalen
               Strategien.
             </LargeText>
-            <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>
+            <MarkdownAst htmlAst={data.markdownRemark.htmlAst} />
           </GridItem>
         </Grid>
       </Layout>

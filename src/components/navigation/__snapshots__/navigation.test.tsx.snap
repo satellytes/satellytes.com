@@ -12,10 +12,10 @@ Object {
           class="sc-bdnxRM iJMros"
         >
           <div
-            class="sc-gtsrHT gJrWDA"
+            class="sc-gtsrHT eENVYw"
           />
           <div
-            class="sc-gtsrHT bODbuW"
+            class="sc-gtsrHT kTCEya"
           >
             <div
               class="sc-pNWdM dbKsal"
@@ -184,6 +184,16 @@ Object {
                         Kontakt
                       </a>
                     </li>
+                    <li
+                      class="sc-bkbkJK cFFNFX"
+                    >
+                      <a
+                        class="sc-jSFjdj jRGQRZ sc-iemWCZ bGWmDs"
+                        href="/blog"
+                      >
+                        Blog
+                      </a>
+                    </li>
                   </ul>
                 </nav>
               </div>
@@ -201,10 +211,10 @@ Object {
         class="sc-bdnxRM iJMros"
       >
         <div
-          class="sc-gtsrHT gJrWDA"
+          class="sc-gtsrHT eENVYw"
         />
         <div
-          class="sc-gtsrHT bODbuW"
+          class="sc-gtsrHT kTCEya"
         >
           <div
             class="sc-pNWdM dbKsal"
@@ -371,6 +381,16 @@ Object {
                       href="/contact"
                     >
                       Kontakt
+                    </a>
+                  </li>
+                  <li
+                    class="sc-bkbkJK cFFNFX"
+                  >
+                    <a
+                      class="sc-jSFjdj jRGQRZ sc-iemWCZ bGWmDs"
+                      href="/blog"
+                    >
+                      Blog
                     </a>
                   </li>
                 </ul>
