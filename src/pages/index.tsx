@@ -7,12 +7,7 @@ import { Grid, GridItem } from '../components/grid/grid';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 import { BlockTeaser } from '../components/teasers/block-teaser';
-import {
-  PageTitle,
-  PageTitleSwoosh,
-  StyledTitle,
-  Text,
-} from '../components/typography/typography';
+import { PageTitle, Text } from '../components/typography/typography';
 import { HEADER_HEIGHT } from '../components/header/header';
 import { Aurora, AuroraType } from '../components/aurora/aurora';
 
@@ -26,43 +21,22 @@ interface AllClientsQuery {
   };
 }
 
-const HomePageTitle = styled(PageTitle)`
+const HomePageTitleContainer = styled.div`
   height: 92vh;
-  min-height: 300px;
+  min-height: min-content;
   margin-bottom: 0;
   margin-top: 0;
   padding-top: calc(96px + ${HEADER_HEIGHT});
 
   ${up('sm')} {
-    min-height: 500px;
+    min-height: 650px;
   }
 
   ${up('md')} {
     height: 100vh;
-    padding-top: calc(192px + ${HEADER_HEIGHT});
   }
 
   color: #ffffff;
-
-  ${PageTitleSwoosh} {
-    top: -6px;
-    height: 10px;
-    width: 19px;
-
-    ${up('sm')} {
-      width: 42px;
-      top: -14px;
-      height: 15px;
-    }
-  }
-
-  ${StyledTitle} {
-    font-size: 32px;
-
-    ${up('sm')} {
-      font-size: 72px;
-    }
-  }
 `;
 
 const HomePageBlockTeaser = styled(BlockTeaser)<{
@@ -70,7 +44,14 @@ const HomePageBlockTeaser = styled(BlockTeaser)<{
 }>`
   margin-bottom: ${(props) => props.margin && '160px'};
 `;
-
+const IndexPageTitle = styled(PageTitle)`
+  margin-bottom: 0;
+`;
+const IndexPageSubTitle = styled.p`
+  font-size: 40px;
+  font-style: italic;
+  margin: 0;
+`;
 const IndexPage: React.FC = () => {
   const data = useStaticQuery<AllClientsQuery>(graphql`
     query {
@@ -92,11 +73,13 @@ const IndexPage: React.FC = () => {
         <Grid center>
           <GridItem xs={0} md={2} />
           <GridItem xs={12} md={8}>
-            <HomePageTitle>
-              Satellytes
-              <br />
-              Enterprise Web Applications
-            </HomePageTitle>
+            <HomePageTitleContainer>
+              <IndexPageTitle>Satellytes</IndexPageTitle>
+              <IndexPageSubTitle>
+                We are pragmatic professionals, creating reliable software for
+                the web.
+              </IndexPageSubTitle>
+            </HomePageTitleContainer>
           </GridItem>
           <GridItem xs={0} md={2} />
           <GridItem xs={0} md={1} />
