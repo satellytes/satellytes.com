@@ -2,13 +2,11 @@ import { render } from '@testing-library/react';
 import React from 'react';
 import Byline from './byline';
 
-const testData = [
-  {
-    author: 'Max Mustermann',
-    date: new Date(Date.UTC(2020, 1, 21)),
-    authorSummary: 'Developer Satellytes',
-  },
-];
+const testData = {
+  author: 'Max Mustermann',
+  date: new Date(Date.UTC(2020, 1, 21)),
+  authorSummary: 'Developer Satellytes',
+};
 
 describe('Byline', () => {
   let byline: any;
@@ -20,9 +18,9 @@ describe('Byline', () => {
   beforeEach(() => {
     byline = render(
       <Byline
-        author={testData[0].author}
-        date={testData[0].date}
-        authorSummary={testData[0].authorSummary}
+        author={testData.author}
+        date={testData.date}
+        authorSummary={testData.authorSummary}
       />,
     );
   });

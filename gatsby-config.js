@@ -35,6 +35,7 @@ module.exports = {
     siteUrl: BASE_URL,
   },
   plugins: [
+    `gatsby-plugin-sass`,
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-smoothscroll`,
     {

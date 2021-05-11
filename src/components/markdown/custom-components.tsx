@@ -60,11 +60,14 @@ export const SimpleLink = styled.a`
 `;
 
 const Blockquote = styled.blockquote`
-  color: #ffffff;
-  border-left: 0.25em solid #dfe2e5;
+  border-left: 0.25em solid ${theme.palette.text.link.default};
   margin: 0 0 16px 0;
-  background-color: ${rgba('#ffffff', 0.2)};
-  padding: 0.5em;
+  background-color: ${rgba(theme.palette.background.bodyLight, 0.2)};
+  padding: 1em;
+
+  > p {
+    margin: 0;
+  }
 `;
 
 const TableWrapper = styled.div`
