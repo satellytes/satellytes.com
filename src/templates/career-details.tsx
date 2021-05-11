@@ -88,7 +88,7 @@ const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
   return (
     <>
       <Aurora type={AuroraType.Pink} />
-      <Layout siteTitleUrl="/career">
+      <Layout siteTitleUrl="/career" transparentHeader={true}>
         <SEO
           title={`Karriere - ${pageContext.position.name} | Satellytes`}
           description={`Wir suchen nach ${pageContext.position.name}! Schaue Dir unsere offene Stelle an. Wir freuen uns auf Deine Bewerbung.`}
