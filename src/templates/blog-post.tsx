@@ -29,22 +29,17 @@ interface BlogArticleTemplateProps {
 }
 
 const BlogPostTitle = styled(SectionTitle)`
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 `;
 
 const BlogHeaderContainer = styled.div`
   margin-top: 40px;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 
   ${up('md')} {
     margin-top: 80px;
+    margin-bottom: 32px;
   }
-`;
-const BlogPostDivider = styled.hr`
-  border: none;
-  height: 2px;
-  margin-top: 20px;
-  background: radial-gradient(circle at center, #4d79ff, #202840);
 `;
 
 const BlogHeader = ({ frontmatter }) => {
@@ -56,7 +51,6 @@ const BlogHeader = ({ frontmatter }) => {
         date={parseISO(frontmatter.date)}
         authorSummary={frontmatter.authorSummary}
       />
-      <BlogPostDivider />
     </BlogHeaderContainer>
   );
 };
@@ -66,6 +60,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
     <Layout
       heroImage={data.markdownRemark.frontmatter.image}
       siteTitleUrl={'/blog'}
+      light
     >
       <SEO
         title={`${data.markdownRemark.frontmatter.title} | Satellytes`}

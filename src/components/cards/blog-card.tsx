@@ -34,7 +34,7 @@ const BlogCardTitle = styled(CardTitle)<{ $image: boolean; large: boolean }>`
   margin-bottom: 16px;
   font-size: 32px;
 
-  transition: color 0.2s;
+  transition: color 0.3s;
   ${BlogCardWrapper}:hover & {
     color: ${theme.palette.primary.main};
   }
@@ -70,6 +70,7 @@ const BlogCardText = styled(CardText)<{ large: boolean }>`
   flex-grow: inherit;
   margin-bottom: 8px;
 
+  transition: color 0.3s;
   ${BlogCardWrapper}:hover & {
     color: ${theme.palette.primary.main};
   }
@@ -95,10 +96,6 @@ const CardCaption = styled.p`
   font-size: 14px;
   line-height: 150%;
   color: rgba(32, 40, 64, 0.5);
-
-  ${BlogCardWrapper}:hover & {
-    color: ${theme.palette.primary.main};
-  }
 `;
 
 export const BlogCard: React.FC<BlogCardProps> = ({

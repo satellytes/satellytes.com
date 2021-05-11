@@ -54,6 +54,7 @@ interface LayoutProps {
   transparentHeader?: boolean;
   heroImage?: FluidObject | string;
   siteTitleUrl?: string;
+  light?: boolean;
 }
 
 const Layout: React.FC<LayoutProps> = (props) => {
@@ -71,11 +72,11 @@ const Layout: React.FC<LayoutProps> = (props) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle $lightTheme={false} />
+      <GlobalStyle $lightTheme={props.light} />
       <Header
         siteTitle={data.site.siteMetadata.title}
         siteTitleUrl={props.siteTitleUrl}
-        $lightTheme={false}
+        $lightTheme={props.light}
         heroImage={props.heroImage}
         transparent={props.transparentHeader || Boolean(props.heroImage)}
       />

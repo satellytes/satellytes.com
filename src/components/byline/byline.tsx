@@ -11,7 +11,7 @@ export interface BylineProps {
 }
 
 const BylineContainer = styled.div`
-  color: #668cff;
+  color: ${(props) => props.theme.palette.text.secondary};
 `;
 
 const BylineAuthor = styled.p`

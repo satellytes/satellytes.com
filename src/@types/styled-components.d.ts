@@ -19,6 +19,7 @@ declare module 'styled-components' {
         default: string;
         defaultLight: string;
         defaultDark: string;
+        secondary: string;
         header: string;
         headerLight: string;
         link: {
