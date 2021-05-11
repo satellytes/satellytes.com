@@ -23,7 +23,7 @@ interface ClientTemplateProps {
 
 const ClientDetailsTemplate: React.FC<ClientTemplateProps> = ({ data }) => {
   return (
-    <Layout siteTitleUrl={'/clients'}>
+    <Layout siteTitleUrl={'/clients'} transparentHeader={true}>
       <SEO title={`${data.clientsJson.name} | Satellytes`} />
       <Grid>
         <GridItem>

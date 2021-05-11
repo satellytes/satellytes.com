@@ -6,11 +6,6 @@ import { Swoosh } from '../icons/swoosh';
 import { HEADER_HEIGHT } from '../header/header';
 import { Link } from '../links/links';
 
-/**
- *
- * Title
- *
- */
 const TitleContainer = styled.div`
   margin-top: calc(96px + ${HEADER_HEIGHT});
   margin-bottom: 40px;
@@ -46,9 +41,7 @@ export const StyledTitle = styled.h1`
   }
 `;
 
-export const PageTitle: React.FC = (
-  props: React.AllHTMLAttributes<HTMLElement>,
-) => {
+export const PageTitle = (props) => {
   return (
     <TitleContainer className={props.className}>
       <StyledTitle>

@@ -26,7 +26,7 @@ const ServicesPage: React.FC = () => {
   return (
     <>
       <Aurora type={AuroraType.Pink} />
-      <Layout>
+      <Layout transparentHeader={true}>
         <SEO title="Leistungen | Satellytes" />
         <Grid>
           <GridItem>
