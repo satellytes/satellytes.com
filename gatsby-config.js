@@ -1,10 +1,38 @@
+/**
+ * On gatsby cloud the deployment urls follow a strict pattern:
+ * - https:// DOMAIN_NAME - BRANCH_NAME .gatsby.io
+ *
+ * Only lower case letters are used, everything else is filtered out.
+ *
+ */
+const extractGatsbyCloudPreviewUrl = () => {
+  const PRODUCTION_BRANCH_NAME = 'main';
+  const DOMAIN_NAME = 'satellytescom';
+
+  // the branch name is set via an env variable on gatsby cloud
+  // -> https://support.gatsbyjs.com/hc/en-us/articles/360052322954-Environment-Variables-Specific-to-Gatsby-Cloud
+  const BRANCH_NAME = process.env.BRANCH;
+  if (!BRANCH_NAME || BRANCH_NAME === PRODUCTION_BRANCH_NAME) {
+    return process.env.GATBSY_BASE_URL || '';
+  }
+
+  const formattedBranchName = BRANCH_NAME.toLowerCase().replace(
+    /[^a-zA-Z]/gi,
+    '',
+  );
+
+  return `https://${DOMAIN_NAME}-${formattedBranchName}.gtsb.io/`;
+};
+
+const BASE_URL = extractGatsbyCloudPreviewUrl() || 'http://localhost:8000';
+
 module.exports = {
   siteMetadata: {
     title: 'Satellytes',
     description:
       'Satellytes ist eine Digital-Agentur, die um große Unternehmen kreist und ihnen bei der Transformation und Optimierung digitaler Services und Interfaces hilft.',
     author: 'Satellytes',
-    siteUrl: 'https://satellytes.com',
+    siteUrl: BASE_URL,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
