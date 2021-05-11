@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import CocoGothicBoldWoff2 from './layout/fonts/CocoGothic-Bold.woff2';
 import CocoGothicWoff2 from './layout/fonts/CocoGothic.woff2';
 
-const DEFAULT_IMAGE_URL = '/sy-share-image.jpg';
+const DEFAULT_META_IMAGE_URL_PATH = '/sy-share-image.jpg';
 
 interface SeoProps {
   title: string;
@@ -29,6 +29,7 @@ const SEO: React.FC<SeoProps> = ({
             title
             description
             author
+            siteUrl
           }
         }
       }
@@ -37,7 +38,8 @@ const SEO: React.FC<SeoProps> = ({
 
   const metaDescription = description || site.siteMetadata.description;
   const typeOfSite = siteType || 'website';
-  const imgUrl = imageUrl || DEFAULT_IMAGE_URL;
+  const metaImageUrl =
+    imageUrl || site.siteMetadata.siteUrl + DEFAULT_META_IMAGE_URL_PATH;
 
   return (
     <Helmet
@@ -53,9 +55,9 @@ const SEO: React.FC<SeoProps> = ({
         property="og:description"
         content={metaDescription}
       />
-      {imgUrl && <meta property="image" content={imgUrl} />}
+      {metaImageUrl && <meta property="image" content={metaImageUrl} />}
       <meta property="og:title" content={title} />
-      {imgUrl && <meta property="og:image" content={imgUrl} />}
+      {metaImageUrl && <meta property="og:image" content={metaImageUrl} />}
       <meta property="og:type" content={typeOfSite} />
 
       {/* -- Twitter Meta Tags -- */}
@@ -63,12 +65,14 @@ const SEO: React.FC<SeoProps> = ({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={metaDescription} />
       <meta name="twitter:creator" content={site.siteMetadata.author} />
-      {imgUrl && <meta name="twitter:image" content={imgUrl} />}
-      {imgUrl && <meta property="twitter:image:alt" content={title} />}
+      {metaImageUrl && <meta name="twitter:image" content={metaImageUrl} />}
+      {metaImageUrl && <meta property="twitter:image:alt" content={title} />}
 
       {/* -- Whatsapp --*/}
-      {imgUrl && <meta property="og:image:secure_url" content={imgUrl} />}
-      {imgUrl && <meta property="og:image:width" content="400" />}
+      {metaImageUrl && (
+        <meta property="og:image:secure_url" content={metaImageUrl} />
+      )}
+      {metaImageUrl && <meta property="og:image:width" content="400" />}
 
       {/* -- Xing --*/}
       <meta property="og:site_name" content={title} />
