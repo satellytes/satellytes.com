@@ -21,7 +21,7 @@ const ContactPage: React.FC = () => {
   return (
     <>
       <Aurora type={AuroraType.Pink} />
-      <Layout>
+      <Layout transparentHeader={true}>
         <SEO
           title="Kontakt | Satellytes"
           description="Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine E-Mail an beep@satellytes.com"
