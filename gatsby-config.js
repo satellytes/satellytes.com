@@ -2,7 +2,7 @@
  * On gatsby cloud the deployment urls follow a strict pattern:
  * - https:// DOMAIN_NAME - BRANCH_NAME .gatsby.io
  *
- * Only lower case letters are used, everything else is filtered out.
+ * Only lower case letters and numbers are used, everything else is filtered out.
  *
  */
 const extractGatsbyCloudPreviewUrl = () => {
@@ -17,7 +17,7 @@ const extractGatsbyCloudPreviewUrl = () => {
   }
 
   const formattedBranchName = BRANCH_NAME.toLowerCase().replace(
-    /[^a-zA-Z]/gi,
+    /[^a-zA-Z0-9]/gi,
     '',
   );
 
