@@ -288,14 +288,6 @@ const Navigation: React.FC = (props) => {
                       Kontakt
                     </SiteNavigationLink>
                   </NavigationListItem>
-                  <NavigationListItem>
-                    <SiteNavigationLink
-                      to="/blog"
-                      $isSelected={activePath.includes('/blog')}
-                    >
-                      Blog
-                    </SiteNavigationLink>
-                  </NavigationListItem>
                 </SiteNavigationList>
               </nav>
             </SiteNavigation>
