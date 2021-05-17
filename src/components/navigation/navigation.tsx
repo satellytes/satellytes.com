@@ -282,6 +282,14 @@ const Navigation: React.FC = (props) => {
                   </NavigationListItem>
                   <NavigationListItem>
                     <SiteNavigationLink
+                      to="/office"
+                      $isSelected={activePath.includes('/office')}
+                    >
+                      Büro
+                    </SiteNavigationLink>
+                  </NavigationListItem>
+                  <NavigationListItem>
+                    <SiteNavigationLink
                       to="/contact"
                       $isSelected={activePath.includes('/contact')}
                     >

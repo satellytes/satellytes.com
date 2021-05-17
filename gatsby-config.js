@@ -38,6 +38,8 @@ module.exports = {
     `gatsby-plugin-sass`,
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-smoothscroll`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-catch-links` /* Please use gatsby-link for remark contetn */,
     {
       resolve: 'gatsby-source-filesystem',
       options: {
