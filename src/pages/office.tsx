@@ -10,30 +10,23 @@ import {
 } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
 import styled from 'styled-components';
-// import Img from "gatsby-image"
-import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
-const BottomNote = styled(Text)`
-  margin-top: 80px;
-  opacity: 0.8;
-`;
+import { StaticImage } from 'gatsby-plugin-image';
+import { up } from '../components/breakpoint/breakpoint';
 
-import { graphql, Link } from 'gatsby';
-
-export const query = graphql`
-  {
-    file(relativePath: { eq: "office/_MG_1402.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(layout: FIXED)
-      }
-    }
-  }
-`;
 /**
  * We can't wrap StaticImage as it doesn't support higher order functions.
  * See https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image/#using-staticimage-with-css-in-js-libraries
  */
 const OfficeImageWrapper = styled.div`
   margin-bottom: 24px;
+`;
+
+const Intro = styled(LargeText)`
+  margin-bottom: 80px;
+
+  ${up('md')} {
+    margin-bottom: 160px;
+  }
 `;
 
 const OfficePage = () => {
@@ -46,10 +39,10 @@ const OfficePage = () => {
         </GridItem>
 
         <GridItem xs={12} md={8}>
-          <LargeText>
+          <Intro>
             Fühl dich wohl bei uns. Ein kleiner Eindruck von unserem Büro in der
             Sendlinger Straße im Herzen Münchens.
-          </LargeText>
+          </Intro>
         </GridItem>
 
         <GridItem>
