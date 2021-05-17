@@ -54,6 +54,49 @@ interface LayoutProps {
   transparentHeader?: boolean;
   heroImage?: FluidObject | string;
   siteTitleUrl?: string;
+  light?: boolean;
+}
+enum POLARITY {
+  DARK = 'dark',
+  LIGHT = 'light',
+}
+
+function setPolarityBodyClass(isLight: boolean) {
+  const POLARITY_PREFIX = `sy-polarity--`;
+  const classNameDark = `${POLARITY_PREFIX}${POLARITY.DARK}`;
+  const classNameLight = `${POLARITY_PREFIX}${POLARITY.LIGHT}`;
+
+  const noBrowser = typeof window === 'undefined';
+
+  if (noBrowser) {
+    return;
+  }
+
+  if (isLight) {
+    document.body.classList.remove(classNameDark);
+    document.body.classList.add(classNameLight);
+  } else {
+    document.body.classList.remove(classNameLight);
+    document.body.classList.add(classNameDark);
+  }
+}
+
+/**
+ * This will flash upon loading, but it's okay for debugging.
+ * We also need a proper mechanic to incorporate user preference
+ * and/or store manual overridden value (through a switch)
+ * in the local storage.
+ */
+
+function overrideDarkFromQuery() {
+  const noBrowser = typeof window === 'undefined';
+
+  if (noBrowser) {
+    return false;
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  return params.has('dark');
 }
 
 const Layout: React.FC<LayoutProps> = (props) => {
@@ -67,15 +110,19 @@ const Layout: React.FC<LayoutProps> = (props) => {
     }
   `);
 
+  const isLight = props.light === true && !overrideDarkFromQuery();
+
   useAnchorTagScrolling();
+
+  setPolarityBodyClass(isLight);
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle $lightTheme={false} />
+      <GlobalStyle $lightTheme={isLight} />
       <Header
         siteTitle={data.site.siteMetadata.title}
         siteTitleUrl={props.siteTitleUrl}
-        $lightTheme={false}
+        $lightTheme={isLight}
         heroImage={props.heroImage}
         transparent={props.transparentHeader || Boolean(props.heroImage)}
       />

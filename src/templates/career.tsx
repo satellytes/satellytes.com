@@ -10,12 +10,12 @@ import {
   TextLink,
 } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
-import { Markdown } from '../components/markdown/markdown';
 import { graphql, useStaticQuery } from 'gatsby';
 import { JobCard } from '../components/cards/job-card';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
 import { Aurora, AuroraType } from '../components/aurora/aurora';
+import { MarkdownAst } from '../components/markdown/markdown-ast';
 
 const PositionsTitle = styled(SectionTitle)`
   font-size: 24px;
@@ -43,7 +43,7 @@ const InfoText = styled(Text)`
 
 interface CareerQuery {
   markdownRemark: {
-    rawMarkdownBody: string;
+    htmlAst: string;
   };
 }
 
@@ -80,7 +80,7 @@ const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
   const data = useStaticQuery<CareerQuery>(graphql`
     query {
       markdownRemark(fileAbsolutePath: { regex: "/(pages/career)/" }) {
-        rawMarkdownBody
+        htmlAst
       }
     }
   `);
@@ -101,7 +101,7 @@ const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
             <LargeText as={'h2'}>
               Wir suchen Entwickler:innen aus Leidenschaft!
             </LargeText>
-            <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>
+            <MarkdownAst htmlAst={data.markdownRemark.htmlAst} />
             <PositionsTitle>Unsere offenen Stellen</PositionsTitle>
           </GridItem>
           <GridItem xs={0} md={4} />

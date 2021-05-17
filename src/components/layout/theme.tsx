@@ -9,6 +9,7 @@ export const theme: DefaultTheme = {
       default: '#202840',
       defaultLight: '#FFFFFF',
       defaultDark: '#FFFFFF',
+      secondary: 'rgba(32,40,64,0.5)',
       header: '#FFFFFF',
       headerLight: '#668CFF',
       link: {

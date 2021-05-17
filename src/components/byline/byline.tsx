@@ -5,15 +5,13 @@ import styled from 'styled-components';
 import { BylineArrow } from '../icons/byline-arrow';
 
 export interface BylineProps {
-  author: string;
-  authorSummary: string;
+  author?: string;
+  authorSummary?: string;
   date: Date;
 }
 
 const BylineContainer = styled.div`
-  color: #668cff;
-  margin-top: 40px;
-  margin-bottom: 32px;
+  color: ${(props) => props.theme?.palette?.text?.secondary};
 `;
 
 const BylineAuthor = styled.p`
@@ -25,9 +23,14 @@ const BylineAuthor = styled.p`
 const BylineTimeFromPosted = styled.p`
   font-weight: bold;
   margin-top: 0;
+  margin-bottom: 0;
 `;
 
 const Byline: React.FC<BylineProps> = ({ author, date, authorSummary }) => {
+  if (!author && !authorSummary) {
+    return null;
+  }
+
   const timeFromPosted = formatDistanceToNow(new Date(date), {
     locale: enGB,
     addSuffix: true,

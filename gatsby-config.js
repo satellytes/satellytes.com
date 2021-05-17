@@ -2,7 +2,7 @@
  * On gatsby cloud the deployment urls follow a strict pattern:
  * - https:// DOMAIN_NAME - BRANCH_NAME .gatsby.io
  *
- * Only lower case letters are used, everything else is filtered out.
+ * Only lower case letters and numbers are used, everything else is filtered out.
  *
  */
 const extractGatsbyCloudPreviewUrl = () => {
@@ -17,7 +17,7 @@ const extractGatsbyCloudPreviewUrl = () => {
   }
 
   const formattedBranchName = BRANCH_NAME.toLowerCase().replace(
-    /[^a-zA-Z]/gi,
+    /[^a-zA-Z0-9]/gi,
     '',
   );
 
@@ -35,6 +35,7 @@ module.exports = {
     siteUrl: BASE_URL,
   },
   plugins: [
+    `gatsby-plugin-sass`,
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-smoothscroll`,
     {
@@ -60,7 +61,30 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        excerpt_separator: `<!-- end -->`,
+        excerpt_separator: `<!-- stop excerpt -->`,
+        gfm: true,
+        plugins: [
+          {
+            resolve: 'gatsby-remark-copy-linked-files',
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              inlineCodeMarker: '±',
+            },
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 1200,
+              linkImagesToOriginal: false,
+              withWebp: true,
+            },
+          },
+        ],
       },
     },
     'gatsby-transformer-json',

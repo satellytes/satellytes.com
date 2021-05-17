@@ -35,6 +35,7 @@ interface AllBlogPostsQuery {
 }
 
 const BlogPageTitle = styled(PageTitle)`
+  color: ${(props) => props.theme.palette.text.headerLight};
   margin-bottom: 48px;
 
   ${up('md')} {
@@ -85,7 +86,7 @@ const BlogPage: React.FC = () => {
   const remainingBlogPosts = blogPosts.slice(TOP_POST_COUNT);
 
   return (
-    <Layout>
+    <Layout light>
       <SEO title="Blog | Satellytes" />
       <Grid center>
         <GridItem>

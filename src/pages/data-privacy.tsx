@@ -5,11 +5,11 @@ import SEO from '../components/seo';
 import { PageTitle } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Markdown } from '../components/markdown/markdown';
+import { MarkdownAst } from '../components/markdown/markdown-ast';
 
 interface DataPrivacyQuery {
   markdownRemark: {
-    rawMarkdownBody: string;
+    htmlAst: string;
   };
 }
 
@@ -17,7 +17,7 @@ const DataPrivacyPage: React.FC = () => {
   const data = useStaticQuery<DataPrivacyQuery>(graphql`
     query {
       markdownRemark(fileAbsolutePath: { regex: "/(pages/data-privacy)/" }) {
-        rawMarkdownBody
+        htmlAst
       }
     }
   `);
@@ -33,7 +33,7 @@ const DataPrivacyPage: React.FC = () => {
           <PageTitle>Datenschutz</PageTitle>
         </GridItem>
         <GridItem xs={12} md={8}>
-          <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>
+          <MarkdownAst htmlAst={data.markdownRemark.htmlAst} />
         </GridItem>
       </Grid>
     </Layout>

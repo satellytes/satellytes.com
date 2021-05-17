@@ -64,6 +64,9 @@ export const GridItem = styled.div<GridItemProps>`
   /* on mobile an item takes the whole row itself by default */
   grid-column-start: span ${(props) => props.xs || 12};
 
+  // ensure that our columns never grow past the limits
+  max-width: 100%;
+
   ${(props) =>
     props.noGap &&
     css`

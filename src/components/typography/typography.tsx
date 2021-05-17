@@ -163,5 +163,6 @@ export const TextLink = styled(Link)<{ small?: boolean }>`
 
   &:hover {
     color: ${theme.palette.text.link.hover};
+    text-decoration: underline;
   }
 `;

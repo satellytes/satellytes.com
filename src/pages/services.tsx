@@ -4,13 +4,13 @@ import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 import { LargeText, PageTitle } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
-import { Markdown } from '../components/markdown/markdown';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Aurora, AuroraType } from '../components/aurora/aurora';
+import { MarkdownAst } from '../components/markdown/markdown-ast';
 
 interface ServicesQuery {
   markdownRemark: {
-    rawMarkdownBody: string;
+    htmlAst: string;
   };
 }
 
@@ -18,7 +18,7 @@ const ServicesPage: React.FC = () => {
   const data = useStaticQuery<ServicesQuery>(graphql`
     query {
       markdownRemark(fileAbsolutePath: { regex: "/(pages/services)/" }) {
-        rawMarkdownBody
+        htmlAst
       }
     }
   `);
@@ -38,7 +38,7 @@ const ServicesPage: React.FC = () => {
               Satellytes – das sind ausschließlich leidenschaftliche
               Entwickler:innen und Designer:innen.
             </LargeText>
-            <Markdown>{data.markdownRemark.rawMarkdownBody}</Markdown>
+            <MarkdownAst htmlAst={data.markdownRemark.htmlAst} />
           </GridItem>
         </Grid>
       </Layout>

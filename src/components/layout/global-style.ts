@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { rgba } from 'polished';
 
 export const GlobalStyle = createGlobalStyle<{ $lightTheme?: boolean }>`
   html {
@@ -29,6 +30,4 @@ export const GlobalStyle = createGlobalStyle<{ $lightTheme?: boolean }>`
   [data-whatintent='keyboard'] *:focus {
     outline: 4px solid #f4d03f;
   }
-  
-  
 `;

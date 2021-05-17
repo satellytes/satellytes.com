@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
 import { Grid, GridItem } from '../grid/grid';
 import { SubTitle } from '../typography/typography';
-import { Markdown } from '../markdown/markdown';
 import { formatDate } from '../util/format-date';
+import { MarkdownAst } from '../markdown/markdown-ast';
 
 export interface ClientProps {
   data: {
@@ -75,7 +75,7 @@ const TitleLabelItem = styled(LabelsItem)`
   }
 `;
 
-const ClientDescription = styled(Markdown)`
+const ClientDescription = styled(MarkdownAst)`
   margin-bottom: 40px;
 
   ${up('md')} {
@@ -92,7 +92,7 @@ const ClientPage: React.FC<ClientProps> = ({ data }) => {
         <GridItem xs={12} md={8}>
           <TitleLabelItem>{data.clientsJson.industry}</TitleLabelItem>
           <ClientSubTitle>{data.clientsJson.name}</ClientSubTitle>
-          <ClientDescription>{data.clientsJson.description}</ClientDescription>
+          {/*<ClientDescription>{data.clientsJson.description}</ClientDescription>*/}
         </GridItem>
       </Grid>
 
