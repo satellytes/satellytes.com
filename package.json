@@ -9,7 +9,7 @@
     "url": "git@github.com:satellytes/satellytes.com.git"
   },
   "engines": {
-    "node": ">= 6.0.0",
+    "node": ">= 14.0.0",
     "npm": "please-use-yarn",
     "yarn": "^1.0.0"
   },
