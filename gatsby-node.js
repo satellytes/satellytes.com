@@ -27,11 +27,11 @@ exports.onCreateNode = ({ node, getNode, actions, graphql }, options) => {
     }
 
     // we create a file name from the path (which is the page slug and more unique) but if none is available take the title
-    const fileName = `social-card---${slugify(post.path ?? post.title, {
+    const fileName = `social-card---${slugify(post.path || post.title, {
       lower: true,
     })}.jpg`;
     const outputFile = path.join('public', fileName);
-    const publicUrl = `${siteMetadata.siteUrl}/${fileName}`;
+    const publicUrl = `${siteMetadata.siteUrl}${fileName}`;
 
     generateCard({ title: post.title }, outputFile).then((filename) => {
       createNodeField({
@@ -110,7 +110,7 @@ const createCareerPages = async ({ actions }) => {
       lower: true,
     })}.jpg`;
     const outputFile = path.join('public', fileName);
-    const publicUrl = `${siteMetadata.siteUrl}/${fileName}`;
+    const publicUrl = `${siteMetadata.siteUrl}${fileName}`;
 
     generateCard({ title: position.name }, outputFile);
 
