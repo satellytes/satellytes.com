@@ -31,13 +31,6 @@ const MAPBOX_ATTRIBUTION = `© <a href="https://www.mapbox.com/about/maps/">Mapb
 
 const MAP_VIEW_ZOOM = 20;
 
-const SatellytesMarkerIcon = L.icon({
-  iconUrl: SyMarkerImage,
-  iconSize: [76, 99],
-  iconAnchor: [76 / 2, 70],
-  tooltipAnchor: [0, 10],
-});
-
 // We need to give the leaflet container itself an explicit height
 // and a distinct z-index to move underneath the fixed header;
 const MapContainerWithHeight = styled(MapContainer)`
@@ -65,6 +58,17 @@ const SatellytesTooltip = styled(Tooltip)`
  */
 export const Leaflet = () => {
   const [mapInstance, setMapInstance] = useState(null);
+
+  // optional chain access to `L` because leaflet could be null during SSR
+  let SatellytesMarkerIcon: any = null;
+  if (typeof L !== 'undefined') {
+    SatellytesMarkerIcon = L.icon({
+      iconUrl: SyMarkerImage,
+      iconSize: [76, 99],
+      iconAnchor: [76 / 2, 70],
+      tooltipAnchor: [0, 10],
+    });
+  }
 
   // we don't want to render leaflet outside of the browser (SSR)
   if (typeof window === 'undefined') {
@@ -110,7 +114,7 @@ export const Leaflet = () => {
         center={OFFICE_COORDINATES}
         pathOptions={{ color: '#668CFF', opacity: 0.2 }}
         radius={170}
-      ></CircleMarker>
+      />
     </MapContainerWithHeight>
   );
 
