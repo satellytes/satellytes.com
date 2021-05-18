@@ -7,7 +7,7 @@
  */
 const extractGatsbyCloudPreviewUrl = () => {
   const PRODUCTION_BRANCH_NAME = 'main';
-  const DOMAIN_NAME = 'satellytescom';
+  const DOMAIN_NAME = 'satellytescommain';
 
   // the branch name is set via an env variable on gatsby cloud
   // -> https://support.gatsbyjs.com/hc/en-us/articles/360052322954-Environment-Variables-Specific-to-Gatsby-Cloud

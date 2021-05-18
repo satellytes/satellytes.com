@@ -16,6 +16,9 @@ interface BlogArticleTemplateProps {
     markdownRemark: {
       excerpt: string;
       htmlAst;
+      fields: {
+        socialCard: string;
+      };
       frontmatter: {
         date: string;
         title: string;
@@ -64,7 +67,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
     >
       <SEO
         title={`${data.markdownRemark.frontmatter.title} | Satellytes`}
-        imageUrl={data.markdownRemark.frontmatter.image}
+        imageUrl={data.markdownRemark.fields?.socialCard}
         siteType="article"
         description={data.markdownRemark.excerpt}
       />
@@ -85,6 +88,9 @@ export const BLOG_POST_PAGE_QUERY = graphql`
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       htmlAst
+      fields {
+        socialCard
+      }
       frontmatter {
         date
         path

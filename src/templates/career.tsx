@@ -44,6 +44,9 @@ const InfoText = styled(Text)`
 interface CareerQuery {
   markdownRemark: {
     htmlAst: string;
+    fields: {
+      socialCard: string;
+    };
   };
 }
 
@@ -81,15 +84,20 @@ const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
     query {
       markdownRemark(fileAbsolutePath: { regex: "/(pages/career)/" }) {
         htmlAst
+        fields {
+          socialCard
+        }
       }
     }
   `);
 
+  const socialCard = data.markdownRemark?.fields?.socialCard;
   return (
     <>
       <Aurora type={AuroraType.Pink} />
       <Layout transparentHeader={true}>
         <SEO
+          imageUrl={socialCard}
           title="Karriere | Satellytes"
           description="Wir suchen Entwickler:innen aus Leidenschaft! Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung."
         />
