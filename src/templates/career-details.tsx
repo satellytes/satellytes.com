@@ -93,7 +93,7 @@ const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
         <SEO
           imageUrl={pageContext.socialCardImage}
           title={`Karriere - ${pageContext.position.name} | Satellytes`}
-          description={`Wir suchen nach ${pageContext.position.name}! Schaue Dir unsere offene Stelle an. Wir freuen uns auf Deine Bewerbung.`}
+          description={`Bewirb dich jetzt als ${pageContext.position.name}! Schaue Dir unsere anderen offenen Stelle an. Wir freuen uns auf Deine Bewerbung.`}
         />
         <Grid>
           <GridItem xs={12} md={8}>

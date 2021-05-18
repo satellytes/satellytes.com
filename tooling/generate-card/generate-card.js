@@ -59,6 +59,11 @@ const wrapTextFactory = (context) => (text, x, y, maxWidth, lineHeight) => {
   context.fillText(line, x, y);
 };
 
+/**
+ * Generate a card image (jpeg format)
+ * by composing a background with a title
+ * and an optional author.
+ */
 async function generateCard({ title, author }, file) {
   const canvas = createCanvas(CARD_WIDTH, CARD_HEIGHT);
 
@@ -91,7 +96,7 @@ async function generateCard({ title, author }, file) {
     );
   }
 
-  const buffer = canvas.toBuffer('image/png');
+  const buffer = canvas.toBuffer('image/jpeg');
   fs.writeFileSync(file, buffer);
 
   return file;
