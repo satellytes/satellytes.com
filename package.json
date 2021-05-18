@@ -8,6 +8,11 @@
     "type": "git",
     "url": "git@github.com:satellytes/satellytes.com.git"
   },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": "please-use-yarn",
+    "yarn": "^1.0.0"
+  },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
