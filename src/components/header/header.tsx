@@ -5,7 +5,6 @@ import { up } from '../breakpoint/breakpoint';
 import { GRID_GAP_DESKTOP, GRID_GAP_MOBILE } from '../grid/grid';
 import BurgerMenu from '../icons/burger-menu';
 import { CloseBurgerMenuIcon } from '../icons/buttons-icons/close-burger-menu';
-import { HeroImage } from './hero-image';
 import { NavigationFlyout } from './menu-flyout';
 import { Link } from '../links/links';
 import { Swoosh } from '../icons/swoosh';
@@ -99,7 +98,6 @@ interface HeaderProps {
   siteTitle: string;
   siteTitleUrl?: string;
   $lightTheme?: boolean;
-  heroImage?: FluidObject | string;
   transparent?: boolean;
 }
 
@@ -128,30 +126,28 @@ const Header: React.FC<HeaderProps> = (props) => {
   });
 
   return (
-    <HeroImage image={props.heroImage}>
-      <StyledHeader
-        $lightTheme={Boolean(props.$lightTheme)}
-        $transparent={isHeaderTransparent}
+    <StyledHeader
+      $lightTheme={Boolean(props.$lightTheme)}
+      $transparent={isHeaderTransparent}
+    >
+      <SiteTitle
+        to={props.siteTitleUrl || '/'}
+        $lightTheme={Boolean(!isHeaderTransparent && props.$lightTheme)}
       >
-        <SiteTitle
-          to={props.siteTitleUrl || '/'}
-          $lightTheme={Boolean(!isHeaderTransparent && props.$lightTheme)}
-        >
-          <HeaderSwoosh />
-          {props.siteTitle}
-        </SiteTitle>
-        <SiteMenu
-          aria-label="Open menu"
-          $lightTheme={Boolean(!isHeaderTransparent && props.$lightTheme)}
-          onClick={() => {
-            setIsNavigationVisible(!isNavigationVisible);
-          }}
-        >
-          {!isNavigationVisible ? <BurgerMenu /> : <CloseBurgerMenuIcon />}
-        </SiteMenu>
-        <NavigationFlyout visible={isNavigationVisible} />
-      </StyledHeader>
-    </HeroImage>
+        <HeaderSwoosh />
+        {props.siteTitle}
+      </SiteTitle>
+      <SiteMenu
+        aria-label="Open menu"
+        $lightTheme={Boolean(!isHeaderTransparent && props.$lightTheme)}
+        onClick={() => {
+          setIsNavigationVisible(!isNavigationVisible);
+        }}
+      >
+        {!isNavigationVisible ? <BurgerMenu /> : <CloseBurgerMenuIcon />}
+      </SiteMenu>
+      <NavigationFlyout visible={isNavigationVisible} />
+    </StyledHeader>
   );
 };
 
