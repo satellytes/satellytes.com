@@ -133,11 +133,7 @@ const createCareerPages = async ({ actions }) => {
   });
 };
 
-/**
- * Generate our blog by querying all markdown files from folder blog-posts.
- * We will also generate matching social cards.
- */
-const createBlogPages = async ({ actions, reporter, graphql, getNode }) => {
+const createBlogPages = async ({ actions, reporter, graphql }) => {
   const { createPage } = actions;
 
   const markdownBlogPages = await graphql(`
@@ -149,8 +145,6 @@ const createBlogPages = async ({ actions, reporter, graphql, getNode }) => {
         nodes {
           frontmatter {
             path
-            title
-            author
           }
         }
       }
@@ -167,6 +161,7 @@ const createBlogPages = async ({ actions, reporter, graphql, getNode }) => {
     createPage({
       path: node.frontmatter.path,
       component: BLOG_POST_TEMPLATE_PATH,
+      context: {},
     });
   });
 };
