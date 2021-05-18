@@ -194,3 +194,25 @@ const createClientPages = async ({ actions, reporter, graphql }) => {
     });
   });
 };
+
+// for leaflet to prevent window errors
+// cherry picked from https://github.com/dweirich/gatsby-plugin-react-leaflet/blob/a2bb72eab0d26b22ae0ee2e04bfda0114a147132/gatsby-node.js
+exports.onCreateWebpackConfig = function (_ref) {
+  var stage = _ref.stage,
+    loaders = _ref.loaders,
+    actions = _ref.actions;
+
+  if (stage === 'build-html' || stage === 'develop-html') {
+    var regex = [/node_modules\/leaflet/, /node_modules\\leaflet/];
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: regex,
+            use: loaders['null'](),
+          },
+        ],
+      },
+    });
+  }
+};

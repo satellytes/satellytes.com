@@ -1,9 +1,4 @@
-import React, {
-  FunctionComponent,
-  ReactChildren,
-  ReactNode,
-  useEffect,
-} from 'react';
+import React, { FunctionComponent, ReactNode, useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import Header, { HEADER_HEIGHT } from './../header/header';
@@ -12,7 +7,6 @@ import { theme } from './theme';
 import styled, { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './global-style';
 import { FluidObject } from 'gatsby-image';
-import { Leaflet } from '../leaflet/leaflet';
 import { HeroImage } from '../header/hero-image';
 
 /**
