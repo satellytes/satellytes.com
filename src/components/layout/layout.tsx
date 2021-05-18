@@ -62,7 +62,7 @@ interface LayoutProps {
   heroImage?: FluidObject | string;
   siteTitleUrl?: string;
   light?: boolean;
-  hero: ReactNode;
+  hero?: ReactNode;
 }
 enum POLARITY {
   DARK = 'dark',
