@@ -13,12 +13,16 @@ import { up } from '../breakpoint/breakpoint';
 
 import { BringMeHome } from './bring-home';
 import { SatellytesMarkerIcon } from './sy-marker';
+import { StaticImage } from 'gatsby-plugin-image';
+import { StaticReplacement } from './static-map-image';
 
 const OFFICE_COORDINATES: LatLngExpression = [48.13479, 11.56839];
 const MAPBOX_ACCESS_TOKEN =
   'pk.eyJ1Ijoic3ktYmVlcCIsImEiOiJja291MXRiZTAwMWNyMm5tcGc3Ymt6N2lkIn0.GqMzCE54VnlA8_XOqIPgyg';
 const MAPBOX_TILE_LAYER_DEFAULT = `https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=${MAPBOX_ACCESS_TOKEN}`;
 const MAPBOX_TILE_LAYER_DARK = `https://api.mapbox.com/styles/v1/sy-beep/ckou1zo8004q917pout1cyhcy/tiles/{z}/{x}/{y}?access_token=${MAPBOX_ACCESS_TOKEN}`;
+
+const MAP_IMAGE_PREVIEW = `https://api.mapbox.com/styles/v1/sy-beep/ckou1zo8004q917pout1cyhcy/static/11.5684,48.1348,17,0/1200x560?access_token=${MAPBOX_ACCESS_TOKEN}`;
 
 /**
  * ⚠️ Attribution is mandatory to fulfill the license and please update accordingly if using a different source than mapbox
@@ -46,6 +50,7 @@ const MapWrapper = styled.div`
 /**
  * Create a Leaflet map to display the o
  */
+
 export const Leaflet = () => {
   const [mapInstance, setMapInstance] = useState(null);
   const [isBrowser, setIsBrowser] = useState(false);
@@ -55,7 +60,7 @@ export const Leaflet = () => {
 
   // we don't want to render leaflet outside of the browser (SSR)
   if (!isBrowser) {
-    return null;
+    return <StaticReplacement url={MAP_IMAGE_PREVIEW} />;
   }
 
   const MapView = (
@@ -63,7 +68,7 @@ export const Leaflet = () => {
       whenCreated={setMapInstance as any}
       zoomControl={false}
       center={OFFICE_COORDINATES}
-      zoom={20}
+      zoom={MAP_VIEW_ZOOM}
       scrollWheelZoom={false}
     >
       {/*Introduce a LayerControl so we can offer multiple tile layers if people want to explore the city
