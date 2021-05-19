@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import Header, { HEADER_HEIGHT } from './../header/header';
@@ -7,6 +7,7 @@ import { theme } from './theme';
 import styled, { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './global-style';
 import { FluidObject } from 'gatsby-image';
+import { HeroImage } from '../header/hero-image';
 
 /**
  * this container is used to push the footer to the bottom
@@ -55,6 +56,8 @@ interface LayoutProps {
   heroImage?: FluidObject | string;
   siteTitleUrl?: string;
   light?: boolean;
+  hero?: ReactNode;
+  children?: ReactNode;
 }
 enum POLARITY {
   DARK = 'dark',
@@ -99,7 +102,7 @@ function overrideDarkFromQuery() {
   return params.has('dark');
 }
 
-const Layout: React.FC<LayoutProps> = (props) => {
+const Layout = (props: LayoutProps): JSX.Element => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -123,9 +126,11 @@ const Layout: React.FC<LayoutProps> = (props) => {
         siteTitle={data.site.siteMetadata.title}
         siteTitleUrl={props.siteTitleUrl}
         $lightTheme={isLight}
-        heroImage={props.heroImage}
         transparent={props.transparentHeader || Boolean(props.heroImage)}
       />
+      {/* pass in a hero node or try to use the hero image url */}
+      {props.hero ?? <HeroImage image={props.heroImage} />}
+
       <FullHeightContainer>
         <Main>{props.children}</Main>
         <footer>

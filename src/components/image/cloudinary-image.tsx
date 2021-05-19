@@ -82,9 +82,5 @@ export const ResponsiveCloudinaryBackgroundImage: React.FC<{ src: string }> = (
     [windowWidth],
   );
 
-  return (
-    <BackgroundCloudinaryImage src={imageSrc} ref={imageRef}>
-      {props.children}
-    </BackgroundCloudinaryImage>
-  );
+  return <BackgroundCloudinaryImage src={imageSrc} ref={imageRef} />;
 };

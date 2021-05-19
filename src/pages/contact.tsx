@@ -7,7 +7,7 @@ import { Grid, GridItem } from '../components/grid/grid';
 import { ContactForm } from '../components/form/contact';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
-import { Aurora, AuroraType } from '../components/aurora/aurora';
+import { Leaflet } from '../components/leaflet/leaflet';
 
 const ContactTitle = styled(SubTitle)`
   margin-top: 40px;
@@ -20,12 +20,12 @@ const ContactTitle = styled(SubTitle)`
 const ContactPage: React.FC = () => {
   return (
     <>
-      <Aurora type={AuroraType.Pink} />
-      <Layout transparentHeader={true}>
+      <Layout transparentHeader={true} hero={<Leaflet />}>
         <SEO
           title="Kontakt | Satellytes"
           description="Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine E-Mail an beep@satellytes.com"
         />
+
         <Grid center>
           <GridItem xs={0} md={2} />
           <GridItem xs={12} md={8}>

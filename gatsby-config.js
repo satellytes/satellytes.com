@@ -27,6 +27,9 @@ const extractGatsbyCloudPreviewUrl = () => {
 const BASE_URL = extractGatsbyCloudPreviewUrl() || 'http://localhost:8000';
 
 module.exports = {
+  flags: {
+    DEV_SSR: true,
+  },
   siteMetadata: {
     title: 'Satellytes',
     description:

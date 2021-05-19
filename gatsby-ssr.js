@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const onRenderBody = ({ setPostBodyComponents }) => {
+export const onRenderBody = ({ setPostBodyComponents, setHeadComponents }) => {
   setPostBodyComponents([
     <script
       key="panelbear-analytics-src"
@@ -22,4 +22,13 @@ export const onRenderBody = ({ setPostBodyComponents }) => {
       }}
     />,
   ]);
+
+  const link = React.createElement('link', {
+    key: 'leaflet',
+    rel: 'stylesheet',
+    href: 'https://unpkg.com/leaflet@1.5.1/dist/leaflet.css',
+    crossOrigin: '',
+  });
+
+  setHeadComponents([link]);
 };
