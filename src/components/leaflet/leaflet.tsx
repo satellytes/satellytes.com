@@ -13,7 +13,7 @@ import { up } from '../breakpoint/breakpoint';
 
 import { BringMeHome } from './bring-home';
 import { SatellytesMarkerIcon } from './sy-marker';
-import { StaticReplacement } from './static-map-image';
+import { theme } from '../layout/theme';
 const MAP_VIEW_ZOOM = 20;
 
 const OFFICE_COORDINATES: LatLngExpression = [48.13479, 11.56839];
@@ -21,10 +21,6 @@ const MAPBOX_ACCESS_TOKEN =
   'pk.eyJ1Ijoic3ktYmVlcCIsImEiOiJja291MXRiZTAwMWNyMm5tcGc3Ymt6N2lkIn0.GqMzCE54VnlA8_XOqIPgyg';
 const MAPBOX_TILE_LAYER_DEFAULT = `https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=${MAPBOX_ACCESS_TOKEN}`;
 const MAPBOX_TILE_LAYER_DARK = `https://api.mapbox.com/styles/v1/sy-beep/ckou1zo8004q917pout1cyhcy/tiles/{z}/{x}/{y}?access_token=${MAPBOX_ACCESS_TOKEN}`;
-
-const MAP_IMAGE_PREVIEW = `https://api.mapbox.com/styles/v1/sy-beep/ckou1zo8004q917pout1cyhcy/static/11.5684,48.1348,${
-  MAP_VIEW_ZOOM - 2
-},0/1200x560?access_token=${MAPBOX_ACCESS_TOKEN}`;
 
 /**
  * ⚠️ Attribution is mandatory to fulfill the license and please update accordingly if using a different source than mapbox
@@ -41,7 +37,20 @@ const MapContainerWithHeight = styled(MapContainer)`
     height: 560px;
   }
   z-index: 0;
+
+  &.leaflet-container {
+    background-color: ${theme.palette.background.body};
+  }
 `;
+
+const MapPlaceholder = styled.div`
+  height: 344px;
+
+  ${up('md')} {
+    height: 560px;
+  }
+`;
+
 const MapWrapper = styled.div`
   z-index: 0;
   position: relative;
@@ -56,7 +65,7 @@ export const Leaflet = () => {
 
   // we don't want to render leaflet outside of the browser (SSR)
   if (!isBrowser) {
-    return <StaticReplacement url={MAP_IMAGE_PREVIEW} />;
+    return <MapPlaceholder />;
   }
 
   const MapView = (

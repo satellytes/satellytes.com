@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode, useEffect } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import Header, { HEADER_HEIGHT } from './../header/header';
@@ -57,6 +57,7 @@ interface LayoutProps {
   siteTitleUrl?: string;
   light?: boolean;
   hero?: ReactNode;
+  children?: ReactNode;
 }
 enum POLARITY {
   DARK = 'dark',
@@ -101,7 +102,7 @@ function overrideDarkFromQuery() {
   return params.has('dark');
 }
 
-const Layout: FunctionComponent<LayoutProps> = (props) => {
+const Layout = (props: LayoutProps): JSX.Element => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
