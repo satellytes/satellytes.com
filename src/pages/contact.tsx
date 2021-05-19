@@ -7,7 +7,6 @@ import { Grid, GridItem } from '../components/grid/grid';
 import { ContactForm } from '../components/form/contact';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
-import { Aurora, AuroraType } from '../components/aurora/aurora';
 import { Leaflet } from '../components/leaflet/leaflet';
 
 const ContactTitle = styled(SubTitle)`

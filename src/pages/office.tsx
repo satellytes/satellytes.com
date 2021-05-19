@@ -52,6 +52,7 @@ const OfficePage = () => {
               alt={''}
               src="../images/office/sy-office-01.jpg"
               width={1200}
+              placeholder="blurred"
             />
           </OfficeImageWrapper>
           <OfficeImageWrapper>
@@ -60,6 +61,7 @@ const OfficePage = () => {
               alt={''}
               src="../images/office/sy-office-02.jpg"
               width={1200}
+              placeholder="blurred"
             />
           </OfficeImageWrapper>
           <OfficeImageWrapper>
@@ -68,6 +70,7 @@ const OfficePage = () => {
               alt={''}
               src="../images/office/sy-office-03.jpg"
               width={1200}
+              placeholder="blurred"
             />
           </OfficeImageWrapper>
           <OfficeImageWrapper>
@@ -76,6 +79,7 @@ const OfficePage = () => {
               alt={''}
               src="../images/office/sy-office-04.jpg"
               width={1200}
+              placeholder="blurred"
             />
           </OfficeImageWrapper>
         </GridItem>
