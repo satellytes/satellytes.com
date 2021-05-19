@@ -2,12 +2,12 @@ import React from 'react';
 
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
-import { PageTitle } from '../components/typography/typography';
+import { PageTitle, Text } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
-import { Text } from '../components/typography/typography';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
+import { Satellite } from '../components/satellite/satellite';
 
 interface ImprintQuery {
   markdownRemark: {
