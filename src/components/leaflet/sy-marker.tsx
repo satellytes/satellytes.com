@@ -1,4 +1,4 @@
-import SyMarkerImage from './sy-marker.png';
+import SyMarkerImage from './sy-marker-white.png';
 import Leaflet from 'leaflet';
 
 const isBrowser = typeof window !== 'undefined';
@@ -17,8 +17,8 @@ let SatellytesMarkerIcon: any = undefined;
 if (isBrowser) {
   SatellytesMarkerIcon = Leaflet.icon({
     iconUrl: SyMarkerImage,
-    iconSize: [76, 99],
-    iconAnchor: [76 / 2, 70],
+    iconSize: [32, 44],
+    iconAnchor: [32 / 2, 44],
     tooltipAnchor: [0, 10],
   });
 }

@@ -4,7 +4,6 @@ import {
   MapContainer,
   Marker,
   TileLayer,
-  Tooltip,
   ZoomControl,
 } from 'react-leaflet';
 import React, { useState } from 'react';
@@ -12,7 +11,6 @@ import styled from 'styled-components';
 import { LatLngExpression } from 'leaflet';
 import { up } from '../breakpoint/breakpoint';
 
-import { theme } from '../layout/theme';
 import { BringMeHome } from './bring-home';
 import { SatellytesMarkerIcon } from './sy-marker';
 
@@ -43,13 +41,6 @@ const MapContainerWithHeight = styled(MapContainer)`
 const MapWrapper = styled.div`
   z-index: 0;
   position: relative;
-`;
-const SatellytesTooltip = styled(Tooltip)`
-  color: ${theme.palette.text.defaultLight};
-  background-color: ${theme.palette.text.contrastLink.default};
-  border: none;
-  font-size: 1.5em;
-  padding: 0.3em 0.5em;
 `;
 
 /**
@@ -90,13 +81,7 @@ export const Leaflet = () => {
         </LayersControl.BaseLayer>
       </LayersControl>
 
-      <Marker position={OFFICE_COORDINATES} icon={SatellytesMarkerIcon}>
-        <SatellytesTooltip permanent direction={'bottom'}>
-          Hier im Herzen von München
-          <br />
-          liegt das Satellytes Office.
-        </SatellytesTooltip>
-      </Marker>
+      <Marker position={OFFICE_COORDINATES} icon={SatellytesMarkerIcon} />
 
       <CircleMarker
         center={OFFICE_COORDINATES}

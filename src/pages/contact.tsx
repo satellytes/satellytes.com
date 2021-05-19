@@ -21,8 +21,6 @@ const ContactTitle = styled(SubTitle)`
 const ContactPage: React.FC = () => {
   return (
     <>
-      <Aurora type={AuroraType.Pink} />
-
       <Layout transparentHeader={true} hero={<Leaflet />}>
         <SEO
           title="Kontakt | Satellytes"
