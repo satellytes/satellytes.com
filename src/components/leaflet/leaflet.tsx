@@ -1,21 +1,20 @@
 import {
   CircleMarker,
+  LayersControl,
   MapContainer,
   Marker,
-  LayersControl,
   TileLayer,
   Tooltip,
   ZoomControl,
 } from 'react-leaflet';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { LatLngExpression } from 'leaflet';
 import { up } from '../breakpoint/breakpoint';
-import SyMarkerImage from './sy-marker.png';
-import L from 'leaflet';
 
 import { theme } from '../layout/theme';
 import { BringMeHome } from './bring-home';
+import { SatellytesMarkerIcon } from './sy-marker';
 
 const OFFICE_COORDINATES: LatLngExpression = [48.13479, 11.56839];
 const MAPBOX_ACCESS_TOKEN =
@@ -58,17 +57,6 @@ const SatellytesTooltip = styled(Tooltip)`
  */
 export const Leaflet = () => {
   const [mapInstance, setMapInstance] = useState(null);
-
-  // optional chain access to `L` because leaflet could be null during SSR
-  let SatellytesMarkerIcon: any = null;
-  if (typeof L !== 'undefined') {
-    SatellytesMarkerIcon = L.icon({
-      iconUrl: SyMarkerImage,
-      iconSize: [76, 99],
-      iconAnchor: [76 / 2, 70],
-      tooltipAnchor: [0, 10],
-    });
-  }
 
   // we don't want to render leaflet outside of the browser (SSR)
   if (typeof window === 'undefined') {
