@@ -6,7 +6,7 @@ import {
   TileLayer,
   ZoomControl,
 } from 'react-leaflet';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { LatLngExpression } from 'leaflet';
 import { up } from '../breakpoint/breakpoint';
@@ -48,9 +48,13 @@ const MapWrapper = styled.div`
  */
 export const Leaflet = () => {
   const [mapInstance, setMapInstance] = useState(null);
+  const [isBrowser, setIsBrowser] = useState(false);
+  useEffect(() => {
+    setIsBrowser(true);
+  });
 
   // we don't want to render leaflet outside of the browser (SSR)
-  if (typeof window === 'undefined') {
+  if (!isBrowser) {
     return null;
   }
 
