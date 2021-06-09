@@ -10,6 +10,8 @@ import SEO from '../components/seo';
 import { SectionTitle } from '../components/typography/typography';
 import SharePanel from '../components/share-panel/share-panel';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
+import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import { useMediaQuery } from '../components/util/use-media-query';
 
 interface BlogArticleTemplateProps {
   data: {
@@ -25,6 +27,8 @@ interface BlogArticleTemplateProps {
         image?: string;
         author?: string;
         authorSummary?: string;
+        featuredImage: IGatsbyImageData;
+        featuredImageSquared: IGatsbyImageData;
       };
       rawMarkdownBody: string;
     };
@@ -58,25 +62,50 @@ const BlogHeader = ({ frontmatter }) => {
   );
 };
 
+const BlogHero = ({ wideImage, squareImage }) => {
+  const heroImage = <GatsbyImage alt={''} image={wideImage} />;
+  const heroImageSquared = <GatsbyImage alt={''} image={squareImage} />;
+  /**
+   * A screen is tall once the height is larger then the width, which means the aspect ratio dips below 1 (0-1)
+   */
+  const tallScreen = useMediaQuery(`(max-aspect-ratio: 0.75)`);
+  if (tallScreen) {
+    return heroImageSquared;
+  } else {
+    return heroImage;
+  }
+};
+
 const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
+  const markdown = data.markdownRemark;
+
+  const {
+    featuredImage,
+    featuredImageSquared,
+  } = data.markdownRemark.frontmatter;
+
+  const heroImage = (
+    <BlogHero
+      wideImage={getImage(featuredImage)!}
+      squareImage={getImage(featuredImageSquared)!}
+    />
+  );
+
   return (
-    <Layout
-      heroImage={data.markdownRemark.frontmatter.image}
-      siteTitleUrl={'/blog'}
-      light
-    >
+    <Layout siteTitleUrl={'/blog'} light hero={heroImage}>
       <SEO
-        title={`${data.markdownRemark.frontmatter.title} | Satellytes`}
-        imageUrl={data.markdownRemark.fields?.socialCard}
+        title={`${markdown.frontmatter.title} | Satellytes`}
+        imageUrl={markdown.fields?.socialCard}
         siteType="article"
-        description={data.markdownRemark.excerpt}
+        description={markdown.excerpt}
       />
+
       <Grid center>
         <GridItem xs={0} md={2} />
         <GridItem xs={12} md={8}>
-          <BlogHeader frontmatter={data.markdownRemark.frontmatter} />
-          <MarkdownAst htmlAst={data.markdownRemark.htmlAst} />
-          <SharePanel title={data.markdownRemark.frontmatter.title} />
+          <BlogHeader frontmatter={markdown.frontmatter} />
+          <MarkdownAst htmlAst={markdown.htmlAst} />
+          <SharePanel title={markdown.frontmatter.title} />
         </GridItem>
       </Grid>
     </Layout>
@@ -95,9 +124,30 @@ export const BLOG_POST_PAGE_QUERY = graphql`
         date
         path
         title
-        image
         author
         authorSummary
+
+        featuredImage {
+          childImageSharp {
+            gatsbyImageData(
+              aspectRatio: 1.85
+              layout: FULL_WIDTH
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
+
+        featuredImageSquared: featuredImage {
+          childImageSharp {
+            gatsbyImageData(
+              aspectRatio: 1
+              layout: FULL_WIDTH
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
       }
       rawMarkdownBody
     }

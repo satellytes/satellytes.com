@@ -1,7 +1,9 @@
 ---
-path: "/blog/angular-inject-the-injector.md"
+path: "/blog/angular-inject-the-injector"
 date: "2021-06-08"
 title: "The \"Inject the Injector\" pattern"
+featuredImage: images/georgios-kaleadis-aBTfTMsOCOI-unsplash.jpg 
+imageCredits: We want to credit people for their work
 author: "Georgios Kaleadis"
 authorSummary: "CTO at Satellytes"
 ---

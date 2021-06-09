@@ -1,16 +1,20 @@
 import React from 'react';
-import GatsbyImage, { FluidObject, GatsbyImageProps } from 'gatsby-image';
 import styled, { css } from 'styled-components';
 import { theme } from '../layout/theme';
 import { up } from '../breakpoint/breakpoint';
 import { CardProps, CardWrapper, CardTitle, CardText } from './card';
 import { Link } from '../links/links';
+import {
+  GatsbyImage,
+  GatsbyImageProps,
+  getImage,
+  IGatsbyImageData,
+} from 'gatsby-plugin-image';
 
 interface BlogCardProps extends CardProps {
   link: string;
   caption?: string;
-  image?: boolean;
-  placeholderImage?: FluidObject;
+  image?: IGatsbyImageData;
   large?: boolean;
 }
 
@@ -104,7 +108,6 @@ export const BlogCard: React.FC<BlogCardProps> = ({
   link,
   caption = '',
   image,
-  placeholderImage,
   large = false,
 }) => {
   return (
@@ -115,14 +118,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({
       sm={6}
       md={large ? 6 : 4}
     >
-      {image && placeholderImage && (
-        <BlogCardImage
-          fluid={{
-            ...placeholderImage,
-            aspectRatio: large ? 1.714 : 1.56,
-          }}
-        />
-      )}
+      {image && <BlogCardImage alt={''} image={image} />}
 
       <BlogCardTitle $image={Boolean(image)} large={Boolean(large)}>
         {title}
