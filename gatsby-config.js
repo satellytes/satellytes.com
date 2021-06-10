@@ -74,6 +74,7 @@ module.exports = {
         excerpt_separator: `<!-- stop excerpt -->`,
         gfm: true,
         plugins: [
+          'gatsby-remark-reading-time',
           {
             resolve: 'gatsby-remark-copy-linked-files',
           },

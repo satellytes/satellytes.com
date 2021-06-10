@@ -19,6 +19,9 @@ interface BlogArticleTemplateProps {
       htmlAst;
       fields: {
         socialCard: string;
+        readingTime: {
+          minutes: string;
+        };
       };
       frontmatter: {
         date: string;
@@ -49,11 +52,14 @@ const BlogHeaderContainer = styled.div`
   }
 `;
 
-const BlogHeader = ({ frontmatter }) => {
+const BlogHeader = ({ readingTime, frontmatter }) => {
+  const readingTimeFormatted = `${Math.ceil(readingTime)}min read`;
+
   return (
     <BlogHeaderContainer>
       <BlogPostTitle as="h1">{frontmatter.title}</BlogPostTitle>
       <Byline
+        readingTime={readingTimeFormatted}
         author={frontmatter.author}
         date={parseISO(frontmatter.date)}
         authorSummary={frontmatter.authorSummary}
@@ -104,7 +110,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
       squareImage={getImage(featuredImageSquared)!}
     />
   );
-
+  console.log();
   return (
     <Layout transparentHeader siteTitleUrl={'/blog'} light hero={heroImage}>
       {/*
@@ -120,11 +126,13 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
         siteType="article"
         description={markdown.frontmatter.shortSummary ?? markdown.excerpt}
       />
-
       <Grid center>
         <GridItem xs={0} md={2} />
         <GridItem xs={12} md={8}>
-          <BlogHeader frontmatter={markdown.frontmatter} />
+          <BlogHeader
+            readingTime={markdown.fields.readingTime.minutes}
+            frontmatter={markdown.frontmatter}
+          />
           <MarkdownAst htmlAst={markdown.htmlAst} />
           <SharePanel title={markdown.frontmatter.title} />
         </GridItem>
@@ -140,6 +148,9 @@ export const BLOG_POST_PAGE_QUERY = graphql`
       htmlAst
       fields {
         socialCard
+        readingTime {
+          minutes
+        }
       }
       excerpt(pruneLength: 158)
       frontmatter {

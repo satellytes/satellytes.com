@@ -7,6 +7,7 @@ export interface BylineProps {
   author?: string;
   authorSummary?: string;
   date: Date;
+  readingTime: string;
 }
 
 const BylineContainer = styled.div`
@@ -25,7 +26,12 @@ const BylineTimeFromPosted = styled.p`
   margin-bottom: 0;
 `;
 
-const Byline: React.FC<BylineProps> = ({ author, date, authorSummary }) => {
+const Byline: React.FC<BylineProps> = ({
+  readingTime,
+  author,
+  date,
+  authorSummary,
+}) => {
   if (!author && !authorSummary) {
     return null;
   }
@@ -37,7 +43,9 @@ const Byline: React.FC<BylineProps> = ({ author, date, authorSummary }) => {
 
   return (
     <BylineContainer>
-      <BylineTimeFromPosted>{timeFromPosted}</BylineTimeFromPosted>
+      <BylineTimeFromPosted>
+        {timeFromPosted} ({readingTime})
+      </BylineTimeFromPosted>
       <BylineAuthor>
         von {author}, {authorSummary}
       </BylineAuthor>
