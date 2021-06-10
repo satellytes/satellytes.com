@@ -27,6 +27,7 @@ interface BlogArticleTemplateProps {
         image?: string;
         author?: string;
         authorSummary?: string;
+        shortSummary?: string;
         featuredImage: IGatsbyImageData;
         featuredImageSquared: IGatsbyImageData;
       };
@@ -93,11 +94,18 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
 
   return (
     <Layout transparentHeader siteTitleUrl={'/blog'} light hero={heroImage}>
+      {/*
+       * SEO Notes:
+       * Recommended meta description length this days is 120 - 158 characters. The lower number is relevant for mobile devices.
+       * This means authored blog posts should always come with an explicit 120 character summary (`shortSummary`). In case an author doesn't provide such a summary
+       * we will fallback to a generated excerpt fixed to the 158 characters to provide a little bit more text as the automatic extraction is usually
+       * less condense in terms of content.
+       */}
       <SEO
         title={`${markdown.frontmatter.title} | Satellytes`}
         imageUrl={markdown.fields?.socialCard}
         siteType="article"
-        description={markdown.excerpt}
+        description={markdown.frontmatter.shortSummary ?? markdown.excerpt}
       />
 
       <Grid center>
@@ -120,12 +128,14 @@ export const BLOG_POST_PAGE_QUERY = graphql`
       fields {
         socialCard
       }
+      excerpt(pruneLength: 158)
       frontmatter {
         date
         path
         title
         author
         authorSummary
+        shortSummary
 
         featuredImage {
           childImageSharp {

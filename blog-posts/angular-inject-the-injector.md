@@ -4,9 +4,11 @@ date: "2021-06-08"
 title: "The \"Inject the Injector\" pattern"
 featuredImage: images/georgios-kaleadis-aBTfTMsOCOI-unsplash.jpg 
 imageCredits: We want to credit people for their work
+shortSummary: A coding pattern to prevent breaking changes when dealing with injections in base classes used in distributed libraries
 author: "Georgios Kaleadis"
 authorSummary: "CTO at Satellytes"
 ---
+ 
 
 We maintain a successful proprietary enterprise library based on Angular. One challenge while doing so are breaking changes. Those occur naturally while we improve and extend the library. There was one particular type of breaking change that caused us some trouble, and we want to show you how we tackled it for good.
 
