@@ -11,7 +11,6 @@ import { SectionTitle } from '../components/typography/typography';
 import SharePanel from '../components/share-panel/share-panel';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
 import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
-import { useMediaQuery } from '../components/util/use-media-query';
 
 interface BlogArticleTemplateProps {
   data: {
@@ -63,18 +62,32 @@ const BlogHeader = ({ frontmatter }) => {
   );
 };
 
-const BlogHero = ({ wideImage, squareImage }) => {
-  const heroImage = <GatsbyImage alt={''} image={wideImage} />;
-  const heroImageSquared = <GatsbyImage alt={''} image={squareImage} />;
+const HeroImageDefault = styled(GatsbyImage)`
+  display: block;
+  @media (max-aspect-ratio: 0.75) {
+    display: none;
+  }
+`;
+
+const HeroImageSquared = styled(GatsbyImage)`
+  display: none;
+  @media (max-aspect-ratio: 0.75) {
+    display: block;
+  }
+`;
+
+const BlogHeroImage = ({ wideImage, squareImage }) => {
   /**
    * A screen is tall once the height is larger then the width, which means the aspect ratio dips below 1 (0-1)
+   * so we use two different images which hide & show themselves around the aspect ratio of 0.75.
+   * If the media query is not supported the squared version is never shown (kind of graceful degradation for this variation)
    */
-  const tallScreen = useMediaQuery(`(max-aspect-ratio: 0.75)`);
-  if (tallScreen) {
-    return heroImageSquared;
-  } else {
-    return heroImage;
-  }
+  return (
+    <>
+      <HeroImageDefault alt={''} image={wideImage} />
+      <HeroImageSquared alt={''} image={squareImage} />
+    </>
+  );
 };
 
 const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
@@ -86,7 +99,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
   } = data.markdownRemark.frontmatter;
 
   const heroImage = (
-    <BlogHero
+    <BlogHeroImage
       wideImage={getImage(featuredImage)!}
       squareImage={getImage(featuredImageSquared)!}
     />
