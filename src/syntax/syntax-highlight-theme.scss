@@ -8,7 +8,7 @@ body.sy-polarity--dark {
 
 // our default is applied if dark is not existing
 body:not(.sy-polarity--dark) {
-  @import "src/syntax/coy-with-shadows";
+  @import "src/syntax/default";
 }
 
 /*
