@@ -8,9 +8,7 @@ author: "Georgios Kaleadis"
 authorSummary: "CTO at Satellytes"
 ---
 
-We maintain a successful proprietary enterprise library and maintain it through the inner source approach. This means we adapted several best practices from open source to handle it like a proper product, even though it's just a project within a large enterprise.
-
-One challenge while doing so are breaking changes which occur naturally while continuously improving and extending the library. There is one particular breaking change in Angular that bugged us very often.
+We maintain a successful proprietary enterprise library based on Angular. One challenge while doing so are breaking changes. Those occur naturally while we improve and extend the library. One particular type of breaking change caused us some trouble and we want to show you how we tackled it for good.
 
 <!-- stop excerpt -->
 

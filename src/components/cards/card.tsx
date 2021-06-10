@@ -60,10 +60,11 @@ const CardLink = styled(Link)`
   }
 `;
 
-export interface CardProps extends React.AllHTMLAttributes<HTMLElement> {
+export interface CardProps {
   title: string;
   text: string;
   link?: string;
+  className?: string;
 }
 
 export const Card: React.FC<CardProps> = ({ title, text, link, className }) => {

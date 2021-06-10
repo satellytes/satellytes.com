@@ -7,7 +7,6 @@ import { Link } from '../links/links';
 import {
   GatsbyImage,
   GatsbyImageProps,
-  getImage,
   IGatsbyImageData,
 } from 'gatsby-plugin-image';
 
@@ -78,20 +77,6 @@ const BlogCardText = styled(CardText)<{ large: boolean }>`
   ${BlogCardWrapper}:hover & {
     color: ${theme.palette.primary.main};
   }
-
-  /* --- line-clipping --- */
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
-
-  ${(props) =>
-    props.large &&
-    css`
-      ${up('md')} {
-        -webkit-line-clamp: 3;
-      }
-    `}
 `;
 
 const CardCaption = styled.p`

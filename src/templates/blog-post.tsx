@@ -92,7 +92,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
   );
 
   return (
-    <Layout siteTitleUrl={'/blog'} light hero={heroImage}>
+    <Layout transparentHeader siteTitleUrl={'/blog'} light hero={heroImage}>
       <SEO
         title={`${markdown.frontmatter.title} | Satellytes`}
         imageUrl={markdown.fields?.socialCard}
@@ -130,7 +130,7 @@ export const BLOG_POST_PAGE_QUERY = graphql`
         featuredImage {
           childImageSharp {
             gatsbyImageData(
-              aspectRatio: 1.85
+              aspectRatio: 2.5
               layout: FULL_WIDTH
               placeholder: BLURRED
               formats: [AUTO, WEBP, AVIF]
