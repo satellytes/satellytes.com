@@ -110,7 +110,6 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
       squareImage={getImage(featuredImageSquared)!}
     />
   );
-  console.log();
   return (
     <Layout transparentHeader siteTitleUrl={'/blog'} light hero={heroImage}>
       {/*
