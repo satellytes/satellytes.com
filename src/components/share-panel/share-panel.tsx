@@ -69,32 +69,32 @@ export const SharePanel: React.FC<ShareProps> = ({ title }) => {
     <SharePanelContainer>
       <SharePanelText>Artikel teilen</SharePanelText>
       <SocialLinks>
-        <SocialLinkItem>
+        <SocialLinkItem data-testid="facebook">
           <FacebookShareButton url={shareUrl} quote={title}>
             <IconFacebook />
           </FacebookShareButton>
         </SocialLinkItem>
-        <SocialLinkItem>
+        <SocialLinkItem data-testid="whatsapp">
           <WhatsappShareButton url={shareUrl} title={title}>
             <IconWhatsapp />
           </WhatsappShareButton>
         </SocialLinkItem>
-        <SocialLinkItem>
+        <SocialLinkItem data-testid="email">
           <EmailShareButton url={shareUrl} subject={title} body="body">
             <IconEmail />
           </EmailShareButton>
         </SocialLinkItem>
-        <SocialLinkItem>
+        <SocialLinkItem data-testid="twitter">
           <TwitterShareButton url={shareUrl} title={title} hashtags={hashtags}>
             <TwitterWrapper color="#668cff" />
           </TwitterShareButton>
         </SocialLinkItem>
-        <SocialLinkItem>
+        <SocialLinkItem data-testid="linkedin">
           <LinkedinShareButton title={title} url={shareUrl}>
             <LinkedinWrapper color="#668cff" />
           </LinkedinShareButton>
         </SocialLinkItem>
-        <SocialLinkItem>
+        <SocialLinkItem data-testid="xing">
           <XingShareButton
             href={'https://www.xing.com/spi/shares/new?url=' + shareUrl}
             title={title}

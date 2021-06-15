@@ -18,34 +18,24 @@ describe('SharePanel', () => {
     expect(title).toBeTruthy();
   });
 
-  it('shared buttons should have shareButton class', () => {
-    const firstSharedButton = sharePanel.getAllByRole('button');
-    expect(firstSharedButton[0]).toHaveClass('react-share__ShareButton');
-  });
-
-  it('shared buttons should not be empty', () => {
-    const firstSharedButton = sharePanel.getAllByRole('button');
-    expect(firstSharedButton[0].children.length).toEqual(1);
-  });
-
   describe('icons', () => {
-    it('should contain whatsapp', () => {
-      expect(sharePanel.findByRole('IconWhatsapp')).toBeTruthy();
+    it('should contain whatsapp', async () => {
+      expect(sharePanel.getByTestId('whatsapp')).toBeTruthy();
     });
-    it('should contain mail', () => {
-      expect(sharePanel.findByRole('IconMail')).toBeTruthy();
+    it('should contain mail', async () => {
+      expect(sharePanel.getByTestId('email')).toBeTruthy();
     });
-    it('should contain facebook', () => {
-      expect(sharePanel.findByRole('IconFacebook')).toBeTruthy();
+    it('should contain facebook', async () => {
+      expect(sharePanel.getByTestId('facebook')).toBeTruthy();
     });
-    it('should contain twitter', () => {
-      expect(sharePanel.findByRole('TwitterWrapper')).toBeTruthy();
+    it('should contain twitter', async () => {
+      expect(sharePanel.getByTestId('twitter')).toBeTruthy();
     });
-    it('should contain linkedin', () => {
-      expect(sharePanel.findByRole('LinkedinWrapper')).toBeTruthy();
+    it('should contain linkedin', async () => {
+      expect(sharePanel.getByTestId('linkedin')).toBeTruthy();
     });
-    it('should contain xing', () => {
-      expect(sharePanel.findByRole('XingWrapper')).toBeTruthy();
+    it('should contain xing', async () => {
+      expect(sharePanel.getByTestId('xing')).toBeTruthy();
     });
   });
 });
