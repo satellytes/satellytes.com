@@ -1,6 +1,6 @@
 const { generateCard } = require('./tooling/generate-card/generate-card');
 const slugify = require('slugify');
-const path = require(`path`);
+const path = require('path');
 const fetch = require('node-fetch');
 const xmlParser = require('fast-xml-parser');
 
@@ -78,14 +78,13 @@ const createCareerPages = async ({ actions }) => {
       ? position.jobDescriptions.jobDescription
       : [position.jobDescriptions.jobDescription];
 
-    position.jobDescriptions.jobDescription = position.jobDescriptions.jobDescription.map(
-      (description) => {
+    position.jobDescriptions.jobDescription =
+      position.jobDescriptions.jobDescription.map((description) => {
         return {
           name: description.name.trim(),
           value: description.value.trim(),
         };
-      },
-    );
+      });
 
     const description = position.jobDescriptions.jobDescription.find(
       (description) => description.name === PERSONIO_SHORT_DESCRIPTION_NAME,
