@@ -21,7 +21,7 @@ const extractGatsbyCloudPreviewUrl = () => {
     '',
   );
 
-  return `https://${DOMAIN_NAME}-${formattedBranchName}.gtsb.io/`;
+  return `https://${DOMAIN_NAME}-${formattedBranchName}.gtsb.io`;
 };
 
 const BASE_URL = extractGatsbyCloudPreviewUrl() || 'http://localhost:8000';
