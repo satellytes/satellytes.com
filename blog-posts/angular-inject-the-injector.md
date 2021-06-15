@@ -7,6 +7,7 @@ shortSummary: A coding pattern to prevent breaking changes when dealing with inj
 attribution:
     creator: Georgios Kaleadis
     source: https://unsplash.com/photos/aBTfTMsOCOI
+author: Georgios Kaleadis
 authorSummary: "CTO at Satellytes"
 ---
  
