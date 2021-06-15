@@ -14,28 +14,28 @@ describe('SharePanel', () => {
   });
 
   it('should contain a header', () => {
-    const title = sharePanel.findByText('Artikel teilen');
-    expect(title).toBeTruthy();
+    const title = sharePanel.getByText('Artikel teilen');
+    expect(title).toBeInTheDocument();
   });
 
   describe('icons', () => {
     it('should contain whatsapp', async () => {
-      expect(sharePanel.getByTestId('whatsapp')).toBeTruthy();
+      expect(sharePanel.getByTestId('whatsapp')).toBeInTheDocument();
     });
     it('should contain mail', async () => {
-      expect(sharePanel.getByTestId('email')).toBeTruthy();
+      expect(sharePanel.getByTestId('email')).toBeInTheDocument();
     });
     it('should contain facebook', async () => {
-      expect(sharePanel.getByTestId('facebook')).toBeTruthy();
+      expect(sharePanel.getByTestId('facebook')).toBeInTheDocument();
     });
     it('should contain twitter', async () => {
-      expect(sharePanel.getByTestId('twitter')).toBeTruthy();
+      expect(sharePanel.getByTestId('twitter')).toBeInTheDocument();
     });
     it('should contain linkedin', async () => {
-      expect(sharePanel.getByTestId('linkedin')).toBeTruthy();
+      expect(sharePanel.getByTestId('linkedin')).toBeInTheDocument();
     });
     it('should contain xing', async () => {
-      expect(sharePanel.getByTestId('xing')).toBeTruthy();
+      expect(sharePanel.getByTestId('xing')).toBeInTheDocument();
     });
   });
 });
