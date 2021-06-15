@@ -31,14 +31,12 @@ describe('Byline', () => {
   });
 
   it('should contain author and his position', () => {
-    const author = byline.findByText(
-      'von Max Mustermann, Developer Satellytes',
-    );
-    expect(author).toBeTruthy();
+    const author = byline.getByText('von Max Mustermann, Developer Satellytes');
+    expect(author).toBeInTheDocument();
   });
 
   it('should contain date', () => {
     const date = byline.getByText(/10 days ago/);
-    expect(date).toBeTruthy();
+    expect(date).toBeInTheDocument();
   });
 });

@@ -23,14 +23,6 @@ describe('BlogCard', () => {
     expect(card).toBeTruthy();
   });
 
-  it('should be linked', () => {
-    const card = render(
-      <BlogCard title={data.title} text={data.text} link={data.link} />,
-    );
-
-    expect(card.findByTestId('blog-card-link')).toBeTruthy();
-  });
-
   it('should link to blog page (link)', () => {
     const { queryByRole } = render(
       <BlogCard title={data.title} text={data.text} link={data.link} />,

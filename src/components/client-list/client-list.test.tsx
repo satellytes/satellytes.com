@@ -30,7 +30,7 @@ describe('Client List', () => {
           <ClientList clients={testClients as any} />
         </ThemeProvider>,
       );
-      expect(getByText('client name')).toBeTruthy();
+      expect(getByText('client name')).toBeInTheDocument();
     });
 
     it('title should direct to linked page', () => {
