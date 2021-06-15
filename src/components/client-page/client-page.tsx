@@ -75,15 +75,6 @@ const TitleLabelItem = styled(LabelsItem)`
   }
 `;
 
-const ClientDescription = styled(MarkdownAst)`
-  margin-bottom: 40px;
-
-  ${up('md')} {
-    margin-bottom: 140px;
-  }
-}
-`;
-
 const ClientPage: React.FC<ClientProps> = ({ data }) => {
   return (
     <div>

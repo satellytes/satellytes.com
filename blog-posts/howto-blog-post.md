@@ -2,10 +2,12 @@
 path: "/blog/howto-blog-post"
 date: "2021-05-01"
 title: "How to do a blog post"
-previewImage: true
-image: https://res.cloudinary.com/satellytes/image/upload/v1594992283/satellytes-website/blog-how-to-do-a-blogpost_h5txir.jpg
+featuredImage: images/space.jpg
 author: "Georgios & Fabian"
-authorSummary: "Developers at Satellytes" 
+authorSummary: "Developers at Satellytes"
+attribution:
+  creator: upklyak
+  source: https://www.freepik.com/free-vector/space-landscape-night_13748451.htm
 ---
 
 

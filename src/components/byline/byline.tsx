@@ -2,12 +2,12 @@ import { formatDistanceToNow } from 'date-fns';
 import { enGB } from 'date-fns/locale';
 import React from 'react';
 import styled from 'styled-components';
-import { BylineArrow } from '../icons/byline-arrow';
 
 export interface BylineProps {
   author?: string;
   authorSummary?: string;
   date: Date;
+  readingTime: string;
 }
 
 const BylineContainer = styled.div`
@@ -26,7 +26,12 @@ const BylineTimeFromPosted = styled.p`
   margin-bottom: 0;
 `;
 
-const Byline: React.FC<BylineProps> = ({ author, date, authorSummary }) => {
+const Byline: React.FC<BylineProps> = ({
+  readingTime,
+  author,
+  date,
+  authorSummary,
+}) => {
   if (!author && !authorSummary) {
     return null;
   }
@@ -38,11 +43,12 @@ const Byline: React.FC<BylineProps> = ({ author, date, authorSummary }) => {
 
   return (
     <BylineContainer>
-      <BylineTimeFromPosted>{timeFromPosted}</BylineTimeFromPosted>
+      <BylineTimeFromPosted>
+        {timeFromPosted} ({readingTime})
+      </BylineTimeFromPosted>
       <BylineAuthor>
         von {author}, {authorSummary}
       </BylineAuthor>
-      <BylineArrow />
     </BylineContainer>
   );
 };

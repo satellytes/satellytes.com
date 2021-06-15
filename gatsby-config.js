@@ -53,8 +53,13 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'markdown-pages',
-        path: `${__dirname}/data/blog-posts`,
+        path: `${__dirname}/blog-posts`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/blog-posts/images`,
       },
     },
     {
@@ -69,6 +74,7 @@ module.exports = {
         excerpt_separator: `<!-- stop excerpt -->`,
         gfm: true,
         plugins: [
+          'gatsby-remark-reading-time',
           {
             resolve: 'gatsby-remark-copy-linked-files',
           },

@@ -10,6 +10,7 @@ import { Grid, GridItem } from '../components/grid/grid';
 import { PageTitle } from '../components/typography/typography';
 import { BlogCard } from '../components/cards/blog-card';
 import { formatDate } from '../components/util/format-date';
+import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 const TOP_POST_COUNT = 2;
 
@@ -22,7 +23,7 @@ interface AllBlogPostsQuery {
         date: string;
         path: string;
         title: string;
-        previewImage?: boolean;
+        featuredImage: IGatsbyImageData;
       };
       rawMarkdownBody: string;
     }[];
@@ -52,38 +53,30 @@ const BlogPage: React.FC = () => {
       ) {
         nodes {
           id
-          excerpt(pruneLength: 250, truncate: true)
+          excerpt(pruneLength: 500)
           frontmatter {
             date
             path
             title
-            previewImage
+            featuredImage {
+              childImageSharp {
+                gatsbyImageData(
+                  width: 600
+                  aspectRatio: 1.77
+                  layout: CONSTRAINED
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                )
+              }
+            }
           }
           rawMarkdownBody
-        }
-      }
-      blogPlaceholderImage: file(
-        relativePath: { eq: "jj-shev-skjev5280-Rpdxgm74nOg-unsplash-small.jpg" }
-      ) {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
         }
       }
     }
   `);
 
-  const blogPosts = data.allMarkdownRemark.nodes.map((post) => {
-    return {
-      id: post.id,
-      excerpt: post.excerpt,
-      ...post.frontmatter,
-    };
-  });
-
-  const topBlogPosts = blogPosts.slice(0, TOP_POST_COUNT);
-  const remainingBlogPosts = blogPosts.slice(TOP_POST_COUNT);
+  const blogPosts = data.allMarkdownRemark.nodes;
 
   return (
     <Layout light>
@@ -94,30 +87,21 @@ const BlogPage: React.FC = () => {
         </GridItem>
       </Grid>
       <Grid center>
-        {topBlogPosts.map((post) => (
-          <BlogCard
-            key={post.id}
-            large={true}
-            image={post.previewImage}
-            placeholderImage={data.blogPlaceholderImage.childImageSharp.fluid}
-            title={post.title}
-            text={post.excerpt}
-            caption={formatDate(post.date)}
-            link={post.path}
-          />
-        ))}
+        {blogPosts.map((post, index) => {
+          const topBlogPost = index < TOP_POST_COUNT;
 
-        {remainingBlogPosts.map((post) => (
-          <BlogCard
-            key={post.id}
-            image={post.previewImage}
-            placeholderImage={data.blogPlaceholderImage.childImageSharp.fluid}
-            title={post.title}
-            text={post.excerpt}
-            caption={formatDate(post.date)}
-            link={post.path}
-          />
-        ))}
+          return (
+            <BlogCard
+              key={post.id}
+              large={topBlogPost}
+              image={getImage(post.frontmatter.featuredImage)}
+              title={post.frontmatter.title}
+              text={post.excerpt}
+              caption={formatDate(post.frontmatter.date)}
+              link={post.frontmatter.path}
+            />
+          );
+        })}
       </Grid>
     </Layout>
   );

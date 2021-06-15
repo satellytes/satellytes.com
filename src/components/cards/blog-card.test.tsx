@@ -38,32 +38,4 @@ describe('BlogCard', () => {
 
     expect(queryByRole('link')).toHaveAttribute('href', data.link);
   });
-
-  it('should show image when previewImage true', () => {
-    const { queryByRole } = render(
-      <BlogCard
-        title={data.title}
-        text={data.text}
-        link={data.link}
-        image={true}
-        placeholderImage={data.placeholderImage}
-      />,
-    );
-
-    expect(queryByRole('img')).toBeTruthy();
-  });
-
-  it('should show no image when previewImage false', () => {
-    const { queryByRole } = render(
-      <BlogCard
-        title={data.title}
-        text={data.text}
-        link={data.link}
-        image={false}
-        placeholderImage={data.placeholderImage}
-      />,
-    );
-
-    expect(queryByRole('img')).not.toBeInTheDocument();
-  });
 });

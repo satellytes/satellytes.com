@@ -18,6 +18,7 @@ describe('Byline', () => {
   beforeEach(() => {
     byline = render(
       <Byline
+        readingTime="1min read"
         author={testData.author}
         date={testData.date}
         authorSummary={testData.authorSummary}
@@ -37,7 +38,7 @@ describe('Byline', () => {
   });
 
   it('should contain date', () => {
-    const date = byline.getByText('10 days ago');
+    const date = byline.getByText(/10 days ago/);
     expect(date).toBeTruthy();
   });
 });
