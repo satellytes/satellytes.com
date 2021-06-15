@@ -30,8 +30,8 @@ export const MarkdownAst = ({ htmlAst }) => {
    * > When using TypeScript, cast the type on your side.
    */
 
-  const markdownContent = (customAstRenderer.stringify(
+  const markdownContent = customAstRenderer.stringify(
     htmlAst,
-  ) as unknown) as ReactElement;
+  ) as unknown as ReactElement;
   return <div>{markdownContent}</div>;
 };

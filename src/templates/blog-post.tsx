@@ -77,11 +77,8 @@ const BlogHeader = ({ readingTime, frontmatter }) => {
 const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
   const markdown = data.markdownRemark;
 
-  const {
-    featuredImage,
-    featuredImageSquared,
-    attribution,
-  } = data.markdownRemark.frontmatter;
+  const { featuredImage, featuredImageSquared, attribution } =
+    data.markdownRemark.frontmatter;
 
   const heroImage = (
     <HeroImage
@@ -121,7 +118,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
 };
 
 export const BLOG_POST_PAGE_QUERY = graphql`
-  query($path: String!) {
+  query ($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       htmlAst

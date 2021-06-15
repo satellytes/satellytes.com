@@ -74,9 +74,10 @@ interface CareerPageProps {
 }
 
 const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
-  const descriptions = pageContext.position.jobDescriptions.jobDescription.filter(
-    ({ name }) => name !== PERSONIO_SHORT_DESCRIPTION_NAME,
-  );
+  const descriptions =
+    pageContext.position.jobDescriptions.jobDescription.filter(
+      ({ name }) => name !== PERSONIO_SHORT_DESCRIPTION_NAME,
+    );
   const intro = pageContext.position.jobDescriptions.jobDescription.find(
     ({ name }) => name === PERSONIO_SHORT_DESCRIPTION_NAME,
   );
