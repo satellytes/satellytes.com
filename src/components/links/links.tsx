@@ -17,6 +17,7 @@ export const Link = (props: LinkProps): JSX.Element => {
     ref,
     ...rest
   } = props;
+
   const isExternalLink =
     to.toString().startsWith('http') ||
     to.toString().startsWith('mailto') ||
