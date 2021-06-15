@@ -114,7 +114,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
     <Layout transparentHeader siteTitleUrl={'/blog'} light hero={heroImage}>
       {/*
        * SEO Notes:
-       * Recommended meta description length this days is 120 - 158 characters. The lower number is relevant for mobile devices.
+       * Recommended meta description length these days is 120 - 158 characters. The lower number is relevant for mobile devices.
        * This means authored blog posts should always come with an explicit 120 character summary (`shortSummary`). In case an author doesn't provide such a summary
        * we will fallback to a generated excerpt fixed to the 158 characters to provide a little bit more text as the automatic extraction is usually
        * less condense in terms of content.

@@ -103,7 +103,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({
       sm={6}
       md={large ? 6 : 4}
     >
-      {image && <BlogCardImage alt={''} image={image} />}
+      {image && <BlogCardImage alt="" image={image} />}
 
       <BlogCardTitle $image={Boolean(image)} large={Boolean(large)}>
         {title}

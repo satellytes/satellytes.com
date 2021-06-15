@@ -10,7 +10,7 @@ authorSummary: "CTO at Satellytes"
 ---
  
 
-We maintain a successful proprietary enterprise library based on Angular. One challenge while doing so are breaking changes. Those occur naturally while we improve and extend the library. There was one particular type of breaking change that caused us some trouble, and we want to show you how we tackled it for good.
+We maintain a successful proprietary enterprise library based on Angular. One challenge while doing so is how to deal with breaking changes. Those occur naturally while we improve and extend the library. There was one particular type of breaking change that caused us some trouble, and we want to show you how we tackled it for good.
 
 <!-- stop excerpt -->
 
@@ -60,7 +60,7 @@ export class UnsubscribeToolComponent extends MyAbstractBaseComponent {
 ```
 
 ## Our starting point
-In order to understand the problem we will look at the following Angular base class that act as the functional foudnation for derived explicit components.
+In order to understand the problem we will look at the following Angular base class that acts as the functional foundation for derived concrete components.
 
 ```typescript
 @Directive()
@@ -79,7 +79,7 @@ export class MyAbstractBaseComponent implements OnInit {
   }
 }
 ```
-That base class provides a set of default functionality for any other component extending from it in the future. This not only saves repeated work on the side of the component authors. This acts as an alignment & contract between all derived components. 
+That base class provides default functionality for any other component extending from it in the future. This not only saves repeated work on the side of the component authors, but also acts as an alignment & contract between all derived components. 
 
 The `MyAbstractBaseComponent` will be delivered through a core library and extended by dozens of other components.
 Like the following imaginary subscription component:
@@ -120,11 +120,11 @@ export class UnsubscribeToolComponent extends MyAbstractBaseComponent {
 
 The class `UnsubscribeToolComponent` is in desperate need to access a custom service `MyUnsubscribeService` whose functionality is not provided by the base class. Fair enough, they chose to inject that service. The injection itself looks complicated though, because the author needs to repeat the injection to forward the two service instances `mySubscribeService` & `myTrackingService` to the parent class. 
 
-Otherwise, the solution works pretty well. Great.
+Besides, the solution works pretty well. Great.
 
 ## The problem
 
-The core team decides to extend the functionality of the base class. They want to ship a new service `MyRemoteHomeService` to all subclasses and offer a new method `lightsOff` ready to be used. This is adding some new feature and shouldn't cause much trouble, should it ?
+The core team decides to extend the functionality of the base class. They want to ship a new service `MyRemoteHomeService` to all subclasses and offer a new method `lightsOff` ready to be used. This is adding some new feature and shouldn't cause much trouble, should it?
 
 Let's look at the base class again and its added functionality in the following diff.
 
@@ -150,7 +150,7 @@ The team decides not to mark it as a `BREAKING CHANGE`, because, well it can't b
 
 The reason gets obvious pretty quickly. The local team didn't know about the service added by the core team. On the other side they rely on repeating the constructor signature in order to provide all expected dependencies.
 
-The team's fix is simple, but it came by surprise, and it created a lot of confusion.
+The team's fix is simple, but it came by surprise and it created a lot of confusion.
 
 ```diff-typescript
 @Component({
@@ -174,7 +174,7 @@ export class UnsubscribeToolComponent extends MyAbstractBaseComponent {
 ```
 What did they do? They had to repeat the injection of `MyUnsubscribeService` to forward the instance through the `super()` invocation. 
 
-The core team created a breaking change by adding an innocent new feature because they did not recognize that slightly more advanced users of their library are overriding the constructor. The team could stop here, because they are now aware of the problem, and the next change of the constructor will be marked as a breaking change.
+The core team created a breaking change by adding an innocent new feature because they did not recognize that slightly more advanced users of their library are overriding the constructor. The team could stop here, because they are now aware of the problem and the next change of the constructor will be marked as a breaking change.
 
 This will still create trouble for the local team, because they would have to update their components for every upstream change in the constructor. Luckily there is a solution. 
 
@@ -205,7 +205,7 @@ Can you see the elegance here? We inject the injector, which is the engine of th
 
 The injector has the correct typing, that the result might be undefined, that's why we convince TypeScript with the [non-null assertion operator (!)](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator) that we guarantee to receive a value. That's possible because we control the environment, and the services are guaranteed to be available as they are provided in the root (`@Injectable({providedIn: 'root' })`).
 
-In case we decide to add a fourth of fifth service in the base class, we can now add it and request it directly from the injector without breaking any subclass as the constructor signature stays the same. See how many lines of random services the team are not even interested in, can now be replaced:
+In case we decide to add a fourth or fifth service in the base class, we can now add it and request it directly from the injector without breaking any subclass as the constructor signature stays the same. See how many lines of random services, in which the feature teams are not even interested in, can now be replaced:
 
 ```diff-typescript
 @Component({
@@ -247,6 +247,6 @@ export class UnsubscribeToolComponent extends MyAbstractBaseComponent {
 ```
 
 ## Conclusion
-Handling breaking changes is an act of empathy 💛. You want to protect your users from struggling with your changes. The "inject the injector" pattern we have introduced here helped us a lot and made it very easy to extend our base class without breaking things anymore.
+Handling breaking changes is an act of empathy 💛. You want to protect your users from struggling with your changes. The "inject the injector" pattern we have introduced here helped us a lot and made it very easy to extend our base class without breaking things.
 
 It's always advisable to be more specific instead of using generalized concepts like described in this blog post. Your code will be less abstract, better readable and maintainable. Use this approach only if you have very good reasons to do so 👍 This is a highly specific pattern for our distributed library project. In case you're developing individual components that are not distributed to other developers you most probably should not care for breaking changes and patterns like that.
