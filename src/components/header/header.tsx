@@ -1,4 +1,3 @@
-import { FluidObject } from 'gatsby-image';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';

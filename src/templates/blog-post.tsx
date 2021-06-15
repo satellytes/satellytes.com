@@ -68,14 +68,14 @@ const BlogHeader = ({ readingTime, frontmatter }) => {
   );
 };
 
-const HeroImageDefault = styled(GatsbyImage)`
+const HeroImageWide = styled(GatsbyImage)`
   display: block;
   @media (max-aspect-ratio: 0.75) {
     display: none;
   }
 `;
 
-const HeroImageSquared = styled(GatsbyImage)`
+const HeroImageTall = styled(GatsbyImage)`
   display: none;
   @media (max-aspect-ratio: 0.75) {
     display: block;
@@ -84,14 +84,16 @@ const HeroImageSquared = styled(GatsbyImage)`
 
 const BlogHeroImage = ({ wideImage, squareImage }) => {
   /**
-   * A screen is tall once the height is larger then the width, which means the aspect ratio dips below 1 (0-1)
-   * so we use two different images which hide & show themselves around the aspect ratio of 0.75.
+   * We want to show different hero image versions for tall and wide screens. A screen is considered tall
+   * once the height is larger then the width, the aspect ratio will then have a value between `[0..1]`.
+   * We use two different images which hide & show themselves around the aspect ratio of 0.75 (see their CSS definitions).
+   * HeroImageDefault
    * If the media query is not supported the squared version is never shown (kind of graceful degradation for this variation)
    */
   return (
     <>
-      <HeroImageDefault alt={''} image={wideImage} />
-      <HeroImageSquared alt={''} image={squareImage} />
+      <HeroImageWide alt="" image={wideImage} />
+      <HeroImageTall alt="" image={squareImage} />
     </>
   );
 };

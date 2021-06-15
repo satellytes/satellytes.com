@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import { rgba } from 'polished';
 
 export const GlobalStyle = createGlobalStyle<{ $lightTheme?: boolean }>`
   html {

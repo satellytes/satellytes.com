@@ -81,8 +81,7 @@ export class MyAbstractBaseComponent implements OnInit {
 ```
 That base class provides default functionality for any other component extending from it in the future. This not only saves repeated work on the side of the component authors, but also acts as an alignment & contract between all derived components. 
 
-The `MyAbstractBaseComponent` will be delivered through a core library and extended by dozens of other components.
-Like the following imaginary subscription component:
+The `MyAbstractBaseComponent` will be delivered through a core library and extended by dozens of other components like the following imaginary subscription component:
 
 ```typescript
 @Component({
@@ -95,8 +94,7 @@ export class SubscriptionComponent extends MyAbstractBaseComponent {
 
 The `SubscriptionComponent` is guaranteed to invoke the one service through `ngOnInit` as described by the parent class plus it can access the `subscribe` method from the parent class as the service `mySubscribeService` is readily available to be invoked by `subscribe()`.
 
-Things get complicated the moment library authors starts to get a little more advanced. 
-Look at the following slightly more advanced component.
+Things get complicated the moment library authors implement slightly more advanced use cases, like in the following component.
 
 ```typescript
 @Component({
@@ -203,7 +201,7 @@ export class MyAbstractBaseComponent implements OnInit {
 
 Can you see the elegance here? We inject the injector, which is the engine of the dependency injection (DI) system in Angular itself and then request the singleton instances of our desired services to assign them to the local variables as before.
 
-The injector has the correct typing, that the result might be undefined, that's why we convince TypeScript with the [non-null assertion operator (!)](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator) that we guarantee to receive a value. That's possible because we control the environment, and the services are guaranteed to be available as they are provided in the root (`@Injectable({providedIn: 'root' })`).
+We need to use the [non-null assertion operator (!)](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator) to tell TypeScript that we guarantee to receive a value, because the typing of the injector correctly states that the result might be undefined. That's possible because we control the environment, and the services are guaranteed to be available as they are provided in the root (`@Injectable({providedIn: 'root' })`).
 
 In case we decide to add a fourth or fifth service in the base class, we can now add it and request it directly from the injector without breaking any subclass as the constructor signature stays the same. See how many lines of random services, in which the feature teams are not even interested in, can now be replaced:
 
@@ -230,13 +228,13 @@ export class UnsubscribeToolComponent extends MyAbstractBaseComponent {
 }
 ```
 
-resulting in this much more compact version of a constructor.
+The result is a much more compact version of the original constructor.
 
 ```typescript
 @Component(/*...*/)
 export class UnsubscribeToolComponent extends MyAbstractBaseComponent {
   constructor(
-    @Inject(Injector) injector: Injector
+    @Inject(Injector) injector: Injector,
     @Inject(MyUnsubscribeService) myUnsubscribeService: MyUnsubscribeService
   ) {
     super(injector)
@@ -249,4 +247,4 @@ export class UnsubscribeToolComponent extends MyAbstractBaseComponent {
 ## Conclusion
 Handling breaking changes is an act of empathy 💛. You want to protect your users from struggling with your changes. The "inject the injector" pattern we have introduced here helped us a lot and made it very easy to extend our base class without breaking things.
 
-It's always advisable to be more specific instead of using generalized concepts like described in this blog post. Your code will be less abstract, better readable and maintainable. Use this approach only if you have very good reasons to do so 👍 This is a highly specific pattern for our distributed library project. In case you're developing individual components that are not distributed to other developers you most probably should not care for breaking changes and patterns like that.
+Introducing a pattern like this might not be necessary or even beneficial if you are not working with a large codebase and distributed teams in a typical enterprise organization. Never use this pattern only to save a few lines of code, you will make your code less understandable.  
