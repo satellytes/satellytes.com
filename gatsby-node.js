@@ -31,7 +31,7 @@ exports.onCreateNode = ({ node, getNode, actions, graphql }, options) => {
       lower: true,
     })}.jpg`;
     const outputFile = path.join('public', fileName);
-    const publicUrl = `${siteMetadata.siteUrl}${fileName}`;
+    const publicUrl = `${siteMetadata.siteUrl}/${fileName}`;
 
     generateCard({ title: post.title }, outputFile).then((filename) => {
       createNodeField({
@@ -110,7 +110,7 @@ const createCareerPages = async ({ actions }) => {
       lower: true,
     })}.jpg`;
     const outputFile = path.join('public', fileName);
-    const publicUrl = `${siteMetadata.siteUrl}${fileName}`;
+    const publicUrl = `${siteMetadata.siteUrl}/${fileName}`;
 
     generateCard({ title: position.name }, outputFile);
 
