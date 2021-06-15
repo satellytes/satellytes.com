@@ -32,7 +32,10 @@ const AttributionContainer = styled.div`
 
 const Attribution = ({ attribution }) => (
   <AttributionContainer>
-    Photo by <a href={attribution.source}>{attribution.creator}</a>
+    Photo by{' '}
+    <a rel="nofollow noreferrer" target="_blank" href={attribution.source}>
+      {attribution.creator}
+    </a>
   </AttributionContainer>
 );
 
