@@ -3,9 +3,10 @@ path: "/blog/angular-inject-the-injector"
 date: "2021-06-08"
 title: "The \"Inject the Injector\" pattern"
 featuredImage: images/georgios-kaleadis-aBTfTMsOCOI-unsplash.jpg 
-imageCredits: We want to credit people for their work
 shortSummary: A coding pattern to prevent breaking changes when dealing with injections in base classes used in distributed libraries
-author: "Georgios Kaleadis"
+attribution:
+    creator: Georgios Kaleadis
+    source: https://unsplash.com/photos/aBTfTMsOCOI
 authorSummary: "CTO at Satellytes"
 ---
  

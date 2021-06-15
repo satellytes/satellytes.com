@@ -10,7 +10,8 @@ import SEO from '../components/seo';
 import { SectionTitle } from '../components/typography/typography';
 import SharePanel from '../components/share-panel/share-panel';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
-import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import { HeroImage } from '../components/hero-image/hero-image';
 
 interface BlogArticleTemplateProps {
   data: {
@@ -24,6 +25,11 @@ interface BlogArticleTemplateProps {
         };
       };
       frontmatter: {
+        attribution: {
+          creator: string;
+          source: string;
+          license?: string;
+        };
         date: string;
         title: string;
         image?: string;
@@ -68,46 +74,18 @@ const BlogHeader = ({ readingTime, frontmatter }) => {
   );
 };
 
-const HeroImageWide = styled(GatsbyImage)`
-  display: block;
-  @media (max-aspect-ratio: 0.75) {
-    display: none;
-  }
-`;
-
-const HeroImageTall = styled(GatsbyImage)`
-  display: none;
-  @media (max-aspect-ratio: 0.75) {
-    display: block;
-  }
-`;
-
-const BlogHeroImage = ({ wideImage, squareImage }) => {
-  /**
-   * We want to show different hero image versions for tall and wide screens. A screen is considered tall
-   * once the height is larger then the width, the aspect ratio will then have a value between `[0..1]`.
-   * We use two different images which hide & show themselves around the aspect ratio of 0.75 (see their CSS definitions).
-   * HeroImageDefault
-   * If the media query is not supported the squared version is never shown (kind of graceful degradation for this variation)
-   */
-  return (
-    <>
-      <HeroImageWide alt="" image={wideImage} />
-      <HeroImageTall alt="" image={squareImage} />
-    </>
-  );
-};
-
 const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
   const markdown = data.markdownRemark;
 
   const {
     featuredImage,
     featuredImageSquared,
+    attribution,
   } = data.markdownRemark.frontmatter;
 
   const heroImage = (
-    <BlogHeroImage
+    <HeroImage
+      attribution={attribution}
       wideImage={getImage(featuredImage)!}
       squareImage={getImage(featuredImageSquared)!}
     />
@@ -155,6 +133,10 @@ export const BLOG_POST_PAGE_QUERY = graphql`
       }
       excerpt(pruneLength: 158)
       frontmatter {
+        attribution {
+          creator
+          source
+        }
         date
         path
         title

@@ -18,7 +18,7 @@ interface HeroImageProps {
   image?: FluidObject | string;
 }
 
-export const HeroImage: React.FC<HeroImageProps> = (props) => {
+export const HeroImageLegacy: React.FC<HeroImageProps> = (props) => {
   if (props.image && typeof props.image === 'object') {
     return (
       <StyledBackgroundImage fluid={props.image}>

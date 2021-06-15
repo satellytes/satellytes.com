@@ -7,7 +7,7 @@ import { theme } from './theme';
 import styled, { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './global-style';
 import { FluidObject } from 'gatsby-image';
-import { HeroImage } from '../header/hero-image';
+import { HeroImageLegacy } from '../header/hero-image-legacy';
 
 /**
  * this container is used to push the footer to the bottom
@@ -129,7 +129,7 @@ const Layout = (props: LayoutProps): JSX.Element => {
         transparent={props.transparentHeader || Boolean(props.heroImage)}
       />
       {/* pass in a hero node or try to use the hero image url */}
-      {props.hero ?? <HeroImage image={props.heroImage} />}
+      {props.hero ?? <HeroImageLegacy image={props.heroImage} />}
 
       <FullHeightContainer>
         <Main>{props.children}</Main>
