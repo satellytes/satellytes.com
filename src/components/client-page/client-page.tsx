@@ -4,7 +4,6 @@ import { up } from '../breakpoint/breakpoint';
 import { Grid, GridItem } from '../grid/grid';
 import { SubTitle } from '../typography/typography';
 import { formatDate } from '../util/format-date';
-import { MarkdownAst } from '../markdown/markdown-ast';
 
 export interface ClientProps {
   data: {

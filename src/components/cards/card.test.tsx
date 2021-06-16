@@ -17,12 +17,12 @@ describe('Card', () => {
 
   it('should show title', () => {
     const { getByText } = render(<Card title={data.title} text={data.text} />);
-    expect(getByText(data.title)).toBeTruthy();
+    expect(getByText(data.title)).toBeInTheDocument();
   });
 
   it('should show text', () => {
     const { getByText } = render(<Card title={data.title} text={data.text} />);
-    expect(getByText(data.text)).toBeTruthy();
+    expect(getByText(data.text)).toBeInTheDocument();
   });
 
   it('should show link, when provided', () => {
@@ -30,7 +30,7 @@ describe('Card', () => {
       <Card title={data.title} text={data.text} link={data.link} />,
     );
 
-    expect(getByText(/Apply/)).toBeTruthy();
+    expect(getByText(/Apply/)).toBeInTheDocument();
   });
 
   it('link should direct to linked page', () => {

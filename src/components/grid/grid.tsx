@@ -76,9 +76,6 @@ export const GridItem = styled.div<GridItemProps>`
       }
     `}
 
-  ${up('md')} {
-  }
-
   ${(props) =>
     props.sm &&
     `

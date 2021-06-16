@@ -38,11 +38,7 @@ const ContactPage: React.FC = () => {
                 <br />
                 80331 München
               </Text>
-              <TextLink
-                as="a"
-                target="_blank"
-                href="https://goo.gl/maps/EGTh9xqgR7P871aC9"
-              >
+              <TextLink to="https://goo.gl/maps/EGTh9xqgR7P871aC9">
                 Google Maps &gt;
               </TextLink>
               <SubTitle>E-Mail</SubTitle>
@@ -50,7 +46,7 @@ const ContactPage: React.FC = () => {
               <Text style={{ marginBottom: '40px' }}>
                 Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine
                 E-Mail an{' '}
-                <TextLink as="a" href="mailto:beep@satellytes.com">
+                <TextLink to="mailto:beep@satellytes.com">
                   beep@satellytes.com
                 </TextLink>
               </Text>
