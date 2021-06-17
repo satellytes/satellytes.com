@@ -164,7 +164,8 @@ for (const nestedProperty of propertyType.getProperties()) {
 }
 ```
 
-- Full Source Example
+<details>
+    <summary>Full Source Example</summary>
 
     ````typescript
     /**
@@ -228,6 +229,7 @@ for (const nestedProperty of propertyType.getProperties()) {
       }
     });
     ````
+</details>
 
 ## Real-world adjustments
 
