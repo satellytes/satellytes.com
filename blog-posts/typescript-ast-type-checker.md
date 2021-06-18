@@ -1,91 +1,115 @@
 ---
 path: "/blog/typescript-ast-type-checker"
-date: "2021-06-08"
+date: "2021-06-18"
 title: "Going beyond the Abstract Syntax Tree (AST) with the TypeScript Type Checker"
+shortSummary: How to analyze a typescript file beyond AST (Abstract Syntax Tree) with the tpe checker.
+author: Georgios Kaleadis
+authorSummary: "CTO at Satellytes"
 featuredImage: images/johann-siemens-EPy0gBJzzZU-unsplash.jpg
-shortSummary: How to analyze a typescript file beyond AST (Abstract Syntax Tree) with the tpe checker. 
 attribution:
     creator: Johann Siemens
     source: https://unsplash.com/photos/EPy0gBJzzZU
-author: Georgios Kaleadis
-authorSummary: "CTO at Satellytes"
+
 ---
 
-For a recent Angular project we had to analyze an unknown set of components and list involved types with the name of each property (like `today`) and the type name itself (like `Date`). This post is about how to collect that data and explains why the AST can't help us.
+For a recent Angular project we had to inspect a set of typescript files and output a table of involved types which are resolved down to their primitives. This post is about how to collect that data and why we need to go beyond the AST.
 
 <!-- stop excerpt -->
 
 ## Our expectations
 
-Given a file that contains a single type of interest, we want to output all properties and their type names.
+Look at the two types below. You can find primitives like `string` and `number`, types from the standard library such as `Date` and type aliases like `NestedObjectType` that refer to object types which are assembled types that can contain primitives and other object types.
 
 ```typescript
-type ImportantValue = {
+
+// we will start our inspection here
+type MainObjectType = {
+  primitiveValue: string;
+  propertyWithTypeAlias: NestedObjectType;
+};
+
+type NestedObjectType = {
   value1: string;
   value2: number;
   value3: Date;
 };
 
-type Output = {
-  somePrimitiveValue: string;
-  someComplexValue: ImportantValue;
-};
 ```
 
-The ideal output we want to get for the above content looks like the following list. Types `collectedValue:ImportantValue` needs to be normalized and resolved into the underlying values. Atomic types like `string` and `number` should be output as you can't further process them and standard library types like `value3: Date` should be not further processed even though there are plenty of types hidden in them- we are simply not interested in them.
+The ideal output we want to get for the above content is a list of property names and type names separated by a colon including the hierarchy to visualize where a property belongs to. 
 
-```typescript
-Output:
-  somePrimitiveValue: string
-  someComplexValue: ImportantValue
+```
+MainObjectType:
+  primitiveValue: string
+  propertyWithTypeAlias: NestedType
         value1: string
         value2: number
         value3: Date
 ```
 
-## Can we use the AST?
+Those are our rules for the processing:
 
-The [AST (Abstract Syntax Tree)](https://en.wikipedia.org/wiki/Abstract_syntax_tree) quickly comes to your mind. The AST is a data structure to represent the structure of your source file in a format readable by machines. Indeed, if I throw the above example in the [TypeScript AST Viewer](https://ts-ast-viewer.com) I get immediate access to the AST. 
++ [Type aliases](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases) such as `someComplexValue: ImportantValue` needs to be resolved into the types that are referred to. This can be other type aliases or primitives.
++ Primitives itself can't be processed anymore and should be output as is such as `value1: string` and `value2: number`.
++ We have no interest in type details from the [standard library](https://github.com/microsoft/TypeScript/tree/5afe42e14e61d7e4df5d75cc0022283711cb593a/lib) such as `Date` or `string` with the `length` property. They potentially bring dozens of properties we don't want to see in our output list. 
+
+Let's find out how we can approach this problem.
+
+## Can we use the AST?
+The [AST (Abstract Syntax Tree)](https://en.wikipedia.org/wiki/Abstract_syntax_tree) quickly comes to your mind to approach this problem. The AST is a data structure to represent the structure of your source file in a format readable by machines. Indeed, if I throw the above example in the [TypeScript AST Viewer](https://ts-ast-viewer.com) I get immediate access to the AST. 
 
 ![](images/ast-viewer.png)
 
-That output looks promising and it would definitely work for very simple types 👍
+That output looks promising. I guess this could work for very simple types 👍
 
-The problem with the AST: it's a static analysis. You are missing information from the runtime, after typescript "understood" the code and can add additional semantics. This means you will run into a dead end if you want to further expand the given type `ImportantValue` for example. You will find a `TypeReference(AST)`  for the value. This looks like it could be possible to identify the matching type, but it's probably super difficult to find the matching part if any. This will get impossible once your typings are just a little bit more advanced or you are covering multiple files. There is a good reason the TypeScript Checker exists, so don't waste your time trying to exploit the AST for what it's not suited.
+The problem with the AST: it's a static analysis, which means you're processing code without executing it. That's why you are missing information from the runtime. Typescript needs to run the code to understand it and to add additional semantics. You will encounter the following problems when you try to approach the problem with the AST:
 
-There must be another solution, especially because your favourite IDE does this all the time when you are presented a list of inspections or completions for a given type.  See the following screenshot, where I hovered over a type `ImportantValue` in IntelliJ. IntelliJ somehow knows about the content of that type and shows me the correct properties.
++ The AST can't see imported files as `import` statements are not processed
++ [Created types](https://www.typescriptlang.org/docs/handbook/2/types-from-types.html) with operands like `keyof`& `typeof` are constructed only during runtime.
++ [Advanced types](https://www.typescriptlang.org/docs/handbook/advanced-types.html) like [type guards](https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-guards-and-differentiating-types) or [conditional types](https://www.typescriptlang.org/docs/handbook/advanced-types.html#conditional-types) also rely on being processed by typescript otherwise you have no chance to understand and process them.
+
+
+This means, the AST approach is a dead end. 
+
+There must be another solution 🤔 Your favourite IDE does this type of processing all day, for instance when you are presented a list of inspections or completions for a given type. See the screenshot below, where I hovered over a type `ImportantValue` in IntelliJ. IntelliJ somehow knows the details of that type which is exactly what we want to achieve here.
 
 ![](images/type-check-intellij.png)
 
+That's something we expect from any IDE for any language that is supported. I couldn't believe that the IDEs develop some magic analysis for every language. There must be some tool to support the IDE given by the maintainers of the languages, in our case from the makers of TypeScript.
 
-I entirely ignored this rather complex information gathering aspects of our IDEs in the past, but while working on our project I realized there must be some general solution. I simply couldn't believe that every IDE develops something special for each language they want to support.
+## Language Services & Checker
 
-## Language Services
+I researched the topic for a few exciting hours and found something important for my cause.
 
----
+Your favourite IDE can support Typescript because TypeScript offers the [tsserver](https://github.com/Microsoft/TypeScript/wiki/Standalone-Server-%28tsserver%29) which is a 
+> *node executable that encapsulates the TypeScript compiler and language services*
 
-After a few hours of research I had all relevant bits together. Your favourite IDE can easily support Typescript because TypeScript offers the [tsserver](https://github.com/Microsoft/TypeScript/wiki/Standalone-Server-%28tsserver%29) which is a ***"node executable that encapsulates the TypeScript compiler and language services".***
+Now I've found this I remember that I restarted an ominous *Typescript Server* in IntelliJ or VSCode from time to time when debugging type problems in the past. `tsserver` is a server and not suited to process a single file though. There must be some tool inside that I can use for my own purpose.
 
-That makes sense because I remember that I restarted the Typescript Server in IntelliJ or VSCode from time to time when debugging type problems in the past.  `tsserver` is of course not the right tool for a file analysis. While looking through the  [architecture overview](https://github.com/microsoft/TypeScript/wiki/Architectural-Overview)  starting at the yellow `tsserver` block I spotted the `checker.ts`  far down in the core of typescript. That's what we were searching for. It's not part of the language service, it's part of the core of TypeScript.
+While looking through the  [architecture overview](https://github.com/microsoft/TypeScript/wiki/Architectural-Overview) where tsserver is listed I noticed the `checker.ts` down in the core level of typescript. [checker.ts](https://github.com/microsoft/TypeScript/blob/5afe42e14e61d7e4df5d75cc0022283711cb593a/src/compiler/checker.ts) is a huge file in the typescript repository. Right now there are 42.000 lines of code and it has a size of 2.5MB 😳 This is probably the amount of code I would need to write atop of AST to properly process a given TypeScript file. 
+
+I'm glad I finally found this magic ingredient, let's explore it.
 
 ![](images/typescript-architecture.png)
 
 ## The Type Checker (checker.ts)
 
-Let's dive into the type checker and see how it can help us with the given challenge. The following code shows the most important parts of type checking with TS. Create a program, derive the checker and then use that checker for your analysis and type extraction.
+Let's dive into the type checker and see how it can help us with the given challenge. Unfortunately I couldn't find any documentation about the type checker which made it pretty difficult to get started. I mostly search github.com for some code examples, glimpsed through the file `checker.ts` itself and used the `debugger` a lot to examine the content of the involved data. 
+
+The following code shows the most important parts of type checking with TS. Create a program, derive the checker and then use that checker for your analysis.
 
 ```typescript
 
 const program: ts.Program = ts.createProgram(files, tsConfig);
 const checker: ts.TypeChecker = program.getTypeChecker();
 
-// later which a given TS node
+// Later use the checker, this is a random example involving the checker 
 const classSymbol = checker.getSymbolAtLocation(node.name);
 ```
 
 ## Type Checker Usage
+Getting the checker setup is pretty straightforward, as usually it gets complicated with all the details. Let's tackle it step by step. We start by preparing the following file.
 
-Of course, it's not that easy and gets pretty complicated with all the details. I will try to fill some of the details by answering one question. With the AST we are not able to extract type information. How can we access the details of the type `ImportantValue` so we know that `collectedValue` has three distinctive nested properties?
 
 ```typescript
 // file-with-types.ts
@@ -101,7 +125,11 @@ type Output = {
 };
 ```
 
-First step is to create our type checker and make the file accessible for the type checking.
+We want to answer this question:
+
+> Using `checker.ts`, how can we access the details of the type `ImportantValue` so we know that `collectedValue` has three distinctive nested properties?
+
+First step is to create our type checker and make the involved file accessible by retrieving the file as an instance of `ts.SourceFile`
 
 ```typescript
 import * as ts from "typescript";
@@ -110,21 +138,32 @@ const files: string[] = ['file-with-types.ts']
 const program: ts.Program = ts.createProgram(files, {});
 const checker: ts.TypeChecker = program.getTypeChecker();
 
-const mySourceFile = program.getSourceFile('file-with-types.ts');
+const mySourceFile: ts.SourceFile = program.getSourceFile('file-with-types.ts');
 ```
+Interestingly, before we can use the type checker we will use the AST to reach the specific parts in the file we want to dive into with the type checker. When you invoke `ts.forEachChild((node: ts.Node) => {/*...*/})` you create a loop over all nodes of your AST. Each node represents a specific position in the file together with the information about that place (is it a variable, a bracket etc).
 
-Next we need to find the starting point for our analysis. We want to start at the `Output` type so we need to find the `ts.Node`. This is the plain AST representation of the entire `Output` definition. We can accomplish this by traversing the entire source file while looking for a node with the name `Output`. That's our type and once we found it we can ask for the specific `ts.Type` which is our entry point into the semantic world beyond the plain AST 🥳
+> 👉 You should tinker around with [ts-ast-viewer.com](ts-ast-viewer.com) to get a better feeling for the AST 
+
+We want to start our type analysis at the type named `Output`. We can accomplish this by looking for the AST node named `Output`, see the following loop.
 
 ```typescript
 ts.forEachChild(mySourceFile, node => {
   if (ts.isTypeAliasDeclaration(node) && node.name.escapedText === "Output") {
-    const outputType = checker.getTypeAtLocation(node.name);
     // [...process that type]
   }
 });
 ```
+By finding that node we have found the exact place in the source file to ask the type checker for more information. We can do this with the method `checker.getTypeAtLocation` and passing in the node, in return we get an instance of `ts.Type` from the checker.
 
-What to do with `outputType` ? It's the type definition of `Output` and we can access every property through `outputType.getProperties()`.
+```typescript
+// Don't get confused, the `name` is not a string but an object with many more information
+// That's why this works even for things that are named the same
+const outputType = checker.getTypeAtLocation(node.name);
+```
+
+This is it, we arrive in type checking land 🌈
+
+We can access every property of the given type through `outputType.getProperties()`.
 
 ```typescript
 const [collectedValueProperty] = outputType.getProperties();
@@ -139,7 +178,7 @@ const propertyTypeName = checker.typeToString(propertyType);
 console.log(`${collectedValueProperty.name}: ${propertyTypeName}`)
 ```
 
-On that level we only have one property `collectedValue: ImportantValue` in our original type definition so we can safe us one loop for now and simply extract the first element and name it `collectedValueProperty`. The value has the type `ts.Symbol` which is similar to `ts.Type` a value with added semantics compared to the rather raw `ts.Node`.
+On that level we only have one property `collectedValue: ImportantValue` in our original type definition, so we can save us one loop and simply extract the first element and name it `collectedValueProperty`. The value has the type `ts.Symbol` which is similar to `ts.Type` a value with added semantics compared to the AST-related `ts.Node`.
 
 We can use that symbol, to access the name of the variable and the actual name of the type. The type checker gives us the methods `getTypeOfSymbolAtLocation` and `typeToString` to do that and we can print the final result to the console.
 
@@ -147,8 +186,7 @@ We can use that symbol, to access the name of the variable and the actual name o
 // prints `collectedValue: ImportantValue`
 console.log(`└── ${collectedValueProperty.name}: ${propertyTypeName}`)
 ```
-
-We can now deep one level deeper into the analysis to finally extract the types from `ImportantValue` which we are aiming for. This is basically *"rinse & repeat"* as you will see in the following code example.
+What's left is to dive one level deeper to finally extract the types from the nested `ImportantValue`. This is basically *"rinse & repeat"* as you will see in the following code example. Instead of extracing the first element we use a for-loop though in order to find all properties.
 
 ```typescript
 // remember we are now processing `ImportantValue` which is stored in `propertyType`
@@ -235,12 +273,12 @@ for (const nestedProperty of propertyType.getProperties()) {
 
 The basic demonstration was specifically crafted to demonstrate the type extraction process, but there are some important real-world issues when doing so.
 
-- We don't know the depth of our analysis so it's a perfect match for recursion although you could construct a loop too I guess.
-- We need to stop diving into properties that are coming from the standard library like `Date` and methods or values of primitives like `string` because we are usually not interested in those properties. Same for external libraries (think of rxjs & friends).
+- We don't know the depth of our analysis, so it's a perfect match for recursion although you could construct a loop too I guess.
+- We need to prevent diving into properties that are coming from the standard library like `Date` and methods or values of primitives like `string` because we are usually not interested in those properties. Same for external libraries (think of rxjs & friends).
 
 ### Recursion
 
-First, let's make the analysis recursive first.
+First, let's make the analysis recursive to find every property in any given file.
 
 ```typescript
 function processProperty(type: ts.Type, node: ts.Node, level = 0) {
@@ -268,7 +306,9 @@ ts.forEachChild(myComponentSourceFile, node => {
 });
 ```
 
-This will find every single property, no matter how deep it's nested but you will be lost in noise when you execute it as is. See the following log and try to spot our types within the ocean of properties pouring in from the standard library.
+This will find every single property, no matter how deep it's nested. That's because `processProperty()` is used recursively on all nested properties.
+
+When you run this code, you will be lost in noise. See the following log and try to spot our types within the ocean of properties pouring in from the standard library.
 
 <details>
 
@@ -331,14 +371,14 @@ This will find every single property, no matter how deep it's nested but you wil
       ├── trimStart: () => string
       ├── trimEnd: () => string
       ├── __@iterator@596: () => IterableIterator<string>
-    👉 **├── value1: string**
+    👉├── value1: string
       ├── toString: (radix?: number) => string
       ├── toFixed: (fractionDigits?: number) => string
       ├── toExponential: (fractionDigits?: number) => string
       ├── toPrecision: (precision?: number) => string
       ├── valueOf: () => number
       ├── toLocaleString: (locales?: string | string[], options?: NumberFormatOptions) => string
-    👉  ├── value2: number
+    👉├── value2: number
       ├── toString: () => string
       ├── toDateString: () => string
       ├── toTimeString: () => string
@@ -384,12 +424,12 @@ This will find every single property, no matter how deep it's nested but you wil
       ├── toJSON: (key?: any) => string
       ├── getVarDate: () => VarDate
       ├── __@toPrimitive@755: { (hint: "default"): string; (hint: "string"): string; (hint: "number"): number; (hint: string): string | number; }
-    👉  **├── value3: Date**
-    👉  **├── collectedValue: ImportantValue**
+    👉├── value3: Date
+    👉├── collectedValue: ImportantValue
     ```
 </details>
 
-That's the problem we described before. The `Date` and `string` types causes this drama and we need to stop our processing before entering those type.
+That's the "standard library" issue described earlier. The `Date` and `string` types causes this drama and we need to stop our processing before entering those types.
 
 ### Exclude the standard types
 
@@ -407,9 +447,9 @@ function isTypeLocal(symbol: ts.Symbol) {
 }
 ```
 
-The method will detect if a given symbol belongs to a standard library (`Date`), to an external library (whatever you use from `node_modules` for example) and everything that doesn't have an actual declaration like all primitive types (`string`, `number`).
+The method will detect if a given symbol belongs to a standard library (`Date`), to an external library (whatever you use from `node_modules`) and everything that doesn't have an actual declaration like primitive types (`string`, `number`).
 
-We will use that helper to prevent our recursion to dive into those unwanted types:
+We will use that helper to prevent our recursion from branching into those unwanted types:
 
 ```typescript
 if(isTypeLocal(propertySymbol)) {
@@ -423,7 +463,7 @@ if(isTypeLocal(propertySymbol)) {
 }
 ```
 
-With those changes we are back at the previous results being printed in the console but we are now much more flexible. Let's process a much deeper nested type `Output`. See the following file example:
+The updated code can process the initial file but it's much more flexible. Let's process a much deeper nested type `Output` and watch the console.
 
 <details>
     <summary>Updated file `file-with-types.ts`</summary>
@@ -455,7 +495,7 @@ With those changes we are back at the previous results being printed in the cons
     ```
 </details>
 
-The following values are printed for the given file. Every standard library type is skipped but the values are probably traversed and listed with the correct name and type name.
+The following values are printed for the given file. Every standard library type is skipped, but the values are probably traversed and listed with the correct name and type name.
 
 
 ```
@@ -475,7 +515,74 @@ The following values are printed for the given file. Every standard library type
           ├── value3: Date
 ```
 
-Task completed ✅
+Task completed ✅ 
+
+
+<details>
+    <summary>Full Source Example</summary>
+
+```
+import * as ts from "typescript";
+
+const files: string[] = ['file-with-types.ts']
+const program: ts.Program = ts.createProgram(files, {});
+const checker: ts.TypeChecker = program.getTypeChecker();
+
+const myComponentSourceFile = program.getSourceFile('file-with-types.ts')!;
+
+/**
+ * Typescript can help us to spot types from outside of our local source files
+ * which we don't want to process like literals string (think of trim(), length etc) or entire classes like Date.
+ */
+function isTypeLocal(symbol: ts.Symbol) {
+  const sourceFile = symbol?.valueDeclaration?.getSourceFile();
+  const hasSource = !!sourceFile;
+  const isStandardLibrary = hasSource && program.isSourceFileDefaultLibrary(sourceFile!)
+  const isExternal = hasSource && program.isSourceFileFromExternalLibrary(sourceFile!);
+  const hasDeclaration = !!symbol?.declarations?.[0];
+
+  return !(isStandardLibrary || isExternal) && hasDeclaration;
+}
+
+function processProperty(type: ts.Type, node: ts.Node, level = 0) {
+  if(level === 0) {
+    console.group(`.\n└──Processing '${checker.typeToString(type)}'`)
+  }
+
+  for (const property of type.getProperties()) {
+    const propertyType = checker.getTypeOfSymbolAtLocation(property, node);
+    const propertySymbol = propertyType.getSymbol()!;
+    const propertyTypeName = checker.typeToString(propertyType);
+
+    const localType = isTypeLocal(propertySymbol);
+
+    /**
+     * If it's a local type belonging to our sources we are interested in
+     * further analysis, so we process all properties again like we did for the current given property.
+     */
+    if(localType) {
+      console.group(`  └── ${property.name}: ${propertyTypeName}`)
+
+      processProperty(propertyType, node, level + 1)
+    }else {
+      console.log(`  ├── ${property.name}: ${propertyTypeName}`)
+    }
+
+  }
+  console.groupEnd();
+
+}
+
+ts.forEachChild(myComponentSourceFile, node => {
+  if (ts.isTypeAliasDeclaration(node) && node.name.escapedText === "Output") {
+    const outputType = checker.getTypeAtLocation(node.name);
+    processProperty(outputType, node);
+  }
+});
+
+```
+
+</details>
 
 ## Conclusion
 
