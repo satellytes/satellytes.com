@@ -22,7 +22,7 @@ interface InputFieldProps {
   error: any;
   inputRef: any;
   required?: boolean;
-  type?: 'text' | 'file' | 'text-area';
+  type?: 'text' | 'text-area';
 }
 
 export const CareerFormStyled = styled.form`
@@ -40,18 +40,16 @@ export const InputField = (props: InputFieldProps) => {
         )}
         {props.type && props.type === 'text-area' ? (
           <TextArea
-            name="message"
-            ref={props.inputRef}
+            {...props.inputRef}
             hasError={props.error}
             id={props.name}
             aria-required={props.required}
           />
         ) : (
           <Input
-            type={props.type ?? 'text'}
+            type={'text'}
             id={props.name}
-            name={props.name}
-            ref={props.inputRef}
+            {...props.inputRef}
             hasError={props.error}
             aria-required={props.required}
           />
@@ -146,3 +144,7 @@ export const Actions = ({ tryAgainFn, error, isSubmitting }) => {
     </SendButton>
   );
 };
+
+export const FileContainer = styled.div`
+  margin: 24px 0px;
+`;
