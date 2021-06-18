@@ -6,12 +6,17 @@ import {
   Actions,
   CareerFormStyled,
   Fieldset,
-  InputField,
+  FileContainer,
+  FormError,
   ProgressBar,
   SuccessMessage,
 } from './career-components';
-import { CaptionText } from '../typography/typography';
-import { Sup } from '../form/controls';
+import { CaptionText, TextLink } from '../typography/typography';
+import { Checkbox, Sup } from '../form/controls';
+import { FileInput } from './career-file-input';
+import { CareerTextFields } from './career-textfields';
+import { FilePreview } from './career-file-preview';
+import { Upload } from '../icons/upload';
 
 interface CareerFormProps {
   recruiting_channel_id: string;
@@ -30,6 +35,7 @@ interface FormData {
 }
 
 const API_ENDPOINT = 'https://api.personio.de/recruiting/applicant';
+const PRIVACY_POLICY = 'https://satellytes.jobs.personio.de/privacy-policy';
 export const SIMPLE_EMAIL_PATTERN = /.+@.+\..+/;
 
 export const CareerForm: React.FC<CareerFormProps> = (props) => {
@@ -38,12 +44,24 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
     handleSubmit,
     setError,
     clearErrors,
-    errors,
-    formState: { isSubmitSuccessful, isSubmitting },
+    watch,
+    setValue,
+    formState: { errors, isSubmitSuccessful, isSubmitting },
   } = useForm();
   const [uploadProgress, setUploadProgress] = useState(0);
+  const selectedFiles = watch('documents');
+  const privacyChecked = watch('privacy');
 
   const onSubmit = async (formValues: FormData): Promise<void> => {
+    if (!privacyChecked) {
+      setError(
+        'privacy',
+        { type: 'manual', message: 'Hier fehlt noch ein Häckchen' },
+        { shouldFocus: true },
+      );
+      return;
+    }
+
     const apiData = {
       company_id: props.company_id,
       access_token: props.access_token,
@@ -97,6 +115,18 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
     console.log('onError', event);
   };
 
+  const unselectFile = (event, index) => {
+    const dataTransfer = new DataTransfer();
+    for (let i = 0; i < selectedFiles.length; i++) {
+      if (i != index) {
+        dataTransfer.items.add(selectedFiles[i]);
+      }
+    }
+    setValue('documents', dataTransfer.files, { shouldDirty: true });
+    event.stopPropagation();
+    event.preventDefault();
+  };
+
   // recover from some previous error
   const tryAgain = () => {
     setUploadProgress(0);
@@ -112,102 +142,68 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
     <CareerFormStyled onSubmit={handleSubmit(onSubmit, onError)}>
       <Fieldset disabled={isSubmitting}>
         <Grid nested>
-          {/*First Name*/}
-          <GridItem xs={12} md={6}>
-            <InputField
-              required={true}
-              inputRef={register({ required: 'Dein Vorname fehlt' })}
-              error={errors.first_name}
-              name="first_name"
-              label="Vorname"
-            />
-          </GridItem>
+          <CareerTextFields register={register} errors={errors} />
 
-          {/*Last Name*/}
-          <GridItem xs={12} md={6}>
-            <InputField
-              required={true}
-              inputRef={register({ required: 'Dein Nachname fehlt' })}
-              error={errors.last_name}
-              name="last_name"
-              label="Nachname"
-            />
-          </GridItem>
-
-          {/*E-Mail*/}
-          <GridItem xs={12} md={6}>
-            <InputField
-              required={true}
-              inputRef={register({
-                required: 'Deine E-Mail fehlt',
-                pattern: {
-                  value: SIMPLE_EMAIL_PATTERN,
-                  message: `Irgendwas stimmt an dieser E-Mail nicht`,
-                },
-              })}
-              error={errors.email}
-              name="email"
-              label="E-Mail-Adresse"
-            />
-          </GridItem>
-
-          {/*Location*/}
-          <GridItem xs={12} md={6}>
-            <InputField
-              inputRef={register()}
-              error={errors.location}
-              name="location"
-              label="Aktueller Wohnort"
-            />
-          </GridItem>
-
-          {/*Available From*/}
-          <GridItem xs={12} md={6}>
-            <InputField
-              inputRef={register()}
-              error={errors.available_from}
-              name="available_from"
-              label="Verfügbar ab"
-            />
-          </GridItem>
-
-          {/*Salary Expectations*/}
-          <GridItem xs={12} md={6}>
-            <InputField
-              inputRef={register()}
-              error={errors.salary_expectations}
-              name="salary_expectations"
-              label="Gehaltsvorstellung"
-            />
-          </GridItem>
-
-          {/*Cover Letter*/}
+          {/*File-Upload*/}
           <GridItem>
-            <InputField
-              required={true}
-              inputRef={register({ required: 'Dein Anschreiben fehlt' })}
-              error={errors.message}
-              name="message"
-              label="Anschreiben"
-              type={'text-area'}
-            />
-          </GridItem>
-
-          {/*CV File */}
-          <GridItem>
-            <InputField
-              inputRef={register({ required: 'Dein CV fehlt' })}
-              error={errors.documents}
+            <FileInput
+              setValue={setValue}
+              clearErrors={clearErrors}
               name="documents"
-              label="Dokumente *"
-              type={'file'}
-            />
+              register={register}
+              selectedFiles={selectedFiles}
+              error={errors.documents}
+            >
+              <>
+                {(!selectedFiles || selectedFiles.length === 0) && <Upload />}
+                <div>
+                  Drop files to upload or <span>browse</span>
+                </div>
+              </>
+            </FileInput>
+            <FormError error={errors.documents} />
           </GridItem>
 
+          {/*File-Review*/}
+          {selectedFiles &&
+            selectedFiles.length > 0 &&
+            Object.entries(selectedFiles).map(([index, file]) => {
+              if (index !== 'length') {
+                return (
+                  <GridItem key={index}>
+                    <FilePreview
+                      file={file}
+                      index={index}
+                      onClick={unselectFile}
+                    />
+                  </GridItem>
+                );
+              }
+            })}
+
           <GridItem>
-            <CaptionText>
-              <Sup>*</Sup> Pflichtfeld
-            </CaptionText>
+            <FileContainer>
+              <CaptionText>
+                <Sup>*</Sup> Pflichtfeld
+              </CaptionText>
+            </FileContainer>
+          </GridItem>
+
+          {/*Privacy-Policy Checkbox*/}
+          <GridItem>
+            <Checkbox
+              type="checkbox"
+              id={'privacy-policy'}
+              {...register('privacy', {
+                required: 'Hier fehlt ein Häckchen',
+              })}
+            />
+            <label htmlFor="privacy-policy">
+              Hiermit bestätige ich, dass ich die{' '}
+              <TextLink to={PRIVACY_POLICY}>Datenschutzerklärung</TextLink> zur
+              Kenntnis genommen habe. <Sup aria-hidden={true}>*</Sup>
+            </label>
+            {errors.privacy && <FormError error={errors.privacy} />}
           </GridItem>
 
           <GridItem>

@@ -136,6 +136,11 @@ export const SendButton = styled(Button)`
     `}
 `;
 
+export const Checkbox = styled.input`
+  margin-right: 10px;
+  cursor: pointer;
+`;
+
 export const SentButton = styled(Button)`
   cursor: default;
   background: linear-gradient(275.41deg, #75f0c7 0%, #2756fd 100%);
