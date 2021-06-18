@@ -138,6 +138,7 @@ export const SendButton = styled(Button)`
 
 export const Checkbox = styled.input`
   margin-right: 10px;
+  margin-top: 5px;
   cursor: pointer;
 `;
 

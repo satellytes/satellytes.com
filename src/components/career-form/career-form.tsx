@@ -17,6 +17,7 @@ import { FileInput } from './career-file-input';
 import { CareerTextFields } from './career-textfields';
 import { FilePreview } from './career-file-preview';
 import { Upload } from '../icons/upload';
+import styled from 'styled-components';
 
 interface CareerFormProps {
   recruiting_channel_id: string;
@@ -56,7 +57,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
     if (!privacyChecked) {
       setError(
         'privacy',
-        { type: 'manual', message: 'Hier fehlt noch ein Häckchen' },
+        { type: 'manual', message: 'Deine Zustimmung fehlt' },
         { shouldFocus: true },
       );
       return;
@@ -191,19 +192,23 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
 
           {/*Privacy-Policy Checkbox*/}
           <GridItem>
-            <Checkbox
-              type="checkbox"
-              id={'privacy-policy'}
-              {...register('privacy', {
-                required: 'Hier fehlt ein Häckchen',
-              })}
-            />
-            <label htmlFor="privacy-policy">
-              Hiermit bestätige ich, dass ich die{' '}
-              <TextLink to={PRIVACY_POLICY}>Datenschutzerklärung</TextLink> zur
-              Kenntnis genommen habe. <Sup aria-hidden={true}>*</Sup>
-            </label>
-            {errors.privacy && <FormError error={errors.privacy} />}
+            <CheckboxContainer>
+              <Checkbox
+                type="checkbox"
+                id={'privacy-policy'}
+                {...register('privacy', {
+                  required: 'Deine Zustimmung fehlt',
+                })}
+              />
+              <div>
+                <label htmlFor="privacy-policy">
+                  Hiermit bestätige ich, dass ich die{' '}
+                  <TextLink to={PRIVACY_POLICY}>Datenschutzerklärung</TextLink>{' '}
+                  zur Kenntnis genommen habe. <Sup aria-hidden={true}>*</Sup>
+                </label>
+                {errors.privacy && <FormError error={errors.privacy} />}
+              </div>
+            </CheckboxContainer>
           </GridItem>
 
           <GridItem>
@@ -222,3 +227,9 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
     </CareerFormStyled>
   );
 };
+
+const CheckboxContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 24px;
+`;

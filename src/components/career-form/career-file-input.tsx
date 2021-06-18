@@ -34,18 +34,20 @@ export const FileInput = ({
       // dropped files are appended to already selected files
       const dataTransfer = new DataTransfer();
       if (selectedFiles) {
-        for (let i = 0; i < selectedFiles.length; i++)
+        for (let i = 0; i < selectedFiles.length; i++) {
           dataTransfer.items.add(selectedFiles[i]);
+        }
       }
-      for (let i = 0; i < droppedFiles.length; i++)
+      for (let i = 0; i < droppedFiles.length; i++) {
         dataTransfer.items.add(droppedFiles[i]);
+      }
       setValue(name, dataTransfer.files, { shouldDirty: true });
       clearErrors(name);
     },
     [selectedFiles, setValue],
   );
 
-  const { getRootProps, getInputProps } = useDropzone({
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: '.pdf',
   });
@@ -55,6 +57,7 @@ export const FileInput = ({
       <FileInputLabel
         {...getRootProps({
           selectedFiles,
+          isDragActive,
           onClick: (event) => event.stopPropagation(),
         })}
         hasError={error}
@@ -75,10 +78,13 @@ export const FileInput = ({
 
 const FileInputLabel = styled.label<FileInputProps & DropzoneRootProps>`
   display: flex;
-  align-items: center;
   flex-direction: column;
   justify-content: center;
+  ${({ selectedFiles }) =>
+    (!selectedFiles || selectedFiles.length === 0) && `align-items: center;`}
   border-radius: 4px;
+  ${({ isDragActive }) =>
+    isDragActive && `border: 2px solid ${theme.palette.primary.main};`}
   padding: ${({ selectedFiles }) =>
     !selectedFiles || selectedFiles.length === 0 ? `56px` : `24px`};
   margin-bottom: 2px;

@@ -1,18 +1,62 @@
 import styled from 'styled-components';
 import React from 'react';
 import { Clear } from '../icons/clear';
+import { Checkmark } from '../icons/checkmark';
+import { theme } from '../layout/theme';
 
 export const FilePreview = ({ index, file, onClick }) => {
   return (
     <Preview>
-      {/* checkmark */}
-      <span>{(file as File).name}</span>
-      <button onClick={(event) => onClick(event, index)}>
+      <Container>
+        <CheckmarkBackground>
+          <Checkmark />
+        </CheckmarkBackground>
+        <FileName className="name">{(file as File).name}</FileName>
+      </Container>
+      <Button onClick={(event) => onClick(event, index)}>
         <Clear />
-      </button>
+      </Button>
     </Preview>
   );
 };
+
+const Button = styled.div`
+  background: none;
+  border: none;
+  padding-left: 4px;
+  cursor: pointer;
+  text-align: right;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 1;
+  justify-content: left;
+  align-items: center;
+  width: calc(100% - 26px);
+`;
+
+const CheckmarkBackground = styled.div`
+  width: 16px;
+  height: 16px;
+  background: ${theme.palette.primary.main};
+  border-radius: 28px;
+
+  svg {
+    display: block;
+    margin: auto;
+    margin-top: 4px;
+    width: 16px;
+  }
+`;
+
+const FileName = styled.div`
+  margin-left: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+`;
 
 const Preview = styled.div`
   display: flex;
@@ -23,8 +67,4 @@ const Preview = styled.div`
   background: rgba(122, 143, 204, 0.2);
   overflow: ellipsis;
   line-height: 150%;
-
-  span {
-    margin-left: 12px;
-  }
 `;

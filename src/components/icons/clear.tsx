@@ -8,7 +8,17 @@ export const Clear = () => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path d="M1 1L11 11" stroke="#202840" strokeWidth="1.75" />
-    <path d="M11 1L1 11" stroke="#202840" strokeWidth="1.75" />
+    <path
+      d="M1 1L11 11"
+      stroke="#ffffff"
+      strokeOpacity="0.5"
+      strokeWidth="1.5"
+    />
+    <path
+      d="M11 1L1 11"
+      stroke="#ffffff"
+      strokeOpacity="0.5"
+      strokeWidth="1.5"
+    />
   </svg>
 );
