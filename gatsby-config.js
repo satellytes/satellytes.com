@@ -42,7 +42,7 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-smoothscroll`,
     `gatsby-plugin-image`,
-    `gatsby-plugin-catch-links` /* Please use gatsby-link for remark contetn */,
+    `gatsby-plugin-catch-links` /* Please use gatsby-link for remark content */,
     {
       resolve: 'gatsby-source-filesystem',
       options: {

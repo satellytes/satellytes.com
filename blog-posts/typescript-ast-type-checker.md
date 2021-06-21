@@ -16,7 +16,9 @@ For a recent Angular project we had to inspect a set of typescript files and out
 
 <!-- stop excerpt -->
 
-## Our expectations
+You can find the repository on [github.com/georgiee/typescript-type-checker-beyond-ast](https://github.com/georgiee/typescript-type-checker-beyond-ast) and you can directly run the given example in your browser with [code sandbox](https://githubbox.com/georgiee/typescript-type-checker-beyond-ast)
+
+## Expectations
 
 Look at the two types below. You can find primitives like `string` and `number`, types from the standard library such as `Date` and type aliases like `NestedObjectType` that refer to object types which are assembled types that can contain primitives and other object types.
 
@@ -205,68 +207,69 @@ for (const nestedProperty of propertyType.getProperties()) {
 <details>
     <summary>Full Source Example</summary>
 
-    ````typescript
-    /**
-     Given the following file 'my.component.ts'
-     
-      ```
-      type ImportantValue = {
-        value1: string;
-        value2: number;
-        value3: Date;
-      };
-      
-      type Output = {
-        collectedValue: ImportantValue;
-      };
-      ```
-      
-     This file will print the following information to the console.
-        
-      ```
-      ── collectedValue: ImportantValue
-      ├── value1: string
-      ├── value2: number
-      ├── value3: Date
-     ```
+````typescript
+/**
+ Given the following file 'my.component.ts'
+ 
+  ```
+  type ImportantValue = {
+    value1: string;
+    value2: number;
+    value3: Date;
+  };
   
+  type Output = {
+    collectedValue: ImportantValue;
+  };
+  ```
+  
+ This file will print the following information to the console.
+    
+  ```
+  ── collectedValue: ImportantValue
+  ├── value1: string
+  ├── value2: number
+  ├── value3: Date
+ ```
+
+ */
+
+import * as ts from "typescript";
+
+const files: string[] = ['my.component.ts']
+const program: ts.Program = ts.createProgram(files, {});
+const checker: ts.TypeChecker = program.getTypeChecker();
+
+const myComponentSourceFile = program.getSourceFile('my.component.ts')!;
+
+ts.forEachChild(myComponentSourceFile, node => {
+  if (ts.isTypeAliasDeclaration(node) && node.name.escapedText === "Output") {
+    const outputType = checker.getTypeAtLocation(node.name);
+    const [collectedValueProperty] = outputType.getProperties();
+
+    /**
+     * `propertyType` will contain & reference everything
+     * we can know about the type `ImportantValue`
      */
+    const propertyType = checker.getTypeOfSymbolAtLocation(collectedValueProperty, node);
+    const propertyTypeName = checker.typeToString(propertyType);
+    // prints `collectedValue: ImportantValue`
+    console.log(`── ${collectedValueProperty.name}: ${propertyTypeName}`)
 
-    import * as ts from "typescript";
+    for (const nestedProperty of propertyType.getProperties()) {
+      const nestedPropertyType = checker.getTypeOfSymbolAtLocation(nestedProperty, node);
+      const nestedPropertyTypeName = checker.typeToString(nestedPropertyType);
+      /** prints the following
+       ├── value1: string
+       ├── value2: number
+       ├── value3: Date
+       */
+      console.log(`     ├── ${nestedProperty.name}: ${nestedPropertyTypeName}`)
+    }
+  }
+});
+````
 
-    const files: string[] = ['my.component.ts']
-    const program: ts.Program = ts.createProgram(files, {});
-    const checker: ts.TypeChecker = program.getTypeChecker();
-
-    const myComponentSourceFile = program.getSourceFile('my.component.ts')!;
-
-    ts.forEachChild(myComponentSourceFile, node => {
-      if (ts.isTypeAliasDeclaration(node) && node.name.escapedText === "Output") {
-        const outputType = checker.getTypeAtLocation(node.name);
-        const [collectedValueProperty] = outputType.getProperties();
-
-        /**
-         * `propertyType` will contain & reference everything
-         * we can know about the type `ImportantValue`
-         */
-        const propertyType = checker.getTypeOfSymbolAtLocation(collectedValueProperty, node);
-        const propertyTypeName = checker.typeToString(propertyType);
-        // prints `collectedValue: ImportantValue`
-        console.log(`── ${collectedValueProperty.name}: ${propertyTypeName}`)
-
-        for (const nestedProperty of propertyType.getProperties()) {
-          const nestedPropertyType = checker.getTypeOfSymbolAtLocation(nestedProperty, node);
-          const nestedPropertyTypeName = checker.typeToString(nestedPropertyType);
-          /** prints the following
-           ├── value1: string
-           ├── value2: number
-           ├── value3: Date
-           */
-          console.log(`     ├── ${nestedProperty.name}: ${nestedPropertyTypeName}`)
-        }
-      }
-    });
-    ````
 </details>
 
 ## Real-world adjustments
@@ -311,122 +314,120 @@ This will find every single property, no matter how deep it's nested. That's bec
 When you run this code, you will be lost in noise. See the following log and try to spot our types within the ocean of properties pouring in from the standard library.
 
 <details>
-
 <summary>Output</summary>
 
-
-    ```typescript
-    .
-    └──Processing 'Output'
-      ├── toString: () => string
-      ├── charAt: (pos: number) => string
-      ├── charCodeAt: (index: number) => number
-      ├── concat: (...strings: string[]) => string
-      ├── indexOf: (searchString: string, position?: number) => number
-      ├── lastIndexOf: (searchString: string, position?: number) => number
-      ├── localeCompare: { (that: string): number; (that: string, locales?: string | string[], options?: CollatorOptions): number; }
-      ├── match: { (regexp: string | RegExp): RegExpMatchArray; (matcher: { [Symbol.match](string: string): RegExpMatchArray; }): RegExpMatchArray; }
-      ├── replace: { (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) => string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) => string): string; }
-      ├── search: { (regexp: string | RegExp): number; (searcher: { [Symbol.search](string: string): number; }): number; }
-      ├── slice: (start?: number, end?: number) => string
-      ├── split: { (separator: string | RegExp, limit?: number): string[]; (splitter: { [Symbol.split](string: string, limit?: number): string[]; }, limit?: number): string[]; }
-      ├── substring: (start: number, end?: number) => string
-      ├── toLowerCase: () => string
-      ├── toLocaleLowerCase: (locales?: string | string[]) => string
-      ├── toUpperCase: () => string
-      ├── toLocaleUpperCase: (locales?: string | string[]) => string
-      ├── trim: () => string
-      ├── toString: (radix?: number) => string
-      ├── toFixed: (fractionDigits?: number) => string
-      ├── toExponential: (fractionDigits?: number) => string
-      ├── toPrecision: (precision?: number) => string
-      ├── valueOf: () => number
-      ├── toLocaleString: (locales?: string | string[], options?: NumberFormatOptions) => string
-      ├── length: number
-      ├── substr: (from: number, length?: number) => string
-      ├── valueOf: () => string
-      ├── codePointAt: (pos: number) => number
-      ├── includes: (searchString: string, position?: number) => boolean
-      ├── endsWith: (searchString: string, endPosition?: number) => boolean
-      ├── normalize: { (form: "NFC" | "NFD" | "NFKC" | "NFKD"): string; (form?: string): string; }
-      ├── repeat: (count: number) => string
-      ├── startsWith: (searchString: string, position?: number) => boolean
-      ├── anchor: (name: string) => string
-      ├── big: () => string
-      ├── blink: () => string
-      ├── bold: () => string
-      ├── fixed: () => string
-      ├── fontcolor: (color: string) => string
-      ├── fontsize: { (size: number): string; (size: string): string; }
-      ├── italics: () => string
-      ├── link: (url: string) => string
-      ├── small: () => string
-      ├── strike: () => string
-      ├── sub: () => string
-      ├── sup: () => string
-      ├── padStart: (maxLength: number, fillString?: string) => string
-      ├── padEnd: (maxLength: number, fillString?: string) => string
-      ├── trimLeft: () => string
-      ├── trimRight: () => string
-      ├── trimStart: () => string
-      ├── trimEnd: () => string
-      ├── __@iterator@596: () => IterableIterator<string>
-    👉├── value1: string
-      ├── toString: (radix?: number) => string
-      ├── toFixed: (fractionDigits?: number) => string
-      ├── toExponential: (fractionDigits?: number) => string
-      ├── toPrecision: (precision?: number) => string
-      ├── valueOf: () => number
-      ├── toLocaleString: (locales?: string | string[], options?: NumberFormatOptions) => string
-    👉├── value2: number
-      ├── toString: () => string
-      ├── toDateString: () => string
-      ├── toTimeString: () => string
-      ├── toLocaleString: { (): string; (locales?: string | string[], options?: DateTimeFormatOptions): string; }
-      ├── toLocaleDateString: { (): string; (locales?: string | string[], options?: DateTimeFormatOptions): string; }
-      ├── toLocaleTimeString: { (): string; (locales?: string | string[], options?: DateTimeFormatOptions): string; }
-      ├── valueOf: () => number
-      ├── getTime: () => number
-      ├── getFullYear: () => number
-      ├── getUTCFullYear: () => number
-      ├── getMonth: () => number
-      ├── getUTCMonth: () => number
-      ├── getDate: () => number
-      ├── getUTCDate: () => number
-      ├── getDay: () => number
-      ├── getUTCDay: () => number
-      ├── getHours: () => number
-      ├── getUTCHours: () => number
-      ├── getMinutes: () => number
-      ├── getUTCMinutes: () => number
-      ├── getSeconds: () => number
-      ├── getUTCSeconds: () => number
-      ├── getMilliseconds: () => number
-      ├── getUTCMilliseconds: () => number
-      ├── getTimezoneOffset: () => number
-      ├── setTime: (time: number) => number
-      ├── setMilliseconds: (ms: number) => number
-      ├── setUTCMilliseconds: (ms: number) => number
-      ├── setSeconds: (sec: number, ms?: number) => number
-      ├── setUTCSeconds: (sec: number, ms?: number) => number
-      ├── setMinutes: (min: number, sec?: number, ms?: number) => number
-      ├── setUTCMinutes: (min: number, sec?: number, ms?: number) => number
-      ├── setHours: (hours: number, min?: number, sec?: number, ms?: number) => number
-      ├── setUTCHours: (hours: number, min?: number, sec?: number, ms?: number) => number
-      ├── setDate: (date: number) => number
-      ├── setUTCDate: (date: number) => number
-      ├── setMonth: (month: number, date?: number) => number
-      ├── setUTCMonth: (month: number, date?: number) => number
-      ├── setFullYear: (year: number, month?: number, date?: number) => number
-      ├── setUTCFullYear: (year: number, month?: number, date?: number) => number
-      ├── toUTCString: () => string
-      ├── toISOString: () => string
-      ├── toJSON: (key?: any) => string
-      ├── getVarDate: () => VarDate
-      ├── __@toPrimitive@755: { (hint: "default"): string; (hint: "string"): string; (hint: "number"): number; (hint: string): string | number; }
-    👉├── value3: Date
-    👉├── collectedValue: ImportantValue
-    ```
+```
+.
+└──Processing 'Output'
+  ├── toString: () => string
+  ├── charAt: (pos: number) => string
+  ├── charCodeAt: (index: number) => number
+  ├── concat: (...strings: string[]) => string
+  ├── indexOf: (searchString: string, position?: number) => number
+  ├── lastIndexOf: (searchString: string, position?: number) => number
+  ├── localeCompare: { (that: string): number; (that: string, locales?: string | string[], options?: CollatorOptions): number; }
+  ├── match: { (regexp: string | RegExp): RegExpMatchArray; (matcher: { [Symbol.match](string: string): RegExpMatchArray; }): RegExpMatchArray; }
+  ├── replace: { (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) => string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) => string): string; }
+  ├── search: { (regexp: string | RegExp): number; (searcher: { [Symbol.search](string: string): number; }): number; }
+  ├── slice: (start?: number, end?: number) => string
+  ├── split: { (separator: string | RegExp, limit?: number): string[]; (splitter: { [Symbol.split](string: string, limit?: number): string[]; }, limit?: number): string[]; }
+  ├── substring: (start: number, end?: number) => string
+  ├── toLowerCase: () => string
+  ├── toLocaleLowerCase: (locales?: string | string[]) => string
+  ├── toUpperCase: () => string
+  ├── toLocaleUpperCase: (locales?: string | string[]) => string
+  ├── trim: () => string
+  ├── toString: (radix?: number) => string
+  ├── toFixed: (fractionDigits?: number) => string
+  ├── toExponential: (fractionDigits?: number) => string
+  ├── toPrecision: (precision?: number) => string
+  ├── valueOf: () => number
+  ├── toLocaleString: (locales?: string | string[], options?: NumberFormatOptions) => string
+  ├── length: number
+  ├── substr: (from: number, length?: number) => string
+  ├── valueOf: () => string
+  ├── codePointAt: (pos: number) => number
+  ├── includes: (searchString: string, position?: number) => boolean
+  ├── endsWith: (searchString: string, endPosition?: number) => boolean
+  ├── normalize: { (form: "NFC" | "NFD" | "NFKC" | "NFKD"): string; (form?: string): string; }
+  ├── repeat: (count: number) => string
+  ├── startsWith: (searchString: string, position?: number) => boolean
+  ├── anchor: (name: string) => string
+  ├── big: () => string
+  ├── blink: () => string
+  ├── bold: () => string
+  ├── fixed: () => string
+  ├── fontcolor: (color: string) => string
+  ├── fontsize: { (size: number): string; (size: string): string; }
+  ├── italics: () => string
+  ├── link: (url: string) => string
+  ├── small: () => string
+  ├── strike: () => string
+  ├── sub: () => string
+  ├── sup: () => string
+  ├── padStart: (maxLength: number, fillString?: string) => string
+  ├── padEnd: (maxLength: number, fillString?: string) => string
+  ├── trimLeft: () => string
+  ├── trimRight: () => string
+  ├── trimStart: () => string
+  ├── trimEnd: () => string
+  ├── __@iterator@596: () => IterableIterator<string>
+👉├── value1: string
+  ├── toString: (radix?: number) => string
+  ├── toFixed: (fractionDigits?: number) => string
+  ├── toExponential: (fractionDigits?: number) => string
+  ├── toPrecision: (precision?: number) => string
+  ├── valueOf: () => number
+  ├── toLocaleString: (locales?: string | string[], options?: NumberFormatOptions) => string
+👉├── value2: number
+  ├── toString: () => string
+  ├── toDateString: () => string
+  ├── toTimeString: () => string
+  ├── toLocaleString: { (): string; (locales?: string | string[], options?: DateTimeFormatOptions): string; }
+  ├── toLocaleDateString: { (): string; (locales?: string | string[], options?: DateTimeFormatOptions): string; }
+  ├── toLocaleTimeString: { (): string; (locales?: string | string[], options?: DateTimeFormatOptions): string; }
+  ├── valueOf: () => number
+  ├── getTime: () => number
+  ├── getFullYear: () => number
+  ├── getUTCFullYear: () => number
+  ├── getMonth: () => number
+  ├── getUTCMonth: () => number
+  ├── getDate: () => number
+  ├── getUTCDate: () => number
+  ├── getDay: () => number
+  ├── getUTCDay: () => number
+  ├── getHours: () => number
+  ├── getUTCHours: () => number
+  ├── getMinutes: () => number
+  ├── getUTCMinutes: () => number
+  ├── getSeconds: () => number
+  ├── getUTCSeconds: () => number
+  ├── getMilliseconds: () => number
+  ├── getUTCMilliseconds: () => number
+  ├── getTimezoneOffset: () => number
+  ├── setTime: (time: number) => number
+  ├── setMilliseconds: (ms: number) => number
+  ├── setUTCMilliseconds: (ms: number) => number
+  ├── setSeconds: (sec: number, ms?: number) => number
+  ├── setUTCSeconds: (sec: number, ms?: number) => number
+  ├── setMinutes: (min: number, sec?: number, ms?: number) => number
+  ├── setUTCMinutes: (min: number, sec?: number, ms?: number) => number
+  ├── setHours: (hours: number, min?: number, sec?: number, ms?: number) => number
+  ├── setUTCHours: (hours: number, min?: number, sec?: number, ms?: number) => number
+  ├── setDate: (date: number) => number
+  ├── setUTCDate: (date: number) => number
+  ├── setMonth: (month: number, date?: number) => number
+  ├── setUTCMonth: (month: number, date?: number) => number
+  ├── setFullYear: (year: number, month?: number, date?: number) => number
+  ├── setUTCFullYear: (year: number, month?: number, date?: number) => number
+  ├── toUTCString: () => string
+  ├── toISOString: () => string
+  ├── toJSON: (key?: any) => string
+  ├── getVarDate: () => VarDate
+  ├── __@toPrimitive@755: { (hint: "default"): string; (hint: "string"): string; (hint: "number"): number; (hint: string): string | number; }
+👉├── value3: Date
+👉├── collectedValue: ImportantValue
+```
 </details>
 
 That's the "standard library" issue described earlier. The `Date` and `string` types causes this drama and we need to stop our processing before entering those types.
@@ -468,31 +469,31 @@ The updated code can process the initial file but it's much more flexible. Let's
 <details>
     <summary>Updated file `file-with-types.ts`</summary>
 
-    ```typescript
-    type ImportantValue = {
-      value1: string;
-      value2: number;
-      value3: Date;
-      value4: SomethingElse;
-    };
+```typescript
+type ImportantValue = {
+  value1: string;
+  value2: number;
+  value3: Date;
+  value4: SomethingElse;
+};
 
-    type SomethingElse = {
-      value2: PrettyNestedType;
-    };
+type SomethingElse = {
+  value2: PrettyNestedType;
+};
 
-    type PrettyNestedType = {
-      value1: string;
-      value2: number;
-      value3: Date;
-    };
+type PrettyNestedType = {
+  value1: string;
+  value2: number;
+  value3: Date;
+};
 
-    type Output = {
-      value1: string;
-      value2: number;
-      value3: Date;
-      collectedValue: ImportantValue;
-    };
-    ```
+type Output = {
+  value1: string;
+  value2: number;
+  value3: Date;
+  collectedValue: ImportantValue;
+};
+```
 </details>
 
 The following values are printed for the given file. Every standard library type is skipped, but the values are probably traversed and listed with the correct name and type name.
@@ -521,7 +522,7 @@ Task completed ✅
 <details>
     <summary>Full Source Example</summary>
 
-```
+```typescript
 import * as ts from "typescript";
 
 const files: string[] = ['file-with-types.ts']
