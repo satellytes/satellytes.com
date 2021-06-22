@@ -12,11 +12,12 @@ attribution:
 
 ---
 
-For a recent Angular project we had to inspect a set of typescript files and output a table of involved types which are resolved down to their primitives. This post is about how to collect that data and why we need to go beyond the AST.
+We currently develop a [low-code platform](https://en.wikipedia.org/wiki/Low-code_development_platform) for an enterprise client where Angular components are arranged and connected based on a given configuration file. The components define *data contracts* based on [generics](https://www.typescriptlang.org/docs/handbook/2/generics.html) so the platform always knows what data can flow between them. In order to perform the actual type check we use a json file that already contains all relevant typing information. We collect the typing data by recursively resolving typescript types down to their primitives and then store the found property names along with their typing name. This post is about how to collect the typing information and why we need to go beyond the AST to achieve this.
 
 <!-- stop excerpt -->
 
 You can find the repository on [github.com/georgiee/typescript-type-checker-beyond-ast](https://github.com/georgiee/typescript-type-checker-beyond-ast) and you can directly run the given example in your browser with [code sandbox](https://githubbox.com/georgiee/typescript-type-checker-beyond-ast)
+
 
 ## Expectations
 
@@ -448,7 +449,7 @@ function isTypeLocal(symbol: ts.Symbol) {
 }
 ```
 
-The method will detect if a given symbol belongs to a standard library (`Date`), to an external library (whatever you use from `node_modules`) and everything that doesn't have an actual declaration like primitive types (`string`, `number`).
+The method will detect if a given symbol belongs to a [standard library](https://www.typescriptlang.org/tsconfig#lib) (`Date`), to an external library (whatever you use from `node_modules`) and everything that doesn't have an actual declaration like primitive types (`string`, `number`).
 
 We will use that helper to prevent our recursion from branching into those unwanted types:
 
