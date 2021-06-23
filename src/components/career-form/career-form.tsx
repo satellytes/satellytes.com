@@ -13,11 +13,11 @@ import {
 } from './career-components';
 import { CaptionText, TextLink } from '../typography/typography';
 import { Checkbox, Sup } from '../form/controls';
-import { FileInput } from './career-file-input';
+import { FileUpload } from './career-file-upload';
 import { CareerTextFields } from './career-textfields';
-import { FilePreview } from './career-file-preview';
 import { Upload } from '../icons/upload';
 import styled from 'styled-components';
+import { CheckboxMark } from '../icons/checkbox';
 
 interface CareerFormProps {
   recruiting_channel_id: string;
@@ -79,13 +79,17 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
 
     for (const [key, value] of Object.entries(payload)) {
       if (key === 'documents') {
-        formData.append(
-          'documents',
-          formValues.documents[0],
-          formValues.documents[0].name,
-        );
+        for (let i = 0; i < formValues.documents.length; i++) {
+          const name = 'document'.concat((i + 1).toString());
+          formData.append(
+            name,
+            formValues.documents[i],
+            formValues.documents[i].name,
+          );
+        }
+      } else {
+        formData.append(key, value as any); // formdata doesn't take objects
       }
-      formData.append(key, value as any); // formdata doesn't take objects
     }
     // await new Promise(resolve => setTimeout(resolve, 2000));
     await axios
@@ -116,18 +120,6 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
     console.log('onError', event);
   };
 
-  const unselectFile = (event, index) => {
-    const dataTransfer = new DataTransfer();
-    for (let i = 0; i < selectedFiles.length; i++) {
-      if (i != index) {
-        dataTransfer.items.add(selectedFiles[i]);
-      }
-    }
-    setValue('documents', dataTransfer.files, { shouldDirty: true });
-    event.stopPropagation();
-    event.preventDefault();
-  };
-
   // recover from some previous error
   const tryAgain = () => {
     setUploadProgress(0);
@@ -146,41 +138,31 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
           <CareerTextFields register={register} errors={errors} />
 
           {/*File-Upload*/}
-          <GridItem>
-            <FileInput
-              setValue={setValue}
-              clearErrors={clearErrors}
-              name="documents"
-              register={register}
-              selectedFiles={selectedFiles}
-              error={errors.documents}
-            >
-              <>
-                {(!selectedFiles || selectedFiles.length === 0) && <Upload />}
-                <div>
-                  Drop files to upload or <span>browse</span>
-                </div>
-              </>
-            </FileInput>
-            <FormError error={errors.documents} />
-          </GridItem>
+          <FileUpload
+            setValue={setValue}
+            clearErrors={clearErrors}
+            name="documents"
+            register={register}
+            selectedFiles={selectedFiles}
+            error={errors.documents}
+            setError={setError}
+          >
+            <>
+              {(!selectedFiles || selectedFiles.length === 0) && <Upload />}
+              <div>
+                Drop files to upload or <span>browse</span>
+              </div>
+            </>
+          </FileUpload>
 
-          {/*File-Review*/}
-          {selectedFiles &&
-            selectedFiles.length > 0 &&
-            Object.entries(selectedFiles).map(([index, file]) => {
-              if (index !== 'length') {
-                return (
-                  <GridItem key={index}>
-                    <FilePreview
-                      file={file}
-                      index={index}
-                      onClick={unselectFile}
-                    />
-                  </GridItem>
-                );
-              }
-            })}
+          <GridItem>
+            <DocumentContainer>
+              Lade hier bitte deine relevanten Dokumente hoch, wie zb Lebenslauf
+              (CV), Motivationschreiben oder Referenzen. Erlaubt sind
+              ausschließlich 3 PDF Dateien, die maximale Größe pro Datei beträgt
+              20MB.
+            </DocumentContainer>
+          </GridItem>
 
           <GridItem>
             <FileContainer>
@@ -192,23 +174,28 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
 
           {/*Privacy-Policy Checkbox*/}
           <GridItem>
-            <CheckboxContainer>
-              <Checkbox
-                type="checkbox"
-                id={'privacy-policy'}
-                {...register('privacy', {
-                  required: 'Deine Zustimmung fehlt',
-                })}
-              />
-              <div>
-                <label htmlFor="privacy-policy">
-                  Hiermit bestätige ich, dass ich die{' '}
-                  <TextLink to={PRIVACY_POLICY}>Datenschutzerklärung</TextLink>{' '}
-                  zur Kenntnis genommen habe. <Sup aria-hidden={true}>*</Sup>
-                </label>
-                {errors.privacy && <FormError error={errors.privacy} />}
-              </div>
-            </CheckboxContainer>
+            <Container>
+              <CheckboxContainer>
+                <Checkbox
+                  type="checkbox"
+                  id={'privacy-policy'}
+                  {...register('privacy', {
+                    required: 'Deine Zustimmung fehlt',
+                  })}
+                />
+                <CheckboxLabel htmlFor="privacy-policy">
+                  {privacyChecked && <CheckboxMark />}
+                  <div>
+                    Hiermit bestätige ich, dass ich die{' '}
+                    <TextLink to={PRIVACY_POLICY}>
+                      Datenschutzerklärung
+                    </TextLink>{' '}
+                    zur Kenntnis genommen habe. <Sup aria-hidden={true}>*</Sup>
+                  </div>
+                </CheckboxLabel>
+              </CheckboxContainer>
+              {errors.privacy && <FormError error={errors.privacy} />}
+            </Container>
           </GridItem>
 
           <GridItem>
@@ -228,8 +215,48 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
   );
 };
 
-const CheckboxContainer = styled.div`
+const Container = styled.div`
+  margin-bottom: 24px;
+`;
+
+const DocumentContainer = styled.div`
+  display: flex;
+  align-items: left;
+  flex-direction: row;
+  margin: 24px 0px;
+`;
+
+const CheckboxLabel = styled.label`
   display: flex;
   flex-direction: row;
-  margin-bottom: 24px;
+  cursor: pointer;
+
+  div {
+    width: calc(100% - 40px);
+  }
+
+  &:before {
+    content: '';
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+    background: rgba(122, 143, 204, 0.3);
+    border-radius: 4px;
+  }
+`;
+
+const CheckboxContainer = styled.div`
+  position: relative;
+  cursor: pointer;
+
+  svg {
+    position: absolute;
+    top: 7px;
+    left: 5px;
+    width: 11px;
+    height: 11px;
+  }
 `;

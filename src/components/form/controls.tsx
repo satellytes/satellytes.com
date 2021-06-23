@@ -137,9 +137,10 @@ export const SendButton = styled(Button)`
 `;
 
 export const Checkbox = styled.input`
-  margin-right: 10px;
-  margin-top: 5px;
-  cursor: pointer;
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
 `;
 
 export const SentButton = styled(Button)`
@@ -154,11 +155,11 @@ export const RequestStatusMessage = styled(Text)`
   font-size: 12px;
 `;
 
-export const ErrorMessage = styled.p`
+export const ErrorMessage = styled.p<{ marginBottom?: number }>`
   color: #f19bab;
   font-size: 12px;
   margin-top: 8px;
-  margin-bottom: 0;
+  margin-bottom: ${({ marginBottom }) => marginBottom || 0}px;
 `;
 
 export const ErrorMessageSend = styled(ErrorMessage)`

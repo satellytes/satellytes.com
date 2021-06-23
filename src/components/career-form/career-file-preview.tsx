@@ -20,12 +20,10 @@ export const FilePreview = ({ index, file, onClick }) => {
   );
 };
 
-const Button = styled.div`
+const Button = styled.button`
   background: none;
   border: none;
-  padding-left: 4px;
   cursor: pointer;
-  text-align: right;
 `;
 
 const Container = styled.div`

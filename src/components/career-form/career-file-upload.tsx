@@ -1,0 +1,221 @@
+import { Input, InputContainer } from '../form/controls';
+import React, { ReactNode, useCallback } from 'react';
+import { DropzoneRootProps, useDropzone } from 'react-dropzone';
+import styled from 'styled-components';
+import { theme } from '../layout/theme';
+import {
+  FieldValues,
+  UseFormClearErrors,
+  UseFormRegister,
+  UseFormSetError,
+  UseFormSetValue,
+} from 'react-hook-form';
+import { GridItem } from '../grid/grid';
+import { FilePreview } from './career-file-preview';
+import { FormError } from './career-components';
+
+interface FileUploadProps {
+  setValue: UseFormSetValue<FieldValues>;
+  setError: UseFormSetError<FieldValues>;
+  clearErrors: UseFormClearErrors<FieldValues>;
+  register: UseFormRegister<FieldValues>;
+  name: string;
+  selectedFiles: FileList;
+  error: boolean;
+  children: ReactNode | ReactNode[];
+}
+
+const MAX_NUMBER = 3;
+const MAX_SIZE = 20000000; // maximal size per document of personio
+
+export const FileUpload = ({
+  setValue,
+  setError,
+  clearErrors,
+  name,
+  register,
+  selectedFiles,
+  error,
+  children,
+}: FileUploadProps) => {
+  const onDrop = useCallback(
+    (droppedFiles) => {
+      // maximal number of file being dropped
+      const maximalOfFiles = selectedFiles
+        ? MAX_NUMBER - selectedFiles.length
+        : MAX_NUMBER;
+      // dropped files are appended to already selected files
+      const dataTransfer = new DataTransfer();
+      if (selectedFiles) {
+        for (let i = 0; i < selectedFiles.length; i++) {
+          dataTransfer.items.add(selectedFiles[i]);
+        }
+      }
+      for (let i = 0; i < Math.min(maximalOfFiles, droppedFiles.length); i++) {
+        dataTransfer.items.add(droppedFiles[i]);
+      }
+      setValue(name, dataTransfer.files, { shouldDirty: true });
+      clearErrors(name);
+
+      if (
+        Math.min(maximalOfFiles, droppedFiles.length) !== droppedFiles.length
+      ) {
+        setError(
+          name,
+          {
+            type: 'manual',
+            message: 'Maximal number of documents is reached.',
+          },
+          { shouldFocus: true },
+        );
+      }
+    },
+    [selectedFiles, setValue],
+  );
+
+  const validator = (file) => {
+    clearErrors(name);
+    if (selectedFiles) {
+      // check if file was already uploaded
+      for (let i = 0; i < selectedFiles.length; i++) {
+        if (JSON.stringify(selectedFiles[i]) === JSON.stringify(file)) {
+          return {
+            code: 'file was already uploaded',
+            message: `The document "${file.name}" was already uploaded.`,
+          };
+        }
+      }
+      // check maximal number of documents
+      if (selectedFiles.length + file.length > MAX_NUMBER) {
+        return {
+          code: 'limit of files is reached',
+          message: `Maximal number of documents is reached.`,
+        };
+      }
+    }
+    if (file.length > MAX_NUMBER) {
+      return {
+        code: 'limit of files is reached',
+        message: `Maximal number of documents is reached.`,
+      };
+    }
+    // check maximal size of documents
+    if (file.size > MAX_SIZE) {
+      return {
+        code: 'file is too big',
+        message: `Maximal filesize of 20 MB is reached.`,
+      };
+    }
+    return null;
+  };
+
+  const onDropRejected = (file) => {
+    setError(
+      name,
+      { type: 'manual', message: file[0].errors[0].message },
+      { shouldFocus: true },
+    );
+  };
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept: '.pdf',
+    validator,
+    onDropRejected,
+  });
+
+  const unselectFile = (event, index) => {
+    const dataTransfer = new DataTransfer();
+    for (let i = 0; i < selectedFiles.length; i++) {
+      if (i != index) {
+        dataTransfer.items.add(selectedFiles[i]);
+      }
+    }
+    setValue('documents', dataTransfer.files, { shouldDirty: true });
+    clearErrors(name);
+    event.stopPropagation();
+    event.preventDefault();
+  };
+
+  return (
+    <>
+      {/*File-Upload*/}
+      <GridItem>
+        <InputContainer>
+          <FileInputLabel
+            {...getRootProps({
+              selectedFiles,
+              isDragActive,
+              onClick: (event) => event.stopPropagation(),
+            })}
+            hasError={error}
+          >
+            <Input
+              id={name}
+              type={'file'}
+              {...getInputProps({
+                ...register(name, { required: 'Dein CV fehlt' }),
+              })}
+              multiple
+            />
+            {children}
+          </FileInputLabel>
+        </InputContainer>
+        <FormError error={error} marginBottom={8} />
+      </GridItem>
+
+      {/*File-Review*/}
+      <GridItem>
+        {selectedFiles &&
+          selectedFiles.length > 0 &&
+          Object.entries(selectedFiles).map(([index, file]) => {
+            if (index !== 'length') {
+              return (
+                <GridItem key={index}>
+                  <FilePreview
+                    file={file}
+                    index={index}
+                    onClick={unselectFile}
+                  />
+                </GridItem>
+              );
+            }
+          })}
+      </GridItem>
+    </>
+  );
+};
+
+const FileInputLabel = styled.label<FileUploadProps & DropzoneRootProps>`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  ${({ selectedFiles }) =>
+    (!selectedFiles || selectedFiles.length === 0) && `align-items: center;`}
+  border-radius: 4px;
+  ${({ isDragActive }) =>
+    isDragActive && `border: 2px solid ${theme.palette.primary.main};`}
+  padding: ${({ selectedFiles }) =>
+    !selectedFiles || selectedFiles.length === 0 ? `56px` : `24px`};
+  margin-bottom: 2px;
+  width: 100%;
+  background: rgba(122, 143, 204, 0.2);
+  cursor: pointer;
+
+  ${({ hasError }) => hasError && `background-color: #f8cdd5; color: #202840;`};
+
+  .file {
+    display: none;
+  }
+
+  svg {
+    margin-bottom: 18px;
+  }
+
+  span {
+    display: inline;
+    color: ${theme.palette.text.link.default};
+    line-height: 150%;
+    font-weight: bold;
+  }
+`;
