@@ -21,7 +21,7 @@ You can find the repository on [github.com/georgiee/typescript-type-checker-beyo
 
 ## Expectations
 
-Look at the two types below. You can find primitives like `string` and `number`, types from the standard library such as `Date` and type aliases like `NestedObjectType` that refer to object types which are assembled types that can contain primitives and other object types.
+Look at the two types below. You can find primitives like `string` and `number`, types from the standard library such as `Date` and type aliases like `NestedObjectType` that refers to object types which are assembled types that can contain primitives and other object types.
 
 ```typescript
 
@@ -66,11 +66,11 @@ That output looks promising. I guess this could work for very simple types 👍
 The problem with the AST: it's a static analysis, which means you're processing code without executing it. That's why you are missing information from the runtime. Typescript needs to run the code to understand it and to add additional semantics. You will encounter the following problems when you try to approach the problem with the AST:
 
 + The AST can't see imported files as `import` statements are not processed
-+ [Created types](https://www.typescriptlang.org/docs/handbook/2/types-from-types.html) with operands like `keyof`& `typeof` are constructed only during runtime.
++ [Created types](https://www.typescriptlang.org/docs/handbook/2/types-from-types.html) with operands like `keyof` & `typeof` are constructed only during runtime
 + [Advanced types](https://www.typescriptlang.org/docs/handbook/advanced-types.html) like [type guards](https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-guards-and-differentiating-types) or [conditional types](https://www.typescriptlang.org/docs/handbook/advanced-types.html#conditional-types) also rely on being processed by typescript otherwise you have no chance to understand and process them.
 
 
-This means, the AST approach is a dead end.
+Eventually, the AST approach is a dead end.
 
 ## Walking beyond the AST
 
@@ -132,7 +132,7 @@ type NestedObjectType = {
 
 Together with this file, we want to answer the following question:
 
-> Using `checker.ts`, how can we access the details of the type `NestedObjectType` so we know that the proeprty `propertyWithTypeAlias` on `MainObjectType` has three distinctive nested properties?
+> Using `checker.ts`, how can we access the details of the type `NestedObjectType` so we know that the property `propertyWithTypeAlias` on `MainObjectType` has three distinctive nested properties?
 
 First step is to create our type checker and retrieve the source file with `program.getSourceFile` which returns an instance of  `ts.SourceFile`.
 
@@ -446,7 +446,7 @@ That's the "standard library" issue described earlier. The `Date` and `string` t
 
 ### Exclude the standard types
 
-TypeScript gives us plenty of tools to do that. Here is a helper method `isTypeLocal` I have build for our use cases.
+TypeScript gives us plenty of tools to do that. Here is a helper method `isTypeLocal` I have built for our use cases.
 
 ```typescript
 function isTypeLocal(symbol: ts.Symbol) {
