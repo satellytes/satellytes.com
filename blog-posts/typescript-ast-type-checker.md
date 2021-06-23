@@ -50,7 +50,7 @@ MainObjectType:
 
 Those are our rules for the processing:
 
-+ [Type aliases](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases) such as `propertyWithTypeAlias: NestedType` needs to be resolved into the types that are referred to. This can be other type aliases or primitives.
++ [Type aliases](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases) such as `propertyWithTypeAlias: NestedType` need to be resolved into the types that are referred to. This can be other type aliases or primitives.
 + Primitives itself can't be processed anymore and should be output as is such as `value1: string` and `value2: number`.
 + We have no interest in type details from the [standard library](https://github.com/microsoft/TypeScript/tree/5afe42e14e61d7e4df5d75cc0022283711cb593a/lib) such as `value3: Date` or even `value1: string` with the `length` property. They potentially bring dozens of properties we don't want to see in our output list. 
 
@@ -67,8 +67,7 @@ The problem with the AST: it's a static analysis, which means you're processing 
 
 + The AST can't see imported files as `import` statements are not processed
 + [Created types](https://www.typescriptlang.org/docs/handbook/2/types-from-types.html) with operands like `keyof` & `typeof` are constructed only during runtime
-+ [Advanced types](https://www.typescriptlang.org/docs/handbook/advanced-types.html) like [type guards](https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-guards-and-differentiating-types) or [conditional types](https://www.typescriptlang.org/docs/handbook/advanced-types.html#conditional-types) also rely on being processed by typescript otherwise you have no chance to understand and process them.
-
++ [Narrowing (type guards)](https://www.typescriptlang.org/docs/handbook/2/narrowing.html) or [conditional types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html) rely on being processed by typescript otherwise you have no chance to understand and process them
 
 Eventually, the AST approach is a dead end.
 
@@ -92,13 +91,13 @@ Have you ever restarted an ominous *Typescript Server* in IntelliJ or VSCode fro
 
 ![](images/typescript-architecture.png)
 
-[checker.ts](https://github.com/microsoft/TypeScript/blob/5afe42e14e61d7e4df5d75cc0022283711cb593a/src/compiler/checker.ts) is a huge file in the typescript repository. Right now there are 42.000 lines of code, and it has a size of 2.5MB 😳 This is probably the amount of code you would have to write atop of AST to properly process a given TypeScript file with the typings in its full glory.
+[checker.ts](https://github.com/microsoft/TypeScript/blob/5afe42e14e61d7e4df5d75cc0022283711cb593a/src/compiler/checker.ts) is a huge file in the typescript repository. Right now there are 42.000 lines of code, and it has a size of 2.5 MB 😳 This is probably the amount of code you would have to write atop of AST to properly process a given TypeScript file with the typings in its full glory.
 
 I'm glad we finally found this magic ingredient, let's explore it.
 
 ### The Type Checker (checker.ts)
 
-Let's dive into the type checker and see how it can help us with the given challenge. Unfortunately I couldn't find any documentation about the type checker which made it pretty difficult to get started. I mostly searched github.com for some code examples, glimpsed through the file `checker.ts` itself and used the node `debugger` a lot to examine the content of the involved data. 
+Let's dive into the type checker and see how it can help us with the given challenge. Unfortunately I couldn't find any documentation about the type checker which made it pretty difficult to get started. I mostly searched GitHub for some code examples, glimpsed through the file `checker.ts` itself and used the node `debugger` a lot to examine the content of the involved data. 
 
 The following code shows the most crucial parts of type introspection with TS. Create a program, derive the checker and then use that checker for your analysis.
 
@@ -148,7 +147,7 @@ const mySourceFile: ts.SourceFile = program.getSourceFile('file-with-types.ts');
 
 With our source file at hands we can dive into the file content. We have to use the AST first to reach the specific parts in the file and to tell the type checker about the parts we are interested in. When you invoke `ts.forEachChild((node: ts.Node) => {/*...*/})` you create a loop over all nodes (`ts.Node`) of your AST. Each node represents a specific position in the file together with all statically available information about that place (is it a `variable`, a `bracket`, where is the start, where the end; this is pretty common AST stuff).
 
-> 👉 You should tinker around with [ts-ast-viewer.com](ts-ast-viewer.com) to get a better feeling for the AST structure
+> 👉 You should tinker around with [ts-ast-viewer.com](https://ts-ast-viewer.com) to get a better feeling for the AST structure
 
 We want to start our type analysis at the type named `MainObjectType`. We can accomplish this by looking for the AST node named `MainObjectType` while looping over of all nodes in the file. 
 
@@ -160,7 +159,7 @@ ts.forEachChild(mySourceFile, node => {
 });
 ```
 
-`node` has the type `ts.Node` which doesn't have the property `node.name`, but you can check for the inherited type `TypeAliasDeclarations` with the method `ts.isTypeAliasDeclaration(node)`. This will type guard accessing `node.name` so typescript won't throw a typing error for `node.name` as you ensure the correct content.
+`node` has the type `ts.Node` which doesn't have the property `node.name` instead you can check for the inherited type `TypeAliasDeclarations` with the method `ts.isTypeAliasDeclaration(node)`. This will type guard accessing `node.name` so typescript won't throw a typing error for `node.name` as you ensure the correct content.
 
 By finding that AST node we have found the exact place in the source file to ask the type checker for more information. We can do this with the method `checker.getTypeAtLocation(node)`. We pass in the node and in return we get an instance of `ts.Type` from the checker. This is a specific object that contains added semantics, which we need to go beyond the AST.
 
@@ -173,7 +172,7 @@ const mainObjectType = checker.getTypeAtLocation(node.name);
 This is it, we arrive in type checking land 🌈
 
 ## Analyzing the properties
-We can access every property of the given type through `mainObjectType.getProperties()` and then find the name of the property but also the name of the type.
+We can access every property of the given type through `mainObjectType.getProperties()` and then find the name of the property as well as the name of the type.
 
 ```typescript
 const [propertyWithTypeAlias] = mainObjectType.getProperties();
@@ -287,7 +286,7 @@ ts.forEachChild(myComponentSourceFile, node => {
 
 ## Real-world adjustments
 
-The basic demonstration was specifically crafted to demonstrate the type extraction process, but there are some important real-world issues left to tackle:
+The basic demonstration was specifically crafted to focus on the type extraction process. There are some important real-world issues left to tackle:
 
 - We don't know the depth of our analysis, so it's a perfect match for recursion although you could construct a loop too I guess.
 - We need to prevent diving into properties that are coming from the standard library like `Date` and methods or values of primitives like `string` because we are usually not interested in those properties. Same for external libraries (think of rxjs & friends).
@@ -442,7 +441,7 @@ When you run this code, you will be lost in noise. See the log below and try to 
 ```
 </details>
 
-That's the "standard library" issue described earlier. The `Date` and `string` types causes this drama and we need to stop our processing before entering those types.
+That's the "standard library" issue described earlier. The `Date` and `string` types causes this drama, and we need to stop our processing before entering those types.
 
 ### Exclude the standard types
 
