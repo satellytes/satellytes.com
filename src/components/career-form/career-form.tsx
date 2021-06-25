@@ -33,6 +33,7 @@ interface FormData {
   documents: FileList;
   message: string;
   phone?: string;
+  category_select: any;
 }
 
 const API_ENDPOINT = 'https://api.personio.de/recruiting/applicant';
@@ -80,12 +81,12 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
     for (const [key, value] of Object.entries(payload)) {
       if (key === 'documents') {
         for (let i = 0; i < formValues.documents.length; i++) {
-          const name = 'document'.concat((i + 1).toString());
-          formData.append(
-            name,
-            formValues.documents[i],
-            formValues.documents[i].name,
-          );
+          const keyName = `categorised_documents[${i}][file]`;
+          const fileName = formValues.documents[i].name.split('.')[0];
+          const category = formValues.category_select[fileName];
+          formData.append(keyName, formValues.documents[i]);
+          const nameCategory = `categorised_documents[${i}][category]`;
+          formData.append(nameCategory, category);
         }
       } else {
         formData.append(key, value as any); // formdata doesn't take objects
@@ -144,8 +145,9 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
             name="documents"
             register={register}
             selectedFiles={selectedFiles}
-            error={errors.documents}
+            errors={errors}
             setError={setError}
+            watch={watch}
           >
             <>
               {(!selectedFiles || selectedFiles.length === 0) && <Upload />}
@@ -245,6 +247,12 @@ const CheckboxLabel = styled.label`
     margin-right: 20px;
     background: rgba(122, 143, 204, 0.3);
     border-radius: 4px;
+  }
+
+  &:hover {
+    &:before {
+      background: rgba(122, 143, 204, 0.5);
+    }
   }
 `;
 

@@ -61,15 +61,20 @@ export const InputField = (props: InputFieldProps) => {
 };
 interface FormErrorProps {
   marginBottom?: number;
+  lineHeight?: number;
   error;
 }
-export const FormError = ({ error, marginBottom }: FormErrorProps) => {
+export const FormError = ({
+  error,
+  marginBottom,
+  lineHeight,
+}: FormErrorProps) => {
   if (!error) {
     return null;
   }
 
   return (
-    <ErrorMessage marginBottom={marginBottom}>
+    <ErrorMessage marginBottom={marginBottom} lineHeight={lineHeight}>
       <span>{error.message}</span>
     </ErrorMessage>
   );

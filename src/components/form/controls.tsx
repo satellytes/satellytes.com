@@ -57,6 +57,10 @@ export const Input = styled.input<ValidationProps>`
   border: 0;
   background: rgba(122, 143, 204, 0.2);
 
+  &:hover {
+    background: rgba(122, 143, 204, 0.5);
+  }
+
   &:not(:last-of-type) {
     margin-right: 0;
 
@@ -88,6 +92,14 @@ export const TextArea = styled.textarea<ValidationProps>`
   background: rgba(122, 143, 204, 0.2);
 
   resize: vertical;
+
+  &:hover {
+    background: rgba(122, 143, 204, 0.5);
+  }
+
+  &:focus {
+    border: 2px solid #4d79ff;
+  }
 
   ${({ hasError }) =>
     hasError &&
@@ -128,6 +140,10 @@ export const ButtonText = styled.span`
 export const SendButton = styled(Button)`
   background: linear-gradient(275.41deg, #543fd7 0%, #2756fd 100%);
 
+  &:hover {
+    background: #668cff;
+  }
+
   ${({ disabled }) =>
     disabled &&
     css`
@@ -155,11 +171,15 @@ export const RequestStatusMessage = styled(Text)`
   font-size: 12px;
 `;
 
-export const ErrorMessage = styled.p<{ marginBottom?: number }>`
+export const ErrorMessage = styled.p<{
+  marginBottom?: number;
+  lineHeight?: number;
+}>`
   color: #f19bab;
   font-size: 12px;
   margin-top: 8px;
   margin-bottom: ${({ marginBottom }) => marginBottom || 0}px;
+  line-height: ${({ lineHeight }) => lineHeight && `${lineHeight}%`};
 `;
 
 export const ErrorMessageSend = styled(ErrorMessage)`

@@ -4,6 +4,7 @@ import { DropzoneRootProps, useDropzone } from 'react-dropzone';
 import styled from 'styled-components';
 import { theme } from '../layout/theme';
 import {
+  FieldErrors,
   FieldValues,
   UseFormClearErrors,
   UseFormRegister,
@@ -21,8 +22,9 @@ interface FileUploadProps {
   register: UseFormRegister<FieldValues>;
   name: string;
   selectedFiles: FileList;
-  error: boolean;
+  errors: FieldErrors;
   children: ReactNode | ReactNode[];
+  watch;
 }
 
 const MAX_NUMBER = 3;
@@ -35,8 +37,9 @@ export const FileUpload = ({
   name,
   register,
   selectedFiles,
-  error,
+  errors,
   children,
+  watch,
 }: FileUploadProps) => {
   const onDrop = useCallback(
     (droppedFiles) => {
@@ -57,6 +60,7 @@ export const FileUpload = ({
       setValue(name, dataTransfer.files, { shouldDirty: true });
       clearErrors(name);
 
+      // in case not all file could be added, an error is set
       if (
         Math.min(maximalOfFiles, droppedFiles.length) !== droppedFiles.length
       ) {
@@ -148,7 +152,7 @@ export const FileUpload = ({
               isDragActive,
               onClick: (event) => event.stopPropagation(),
             })}
-            hasError={error}
+            hasError={errors.documents}
           >
             <Input
               id={name}
@@ -161,7 +165,7 @@ export const FileUpload = ({
             {children}
           </FileInputLabel>
         </InputContainer>
-        <FormError error={error} marginBottom={8} />
+        <FormError error={errors.documents} marginBottom={8} />
       </GridItem>
 
       {/*File-Review*/}
@@ -176,6 +180,11 @@ export const FileUpload = ({
                     file={file}
                     index={index}
                     onClick={unselectFile}
+                    errors={errors}
+                    register={register}
+                    setValue={setValue}
+                    clearError={clearErrors}
+                    watch={watch}
                   />
                 </GridItem>
               );
@@ -203,6 +212,14 @@ const FileInputLabel = styled.label<FileUploadProps & DropzoneRootProps>`
   cursor: pointer;
 
   ${({ hasError }) => hasError && `background-color: #f8cdd5; color: #202840;`};
+
+  &:hover {
+    background: rgba(122, 143, 204, 0.5);
+  }
+
+  &:focus {
+    border: 2px solid #4d79ff;
+  }
 
   .file {
     display: none;
