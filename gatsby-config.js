@@ -42,7 +42,7 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-smoothscroll`,
     `gatsby-plugin-image`,
-    `gatsby-plugin-catch-links` /* Please use gatsby-link for remark contetn */,
+    `gatsby-plugin-catch-links` /* Please use gatsby-link for remark content */,
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -74,6 +74,7 @@ module.exports = {
         excerpt_separator: `<!-- stop excerpt -->`,
         gfm: true,
         plugins: [
+          'gatsby-remark-external-links',
           'gatsby-remark-reading-time',
           {
             resolve: 'gatsby-remark-copy-linked-files',
@@ -91,7 +92,7 @@ module.exports = {
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
               maxWidth: 1200,
-              linkImagesToOriginal: false,
+              linkImagesToOriginal: true,
               withWebp: true,
             },
           },
