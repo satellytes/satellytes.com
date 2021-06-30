@@ -15,8 +15,8 @@ import { CheckmarkIcon } from '../icons/buttons-icons/checkmark';
 import styled from 'styled-components';
 import { rgba } from 'polished';
 import { RightArrowIcon } from '../icons/buttons-icons/right-arrow';
-import { PeaceSign } from '../icons/peace';
 import { FieldErrors } from 'react-hook-form';
+import { Headline } from './career-form';
 
 interface InputFieldProps {
   label?: string;
@@ -85,9 +85,10 @@ export const FormError = ({
 export const SuccessMessage = () => {
   return (
     <div>
+      <Headline>Danke für deine Bewerbung! </Headline>
       <p>
-        Danke für deine Bewerbung! Wir haben dir eine E-Mail zur Bestätigung
-        geschickt und melden uns bei dir.
+        Wir haben dir eine E-Mail zur Bestätigung geschickt und melden uns bei
+        dir.
       </p>
       <SentButton type="button">
         <ButtonText>Gesendet</ButtonText> <CheckmarkIcon />
@@ -96,17 +97,11 @@ export const SuccessMessage = () => {
   );
 };
 
-const Track = styled.div<Partial<ProgressBarProps>>`
+const Track = styled.div`
   height: 4px;
   background: ${rgba('#202840', 0.1)};
   border-radius: 2px;
-  ${({ icon }) => icon && 'display: flex;'}
-
-  div {
-    margin: 5px;
-    width: calc(100% - 21px);
-  }
-  margin-bottom: 32px;
+  margin-top: 24px;
 `;
 
 const Progress = styled.div<{ progress: number }>`
@@ -122,22 +117,16 @@ const Progress = styled.div<{ progress: number }>`
 interface ProgressBarProps {
   progress: number;
   isSubmitting: boolean;
-  icon?: boolean;
 }
 
-export const ProgressBar = ({
-  progress,
-  isSubmitting,
-  icon,
-}: ProgressBarProps) => {
+export const ProgressBar = ({ progress, isSubmitting }: ProgressBarProps) => {
   if (!isSubmitting) {
     return null;
   }
 
   return (
-    <Track icon>
+    <Track>
       <Progress progress={progress} />
-      {icon && <PeaceSign />}
     </Track>
   );
 };
@@ -177,19 +166,33 @@ export const Actions = ({
   }
 
   return (
-    <>
+    <ButtonWrapper>
       <SendButton type="submit" disabled={isSubmitting}>
         <ButtonText>Senden</ButtonText>
         {!isSubmitting && <RightArrowIcon />}
         {isSubmitting && <span>...</span>}
       </SendButton>
       {Object.keys(fieldErrors).length > 0 && (
-        <FormError error={{ message: 'Benötige Felder fehlen' }} />
+        <ErrorWrapper>
+          <FormError
+            error={{ message: 'Bitte füllen Sie alle benötigten Felder aus' }}
+          />
+        </ErrorWrapper>
       )}
-    </>
+    </ButtonWrapper>
   );
 };
 
 export const FileContainer = styled.div`
-  margin: 24px 0px;
+  margin: 35px 0px;
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: left;
+`;
+
+const ErrorWrapper = styled.div`
+  margin-left: 16px;
+  margin-top: 22px;
 `;

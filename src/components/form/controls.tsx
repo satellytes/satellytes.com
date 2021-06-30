@@ -141,7 +141,7 @@ export const SendButton = styled(Button)`
   background: linear-gradient(275.41deg, #543fd7 0%, #2756fd 100%);
 
   &:hover {
-    background: #668cff;
+    background: linear-gradient(275.41deg, #432bd7 0%, #0038fd 100%);
   }
 
   ${({ disabled }) =>
@@ -163,7 +163,7 @@ export const Checkbox = styled.input`
 
 export const SentButton = styled(Button)`
   cursor: default;
-  background: linear-gradient(275.41deg, #75f0c7 0%, #2756fd 100%);
+  background: linear-gradient(275.41deg, #29cccc 0%, #29cc96 100%);
 `;
 
 export const RequestStatusMessage = styled(Text)`

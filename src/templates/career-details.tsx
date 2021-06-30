@@ -28,7 +28,7 @@ const Title = styled.h1`
   }
 `;
 
-const SectionTitle = styled(TextTitle)`
+export const SectionHeadline = styled(TextTitle)`
   margin-top: 40px;
   margin-bottom: 16px;
 
@@ -107,7 +107,7 @@ const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
             {descriptions.map(({ name, value }) => {
               return (
                 <div key={name}>
-                  <SectionTitle>{name}</SectionTitle>
+                  <SectionHeadline>{name}</SectionHeadline>
                   <PersonioHtml dangerouslySetInnerHTML={{ __html: value }} />
                 </div>
               );
@@ -115,7 +115,6 @@ const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
           </GridItem>
 
           <GridItem xs={12} md={8} ref={ref}>
-            <SectionTitle>Bewirb dich jetzt</SectionTitle>
             <CareerForm
               company_id="41230"
               recruiting_channel_id="329206"

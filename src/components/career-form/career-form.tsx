@@ -18,6 +18,7 @@ import { CareerTextFields } from './career-textfields';
 import { Upload } from '../icons/upload';
 import styled from 'styled-components';
 import { CheckboxMark } from '../icons/checkbox';
+import { SectionHeadline } from '../../templates/career-details';
 
 interface CareerFormProps {
   recruiting_channel_id: string;
@@ -138,6 +139,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
 
   return (
     <CareerFormStyled onSubmit={handleSubmit(onSubmit, onError)}>
+      <Headline>Bewirb dich jetzt</Headline>
       <Fieldset disabled={isSubmitting}>
         <Grid nested>
           <CareerTextFields register={register} errors={errors} />
@@ -162,20 +164,19 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
           </FileUpload>
 
           <GridItem>
+            <ProgressBar
+              isSubmitting={isSubmitting}
+              progress={uploadProgress}
+            />
+          </GridItem>
+
+          <GridItem>
             <InfoTextContainer>
               Lade hier bitte deine relevanten Dokumente hoch, wie zb Lebenslauf
               (CV), Motivationschreiben oder Referenzen. Erlaubt sind
               ausschließlich 3 PDF Dateien, die maximale Größe pro Datei beträgt
               20MB.
             </InfoTextContainer>
-          </GridItem>
-
-          <GridItem>
-            <FileContainer>
-              <CaptionText>
-                <Sup>*</Sup> Pflichtfeld
-              </CaptionText>
-            </FileContainer>
           </GridItem>
 
           {/*Privacy-Policy Checkbox*/}
@@ -191,13 +192,13 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
                 />
                 <CheckboxLabel htmlFor="privacy-policy">
                   {privacyChecked && <CheckboxMark />}
-                  <div>
+                  <PolicyText>
                     Hiermit bestätige ich, dass ich die{' '}
                     <TextLink to={PRIVACY_POLICY}>
                       Datenschutzerklärung
                     </TextLink>{' '}
                     zur Kenntnis genommen habe. <Sup aria-hidden={true}>*</Sup>
-                  </div>
+                  </PolicyText>
                 </CheckboxLabel>
               </CheckboxContainer>
               {errors.privacy && <FormError error={errors.privacy} />}
@@ -205,17 +206,20 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
           </GridItem>
 
           <GridItem>
-            <ProgressBar
-              isSubmitting={isSubmitting}
-              progress={uploadProgress}
-              icon
-            />
             <Actions
               tryAgainFn={tryAgain}
               isSubmitting={isSubmitting}
               error={errors.api}
               fieldErrors={errors}
             />
+          </GridItem>
+
+          <GridItem>
+            <FileContainer>
+              <CaptionText>
+                <Sup>*</Sup> Pflichtfeld
+              </CaptionText>
+            </FileContainer>
           </GridItem>
         </Grid>
       </Fieldset>
@@ -227,12 +231,25 @@ const Container = styled.div`
   margin-bottom: 24px;
 `;
 
+export const Headline = styled(SectionHeadline)`
+  margin-bottom: 29px;
+`;
+
 const InfoTextContainer = styled.div`
   display: flex;
   align-items: left;
   flex-direction: row;
   margin: 24px 0px;
   line-height: 24px;
+`;
+
+const PolicyText = styled.div`
+  font-size: 14px;
+  line-height: 110%;
+  a {
+    font-size: 14px;
+    line-height: 110%;
+  }
 `;
 
 const CheckboxLabel = styled.label`
@@ -249,7 +266,7 @@ const CheckboxLabel = styled.label`
     content: '';
     display: inline-block;
     position: relative;
-    top: 2px;
+    top: -3px;
     width: 20px;
     height: 20px;
     margin-right: 20px;
@@ -270,7 +287,7 @@ const CheckboxContainer = styled.div`
 
   svg {
     position: absolute;
-    top: 7px;
+    top: 2px;
     left: 5px;
     width: 11px;
     height: 11px;
