@@ -11,14 +11,14 @@ import {
   ProgressBar,
   SuccessMessage,
 } from './career-components';
-import { CaptionText, TextLink } from '../typography/typography';
+import { CaptionText, TextLink, TextTitle } from '../typography/typography';
 import { Checkbox, Sup } from '../form/controls';
 import { FileUpload } from './career-file-upload';
 import { CareerTextFields } from './career-textfields';
 import { Upload } from '../icons/upload';
 import styled from 'styled-components';
 import { CheckboxMark } from '../icons/checkbox';
-import { SectionHeadline } from '../../templates/career-details';
+import { up } from '../breakpoint/breakpoint';
 
 interface CareerFormProps {
   recruiting_channel_id: string;
@@ -231,8 +231,13 @@ const Container = styled.div`
   margin-bottom: 24px;
 `;
 
-export const Headline = styled(SectionHeadline)`
+export const Headline = styled(TextTitle)`
+  margin-top: 40px;
   margin-bottom: 29px;
+
+  ${up('md')} {
+    margin-top: 80px;
+  }
 `;
 
 const InfoTextContainer = styled.div`
