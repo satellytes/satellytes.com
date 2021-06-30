@@ -153,10 +153,12 @@ export const SendButton = styled(Button)`
 `;
 
 export const Checkbox = styled.input`
-  position: absolute;
   opacity: 0;
-  width: 1px;
-  height: 1px;
+  &:focus {
+    + label:before {
+      border: 2px solid #4d79ff;
+    }
+  }
 `;
 
 export const SentButton = styled(Button)`

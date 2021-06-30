@@ -1,39 +1,19 @@
 import styled from 'styled-components';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Clear } from '../icons/clear';
-import { Checkmark } from '../icons/checkmark';
-import { theme } from '../layout/theme';
 import { up } from '../breakpoint/breakpoint';
-import { CareerSelect } from './career-select';
 
-export const FilePreview = ({
-  index,
-  file,
-  onClick,
-  errors,
-  register,
-  setValue,
-  clearError,
-  watch,
-}) => {
+interface FilePreviewProps {
+  index: string;
+  onClick: (event, index) => void;
+  percent?: number;
+  children: ReactNode | ReactNode[];
+}
+
+export const FilePreview = ({ index, onClick, children }: FilePreviewProps) => {
   return (
     <Preview>
-      <Wrapper>
-        <Container>
-          <CheckmarkBackground>
-            <Checkmark />
-          </CheckmarkBackground>
-          <FileName className="name">{(file as File).name}</FileName>
-        </Container>
-        <CareerSelect
-          errors={errors}
-          file={file}
-          register={register}
-          setValue={setValue}
-          clearError={clearError}
-          watch={watch}
-        />
-      </Wrapper>
+      <Wrapper>{children}</Wrapper>
       <Button onClick={(event) => onClick(event, index)}>
         <Clear />
       </Button>
@@ -50,14 +30,6 @@ const Button = styled.button`
   }
 `;
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-shrink: 1;
-  justify-content: left;
-  align-items: center;
-`;
-
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -66,27 +38,6 @@ const Wrapper = styled.div`
     flex-direction: row;
     justify-content: space-between;
   }
-`;
-
-const CheckmarkBackground = styled.div`
-  width: 16px;
-  height: 16px;
-  background: ${theme.palette.primary.main};
-  border-radius: 28px;
-
-  svg {
-    display: block;
-    margin: auto;
-    margin-top: 4px;
-    width: 16px;
-  }
-`;
-
-const FileName = styled.div`
-  margin-left: 12px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
 `;
 
 const Preview = styled.div`

@@ -15,6 +15,8 @@ import { CheckmarkIcon } from '../icons/buttons-icons/checkmark';
 import styled from 'styled-components';
 import { rgba } from 'polished';
 import { RightArrowIcon } from '../icons/buttons-icons/right-arrow';
+import { PeaceSign } from '../icons/peace';
+import { FieldErrors } from 'react-hook-form';
 
 interface InputFieldProps {
   label?: string;
@@ -94,10 +96,17 @@ export const SuccessMessage = () => {
   );
 };
 
-const Track = styled.div`
+const Track = styled.div<Partial<ProgressBarProps>>`
   height: 4px;
   background: ${rgba('#202840', 0.1)};
   border-radius: 2px;
+  ${({ icon }) => icon && 'display: flex;'}
+
+  div {
+    margin: 5px;
+    width: calc(100% - 21px);
+  }
+  margin-bottom: 32px;
 `;
 
 const Progress = styled.div<{ progress: number }>`
@@ -110,14 +119,25 @@ const Progress = styled.div<{ progress: number }>`
   border-radius: 2px;
 `;
 
-export const ProgressBar = ({ progress, isSubmitting }) => {
+interface ProgressBarProps {
+  progress: number;
+  isSubmitting: boolean;
+  icon?: boolean;
+}
+
+export const ProgressBar = ({
+  progress,
+  isSubmitting,
+  icon,
+}: ProgressBarProps) => {
   if (!isSubmitting) {
     return null;
   }
 
   return (
-    <Track>
+    <Track icon>
       <Progress progress={progress} />
+      {icon && <PeaceSign />}
     </Track>
   );
 };
@@ -128,7 +148,19 @@ export const Fieldset = styled.fieldset`
   margin: 0;
 `;
 
-export const Actions = ({ tryAgainFn, error, isSubmitting }) => {
+interface ActionsProps {
+  tryAgainFn: () => void;
+  error: Error;
+  isSubmitting: boolean;
+  fieldErrors: FieldErrors;
+}
+
+export const Actions = ({
+  tryAgainFn,
+  error,
+  isSubmitting,
+  fieldErrors,
+}: ActionsProps) => {
   if (error) {
     return (
       <>
@@ -145,11 +177,16 @@ export const Actions = ({ tryAgainFn, error, isSubmitting }) => {
   }
 
   return (
-    <SendButton type="submit" disabled={isSubmitting}>
-      <ButtonText>Senden</ButtonText>
-      {!isSubmitting && <RightArrowIcon />}
-      {isSubmitting && <span>...</span>}
-    </SendButton>
+    <>
+      <SendButton type="submit" disabled={isSubmitting}>
+        <ButtonText>Senden</ButtonText>
+        {!isSubmitting && <RightArrowIcon />}
+        {isSubmitting && <span>...</span>}
+      </SendButton>
+      {Object.keys(fieldErrors).length > 0 && (
+        <FormError error={{ message: 'Benötige Felder fehlen' }} />
+      )}
+    </>
   );
 };
 

@@ -10,21 +10,24 @@ import {
   UseFormRegister,
   UseFormSetError,
   UseFormSetValue,
+  UseFormWatch,
 } from 'react-hook-form';
 import { GridItem } from '../grid/grid';
 import { FilePreview } from './career-file-preview';
 import { FormError } from './career-components';
+import { CareerSelect } from './career-select';
+import { FileTitleWrapper } from './career-file-title';
 
 interface FileUploadProps {
   setValue: UseFormSetValue<FieldValues>;
   setError: UseFormSetError<FieldValues>;
   clearErrors: UseFormClearErrors<FieldValues>;
   register: UseFormRegister<FieldValues>;
+  watch: UseFormWatch<FieldValues>;
   name: string;
   selectedFiles: FileList;
   errors: FieldErrors;
   children: ReactNode | ReactNode[];
-  watch;
 }
 
 const MAX_NUMBER = 3;
@@ -154,7 +157,7 @@ export const FileUpload = ({
             })}
             hasError={errors.documents}
           >
-            <Input
+            <FileInput
               id={name}
               type={'file'}
               {...getInputProps({
@@ -176,16 +179,17 @@ export const FileUpload = ({
             if (index !== 'length') {
               return (
                 <GridItem key={index}>
-                  <FilePreview
-                    file={file}
-                    index={index}
-                    onClick={unselectFile}
-                    errors={errors}
-                    register={register}
-                    setValue={setValue}
-                    clearError={clearErrors}
-                    watch={watch}
-                  />
+                  <FilePreview index={index} onClick={unselectFile}>
+                    <FileTitleWrapper file={file as File} />
+                    <CareerSelect
+                      errors={errors}
+                      file={file}
+                      register={register}
+                      setValue={setValue}
+                      clearError={clearErrors}
+                      watch={watch}
+                    />
+                  </FilePreview>
                 </GridItem>
               );
             }
@@ -221,10 +225,6 @@ const FileInputLabel = styled.label<FileUploadProps & DropzoneRootProps>`
     border: 2px solid #4d79ff;
   }
 
-  .file {
-    display: none;
-  }
-
   svg {
     margin-bottom: 18px;
   }
@@ -235,4 +235,8 @@ const FileInputLabel = styled.label<FileUploadProps & DropzoneRootProps>`
     line-height: 150%;
     font-weight: bold;
   }
+`;
+
+const FileInput = styled(Input)`
+  display: none;
 `;

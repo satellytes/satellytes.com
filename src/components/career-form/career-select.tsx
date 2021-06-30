@@ -1,6 +1,23 @@
 import React from 'react';
 import { FormError } from './career-components';
 import styled from 'styled-components';
+import {
+  FieldErrors,
+  FieldValues,
+  UseFormClearErrors,
+  UseFormRegister,
+  UseFormSetValue,
+  UseFormWatch,
+} from 'react-hook-form';
+
+interface CareerSelectProps {
+  setValue: UseFormSetValue<FieldValues>;
+  clearError: UseFormClearErrors<FieldValues>;
+  register: UseFormRegister<FieldValues>;
+  watch: UseFormWatch<FieldValues>;
+  errors: FieldErrors;
+  file: File;
+}
 
 export const CareerSelect = ({
   errors,
@@ -9,7 +26,7 @@ export const CareerSelect = ({
   setValue,
   clearError,
   watch,
-}) => {
+}: CareerSelectProps) => {
   const fileName = file.name.split('.');
   const name = `category_select.${fileName[0]}`;
   const state = watch(name);
@@ -22,7 +39,6 @@ export const CareerSelect = ({
   return (
     <div>
       <StyledSelect
-        name={name}
         id={name}
         {...register(name, {
           validate: (value) => value !== 'default',

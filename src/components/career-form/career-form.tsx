@@ -24,6 +24,7 @@ interface CareerFormProps {
   job_position_id: string;
   access_token: string;
   company_id: string;
+  scrollToStart: () => void;
 }
 
 interface FormData {
@@ -92,6 +93,8 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
         formData.append(key, value as any); // formdata doesn't take objects
       }
     }
+    formData.append('gender', 'diverse');
+
     // await new Promise(resolve => setTimeout(resolve, 2000));
     await axios
       .post(API_ENDPOINT, formData, {
@@ -102,6 +105,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
       .then((json) => {
         if (json.success) {
           // all good
+          props.scrollToStart();
         }
       })
       .catch((error) => {
@@ -158,12 +162,12 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
           </FileUpload>
 
           <GridItem>
-            <DocumentContainer>
+            <InfoTextContainer>
               Lade hier bitte deine relevanten Dokumente hoch, wie zb Lebenslauf
               (CV), Motivationschreiben oder Referenzen. Erlaubt sind
               ausschließlich 3 PDF Dateien, die maximale Größe pro Datei beträgt
               20MB.
-            </DocumentContainer>
+            </InfoTextContainer>
           </GridItem>
 
           <GridItem>
@@ -204,11 +208,13 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
             <ProgressBar
               isSubmitting={isSubmitting}
               progress={uploadProgress}
+              icon
             />
             <Actions
               tryAgainFn={tryAgain}
               isSubmitting={isSubmitting}
               error={errors.api}
+              fieldErrors={errors}
             />
           </GridItem>
         </Grid>
@@ -221,15 +227,17 @@ const Container = styled.div`
   margin-bottom: 24px;
 `;
 
-const DocumentContainer = styled.div`
+const InfoTextContainer = styled.div`
   display: flex;
   align-items: left;
   flex-direction: row;
   margin: 24px 0px;
+  line-height: 24px;
 `;
 
 const CheckboxLabel = styled.label`
   display: flex;
+  position: relative;
   flex-direction: row;
   cursor: pointer;
 
