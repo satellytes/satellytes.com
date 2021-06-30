@@ -2,8 +2,17 @@ import React from 'react';
 import { GridItem } from '../grid/grid';
 import { InputField } from './career-components';
 import { SIMPLE_EMAIL_PATTERN } from './career-form';
+import { FieldValues, UseFormRegister } from 'react-hook-form';
 
-export const CareerTextFields = ({ register, errors }) => {
+interface CareerTextFieldsProps {
+  register: UseFormRegister<FieldValues>;
+  errors: FieldValues;
+}
+
+export const CareerTextFields = ({
+  register,
+  errors,
+}: CareerTextFieldsProps) => {
   return (
     <>
       {/*First Name*/}

@@ -47,7 +47,7 @@ export const CareerSelect = ({
         onChange={onChange}
       >
         <option value={'default'} disabled>
-          Please choose file category
+          File category
         </option>
         <option value="cv">CV</option>
         <option value="cover-letter">Cover-Letter</option>
