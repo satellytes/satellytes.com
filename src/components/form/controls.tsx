@@ -97,10 +97,6 @@ export const TextArea = styled.textarea<ValidationProps>`
     background: rgba(122, 143, 204, 0.5);
   }
 
-  &:focus {
-    border: 2px solid #4d79ff;
-  }
-
   ${({ hasError }) =>
     hasError &&
     css`

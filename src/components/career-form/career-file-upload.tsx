@@ -221,10 +221,6 @@ const FileInputLabel = styled.label<FileUploadProps & DropzoneRootProps>`
     background: rgba(122, 143, 204, 0.5);
   }
 
-  &:focus {
-    border: 2px solid #4d79ff;
-  }
-
   svg {
     margin-bottom: 18px;
   }
