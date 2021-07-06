@@ -175,7 +175,7 @@ export const Actions = ({
       {Object.keys(fieldErrors).length > 0 && (
         <ErrorWrapper>
           <FormError
-            error={{ message: 'Bitte füllen Sie alle benötigten Felder aus' }}
+            error={{ message: 'Bitte fülle alle benötigten Felder aus' }}
           />
         </ErrorWrapper>
       )}

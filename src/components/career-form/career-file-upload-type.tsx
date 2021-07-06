@@ -9,8 +9,9 @@ import {
   UseFormSetValue,
   UseFormWatch,
 } from 'react-hook-form';
+import '@reach/listbox/styles.css';
 
-interface CareerSelectProps {
+interface CareerFileUploadTypeProps {
   setValue: UseFormSetValue<FieldValues>;
   clearError: UseFormClearErrors<FieldValues>;
   register: UseFormRegister<FieldValues>;
@@ -19,20 +20,20 @@ interface CareerSelectProps {
   file: File;
 }
 
-export const CareerSelect = ({
+export const CareerFileUploadType = ({
   errors,
   file,
   register,
   setValue,
   clearError,
   watch,
-}: CareerSelectProps) => {
+}: CareerFileUploadTypeProps) => {
   const fileName = file.name.split('.');
   const name = `category_select.${fileName[0]}`;
   const state = watch(name);
 
   const onChange = (event) => {
-    setValue(name, event.target.value);
+    setValue(name, event);
     clearError(name);
   };
 

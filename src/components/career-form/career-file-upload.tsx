@@ -1,7 +1,7 @@
 import { Input, InputContainer } from '../form/controls';
 import React, { ReactNode, useCallback } from 'react';
 import { DropzoneRootProps, useDropzone } from 'react-dropzone';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { theme } from '../layout/theme';
 import {
   FieldErrors,
@@ -15,8 +15,8 @@ import {
 import { GridItem } from '../grid/grid';
 import { FilePreview } from './career-file-preview';
 import { FormError } from './career-components';
-import { CareerSelect } from './career-select';
 import { FileTitleWrapper } from './career-file-title';
+import { CareerFileUploadType } from './career-file-upload-type';
 
 interface FileUploadProps {
   setValue: UseFormSetValue<FieldValues>;
@@ -85,7 +85,7 @@ export const FileUpload = ({
     if (selectedFiles) {
       // check if file was already uploaded
       for (let i = 0; i < selectedFiles.length; i++) {
-        if (JSON.stringify(selectedFiles[i]) === JSON.stringify(file)) {
+        if (selectedFiles[i].name === file.name) {
           return {
             code: 'file was already uploaded',
             message: `The document "${file.name}" was already uploaded.`,
@@ -181,7 +181,7 @@ export const FileUpload = ({
                 <GridItem key={index}>
                   <FilePreview index={index} onClick={unselectFile}>
                     <FileTitleWrapper file={file as File} />
-                    <CareerSelect
+                    <CareerFileUploadType
                       errors={errors}
                       file={file}
                       register={register}
@@ -203,19 +203,33 @@ const FileInputLabel = styled.label<FileUploadProps & DropzoneRootProps>`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 24px;
+
   ${({ selectedFiles }) =>
-    (!selectedFiles || selectedFiles.length === 0) && `align-items: center;`}
+    (!selectedFiles || selectedFiles.length === 0) &&
+    css`
+      align-items: center;
+      padding: 56px;
+    `}
+
   border-radius: 4px;
   ${({ isDragActive }) =>
-    isDragActive && `border: 2px solid ${theme.palette.primary.main};`}
-  padding: ${({ selectedFiles }) =>
-    !selectedFiles || selectedFiles.length === 0 ? `56px` : `24px`};
+    isDragActive &&
+    css`
+      border: 2px solid ${theme.palette.primary.main};
+    `}
+
   margin-bottom: 2px;
   width: 100%;
   background: rgba(122, 143, 204, 0.2);
   cursor: pointer;
 
-  ${({ hasError }) => hasError && `background-color: #f8cdd5; color: #202840;`};
+  ${({ hasError }) =>
+    hasError &&
+    css`
+      background-color: #f8cdd5;
+      color: #202840;
+    `};
 
   &:hover {
     background: rgba(122, 143, 204, 0.5);

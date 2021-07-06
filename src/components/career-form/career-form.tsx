@@ -194,7 +194,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
                   {privacyChecked && <CheckboxMark />}
                   <PolicyText>
                     Hiermit bestätige ich, dass ich die{' '}
-                    <TextLink to={PRIVACY_POLICY}>
+                    <TextLink to={PRIVACY_POLICY} className={'policy-link'}>
                       Datenschutzerklärung
                     </TextLink>{' '}
                     zur Kenntnis genommen habe. <Sup aria-hidden={true}>*</Sup>
@@ -249,9 +249,11 @@ const InfoTextContainer = styled.div`
 `;
 
 const PolicyText = styled.div`
+  width: calc(100% - 40px);
   font-size: 14px;
   line-height: 110%;
-  a {
+
+  .policy-link {
     font-size: 14px;
     line-height: 110%;
   }
@@ -263,11 +265,7 @@ const CheckboxLabel = styled.label`
   flex-direction: row;
   cursor: pointer;
 
-  div {
-    width: calc(100% - 40px);
-  }
-
-  &:before {
+  &::before {
     content: '';
     display: inline-block;
     position: relative;
@@ -279,10 +277,8 @@ const CheckboxLabel = styled.label`
     border-radius: 4px;
   }
 
-  &:hover {
-    &:before {
-      background: rgba(122, 143, 204, 0.5);
-    }
+  &:hover::before {
+    background: rgba(122, 143, 204, 0.5);
   }
 `;
 
