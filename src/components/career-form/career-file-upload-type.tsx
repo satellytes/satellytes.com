@@ -9,7 +9,6 @@ import {
   UseFormSetValue,
   UseFormWatch,
 } from 'react-hook-form';
-import '@reach/listbox/styles.css';
 
 interface CareerFileUploadTypeProps {
   setValue: UseFormSetValue<FieldValues>;
