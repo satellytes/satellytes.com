@@ -17,6 +17,7 @@ import { FilePreview } from './career-file-preview';
 import { FormError } from './career-components';
 import { FileTitleWrapper } from './career-file-title';
 import { CareerFileUploadType } from './career-file-upload-type';
+import { rgba } from 'polished';
 
 interface FileUploadProps {
   setValue: UseFormSetValue<FieldValues>;
@@ -226,7 +227,7 @@ const FileInputLabel = styled.label<FileUploadProps & DropzoneRootProps>`
 
   margin-bottom: 2px;
   width: 100%;
-  background: rgba(122, 143, 204, 0.2);
+  background: ${rgba('#7A8FCC', 0.2)};
   cursor: pointer;
 
   ${({ hasError }) =>
@@ -237,7 +238,7 @@ const FileInputLabel = styled.label<FileUploadProps & DropzoneRootProps>`
     `};
 
   &:hover {
-    background: rgba(122, 143, 204, 0.5);
+    background: ${rgba('#7A8FCC', 0.5)};
   }
 
   svg {

@@ -19,6 +19,7 @@ import { Upload } from '../icons/upload';
 import styled from 'styled-components';
 import { CheckboxMark } from '../icons/checkbox';
 import { up } from '../breakpoint/breakpoint';
+import { rgba } from 'polished';
 
 interface CareerFormProps {
   recruiting_channel_id: string;
@@ -273,12 +274,12 @@ const CheckboxLabel = styled.label`
     width: 20px;
     height: 20px;
     margin-right: 20px;
-    background: rgba(122, 143, 204, 0.3);
+    background: ${rgba('#7A8FCC', 0.3)};
     border-radius: 4px;
   }
 
   &:hover::before {
-    background: rgba(122, 143, 204, 0.5);
+    background: ${rgba('#7A8FCC', 0.5)};
   }
 `;
 

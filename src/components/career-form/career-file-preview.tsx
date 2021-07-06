@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import React, { ReactNode } from 'react';
 import { Clear } from '../icons/clear';
 import { up } from '../breakpoint/breakpoint';
+import { rgba } from 'polished';
 
 interface FilePreviewProps {
   index: string;
@@ -46,7 +47,7 @@ const Preview = styled.div`
   margin-bottom: 2px;
   border-radius: 4px;
   padding: 25px 24px;
-  background: rgba(122, 143, 204, 0.2);
+  background: ${rgba('#7A8FCC', 0.2)};
   overflow: ellipsis;
   line-height: 150%;
 `;
