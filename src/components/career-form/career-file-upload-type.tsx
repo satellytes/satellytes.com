@@ -32,7 +32,7 @@ export const CareerFileUploadType = ({
   const state = watch(name);
 
   const onChange = (event) => {
-    setValue(name, event);
+    setValue(name, event.target.value);
     clearError(name);
   };
 
