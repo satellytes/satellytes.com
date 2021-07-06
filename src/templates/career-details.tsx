@@ -28,7 +28,7 @@ const Title = styled.h1`
   }
 `;
 
-const SectionTitle = styled(TextTitle)`
+export const SectionHeadline = styled(TextTitle)`
   margin-top: 40px;
   margin-bottom: 16px;
 
@@ -74,6 +74,10 @@ interface CareerPageProps {
 }
 
 const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
+  const ref = React.useRef<HTMLDivElement | null>(null);
+  const scrollToStart = () => {
+    ref?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
   const descriptions =
     pageContext.position.jobDescriptions.jobDescription.filter(
       ({ name }) => name !== PERSONIO_SHORT_DESCRIPTION_NAME,
@@ -103,20 +107,20 @@ const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
             {descriptions.map(({ name, value }) => {
               return (
                 <div key={name}>
-                  <SectionTitle>{name}</SectionTitle>
+                  <SectionHeadline>{name}</SectionHeadline>
                   <PersonioHtml dangerouslySetInnerHTML={{ __html: value }} />
                 </div>
               );
             })}
           </GridItem>
 
-          <GridItem xs={12} md={8}>
-            <SectionTitle>Bewirb dich jetzt</SectionTitle>
+          <GridItem xs={12} md={8} ref={ref}>
             <CareerForm
               company_id="41230"
               recruiting_channel_id="329206"
               access_token="89b2acfa3a239b75c7d6"
               job_position_id={pageContext.position.id + ''}
+              scrollToStart={scrollToStart}
             />
           </GridItem>
         </Grid>

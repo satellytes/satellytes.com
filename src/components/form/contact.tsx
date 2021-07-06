@@ -25,7 +25,11 @@ interface FormData {
 
 export const ContactForm: React.FC = () => {
   const [requestStatus, setRequestStatus] = useState<RequestStatus>('pending');
-  const { register, errors, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const onSubmit = (formData: FormData) => {
     // partialy taken from the Netlify Blog:
@@ -70,7 +74,7 @@ export const ContactForm: React.FC = () => {
         <GridItem xs={12} md={6}>
           <InputField
             required={true}
-            inputRef={register({ required: 'Ihr Name fehlt' })}
+            inputRef={register('name', { required: 'Ihr Name fehlt' })}
             error={errors.name}
             name="name"
             label="Name"
@@ -79,7 +83,7 @@ export const ContactForm: React.FC = () => {
         <GridItem xs={12} md={6}>
           <InputField
             required={true}
-            inputRef={register({
+            inputRef={register('email', {
               required: 'Ihre E-Mail fehlt',
               pattern: {
                 value: SIMPLE_EMAIL_PATTERN,
@@ -94,7 +98,7 @@ export const ContactForm: React.FC = () => {
         <GridItem>
           <InputField
             required={true}
-            inputRef={register({ required: 'Ihre Nachricht fehlt' })}
+            inputRef={register('message', { required: 'Ihre Nachricht fehlt' })}
             error={errors.message}
             name="message"
             label="Ihre Nachricht an uns"

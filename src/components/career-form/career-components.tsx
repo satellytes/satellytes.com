@@ -15,6 +15,8 @@ import { CheckmarkIcon } from '../icons/buttons-icons/checkmark';
 import styled from 'styled-components';
 import { rgba } from 'polished';
 import { RightArrowIcon } from '../icons/buttons-icons/right-arrow';
+import { FieldErrors } from 'react-hook-form';
+import { Headline } from './career-form';
 
 interface InputFieldProps {
   label?: string;
@@ -22,7 +24,7 @@ interface InputFieldProps {
   error: any;
   inputRef: any;
   required?: boolean;
-  type?: 'text' | 'file' | 'text-area';
+  type?: 'text' | 'text-area';
 }
 
 export const CareerFormStyled = styled.form`
@@ -40,18 +42,16 @@ export const InputField = (props: InputFieldProps) => {
         )}
         {props.type && props.type === 'text-area' ? (
           <TextArea
-            name="message"
-            ref={props.inputRef}
+            {...props.inputRef}
             hasError={props.error}
             id={props.name}
             aria-required={props.required}
           />
         ) : (
           <Input
-            type={props.type ?? 'text'}
+            type={'text'}
             id={props.name}
-            name={props.name}
-            ref={props.inputRef}
+            {...props.inputRef}
             hasError={props.error}
             aria-required={props.required}
           />
@@ -61,14 +61,22 @@ export const InputField = (props: InputFieldProps) => {
     </InputContainer>
   );
 };
-
-export const FormError = ({ error }) => {
+interface FormErrorProps {
+  marginBottom?: number;
+  lineHeight?: number;
+  error;
+}
+export const FormError = ({
+  error,
+  marginBottom,
+  lineHeight,
+}: FormErrorProps) => {
   if (!error) {
     return null;
   }
 
   return (
-    <ErrorMessage>
+    <ErrorMessage marginBottom={marginBottom} lineHeight={lineHeight}>
       <span>{error.message}</span>
     </ErrorMessage>
   );
@@ -77,9 +85,10 @@ export const FormError = ({ error }) => {
 export const SuccessMessage = () => {
   return (
     <div>
+      <Headline>Danke für deine Bewerbung! </Headline>
       <p>
-        Danke für deine Bewerbung! Wir haben dir eine E-Mail zur Bestätigung
-        geschickt und melden uns bei dir.
+        Wir haben dir eine E-Mail zur Bestätigung geschickt und melden uns bei
+        dir.
       </p>
       <SentButton type="button">
         <ButtonText>Gesendet</ButtonText> <CheckmarkIcon />
@@ -92,6 +101,7 @@ const Track = styled.div`
   height: 4px;
   background: ${rgba('#202840', 0.1)};
   border-radius: 2px;
+  margin-top: 24px;
 `;
 
 const Progress = styled.div<{ progress: number }>`
@@ -104,7 +114,12 @@ const Progress = styled.div<{ progress: number }>`
   border-radius: 2px;
 `;
 
-export const ProgressBar = ({ progress, isSubmitting }) => {
+interface ProgressBarProps {
+  progress: number;
+  isSubmitting: boolean;
+}
+
+export const ProgressBar = ({ progress, isSubmitting }: ProgressBarProps) => {
   if (!isSubmitting) {
     return null;
   }
@@ -122,7 +137,19 @@ export const Fieldset = styled.fieldset`
   margin: 0;
 `;
 
-export const Actions = ({ tryAgainFn, error, isSubmitting }) => {
+interface ActionsProps {
+  tryAgainFn: () => void;
+  error: Error;
+  isSubmitting: boolean;
+  fieldErrors: FieldErrors;
+}
+
+export const Actions = ({
+  tryAgainFn,
+  error,
+  isSubmitting,
+  fieldErrors,
+}: ActionsProps) => {
   if (error) {
     return (
       <>
@@ -139,10 +166,33 @@ export const Actions = ({ tryAgainFn, error, isSubmitting }) => {
   }
 
   return (
-    <SendButton type="submit" disabled={isSubmitting}>
-      <ButtonText>Senden</ButtonText>
-      {!isSubmitting && <RightArrowIcon />}
-      {isSubmitting && <span>...</span>}
-    </SendButton>
+    <ButtonWrapper>
+      <SendButton type="submit" disabled={isSubmitting}>
+        <ButtonText>Senden</ButtonText>
+        {!isSubmitting && <RightArrowIcon />}
+        {isSubmitting && <span>...</span>}
+      </SendButton>
+      {Object.keys(fieldErrors).length > 0 && (
+        <ErrorWrapper>
+          <FormError
+            error={{ message: 'Bitte fülle alle benötigten Felder aus' }}
+          />
+        </ErrorWrapper>
+      )}
+    </ButtonWrapper>
   );
 };
+
+export const FileContainer = styled.div`
+  margin: 35px 0px;
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: left;
+`;
+
+const ErrorWrapper = styled.div`
+  margin-left: 16px;
+  margin-top: 22px;
+`;
