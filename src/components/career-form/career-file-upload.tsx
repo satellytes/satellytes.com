@@ -50,6 +50,7 @@ export const FileUpload = ({
       const maximalOfFiles = selectedFiles
         ? MAX_NUMBER - selectedFiles.length
         : MAX_NUMBER;
+
       // dropped files are appended to already selected files
       const dataTransfer = new DataTransfer();
       if (selectedFiles) {
@@ -57,7 +58,11 @@ export const FileUpload = ({
           dataTransfer.items.add(selectedFiles[i]);
         }
       }
-      for (let i = 0; i < Math.min(maximalOfFiles, droppedFiles.length); i++) {
+      const numberOfDroppedFiles = Math.min(
+        maximalOfFiles,
+        droppedFiles.length,
+      );
+      for (let i = 0; i < numberOfDroppedFiles; i++) {
         dataTransfer.items.add(droppedFiles[i]);
       }
       setValue(name, dataTransfer.files, { shouldDirty: true });
