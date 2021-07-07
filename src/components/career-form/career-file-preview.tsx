@@ -22,11 +22,30 @@ export const FilePreview = ({ index, onClick, children }: FilePreviewProps) => {
   );
 };
 
+const Preview = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2px;
+  padding: 19px 16px;
+  border-radius: 4px;
+  background: ${rgba('#7A8FCC', 0.2)};
+  line-height: 150%;
+
+  ${up('md')} {
+    padding: 12px 24px;
+  }
+`;
+
 const Button = styled.button`
+  height: 100%;
+  margin-top: 3px;
+
+  cursor: pointer;
   background: none;
   border: none;
-  cursor: pointer;
+
   ${up('md')} {
+    margin-top: 7px;
     margin-left: 20px;
   }
 `;
@@ -35,19 +54,9 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: calc(100% - 26px);
+
   ${up('md')} {
     flex-direction: row;
     justify-content: space-between;
   }
-`;
-
-const Preview = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 2px;
-  border-radius: 4px;
-  padding: 25px 24px;
-  background: ${rgba('#7A8FCC', 0.2)};
-  overflow: ellipsis;
-  line-height: 150%;
 `;
