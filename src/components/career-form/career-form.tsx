@@ -252,7 +252,7 @@ const InfoTextContainer = styled.div`
 const PolicyText = styled.div`
   width: calc(100% - 40px);
   font-size: 14px;
-  line-height: 110%;
+  line-height: 130%;
 
   .policy-link {
     font-size: 14px;
@@ -270,7 +270,7 @@ const CheckboxLabel = styled.label`
     content: '';
     display: inline-block;
     position: relative;
-    top: -3px;
+    top: -2px;
     width: 20px;
     height: 20px;
     margin-right: 20px;
