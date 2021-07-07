@@ -65,11 +65,6 @@ export const CareerFileUploadType = ({
       <StyledListboxInput
         id={name}
         aria-labelledby={name}
-        {...register(name, {
-          validate: (value) => {
-            return Boolean(value) && value !== 'default';
-          },
-        })}
         value={state || 'default'}
         onChange={onChange}
       >
