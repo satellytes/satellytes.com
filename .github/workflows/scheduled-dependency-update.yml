@@ -25,9 +25,10 @@ jobs:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           branch: chore-dependency-update
           delete-branch: true
-          title: "chore: dependency update"
+          title: "chore: dependency update 🧹"
           commit-message: "chore: dependency update"
           body: |
             This PR was automatically created.
-            - all dependencies are updated
-            - this PR will be created every monday at 2am and force pushed
+            - All dependencies are updated to the latest version.
+            - This PR will be created every monday at 2am and the branch will be force pushed.
+            - If all checks are green, feel free to merge it.
