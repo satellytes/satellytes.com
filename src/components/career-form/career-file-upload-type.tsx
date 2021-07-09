@@ -40,7 +40,7 @@ export const CareerFileUploadType = ({
 }: CareerFileUploadTypeProps) => {
   const fileName = file.name.split('.');
   const name = `category_select.${fileName[0]}`;
-  const state = watch(name, 'default');
+  const selectedFileType = watch(name, 'default');
 
   useEffect(() => {
     register(name, {
@@ -65,20 +65,22 @@ export const CareerFileUploadType = ({
       <StyledListboxInput
         id={name}
         aria-labelledby={name}
-        value={state || 'default'}
+        value={selectedFileType || 'default'}
         onChange={onChange}
       >
-        <ListboxButton arrow={<SelectArrow />} />
-        <ListboxPopover portal={false}>
+        <StyledListboxButton arrow={<SelectArrow />} />
+        <StyledListboxPopover portal={false}>
           <ListboxList>
-            <ListboxOption value={'default'} disabled>
+            <StyledListboxOption value={'default'} disabled>
               File category
-            </ListboxOption>
-            <ListboxOption value="cv">CV</ListboxOption>
-            <ListboxOption value="cover-letter">Cover-Letter</ListboxOption>
-            <ListboxOption value="other">other</ListboxOption>
+            </StyledListboxOption>
+            <StyledListboxOption value="cv">CV</StyledListboxOption>
+            <StyledListboxOption value="cover-letter">
+              Cover-Letter
+            </StyledListboxOption>
+            <StyledListboxOption value="other">other</StyledListboxOption>
           </ListboxList>
-        </ListboxPopover>
+        </StyledListboxPopover>
       </StyledListboxInput>
       {errors.category_select?.[fileName[0]] && (
         <FormErrorWrapper>
@@ -131,68 +133,65 @@ const StyledListboxInput = styled(ListboxInput)`
     width: 144px;   
     height: 32px;
   }
-  
-  [data-reach-listbox-button] {
-    border: none;
-    padding: 9px 16px 8px 16px;
-    cursor: pointer;
-    line-height: 1.15;
-    position: relative;
-    width: 100%;
-  }
-  
-  [data-reach-listbox-arrow] {
-    position: absolute;
-    right: 0px;
-    top: 13px;
-    right: 16px;
-    color: white;
-    width: 10px;
-  }
-  
-  [data-reach-listbox-popover] {
-     position: absolute;
-     top: 0px;
-     width: 100%;
-     background: ${rgba('#212940', 1)};
-     border: none;
-     border-radius: 10px;
-     padding: 0px;
-     z-index: 10;
-     
-     &:focus-within {
-      box-shadow: none;
-      outline: none;
-     }
-  }
-  
-  [data-reach-listbox-option] {  
-     padding: 8px 16px 8px 24px;
-     cursor: pointer;
-     line-height: 1.15;      
-     border-radius: 10px;
-     position: relative;
-    
-    &:hover{
-      background: ${rgba('#303B5C', 0.9)};
-    }
-    
-    &[aria-disabled="true"]:hover{
-      background: ${rgba('#212940', 1)};          
-    }
-    
-    &[data-current-selected]{
-        padding-left: 0px;  
-        &::before{
-          content: url("data:image/svg+xml;utf8,<svg width='10' height='11' viewBox='0 0 10 11' fill='none' xmlns='http://www.w3.org/2000/svg'>
-            <path d='M1 6.33333L3.46154 9L9 1' stroke='white' stroke-width='1.5' stroke-linecap='round'/></svg>");  
-          display: inline-block;     
-          width: 24px;
-          position: relative;
-          top: 0px;
-          left: 8px;          
-        }      
-    }
-  }
 }
+`;
+
+const StyledListboxPopover = styled(ListboxPopover)`
+  position: absolute;
+  top: 32px;
+  width: 100%;
+  background: ${rgba('#212940', 1)};
+  border: none;
+
+  border-radius: 4px;
+  padding: 0px;
+  z-index: 10;
+
+  &:focus-within {
+    box-shadow: none;
+    outline: none;
+  }
+`;
+
+const StyledListboxOption = styled(ListboxOption)`
+  padding: 8px 28px 8px 8px;
+  cursor: pointer;
+  line-height: 1.15;
+  border-radius: 4px;
+  position: relative;
+  text-align: right;
+
+  &:hover {
+    background: ${rgba('#303B5C', 0.9)};
+  }
+
+  &[aria-disabled='true'] {
+    display: none;
+  }
+
+  &[data-current-selected] {
+    padding-right: 16px;
+    &::after {
+      content: url("data:image/svg+xml;utf8,<svg width='10' height='11' viewBox='0 0 10 11' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <path d='M1 6.33333L3.46154 9L9 1' stroke='white' stroke-width='1.5' stroke-linecap='round'/></svg>");
+      display: inline-block;
+      position: relative;
+      top: 1px;
+      right: -8px;
+    }
+  }
+`;
+
+const StyledListboxButton = styled(ListboxButton)`
+  border: none;
+  padding: 9px 16px 8px 16px;
+  cursor: pointer;
+  line-height: 1.15;
+  position: relative;
+  width: 100%;
+
+  [data-reach-listbox-arrow][data-expanded] {
+    padding-top: 6px;
+    transform: rotateX(180deg);
+  }
 `;
