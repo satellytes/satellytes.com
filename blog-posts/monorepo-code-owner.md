@@ -64,7 +64,7 @@ You can't make many mistakes but I want to share two things that happened to me:
 
 ## The effect
 
-You don't have to adde reviewers manually anymore. Instead you leave the assignment of reviewers empty and you get the matching code owners assigned and notified.
+You don't have to add reviewers manually anymore. Instead you leave the assignment of reviewers empty and you get the matching code owners assigned and notified.
 
 We combine this with the requirements to have at least a specific amount of code reviews to ensure that the code owners review every change to their share of files. This is important for monorepos otherwise some team could change the code of an area they are not suitable by a mutual review within the team without informing the actual responsible team.
 
