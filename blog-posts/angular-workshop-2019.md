@@ -3,7 +3,7 @@ path: "/blog/angular-workshop-kaiserx-allianz-2018"
 date: "2018-12-01"
 title: Angular Advanced Workshop (2018)
 featuredImage: images/angular.png
-shortSummary: Our OpenSource 3-day Angular Advanced Workshop we conducted for KaiserX (Allianz). 
+shortSummary: Our Open Source 3-day Angular Advanced Workshop we conducted for KaiserX (Allianz). 
 author: Georgios Kaleadis
 authorSummary: CTO at Satellytes
 ---
@@ -19,21 +19,29 @@ This week an intense month of planning, preparing & developing an *Advanced Angu
 
 The workshop was a huge success. I'm so __proud__ of every single participant. They were so focused during my theory part and successfully completed all six chapters 💪 I can tell you those challenges were pretty tricky. I planted nifty bugs to fix. There were RxJS streams to create and animations to build.
 
+## Try it
+
 You can play with the final project online under
 [skipbo-angular-workshop.netlify.com](https://skipbo-angular-workshop.netlify.com) and access the complete source & challenges under [github.com/georgiee/angular-workshop-skipbo](https://github.com/georgiee/angular-workshop-skipbo)
 
-Here a [quick video](https://www.youtube.com/embed/xKlta_T3qgs) of the gameplay part.
 
-## It's open-source 🎉
-Open source? What? Why? Yes, because we don't want to lock away valuable information — it's about teaching Angular to the community.
+Below a gif preview. Additionally, I have prepared a [short video](https://www.youtube.com/embed/xKlta_T3qgs) of the gameplay part on YouTube.
 
-We decided to put the workshop on GitHub and make it OpenSource. That way, many more people can go through the workshop on their own. Other fellow developers can even take the workshop and create their own ones too!
+[![GIF Animation of the developed card game](images/preview-angular-skipbo.gif)](https://github.com/georgiee/angular-workshop-skipbo)
 
-Here is the project on GitHub. I hope you enjoy it.
-[https://github.com/georgiee/angular-workshop-skipbo](https://github.com/georgiee/angular-workshop-skipbo)
+
+
+
+## It's Open Source 🎉
+The workshop is Open Source, because we don't want to lock away valuable information — it's about teaching Angular to the community.
+
+We decided to put the workshop on [GitHub](https://github.com/georgiee/angular-workshop-skipbo) and make it Open Source. That way, many more people can go through the workshop on their own. Other fellow developers can even take the workshop and create their own ones too!
+
+We hope you enjoy it.
+
 
 ## Workshop Content
-Please check the linked GitHub project for all details. I will only give a brief summary of the content.
+Please check the linked [GitHub project](https://github.com/georgiee/angular-workshop-skipbo) for all details. I will only give a brief summary of the content.
 
 The [workshop project](https://github.com/georgiee/angular-workshop-skipbo) gives you access to all six chapters (theory & challenge). Here the [slides](https://www.slideshare.net/GeorgiosKaleadis/angular-advanced-workshop-challenges) from the workshop.
 
