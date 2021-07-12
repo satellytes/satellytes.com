@@ -31,7 +31,7 @@ describe('Byline', () => {
   });
 
   it('should contain author and his position', () => {
-    const author = byline.getByText('von Max Mustermann, Developer Satellytes');
+    const author = byline.getByText('Max Mustermann, Developer Satellytes');
     expect(author).toBeInTheDocument();
   });
 
