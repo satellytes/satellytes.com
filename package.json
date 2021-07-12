@@ -27,7 +27,7 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
-    "@reach/tabs": "^0.15.2",
+    "@reach/tabs": "^0.15.3",
     "@types/leaflet": "^1.7.4",
     "axios": "^0.21.1",
     "babel-plugin-styled-components": "^1.13.2",
@@ -35,7 +35,7 @@
     "cheerio": "1.0.0-rc.10",
     "date-fns": "^2.22.1",
     "fast-xml-parser": "^3.19.0",
-    "gatsby": "3.9.0",
+    "gatsby": "3.9.1",
     "gatsby-background-image": "^1.5.3",
     "gatsby-image": "3.9.0",
     "gatsby-plugin-catch-links": "^3.9.0",
@@ -83,7 +83,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@types/jest": "^26.0.24",
-    "@types/node": "16.0.1",
+    "@types/node": "16.3.1",
     "@types/react": "17.0.14",
     "@types/react-dom": "17.0.9",
     "@types/react-helmet": "6.1.2",
