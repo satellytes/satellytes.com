@@ -27,6 +27,7 @@ const DataPrivacyPage: React.FC = () => {
       <SEO
         title="Datenschutz | Satellytes"
         description="Information über die Erhebung personenbezogener Daten"
+        noIndex={true}
       />
       <Grid>
         <GridItem>

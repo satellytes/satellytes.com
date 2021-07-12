@@ -12,6 +12,7 @@ interface SeoProps {
   lang?: string;
   imageUrl?: string;
   siteType?: string;
+  noIndex?: boolean;
 }
 
 const SEO: React.FC<SeoProps> = ({
@@ -20,6 +21,7 @@ const SEO: React.FC<SeoProps> = ({
   title,
   imageUrl,
   siteType,
+  noIndex,
 }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -76,6 +78,8 @@ const SEO: React.FC<SeoProps> = ({
 
       {/* -- Xing --*/}
       <meta property="og:site_name" content={title} />
+
+      {noIndex && <meta name="robots" content="noindex" />}
 
       {/*
        * All fonts that are linked with a preload are getting loaded before any
