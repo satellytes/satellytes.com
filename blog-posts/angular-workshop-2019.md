@@ -1,5 +1,5 @@
 ---
-path: "/blog/angular-workshop-kaiserx-allianz-2018"
+path: "/blog/angular-workshop-kaiserx-allianz-2018/"
 date: "2018-12-01"
 title: Angular Advanced Workshop (2018)
 featuredImage: images/angular.png

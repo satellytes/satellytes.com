@@ -1,5 +1,5 @@
 ---
-path: "/blog/monorepo-codeowner-github-enterprise"
+path: "/blog/monorepo-codeowner-github-enterprise/"
 date: "2021-07-09"
 title: Every big monorepo needs the CODEOWNERS feature
 featuredImage: images/chang-duong-Sj0iMtq_Z4w-unsplash.jpg
