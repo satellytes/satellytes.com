@@ -6773,6 +6773,13 @@ gatsby-page-utils@^1.9.0:
     lodash "^4.17.21"
     micromatch "^4.0.2"
 
+gatsby-plugin-canonical-urls@^3.9.0:
+  version "3.9.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-canonical-urls/-/gatsby-plugin-canonical-urls-3.9.0.tgz#5315d64eb797ac776a2c696cca6c1f33a6b6fdb3"
+  integrity sha512-MrzMLiomtIveF6amfvSFBMJfiqnBbwECu9jWrNK9JRFThAEp7f45GhL07atylzgqFwNkg7DJolfnilxOU4my5w==
+  dependencies:
+    "@babel/runtime" "^7.14.0"
+
 gatsby-plugin-catch-links@^3.9.0:
   version "3.9.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-catch-links/-/gatsby-plugin-catch-links-3.9.0.tgz#b1cefce8b7254b8690b135f17dca4e32d6a0eea8"

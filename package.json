@@ -38,6 +38,7 @@
     "gatsby": "3.9.1",
     "gatsby-background-image": "^1.5.3",
     "gatsby-image": "3.9.0",
+    "gatsby-plugin-canonical-urls": "^3.9.0",
     "gatsby-plugin-catch-links": "^3.9.0",
     "gatsby-plugin-image": "^1.9.0",
     "gatsby-plugin-manifest": "3.9.0",
