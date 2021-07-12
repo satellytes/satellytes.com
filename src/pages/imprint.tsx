@@ -34,6 +34,7 @@ const ImprintPage: React.FC = () => {
       <SEO
         title="Impressum | Satellytes"
         description="Pflichtangaben nach § 5 Telemediengesetz/Impressum"
+        noIndex={true}
       />
       <Grid>
         <GridItem>
