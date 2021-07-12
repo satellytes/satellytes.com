@@ -6,7 +6,7 @@ import { Card } from './card';
 const data = {
   title: 'card title',
   text: 'text',
-  link: '/link',
+  link: '/link/',
 };
 
 describe('Card', () => {
