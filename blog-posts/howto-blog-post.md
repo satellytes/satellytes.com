@@ -1,5 +1,5 @@
 ---
-path: "/blog/howto-blog-post"
+path: "/blog/howto-blog-post/"
 date: "2021-05-01"
 title: "How to do a blog post"
 featuredImage: images/space.jpg

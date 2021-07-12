@@ -117,6 +117,12 @@ module.exports = {
     'gatsby-plugin-styled-components',
     'gatsby-plugin-typescript',
     {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: 'https://satellytes.com',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: 'https://satellytes.com',
@@ -135,8 +141,13 @@ module.exports = {
       options: {
         excludes: ['/imprint', '/data-privacy'],
         resolvePagePath: ({ path }) => {
-          // trailing slashes are direct links without a redirect
-          return path.endsWith('/') ? path : `${path}/`;
+          if (!path.endsWith('/')) {
+            console.warn(
+              'Path of the page does not end with a slash! For SEO reasons all paths should end with a slash:',
+              path,
+            );
+          }
+          return path;
         },
       },
     },

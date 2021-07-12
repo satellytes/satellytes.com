@@ -1,5 +1,5 @@
 ---
-path: "/blog/angular-inject-the-injector"
+path: "/blog/angular-inject-the-injector/"
 date: "2021-06-08"
 title: "The \"Inject the Injector\" pattern"
 featuredImage: images/georgios-kaleadis-aBTfTMsOCOI-unsplash.jpg 

@@ -114,7 +114,7 @@ const createCareerPages = async ({ actions }) => {
     generateCard({ title: position.name }, outputFile);
 
     createPage({
-      path: position.satellytesPath,
+      path: appendTrailingSlash(position.satellytesPath),
       component: CAREER_DETAILS_TEMPLATE_PATH,
       context: {
         position,
@@ -124,7 +124,7 @@ const createCareerPages = async ({ actions }) => {
   });
 
   createPage({
-    path: '/career',
+    path: '/career/',
     component: CAREER_TEMPLATE_PATH,
     context: {
       positions: positions,
@@ -158,7 +158,7 @@ const createBlogPages = async ({ actions, reporter, graphql }) => {
   // create a page for each markdown file
   markdownBlogPages.data.allMarkdownRemark.nodes.forEach((node) => {
     createPage({
-      path: node.frontmatter.path,
+      path: appendTrailingSlash(node.frontmatter.path),
       component: BLOG_POST_TEMPLATE_PATH,
       context: {},
     });
@@ -187,7 +187,7 @@ const createClientPages = async ({ actions, reporter, graphql }) => {
 
   clientPages.data.allClientsJson.nodes.forEach((node) => {
     createPage({
-      path: node.path,
+      path: appendTrailingSlash(node.path),
       component: CLIENT_TEMPLATE_PATH,
       context: { linkToThePage: node.path },
     });
@@ -213,4 +213,8 @@ exports.onCreateWebpackConfig = function (_ref) {
       },
     });
   }
+};
+
+const appendTrailingSlash = (path) => {
+  return path.endsWith('/') ? path : `${path}/`;
 };
