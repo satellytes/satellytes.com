@@ -47,7 +47,7 @@ const Byline: React.FC<BylineProps> = ({
         {timeFromPosted} ({readingTime})
       </BylineTimeFromPosted>
       <BylineAuthor>
-        von {author}, {authorSummary}
+        {author}, {authorSummary}
       </BylineAuthor>
     </BylineContainer>
   );
