@@ -134,6 +134,10 @@ module.exports = {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         excludes: ['/imprint', '/data-privacy'],
+        resolvePagePath: ({ path }) => {
+          // trailing slashes are direct links without a redirect
+          return path.endsWith('/') ? path : `${path}/`;
+        },
       },
     },
     {

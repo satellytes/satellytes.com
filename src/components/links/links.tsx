@@ -42,9 +42,18 @@ export const Link = (props: LinkProps): JSX.Element => {
    */
   const isAnchorLink = to.startsWith('#');
 
+  /**
+   * it seems that using consistent '/' at the end of internal links is better
+   * for SEO as it prevents the redirect from non-slash to slash. it also aligns
+   * it with the sitemap.xml
+   *
+   * - https://github.com/gatsbyjs/gatsby/discussions/27889
+   */
+  const toWithSlash = to.endsWith('/') ? to : `${to}/`;
+
   return (
     <InternalLink
-      to={to}
+      to={toWithSlash}
       className={isAnchorLink ? undefined : className}
       {...rest}
     >

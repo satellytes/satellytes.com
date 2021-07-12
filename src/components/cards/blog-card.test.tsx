@@ -6,7 +6,7 @@ import { BlogCard } from './blog-card';
 const data = {
   title: 'card title',
   text: 'text',
-  link: '/link',
+  link: '/link/',
   placeholderImage: {
     aspectRatio: NaN,
     src: '',

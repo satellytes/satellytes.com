@@ -9,7 +9,7 @@ const testClients = [
   {
     name: 'client name',
     start: '2020-04-30',
-    path: '/clients/client1',
+    path: '/clients/client1/',
   },
 ];
 
