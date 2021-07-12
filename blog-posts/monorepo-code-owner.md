@@ -2,7 +2,7 @@
 path: "/blog/monorepo-codeowner-github-enterprise"
 date: "2021-07-09"
 title: Every big monorepo needs the CODEOWNERS feature
-featuredImage: images/kyle-glenn-cqvy_cag4gI-unsplash.jpg
+featuredImage: images/chang-duong-Sj0iMtq_Z4w-unsplash.jpg
 shortSummary: CODEOWNERS file help to split the code responsibilities & ownership in a monorepo.
 attribution:
    creator: Chang Duong
