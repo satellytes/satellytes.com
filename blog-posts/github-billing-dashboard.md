@@ -172,3 +172,7 @@ jobs:
           branch: gh-pages
           folder: build
 ```
+
+
+## Conclusion
+The CSV file from GitHub provides a lot of detailed information about the incurred costs. The GitHub Billing Dashboard makes it possible to present this information in a meaningful and informative way to the user. The libraries discussed here have made the development of the dashboard much easier and have resulted in the project being a lot of fun for us.  Any feedback or new ideas on this project would be greatly appreciated.
