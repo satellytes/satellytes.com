@@ -25,15 +25,13 @@ The following screenshot shows all the billing information you get from the GitH
 ![screenshot of the billing settings in a Github account](./images/screenshot-of-gh-billing-settings.png)
 
 And this is what you get from the GitHub Billing Dashboard. Costs per service per month with historic data:
-
 ![screenshot of the Github billing dashboard with some charts](./images/screenshot-of-gh-dashboard.png)
-
 This blog post gives you some insights into how we build it.
 
 ## Technologies and Libraries
 
 The dashboard runs locally in the user's browser and thus does not send any data to external servers, even the most recently used files are stored only in the browser's local storage. The dashboard was mainly developed with React and Typescript. For the styling of the dashboard, we used styled-components. In addition, we used various libraries:
-+ papaprse
++ papaparse
 + recharts
 + date-fns
 + react-medium-image-zoom 
