@@ -38,7 +38,7 @@ The dashboard runs locally in the user's browser and thus does not send any data
 
 [papaparse](https://github.com/mholt/PapaParse) is a CSV parser that converts CSV to JSON. Besides strings, papaparse can process CSV files directly, no matter if they are located locally on the computer or have to be accessed via an external URL.
 
-The following example shows how easy the conversion of a CSV file is. The function parse() is called with a file like sample.csv. Additionally, it needs as a second input parameter a config object, in which certain options for the parsing can be set. For example, the headings of the individual values are camalized here. The parsing itself, the assignment of the values to the headings, and the transformation into the UsageReportCsvEntry type are completely handled by papaparse. The parsed object can still be modified. In the sample code, you can see how in addition to the existing CSV file headers "pricePerUnit" is calculated and added to the finished object.
+The following example shows how easy the conversion of a CSV file is. The function `parse()` is called with a file like `billing.csv`. Additionally, it needs as a second input parameter a config object, in which certain options for the parsing can be set. For example, the headings of the individual values are camalized here. The parsing itself, the assignment of the values to the headings, and the transformation into the `UsageReportCsvEntry` type are completely handled by papaparse. The parsed object can still be modified. In the sample code, you can see how in addition to the existing CSV file headers `pricePerUnit` is calculated and added to the finished object.
 
 ```
 billing.csv
@@ -87,7 +87,7 @@ parse<UsageReportCsvEntry>(file, {
 
 ### Recharts
 
-Probably the most obvious feature of the dashboard is the functionality to display the costs in charts. For this, we used the React library Recharts. This library comes with some handy features that were also important for this project. Besides the possibility to choose between different chart types (e.g. Bar or Line), Recharts also leaves a lot of room for customizing the charts. This includes, for example, various stylings, additional elements (e.g. tooltip, legend, ...), and the possibility to simply add features that are not available.
+Probably the most obvious feature of the dashboard is the functionality to display the costs in charts. For this, we used the React library [Recharts](https://github.com/recharts/recharts). This library comes with some handy features that were also important for this project. Besides the possibility to choose between different chart types (e.g. Bar or Line), Recharts also leaves a lot of room for customizing the charts. This includes, for example, various stylings, additional elements (e.g. tooltip, legend, ...), and the possibility to simply add features that are not available.
 
 ```tsx
 <BarChart data={currentData} margin={{ bottom: 20 }}>
@@ -112,7 +112,7 @@ Probably the most obvious feature of the dashboard is the functionality to displ
 
 ### date-fns
 
-For grouping costs by days, weeks and months we had to work a lot with dates. The library `date-fns` made this work easier for us because it brings important functions like `startOfMonth()`, `getISOWeek()`, or `lightFormat()`, which allows you to customize the date format easily. For example, we used the `lightFormat()` function to display the start or end date of the data set. Due to the detailed documentation, it was very pleasant to work with `date-fns`.
+For grouping costs by days, weeks and months we had to work a lot with dates. The library [date-fns](https://github.com/date-fns/date-fns) made this work easier for us because it brings important functions like `startOfMonth()`, `getISOWeek()`, or `lightFormat()`, which allows you to customize the date format easily. For example, we used the `lightFormat()` function to display the start or end date of the data set. Due to the detailed documentation, it was very pleasant to work with date-fns.
 
 ```tsx
 isFirstMonth()
@@ -125,7 +125,7 @@ isLastMonth()
 
 ### react-medium-image-zoom
 
-React-medium-image-zoom is a small but very useful library to zoom in images that are clicked. This library also leaves many possibilities for customization, for example, the background of the zoomed image and the zoom effect can be customized very easily. For the basic function of react-medium-image-zoom it is sufficient to just wrap an image or div tag with the Zoom tag as shown in the example below. The customization features can be added via props.
+[React-medium-image-zoom](https://github.com/rpearce/image-zoom) is a small but very useful library to zoom in images that are clicked. This library also leaves many possibilities for customization, for example, the background of the zoomed image and the zoom effect can be customized very easily. For the basic function of react-medium-image-zoom it is sufficient to just wrap an image or div tag with the `<Zoom>` tag as shown in the example below. The customization features can be added via props.
 
 ```tsx
 <Zoom>
