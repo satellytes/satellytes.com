@@ -14,31 +14,38 @@ source: https://www.freepik.com/free-vector/space-landscape-night_13748451.htm
 
 > You can try out the dashboard here: [https://satellytes.github.io/github-billing-dashboard](https://satellytes.github.io/github-billing-dashboard)
 
-We use CI/CD pipelines and automatizations in every project we are responsible for. Especially Github Actions is becoming more popular, as it’s simple to use and growing in functionality. Over the last couple of months, we managed to create multiple projects and repositories that are using Github Actions extensively.
+We use CI/CD pipelines and automatizations in every project we are responsible for. Especially GitHub Actions is becoming more popular, as it’s simple to use and growing in functionality. Over the last couple of months, we managed to create multiple projects and repositories that are using Github Actions extensively.
 
-Github Actions provides a generous free tier, so costs for smaller projects are often nonexistent. Once you reach the free tier limits, every Action (and other services) needs to be "paid by use" at the end of the month. Github aggregates all costs and shows them in your settings. But Github doesn't provide charts or a dashboard to get into the details of the costs, for example for historical data.
+GitHub Actions provides a generous free tier, so costs for smaller projects are often nonexistent. Once you reach the free tier limits, every Action (and other services) needs to be "paid by use" at the end of the month. Github aggregates all costs and shows them in your settings. But Github doesn't provide charts or a dashboard to get into the details of the costs, for example for historical data.
 
 This can be a problem if you have multiple projects, as it’s not obvious which service causes the costs. If you want to figure that out, you can get a CSV from Github, which is hard to read and analyze. We, therefore, decided to create a dashboard to visualize this CSV and show you the costs per repository and month.
 
+The following screenshot shows all the billing information you get from the GitHub Settings. No historical data, no expense per service.
+
 ![screenshot of the billing settings in a Github account](./images/screenshot-of-gh-billing-settings.png)
 
-This is all the billing information you get from the Github Settings. No historical data, no expense per service.
+And this is what you get from the GitHub Billing Dashboard. Costs per service per month with historic data:
 
 ![screenshot of the Github billing dashboard with some charts](./images/screenshot-of-gh-dashboard.png)
-
-And this is what you get from the Github Billing Dashboard. Costs per service per month with historic data.
 
 This blog post gives you some insights into how we build it.
 
 ## Technologies and Libraries
 
-The dashboard runs locally in the user's browser and thus does not send any data to external servers, even the most recently used files are stored only in the browser's local storage. The dashboard was mainly developed with React and Typescript. For the styling of the dashboard, we used styled-components. In addition, various libraries were used.
+The dashboard runs locally in the user's browser and thus does not send any data to external servers, even the most recently used files are stored only in the browser's local storage. The dashboard was mainly developed with React and Typescript. For the styling of the dashboard, we used styled-components. In addition, we used various libraries:
++ papaprse
++ recharts
++ date-fns
++ react-medium-image-zoom 
+
+In the following, the main functions of these libraries are discussed with concrete examples from our project.
+
 
 ### papaparse
 
-[papaparse](https://github.com/mholt/PapaParse) is a CSV parser that converts CSV to JSON. Besides strings, papaparse can process CSV files directly, no matter if they are located locally on the computer or have to be accessed via an external URL.
+[papaparse](https://github.com/mholt/PapaParse) is a CSV parser that converts CSV to JSON. Besides strings, papaparse can process CSV files directly, whether they are located locally on the computer or accessed via an external URL.
 
-The following example shows how easy the conversion of a CSV file is. The function `parse()` is called with a file like `billing.csv`. Additionally, it needs as a second input parameter a config object, in which certain options for the parsing can be set. For example, the headings of the individual values are camalized here. The parsing itself, the assignment of the values to the headings, and the transformation into the `UsageReportCsvEntry` type are completely handled by papaparse. The parsed object can still be modified. In the sample code, you can see how in addition to the existing CSV file headers `pricePerUnit` is calculated and added to the finished object.
+The following example shows how easy the conversion of a CSV file is. The function `parse()` is called with a file like `billing.csv`. Additionally, it needs as a second input parameter a config object, in which certain options for the parsing can be set. For example, the headings of the individual values are camalized here. The parsing itself, the assignment of the values to the headings, and the transformation into the `UsageReportCsvEntry` type are completely handled by papaparse. The parsed object can still be modified. In the sample code, you can see how in addition to the existing CSV file headers `totalPrice` is calculated and added to the finished object.
 
 ```
 billing.csv
@@ -135,8 +142,8 @@ isLastMonth()
 
 ### GitHub Pages deployment
 
-We chose GitHub Pages to host the page, as it's a simple and free hosting solution. It was important to us that new features are deployed automatically to GitHub Pages. To automate this process, we decided to use the Github Actions with [GitHub Pages Deploy Action](https://github.com/JamesIves/github-pages-deploy-action).
-This ensures that with every commit to a selected branch (in our case to `main`), the new version is automatically deployed to the `gh-pages` branch. Thereby all changes are immediately visible to the user and can be used directly in the finished product. By using this plugin we also didn't need to change any scripts or code we didn't already have.
+We chose GitHub Pages to host the page, as it's a simple and free hosting solution. It was important to us that new features are deployed automatically to GitHub Pages. To automate this process, we decided to use the GitHub Actions with [GitHub Pages Deploy Action](https://github.com/JamesIves/github-pages-deploy-action).
+This ensures that with every commit to a selected branch (in our case to `main`), the new version is automatically deployed to the `gh-pages` branch. Thereby all changes are immediately visible to the user and can be used directly. By using this plugin we also didn't need to change any scripts or code we didn't already have.
 
 So, if you have a React SPA you can just copy&past the GitHub Action and start deploying to GitHub pages. You only need to change the `PUBLIC_URL` variable to your GitHub Pages deployment URL:
 
