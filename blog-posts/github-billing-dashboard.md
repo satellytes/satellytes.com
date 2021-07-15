@@ -82,7 +82,7 @@ parse<UsageReportCsvEntry>(file, {
 				(dailyEntry) => {
 					return {
 					...dailyEntry,
-					totalPrice: *parseFloat*(dailyEntry.quantity) * *parseFloat*(dailyEntry.pricePerUnit),
+					totalPrice: parseFloat(dailyEntry.quantity) * parseFloat(dailyEntry.pricePerUnit),
 				};
 			}
 		);
