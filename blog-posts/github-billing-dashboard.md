@@ -145,7 +145,7 @@ isLastMonth()
 We chose GitHub Pages to host the page, as it's a simple and free hosting solution. It was important to us that new features are deployed automatically to GitHub Pages. To automate this process, we decided to use the GitHub Actions with [GitHub Pages Deploy Action](https://github.com/JamesIves/github-pages-deploy-action).
 This ensures that with every commit to a selected branch (in our case to `main`), the new version is automatically deployed to the `gh-pages` branch. Thereby all changes are immediately visible to the user and can be used directly. By using this plugin we also didn't need to change any scripts or code we didn't already have.
 
-So, if you have a React SPA you can just copy&past the GitHub Action and start deploying to GitHub pages. You only need to change the `PUBLIC_URL` variable to your GitHub Pages deployment URL:
+So, if you have a React SPA you can just copy & paste the GitHub Action and start deploying to GitHub pages. You only need to change the `PUBLIC_URL` variable to your GitHub Pages deployment URL:
 
 ```yaml
 name: Deploy to gh-pages
