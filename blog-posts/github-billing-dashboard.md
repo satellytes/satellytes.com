@@ -22,10 +22,10 @@ This can be a problem if you have multiple projects, as it’s not obvious which
 
 The following screenshot shows all the billing information you get from the GitHub Settings. No historical data, no expense per service.
 
-![screenshot of the billing settings in a Github account](./images/screenshot-of-gh-billing-settings.png)
+![screenshot of the billing settings in a Github account](images/gh-billing-dashboard-screenshot-of-gh-billing-settings.png)
 
 And this is what you get from the GitHub Billing Dashboard. Costs per service per month with historic data:
-![screenshot of the Github billing dashboard with some charts](./images/screenshot-of-gh-dashboard.png)
+![screenshot of the Github billing dashboard with some charts](images/gh-billing-dashboard-screenshot-of-gh-dashboard.png)
 This blog post gives you some insights into how we build it.
 
 ## Technologies and Libraries
@@ -175,4 +175,4 @@ jobs:
 
 
 ## Conclusion
-The CSV file from GitHub provides a lot of detailed information about the incurred costs. The GitHub Billing Dashboard makes it possible to present this information in a meaningful and informative way to the user. The libraries discussed here have made the development of the dashboard much easier and have resulted in the project being a lot of fun for us.  Any feedback or new ideas on this project would be greatly appreciated.
+The CSV file from GitHub provides a lot of detailed information about the incurred costs but no graphical representation. The GitHub Billing Dashboard makes it possible to present this information in a meaningful and informative way to the user. The libraries discussed here have made the development of the dashboard much easier and have resulted in the project being a lot of fun for us.  Any feedback or new ideas on this project would be greatly appreciated.
