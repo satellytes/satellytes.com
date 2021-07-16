@@ -23,6 +23,7 @@ interface AllBlogPostsQuery {
         date: string;
         path: string;
         title: string;
+        shortSummary?: string;
         featuredImage: IGatsbyImageData;
       };
       rawMarkdownBody: string;
@@ -58,6 +59,7 @@ const BlogPage: React.FC = () => {
             date
             path
             title
+            shortSummary
             featuredImage {
               childImageSharp {
                 gatsbyImageData(
@@ -96,7 +98,11 @@ const BlogPage: React.FC = () => {
               large={topBlogPost}
               image={getImage(post.frontmatter.featuredImage)}
               title={post.frontmatter.title}
-              text={post.excerpt}
+              text={
+                post.frontmatter.shortSummary
+                  ? post.frontmatter.shortSummary
+                  : post.excerpt
+              }
               caption={formatDate(post.frontmatter.date)}
               link={post.frontmatter.path}
             />
