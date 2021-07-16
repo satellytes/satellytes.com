@@ -3,7 +3,7 @@ path: "/blog/how-consistency-helps-you-to-optimize-gatsby-urls/"
 date: "2021-07-15"
 title: "How consistency helps you to optimize Gatsby URLs for users and search engines"
 featuredImage: images/how-to-optimize-gatsby-url-hero.jpeg 
-author: "Fabian"
+author: "Fabian Dietenberger"
 authorSummary: "Senior Developer at Satellytes"
 attribution:
     creator: Jonny Clow 
