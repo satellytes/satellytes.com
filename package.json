@@ -27,7 +27,6 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
-    "@reach/listbox": "^0.15.2",
     "@reach/tabs": "^0.15.3",
     "@types/leaflet": "^1.7.4",
     "axios": "^0.21.1",
