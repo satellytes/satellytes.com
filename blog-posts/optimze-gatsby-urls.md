@@ -166,7 +166,7 @@ If there is a path without a trailing slash, you will now get a warning in the c
 trailing slash here, as the problem should be solved at the root - paths without a trailing slash will lead to potential
 follow-up problems.
 
-**Canonical**
+### Canonical
 
 A canonical URL is like an ID for a page. If your page has multiple URLs for the same page, the search engine uses the
 canonical URL to match them together. If the document wouldn't have a canonical URL, the search engine marks the content
