@@ -35,10 +35,10 @@ interface AllBlogPostsQuery {
 }
 
 const BlogPageTitle = styled(PageTitle)`
-  margin-bottom: 48px;
+  margin-bottom: 40px;
 `;
 
-const BlogPageSubTitl = styled(Text)`
+const BlogPageSubTitle = styled(Text)`
   margin-bottom: 40px;
 `;
 
@@ -84,12 +84,11 @@ const BlogPage: React.FC = () => {
           <BlogPageTitle>Blog</BlogPageTitle>
         </GridItem>
         <GridItem md={8}>
-          <BlogPageSubTitl>
-            In our blog, our developers and designers talk about the latest
-            trends and know-how around tech and especially about our latest
-            learnings and insights on how to create incredibly good software for
-            the web.
-          </BlogPageSubTitl>
+          <BlogPageSubTitle>
+            Our developers and designers talk about the latest trends and
+            know-how around tech, especially about our latest learnings and
+            insights on creating good software for the web.
+          </BlogPageSubTitle>
         </GridItem>
       </Grid>
       <Grid center>
