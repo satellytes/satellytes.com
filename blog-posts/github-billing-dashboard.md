@@ -2,12 +2,12 @@
 path: "/blog/github-billing-dashboard/"
 date: "2021-07-15"
 title: "GitHub CSV Billing Dashboard"
-featuredImage: images/space.jpg
+featuredImage: images/gh-billing-dashboard-cockpit.jpg
 author: "Fabian & Felix"
 authorSummary: "Developers at Satellytes"
 attribution:
-creator: upklyak
-source: https://www.freepik.com/free-vector/space-landscape-night_13748451.htm
+    creator: Launde Morel
+    source: https://unsplash.com/photos/4VSsq9ErzOs
 ---
 
 
