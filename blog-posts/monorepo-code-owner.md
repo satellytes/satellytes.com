@@ -7,7 +7,7 @@ shortSummary: CODEOWNERS file help to split the code responsibilities & ownershi
 attribution:
    creator: Chang Duong
    source: https://unsplash.com/photos/Sj0iMtq_Z4w
-author: Georgios Kaleadis
+author: "Georgios Kaleadis"
 authorSummary: "CTO at Satellytes"
 ---
 

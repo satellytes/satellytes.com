@@ -3,8 +3,8 @@ path: "/blog/howto-blog-post/"
 date: "2021-05-01"
 title: "How to do a blog post"
 featuredImage: images/space.jpg
-author: "Georgios & Fabian"
-authorSummary: "Developers at Satellytes"
+author: "Georgios Kaleadis & Fabian Dietenberger"
+authorSummary: "CTO and Senior Developer at Satellytes"
 attribution:
   creator: upklyak
   source: https://www.freepik.com/free-vector/space-landscape-night_13748451.htm
