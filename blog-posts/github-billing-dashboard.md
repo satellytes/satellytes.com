@@ -3,8 +3,8 @@ path: "/blog/github-billing-dashboard/"
 date: "2021-07-15"
 title: "GitHub CSV Billing Dashboard"
 featuredImage: images/gh-billing-dashboard-cockpit.jpg
-author: "Fabian & Felix"
-authorSummary: "Developers at Satellytes"
+author: "Felix Hofmann and Fabian Dietenberger"
+authorSummary: "Working Student and Senior Developer at Satellytes"
 attribution:
     creator: Launde Morel
     source: https://unsplash.com/photos/4VSsq9ErzOs
