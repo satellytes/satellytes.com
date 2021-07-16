@@ -150,8 +150,7 @@ export const SendButton = styled(Button)`
 
 export const Checkbox = styled.input`
   opacity: 0;
-  width: 1px;
-  height: 1px;
+  position: absolute;
   &:focus {
     + label::before {
       border: 2px solid #4d79ff;
