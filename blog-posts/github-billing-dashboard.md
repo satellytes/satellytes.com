@@ -5,6 +5,7 @@ title: "GitHub CSV Billing Dashboard"
 featuredImage: images/gh-billing-dashboard-cockpit.jpg
 author: "Felix Hofmann and Fabian Dietenberger"
 authorSummary: "Working Student and Senior Developer at Satellytes"
+shortSummary: We use CI/CD pipelines and automatizations in every project we are responsible for. Especially GitHub Actions is becoming more popular, as it’s simple to use and growing in functionality. Over the last couple of months, we managed to create multiple projects and repositories that are using GitHub Actions extensively. GitHub Actions provides a generous free tier, so costs for smaller projects are often nonexistent. Once you reach the free tier limits, every Action (and other services) needs to be "paid by use" at the end of the month. GitHub aggregates all costs and shows them in your settings. But GitHub doesn't provide charts or a dashboard to get into the details of the costs, for example for historical data. This can be a problem if you have multiple projects, as it’s not obvious which service causes the costs. If you want to figure that out, you can get a CSV from GitHub, which is hard to read and analyze. We, therefore, decided to create a dashboard to visualize this CSV and show you the costs per repository and month.
 attribution:
     creator: Launde Morel
     source: https://unsplash.com/photos/4VSsq9ErzOs
