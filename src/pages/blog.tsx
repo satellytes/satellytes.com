@@ -25,6 +25,7 @@ interface AllBlogPostsQuery {
       date: string;
       path: string;
       title: string;
+      shortSummary?: string;
       featuredImage: IGatsbyImageData;
     };
     rawMarkdownBody: string;
@@ -99,7 +100,7 @@ const BlogPostOverview = ({ blogPosts }) => (
           large={topBlogPost}
           image={getImage(post.frontmatter.featuredImage)}
           title={post.frontmatter.title}
-          text={post.excerpt}
+          text={post.frontmatter.shortSummary ?? post.excerpt}
           caption={formatDate(post.frontmatter.date)}
           link={post.frontmatter.path}
         />
@@ -109,41 +110,42 @@ const BlogPostOverview = ({ blogPosts }) => (
 );
 
 export const BlogPageQuery = graphql`
-  query ($language: String!) {
-    locales: allLocale(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
-    }
-    allMarkdownRemark(
-      sort: { fields: frontmatter___date, order: DESC }
-      filter: { fileAbsolutePath: { regex: "/(blog-posts)/" } }
-    ) {
-      nodes {
-        id
-        excerpt(pruneLength: 500)
-        frontmatter {
-          date
-          path
-          title
-          featuredImage {
-            childImageSharp {
-              gatsbyImageData(
-                width: 600
-                aspectRatio: 1.77
-                layout: CONSTRAINED
-                placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
-              )
+    query ($language: String!) {
+        locales: allLocale(filter: { language: { eq: $language } }) {
+            edges {
+                node {
+                    ns
+                    data
+                    language
+                }
             }
-          }
         }
-        rawMarkdownBody
-      }
+        allMarkdownRemark(
+            sort: { fields: frontmatter___date, order: DESC }
+            filter: { fileAbsolutePath: { regex: "/(blog-posts)/" } }
+        ) {
+            nodes {
+                id
+                excerpt(pruneLength: 500)
+                frontmatter {
+                    date
+                    path
+                    title
+                    shortSummary
+                    featuredImage {
+                        childImageSharp {
+                            gatsbyImageData(
+                                width: 600
+                                aspectRatio: 1.77
+                                layout: CONSTRAINED
+                                placeholder: BLURRED
+                                formats: [AUTO, WEBP, AVIF]
+                            )
+                        }
+                    }
+                }
+                rawMarkdownBody
+            }
+        }
     }
-  }
 `;
