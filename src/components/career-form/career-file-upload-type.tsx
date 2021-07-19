@@ -10,8 +10,6 @@ import {
   UseFormWatch,
 } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { up } from '../breakpoint/breakpoint';
-import { SelectArrow } from '../icons/select-arrow';
 
 interface CareerFileUploadTypeProps {
   setValue: UseFormSetValue<FieldValues>;
@@ -49,7 +47,7 @@ export const CareerFileUploadType = ({
         {...register(name, {
           validate: (value) => value !== 'default',
         })}
-        value={state || 'default'}
+        value={selectedFileType || 'default'}
         onChange={onChange}
       >
         <option value={'default'} disabled>

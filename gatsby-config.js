@@ -201,7 +201,11 @@ module.exports = {
             excludeLanguages: ['en'],
           },
           {
-            matchPath: '/blog',
+            matchPath: '/blog/',
+            languages: ['en'],
+          },
+          {
+            matchPath: '/blog/:title/',
             languages: ['en'],
           },
         ],
