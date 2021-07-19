@@ -1,0 +1,49 @@
+{
+  "career": {
+    "title": "Karriere",
+    "subheading": "Wir suchen Entwickler:innen aus Leidenschaft!",
+    "title-positions": "Unsere offenen Stellen",
+    "headline": "Bewirb dich jetzt",
+    "mandatory-field": "Pflichtfeld",
+    "first-name": "Vorname",
+    "last-name": "Nachname",
+    "email": "E-Mail Adresse",
+    "location": "Wohnort",
+    "available-from": "Verfügbar ab",
+    "salary_expectations": "Gehaltsvorstellung",
+    "cover-letter": "Anschreiben",
+    "file-category": "Dokument-Kategorie",
+    "cv": "Lebenslauf",
+    "other": "anderes",
+    "info-text": "Lade hier bitte deine relevanten Dokumente hoch, wie zb Lebenslauf (CV), Motivationschreiben oder Referenzen. Erlaubt sind ausschließlich 3 PDF Dateien, die maximale Größe pro Datei beträgt 20MB.",
+    "privacy-policy": "<0>Hiermit bestätige ich, dass ich die <1>Datenschutzerklärung</1> zur Kenntnis genommen habe. <4>*</4></0>",
+    "error": {
+      "approval": "Deine Zustimmung fehlt",
+      "first-name": "Dein Vorname fehlt",
+      "last-name": "Dein Nachname fehlt",
+      "email": "Deine E-Mail fehlt",
+      "email-undefined": "Irgendwas stimmt an dieser E-Mail nicht",
+      "cv": "Dein CV fehlt",
+      "cover-letter": "Dein Anschreiben fehlt",
+      "selection": "Deine Auswahl fehlt",
+      "max-number": "Maximale Anzahl Dokumente ist erreicht.",
+      "max-size": "Maximale Dokumentgröße (20MB) wurde überschritten",
+      "uploaded": "Das Dokument \"{{name}}\" wurde bereits geladen."
+    },
+    "action": {
+      "alternative": "<0>Oder schicke deine Bewerbung an: <1>career@satellytes.com</1></0>",
+      "upload": "<0>Ziehe die Dokumente auf das Feld oder <1>wähle</1> sie aus</0>",
+      "send": "Senden",
+      "sent": "Gesendet",
+      "again": "Nochmal senden",
+      "again-text": "Versuch es bitte noch einmal. Klappt es nicht dann schicke deine Bewerbung direkt an <1>career@satellytes.com</1>",
+      "missing": "Bitte fülle alle benötigten Felder aus"
+    },
+    "thank": "Danke für deine Bewerbung!",
+    "email-confirmation": "Wir haben dir eine E-Mail zur Bestätigung geschickt und melden uns bei dir."
+  },
+  "office": {
+    "title": "Unser Büro"
+  },
+  "404": "Oh sorry! Our Satellite took the wrong direction."
+}

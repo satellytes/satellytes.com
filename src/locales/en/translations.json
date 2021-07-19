@@ -1,0 +1,49 @@
+{
+  "career": {
+    "title": "Career",
+    "subheading": "We are looking for passionate developers!",
+    "title-positions": "Our open positions",
+    "headline": "Apply now",
+    "mandatory-field": "mandatory field",
+    "first-name": "First name",
+    "last-name": "Last name",
+    "email": "E-mail",
+    "location": "Location",
+    "available-from": "Available from",
+    "salary_expectations": "Salary expectations",
+    "cover-letter": "Cover letter",
+    "file-category": "File category",
+    "cv": "CV",
+    "other": "other",
+    "info-text": "Please upload relevant files e.g. CV, cover letter or references. You can upload 3 pdf-documents with a maximal size of 20 MB each.",
+    "privacy-policy": "<0>I hereby confirm that i have taken note of the <1>privacy policy</1>.  <4>*</4></0>",
+    "error": {
+      "approval": "Your approval is missing",
+      "first-name": "Your first name is missing",
+      "last-name": "Your last name is missing",
+      "email": "Your e-mail is missing",
+      "email-unknown": "Something is wrong with the email-adresse",
+      "cv": "Your CV is missing",
+      "cover-letter": "Your cover letter is missing",
+      "selection": "Your selection is missing",
+      "max-number": "Maximal number of documents is reached.",
+      "max-size": "Maximal filesize of 20 MB is reached.",
+      "uploaded": "The document \"{{name}}\" was already uploaded."
+    },
+    "action": {
+      "alternative": "<0>Or send your application to <2>career@satellytes.com</2></0>",
+      "upload": "<0>Drop the files here or <1>browse</1></0>",
+      "send": "Send",
+      "sent": "Sent",
+      "again": "Send again",
+      "again-text": "Please try again. In case it does not work, please sent your application to <1>career@satellytes.com</1>",
+      "missing": "Please fill in the missing fields"
+    },
+    "thank": "Thank you for your application!",
+    "email-confirmation": "We sent you a confirmation-email and we will contact you."
+  },
+  "office": {
+    "title": "Our Office"
+  },
+  "404": "Oh sorry! Our Satellite took the wrong direction."
+}

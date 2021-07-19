@@ -9,6 +9,7 @@ import {
   UseFormSetValue,
   UseFormWatch,
 } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 
 interface CareerFileUploadTypeProps {
   setValue: UseFormSetValue<FieldValues>;
@@ -27,6 +28,7 @@ export const CareerFileUploadType = ({
   clearError,
   watch,
 }: CareerFileUploadTypeProps) => {
+  const { t } = useTranslation();
   const fileName = file.name.split('.');
   const name = `category_select.${fileName[0]}`;
   const state = watch(name);
@@ -47,15 +49,15 @@ export const CareerFileUploadType = ({
         onChange={onChange}
       >
         <option value={'default'} disabled>
-          File category
+          {t('career.file-category')}
         </option>
-        <option value="cv">CV</option>
-        <option value="cover-letter">Cover-Letter</option>
-        <option value="other">other</option>
+        <option value="cv">{t('career.cv')}</option>
+        <option value="cover-letter">{t('career.cover-letter')}</option>
+        <option value="other">{t('career.other')}</option>
       </StyledSelect>
       {errors.category_select?.[fileName[0]] && (
         <FormError
-          error={{ message: 'Deine Auswahl fehlt' }}
+          error={{ message: t<string>('career.error.selection') }}
           lineHeight={100}
         />
       )}

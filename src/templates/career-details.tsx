@@ -10,6 +10,7 @@ import { TextTitle } from '../components/typography/typography';
 import { CareerForm } from '../components/career-form/career-form';
 import { HEADER_HEIGHT } from '../components/header/header';
 import { Aurora, AuroraType } from '../components/aurora/aurora';
+import { graphql } from 'gatsby';
 
 const PERSONIO_SHORT_DESCRIPTION_NAME = 'Kurzbeschreibung';
 
@@ -70,10 +71,13 @@ interface CareerPageProps {
   pageContext: {
     position: PersonioJobPosition;
     socialCardImage: string;
+    hasTranslation: boolean;
+    language: string;
   };
 }
+const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
+  const { pageContext } = props;
 
-const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
   const ref = React.useRef<HTMLDivElement | null>(null);
   const scrollToStart = () => {
     ref?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -94,7 +98,11 @@ const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
   return (
     <>
       <Aurora type={AuroraType.Pink} />
-      <Layout siteTitleUrl="/career" transparentHeader={true}>
+      <Layout
+        siteTitleUrl="/career/"
+        transparentHeader={true}
+        showLanguageSwitch={pageContext.hasTranslation}
+      >
         <SEO
           imageUrl={pageContext.socialCardImage}
           title={`Karriere - ${pageContext.position.name} | Satellytes`}
@@ -128,5 +136,19 @@ const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
     </>
   );
 };
+
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;
 
 export default CareerPage;

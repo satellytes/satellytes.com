@@ -7,6 +7,7 @@ import { CloseBurgerMenuIcon } from '../icons/buttons-icons/close-burger-menu';
 import { NavigationFlyout } from './menu-flyout';
 import { Link } from '../links/links';
 import { Swoosh } from '../icons/swoosh';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 
 export const HEADER_HEIGHT = '65px';
 
@@ -41,6 +42,11 @@ const StyledHeader = styled.header<{
   ${up('md')} {
     padding: 0 24px;
   }
+`;
+
+const LanguageSwitch = styled.button`
+  cursor: pointer;
+  text-transform: uppercase;
 `;
 
 const HeaderSwoosh = styled(Swoosh)`
@@ -95,12 +101,14 @@ const SiteMenu = styled.button<{ $lightTheme: boolean }>`
 
 interface HeaderProps {
   siteTitle: string;
+  showLanguageSwitch?: boolean;
   siteTitleUrl?: string;
   $lightTheme?: boolean;
   transparent?: boolean;
 }
 
 const Header: React.FC<HeaderProps> = (props) => {
+  const { languages, language, changeLanguage } = useI18next();
   const [isNavigationVisible, setIsNavigationVisible] = useState(false);
   const [isHeaderTransparent, setIsHeaderTransparent] = useState<boolean>(
     Boolean(props.transparent),
@@ -136,6 +144,25 @@ const Header: React.FC<HeaderProps> = (props) => {
         <HeaderSwoosh />
         {props.siteTitle}
       </SiteTitle>
+      <div>
+        {props.showLanguageSwitch &&
+          languages.map((lng) => {
+            if (lng != language) {
+              return (
+                <LanguageSwitch
+                  key={lng}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    changeLanguage(lng);
+                  }}
+                >
+                  {lng}
+                </LanguageSwitch>
+              );
+            }
+          })}
+      </div>
+
       <SiteMenu
         aria-label="Open menu"
         $lightTheme={Boolean(!isHeaderTransparent && props.$lightTheme)}
