@@ -1,6 +1,6 @@
 import React, { createElement, ReactElement } from 'react';
 import rehypeReact from 'rehype-react';
-import unified from 'unified';
+import { unified } from 'unified';
 import customSatellytesComponents from './custom-components';
 
 /**

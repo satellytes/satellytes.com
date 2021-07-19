@@ -10,6 +10,8 @@ import {
   UseFormWatch,
 } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import { up } from '../breakpoint/breakpoint';
+import { SelectArrow } from '../icons/select-arrow';
 
 interface CareerFileUploadTypeProps {
   setValue: UseFormSetValue<FieldValues>;
@@ -31,10 +33,12 @@ export const CareerFileUploadType = ({
   const { t } = useTranslation();
   const fileName = file.name.split('.');
   const name = `category_select.${fileName[0]}`;
-  const state = watch(name);
+  const selectedFileType = watch(name);
 
   const onChange = (event) => {
-    setValue(name, event.target.value);
+    setValue(name, event.target.value, {
+      shouldDirty: true,
+    });
     clearError(name);
   };
 

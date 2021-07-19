@@ -271,7 +271,7 @@ const CheckboxLabel = styled.label`
     content: '';
     display: inline-block;
     position: relative;
-    top: -3px;
+    top: -2px;
     width: 20px;
     height: 20px;
     margin-right: 20px;

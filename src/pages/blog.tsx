@@ -5,9 +5,8 @@ import { FluidObject } from 'gatsby-image';
 
 import SEO from '../components/seo';
 import Layout from '../components/layout/layout';
-import { up } from '../components/breakpoint/breakpoint';
 import { Grid, GridItem } from '../components/grid/grid';
-import { PageTitle } from '../components/typography/typography';
+import { PageTitle, Text } from '../components/typography/typography';
 import { BlogCard } from '../components/cards/blog-card';
 import { formatDate } from '../components/util/format-date';
 import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
@@ -36,12 +35,11 @@ interface AllBlogPostsQuery {
 }
 
 const BlogPageTitle = styled(PageTitle)`
-  color: ${(props) => props.theme.palette.text.headerLight};
-  margin-bottom: 48px;
+  margin-bottom: 40px;
+`;
 
-  ${up('md')} {
-    margin-bottom: 80px;
-  }
+const BlogPageSubTitle = styled(Text)`
+  margin-bottom: 40px;
 `;
 
 const BlogPage: React.FC = () => {
@@ -84,6 +82,13 @@ const BlogPage: React.FC = () => {
       <Grid center>
         <GridItem>
           <BlogPageTitle>Blog</BlogPageTitle>
+        </GridItem>
+        <GridItem md={8}>
+          <BlogPageSubTitle>
+            Our developers and designers talk about the latest trends and
+            know-how around tech, especially about our latest learnings and
+            insights on creating good software for the web.
+          </BlogPageSubTitle>
         </GridItem>
       </Grid>
       <Grid center>

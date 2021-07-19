@@ -15,7 +15,6 @@ import {
 import { GridItem } from '../grid/grid';
 import { FilePreview } from './career-file-preview';
 import { FormError } from './career-components';
-import { FileTitleWrapper } from './career-file-title';
 import { CareerFileUploadType } from './career-file-upload-type';
 import { rgba } from 'polished';
 import { useTranslation } from 'react-i18next';
@@ -188,7 +187,9 @@ export const FileUpload = ({
               return (
                 <GridItem key={index}>
                   <FilePreview index={index} onClick={unselectFile}>
-                    <FileTitleWrapper file={file as File} />
+                    <FileNameWrapper>
+                      <FileName>{file.name}</FileName>
+                    </FileNameWrapper>
                     <CareerFileUploadType
                       errors={errors}
                       file={file}
@@ -211,13 +212,15 @@ const FileInputLabel = styled.label<FileUploadProps & DropzoneRootProps>`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 24px;
+  padding-left: 24px;
+  height: 56px;
 
   ${({ selectedFiles }) =>
     (!selectedFiles || selectedFiles.length === 0) &&
     css`
       align-items: center;
       padding: 56px;
+      height: unset;
     `}
 
   border-radius: 4px;
@@ -257,4 +260,17 @@ const FileInputLabel = styled.label<FileUploadProps & DropzoneRootProps>`
 
 const FileInput = styled(Input)`
   display: none;
+`;
+
+const FileNameWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const FileName = styled.span`
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 `;
