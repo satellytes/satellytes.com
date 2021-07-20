@@ -4,25 +4,21 @@ import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 import { LargeText, PageTitle } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import { Aurora, AuroraType } from '../components/aurora/aurora';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
+import { LocalesQuery } from './index';
 
-interface ServicesQuery {
-  markdownRemark: {
-    htmlAst: string;
+interface ServicePageProps {
+  data: {
+    locales: LocalesQuery;
+    markdownRemark: {
+      htmlAst: string;
+    };
   };
 }
 
-const ServicesPage: React.FC = () => {
-  const data = useStaticQuery<ServicesQuery>(graphql`
-    query {
-      markdownRemark(fileAbsolutePath: { regex: "/(pages/services)/" }) {
-        htmlAst
-      }
-    }
-  `);
-
+const ServicesPage = ({ data }: ServicePageProps) => {
   return (
     <>
       <Aurora type={AuroraType.Pink} />
@@ -47,3 +43,20 @@ const ServicesPage: React.FC = () => {
 };
 
 export default ServicesPage;
+
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+    markdownRemark(fileAbsolutePath: { regex: "/(pages/services)/" }) {
+      htmlAst
+    }
+  }
+`;

@@ -45,5 +45,16 @@
   "office": {
     "title": "Unser Büro"
   },
+  "navigation": {
+    "menu": "Menu",
+    "imprint": "Impressum",
+    "data-protection": "Datenschutz",
+    "services": "Leistungen",
+    "clients": "Kunden",
+    "career": "Karriere",
+    "office": "Büro",
+    "blog": "Blog",
+    "contact": "Kontakt"
+  },
   "404": "Oh sorry! Our Satellite took the wrong direction."
 }

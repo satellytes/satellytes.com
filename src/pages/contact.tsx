@@ -8,6 +8,7 @@ import { ContactForm } from '../components/form/contact';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
 import { Leaflet } from '../components/leaflet/leaflet';
+import { graphql } from 'gatsby';
 
 const ContactTitle = styled(SubTitle)`
   margin-top: 40px;
@@ -60,3 +61,17 @@ const ContactPage: React.FC = () => {
 };
 
 export default ContactPage;
+
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;

@@ -4,24 +4,20 @@ import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 import { PageTitle } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
+import { LocalesQuery } from './index';
 
-interface DataPrivacyQuery {
-  markdownRemark: {
-    htmlAst: string;
+interface DataPrivacyPageProps {
+  data: {
+    locales: LocalesQuery;
+    markdownRemark: {
+      htmlAst: string;
+    };
   };
 }
 
-const DataPrivacyPage: React.FC = () => {
-  const data = useStaticQuery<DataPrivacyQuery>(graphql`
-    query {
-      markdownRemark(fileAbsolutePath: { regex: "/(pages/data-privacy)/" }) {
-        htmlAst
-      }
-    }
-  `);
-
+const DataPrivacyPage = ({ data }: DataPrivacyPageProps) => {
   return (
     <Layout>
       <SEO
@@ -42,3 +38,20 @@ const DataPrivacyPage: React.FC = () => {
 };
 
 export default DataPrivacyPage;
+
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+    markdownRemark(fileAbsolutePath: { regex: "/(pages/data-privacy)/" }) {
+      htmlAst
+    }
+  }
+`;

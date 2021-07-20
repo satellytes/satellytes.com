@@ -191,12 +191,12 @@ module.exports = {
             getLanguageFromPath: true,
           },
           {
-            matchPath: '/:lang/clients/',
+            matchPath: '/:lang?/clients/',
             getLanguageFromPath: true,
             excludeLanguages: ['en'],
           },
           {
-            matchPath: '/:lang/services/',
+            matchPath: '/:lang?/services/',
             getLanguageFromPath: true,
             excludeLanguages: ['en'],
           },

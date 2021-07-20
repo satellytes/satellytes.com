@@ -3,6 +3,7 @@ const slugify = require('slugify');
 const path = require('path');
 const fetch = require('node-fetch');
 const xmlParser = require('fast-xml-parser');
+const { decode } = require('html-entities');
 
 const BLOG_POST_TEMPLATE_PATH = path.resolve('src/templates/blog-post.tsx');
 const CLIENT_TEMPLATE_PATH = path.resolve('src/templates/client-details.tsx');
@@ -67,7 +68,10 @@ const createCareerPages = async ({ actions }) => {
     );
     const jobsXmlResponse = await fetch(PERSONIO_JOBS_URL_LANG);
     const jobsXml = await jobsXmlResponse.text();
-    const jobsParse = xmlParser.parse(jobsXml);
+    const options = {
+      tagValueProcessor: (a) => decode(a), // &#039; -> '
+    };
+    const jobsParse = xmlParser.parse(jobsXml, options);
     const positions = jobsParse['workzag-jobs'].position;
     return { positions, langKey };
   });
