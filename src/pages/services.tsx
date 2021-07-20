@@ -4,25 +4,23 @@ import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 import { LargeText, PageTitle } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import { Aurora, AuroraType } from '../components/aurora/aurora';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
+import { LocalesQuery } from './index';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
-interface ServicesQuery {
-  markdownRemark: {
-    htmlAst: string;
+interface ServicePageProps {
+  data: {
+    locales: LocalesQuery;
+    markdownRemark: {
+      htmlAst: string;
+    };
   };
 }
 
-const ServicesPage: React.FC = () => {
-  const data = useStaticQuery<ServicesQuery>(graphql`
-    query {
-      markdownRemark(fileAbsolutePath: { regex: "/(pages/services)/" }) {
-        htmlAst
-      }
-    }
-  `);
-
+const ServicesPage = ({ data }: ServicePageProps) => {
+  const { t } = useTranslation();
   return (
     <>
       <Aurora type={AuroraType.Pink} />
@@ -30,7 +28,7 @@ const ServicesPage: React.FC = () => {
         <SEO title="Leistungen | Satellytes" />
         <Grid>
           <GridItem>
-            <PageTitle>Leistungen</PageTitle>
+            <PageTitle>{t('services.title')}</PageTitle>
           </GridItem>
 
           <GridItem xs={12} md={8}>
@@ -47,3 +45,26 @@ const ServicesPage: React.FC = () => {
 };
 
 export default ServicesPage;
+
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+    markdownRemark(
+      fileAbsolutePath: { regex: "/(pages/services)/" }
+      frontmatter: { language: { eq: $language } }
+    ) {
+      htmlAst
+      frontmatter {
+        language
+      }
+    }
+  }
+`;

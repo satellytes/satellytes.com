@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { GatsbyLinkProps, Link as GatsbyLink } from 'gatsby';
+import { Link as GatsbyLink } from 'gatsby-plugin-react-i18next';
 import { RightArrowIcon } from '../icons/buttons-icons/right-arrow';
+import { GatsbyLinkProps } from 'gatsby';
 
 interface LinkProps extends GatsbyLinkProps<void> {
   className?: string;
+  language?: string;
 }
 
 export const Link = (props: LinkProps): JSX.Element => {

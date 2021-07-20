@@ -7,6 +7,7 @@ import { CloseBurgerMenuIcon } from '../icons/buttons-icons/close-burger-menu';
 import { NavigationFlyout } from './menu-flyout';
 import { Link } from '../links/links';
 import { Swoosh } from '../icons/swoosh';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 
 export const HEADER_HEIGHT = '65px';
 
@@ -43,6 +44,21 @@ const StyledHeader = styled.header<{
   }
 `;
 
+const LanguageSwitch = styled.button<{ selected?: boolean }>`
+  border: unset;
+  padding: unset;
+  background-color: transparent;
+  margin: 1px 0px 1px 12px;
+
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 110%;
+  cursor: pointer;
+  text-transform: uppercase;
+
+  ${({ selected }) => (selected ? `color: #668CFF;` : `color: #FFFFFF;`)}
+`;
+
 const HeaderSwoosh = styled(Swoosh)`
   position: absolute;
   bottom: calc(50% + 10px);
@@ -75,7 +91,7 @@ const SiteMenu = styled.button<{ $lightTheme: boolean }>`
    * we make the button extra large
    */
   height: 100%;
-  width: 50px;
+  width: 35px;
   text-align: right;
   margin-right: -${() => GRID_GAP_MOBILE};
   padding-right: ${() => GRID_GAP_MOBILE};
@@ -95,12 +111,14 @@ const SiteMenu = styled.button<{ $lightTheme: boolean }>`
 
 interface HeaderProps {
   siteTitle: string;
+  showLanguageSwitch?: boolean;
   siteTitleUrl?: string;
   $lightTheme?: boolean;
   transparent?: boolean;
 }
 
 const Header: React.FC<HeaderProps> = (props) => {
+  const { languages, language, changeLanguage } = useI18next();
   const [isNavigationVisible, setIsNavigationVisible] = useState(false);
   const [isHeaderTransparent, setIsHeaderTransparent] = useState<boolean>(
     Boolean(props.transparent),
@@ -136,15 +154,32 @@ const Header: React.FC<HeaderProps> = (props) => {
         <HeaderSwoosh />
         {props.siteTitle}
       </SiteTitle>
-      <SiteMenu
-        aria-label="Open menu"
-        $lightTheme={Boolean(!isHeaderTransparent && props.$lightTheme)}
-        onClick={() => {
-          setIsNavigationVisible(!isNavigationVisible);
-        }}
-      >
-        {!isNavigationVisible ? <BurgerMenu /> : <CloseBurgerMenuIcon />}
-      </SiteMenu>
+      <div>
+        {props.showLanguageSwitch &&
+          languages.map((lng) => {
+            return (
+              <LanguageSwitch
+                key={lng}
+                onClick={(e) => {
+                  e.preventDefault();
+                  changeLanguage(lng);
+                }}
+                selected={language === lng}
+              >
+                {lng}
+              </LanguageSwitch>
+            );
+          })}
+        <SiteMenu
+          aria-label="Open menu"
+          $lightTheme={Boolean(!isHeaderTransparent && props.$lightTheme)}
+          onClick={() => {
+            setIsNavigationVisible(!isNavigationVisible);
+          }}
+        >
+          {!isNavigationVisible ? <BurgerMenu /> : <CloseBurgerMenuIcon />}
+        </SiteMenu>
+      </div>
       <NavigationFlyout visible={isNavigationVisible} />
     </StyledHeader>
   );

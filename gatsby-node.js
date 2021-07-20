@@ -3,6 +3,7 @@ const slugify = require('slugify');
 const path = require('path');
 const fetch = require('node-fetch');
 const xmlParser = require('fast-xml-parser');
+const { decode } = require('html-entities');
 
 const BLOG_POST_TEMPLATE_PATH = path.resolve('src/templates/blog-post.tsx');
 const CLIENT_TEMPLATE_PATH = path.resolve('src/templates/client-details.tsx');
@@ -14,6 +15,7 @@ const CAREER_DETAILS_TEMPLATE_PATH = path.resolve(
 const { siteMetadata } = require('./gatsby-config');
 const PERSONIO_JOBS_URL = 'https://satellytes.jobs.personio.de/xml';
 const PERSONIO_SHORT_DESCRIPTION_NAME = 'Kurzbeschreibung';
+const LANGUAGES = ['en', 'de'];
 
 exports.onCreateNode = ({ node, getNode, actions, graphql }, options) => {
   const { createNodeField } = actions;
@@ -60,75 +62,124 @@ exports.createPages = async (createPagesArgs) => {
 const createCareerPages = async ({ actions }) => {
   const { createPage } = actions;
 
-  const jobsXmlResponse = await fetch(PERSONIO_JOBS_URL);
-  const jobsXml = await jobsXmlResponse.text();
-  const jobsParse = xmlParser.parse(jobsXml);
-  const positions = jobsParse['workzag-jobs'].position;
-
-  positions.forEach((position) => {
-    position.satellytesPath = `/career/${position.id}-${slugify(position.name, {
-      lower: true,
-    })}`;
-
-    // we need to normalize the jobDescription to an array, otherwise gatsby
-    // complains about different types for the same variable
-    position.jobDescriptions.jobDescription = Array.isArray(
-      position.jobDescriptions.jobDescription,
-    )
-      ? position.jobDescriptions.jobDescription
-      : [position.jobDescriptions.jobDescription];
-
-    position.jobDescriptions.jobDescription =
-      position.jobDescriptions.jobDescription.map((description) => {
-        return {
-          name: description.name.trim(),
-          value: description.value.trim(),
-        };
-      });
-
-    const description = position.jobDescriptions.jobDescription.find(
-      (description) => description.name === PERSONIO_SHORT_DESCRIPTION_NAME,
+  const positionsGroupedByLanguage = LANGUAGES.map(async (langKey) => {
+    const PERSONIO_JOBS_URL_LANG = PERSONIO_JOBS_URL.concat(
+      `?language=${langKey}`,
     );
-    if (!description || !description.value) {
-      console.warn(
-        `No description for job "${position.name}" (${position.id}) found!`,
-      );
-    }
-
-    position.satellytesShortDescription = description
-      ? description.value || ''
-      : '';
-
-    /**
-     * Ideally we create first the nodes from the API and then create the pages
-     * That way we could incorporate the onCreateNode method to generate the image
-     * for career positions too. Until then we run it manually here and pass in the
-     * path to the image through the context
-     */
-    const fileName = `social-card---career-${slugify(position.name, {
-      lower: true,
-    })}.jpg`;
-    const outputFile = path.join('public', fileName);
-    const publicUrl = `${siteMetadata.siteUrl}/${fileName}`;
-
-    generateCard({ title: position.name }, outputFile);
-
-    createPage({
-      path: appendTrailingSlash(position.satellytesPath),
-      component: CAREER_DETAILS_TEMPLATE_PATH,
-      context: {
-        position,
-        socialCardImage: publicUrl,
-      },
-    });
+    const jobsXmlResponse = await fetch(PERSONIO_JOBS_URL_LANG);
+    const jobsXml = await jobsXmlResponse.text();
+    const options = {
+      tagValueProcessor: (a) => decode(a), // &#039; -> '
+    };
+    const jobsParse = xmlParser.parse(jobsXml, options);
+    const positions = jobsParse['workzag-jobs'].position;
+    return { positions, langKey };
   });
 
-  createPage({
-    path: '/career/',
-    component: CAREER_TEMPLATE_PATH,
-    context: {
-      positions: positions,
-    },
+  await Promise.all(positionsGroupedByLanguage).then(async (values) => {
+    for (let i = 0; i < values.length; i++) {
+      const positions = values[i].positions;
+      const langKey = values[i].langKey;
+
+      // position is valid if it has a job description
+      const isValidPosition = (position) => {
+        return position.jobDescriptions.jobDescription;
+      };
+
+      positions.forEach((position) => {
+        if (!isValidPosition(position)) {
+          return null;
+        }
+
+        position.satellytesPath = `/${
+          langKey === 'en' ? '' : langKey.concat('/')
+        }career/${position.id}/`;
+
+        // we need to normalize the jobDescription to an array, otherwise gatsby
+        // complains about different types for the same variable
+        position.jobDescriptions.jobDescription = Array.isArray(
+          position.jobDescriptions.jobDescription,
+        )
+          ? position.jobDescriptions.jobDescription
+          : [position.jobDescriptions.jobDescription];
+
+        position.jobDescriptions.jobDescription =
+          position.jobDescriptions.jobDescription.map((description) => {
+            return {
+              name: description.name.trim(),
+              value: description.value.trim(),
+            };
+          });
+
+        const description = position.jobDescriptions.jobDescription.find(
+          (description) => description.name === PERSONIO_SHORT_DESCRIPTION_NAME,
+        );
+        if (!description || !description.value) {
+          console.warn(
+            `No description for job "${position.name}" (${position.id}) found!`,
+          );
+        }
+
+        position.satellytesShortDescription = description
+          ? description.value || ''
+          : '';
+
+        /**
+         * Ideally we create first the nodes from the API and then create the pages
+         * That way we could incorporate the onCreateNode method to generate the image
+         * for career positions too. Until then we run it manually here and pass in the
+         * path to the image through the context
+         */
+        const fileName = `social-card---career-${slugify(position.name, {
+          lower: true,
+        })}.jpg`;
+        const outputFile = path.join('public', fileName);
+        const publicUrl = `${siteMetadata.siteUrl}/${fileName}`;
+
+        generateCard({ title: position.name }, outputFile);
+
+        // translation is currently based on id
+        // the urls are /:lang/career/:id
+        // hasTranslation() return -1 when there is no translation available
+        const hasTranslation = (id) => {
+          return values
+            .map(({ positions, langKey: key }) => {
+              if (key === langKey) {
+                return false;
+              } else {
+                return positions.find(
+                  (position) => isValidPosition(position) && position.id === id,
+                );
+              }
+            })
+            .findIndex((translatable) => translatable);
+        };
+
+        createPage({
+          path: appendTrailingSlash(position.satellytesPath),
+          component: CAREER_DETAILS_TEMPLATE_PATH,
+          context: {
+            position,
+            socialCardImage: publicUrl,
+            language: langKey,
+            hasTranslation: hasTranslation(position.id) >= 0,
+          },
+        });
+      });
+
+      const jobPositions = positions.filter(
+        (position) => position.satellytesPath,
+      );
+
+      createPage({
+        path: `/${langKey === 'en' ? '' : langKey.concat('/')}career/`,
+        component: CAREER_TEMPLATE_PATH,
+        context: {
+          positions: jobPositions,
+          language: langKey,
+        },
+      });
+    }
   });
 };
 

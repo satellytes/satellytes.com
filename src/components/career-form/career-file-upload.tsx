@@ -17,6 +17,7 @@ import { FilePreview } from './career-file-preview';
 import { FormError } from './career-components';
 import { CareerFileUploadType } from './career-file-upload-type';
 import { rgba } from 'polished';
+import { useTranslation } from 'react-i18next';
 
 interface FileUploadProps {
   setValue: UseFormSetValue<FieldValues>;
@@ -44,6 +45,7 @@ export const FileUpload = ({
   children,
   watch,
 }: FileUploadProps) => {
+  const { t } = useTranslation();
   const onDrop = useCallback(
     (droppedFiles) => {
       // maximal number of file being dropped
@@ -76,7 +78,7 @@ export const FileUpload = ({
           name,
           {
             type: 'manual',
-            message: 'Maximal number of documents is reached.',
+            message: t<string>('career.error.max-number'),
           },
           { shouldFocus: true },
         );
@@ -93,7 +95,7 @@ export const FileUpload = ({
         if (selectedFiles[i].name === file.name) {
           return {
             code: 'file was already uploaded',
-            message: `The document "${file.name}" was already uploaded.`,
+            message: t<string>('career.error.uploaded', { name: file.name }),
           };
         }
       }
@@ -101,21 +103,21 @@ export const FileUpload = ({
       if (selectedFiles.length + file.length > MAX_NUMBER) {
         return {
           code: 'limit of files is reached',
-          message: `Maximal number of documents is reached.`,
+          message: t<string>('career.error.max-number'),
         };
       }
     }
     if (file.length > MAX_NUMBER) {
       return {
         code: 'limit of files is reached',
-        message: `Maximal number of documents is reached.`,
+        message: t<string>('career.error.max-number'),
       };
     }
     // check maximal size of documents
     if (file.size > MAX_SIZE) {
       return {
         code: 'file is too big',
-        message: `Maximal filesize of 20 MB is reached.`,
+        message: t<string>('career.error.max-size'),
       };
     }
     return null;
@@ -166,7 +168,7 @@ export const FileUpload = ({
               id={name}
               type={'file'}
               {...getInputProps({
-                ...register(name, { required: 'Dein CV fehlt' }),
+                ...register(name, { required: t<string>('career.error.cv') }),
               })}
               multiple
             />

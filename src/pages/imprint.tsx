@@ -4,31 +4,27 @@ import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 import { PageTitle } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import { Text } from '../components/typography/typography';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
-
-interface ImprintQuery {
-  markdownRemark: {
-    htmlAst: string;
-  };
-}
+import { LocalesQuery } from './index';
 
 const BottomNote = styled(Text)`
   margin-top: 80px;
   opacity: 0.8;
 `;
 
-const ImprintPage: React.FC = () => {
-  const data = useStaticQuery<ImprintQuery>(graphql`
-    query {
-      markdownRemark(fileAbsolutePath: { regex: "/(pages/imprint)/" }) {
-        htmlAst
-      }
-    }
-  `);
+interface ImprintPageProps {
+  data: {
+    locales: LocalesQuery;
+    markdownRemark: {
+      htmlAst: string;
+    };
+  };
+}
 
+const ImprintPage = ({ data }: ImprintPageProps) => {
   return (
     <Layout>
       <SEO
@@ -52,3 +48,20 @@ const ImprintPage: React.FC = () => {
 };
 
 export default ImprintPage;
+
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+    markdownRemark(fileAbsolutePath: { regex: "/(pages/imprint)/" }) {
+      htmlAst
+    }
+  }
+`;

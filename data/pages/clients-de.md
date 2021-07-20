@@ -1,9 +1,9 @@
 ---
 title: Kunden
-language: en
+language: de
 ---
 
-ENGLISCHE VERSION - Da diese meist streng geheim sind, schätzen unsere Auftraggeber Diskretion. Sie verstehen sicher, dass wir deshalb an
+Da diese meist streng geheim sind, schätzen unsere Auftraggeber Diskretion. Sie verstehen sicher, dass wir deshalb an
 dieser Stelle keine konkreten Namen nennen möchten, sondern uns auf generische Branchenbezeichnungen beschränken. Unsere
 vier größten Kunden sind:
 
@@ -27,7 +27,7 @@ Prozessen, dem Aufbau von Teamstrukturen sowie der Anfertigung von leicht verst�
 
 Wollen Sie mit uns über Ihr Projekt in der Versicherungsbranche sprechen?
 
-[Kontaktieren Sie uns >](/contact)
+[Kontaktieren Sie uns >](/de/contact/)
 
 ### [Bank](#bank)
 
@@ -42,7 +42,7 @@ UX/UI-Design-Experten ein und unterstützen den Kunden in der Konzeption und Ums
 
 Wollen Sie mit uns über Ihr Projekt in der Banken- oder Finanzbranche sprechen?
 
-[Kontaktieren Sie uns >](/contact)
+[Kontaktieren Sie uns >](/de/contact/)
 
 ### [Sportverein](#sportverein)
 
@@ -62,7 +62,7 @@ Anforderungen der Self-Services vollumfänglich gerecht wird.
 
 Sind Sie ein Verantwortlicher in der Sportbranche, wollen mehr erfahren oder haben ein konkretes Anliegen?
 
-[Kontaktieren Sie uns >](/contact)
+[Kontaktieren Sie uns >](/de/contact/)
 
 ### [Automobilclub](#automobilclub)
 
@@ -74,4 +74,4 @@ die Gatsby-Cloud für die beschleunigte Ausbringung aktualisierter Inhalte einzu
 
 Sind Sie ein Verantwortlicher in der Automobilbranche, wollen mehr erfahren oder haben ein konkretes Anliegen?
 
-[Kontaktieren Sie uns >](/contact)
+[Kontaktieren Sie uns >](/de/contact/)

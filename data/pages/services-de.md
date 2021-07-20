@@ -1,9 +1,9 @@
 ---
 title: Kunden
-language: en
+language: de
 ---
 
-ENGLISCHE VERSION - Wir haben großen Spaß an Technologie und freuen uns auf neue Herausforderungen. Dabei fokussieren wir uns auf
+Wir haben großen Spaß an Technologie und freuen uns auf neue Herausforderungen. Dabei fokussieren wir uns auf
 langfristige Engagements im Konzerngeschäft.
 
 Neuen Aufgaben begegnen wir immer mit angemessenem Respekt. Wir streben stets hochwertige und zeitgemäße Lösungen an –
@@ -61,4 +61,4 @@ zur Verfügung.
 + Accessibility (WCAG)
 + Loading-, Responsive-Strategien, Performance
 
-[Interesse? Kontaktieren Sie uns >](/contact/)
+[Interesse? Kontaktieren Sie uns >](/de/contact/)

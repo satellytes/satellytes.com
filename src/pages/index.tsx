@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
@@ -16,13 +16,11 @@ import { HEADER_HEIGHT } from '../components/header/header';
 import { Aurora, AuroraType } from '../components/aurora/aurora';
 
 interface AllClientsQuery {
-  allClientsJson: {
-    nodes: {
-      start: string;
-      name: string;
-      path: string;
-    }[];
-  };
+  nodes: {
+    start: string;
+    name: string;
+    path: string;
+  }[];
 }
 
 const HomePageTitleContainer = styled.div`
@@ -61,19 +59,24 @@ const IndexPageSubTitle = styled(TextTitle)`
   font-weight: 400;
 `;
 
-const IndexPage: React.FC = () => {
-  const data = useStaticQuery<AllClientsQuery>(graphql`
-    query {
-      allClientsJson {
-        nodes {
-          name
-          path
-          start
-        }
-      }
-    }
-  `);
+export interface LocalesQuery {
+  edges: {
+    node: {
+      ns: string;
+      language: string;
+      data: string;
+    };
+  }[];
+}
 
+interface IndexPageProps {
+  data: {
+    locales: LocalesQuery;
+    allClientsJson: AllClientsQuery;
+  };
+}
+
+const IndexPage = ({ data }: IndexPageProps) => {
   return (
     <>
       <Aurora type={AuroraType.BrightBlue} />
@@ -146,3 +149,24 @@ const IndexPage: React.FC = () => {
 };
 
 export default IndexPage;
+
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+    allClientsJson {
+      nodes {
+        name
+        path
+        start
+      }
+    }
+  }
+`;

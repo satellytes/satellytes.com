@@ -12,6 +12,9 @@ import { Grid, GridItem } from '../components/grid/grid';
 import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
 import { up } from '../components/breakpoint/breakpoint';
+import { graphql } from 'gatsby';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 
 /**
  * We can't wrap StaticImage as it doesn't support higher order functions.
@@ -30,12 +33,14 @@ const Intro = styled(LargeText)`
 `;
 
 const OfficePage = () => {
+  const { t } = useTranslation();
+  const { language } = useI18next();
   return (
-    <Layout>
+    <Layout showLanguageSwitch>
       <SEO title="Office | Satellytes" />
       <Grid>
         <GridItem>
-          <PageTitle>Unser Büro</PageTitle>
+          <PageTitle>{t('office.title')}</PageTitle>
         </GridItem>
 
         <GridItem xs={12} md={8}>
@@ -86,7 +91,11 @@ const OfficePage = () => {
         <GridItem>
           <Text>
             Wenn du mit uns in diesem Office arbeiten möchtest, dann schau dir
-            doch unsere <TextLink to={'/career'}>offenen Stellen</TextLink> an.
+            doch unsere{' '}
+            <TextLink to={'/career/'} language={language}>
+              offenen Stellen
+            </TextLink>{' '}
+            an.
           </Text>
         </GridItem>
       </Grid>
@@ -95,3 +104,17 @@ const OfficePage = () => {
 };
 
 export default OfficePage;
+
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;
