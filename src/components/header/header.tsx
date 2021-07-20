@@ -44,9 +44,19 @@ const StyledHeader = styled.header<{
   }
 `;
 
-const LanguageSwitch = styled.button`
+const LanguageSwitch = styled.button<{ selected?: boolean }>`
+  border: unset;
+  padding: unset;
+  background-color: transparent;
+  margin: 1px 0px 1px 12px;
+
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 110%;
   cursor: pointer;
   text-transform: uppercase;
+
+  ${({ selected }) => (selected ? `color: #668CFF;` : `color: #FFFFFF;`)}
 `;
 
 const HeaderSwoosh = styled(Swoosh)`
@@ -81,7 +91,7 @@ const SiteMenu = styled.button<{ $lightTheme: boolean }>`
    * we make the button extra large
    */
   height: 100%;
-  width: 50px;
+  width: 35px;
   text-align: right;
   margin-right: -${() => GRID_GAP_MOBILE};
   padding-right: ${() => GRID_GAP_MOBILE};
@@ -147,31 +157,29 @@ const Header: React.FC<HeaderProps> = (props) => {
       <div>
         {props.showLanguageSwitch &&
           languages.map((lng) => {
-            if (lng != language) {
-              return (
-                <LanguageSwitch
-                  key={lng}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    changeLanguage(lng);
-                  }}
-                >
-                  {lng}
-                </LanguageSwitch>
-              );
-            }
+            return (
+              <LanguageSwitch
+                key={lng}
+                onClick={(e) => {
+                  e.preventDefault();
+                  changeLanguage(lng);
+                }}
+                selected={language === lng}
+              >
+                {lng}
+              </LanguageSwitch>
+            );
           })}
+        <SiteMenu
+          aria-label="Open menu"
+          $lightTheme={Boolean(!isHeaderTransparent && props.$lightTheme)}
+          onClick={() => {
+            setIsNavigationVisible(!isNavigationVisible);
+          }}
+        >
+          {!isNavigationVisible ? <BurgerMenu /> : <CloseBurgerMenuIcon />}
+        </SiteMenu>
       </div>
-
-      <SiteMenu
-        aria-label="Open menu"
-        $lightTheme={Boolean(!isHeaderTransparent && props.$lightTheme)}
-        onClick={() => {
-          setIsNavigationVisible(!isNavigationVisible);
-        }}
-      >
-        {!isNavigationVisible ? <BurgerMenu /> : <CloseBurgerMenuIcon />}
-      </SiteMenu>
       <NavigationFlyout visible={isNavigationVisible} />
     </StyledHeader>
   );
