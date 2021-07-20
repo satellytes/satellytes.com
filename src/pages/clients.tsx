@@ -8,6 +8,7 @@ import { graphql } from 'gatsby';
 import { Aurora, AuroraType } from '../components/aurora/aurora';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
 import { LocalesQuery } from './index';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 interface ClientPageProps {
   data: {
@@ -19,6 +20,7 @@ interface ClientPageProps {
 }
 
 const ClientsPage = ({ data }: ClientPageProps) => {
+  const { t } = useTranslation();
   return (
     <>
       <Aurora type={AuroraType.Pink} />
@@ -29,7 +31,7 @@ const ClientsPage = ({ data }: ClientPageProps) => {
         />
         <Grid>
           <GridItem>
-            <PageTitle>Kunden</PageTitle>
+            <PageTitle>{t('clients.title')}</PageTitle>
           </GridItem>
           <GridItem xs={12} md={8}>
             <LargeText as={'h2'}>
@@ -57,8 +59,14 @@ export const query = graphql`
         }
       }
     }
-    markdownRemark(fileAbsolutePath: { regex: "/(pages/clients)/" }) {
+    markdownRemark(
+      fileAbsolutePath: { regex: "/(pages/clients)/" }
+      frontmatter: { language: { eq: $language } }
+    ) {
       htmlAst
+      frontmatter {
+        language
+      }
     }
   }
 `;

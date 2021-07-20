@@ -8,6 +8,7 @@ import { graphql } from 'gatsby';
 import { Aurora, AuroraType } from '../components/aurora/aurora';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
 import { LocalesQuery } from './index';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 interface ServicePageProps {
   data: {
@@ -19,6 +20,7 @@ interface ServicePageProps {
 }
 
 const ServicesPage = ({ data }: ServicePageProps) => {
+  const { t } = useTranslation();
   return (
     <>
       <Aurora type={AuroraType.Pink} />
@@ -26,7 +28,7 @@ const ServicesPage = ({ data }: ServicePageProps) => {
         <SEO title="Leistungen | Satellytes" />
         <Grid>
           <GridItem>
-            <PageTitle>Leistungen</PageTitle>
+            <PageTitle>{t('services.title')}</PageTitle>
           </GridItem>
 
           <GridItem xs={12} md={8}>
@@ -55,8 +57,14 @@ export const query = graphql`
         }
       }
     }
-    markdownRemark(fileAbsolutePath: { regex: "/(pages/services)/" }) {
+    markdownRemark(
+      fileAbsolutePath: { regex: "/(pages/services)/" }
+      frontmatter: { language: { eq: $language } }
+    ) {
       htmlAst
+      frontmatter {
+        language
+      }
     }
   }
 `;

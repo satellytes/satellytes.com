@@ -45,6 +45,12 @@
   "office": {
     "title": "Our Office"
   },
+  "services": {
+    "title": "Services"
+  },
+  "clients": {
+    "title": "Clients"
+  },
   "navigation": {
     "menu": "Navigation",
     "imprint": "Imprint",

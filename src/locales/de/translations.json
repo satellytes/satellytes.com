@@ -45,6 +45,12 @@
   "office": {
     "title": "Unser Büro"
   },
+  "services": {
+    "title": "Leistungen"
+  },
+  "clients": {
+    "title": "Kunden"
+  },
   "navigation": {
     "menu": "Menu",
     "imprint": "Impressum",
