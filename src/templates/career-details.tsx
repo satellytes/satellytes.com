@@ -109,6 +109,7 @@ const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
           imageUrl={pageContext.socialCardImage}
           title={`Karriere - ${pageContext.position.name} | Satellytes`}
           description={`Bewirb dich jetzt als ${pageContext.position.name}! Schaue Dir unsere anderen offenen Stelle an. Wir freuen uns auf Deine Bewerbung.`}
+          translation={pageContext.translation}
         />
         <Grid>
           <GridItem xs={12} md={8}>

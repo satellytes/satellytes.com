@@ -3,25 +3,27 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import CocoGothicBoldWoff2 from './layout/fonts/CocoGothic-Bold.woff2';
 import CocoGothicWoff2 from './layout/fonts/CocoGothic.woff2';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 
 const DEFAULT_META_IMAGE_URL_PATH = '/sy-share-image.jpg';
+const LANGUAGES = ['en', 'de'];
 
 interface SeoProps {
   title: string;
   description?: string;
-  lang?: string;
   imageUrl?: string;
   siteType?: string;
   noIndex?: boolean;
+  translation?: string;
 }
 
 const SEO: React.FC<SeoProps> = ({
   description = '',
-  lang = 'de',
   title,
   imageUrl,
   siteType,
   noIndex,
+  translation,
 }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -43,10 +45,24 @@ const SEO: React.FC<SeoProps> = ({
   const metaImageUrl =
     imageUrl || site.siteMetadata.siteUrl + DEFAULT_META_IMAGE_URL_PATH;
 
+  const { language } = useI18next();
+
+  let origin;
+  let pathname;
+  if (typeof window !== 'undefined') {
+    origin = window.location.origin;
+    pathname = window.location.pathname;
+  }
+
+  const prependAndAppendTrailingSlash = (path) => {
+    const prependedPath = path.startsWith('/') ? path : `/${path}`;
+    return prependedPath.endsWith('/') ? prependedPath : `${prependedPath}/`;
+  };
+
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        lang: language,
       }}
       title={title}
     >
@@ -103,6 +119,23 @@ const SEO: React.FC<SeoProps> = ({
         type="font/woff2"
         crossOrigin="anonymous"
       />
+      {origin &&
+        pathname &&
+        LANGUAGES.map((lang) => {
+          const href = `${origin}${lang === 'en' ? '' : `/${lang}`}`;
+          pathname =
+            language !== lang && translation
+              ? prependAndAppendTrailingSlash(translation)
+              : pathname;
+          return (
+            <link
+              rel="alternate"
+              href={href.concat(pathname)}
+              hrefLang={lang}
+              key={lang}
+            />
+          );
+        })}
     </Helmet>
   );
 };
