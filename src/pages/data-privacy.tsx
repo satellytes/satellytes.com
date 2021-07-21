@@ -7,6 +7,7 @@ import { Grid, GridItem } from '../components/grid/grid';
 import { graphql } from 'gatsby';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
 import { LocalesQuery } from './index';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 interface DataPrivacyPageProps {
   data: {
@@ -18,8 +19,9 @@ interface DataPrivacyPageProps {
 }
 
 const DataPrivacyPage = ({ data }: DataPrivacyPageProps) => {
+  const { t } = useTranslation();
   return (
-    <Layout>
+    <Layout showLanguageSwitch>
       <SEO
         title="Datenschutz | Satellytes"
         description="Information über die Erhebung personenbezogener Daten"
@@ -27,7 +29,7 @@ const DataPrivacyPage = ({ data }: DataPrivacyPageProps) => {
       />
       <Grid>
         <GridItem>
-          <PageTitle>Datenschutz</PageTitle>
+          <PageTitle>{t('navigation.data-privacy')}</PageTitle>
         </GridItem>
         <GridItem xs={12} md={8}>
           <MarkdownAst htmlAst={data.markdownRemark.htmlAst} />
@@ -50,7 +52,10 @@ export const query = graphql`
         }
       }
     }
-    markdownRemark(fileAbsolutePath: { regex: "/(pages/data-privacy)/" }) {
+    markdownRemark(
+      fileAbsolutePath: { regex: "/(pages/data-privacy)/" }
+      frontmatter: { language: { eq: $language } }
+    ) {
       htmlAst
     }
   }

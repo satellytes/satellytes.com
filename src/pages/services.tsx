@@ -24,7 +24,7 @@ const ServicesPage = ({ data }: ServicePageProps) => {
   return (
     <>
       <Aurora type={AuroraType.Pink} />
-      <Layout transparentHeader={true}>
+      <Layout transparentHeader={true} showLanguageSwitch>
         <SEO title="Leistungen | Satellytes" />
         <Grid>
           <GridItem>

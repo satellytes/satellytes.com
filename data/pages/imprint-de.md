@@ -1,9 +1,9 @@
 ---
-title: Imprint
-language: en
+title: Impressum
+language: de
 ---
 
-ENGLISCHE VERSION - Pflichtangaben nach § 5 Telemediengesetz/Impressum
+Pflichtangaben nach § 5 Telemediengesetz/Impressum
 
 Satellytes Digital Consulting GmbH Carola-Neher-Str. 10 81379 München
 

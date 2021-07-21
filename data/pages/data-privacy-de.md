@@ -1,11 +1,11 @@
 ---
-title: Data protection
-language: en
+title: Datenschutz
+language: de
 ---
 
 #### §1 Information über die Erhebung personenbezogener Daten
 
-1. ENGLISCHE VERSION - Im Folgenden informieren wir über die Erhebung personenbezogener Daten bei Nutzung unserer Website. Personenbezogene
+1. Im Folgenden informieren wir über die Erhebung personenbezogener Daten bei Nutzung unserer Website. Personenbezogene
    Daten sind alle Daten, die auf Sie persönlich beziehbar sind, z. B. Name, Adresse, E-Mail-Adressen, Nutzerverhalten.
 2. Verantwortlicher gem. Art. 4 Abs. 7 EU-Datenschutz-Grundverordnung (DS-GVO) ist Satellytes Digital Consulting GmbH,
    Carola-Neher-Straße 10, 81379 München, gholam.abdol@satellytes.com (siehe [Impressum](/imprint)).

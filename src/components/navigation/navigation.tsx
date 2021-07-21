@@ -249,7 +249,7 @@ const Navigation: React.FC = (props) => {
                     to="/data-privacy"
                     $isSelected={activePath.includes('/data-privacy')}
                   >
-                    {t('navigation.data-protection')}
+                    {t('navigation.data-privacy')}
                   </LegalLink>
                 </UnstyledListItem>
               </LegalLinks>

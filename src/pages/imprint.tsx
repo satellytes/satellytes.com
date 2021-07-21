@@ -9,6 +9,7 @@ import styled from 'styled-components';
 import { Text } from '../components/typography/typography';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
 import { LocalesQuery } from './index';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 const BottomNote = styled(Text)`
   margin-top: 80px;
@@ -25,8 +26,9 @@ interface ImprintPageProps {
 }
 
 const ImprintPage = ({ data }: ImprintPageProps) => {
+  const { t } = useTranslation();
   return (
-    <Layout>
+    <Layout showLanguageSwitch={true}>
       <SEO
         title="Impressum | Satellytes"
         description="Pflichtangaben nach § 5 Telemediengesetz/Impressum"
@@ -34,7 +36,7 @@ const ImprintPage = ({ data }: ImprintPageProps) => {
       />
       <Grid>
         <GridItem>
-          <PageTitle>Impressum</PageTitle>
+          <PageTitle>{t('navigation.imprint')}</PageTitle>
         </GridItem>
         <GridItem xs={12} md={8}>
           <MarkdownAst htmlAst={data.markdownRemark.htmlAst} />
@@ -60,7 +62,10 @@ export const query = graphql`
         }
       }
     }
-    markdownRemark(fileAbsolutePath: { regex: "/(pages/imprint)/" }) {
+    markdownRemark(
+      fileAbsolutePath: { regex: "/(pages/imprint)/" }
+      frontmatter: { language: { eq: $language } }
+    ) {
       htmlAst
     }
   }

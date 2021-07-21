@@ -59,6 +59,7 @@ interface LayoutProps {
   hero?: ReactNode;
   children?: ReactNode;
   showLanguageSwitch?: boolean;
+  translation?: string;
 }
 enum POLARITY {
   DARK = 'dark',
@@ -129,6 +130,7 @@ const Layout = (props: LayoutProps): JSX.Element => {
         $lightTheme={isLight}
         transparent={props.transparentHeader || Boolean(props.heroImage)}
         showLanguageSwitch={props.showLanguageSwitch}
+        translation={props.translation}
       />
       {/* pass in a hero node or try to use the hero image url */}
       {props.hero ?? <HeroImageLegacy image={props.heroImage} />}

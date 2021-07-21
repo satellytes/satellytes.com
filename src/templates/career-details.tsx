@@ -73,6 +73,7 @@ interface CareerPageProps {
     socialCardImage: string;
     hasTranslation: boolean;
     language: string;
+    translation: string;
   };
 }
 const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
@@ -102,6 +103,7 @@ const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
         siteTitleUrl="/career/"
         transparentHeader={true}
         showLanguageSwitch={pageContext.hasTranslation}
+        translation={pageContext.translation}
       >
         <SEO
           imageUrl={pageContext.socialCardImage}

@@ -7,7 +7,7 @@ import { CloseBurgerMenuIcon } from '../icons/buttons-icons/close-burger-menu';
 import { NavigationFlyout } from './menu-flyout';
 import { Link } from '../links/links';
 import { Swoosh } from '../icons/swoosh';
-import { useI18next } from 'gatsby-plugin-react-i18next';
+import { useI18next, Link as LanguageLink } from 'gatsby-plugin-react-i18next';
 
 export const HEADER_HEIGHT = '65px';
 
@@ -55,6 +55,22 @@ const LanguageSwitch = styled.button<{ selected?: boolean }>`
   line-height: 110%;
   cursor: pointer;
   text-transform: uppercase;
+
+  ${({ selected }) => (selected ? `color: #668CFF;` : `color: #FFFFFF;`)}
+`;
+
+const StyledLanguageLink = styled(LanguageLink)<{ selected?: boolean }>`
+  border: unset;
+  padding: unset;
+  background-color: transparent;
+  margin: 1px 0px 1px 12px;
+
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 110%;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
 
   ${({ selected }) => (selected ? `color: #668CFF;` : `color: #FFFFFF;`)}
 `;
@@ -115,6 +131,7 @@ interface HeaderProps {
   siteTitleUrl?: string;
   $lightTheme?: boolean;
   transparent?: boolean;
+  translation?: string;
 }
 
 const Header: React.FC<HeaderProps> = (props) => {
@@ -155,21 +172,34 @@ const Header: React.FC<HeaderProps> = (props) => {
         {props.siteTitle}
       </SiteTitle>
       <div>
-        {props.showLanguageSwitch &&
-          languages.map((lng) => {
-            return (
-              <LanguageSwitch
-                key={lng}
-                onClick={(e) => {
-                  e.preventDefault();
-                  changeLanguage(lng);
-                }}
-                selected={language === lng}
-              >
-                {lng}
-              </LanguageSwitch>
-            );
-          })}
+        {props.translation
+          ? languages.map((lng) => {
+              return (
+                <StyledLanguageLink
+                  key={lng}
+                  to={language === lng ? '' : props.translation || ''}
+                  language={lng}
+                  selected={language === lng}
+                >
+                  {lng}
+                </StyledLanguageLink>
+              );
+            })
+          : props.showLanguageSwitch &&
+            languages.map((lng) => {
+              return (
+                <LanguageSwitch
+                  key={lng}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    changeLanguage(lng);
+                  }}
+                  selected={language === lng}
+                >
+                  {lng}
+                </LanguageSwitch>
+              );
+            })}
         <SiteMenu
           aria-label="Open menu"
           $lightTheme={Boolean(!isHeaderTransparent && props.$lightTheme)}

@@ -81,19 +81,27 @@ const createCareerPages = async ({ actions }) => {
       const positions = values[i].positions;
       const langKey = values[i].langKey;
 
-      // position is valid if it has a job description
+      // position is valid if it has a job description and slug
       const isValidPosition = (position) => {
-        return position.jobDescriptions.jobDescription;
+        return (
+          position.jobDescriptions.jobDescription &&
+          Array.isArray(position.jobDescriptions.jobDescription)
+        );
+      };
+
+      const getSlug = (position) => {
+        if (position.satellytesPath) return position.satellytesPath;
+        const slug = position.jobDescriptions.jobDescription.find(
+          (description) =>
+            description.name.trim() === 'Slug' && description.value.trim(),
+        );
+        return `/career/${slug.value.trim()}/`;
       };
 
       positions.forEach((position) => {
         if (!isValidPosition(position)) {
           return null;
         }
-
-        position.satellytesPath = `/${
-          langKey === 'en' ? '' : langKey.concat('/')
-        }career/${position.id}/`;
 
         // we need to normalize the jobDescription to an array, otherwise gatsby
         // complains about different types for the same variable
@@ -104,12 +112,19 @@ const createCareerPages = async ({ actions }) => {
           : [position.jobDescriptions.jobDescription];
 
         position.jobDescriptions.jobDescription =
-          position.jobDescriptions.jobDescription.map((description) => {
-            return {
-              name: description.name.trim(),
-              value: description.value.trim(),
-            };
-          });
+          position.jobDescriptions.jobDescription
+            .map((description) => {
+              if (description.name.trim() === 'Slug') {
+                position.satellytesPath = `/career/${description.value.trim()}/`;
+                return undefined;
+              } else {
+                return {
+                  name: description.name.trim(),
+                  value: description.value.trim(),
+                };
+              }
+            })
+            .filter((position) => position);
 
         const description = position.jobDescriptions.jobDescription.find(
           (description) => description.name === PERSONIO_SHORT_DESCRIPTION_NAME,
@@ -138,31 +153,38 @@ const createCareerPages = async ({ actions }) => {
 
         generateCard({ title: position.name }, outputFile);
 
-        // translation is currently based on id
-        // the urls are /:lang/career/:id
-        // hasTranslation() return -1 when there is no translation available
-        const hasTranslation = (id) => {
+        const getTranslations = (id) => {
           return values
             .map(({ positions, langKey: key }) => {
-              if (key === langKey) {
-                return false;
-              } else {
-                return positions.find(
+              if (key !== langKey) {
+                // check if there is an open position in a different language with the same id
+                const translatedPosition = positions.find(
                   (position) => isValidPosition(position) && position.id === id,
                 );
+                return translatedPosition && getSlug(translatedPosition);
               }
+              return null;
             })
-            .findIndex((translatable) => translatable);
+            .filter((link) => link);
         };
 
+        if (!position.satellytesPath) return null;
+
         createPage({
-          path: appendTrailingSlash(position.satellytesPath),
+          path: appendTrailingSlash(
+            `${langKey === 'en' ? '' : `/${langKey}`}${
+              position.satellytesPath
+            }`,
+          ),
           component: CAREER_DETAILS_TEMPLATE_PATH,
           context: {
             position,
             socialCardImage: publicUrl,
             language: langKey,
-            hasTranslation: hasTranslation(position.id) >= 0,
+            translation:
+              getTranslations(position.id).length > 0
+                ? getTranslations(position.id)[0]
+                : undefined,
           },
         });
       });
