@@ -7,7 +7,7 @@
     "mandatory-field": "mandatory field",
     "first-name": "First name",
     "last-name": "Last name",
-    "email": "E-mail",
+    "email": "E-mail-adresse",
     "location": "Location",
     "available-from": "Available from",
     "salary_expectations": "Salary expectations",
@@ -50,6 +50,19 @@
   },
   "clients": {
     "title": "Clients"
+  },
+  "contact": {
+    "title": "Contact",
+    "info": "<0>Use our contact-form or write an e-mail to <1>beep@satellytes.com</1></0>",
+    "name": "Name",
+    "message": "Your message to us",
+    "error": {
+      "name": "Your name is missing",
+      "message": "Your message is missing"
+    },
+    "action": {
+      "again-text": "An error occurred. Please try again. If it does not work, please send your message to <2>beep@satellytes.com</2>"
+    }
   },
   "navigation": {
     "menu": "Navigation",

@@ -9,6 +9,7 @@ import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
 import { Leaflet } from '../components/leaflet/leaflet';
 import { graphql } from 'gatsby';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 
 const ContactTitle = styled(SubTitle)`
   margin-top: 40px;
@@ -19,9 +20,10 @@ const ContactTitle = styled(SubTitle)`
 `;
 
 const ContactPage: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <>
-      <Layout transparentHeader={true} hero={<Leaflet />}>
+      <Layout transparentHeader={true} hero={<Leaflet />} showLanguageSwitch>
         <SEO
           title="Kontakt | Satellytes"
           description="Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine E-Mail an beep@satellytes.com"
@@ -30,7 +32,7 @@ const ContactPage: React.FC = () => {
         <Grid center>
           <GridItem xs={0} md={2} />
           <GridItem xs={12} md={8}>
-            <ContactTitle>Adresse</ContactTitle>
+            <ContactTitle>{t('contact.title')}</ContactTitle>
             <div>
               <Text>
                 <b>Satellytes Digital Consulting GmbH</b>
@@ -43,14 +45,15 @@ const ContactPage: React.FC = () => {
                 Google Maps &gt;
               </TextLink>
               <SubTitle>E-Mail</SubTitle>
-
-              <Text style={{ marginBottom: '40px' }}>
-                Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine
-                E-Mail an{' '}
-                <TextLink to="mailto:beep@satellytes.com">
-                  beep@satellytes.com
-                </TextLink>
-              </Text>
+              <Trans i18nKey="contact.info">
+                <Text style={{ marginBottom: '40px' }}>
+                  Nutzen Sie unser Koaktformular oder schreiben Sie uns eine
+                  E-Mail an
+                  <TextLink to="mailto:beep@satellytes.com">
+                    beep@satellytes.com
+                  </TextLink>
+                </Text>
+              </Trans>
               <ContactForm />
             </div>
           </GridItem>

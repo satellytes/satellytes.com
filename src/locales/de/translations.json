@@ -51,6 +51,19 @@
   "clients": {
     "title": "Kunden"
   },
+  "contact": {
+    "title": "Kontakt",
+    "info": "<0>Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine E-Mail an <1>beep@satellytes.com</1></0>",
+    "name": "Name",
+    "message": "Deine Nachricht an uns",
+    "error": {
+      "name": "Dein Name fehlt",
+      "message": "Deine Nachricht fehlt"
+    },
+    "action": {
+      "again-text": "Leider gab es einen Fehler. Bitte versuche es noch einmal. Klappt das nicht, schicke deine Nachricht bitte direkt an <2>beep@satellytes.com</2>"
+    }
+  },
   "navigation": {
     "menu": "Menu",
     "imprint": "Impressum",

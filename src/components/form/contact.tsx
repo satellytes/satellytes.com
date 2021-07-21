@@ -14,6 +14,7 @@ import { InputField } from '../career-form/career-components';
 import { SIMPLE_EMAIL_PATTERN } from '../career-form/career-form';
 import { Link } from '../links/links';
 import { CaptionText } from '../typography/typography';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 
 type RequestStatus = 'pending' | 'success' | 'error';
 
@@ -24,6 +25,7 @@ interface FormData {
 }
 
 export const ContactForm: React.FC = () => {
+  const { t } = useTranslation();
   const [requestStatus, setRequestStatus] = useState<RequestStatus>('pending');
   const {
     register,
@@ -74,67 +76,72 @@ export const ContactForm: React.FC = () => {
         <GridItem xs={12} md={6}>
           <InputField
             required={true}
-            inputRef={register('name', { required: 'Ihr Name fehlt' })}
+            inputRef={register('name', {
+              required: t<string>('contact.error.name'),
+            })}
             error={errors.name}
             name="name"
-            label="Name"
+            label={t('contact.name')}
           />
         </GridItem>
         <GridItem xs={12} md={6}>
           <InputField
             required={true}
             inputRef={register('email', {
-              required: 'Ihre E-Mail fehlt',
+              required: t<string>('career.error.email'),
               pattern: {
                 value: SIMPLE_EMAIL_PATTERN,
-                message: `Irgendwas stimmt an dieser E-Mail nicht`,
+                message: t<string>('career.error.email-unknown'),
               },
             })}
             error={errors.email}
             name="email"
-            label="E-Mail-Adresse"
+            label={t<string>('career.email')}
           />
         </GridItem>
         <GridItem>
           <InputField
             required={true}
-            inputRef={register('message', { required: 'Ihre Nachricht fehlt' })}
+            inputRef={register('message', {
+              required: t<string>('contact.error.message'),
+            })}
             error={errors.message}
             name="message"
-            label="Ihre Nachricht an uns"
+            label={t('contact.message')}
             type={'text-area'}
           />
         </GridItem>
         <GridItem>
           <CaptionText>
-            <Sup>*</Sup> Pflichtfeld
+            <Sup>*</Sup> {t('career.mandatory-field')}
           </CaptionText>
         </GridItem>
         <GridItem>
           {requestStatus === 'pending' && (
             <SendButton type="submit">
-              <ButtonText>Senden</ButtonText> <RightArrowIcon />
+              <ButtonText>{t('career.action.send')}</ButtonText>{' '}
+              <RightArrowIcon />
             </SendButton>
           )}
           {(errors.name || errors.email || errors.message) && (
-            <ErrorMessageSend>
-              Bitte füllen Sie alle Felder aus
-            </ErrorMessageSend>
+            <ErrorMessageSend>{t('career.action.missing')}</ErrorMessageSend>
           )}
           {requestStatus === 'success' && (
             <SentButton type="button">
-              <ButtonText>Gesendet</ButtonText> <CheckmarkIcon />
+              <ButtonText>{t('career.action.sent')}</ButtonText>{' '}
+              <CheckmarkIcon />
             </SentButton>
           )}
           {requestStatus === 'error' && (
             <>
-              <p>
+              <Trans i18nKey="contact.action.again-text">
                 Leider gab es einen Fehler. Bitte versuche es noch einmal.
-                Klappt das nicht, schicke deine Nachricht bitte direkt an{' '}
+                Klappt das nicht, schicke deine Nachricht bitte direkt an
                 <Link to="mailto:beep@satellytes.com">beep@satellytes.com</Link>
-              </p>
+              </Trans>
               <SendButton type="submit">
-                <ButtonText>Nochmal senden</ButtonText> <RightArrowIcon />
+                <ButtonText>{t('career.action.again')}</ButtonText>{' '}
+                <RightArrowIcon />
               </SendButton>
             </>
           )}
