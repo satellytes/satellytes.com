@@ -5,7 +5,9 @@ language: en
 
 ENGLISCHE VERSION - Pflichtangaben nach § 5 Telemediengesetz/Impressum
 
-Satellytes Digital Consulting GmbH Carola-Neher-Str. 10 81379 München
+Satellytes Digital Consulting GmbH<br>
+Carola-Neher-Str. 10<br>
+81379 München
 
 #### Vertreten durch
 
