@@ -22,13 +22,4 @@ export const onRenderBody = ({ setPostBodyComponents, setHeadComponents }) => {
       }}
     />,
   ]);
-
-  const link = React.createElement('link', {
-    key: 'leaflet',
-    rel: 'stylesheet',
-    href: 'https://unpkg.com/leaflet@1.5.1/dist/leaflet.css',
-    crossOrigin: '',
-  });
-
-  setHeadComponents([link]);
 };
