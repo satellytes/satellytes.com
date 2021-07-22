@@ -85,7 +85,7 @@ const IndexPage: React.FC = () => {
             <HomePageTitleContainer>
               <div>
                 <IndexPageTitle>Satellytes</IndexPageTitle>
-                <IndexPageSubTitle>
+                <IndexPageSubTitle as="h2">
                   We are pragmatic professionals, creating reliable software for
                   the web.
                 </IndexPageSubTitle>
