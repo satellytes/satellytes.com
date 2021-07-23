@@ -10,8 +10,10 @@ import { PageTitle, Text } from '../components/typography/typography';
 import { BlogCard } from '../components/cards/blog-card';
 import { formatDate } from '../components/util/format-date';
 import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
 import { LocalesQuery } from './index';
+import { ButtonText, SendButton } from '../components/form/controls';
+import { RightArrowIcon } from '../components/icons/buttons-icons/right-arrow';
 
 const TOP_POST_COUNT = 2;
 
@@ -47,11 +49,18 @@ const BlogPageTitle = styled(PageTitle)`
 
 const BlogPageSubTitle = styled(Text)`
   margin-bottom: 40px;
+  white-space: pre-line;
 `;
 
 const BlogPage = ({ data }: BlogPageProps) => {
   const { t } = useTranslation();
   const blogPosts = data.allMarkdownRemark.nodes;
+  const { language, changeLanguage } = useI18next();
+
+  const onClick = (event) => {
+    event.preventDefault();
+    changeLanguage('en');
+  };
 
   return (
     <Layout light>
@@ -61,30 +70,33 @@ const BlogPage = ({ data }: BlogPageProps) => {
           <BlogPageTitle>{t('navigation.blog')}</BlogPageTitle>
         </GridItem>
         <GridItem md={8}>
-          <BlogPageSubTitle>
-            Our developers and designers talk about the latest trends and
-            know-how around tech, especially about our latest learnings and
-            insights on creating good software for the web.
-          </BlogPageSubTitle>
+          <BlogPageSubTitle>{t('blog.info')}</BlogPageSubTitle>
+          {language != 'en' && (
+            <SendButton onClick={onClick}>
+              <ButtonText>Zum Blog</ButtonText> <RightArrowIcon />
+            </SendButton>
+          )}
         </GridItem>
       </Grid>
-      <Grid center>
-        {blogPosts.map((post, index) => {
-          const topBlogPost = index < TOP_POST_COUNT;
+      {language == 'en' && (
+        <Grid center>
+          {blogPosts.map((post, index) => {
+            const topBlogPost = index < TOP_POST_COUNT;
 
-          return (
-            <BlogCard
-              key={post.id}
-              large={topBlogPost}
-              image={getImage(post.frontmatter.featuredImage)}
-              title={post.frontmatter.title}
-              text={post.excerpt}
-              caption={formatDate(post.frontmatter.date)}
-              link={post.frontmatter.path}
-            />
-          );
-        })}
-      </Grid>
+            return (
+              <BlogCard
+                key={post.id}
+                large={topBlogPost}
+                image={getImage(post.frontmatter.featuredImage)}
+                title={post.frontmatter.title}
+                text={post.excerpt}
+                caption={formatDate(post.frontmatter.date)}
+                link={post.frontmatter.path}
+              />
+            );
+          })}
+        </Grid>
+      )}
     </Layout>
   );
 };
