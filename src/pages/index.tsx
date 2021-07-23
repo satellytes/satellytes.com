@@ -14,11 +14,13 @@ import {
 } from '../components/typography/typography';
 import { HEADER_HEIGHT } from '../components/header/header';
 import { Aurora, AuroraType } from '../components/aurora/aurora';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 interface AllClientsQuery {
   nodes: {
     start: string;
     name: string;
+    nameEN: string;
     path: string;
   }[];
 }
@@ -77,10 +79,11 @@ interface IndexPageProps {
 }
 
 const IndexPage = ({ data }: IndexPageProps) => {
+  const { t } = useTranslation();
   return (
     <>
       <Aurora type={AuroraType.BrightBlue} />
-      <Layout transparentHeader={true}>
+      <Layout transparentHeader={true} showLanguageSwitch>
         <SEO title="Satellytes" />
         <Grid center>
           <GridItem xs={0} md={2} />
@@ -100,46 +103,29 @@ const IndexPage = ({ data }: IndexPageProps) => {
           <GridItem xs={12} md={10}>
             <HomePageBlockTeaser
               margin
-              preTitle="Leistungen"
-              title="Das bieten wir"
-              link="Leistungen"
-              linkTo="/services"
+              preTitle={t('services.title')}
+              title={t('main.services.title')}
+              link={t('services.title')}
+              linkTo="/services/"
             >
-              <Text>
-                Satellytes – das sind ausschließlich leidenschaftliche
-                Entwickler:innen und Designer:innen. Wir haben großen Spaß an
-                Technologie und freuen uns auf neue Herausforderungen. Dabei
-                fokussieren wir uns auf langfristige Engagements im
-                Konzerngeschäft.
-              </Text>
+              <Text>{t('main.services.text')}</Text>
             </HomePageBlockTeaser>
             <HomePageBlockTeaser
-              preTitle="Kunden"
-              title="Nachhaltige und moderne Projekte"
+              preTitle={t('clients.title')}
+              title={t('main.clients.title')}
               splitView
             >
-              <Text>
-                Wir unterstützen große Konzerne bei der Umsetzung ihrer
-                digitalen Strategien. Finden Sie heraus für welche Kunden &
-                Branchen wir tätig sind.
-              </Text>
+              <Text>{t('main.clients.text')}</Text>
             </HomePageBlockTeaser>
             <ClientList clients={data.allClientsJson.nodes} />
             <HomePageBlockTeaser
-              preTitle="Karriere"
-              title="Arbeite mit uns"
+              preTitle={t('career.title')}
+              title={t('main.career.title')}
               splitView
-              link="Karriere"
-              linkTo="/career"
+              link={t('career.title')}
+              linkTo="/career/"
             >
-              <Text>
-                Wir suchen Entwickler:innen aus Leidenschaft! Du hast noch nicht
-                viel Berufserfahrung? Kein Problem. Denn alles, was du wissen
-                musst, lernst Du bei uns. Du kannst schon alles? Dann findest Du
-                bei Satellytes neue Herausforderungen und erfahrene Kollegen,
-                mit denen Du weiter wachsen kannst. Schaue Dir unsere offenen
-                Stellen an. Wir freuen uns auf Deine Bewerbung.
-              </Text>
+              <Text>{t('main.career.text')}</Text>
             </HomePageBlockTeaser>
           </GridItem>
         </Grid>
@@ -164,6 +150,7 @@ export const query = graphql`
     allClientsJson {
       nodes {
         name
+        nameEN
         path
         start
       }

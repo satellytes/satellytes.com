@@ -1,4 +1,18 @@
 {
+  "main": {
+    "services": {
+      "title": "What we offer",
+      "text": "Satellytes - these are exclusively passionate developers and designers. We have great fun with technology and look forward to new challenges. We focus on long-term engagements in the corporate business."
+    },
+    "clients": {
+      "title": "Sustainable and modern projects",
+      "text": "We support large corporations in the implementation of their digital strategies. Find out which clients & industries we work for."
+    },
+    "career": {
+      "title": "Work with us",
+      "text": "We are looking for developers with passion! You don't have much work experience yet? No problem. Because everything you need to know, you'll learn with us. You can already do everything? Then you will find new challenges and experienced colleagues at Satellytes with whom you can grow. Take a look at our open positions. We look forward to receiving your application."
+    }
+  },
   "career": {
     "title": "Career",
     "subheading": "We are looking for passionate developers!",
@@ -43,13 +57,19 @@
     "email-confirmation": "We sent you a confirmation-email and we will contact you."
   },
   "office": {
-    "title": "Our Office"
+    "title": "Our Office",
+    "subheading": "Feel at home with us. A small impression of our office in Sendlinger Straße in the heart of Munich.",
+    "link": "<0>If you want to work with us in this office, check out our <1>open positions</1>.</0>"
   },
   "services": {
-    "title": "Services"
+    "title": "Services",
+    "subheading": "Satellytes – these are exclusively passionate developers and designers."
   },
   "clients": {
-    "title": "Clients"
+    "title": "Clients",
+    "since": "Since",
+    "subheading": "We support large corporations in implementing their digital strategies.",
+    "description": "Find out which customers & industries we work for."
   },
   "contact": {
     "title": "Contact",

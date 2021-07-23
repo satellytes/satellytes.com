@@ -13,7 +13,7 @@ import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
 import { up } from '../components/breakpoint/breakpoint';
 import { graphql } from 'gatsby';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 
 /**
@@ -44,10 +44,7 @@ const OfficePage = () => {
         </GridItem>
 
         <GridItem xs={12} md={8}>
-          <Intro>
-            Fühl dich wohl bei uns. Ein kleiner Eindruck von unserem Büro in der
-            Sendlinger Straße im Herzen Münchens.
-          </Intro>
+          <Intro>{t('office.subheading')}</Intro>
         </GridItem>
 
         <GridItem>
@@ -89,14 +86,16 @@ const OfficePage = () => {
           </OfficeImageWrapper>
         </GridItem>
         <GridItem>
-          <Text>
-            Wenn du mit uns in diesem Office arbeiten möchtest, dann schau dir
-            doch unsere{' '}
-            <TextLink to={'/career/'} language={language}>
-              offenen Stellen
-            </TextLink>{' '}
-            an.
-          </Text>
+          <Trans i18nKey="office.link">
+            <Text>
+              Wenn du mit uns in diesem Office arbeiten möchtest, dann schau dir
+              doch unsere
+              <TextLink to={'/career/'} language={language}>
+                offenen Stellen
+              </TextLink>
+              an.
+            </Text>
+          </Trans>
         </GridItem>
       </Grid>
     </Layout>

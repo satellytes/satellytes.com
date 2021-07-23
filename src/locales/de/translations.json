@@ -1,4 +1,18 @@
 {
+  "main": {
+    "services": {
+      "title": "Das bieten wir",
+      "text": "Satellytes – das sind ausschließlich leidenschaftliche Entwickler:innen und Designer:innen. Wir haben großen Spaß an Technologie und freuen uns auf neue Herausforderungen. Dabei fokussieren wir uns auf langfristige Engagements im Konzerngeschäft."
+    },
+    "clients": {
+      "title": "Nachhaltige und moderne Projekte",
+      "text": "Wir unterstützen große Konzerne bei der Umsetzung ihrer digitalen Strategien. Finden Sie heraus für welche Kunden & Branchen wir tätig sind."
+    },
+    "career": {
+      "title": "Arbeite mit uns",
+      "text": "Wir suchen Entwickler:innen aus Leidenschaft! Du hast noch nicht viel Berufserfahrung? Kein Problem. Denn alles, was du wissen musst, lernst Du bei uns. Du kannst schon alles? Dann findest Du bei Satellytes neue Herausforderungen und erfahrene Kollegen, mit denen Du weiter wachsen kannst. Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung."
+    }
+  },
   "career": {
     "title": "Karriere",
     "subheading": "Wir suchen Entwickler:innen aus Leidenschaft!",
@@ -43,13 +57,19 @@
     "email-confirmation": "Wir haben dir eine E-Mail zur Bestätigung geschickt und melden uns bei dir."
   },
   "office": {
-    "title": "Unser Büro"
+    "title": "Unser Büro",
+    "subheading": "Fühl dich wohl bei uns. Ein kleiner Eindruck von unserem Büro in der Sendlinger Straße im Herzen Münchens.",
+    "link": "<0>Wenn du mit uns in diesem Office arbeiten möchtest, dann schau dir doch unsere <1>offenen Stellen</1> an.</0>"
   },
   "services": {
-    "title": "Leistungen"
+    "title": "Leistungen",
+    "subheading": "Satellytes – das sind ausschließlich leidenschaftliche Entwickler:innen und Designer:innen."
   },
   "clients": {
-    "title": "Kunden"
+    "title": "Kunden",
+    "since": "Seit",
+    "subheading": "Wir unterstützen große Konzerne bei der Umsetzung ihrer digitalen Strategien.",
+    "description": "Finden Sie heraus für welche Kunden & Branchen wir tätig sind."
   },
   "contact": {
     "title": "Kontakt",
@@ -76,7 +96,7 @@
     "contact": "Kontakt"
   },
   "blog": {
-    "info": "Unsere Entwickler und Designer sprechen über die neuesten Trends und das Know-how rund um Tech, insbesondere über unsere neuesten Erkenntnisse und Einsichten über die Entwicklung guter Software für das Web.\n\n Der Blog ist nur auf Englisch verfügbar."
+    "info": "Unsere Entwickler und Designer sprechen über die neuesten Trends und das Know-how rund um Tech, insbesondere über unsere neuesten Erkenntnisse und Einsichten zur Entwicklung guter Software für das Web.\n\n Der Blog ist nur auf Englisch verfügbar."
   },
   "404": "Oh sorry! Our Satellite took the wrong direction."
 }

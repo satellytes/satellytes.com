@@ -10,12 +10,12 @@ four largest clients are:
 - An insurance group
 - A bank
 - A sports club
-- One automobile club
+- An automobile club
 
 These clients reflect our years of experience in the banking, insurance, automotive and sports industries.
 Below is a brief look at the scope of work for each type of client:
 
-### [Insurance Group](#insurance group)
+### [Insurance Group](#insurancegroup)
 
 We have been helping this client implement their digital strategy for more than two years. We are valued
 for our expertise in front-end architecture and our sustainable and reliable implementation.
@@ -27,7 +27,7 @@ processes, the development of team structures and the creation of easy-to-unders
 
 Would you like to talk to us about your project in the insurance industry?
 
-[Contact us >](/contact)
+[Contact us >](/contact/)
 
 ### [Bank](#bank)
 
@@ -42,7 +42,7 @@ UX/UI design experts and support the customer in conception and implementation.
 
 Want to talk to us about your project in the banking or finance industry?
 
-[Contact us >](/contact)
+[Contact us >](/contact/)
 
 ### [Sports Club](#sportclub)
 
@@ -62,7 +62,7 @@ fully meets the requirements of self-services.
 
 Are you a responsible person in the sports industry, do you want to learn more or do you have a specific request?
 
-[Contact us >](/contact)
+[Contact us >](/contact/)
 
 ### [Automobile Club](#automobilclub)
 
@@ -74,4 +74,4 @@ to use the Gatsby cloud for accelerated delivery of updated content.
 
 Are you a responsible person in the automotive industry, want to learn more or have a specific request?
 
-[Contact us >](/contact)
+[Contact us >](/contact/)

@@ -2,6 +2,7 @@
   {
     "industry": "Sports",
     "name": "Sportverein",
+    "nameEN": "Sport Club",
     "description": "TODO",
     "tasks": ["Concept", "UX", "UI", "Frontend", "Backend"],
     "techStack": [
@@ -23,6 +24,7 @@
   {
     "industry": "Insurance",
     "name": "Versicherungskonzern",
+    "nameEN": "Insurance Group",
     "description": "TODO",
     "tasks": ["Concept", "UX", "UI"],
     "techStack": ["Angular", "Github"],
@@ -36,6 +38,7 @@
   {
     "industry": "Finance",
     "name": "Bank",
+    "nameEN": "Bank",
     "description": "TODO",
     "tasks": ["Concept", "UX", "UI"],
     "techStack": ["Angular"],
@@ -49,6 +52,7 @@
   {
     "industry": "Automotive",
     "name": "Automobilclub",
+    "nameEN": "Automobile Club",
     "description": "Todo",
     "tasks": ["Concept", "UX", "UI"],
     "techStack": [

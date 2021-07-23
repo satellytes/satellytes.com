@@ -27,17 +27,14 @@ const ClientsPage = ({ data }: ClientPageProps) => {
       <Layout transparentHeader={true} showLanguageSwitch>
         <SEO
           title="Kunden | Satellytes"
-          description="Wir unterstützen große Konzerne bei der Umsetzung ihrer digitalen Strategien. Finden Sie heraus für welche Kunden & Branchen wir tätig sind."
+          description={`${t('clients.subheading')} ${t('clients.description')}`}
         />
         <Grid>
           <GridItem>
             <PageTitle>{t('clients.title')}</PageTitle>
           </GridItem>
           <GridItem xs={12} md={8}>
-            <LargeText as={'h2'}>
-              Wir unterstützen große Konzerne bei der Umsetzung ihrer digitalen
-              Strategien.
-            </LargeText>
+            <LargeText as={'h2'}>{t('clients.subheading')}</LargeText>
             <MarkdownAst htmlAst={data.markdownRemark.htmlAst} />
           </GridItem>
         </Grid>
