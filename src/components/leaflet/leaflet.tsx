@@ -14,6 +14,7 @@ import { up } from '../breakpoint/breakpoint';
 import { BringMeHome } from './bring-home';
 import { SatellytesMarkerIcon } from './sy-marker';
 import { theme } from '../layout/theme';
+import { Helmet } from 'react-helmet';
 const MAP_VIEW_ZOOM = 20;
 
 const OFFICE_COORDINATES: LatLngExpression = [48.13479, 11.56839];
@@ -115,6 +116,12 @@ export const Leaflet = () => {
 
   return (
     <MapWrapper>
+      <Helmet>
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+        />
+      </Helmet>
       {MapView}
       {mapInstance ? (
         <BringMeHome
