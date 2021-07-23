@@ -3,62 +3,60 @@ title: Kunden
 language: en
 ---
 
-ENGLISCHE VERSION - Wir haben großen Spaß an Technologie und freuen uns auf neue Herausforderungen. Dabei fokussieren wir uns auf
-langfristige Engagements im Konzerngeschäft.
+We have great fun with technology and look forward to new challenges. We focus on long-term
+long-term commitments in the Group's business.
 
-Neuen Aufgaben begegnen wir immer mit angemessenem Respekt. Wir streben stets hochwertige und zeitgemäße Lösungen an –
-die Wahl der Technologie ist für uns dabei sekundär. Gern unterstützen wir auch Sie in den folgenden Disziplinen:
+We always approach new tasks with appropriate respect. We always strive for high-quality and contemporary solutions - the choice of technology is secondary for us.
+the choice of technology is secondary for us. We would be happy to support you in the following disciplines:
 
-### Enterprise Applikationen & Libraries
+### Enterprise Applications & Libraries
 
-Wir haben große Erfahrung in der Entwicklung moderner und verlässlicher Web-Applikationen für die Versicherungs-,
-Banken- und Automobilbranche. Angular hat sich für derartige Applikationen zur Standardtechnologie entwickelt. Wir
-bringen tiefgreifende Erfahrung mit dieser Technologie mit und liefern Ihnen eine maßgeschneiderte Lösung zu jedem
-Problem.
+We have extensive experience in developing modern and reliable web applications for the insurance,
+banking and automotive industries. Angular has become the standard technology for such applications. We
+bring in-depth experience with this technology and provide you with a customized solution to any
+problem.
 
-Wir sind zudem sehr erfahren in der Einführung ganzheitlicher Plattformen –beispielsweise einer Infrastruktur aus
-Angular-Libraries, dem Aufsetzen von CI/CD-Pipelines und der Umsetzung gut getesteter Applikationen in mehreren Sprachen
-und Konfigurationen.
+We are also very experienced in implementing holistic platforms - for example, an infrastructure of
+Angular libraries, setting up CI/CD pipelines and implementing well-tested applications in multiple languages and configurations.
 
-Zudem sind wir Profis für die Entwicklung von Java Backends in allen Variationen. Wir sind erfahren in der Anbindung von
-Bestandssystemen, der Neuentwicklung von versionierten APIs und der spezifischen Anbindung von Frontend-Applikationen
-auf Basis von BFF (Backend for Frontend) – oder vollkommen dezentralen Microservices.
+Moreover, we are professionals in developing Java backends in all variations. We are experienced in the connection of
+systems, the development of new versioned APIs and the specific connection of frontend applications based on
+BFF (Backend for Frontend) - or completely decentralized microservices.
 
-+ Experten für Projekte in Angular & React (wir lieben aber auch Vue & Svelte)
-+ UI-Library Entwicklung mit Release Management
-+ Backend Begleitung mit unseren Java und Node-Experten
-+ Ihr Ansprechpartner für Inner source Projekte & Prozessbegleitung
++ Experts for projects in Angular & React (but we also love Vue & Svelte).
++ UI library development with release management
++ Backend support with our Java and Node experts.
++ Your contact for inner source projects & process support
 
-[Interesse? Kontaktieren Sie uns >](/contact)
+[Interested? Contact us >](/contact/)
 
-### Technische Analyse
+### Technical analysis
 
-Wir bieten Ihnen beispielsweise die vollumfängliche Analyse ihrer Webseite: hinsichtlich UX/UI, Ladegeschwindigkeit,
-technischem Aufbau, Barrierefreiheit oder Suchmaschinen-Kompatibilität. Begleitet wird eine derartige Analyse von einer
-Auflistung konkreter Verbesserungsvorschläge. Sie wollen Ihre Website in den genannten Bereichen einer Analyse
-unterziehen?
+We offer you, for example, the full analysis of your website: regarding UX/UI, loading speed,
+technical structure, accessibility or search engine compatibility. Such an analysis is accompanied by a
+list of concrete suggestions for improvement. Do you want to analyze your website in the areas mentioned above?
+in the above-mentioned areas?
 
-[Interesse? Kontaktieren Sie uns >](/contact)
+[Interested? Contact us >](/contact/)
 
 ### UX & UI
 
-Mit rund 20 Jahren Erfahrung in der Konzeption und Umsetzung digitaler Interfaces bilden wir das gesamte Spektrum der
-User Experience (UX) ab. Der kleine, sichtbare Teil davon ist das User Interface (UI). Der große, unsichtbare (UX) ist
-jedoch viel relevanter für das Erreichen ihrer wirtschaftlichen Ziele. Denn nur mit benutzerfreundlichen, leicht
-verständlichen Journeys über alle Endgeräte, Nutzergruppen und Nutzungskontexte hinweg, erreichen die User - und somit
-Sie - ihr Ziel.
+With around 20 years of experience in the design and implementation of digital interfaces, we cover the entire spectrum of the
+user experience (UX). The small, visible part of it is the user interface (UI). The large, invisible one (UX) is
+much more relevant for achieving your business goals. Because only with user-friendly, easily
+user-friendly, easy-to-understand journeys across all end devices, user groups, and usage contexts, users - and therefore
+you - reach your goal.
 
-Für unsere Enterprise-Kunden konzipieren und gestalten wir Websites mit modernen, ergonomischen und durchdachten
-Interfaces, halten uns an UX-Standards und Best Practices, beachten Accessibility Guidelines, testen, messen und
-optimieren ständig und stellen auf Wunsch alle Komponenten in einem gut strukturierten und erweiterbaren Design System
-zur Verfügung.
+For our enterprise customers, we conceptualize and design websites with modern, ergonomic and well thought-out
+UX standards and best practices, adhere to accessibility guidelines, constantly test, measure and, if desired, provide all components in a well-structured and expandable design system.
+available.
 
-+ Informationsarchitektur (und Navigation)
-+ Information/Content Design (Readability, Scanability, Consistency, Density, Sizes)
++ Information Architecture (and Navigation)
++ Information/Content Design (Readability, Scalability, Consistency, Density, Sizes)
 + User Interface Design (Atomic Design, Pattern Libraries)
-+ Interaction Design (Clarity, Ergonomy, Ease/Joy of Use)
++ Interaction Design (Clarity, Ergonomic, Ease/Joy of Use)
 + Brand Experience
 + Accessibility (WCAG)
-+ Loading-, Responsive-Strategien, Performance
++ Loading, Responsive Strategies, Performance
 
-[Interesse? Kontaktieren Sie uns >](/contact/)
+[Interested? Contact us >](/contact/)
