@@ -1,5 +1,6 @@
 {
   "main": {
+    "description": "Satellytes ist eine Digital-Agentur, die um große Unternehmen kreist und ihnen bei der Transformation und Optimierung digitaler Services und Interfaces hilft.",
     "services": {
       "title": "Das bieten wir",
       "text": "Satellytes – das sind ausschließlich leidenschaftliche Entwickler:innen und Designer:innen. Wir haben großen Spaß an Technologie und freuen uns auf neue Herausforderungen. Dabei fokussieren wir uns auf langfristige Engagements im Konzerngeschäft."
@@ -84,6 +85,9 @@
       "again-text": "Leider gab es einen Fehler. Bitte versuche es noch einmal. Klappt das nicht, schicke deine Nachricht bitte direkt an <2>beep@satellytes.com</2>"
     }
   },
+  "imprint": {
+    "updated": "Aktualisiert: 16.Juli 2020, Erstellt: 12.Sep. 2018"
+  },
   "navigation": {
     "menu": "Menu",
     "imprint": "Impressum",
@@ -96,7 +100,8 @@
     "contact": "Kontakt"
   },
   "blog": {
-    "info": "Unsere Entwickler und Designer sprechen über die neuesten Trends und das Know-how rund um Tech, insbesondere über unsere neuesten Erkenntnisse und Einsichten zur Entwicklung guter Software für das Web.\n\n Der Blog ist nur auf Englisch verfügbar."
+    "info": "Unsere Entwickler und Designer sprechen über die neuesten Trends und das Know-how rund um Tech, insbesondere über unsere neuesten Erkenntnisse und Einsichten zur Entwicklung guter Software für das Web.\n\n Der Blog ist nur auf Englisch verfügbar.",
+    "share": "Artikel teilen"
   },
   "404": "Oh sorry! Our Satellite took the wrong direction."
 }

@@ -36,7 +36,7 @@ const OfficePage = () => {
   const { t } = useTranslation();
   const { language } = useI18next();
   return (
-    <Layout showLanguageSwitch>
+    <Layout>
       <SEO title="Office | Satellytes" />
       <Grid>
         <GridItem>
@@ -104,7 +104,7 @@ const OfficePage = () => {
 
 export default OfficePage;
 
-export const query = graphql`
+export const OfficePageQuery = graphql`
   query ($language: String!) {
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {

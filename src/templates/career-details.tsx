@@ -102,8 +102,8 @@ const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
       <Layout
         siteTitleUrl="/career/"
         transparentHeader={true}
-        showLanguageSwitch={pageContext.hasTranslation}
         translation={pageContext.translation}
+        showLanguageSwitch={Boolean(pageContext.translation)}
       >
         <SEO
           imageUrl={pageContext.socialCardImage}
@@ -140,7 +140,7 @@ const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
   );
 };
 
-export const query = graphql`
+export const CareerDetailsPageQuery = graphql`
   query ($language: String!) {
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {

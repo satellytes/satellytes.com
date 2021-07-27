@@ -83,7 +83,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
   return (
     <>
       <Aurora type={AuroraType.BrightBlue} />
-      <Layout transparentHeader={true} showLanguageSwitch>
+      <Layout transparentHeader={true}>
         <SEO title="Satellytes" />
         <Grid center>
           <GridItem xs={0} md={2} />
@@ -136,7 +136,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
 
 export default IndexPage;
 
-export const query = graphql`
+export const IndexPageQuery = graphql`
   query ($language: String!) {
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {

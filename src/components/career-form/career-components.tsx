@@ -17,7 +17,7 @@ import { rgba } from 'polished';
 import { RightArrowIcon } from '../icons/buttons-icons/right-arrow';
 import { FieldErrors } from 'react-hook-form';
 import { Headline } from './career-form';
-import { Trans, useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 
 interface InputFieldProps {
   label?: string;

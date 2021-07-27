@@ -20,7 +20,7 @@ import styled from 'styled-components';
 import { CheckboxMark } from '../icons/checkbox';
 import { up } from '../breakpoint/breakpoint';
 import { rgba } from 'polished';
-import { Trans, useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 
 interface CareerFormProps {
   recruiting_channel_id: string;

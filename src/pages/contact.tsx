@@ -23,7 +23,7 @@ const ContactPage: React.FC = () => {
   const { t } = useTranslation();
   return (
     <>
-      <Layout transparentHeader={true} hero={<Leaflet />} showLanguageSwitch>
+      <Layout transparentHeader={true} hero={<Leaflet />}>
         <SEO
           title="Kontakt | Satellytes"
           description="Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine E-Mail an beep@satellytes.com"
@@ -65,7 +65,7 @@ const ContactPage: React.FC = () => {
 
 export default ContactPage;
 
-export const query = graphql`
+export const ContactPageQuery = graphql`
   query ($language: String!) {
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {

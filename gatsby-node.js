@@ -64,9 +64,9 @@ exports.createPages = async (createPagesArgs) => {
 const createCareerPages = async ({ actions }) => {
   const { createPage } = actions;
 
-  const positionsGroupedByLanguage = LANGUAGES.map(async (langKey) => {
+  const fetchPositionsByLanguage = LANGUAGES.map(async (languageKey) => {
     const PERSONIO_JOBS_URL_LANG = PERSONIO_JOBS_URL.concat(
-      `?language=${langKey}`,
+      `?language=${languageKey}`,
     );
     const jobsXmlResponse = await fetch(PERSONIO_JOBS_URL_LANG);
     const jobsXml = await jobsXmlResponse.text();
@@ -75,13 +75,13 @@ const createCareerPages = async ({ actions }) => {
     };
     const jobsParse = xmlParser.parse(jobsXml, options);
     const positions = jobsParse['workzag-jobs'].position;
-    return { positions, langKey };
+    return { positions, languageKey };
   });
 
-  await Promise.all(positionsGroupedByLanguage).then(async (values) => {
-    for (let i = 0; i < values.length; i++) {
-      const positions = values[i].positions;
-      const langKey = values[i].langKey;
+  await Promise.all(fetchPositionsByLanguage).then(async (values) => {
+    for (let index = 0; index < values.length; index++) {
+      const positions = values[index].positions;
+      const languageKey = values[index].languageKey;
 
       // position is valid if it has a job description and slug
       const isValidPosition = (position) => {
@@ -155,10 +155,10 @@ const createCareerPages = async ({ actions }) => {
 
         generateCard({ title: position.name }, outputFile);
 
-        const getTranslations = (id) => {
+        const getTranslation = (id) => {
           return values
-            .map(({ positions, langKey: key }) => {
-              if (key !== langKey) {
+            .map(({ positions, languageKey: key }) => {
+              if (key !== languageKey) {
                 // check if there is an open position in a different language with the same id
                 const translatedPosition = positions.find(
                   (position) => isValidPosition(position) && position.id === id,
@@ -167,14 +167,14 @@ const createCareerPages = async ({ actions }) => {
               }
               return null;
             })
-            .filter((link) => link);
+            .filter((link) => link)[0];
         };
 
         if (!position.satellytesPath) return null;
 
         createPage({
           path: appendTrailingSlash(
-            `${langKey === 'en' ? '' : `/${langKey}`}${
+            `${languageKey === 'en' ? '' : `/${languageKey}`}${
               position.satellytesPath
             }`,
           ),
@@ -182,11 +182,8 @@ const createCareerPages = async ({ actions }) => {
           context: {
             position,
             socialCardImage: publicUrl,
-            language: langKey,
-            translation:
-              getTranslations(position.id).length > 0
-                ? getTranslations(position.id)[0]
-                : undefined,
+            language: languageKey,
+            translation: getTranslation(position.id),
           },
         });
       });
@@ -196,11 +193,11 @@ const createCareerPages = async ({ actions }) => {
       );
 
       createPage({
-        path: `/${langKey === 'en' ? '' : langKey.concat('/')}career/`,
+        path: `/${languageKey === 'en' ? '' : languageKey.concat('/')}career/`,
         component: CAREER_TEMPLATE_PATH,
         context: {
           positions: jobPositions,
-          language: langKey,
+          language: languageKey,
         },
       });
     }

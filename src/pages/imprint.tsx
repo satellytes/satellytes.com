@@ -28,7 +28,7 @@ interface ImprintPageProps {
 const ImprintPage = ({ data }: ImprintPageProps) => {
   const { t } = useTranslation();
   return (
-    <Layout showLanguageSwitch={true}>
+    <Layout>
       <SEO
         title="Impressum | Satellytes"
         description="Pflichtangaben nach § 5 Telemediengesetz/Impressum"
@@ -40,9 +40,7 @@ const ImprintPage = ({ data }: ImprintPageProps) => {
         </GridItem>
         <GridItem xs={12} md={8}>
           <MarkdownAst htmlAst={data.markdownRemark.htmlAst} />
-          <BottomNote>
-            Aktualisiert: 16.Juli 2020, Erstellt: 12.Sep. 2018
-          </BottomNote>
+          <BottomNote>{t('imprint.updated')}</BottomNote>
         </GridItem>
       </Grid>
     </Layout>
@@ -51,7 +49,7 @@ const ImprintPage = ({ data }: ImprintPageProps) => {
 
 export default ImprintPage;
 
-export const query = graphql`
+export const ImprintPageQuery = graphql`
   query ($language: String!) {
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {

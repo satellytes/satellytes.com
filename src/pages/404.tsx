@@ -30,7 +30,7 @@ const NotFoundPage: React.FC = () => (
 
 export default NotFoundPage;
 
-export const query = graphql`
+export const NotFoundPageQuery = graphql`
   query ($language: String!) {
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {

@@ -34,7 +34,7 @@ const ClientDetailsTemplate: React.FC<ClientTemplateProps> = ({ data }) => {
   );
 };
 
-export const CLIENT_PAGE_QUERY = graphql`
+export const ClientDetailPageQuery = graphql`
   query ($linkToThePage: String) {
     clientsJson(path: { eq: $linkToThePage }) {
       industry

@@ -63,7 +63,7 @@ const BlogPage = ({ data }: BlogPageProps) => {
   };
 
   return (
-    <Layout light>
+    <Layout light showLanguageSwitch={false}>
       <SEO title="Blog | Satellytes" />
       <Grid center>
         <GridItem>
@@ -71,39 +71,43 @@ const BlogPage = ({ data }: BlogPageProps) => {
         </GridItem>
         <GridItem md={8}>
           <BlogPageSubTitle>{t('blog.info')}</BlogPageSubTitle>
-          {language != 'en' && (
-            <SendButton onClick={onClick}>
-              <ButtonText>Zum Blog</ButtonText> <RightArrowIcon />
-            </SendButton>
-          )}
+          {language != 'en' && <OnlyEnglishInfo onClick={onClick} />}
         </GridItem>
       </Grid>
-      {language == 'en' && (
-        <Grid center>
-          {blogPosts.map((post, index) => {
-            const topBlogPost = index < TOP_POST_COUNT;
-
-            return (
-              <BlogCard
-                key={post.id}
-                large={topBlogPost}
-                image={getImage(post.frontmatter.featuredImage)}
-                title={post.frontmatter.title}
-                text={post.excerpt}
-                caption={formatDate(post.frontmatter.date)}
-                link={post.frontmatter.path}
-              />
-            );
-          })}
-        </Grid>
-      )}
+      {language == 'en' && <BlogPostOverview blogPosts={blogPosts} />}
     </Layout>
   );
 };
 
 export default BlogPage;
 
-export const query = graphql`
+const OnlyEnglishInfo = ({ onClick }) => (
+  <SendButton onClick={onClick}>
+    <ButtonText>Zum Blog</ButtonText> <RightArrowIcon />
+  </SendButton>
+);
+
+const BlogPostOverview = ({ blogPosts }) => (
+  <Grid center>
+    {blogPosts.map((post, index) => {
+      const topBlogPost = index < TOP_POST_COUNT;
+
+      return (
+        <BlogCard
+          key={post.id}
+          large={topBlogPost}
+          image={getImage(post.frontmatter.featuredImage)}
+          title={post.frontmatter.title}
+          text={post.excerpt}
+          caption={formatDate(post.frontmatter.date)}
+          link={post.frontmatter.path}
+        />
+      );
+    })}
+  </Grid>
+);
+
+export const BlogPageQuery = graphql`
   query ($language: String!) {
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {

@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 import CocoGothicBoldWoff2 from './layout/fonts/CocoGothic-Bold.woff2';
 import CocoGothicWoff2 from './layout/fonts/CocoGothic.woff2';
 import { useI18next } from 'gatsby-plugin-react-i18next';
+import { useTranslation } from 'react-i18next';
 
 const DEFAULT_META_IMAGE_URL_PATH = '/sy-share-image.jpg';
 const LANGUAGES = ['en', 'de'];
@@ -31,7 +32,6 @@ const SEO: React.FC<SeoProps> = ({
         site {
           siteMetadata {
             title
-            description
             author
             siteUrl
           }
@@ -39,8 +39,9 @@ const SEO: React.FC<SeoProps> = ({
       }
     `,
   );
+  const { t } = useTranslation();
 
-  const metaDescription = description || site.siteMetadata.description;
+  const metaDescription = description || t('main.description');
   const typeOfSite = siteType || 'website';
   const metaImageUrl =
     imageUrl || site.siteMetadata.siteUrl + DEFAULT_META_IMAGE_URL_PATH;
@@ -51,7 +52,7 @@ const SEO: React.FC<SeoProps> = ({
   let pathname;
   if (typeof window !== 'undefined') {
     origin = window.location.origin;
-    pathname = window.location.pathname;
+    pathname = window.location.pathname.replace('/de', '');
   }
 
   const prependAndAppendTrailingSlash = (path) => {

@@ -7,7 +7,9 @@ export const formatDate = (
   locale?: string,
 ): string => {
   const parsedDate = parseISO(date);
-  const loc = locale == 'de' ? de : enGB;
+  const currentLocale = locale == 'de' ? de : enGB;
 
-  return format(parsedDate, dateFormat || 'do MMMM y', { locale: loc });
+  return format(parsedDate, dateFormat || 'do MMMM y', {
+    locale: currentLocale,
+  });
 };

@@ -44,7 +44,7 @@ const StyledHeader = styled.header<{
   }
 `;
 
-const LanguageSwitch = styled.button<{ selected?: boolean }>`
+const StyledLanguageSwitch = styled.button<{ selected?: boolean }>`
   border: unset;
   padding: unset;
   background-color: transparent;
@@ -127,15 +127,14 @@ const SiteMenu = styled.button<{ $lightTheme: boolean }>`
 
 interface HeaderProps {
   siteTitle: string;
-  showLanguageSwitch?: boolean;
   siteTitleUrl?: string;
   $lightTheme?: boolean;
   transparent?: boolean;
   translation?: string;
+  showLanguageSwitch?: boolean;
 }
 
 const Header: React.FC<HeaderProps> = (props) => {
-  const { languages, language, changeLanguage } = useI18next();
   const [isNavigationVisible, setIsNavigationVisible] = useState(false);
   const [isHeaderTransparent, setIsHeaderTransparent] = useState<boolean>(
     Boolean(props.transparent),
@@ -171,35 +170,10 @@ const Header: React.FC<HeaderProps> = (props) => {
         <HeaderSwoosh />
         {props.siteTitle}
       </SiteTitle>
-      <div>
-        {props.translation
-          ? languages.map((lng) => {
-              return (
-                <StyledLanguageLink
-                  key={lng}
-                  to={language === lng ? '' : props.translation || ''}
-                  language={lng}
-                  selected={language === lng}
-                >
-                  {lng}
-                </StyledLanguageLink>
-              );
-            })
-          : props.showLanguageSwitch &&
-            languages.map((lng) => {
-              return (
-                <LanguageSwitch
-                  key={lng}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    changeLanguage(lng);
-                  }}
-                  selected={language === lng}
-                >
-                  {lng}
-                </LanguageSwitch>
-              );
-            })}
+      <Wrapper>
+        {(props.translation || props.showLanguageSwitch) && (
+          <LanguageSwitch translation={props.translation} />
+        )}
         <SiteMenu
           aria-label="Open menu"
           $lightTheme={Boolean(!isHeaderTransparent && props.$lightTheme)}
@@ -209,10 +183,56 @@ const Header: React.FC<HeaderProps> = (props) => {
         >
           {!isNavigationVisible ? <BurgerMenu /> : <CloseBurgerMenuIcon />}
         </SiteMenu>
-      </div>
+      </Wrapper>
       <NavigationFlyout visible={isNavigationVisible} />
     </StyledHeader>
   );
+};
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: end;
+`;
+
+const LanguageSwitch = ({ translation }) => {
+  const { languages, language, changeLanguage } = useI18next();
+  if (translation) {
+    return (
+      <div>
+        {languages.map((lng) => {
+          return (
+            <StyledLanguageLink
+              key={lng}
+              to={language === lng ? '' : translation || ''}
+              language={lng}
+              selected={language === lng}
+            >
+              {lng}
+            </StyledLanguageLink>
+          );
+        })}
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        {languages.map((lng) => {
+          return (
+            <StyledLanguageSwitch
+              key={lng}
+              onClick={(e) => {
+                e.preventDefault();
+                changeLanguage(lng);
+              }}
+              selected={language === lng}
+            >
+              {lng}
+            </StyledLanguageSwitch>
+          );
+        })}
+      </div>
+    );
+  }
 };
 
 export default Header;

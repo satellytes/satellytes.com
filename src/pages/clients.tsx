@@ -24,7 +24,7 @@ const ClientsPage = ({ data }: ClientPageProps) => {
   return (
     <>
       <Aurora type={AuroraType.Pink} />
-      <Layout transparentHeader={true} showLanguageSwitch>
+      <Layout transparentHeader={true}>
         <SEO
           title="Kunden | Satellytes"
           description={`${t('clients.subheading')} ${t('clients.description')}`}
@@ -45,7 +45,7 @@ const ClientsPage = ({ data }: ClientPageProps) => {
 
 export default ClientsPage;
 
-export const query = graphql`
+export const ClientPageQuery = graphql`
   query ($language: String!) {
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {

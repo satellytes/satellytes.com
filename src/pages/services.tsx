@@ -24,7 +24,7 @@ const ServicesPage = ({ data }: ServicePageProps) => {
   return (
     <>
       <Aurora type={AuroraType.Pink} />
-      <Layout transparentHeader={true} showLanguageSwitch>
+      <Layout transparentHeader={true}>
         <SEO title="Leistungen | Satellytes" />
         <Grid>
           <GridItem>
@@ -43,7 +43,7 @@ const ServicesPage = ({ data }: ServicePageProps) => {
 
 export default ServicesPage;
 
-export const query = graphql`
+export const ServicesPageQuery = graphql`
   query ($language: String!) {
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {

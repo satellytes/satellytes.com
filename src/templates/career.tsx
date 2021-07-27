@@ -98,7 +98,7 @@ const CareerPage = ({ pageContext, data }: CareerPageProps): JSX.Element => {
   return (
     <>
       <Aurora type={AuroraType.Pink} />
-      <Layout transparentHeader={true} showLanguageSwitch>
+      <Layout transparentHeader={true}>
         <SEO
           imageUrl={socialCard}
           title="Karriere | Satellytes"
@@ -141,7 +141,7 @@ const CareerPage = ({ pageContext, data }: CareerPageProps): JSX.Element => {
 
 export default CareerPage;
 
-export const query = graphql`
+export const CareerPageQuery = graphql`
   query ($language: String!) {
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {

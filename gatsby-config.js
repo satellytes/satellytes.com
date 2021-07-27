@@ -131,7 +131,12 @@ module.exports = {
           {
             userAgent: '*',
             allow: '/',
-            disallow: ['/imprint', '/data-privacy'],
+            disallow: [
+              '/imprint/',
+              '/data-privacy/',
+              '/de/imprint/',
+              '/de/data-privacy/',
+            ],
           },
         ],
       },
@@ -139,7 +144,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        excludes: ['/imprint', '/data-privacy'],
+        excludes: [
+          '/imprint/',
+          '/data-privacy/',
+          '/de/imprint/',
+          '/de/data-privacy/',
+        ],
         resolvePagePath: ({ path }) => {
           if (!path.endsWith('/')) {
             console.warn(
@@ -187,36 +197,10 @@ module.exports = {
             getLanguageFromPath: true,
           },
           {
-            matchPath: '/:lang/office/',
-            getLanguageFromPath: true,
-          },
-          {
-            matchPath: '/:lang?/clients/',
-            getLanguageFromPath: true,
-            excludeLanguages: ['en'],
-          },
-          {
-            matchPath: '/:lang?/services/',
-            getLanguageFromPath: true,
-            excludeLanguages: ['en'],
-          },
-          {
-            matchPath: '/:lang/blog/',
-            getLanguageFromPath: true,
-          },
-          {
             matchPath: '/blog/:title/',
             languages: ['en'],
           },
         ],
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-i18n',
-      options: {
-        langKeyDefault: 'en',
-        useLangKeyLayout: false,
-        prefixDefault: false,
       },
     },
   ],

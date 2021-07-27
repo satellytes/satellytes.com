@@ -21,7 +21,7 @@ interface DataPrivacyPageProps {
 const DataPrivacyPage = ({ data }: DataPrivacyPageProps) => {
   const { t } = useTranslation();
   return (
-    <Layout showLanguageSwitch>
+    <Layout>
       <SEO
         title="Datenschutz | Satellytes"
         description="Information über die Erhebung personenbezogener Daten"
@@ -41,7 +41,7 @@ const DataPrivacyPage = ({ data }: DataPrivacyPageProps) => {
 
 export default DataPrivacyPage;
 
-export const query = graphql`
+export const DataPrivacyPageQuery = graphql`
   query ($language: String!) {
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {
