@@ -197,6 +197,7 @@ const Wrapper = styled.div`
 const LanguageSwitch = ({ translation }) => {
   const { languages, language, changeLanguage } = useI18next();
   if (translation) {
+    // link to given url
     return (
       <div>
         {languages.map((lng) => {
@@ -214,6 +215,7 @@ const LanguageSwitch = ({ translation }) => {
       </div>
     );
   } else {
+    // language switch (different locale, same pathname)
     return (
       <div>
         {languages.map((lng) => {

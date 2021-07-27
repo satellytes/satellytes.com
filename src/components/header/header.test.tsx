@@ -5,6 +5,20 @@ import { render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../layout/theme';
 
+jest.mock('gatsby-plugin-react-i18next', () => ({
+  useTranslation: () => {
+    return {
+      t: (str) => str,
+    };
+  },
+  Link: jest.fn().mockImplementation(({ to, ...rest }) =>
+    React.createElement('a', {
+      ...rest,
+      href: to,
+    }),
+  ),
+}));
+
 describe('<Header />', () => {
   it('should render', () => {
     const header = render(

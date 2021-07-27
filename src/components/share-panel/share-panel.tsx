@@ -15,6 +15,7 @@ import { TwitterWrapper } from '../icons/social/twitter';
 import { IconWhatsapp } from '../icons/social/whatsapp';
 import { XingWrapper } from '../icons/social/xing';
 import { isBrowser } from '../util/is-browser';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 export interface ShareProps {
   title: string;
@@ -57,6 +58,7 @@ const XingShareButton = styled.a`
 
 export const SharePanel: React.FC<ShareProps> = ({ title }) => {
   const [shareUrl, setShareUrl] = useState('');
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (isBrowser()) {
@@ -67,7 +69,7 @@ export const SharePanel: React.FC<ShareProps> = ({ title }) => {
 
   return (
     <SharePanelContainer>
-      <SharePanelText>Artikel teilen</SharePanelText>
+      <SharePanelText>{t('blog.share')}</SharePanelText>
       <SocialLinks>
         <SocialLinkItem data-testid="facebook">
           <FacebookShareButton url={shareUrl} quote={title}>

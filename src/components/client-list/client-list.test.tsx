@@ -14,6 +14,25 @@ const testClients = [
   },
 ];
 
+jest.mock('gatsby-plugin-react-i18next', () => ({
+  useTranslation: () => {
+    return {
+      t: (str) => str,
+    };
+  },
+  useI18next: () => {
+    return {
+      language: 'de',
+    };
+  },
+  Link: jest.fn().mockImplementation(({ to, ...rest }) =>
+    React.createElement('a', {
+      ...rest,
+      href: to,
+    }),
+  ),
+}));
+
 describe('Client List', () => {
   it('should render', () => {
     const clientList = render(
