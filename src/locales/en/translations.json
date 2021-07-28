@@ -55,8 +55,10 @@
       "missing": "Please fill in the missing fields"
     },
     "seo": {
-      "title": "Career - {{name}} | Satellytes",
-      "description": "Apply now to become a {{name}}! Take a look at our other vacancies. We look forward to receiving your application."
+      "title-detail": "Career - {{name}} | Satellytes",
+      "description-detail": "Apply now to become a {{name}}! Take a look at our other vacancies. We look forward to receiving your application.",
+      "title": "Career | Satellytes",
+      "description": "We are looking for passionate developers! Take a look at our open positions. We look forward to receiving your application."
     },
     "thank": "Thank you for your application!",
     "email-confirmation": "We sent you a confirmation-email and we will contact you."

@@ -109,8 +109,10 @@ const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
       >
         <SEO
           imageUrl={pageContext.socialCardImage}
-          title={t('career.seo.title', { name: pageContext.position.name })}
-          description={t('career.seo.description', {
+          title={t('career.seo.title-detail', {
+            name: pageContext.position.name,
+          })}
+          description={t('career.seo.description-detail', {
             name: pageContext.position.name,
           })}
           translation={pageContext.translation}

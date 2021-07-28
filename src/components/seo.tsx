@@ -60,6 +60,31 @@ const SEO: React.FC<SeoProps> = ({
     return prependedPath.endsWith('/') ? prependedPath : `${prependedPath}/`;
   };
 
+  // functions returns links for each localized version of the page (en and de).
+  // This will help Google to show the most appropriate version by language,
+  // for more information: https://developers.google.com/search/docs/advanced/crawling/localized-versions#html
+  const listLocalizedVersions = () => {
+    return (
+      (origin &&
+        pathname &&
+        LANGUAGES.map((lang) => {
+          const href = `${origin}${lang === 'en' ? '' : `/${lang}`}`;
+          pathname =
+            language !== lang && translation
+              ? prependAndAppendTrailingSlash(translation)
+              : pathname;
+          return (
+            <link
+              rel="alternate"
+              href={href.concat(pathname)}
+              hrefLang={lang}
+              key={lang}
+            />
+          );
+        })) || <div />
+    );
+  };
+
   return (
     <Helmet
       htmlAttributes={{
@@ -120,23 +145,9 @@ const SEO: React.FC<SeoProps> = ({
         type="font/woff2"
         crossOrigin="anonymous"
       />
-      {origin &&
-        pathname &&
-        LANGUAGES.map((lang) => {
-          const href = `${origin}${lang === 'en' ? '' : `/${lang}`}`;
-          pathname =
-            language !== lang && translation
-              ? prependAndAppendTrailingSlash(translation)
-              : pathname;
-          return (
-            <link
-              rel="alternate"
-              href={href.concat(pathname)}
-              hrefLang={lang}
-              key={lang}
-            />
-          );
-        })}
+
+      {/* -- Alternate Links --*/}
+      {listLocalizedVersions()}
     </Helmet>
   );
 };
