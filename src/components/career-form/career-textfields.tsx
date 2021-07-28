@@ -86,7 +86,7 @@ export const CareerTextFields = ({
           inputRef={register('salary_expectations')}
           error={errors.salary_expectations}
           name="salary_expectations"
-          label={t('career.salary_expectations')}
+          label={t('career.salary-expectations')}
         />
       </GridItem>
 

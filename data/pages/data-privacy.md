@@ -1,5 +1,5 @@
 ---
-title: Data protection
+title: Data Privacy
 language: en
 ---
 

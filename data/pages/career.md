@@ -1,5 +1,5 @@
 ---
-title: Karriere
+title: Career
 language: en
 ---
 

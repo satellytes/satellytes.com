@@ -1,5 +1,5 @@
 ---
-title: Kunden
+title: Clients
 language: en
 ---
 

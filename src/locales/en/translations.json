@@ -25,7 +25,7 @@
     "email": "E-mail-adresse",
     "location": "Location",
     "available-from": "Available from",
-    "salary_expectations": "Salary expectations",
+    "salary-expectations": "Salary expectations",
     "cover-letter": "Cover letter",
     "file-category": "File category",
     "cv": "CV",
@@ -54,6 +54,10 @@
       "again-text": "Please try again. In case it does not work, please sent your application to <1>career@satellytes.com</1>",
       "missing": "Please fill in the missing fields"
     },
+    "seo": {
+      "title": "Career - {{name}} | Satellytes",
+      "description": "Apply now to become a {{name}}! Take a look at our other vacancies. We look forward to receiving your application."
+    },
     "thank": "Thank you for your application!",
     "email-confirmation": "We sent you a confirmation-email and we will contact you."
   },
@@ -76,13 +80,21 @@
     "title": "Contact",
     "info": "<0>Use our contact-form or write an e-mail to <1>beep@satellytes.com</1></0>",
     "name": "Name",
+    "email": "E-mail-adresse",
     "message": "Your message to us",
+    "mandatory-field": "mandatory field",
     "error": {
       "name": "Your name is missing",
-      "message": "Your message is missing"
+      "message": "Your message is missing",
+      "email": "Your e-mail is missing",
+      "email-unknown": "Something is wrong with the email-adresse"
     },
     "action": {
-      "again-text": "An error occurred. Please try again. If it does not work, please send your message to <2>beep@satellytes.com</2>"
+      "again-text": "An error occurred. Please try again. If it does not work, please send your message to <2>beep@satellytes.com</2>",
+      "missing": "Please fill in the missing fields",
+      "send": "Send",
+      "sent": "Sent",
+      "again": "Send again"
     }
   },
   "imprint": {

@@ -88,15 +88,15 @@ export const ContactForm: React.FC = () => {
           <InputField
             required={true}
             inputRef={register('email', {
-              required: t<string>('career.error.email'),
+              required: t<string>('contact.error.email'),
               pattern: {
                 value: SIMPLE_EMAIL_PATTERN,
-                message: t<string>('career.error.email-unknown'),
+                message: t<string>('contact.error.email-unknown'),
               },
             })}
             error={errors.email}
             name="email"
-            label={t<string>('career.email')}
+            label={t<string>('contact.email')}
           />
         </GridItem>
         <GridItem>
@@ -113,22 +113,22 @@ export const ContactForm: React.FC = () => {
         </GridItem>
         <GridItem>
           <CaptionText>
-            <Sup>*</Sup> {t('career.mandatory-field')}
+            <Sup>*</Sup> {t('contact.mandatory-field')}
           </CaptionText>
         </GridItem>
         <GridItem>
           {requestStatus === 'pending' && (
             <SendButton type="submit">
-              <ButtonText>{t('career.action.send')}</ButtonText>{' '}
+              <ButtonText>{t('contact.action.send')}</ButtonText>{' '}
               <RightArrowIcon />
             </SendButton>
           )}
           {(errors.name || errors.email || errors.message) && (
-            <ErrorMessageSend>{t('career.action.missing')}</ErrorMessageSend>
+            <ErrorMessageSend>{t('contact.action.missing')}</ErrorMessageSend>
           )}
           {requestStatus === 'success' && (
             <SentButton type="button">
-              <ButtonText>{t('career.action.sent')}</ButtonText>{' '}
+              <ButtonText>{t('contact.action.sent')}</ButtonText>{' '}
               <CheckmarkIcon />
             </SentButton>
           )}
@@ -140,7 +140,7 @@ export const ContactForm: React.FC = () => {
                 <Link to="mailto:beep@satellytes.com">beep@satellytes.com</Link>
               </Trans>
               <SendButton type="submit">
-                <ButtonText>{t('career.action.again')}</ButtonText>{' '}
+                <ButtonText>{t('contact.action.again')}</ButtonText>{' '}
                 <RightArrowIcon />
               </SendButton>
             </>

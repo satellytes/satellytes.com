@@ -25,7 +25,7 @@
     "email": "E-Mail Adresse",
     "location": "Wohnort",
     "available-from": "Verfügbar ab",
-    "salary_expectations": "Gehaltsvorstellung",
+    "salary-expectations": "Gehaltsvorstellung",
     "cover-letter": "Anschreiben",
     "file-category": "Dokument-Kategorie",
     "cv": "Lebenslauf",
@@ -54,6 +54,10 @@
       "again-text": "Versuch es bitte noch einmal. Klappt es nicht dann schicke deine Bewerbung direkt an <1>career@satellytes.com</1>",
       "missing": "Bitte fülle alle benötigten Felder aus"
     },
+    "seo": {
+      "title": "Karriere - {{name}} | Satellytes",
+      "description": "Bewirb dich jetzt als {{name}}! Schaue Dir unsere anderen offenen Stelle an. Wir freuen uns auf Deine Bewerbung."
+    },
     "thank": "Danke für deine Bewerbung!",
     "email-confirmation": "Wir haben dir eine E-Mail zur Bestätigung geschickt und melden uns bei dir."
   },
@@ -76,13 +80,21 @@
     "title": "Kontakt",
     "info": "<0>Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine E-Mail an <1>beep@satellytes.com</1></0>",
     "name": "Name",
+    "email": "E-Mail Adresse",
     "message": "Deine Nachricht an uns",
+    "mandatory-field": "Pflichtfeld",
     "error": {
       "name": "Dein Name fehlt",
-      "message": "Deine Nachricht fehlt"
+      "message": "Deine Nachricht fehlt",
+      "email": "Deine E-Mail fehlt",
+      "email-undefined": "Irgendwas stimmt an dieser E-Mail nicht"
     },
     "action": {
-      "again-text": "Leider gab es einen Fehler. Bitte versuche es noch einmal. Klappt das nicht, schicke deine Nachricht bitte direkt an <2>beep@satellytes.com</2>"
+      "again-text": "Leider gab es einen Fehler. Bitte versuche es noch einmal. Klappt das nicht, schicke deine Nachricht bitte direkt an <2>beep@satellytes.com</2>",
+      "missing": "Bitte fülle alle benötigten Felder aus",
+      "send": "Senden",
+      "sent": "Gesendet",
+      "again": "Nochmal senden"
     }
   },
   "imprint": {
