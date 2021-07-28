@@ -138,13 +138,13 @@ const ClientListEntry: React.FC<ClientListEntryProps> = ({
   return (
     <ClientListEntryLi>
       <ClientListEntryLink to={path}>
-        <StyledTitle title={`Show client: ${localizedName}`}>
+        <StyledTitle title={t('clients.arrow-title', { name: localizedName })}>
           {localizedName}
         </StyledTitle>
         <StyledTimestamp>
           {t('clients.since')} {formatDate(start, 'MMMM y', language)}
         </StyledTimestamp>
-        <StyledArrow title={`Show client: ${localizedName}`}>
+        <StyledArrow title={t('clients.arrow-title', { name: localizedName })}>
           <RightArrowIcon />
         </StyledArrow>
       </ClientListEntryLink>

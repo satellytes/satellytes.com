@@ -76,7 +76,8 @@
     "title": "Kunden",
     "since": "Seit",
     "subheading": "Wir unterstützen große Konzerne bei der Umsetzung ihrer digitalen Strategien.",
-    "description": "Finden Sie heraus für welche Kunden & Branchen wir tätig sind."
+    "description": "Finden Sie heraus für welche Kunden & Branchen wir tätig sind.",
+    "arrow-title": "Zeige Kunden: {{name}}"
   },
   "contact": {
     "title": "Kontakt",

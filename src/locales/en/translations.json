@@ -76,7 +76,8 @@
     "title": "Clients",
     "since": "Since",
     "subheading": "We support large corporations in implementing their digital strategies.",
-    "description": "Find out which customers & industries we work for."
+    "description": "Find out which customers & industries we work for.",
+    "arrow-title": "Show client: {{name}}"
   },
   "contact": {
     "title": "Contact",
