@@ -7,7 +7,7 @@ import { CloseBurgerMenuIcon } from '../icons/buttons-icons/close-burger-menu';
 import { NavigationFlyout } from './menu-flyout';
 import { Link } from '../links/links';
 import { Swoosh } from '../icons/swoosh';
-import { useI18next, Link as LanguageLink } from 'gatsby-plugin-react-i18next';
+import { LanguageSwitch } from '../language-switch/language-switch';
 
 export const HEADER_HEIGHT = '65px';
 
@@ -42,37 +42,6 @@ const StyledHeader = styled.header<{
   ${up('md')} {
     padding: 0 24px;
   }
-`;
-
-const StyledLanguageSwitch = styled.button<{ selected?: boolean }>`
-  border: unset;
-  padding: unset;
-  background-color: transparent;
-  margin: 1px 0px 1px 12px;
-
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 110%;
-  cursor: pointer;
-  text-transform: uppercase;
-
-  ${({ selected }) => (selected ? `color: #668CFF;` : `color: #FFFFFF;`)}
-`;
-
-const StyledLanguageLink = styled(LanguageLink)<{ selected?: boolean }>`
-  border: unset;
-  padding: unset;
-  background-color: transparent;
-  margin: 1px 0px 1px 12px;
-
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 110%;
-  cursor: pointer;
-  text-transform: uppercase;
-  text-decoration: none;
-
-  ${({ selected }) => (selected ? `color: #668CFF;` : `color: #FFFFFF;`)}
 `;
 
 const HeaderSwoosh = styled(Swoosh)`
@@ -193,48 +162,5 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: end;
 `;
-
-const LanguageSwitch = ({ translation }) => {
-  const { languages, language, changeLanguage } = useI18next();
-  if (translation) {
-    // link to given url
-    return (
-      <div>
-        {languages.map((lng) => {
-          return (
-            <StyledLanguageLink
-              key={lng}
-              to={language === lng ? '' : translation || ''}
-              language={lng}
-              selected={language === lng}
-            >
-              {lng}
-            </StyledLanguageLink>
-          );
-        })}
-      </div>
-    );
-  } else {
-    // language switch (different locale, same pathname)
-    return (
-      <div>
-        {languages.map((lng) => {
-          return (
-            <StyledLanguageSwitch
-              key={lng}
-              onClick={(e) => {
-                e.preventDefault();
-                changeLanguage(lng);
-              }}
-              selected={language === lng}
-            >
-              {lng}
-            </StyledLanguageSwitch>
-          );
-        })}
-      </div>
-    );
-  }
-};
 
 export default Header;
