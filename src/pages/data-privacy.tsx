@@ -23,8 +23,8 @@ const DataPrivacyPage = ({ data }: DataPrivacyPageProps) => {
   return (
     <Layout>
       <SEO
-        title="Datenschutz | Satellytes"
-        description="Information über die Erhebung personenbezogener Daten"
+        title={`${t('data-privacy.title')} | Satellytes`}
+        description={t('data-privacy.info')}
         noIndex={true}
       />
       <Grid>

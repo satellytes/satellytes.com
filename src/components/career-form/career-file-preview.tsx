@@ -11,17 +11,6 @@ interface FilePreviewProps {
   children: ReactNode | ReactNode[];
 }
 
-export const FilePreview = ({ index, onClick, children }: FilePreviewProps) => {
-  return (
-    <Preview>
-      <Wrapper>{children}</Wrapper>
-      <Button onClick={(event) => onClick(event, index)}>
-        <Clear />
-      </Button>
-    </Preview>
-  );
-};
-
 const Preview = styled.div`
   display: flex;
   justify-content: space-between;
@@ -60,3 +49,14 @@ const Wrapper = styled.div`
     justify-content: space-between;
   }
 `;
+
+export const FilePreview = ({ index, onClick, children }: FilePreviewProps) => {
+  return (
+    <Preview>
+      <Wrapper>{children}</Wrapper>
+      <Button onClick={(event) => onClick(event, index)}>
+        <Clear />
+      </Button>
+    </Preview>
+  );
+};

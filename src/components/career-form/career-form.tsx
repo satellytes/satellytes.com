@@ -44,6 +44,74 @@ const API_ENDPOINT = 'https://api.personio.de/recruiting/applicant';
 const PRIVACY_POLICY = 'https://satellytes.jobs.personio.de/privacy-policy';
 export const SIMPLE_EMAIL_PATTERN = /.+@.+\..+/;
 
+const Container = styled.div`
+  margin-bottom: 24px;
+`;
+
+export const Headline = styled(TextTitle)`
+  margin-top: 40px;
+  margin-bottom: 29px;
+
+  ${up('md')} {
+    margin-top: 80px;
+  }
+`;
+
+const InfoTextContainer = styled.div`
+  display: flex;
+  align-items: left;
+  flex-direction: row;
+  margin: 24px 0px;
+  line-height: 24px;
+`;
+
+const PolicyText = styled.div`
+  width: calc(100% - 40px);
+  font-size: 14px;
+  line-height: 130%;
+
+  .policy-link {
+    font-size: 14px;
+    line-height: 110%;
+  }
+`;
+
+const CheckboxLabel = styled.label`
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    position: relative;
+    top: -2px;
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+    background: ${rgba('#7A8FCC', 0.3)};
+    border-radius: 4px;
+  }
+
+  &:hover::before {
+    background: ${rgba('#7A8FCC', 0.5)};
+  }
+`;
+
+const CheckboxContainer = styled.div`
+  position: relative;
+  cursor: pointer;
+
+  svg {
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    width: 11px;
+    height: 11px;
+  }
+`;
+
 export const CareerForm: React.FC<CareerFormProps> = (props) => {
   const {
     register,
@@ -228,71 +296,3 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
     </CareerFormStyled>
   );
 };
-
-const Container = styled.div`
-  margin-bottom: 24px;
-`;
-
-export const Headline = styled(TextTitle)`
-  margin-top: 40px;
-  margin-bottom: 29px;
-
-  ${up('md')} {
-    margin-top: 80px;
-  }
-`;
-
-const InfoTextContainer = styled.div`
-  display: flex;
-  align-items: left;
-  flex-direction: row;
-  margin: 24px 0px;
-  line-height: 24px;
-`;
-
-const PolicyText = styled.div`
-  width: calc(100% - 40px);
-  font-size: 14px;
-  line-height: 130%;
-
-  .policy-link {
-    font-size: 14px;
-    line-height: 110%;
-  }
-`;
-
-const CheckboxLabel = styled.label`
-  display: flex;
-  position: relative;
-  flex-direction: row;
-  cursor: pointer;
-
-  &::before {
-    content: '';
-    display: inline-block;
-    position: relative;
-    top: -2px;
-    width: 20px;
-    height: 20px;
-    margin-right: 20px;
-    background: ${rgba('#7A8FCC', 0.3)};
-    border-radius: 4px;
-  }
-
-  &:hover::before {
-    background: ${rgba('#7A8FCC', 0.5)};
-  }
-`;
-
-const CheckboxContainer = styled.div`
-  position: relative;
-  cursor: pointer;
-
-  svg {
-    position: absolute;
-    top: 2px;
-    left: 5px;
-    width: 11px;
-    height: 11px;
-  }
-`;

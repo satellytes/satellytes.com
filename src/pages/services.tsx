@@ -25,7 +25,7 @@ const ServicesPage = ({ data }: ServicePageProps) => {
     <>
       <Aurora type={AuroraType.Pink} />
       <Layout transparentHeader={true}>
-        <SEO title="Leistungen | Satellytes" />
+        <SEO title={`${t('services.title')} | Satellytes`} />
         <Grid>
           <GridItem>
             <PageTitle>{t('services.title')}</PageTitle>

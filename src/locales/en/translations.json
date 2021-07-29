@@ -64,7 +64,8 @@
     "email-confirmation": "We sent you a confirmation-email and we will contact you."
   },
   "office": {
-    "title": "Our Office",
+    "title": "Office",
+    "heading": "Our Office",
     "subheading": "Feel at home with us. A small impression of our office in Sendlinger Straße in the heart of Munich.",
     "link": "<0>If you want to work with us in this office, check out our <1>open positions</1>.</0>"
   },
@@ -81,7 +82,8 @@
   },
   "contact": {
     "title": "Contact",
-    "info": "<0>Use our contact-form or write an e-mail to <1>beep@satellytes.com</1></0>",
+    "info-link": "<0>Use our contact-form or write an e-mail to <1>beep@satellytes.com</1></0>",
+    "info": "Use our contact-form or write an e-mail to beep@satellytes.com",
     "name": "Name",
     "email": "E-mail-adresse",
     "message": "Your message to us",
@@ -101,7 +103,13 @@
     }
   },
   "imprint": {
+    "title": "Imprint",
+    "info": "Mandatory information according to § 5 Telemediengesetz/Impressum",
     "updated": "Updated: 16.July 2020, Created: 12.Sep. 2018"
+  },
+  "data-privacy": {
+    "title": "Data Privacy",
+    "info": "Information on the collection of personal data"
   },
   "navigation": {
     "menu": "Navigation",

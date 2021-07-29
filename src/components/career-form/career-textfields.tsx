@@ -3,7 +3,7 @@ import { GridItem } from '../grid/grid';
 import { InputField } from './career-components';
 import { SIMPLE_EMAIL_PATTERN } from './career-form';
 import { FieldValues, UseFormRegister } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 interface CareerTextFieldsProps {
   register: UseFormRegister<FieldValues>;

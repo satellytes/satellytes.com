@@ -15,7 +15,7 @@ const CAREER_DETAILS_TEMPLATE_PATH = path.resolve(
 const { siteMetadata } = require('./gatsby-config');
 const PERSONIO_JOBS_URL = 'https://satellytes.jobs.personio.de/xml';
 const PERSONIO_SHORT_DESCRIPTION_NAME = 'Kurzbeschreibung';
-const SLUG = 'Slug';
+const PERSONIO_SLUG = 'Slug';
 const LANGUAGES = ['en', 'de'];
 
 exports.onCreateNode = ({ node, getNode, actions, graphql }, options) => {
@@ -88,14 +88,32 @@ const createCareerPages = async ({ actions }) => {
         // position is valid if it has a job description and slug
         const isValidPosition = (position) => {
           const { jobDescription } = position.jobDescriptions;
-          return Array.isArray(jobDescription);
+          const isArray = Array.isArray(jobDescription);
+          if (isArray) {
+            const slug = jobDescription.find(
+              (description) =>
+                description.name.trim() === PERSONIO_SLUG &&
+                description.value.trim(),
+            );
+            if (slug || position.satellytesPath) {
+              return true;
+            } else {
+              console.warn(
+                `No slug for job "${position.name}" (${position.id}) found!`,
+              );
+            }
+          }
+          return false;
         };
 
         const getSlug = (position) => {
-          if (position.satellytesPath) return position.satellytesPath;
+          if (position.satellytesPath) {
+            return position.satellytesPath;
+          }
           const slug = position.jobDescriptions.jobDescription.find(
             (description) =>
-              description.name.trim() === SLUG && description.value.trim(),
+              description.name.trim() === PERSONIO_SLUG &&
+              description.value.trim(),
           );
           return `/career/${slug.value.trim()}/`;
         };
@@ -116,8 +134,8 @@ const createCareerPages = async ({ actions }) => {
           position.jobDescriptions.jobDescription =
             position.jobDescriptions.jobDescription
               .map((description) => {
-                if (description.name.trim() === SLUG) {
-                  position.satellytesPath = `/career/${description.value.trim()}/`;
+                if (description.name.trim() === PERSONIO_SLUG) {
+                  position.satellytesPath = getSlug(position);
                   return undefined;
                 } else {
                   return {

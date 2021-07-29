@@ -22,6 +22,56 @@ interface CareerFileUploadTypeProps {
   file: File;
 }
 
+const StyledSelect = styled.select`
+  appearance: none;
+  position: relative;
+  width: 100%;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 20px;
+  padding: 9px 37px 8px 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  ${up('md')} {
+    width: unset;
+    display: inline-block;
+    min-width: 144px;
+    margin-top: 0px;
+  }
+`;
+
+const Wrapper = styled.div`
+  display: block;
+  position: relative;
+  background: none;
+  border: none;
+  width: calc(100% + 25px);
+  margin-top: 10px;
+  ${up('md')} {
+    display: inline-block;
+    width: unset;
+    margin-top: 0px;
+  }
+`;
+
+const SelectContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  > svg {
+    position: absolute;
+    right: 16px;
+    height: 32px;
+    z-index: -1;
+  }
+`;
+
+const FormErrorWrapper = styled.div`
+  margin-left: 16px;
+`;
+
 export const CareerFileUploadType = ({
   errors,
   file,
@@ -74,53 +124,3 @@ export const CareerFileUploadType = ({
     </Wrapper>
   );
 };
-
-const StyledSelect = styled.select`
-  appearance: none;
-  position: relative;
-  width: 100%;
-  height: 32px;
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
-  border-radius: 20px;
-  padding: 9px 37px 8px 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 14px;
-  cursor: pointer;
-  ${up('md')} {
-    width: unset;
-    display: inline-block;
-    min-width: 144px;
-    margin-top: 0px;
-  }
-`;
-
-const Wrapper = styled.div`
-  display: block;
-  position: relative;
-  background: none;
-  border: none;
-  width: calc(100% + 25px);
-  margin-top: 10px;
-  ${up('md')} {
-    display: inline-block;
-    width: unset;
-    margin-top: 0px;
-  }
-`;
-
-const SelectContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  > svg {
-    position: absolute;
-    right: 16px;
-    height: 32px;
-    z-index: -1;
-  }
-`;
-
-const FormErrorWrapper = styled.div`
-  margin-left: 16px;
-`;

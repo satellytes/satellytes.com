@@ -17,7 +17,7 @@ import { FilePreview } from './career-file-preview';
 import { FormError } from './career-components';
 import { CareerFileUploadType } from './career-file-upload-type';
 import { rgba } from 'polished';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 interface FileUploadProps {
   setValue: UseFormSetValue<FieldValues>;
@@ -33,6 +33,73 @@ interface FileUploadProps {
 
 const MAX_NUMBER = 3;
 const MAX_SIZE = 20000000; // maximal size per document of personio
+
+const FileInputLabel = styled.label<FileUploadProps & DropzoneRootProps>`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 24px;
+  height: 56px;
+
+  ${({ selectedFiles }) =>
+    (!selectedFiles || selectedFiles.length === 0) &&
+    css`
+      align-items: center;
+      padding: 56px;
+      height: unset;
+    `}
+
+  border-radius: 4px;
+  ${({ isDragActive }) =>
+    isDragActive &&
+    css`
+      border: 2px solid ${theme.palette.primary.main};
+    `}
+
+  margin-bottom: 2px;
+  width: 100%;
+  background: ${rgba('#7A8FCC', 0.2)};
+  cursor: pointer;
+
+  ${({ hasError }) =>
+    hasError &&
+    css`
+      background-color: #f8cdd5;
+      color: #202840;
+    `};
+
+  &:hover {
+    background: ${rgba('#7A8FCC', 0.5)};
+  }
+
+  svg {
+    margin-bottom: 18px;
+  }
+
+  span {
+    display: inline;
+    color: ${theme.palette.text.link.default};
+    line-height: 150%;
+    font-weight: bold;
+  }
+`;
+
+const FileInput = styled(Input)`
+  display: none;
+`;
+
+const FileNameWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const FileName = styled.span`
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+`;
 
 export const FileUpload = ({
   setValue,
@@ -207,70 +274,3 @@ export const FileUpload = ({
     </>
   );
 };
-
-const FileInputLabel = styled.label<FileUploadProps & DropzoneRootProps>`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 24px;
-  height: 56px;
-
-  ${({ selectedFiles }) =>
-    (!selectedFiles || selectedFiles.length === 0) &&
-    css`
-      align-items: center;
-      padding: 56px;
-      height: unset;
-    `}
-
-  border-radius: 4px;
-  ${({ isDragActive }) =>
-    isDragActive &&
-    css`
-      border: 2px solid ${theme.palette.primary.main};
-    `}
-
-  margin-bottom: 2px;
-  width: 100%;
-  background: ${rgba('#7A8FCC', 0.2)};
-  cursor: pointer;
-
-  ${({ hasError }) =>
-    hasError &&
-    css`
-      background-color: #f8cdd5;
-      color: #202840;
-    `};
-
-  &:hover {
-    background: ${rgba('#7A8FCC', 0.5)};
-  }
-
-  svg {
-    margin-bottom: 18px;
-  }
-
-  span {
-    display: inline;
-    color: ${theme.palette.text.link.default};
-    line-height: 150%;
-    font-weight: bold;
-  }
-`;
-
-const FileInput = styled(Input)`
-  display: none;
-`;
-
-const FileNameWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-
-const FileName = styled.span`
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-`;

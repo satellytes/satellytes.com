@@ -30,8 +30,8 @@ const ImprintPage = ({ data }: ImprintPageProps) => {
   return (
     <Layout>
       <SEO
-        title="Impressum | Satellytes"
-        description="Pflichtangaben nach § 5 Telemediengesetz/Impressum"
+        title={`${t('imprint.title')} | Satellytes`}
+        description={t('imprint.info')}
         noIndex={true}
       />
       <Grid>

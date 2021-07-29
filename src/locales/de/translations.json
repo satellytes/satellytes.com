@@ -64,7 +64,8 @@
     "email-confirmation": "Wir haben dir eine E-Mail zur Bestätigung geschickt und melden uns bei dir."
   },
   "office": {
-    "title": "Unser Büro",
+    "title": "Büro",
+    "heading": "Unser Büro",
     "subheading": "Fühl dich wohl bei uns. Ein kleiner Eindruck von unserem Büro in der Sendlinger Straße im Herzen Münchens.",
     "link": "<0>Wenn du mit uns in diesem Office arbeiten möchtest, dann schau dir doch unsere <1>offenen Stellen</1> an.</0>"
   },
@@ -81,7 +82,8 @@
   },
   "contact": {
     "title": "Kontakt",
-    "info": "<0>Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine E-Mail an <1>beep@satellytes.com</1></0>",
+    "info-text": "<0>Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine E-Mail an <1>beep@satellytes.com</1></0>",
+    "info": "Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine E-Mail an beep@satellytes.com",
     "name": "Name",
     "email": "E-Mail Adresse",
     "message": "Deine Nachricht an uns",
@@ -101,7 +103,13 @@
     }
   },
   "imprint": {
+    "title": "Impressum",
+    "info": "Pflichtangaben nach § 5 Telemediengesetz/Impressum",
     "updated": "Aktualisiert: 16.Juli 2020, Erstellt: 12.Sep. 2018"
+  },
+  "data-privacy": {
+    "title": "Datenschutz",
+    "info": "Information über die Erhebung personenbezogener Daten"
   },
   "navigation": {
     "menu": "Menu",

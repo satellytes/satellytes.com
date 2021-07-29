@@ -94,6 +94,11 @@ const SiteMenu = styled.button<{ $lightTheme: boolean }>`
   }
 `;
 
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: end;
+`;
+
 interface HeaderProps {
   siteTitle: string;
   siteTitleUrl?: string;
@@ -157,10 +162,5 @@ const Header: React.FC<HeaderProps> = (props) => {
     </StyledHeader>
   );
 };
-
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: end;
-`;
 
 export default Header;

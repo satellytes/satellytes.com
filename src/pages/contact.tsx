@@ -25,8 +25,8 @@ const ContactPage: React.FC = () => {
     <>
       <Layout transparentHeader={true} hero={<Leaflet />}>
         <SEO
-          title="Kontakt | Satellytes"
-          description="Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine E-Mail an beep@satellytes.com"
+          title={`${t('contact.title')} | Satellytes`}
+          description={t('contact.info')}
         />
 
         <Grid center>
@@ -45,7 +45,7 @@ const ContactPage: React.FC = () => {
                 Google Maps &gt;
               </TextLink>
               <SubTitle>E-Mail</SubTitle>
-              <Trans i18nKey="contact.info">
+              <Trans i18nKey="contact.info-link">
                 <Text style={{ marginBottom: '40px' }}>
                   Nutzen Sie unser Koaktformular oder schreiben Sie uns eine
                   E-Mail an

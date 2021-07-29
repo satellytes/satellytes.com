@@ -26,7 +26,7 @@ const ClientsPage = ({ data }: ClientPageProps) => {
       <Aurora type={AuroraType.Pink} />
       <Layout transparentHeader={true}>
         <SEO
-          title="Kunden | Satellytes"
+          title={`${t('clients.title')} | Satellytes`}
           description={`${t('clients.subheading')} ${t('clients.description')}`}
         />
         <Grid>

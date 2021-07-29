@@ -37,10 +37,10 @@ const OfficePage = () => {
   const { language } = useI18next();
   return (
     <Layout>
-      <SEO title="Office | Satellytes" />
+      <SEO title={`${t('office.title')} | Satellytes`} />
       <Grid>
         <GridItem>
-          <PageTitle>{t('office.title')}</PageTitle>
+          <PageTitle>{t('office.heading')}</PageTitle>
         </GridItem>
 
         <GridItem xs={12} md={8}>
