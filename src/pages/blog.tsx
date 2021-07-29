@@ -41,6 +41,7 @@ interface BlogPageProps {
     locales: LocalesQuery;
     allMarkdownRemark: AllBlogPostsQuery;
   };
+  location: Location;
 }
 
 const BlogPageTitle = styled(PageTitle)`
@@ -52,7 +53,7 @@ const BlogPageSubTitle = styled(Text)`
   white-space: pre-line;
 `;
 
-const BlogPage = ({ data }: BlogPageProps) => {
+const BlogPage = ({ data, location }: BlogPageProps) => {
   const { t } = useTranslation();
   const blogPosts = data.allMarkdownRemark.nodes;
   const { language, changeLanguage } = useI18next();
@@ -64,7 +65,7 @@ const BlogPage = ({ data }: BlogPageProps) => {
 
   return (
     <Layout light showLanguageSwitch={false}>
-      <SEO title="Blog | Satellytes" />
+      <SEO title="Blog | Satellytes" location={location} />
       <Grid center>
         <GridItem>
           <BlogPageTitle>{t('navigation.blog')}</BlogPageTitle>

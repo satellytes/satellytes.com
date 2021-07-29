@@ -23,7 +23,11 @@ export const LanguageSwitch = ({ translation }) => {
         return (
           <StyledLanguageLink
             key={languageOfLink}
-            to={translation || originalPath}
+            to={
+              language !== languageOfLink && translation
+                ? translation
+                : originalPath
+            }
             language={languageOfLink}
             selected={language === languageOfLink}
           >

@@ -44,6 +44,7 @@ interface BlogArticleTemplateProps {
       rawMarkdownBody: string;
     };
   };
+  location: Location;
 }
 
 const BlogPostTitle = styled(SectionTitle)`
@@ -76,7 +77,10 @@ const BlogHeader = ({ readingTime, frontmatter }) => {
   );
 };
 
-const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
+const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
+  data,
+  location,
+}) => {
   const markdown = data.markdownRemark;
 
   const { featuredImage, featuredImageSquared, attribution } =
@@ -109,6 +113,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
         imageUrl={markdown.fields?.socialCard}
         siteType="article"
         description={markdown.frontmatter.shortSummary ?? markdown.excerpt}
+        location={location}
       />
       <Grid center>
         <GridItem xs={0} md={2} />

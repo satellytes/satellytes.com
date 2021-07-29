@@ -76,15 +76,16 @@ interface IndexPageProps {
     locales: LocalesQuery;
     allClientsJson: AllClientsQuery;
   };
+  location: Location;
 }
 
-const IndexPage = ({ data }: IndexPageProps) => {
+const IndexPage = ({ data, location }: IndexPageProps) => {
   const { t } = useTranslation();
   return (
     <>
       <Aurora type={AuroraType.BrightBlue} />
       <Layout transparentHeader={true}>
-        <SEO title="Satellytes" />
+        <SEO title="Satellytes" location={location} />
         <Grid center>
           <GridItem xs={0} md={2} />
           <GridItem xs={12} md={8}>

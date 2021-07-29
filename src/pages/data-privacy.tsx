@@ -16,15 +16,17 @@ interface DataPrivacyPageProps {
       htmlAst: string;
     };
   };
+  location: Location;
 }
 
-const DataPrivacyPage = ({ data }: DataPrivacyPageProps) => {
+const DataPrivacyPage = ({ data, location }: DataPrivacyPageProps) => {
   const { t } = useTranslation();
   return (
     <Layout>
       <SEO
         title={`${t('data-privacy.title')} | Satellytes`}
         description={t('data-privacy.info')}
+        location={location}
         noIndex={true}
       />
       <Grid>

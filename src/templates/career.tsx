@@ -77,6 +77,7 @@ interface CareerPageProps {
     positions: PersonioJobPosition[];
     language: string;
   };
+  location: Location;
   data: {
     markdownRemark: CareerQuery;
     locales: {
@@ -91,7 +92,11 @@ interface CareerPageProps {
   };
 }
 
-const CareerPage = ({ pageContext, data }: CareerPageProps): JSX.Element => {
+const CareerPage = ({
+  pageContext,
+  data,
+  location,
+}: CareerPageProps): JSX.Element => {
   const { t } = useTranslation();
 
   const socialCard = data.markdownRemark?.fields?.socialCard;
@@ -103,6 +108,7 @@ const CareerPage = ({ pageContext, data }: CareerPageProps): JSX.Element => {
           imageUrl={socialCard}
           title={t('career.seo.title')}
           description={t('career.seo.description')}
+          location={location}
         />
         <Grid>
           <GridItem>

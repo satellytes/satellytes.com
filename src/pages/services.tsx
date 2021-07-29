@@ -17,15 +17,19 @@ interface ServicePageProps {
       htmlAst: string;
     };
   };
+  location: Location;
 }
 
-const ServicesPage = ({ data }: ServicePageProps) => {
+const ServicesPage = ({ data, location }: ServicePageProps) => {
   const { t } = useTranslation();
   return (
     <>
       <Aurora type={AuroraType.Pink} />
       <Layout transparentHeader={true}>
-        <SEO title={`${t('services.title')} | Satellytes`} />
+        <SEO
+          title={`${t('services.title')} | Satellytes`}
+          location={location}
+        />
         <Grid>
           <GridItem>
             <PageTitle>{t('services.title')}</PageTitle>

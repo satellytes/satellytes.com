@@ -19,7 +19,11 @@ const ContactTitle = styled(SubTitle)`
   }
 `;
 
-const ContactPage: React.FC = () => {
+interface ContactPageProps {
+  location: Location;
+}
+
+const ContactPage: React.FC<ContactPageProps> = (props: ContactPageProps) => {
   const { t } = useTranslation();
   return (
     <>
@@ -27,6 +31,7 @@ const ContactPage: React.FC = () => {
         <SEO
           title={`${t('contact.title')} | Satellytes`}
           description={t('contact.info')}
+          location={props.location}
         />
 
         <Grid center>

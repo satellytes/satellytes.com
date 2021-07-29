@@ -76,6 +76,7 @@ interface CareerPageProps {
     language: string;
     translation: string;
   };
+  location: Location;
 }
 const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
   const { pageContext } = props;
@@ -116,6 +117,7 @@ const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
             name: pageContext.position.name,
           })}
           translation={pageContext.translation}
+          location={props.location}
         />
         <Grid>
           <GridItem xs={12} md={8}>

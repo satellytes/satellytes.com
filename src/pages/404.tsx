@@ -14,9 +14,15 @@ const NotFoundTitle = styled(SubTitle)`
   }
 `;
 
-const NotFoundPage: React.FC = () => (
+interface NotFoundPageProps {
+  location: Location;
+}
+
+const NotFoundPage: React.FC<NotFoundPageProps> = ({
+  location,
+}: NotFoundPageProps) => (
   <Layout>
-    <SEO title="404: Not found | Satellytes" />
+    <SEO title="404: Not found | Satellytes" location={location} />
     <Grid center>
       <GridItem xs={0} md={2} />
       <GridItem xs={12} md={8}>

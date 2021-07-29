@@ -17,9 +17,10 @@ interface ClientPageProps {
       htmlAst: string;
     };
   };
+  location: Location;
 }
 
-const ClientsPage = ({ data }: ClientPageProps) => {
+const ClientsPage = ({ data, location }: ClientPageProps) => {
   const { t } = useTranslation();
   return (
     <>
@@ -28,6 +29,7 @@ const ClientsPage = ({ data }: ClientPageProps) => {
         <SEO
           title={`${t('clients.title')} | Satellytes`}
           description={`${t('clients.subheading')} ${t('clients.description')}`}
+          location={location}
         />
         <Grid>
           <GridItem>

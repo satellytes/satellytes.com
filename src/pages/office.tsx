@@ -32,12 +32,16 @@ const Intro = styled(LargeText)`
   }
 `;
 
-const OfficePage = () => {
+interface OfficePageProps {
+  location: Location;
+}
+
+const OfficePage = ({ location }: OfficePageProps) => {
   const { t } = useTranslation();
   const { language } = useI18next();
   return (
     <Layout>
-      <SEO title={`${t('office.title')} | Satellytes`} />
+      <SEO title={`${t('office.title')} | Satellytes`} location={location} />
       <Grid>
         <GridItem>
           <PageTitle>{t('office.heading')}</PageTitle>

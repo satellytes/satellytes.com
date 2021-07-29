@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import CocoGothicBoldWoff2 from './layout/fonts/CocoGothic-Bold.woff2';
 import CocoGothicWoff2 from './layout/fonts/CocoGothic.woff2';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 const DEFAULT_META_IMAGE_URL_PATH = '/sy-share-image.jpg';
 const LANGUAGES = ['en', 'de'];
@@ -16,6 +16,7 @@ interface SeoProps {
   siteType?: string;
   noIndex?: boolean;
   translation?: string;
+  location: Location;
 }
 
 const SEO: React.FC<SeoProps> = ({
@@ -25,6 +26,7 @@ const SEO: React.FC<SeoProps> = ({
   siteType,
   noIndex,
   translation,
+  location,
 }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -48,12 +50,7 @@ const SEO: React.FC<SeoProps> = ({
 
   const { language } = useI18next();
 
-  let origin;
-  let pathname;
-  if (typeof window !== 'undefined') {
-    origin = window.location.origin;
-    pathname = window.location.pathname.replace('/de', '');
-  }
+  const currentPathname = location.pathname.replace('/de', '');
 
   const prependAndAppendTrailingSlash = (path) => {
     const prependedPath = path.startsWith('/') ? path : `/${path}`;
@@ -64,25 +61,21 @@ const SEO: React.FC<SeoProps> = ({
   // This will help Google to show the most appropriate version by language,
   // for more information: https://developers.google.com/search/docs/advanced/crawling/localized-versions#html
   const listLocalizedVersions = () => {
-    return (
-      (origin &&
-        pathname &&
-        LANGUAGES.map((lang) => {
-          const href = `${origin}${lang === 'en' ? '' : `/${lang}`}`;
-          pathname =
-            language !== lang && translation
-              ? prependAndAppendTrailingSlash(translation)
-              : pathname;
-          return (
-            <link
-              rel="alternate"
-              href={href.concat(pathname)}
-              hrefLang={lang}
-              key={lang}
-            />
-          );
-        })) || <div />
-    );
+    return LANGUAGES.map((lang) => {
+      const href = `${location.origin}${lang === 'en' ? '' : `/${lang}`}`;
+      const pathname =
+        language !== lang && translation
+          ? prependAndAppendTrailingSlash(translation)
+          : currentPathname;
+      return (
+        <link
+          rel="alternate"
+          href={href.concat(pathname)}
+          hrefLang={lang}
+          key={lang}
+        />
+      );
+    });
   };
 
   return (

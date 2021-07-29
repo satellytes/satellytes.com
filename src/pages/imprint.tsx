@@ -23,15 +23,17 @@ interface ImprintPageProps {
       htmlAst: string;
     };
   };
+  location: Location;
 }
 
-const ImprintPage = ({ data }: ImprintPageProps) => {
+const ImprintPage = ({ data, location }: ImprintPageProps) => {
   const { t } = useTranslation();
   return (
     <Layout>
       <SEO
         title={`${t('imprint.title')} | Satellytes`}
         description={t('imprint.info')}
+        location={location}
         noIndex={true}
       />
       <Grid>
