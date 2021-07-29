@@ -1,17 +1,54 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const BurgerMenu: React.FC = () => (
-  <svg
-    width="12"
-    height="10"
-    viewBox="0 0 12 10"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <rect width="12" height="2" rx="1" fill="#668CFF" />
-    <rect x="2" y="4" width="10" height="2" rx="1" fill="#668CFF" />
-    <rect x="4" y="8" width="8" height="2" rx="1" fill="#668CFF" />
-  </svg>
+export const BurgerMenu = () => (
+  <Wrapper>
+    <div className="bar" />
+    <div className="bar" />
+    <div className="bar" />
+  </Wrapper>
 );
 
-export default BurgerMenu;
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  .bar {
+    height: 2px;
+    margin-bottom: 2px;
+    background-color: white;
+    border-radius: 2px;
+  }
+
+  .bar:nth-child(1) {
+    transition: all 0.1s 0.2s;
+    width: 12px;
+  }
+
+  .bar:nth-child(2) {
+    transition: all 0.1s 0.1s;
+    width: 10px;
+  }
+
+  .bar:nth-child(3) {
+    transition: all 0.1s;
+    width: 8px;
+    margin-bottom: 0px;
+  }
+
+  &:hover {
+    .bar:nth-child(1) {
+      transition: all 0.1s;
+      width: 18px;
+    }
+    .bar:nth-child(2) {
+      transition: all 0.1s 0.1s;
+      width: 14px;
+    }
+    .bar:nth-child(3) {
+      transition: all 0.1s 0.2s;
+      width: 10px;
+    }
+  }
+`;

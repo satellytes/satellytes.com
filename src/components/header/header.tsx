@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
 import { GRID_GAP_DESKTOP, GRID_GAP_MOBILE } from '../grid/grid';
-import BurgerMenu from '../icons/burger-menu';
+import { BurgerMenu } from '../icons/burger-menu';
 import { CloseBurgerMenuIcon } from '../icons/buttons-icons/close-burger-menu';
 import { NavigationFlyout } from './menu-flyout';
 import { Link } from '../links/links';
@@ -83,6 +83,13 @@ const SiteMenu = styled.button<{ $lightTheme: boolean }>`
   ${up('md')} {
     margin-right: -${() => GRID_GAP_DESKTOP};
     padding-right: ${() => GRID_GAP_DESKTOP};
+  }
+
+  .bar {
+    background-color: ${(props) =>
+      props.$lightTheme
+        ? props.theme.palette.text.headerLight
+        : props.theme.palette.text.header};
   }
 
   rect {
