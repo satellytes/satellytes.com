@@ -22,33 +22,44 @@ const Wrapper = styled.div`
   }
 
   .bar:nth-child(1) {
-    transition: all 0.1s 0.2s;
     width: 12px;
   }
 
   .bar:nth-child(2) {
-    transition: all 0.1s 0.1s;
     width: 10px;
   }
 
   .bar:nth-child(3) {
-    transition: all 0.1s;
     width: 8px;
     margin-bottom: 0px;
   }
 
-  &:hover {
+  @media (pointer: fine) {
     .bar:nth-child(1) {
-      transition: all 0.1s;
-      width: 18px;
+      transition: all 0.1s 0.2s;
     }
+
     .bar:nth-child(2) {
       transition: all 0.1s 0.1s;
-      width: 14px;
     }
+
     .bar:nth-child(3) {
-      transition: all 0.1s 0.2s;
-      width: 10px;
+      transition: all 0.1s;
+    }
+
+    &:hover {
+      .bar:nth-child(1) {
+        transition: all 0.1s;
+        width: 18px;
+      }
+      .bar:nth-child(2) {
+        transition: all 0.1s 0.1s;
+        width: 14px;
+      }
+      .bar:nth-child(3) {
+        transition: all 0.1s 0.2s;
+        width: 10px;
+      }
     }
   }
 `;
