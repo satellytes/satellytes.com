@@ -1,3 +1,7 @@
+const {
+  extractPersonioSlug,
+  PERSONIO_SLUG_FIELD_NAME,
+} = require('./gatsby/extract-personio-slug');
 const { generateCard } = require('./tooling/generate-card/generate-card');
 const slugify = require('slugify');
 const path = require('path');
@@ -15,7 +19,6 @@ const CAREER_DETAILS_TEMPLATE_PATH = path.resolve(
 const { siteMetadata } = require('./gatsby-config');
 const PERSONIO_JOBS_URL = 'https://satellytes.jobs.personio.de/xml';
 const PERSONIO_SHORT_DESCRIPTION_NAME = 'Kurzbeschreibung';
-const PERSONIO_SLUG = 'Slug';
 const LANGUAGES = ['en', 'de'];
 
 exports.onCreateNode = ({ node, getNode, actions, graphql }, options) => {
@@ -92,7 +95,7 @@ const createCareerPages = async ({ actions }) => {
           if (isArray) {
             const slug = jobDescription.find(
               (description) =>
-                description.name.trim() === PERSONIO_SLUG &&
+                description.name.trim() === PERSONIO_SLUG_FIELD_NAME &&
                 description.value.trim(),
             );
             if (slug || position.satellytesPath) {
@@ -110,12 +113,11 @@ const createCareerPages = async ({ actions }) => {
           if (position.satellytesPath) {
             return position.satellytesPath;
           }
-          const slug = position.jobDescriptions.jobDescription.find(
-            (description) =>
-              description.name.trim() === PERSONIO_SLUG &&
-              description.value.trim(),
+
+          const slug = extractPersonioSlug(
+            position.jobDescriptions.jobDescription,
           );
-          return `/career/${slug.value.trim()}/`;
+          return `/career/${slug}/`;
         };
 
         positions.forEach((position) => {
@@ -134,7 +136,7 @@ const createCareerPages = async ({ actions }) => {
           position.jobDescriptions.jobDescription =
             position.jobDescriptions.jobDescription
               .map((description) => {
-                if (description.name.trim() === PERSONIO_SLUG) {
+                if (description.name.trim() === PERSONIO_SLUG_FIELD_NAME) {
                   position.satellytesPath = getSlug(position);
                   return undefined;
                 } else {
