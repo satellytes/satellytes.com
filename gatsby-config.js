@@ -186,6 +186,4 @@ module.exports = {
       },
     },
   ],
-  LANGUAGES,
-  DEFAULT_LANGUAGE,
 };

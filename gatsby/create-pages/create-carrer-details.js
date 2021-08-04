@@ -7,7 +7,7 @@ const {
 } = require('../util/extract-personio-slug');
 const slugify = require('slugify');
 const path = require('path');
-const { siteMetadata, LANGUAGES } = require('../../gatsby-config');
+const { siteMetadata } = require('../../gatsby-config');
 const {
   generateCard,
 } = require('../util/preview-card-generator/generate-card');
@@ -20,6 +20,7 @@ const CAREER_DETAILS_TEMPLATE_PATH = path.resolve(
 
 const PERSONIO_JOBS_URL = 'https://satellytes.jobs.personio.de/xml';
 const PERSONIO_SHORT_DESCRIPTION_NAME = 'Kurzbeschreibung';
+const PERSONIO_LANGUAGES = ['en', 'de'];
 
 /**
  * Generate all career pages by querying the personio API.
@@ -32,19 +33,21 @@ const PERSONIO_SHORT_DESCRIPTION_NAME = 'Kurzbeschreibung';
 const createCareerDetails = async ({ actions }) => {
   const { createPage } = actions;
 
-  const fetchPositionsByLanguage = LANGUAGES.map(async (languageKey) => {
-    const PERSONIO_JOBS_URL_LANG = PERSONIO_JOBS_URL.concat(
-      `?language=${languageKey}`,
-    );
-    const jobsXmlResponse = await fetch(PERSONIO_JOBS_URL_LANG);
-    const jobsXml = await jobsXmlResponse.text();
-    const options = {
-      tagValueProcessor: (a) => decode(a), // &#039; -> '
-    };
-    const jobsParse = xmlParser.parse(jobsXml, options);
-    const positions = jobsParse['workzag-jobs'].position;
-    return { positions, languageKey };
-  });
+  const fetchPositionsByLanguage = PERSONIO_LANGUAGES.map(
+    async (languageKey) => {
+      const PERSONIO_JOBS_URL_LANG = PERSONIO_JOBS_URL.concat(
+        `?language=${languageKey}`,
+      );
+      const jobsXmlResponse = await fetch(PERSONIO_JOBS_URL_LANG);
+      const jobsXml = await jobsXmlResponse.text();
+      const options = {
+        tagValueProcessor: (a) => decode(a), // &#039; -> '
+      };
+      const jobsParse = xmlParser.parse(jobsXml, options);
+      const positions = jobsParse['workzag-jobs'].position;
+      return { positions, languageKey };
+    },
+  );
 
   await Promise.all(fetchPositionsByLanguage).then(
     async (positionsByLanguage) => {
