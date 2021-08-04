@@ -8,6 +8,8 @@ const path = require('path');
 const fetch = require('node-fetch');
 const xmlParser = require('fast-xml-parser');
 const { decode } = require('html-entities');
+const { siteMetadata } = require('./gatsby-config');
+const { createRedirects } = require('./gatsby/create-pages/create-redirects');
 
 const BLOG_POST_TEMPLATE_PATH = path.resolve('src/templates/blog-post.tsx');
 const CLIENT_TEMPLATE_PATH = path.resolve('src/templates/client-details.tsx');
@@ -16,8 +18,6 @@ const CAREER_DETAILS_TEMPLATE_PATH = path.resolve(
   'src/templates/career-details.tsx',
 );
 
-const { siteMetadata } = require('./gatsby-config');
-const { createRedirects } = require('./gatsby/create-pages/create-redirects');
 const PERSONIO_JOBS_URL = 'https://satellytes.jobs.personio.de/xml';
 const PERSONIO_SHORT_DESCRIPTION_NAME = 'Kurzbeschreibung';
 const LANGUAGES = ['en', 'de'];
