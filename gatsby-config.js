@@ -15,6 +15,8 @@ const SEO_EXCLUDED_URLS = [
   '/data-privacy/',
   '/de/imprint/',
   '/de/data-privacy/',
+  '/**/404',
+  '/**/404.html',
 ];
 
 module.exports = {
