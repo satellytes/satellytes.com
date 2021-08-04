@@ -1,30 +1,16 @@
-/**
- * On gatsby cloud the deployment urls follow a strict pattern:
- * - https:// DOMAIN_NAME - BRANCH_NAME .gatsby.io
- *
- * Only lower case letters and numbers are used, everything else is filtered out.
- *
- */
-const extractGatsbyCloudPreviewUrl = () => {
-  const PRODUCTION_BRANCH_NAME = 'main';
-  const DOMAIN_NAME = 'satellytescommain';
+const {
+  detectGatsbyCloudPreviewUrl,
+} = require('./gatsby/util/detect-gatsby-cloud-preview-url');
 
-  // the branch name is set via an env variable on gatsby cloud
-  // -> https://support.gatsbyjs.com/hc/en-us/articles/360052322954-Environment-Variables-Specific-to-Gatsby-Cloud
-  const BRANCH_NAME = process.env.BRANCH;
-  if (!BRANCH_NAME || BRANCH_NAME === PRODUCTION_BRANCH_NAME) {
-    return process.env.GATBSY_BASE_URL || '';
-  }
+const BASE_URL = detectGatsbyCloudPreviewUrl() || 'http://localhost:8000';
 
-  const formattedBranchName = BRANCH_NAME.toLowerCase().replace(
-    /[^a-zA-Z0-9]/gi,
-    '',
-  );
-
-  return `https://${DOMAIN_NAME}-${formattedBranchName}.gtsb.io`;
-};
-
-const BASE_URL = extractGatsbyCloudPreviewUrl() || 'http://localhost:8000';
+// excluded urls for sitemap and robots.txt
+const SEO_EXCLUDED_URLS = [
+  '/imprint/',
+  '/data-privacy/',
+  '/de/imprint/',
+  '/de/data-privacy/',
+];
 
 module.exports = {
   flags: {
@@ -131,12 +117,7 @@ module.exports = {
           {
             userAgent: '*',
             allow: '/',
-            disallow: [
-              '/imprint/',
-              '/data-privacy/',
-              '/de/imprint/',
-              '/de/data-privacy/',
-            ],
+            disallow: SEO_EXCLUDED_URLS,
           },
         ],
       },
@@ -144,12 +125,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        excludes: [
-          '/imprint/',
-          '/data-privacy/',
-          '/de/imprint/',
-          '/de/data-privacy/',
-        ],
+        excludes: SEO_EXCLUDED_URLS,
         resolvePagePath: ({ path }) => {
           if (!path.endsWith('/')) {
             console.warn(

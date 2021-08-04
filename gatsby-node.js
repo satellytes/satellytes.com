@@ -1,7 +1,7 @@
 const {
   extractPersonioSlug,
   PERSONIO_SLUG_FIELD_NAME,
-} = require('./gatsby/extract-personio-slug');
+} = require('./gatsby/util/extract-personio-slug');
 const { generateCard } = require('./tooling/generate-card/generate-card');
 const slugify = require('slugify');
 const path = require('path');
