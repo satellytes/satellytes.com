@@ -15,8 +15,9 @@ const { createRedirects } = require('./gatsby/create-pages/create-redirects');
 const {
   createPreviewCard,
 } = require('./gatsby/create-node/create-preview-card');
+const { appendTrailingSlash } = require('./gatsby/util/append-trailing-slash');
+const { createBlogPosts } = require('./gatsby/create-pages/create-blog-posts');
 
-const BLOG_POST_TEMPLATE_PATH = path.resolve('src/templates/blog-post.tsx');
 const CAREER_TEMPLATE_PATH = path.resolve('src/templates/career.tsx');
 const CAREER_DETAILS_TEMPLATE_PATH = path.resolve(
   'src/templates/career-details.tsx',
@@ -32,7 +33,7 @@ exports.onCreateNode = (gatsbyCreateNodeArgs) => {
 
 exports.createPages = async (createPagesArgs) => {
   await createCareerPages(createPagesArgs);
-  await createBlogPages(createPagesArgs);
+  await createBlogPosts(createPagesArgs);
   createRedirects(createPagesArgs);
 };
 
@@ -208,39 +209,6 @@ const createCareerPages = async ({ actions }) => {
   );
 };
 
-const createBlogPages = async ({ actions, reporter, graphql }) => {
-  const { createPage } = actions;
-
-  const markdownBlogPages = await graphql(`
-    {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        filter: { fileAbsolutePath: { regex: "/(blog-posts)/" } }
-      ) {
-        nodes {
-          frontmatter {
-            path
-          }
-        }
-      }
-    }
-  `);
-
-  if (markdownBlogPages.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query for blog pages.`);
-    return;
-  }
-
-  // create a page for each markdown file
-  markdownBlogPages.data.allMarkdownRemark.nodes.forEach((node) => {
-    createPage({
-      path: appendTrailingSlash(node.frontmatter.path),
-      component: BLOG_POST_TEMPLATE_PATH,
-      context: {},
-    });
-  });
-};
-
 // for leaflet to prevent window errors
 // cherry picked from https://github.com/dweirich/gatsby-plugin-react-leaflet/blob/a2bb72eab0d26b22ae0ee2e04bfda0114a147132/gatsby-node.js
 exports.onCreateWebpackConfig = function (_ref) {
@@ -260,8 +228,4 @@ exports.onCreateWebpackConfig = function (_ref) {
       },
     });
   }
-};
-
-const appendTrailingSlash = (path) => {
-  return path.endsWith('/') ? path : `${path}/`;
 };
