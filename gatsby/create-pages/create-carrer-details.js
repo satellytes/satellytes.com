@@ -7,7 +7,7 @@ const {
 } = require('../util/extract-personio-slug');
 const slugify = require('slugify');
 const path = require('path');
-const { siteMetadata } = require('../../gatsby-config');
+const { siteMetadata, LANGUAGES } = require('../../gatsby-config');
 const {
   generateCard,
 } = require('../util/preview-card-generator/generate-card');
@@ -20,7 +20,6 @@ const CAREER_DETAILS_TEMPLATE_PATH = path.resolve(
 
 const PERSONIO_JOBS_URL = 'https://satellytes.jobs.personio.de/xml';
 const PERSONIO_SHORT_DESCRIPTION_NAME = 'Kurzbeschreibung';
-const LANGUAGES = ['en', 'de'];
 
 /**
  * Generate all career pages by querying the personio API.
