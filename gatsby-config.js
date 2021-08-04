@@ -3,6 +3,8 @@ const {
 } = require('./gatsby/util/detect-gatsby-cloud-preview-url');
 
 const BASE_URL = detectGatsbyCloudPreviewUrl() || 'http://localhost:8000';
+const LANGUAGES = ['en', 'de'];
+const DEFAULT_LANGUAGE = 'en';
 
 // excluded urls for sitemap and robots.txt
 const SEO_EXCLUDED_URLS = [
@@ -151,10 +153,10 @@ module.exports = {
       resolve: `gatsby-plugin-react-i18next`,
       options: {
         localeJsonSourceName: `locale`, // name given to `gatsby-source-filesystem` plugin.
-        languages: [`en`, `de`],
-        defaultLanguage: `en`,
+        languages: LANGUAGES,
+        defaultLanguage: DEFAULT_LANGUAGE,
         redirect: false,
-        fallbackLng: `en`,
+        fallbackLng: DEFAULT_LANGUAGE,
         siteUrl: `https://satellytes.com/`,
         // you can pass any i18next options
         // pass following options to allow message content as a key
@@ -175,10 +177,12 @@ module.exports = {
           },
           {
             matchPath: '/blog/:title/',
-            languages: ['en'],
+            languages: [DEFAULT_LANGUAGE],
           },
         ],
       },
     },
   ],
+  LANGUAGES,
+  DEFAULT_LANGUAGE,
 };
