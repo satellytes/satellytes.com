@@ -1,0 +1,130 @@
+{
+  "main": {
+    "description": "Satellytes ist eine Digital-Agentur, die um große Unternehmen kreist und ihnen bei der Transformation und Optimierung digitaler Services und Interfaces hilft.",
+    "services": {
+      "title": "Das bieten wir",
+      "text": "Satellytes – das sind ausschließlich leidenschaftliche Entwickler:innen und Designer:innen. Wir haben großen Spaß an Technologie und freuen uns auf neue Herausforderungen. Dabei fokussieren wir uns auf langfristige Engagements im Konzerngeschäft."
+    },
+    "clients": {
+      "title": "Nachhaltige und moderne Projekte",
+      "text": "Wir unterstützen große Konzerne bei der Umsetzung ihrer digitalen Strategien. Finden Sie heraus für welche Kunden & Branchen wir tätig sind."
+    },
+    "career": {
+      "title": "Arbeite mit uns",
+      "text": "Wir suchen Entwickler:innen aus Leidenschaft! Du hast noch nicht viel Berufserfahrung? Kein Problem. Denn alles, was du wissen musst, lernst Du bei uns. Du kannst schon alles? Dann findest Du bei Satellytes neue Herausforderungen und erfahrene Kollegen, mit denen Du weiter wachsen kannst. Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung."
+    }
+  },
+  "career": {
+    "title": "Karriere",
+    "subheading": "Wir suchen Entwickler:innen aus Leidenschaft!",
+    "title-positions": "Unsere offenen Stellen",
+    "headline": "Bewirb dich jetzt",
+    "mandatory-field": "Pflichtfeld",
+    "first-name": "Vorname",
+    "last-name": "Nachname",
+    "email": "E-Mail Adresse",
+    "location": "Wohnort",
+    "available-from": "Verfügbar ab",
+    "salary-expectations": "Gehaltsvorstellung",
+    "cover-letter": "Anschreiben",
+    "file-category": "Dokument-Kategorie",
+    "cv": "Lebenslauf",
+    "other": "anderes",
+    "info-text": "Lade hier bitte deine relevanten Dokumente hoch, wie zb Lebenslauf (CV), Motivationschreiben oder Referenzen. Erlaubt sind ausschließlich 3 PDF Dateien, die maximale Größe pro Datei beträgt 20MB.",
+    "privacy-policy": "<0>Hiermit bestätige ich, dass ich die <1>Datenschutzerklärung</1> zur Kenntnis genommen habe. <4>*</4></0>",
+    "error": {
+      "approval": "Deine Zustimmung fehlt",
+      "first-name": "Dein Vorname fehlt",
+      "last-name": "Dein Nachname fehlt",
+      "email": "Deine E-Mail fehlt",
+      "email-undefined": "Irgendwas stimmt an dieser E-Mail nicht",
+      "cv": "Dein CV fehlt",
+      "cover-letter": "Dein Anschreiben fehlt",
+      "selection": "Deine Auswahl fehlt",
+      "max-number": "Maximale Anzahl Dokumente ist erreicht.",
+      "max-size": "Maximale Dokumentgröße (20MB) wurde überschritten",
+      "uploaded": "Das Dokument \"{{name}}\" wurde bereits geladen."
+    },
+    "action": {
+      "alternative": "<0>Oder schicke deine Bewerbung an: <1>career@satellytes.com</1></0>",
+      "upload": "<0>Ziehe die Dokumente auf das Feld oder <1>wähle</1> sie aus</0>",
+      "send": "Senden",
+      "sent": "Gesendet",
+      "again": "Nochmal senden",
+      "again-text": "Versuch es bitte noch einmal. Klappt es nicht dann schicke deine Bewerbung direkt an <1>career@satellytes.com</1>",
+      "missing": "Bitte fülle alle benötigten Felder aus"
+    },
+    "seo": {
+      "title-detail": "Karriere - {{name}} | Satellytes",
+      "description-detail": "Bewirb dich jetzt als {{name}}! Schaue Dir unsere anderen offenen Stelle an. Wir freuen uns auf Deine Bewerbung.",
+      "title": "Karriere | Satellytes",
+      "description": "Wir suchen Entwickler:innen aus Leidenschaft! Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung."
+    },
+    "thank": "Danke für deine Bewerbung!",
+    "email-confirmation": "Wir haben dir eine E-Mail zur Bestätigung geschickt und melden uns bei dir."
+  },
+  "office": {
+    "title": "Büro",
+    "heading": "Unser Büro",
+    "subheading": "Fühl dich wohl bei uns. Ein kleiner Eindruck von unserem Büro in der Sendlinger Straße im Herzen Münchens.",
+    "link": "<0>Wenn du mit uns in diesem Office arbeiten möchtest, dann schau dir doch unsere <1>offenen Stellen</1> an.</0>"
+  },
+  "services": {
+    "title": "Leistungen",
+    "subheading": "Satellytes – das sind ausschließlich leidenschaftliche Entwickler:innen und Designer:innen."
+  },
+  "clients": {
+    "title": "Kunden",
+    "since": "Seit",
+    "subheading": "Wir unterstützen große Konzerne bei der Umsetzung ihrer digitalen Strategien.",
+    "description": "Finden Sie heraus für welche Kunden & Branchen wir tätig sind.",
+    "arrow-title": "Zeige Kunden: {{name}}"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "info-text": "<0>Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine E-Mail an <1>beep@satellytes.com</1></0>",
+    "info": "Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine E-Mail an beep@satellytes.com",
+    "name": "Name",
+    "email": "E-Mail Adresse",
+    "message": "Deine Nachricht an uns",
+    "mandatory-field": "Pflichtfeld",
+    "error": {
+      "name": "Dein Name fehlt",
+      "message": "Deine Nachricht fehlt",
+      "email": "Deine E-Mail fehlt",
+      "email-undefined": "Irgendwas stimmt an dieser E-Mail nicht"
+    },
+    "action": {
+      "again-text": "Leider gab es einen Fehler. Bitte versuche es noch einmal. Klappt das nicht, schicke deine Nachricht bitte direkt an <2>beep@satellytes.com</2>",
+      "missing": "Bitte fülle alle benötigten Felder aus",
+      "send": "Senden",
+      "sent": "Gesendet",
+      "again": "Nochmal senden"
+    }
+  },
+  "imprint": {
+    "title": "Impressum",
+    "info": "Pflichtangaben nach § 5 Telemediengesetz/Impressum",
+    "updated": "Aktualisiert: 16.Juli 2020, Erstellt: 12.Sep. 2018"
+  },
+  "data-privacy": {
+    "title": "Datenschutz",
+    "info": "Information über die Erhebung personenbezogener Daten"
+  },
+  "navigation": {
+    "menu": "Menu",
+    "imprint": "Impressum",
+    "data-privacy": "Datenschutz",
+    "services": "Leistungen",
+    "clients": "Kunden",
+    "career": "Karriere",
+    "office": "Büro",
+    "blog": "Blog",
+    "contact": "Kontakt"
+  },
+  "blog": {
+    "info": "Unsere Entwickler und Designer sprechen über die neuesten Trends und das Know-how rund um Tech, insbesondere über unsere neuesten Erkenntnisse und Einsichten zur Entwicklung guter Software für das Web.\n\n Der Blog ist nur auf Englisch verfügbar.",
+    "share": "Artikel teilen"
+  },
+  "404": "Oh sorry! Our Satellite took the wrong direction."
+}

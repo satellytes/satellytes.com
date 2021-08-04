@@ -37,5 +37,5 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
   },
-  ignorePatterns: ['gatsby-*.js', 'jest', '*.md', 'tooling/**'],
+  ignorePatterns: ['gatsby-*.js', 'jest', '*.md', 'tooling/**', 'gatsby/**'],
 };

@@ -8,6 +8,8 @@ import { ContactForm } from '../components/form/contact';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
 import { Leaflet } from '../components/leaflet/leaflet';
+import { graphql } from 'gatsby';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 
 const ContactTitle = styled(SubTitle)`
   margin-top: 40px;
@@ -17,19 +19,25 @@ const ContactTitle = styled(SubTitle)`
   }
 `;
 
-const ContactPage: React.FC = () => {
+interface ContactPageProps {
+  location: Location;
+}
+
+const ContactPage: React.FC<ContactPageProps> = (props: ContactPageProps) => {
+  const { t } = useTranslation();
   return (
     <>
       <Layout transparentHeader={true} hero={<Leaflet />}>
         <SEO
-          title="Kontakt | Satellytes"
-          description="Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine E-Mail an beep@satellytes.com"
+          title={`${t('contact.title')} | Satellytes`}
+          description={t('contact.info')}
+          location={props.location}
         />
 
         <Grid center>
           <GridItem xs={0} md={2} />
           <GridItem xs={12} md={8}>
-            <ContactTitle>Adresse</ContactTitle>
+            <ContactTitle>{t('contact.title')}</ContactTitle>
             <div>
               <Text>
                 <b>Satellytes Digital Consulting GmbH</b>
@@ -42,14 +50,15 @@ const ContactPage: React.FC = () => {
                 Google Maps &gt;
               </TextLink>
               <SubTitle>E-Mail</SubTitle>
-
-              <Text style={{ marginBottom: '40px' }}>
-                Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine
-                E-Mail an{' '}
-                <TextLink to="mailto:beep@satellytes.com">
-                  beep@satellytes.com
-                </TextLink>
-              </Text>
+              <Trans i18nKey="contact.info-link">
+                <Text style={{ marginBottom: '40px' }}>
+                  Nutzen Sie unser Koaktformular oder schreiben Sie uns eine
+                  E-Mail an
+                  <TextLink to="mailto:beep@satellytes.com">
+                    beep@satellytes.com
+                  </TextLink>
+                </Text>
+              </Trans>
               <ContactForm />
             </div>
           </GridItem>
@@ -60,3 +69,17 @@ const ContactPage: React.FC = () => {
 };
 
 export default ContactPage;
+
+export const ContactPageQuery = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;

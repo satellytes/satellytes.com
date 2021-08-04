@@ -17,6 +17,7 @@ import { rgba } from 'polished';
 import { RightArrowIcon } from '../icons/buttons-icons/right-arrow';
 import { FieldErrors } from 'react-hook-form';
 import { Headline } from './career-form';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 
 interface InputFieldProps {
   label?: string;
@@ -83,15 +84,13 @@ export const FormError = ({
 };
 
 export const SuccessMessage = () => {
+  const { t } = useTranslation();
   return (
     <div>
-      <Headline>Danke für deine Bewerbung! </Headline>
-      <p>
-        Wir haben dir eine E-Mail zur Bestätigung geschickt und melden uns bei
-        dir.
-      </p>
+      <Headline>{t('career.thank')} </Headline>
+      <p>{t('career.email-confirmation')}</p>
       <SentButton type="button">
-        <ButtonText>Gesendet</ButtonText> <CheckmarkIcon />
+        <ButtonText>{t('career.sent')}</ButtonText> <CheckmarkIcon />
       </SentButton>
     </div>
   );
@@ -150,16 +149,17 @@ export const Actions = ({
   isSubmitting,
   fieldErrors,
 }: ActionsProps) => {
+  const { t } = useTranslation();
   if (error) {
     return (
       <>
         <FormError error={error} />
-        <p>
+        <Trans i18nKey={'career.again-text'}>
           Versuch es bitte noch einmal. Klappt es nicht dann schicke deine
           Bewerbung direkt an <strong>career@satellytes.com</strong>
-        </p>
+        </Trans>
         <SendButton onClick={() => tryAgainFn()}>
-          <ButtonText>Nochmal senden</ButtonText>
+          <ButtonText>{t('career.again')}</ButtonText>
         </SendButton>
       </>
     );
@@ -168,15 +168,13 @@ export const Actions = ({
   return (
     <ButtonWrapper>
       <SendButton type="submit" disabled={isSubmitting}>
-        <ButtonText>Senden</ButtonText>
+        <ButtonText>{t<string>('career.action.send')}</ButtonText>
         {!isSubmitting && <RightArrowIcon />}
         {isSubmitting && <span>...</span>}
       </SendButton>
       {Object.keys(fieldErrors).length > 0 && (
         <ErrorWrapper>
-          <FormError
-            error={{ message: 'Bitte fülle alle benötigten Felder aus' }}
-          />
+          <FormError error={{ message: t<string>('career.action.missing') }} />
         </ErrorWrapper>
       )}
     </ButtonWrapper>

@@ -10,6 +10,8 @@ import { TextTitle } from '../components/typography/typography';
 import { CareerForm } from '../components/career-form/career-form';
 import { HEADER_HEIGHT } from '../components/header/header';
 import { Aurora, AuroraType } from '../components/aurora/aurora';
+import { graphql } from 'gatsby';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 const PERSONIO_SHORT_DESCRIPTION_NAME = 'Kurzbeschreibung';
 
@@ -70,10 +72,16 @@ interface CareerPageProps {
   pageContext: {
     position: PersonioJobPosition;
     socialCardImage: string;
+    hasTranslation: boolean;
+    language: string;
+    translation: string;
   };
+  location: Location;
 }
+const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
+  const { pageContext } = props;
+  const { t } = useTranslation();
 
-const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
   const ref = React.useRef<HTMLDivElement | null>(null);
   const scrollToStart = () => {
     ref?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -94,11 +102,22 @@ const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
   return (
     <>
       <Aurora type={AuroraType.Pink} />
-      <Layout siteTitleUrl="/career" transparentHeader={true}>
+      <Layout
+        siteTitleUrl="/career/"
+        transparentHeader={true}
+        translation={pageContext.translation}
+        showLanguageSwitch={Boolean(pageContext.translation)}
+      >
         <SEO
           imageUrl={pageContext.socialCardImage}
-          title={`Karriere - ${pageContext.position.name} | Satellytes`}
-          description={`Bewirb dich jetzt als ${pageContext.position.name}! Schaue Dir unsere anderen offenen Stelle an. Wir freuen uns auf Deine Bewerbung.`}
+          title={t('career.seo.title-detail', {
+            name: pageContext.position.name,
+          })}
+          description={t('career.seo.description-detail', {
+            name: pageContext.position.name,
+          })}
+          translation={pageContext.translation}
+          location={props.location}
         />
         <Grid>
           <GridItem xs={12} md={8}>
@@ -128,5 +147,19 @@ const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
     </>
   );
 };
+
+export const CareerDetailsPageQuery = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;
 
 export default CareerPage;

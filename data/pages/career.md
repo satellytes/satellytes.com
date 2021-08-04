@@ -1,9 +1,10 @@
 ---
-title: Karriere
+title: Career
+language: en
 ---
 
-Satellytes – das sind aktuell 14 ausschließlich leidenschaftliche Entwickler:innen und Designer:innen. Wir haben großen Spaß an Technologie und freuen uns auf neue Herausforderungen. Dabei fokussieren wir uns auf langfristige Engagements im Konzerngeschäft.
+Satellytes - that are currently 14 exclusively passionate developers and designers. We enjoy technology and look forward to new challenges. We focus on long-term engagements in the group business.
 
-Neuen Aufgaben begegnen wir immer mit angemessenem Respekt. Wir streben stets hochwertige und zeitgemäße Lösungen an – die Wahl der Technologie ist für uns dabei sekundär.
+We always approach new tasks with appropriate respect. We always strive for high-quality and contemporary solutions - the choice of technology is secondary for us.
 
-Unser [Büro](/office/) befindet sich in einem wunderschönen Altbau im Herzen Münchens, in der Sendlinger Straße, unweit der gleichnamigen U-Bahn-Station. In Laufweite gibt es nicht nur dutzende Läden, Cafés, Restaurants und den bekannten Viktualienmarkt, sondern auch diverse kleinere und größere Parks. Sogar die Isar ist in der Mittagspause fußläufig oder mit der U-Bahn in nur 3 Minuten zu erreichen.
+Our [office](/office/) is located in a beautiful old building in the heart of Munich, in Sendlinger Straße, not far from the subway station of the same name. Within walking distance there are not only dozens of stores, cafes, restaurants and the famous Viktualienmarkt, but also various smaller and larger parks. Even the Isar river can be reached on foot or by subway in just 3 minutes during the lunch break.

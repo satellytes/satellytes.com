@@ -6,6 +6,7 @@ import { SubTitle } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
+import { graphql } from 'gatsby';
 
 const NotFoundTitle = styled(SubTitle)`
   ${up('md')} {
@@ -13,9 +14,15 @@ const NotFoundTitle = styled(SubTitle)`
   }
 `;
 
-const NotFoundPage: React.FC = () => (
+interface NotFoundPageProps {
+  location: Location;
+}
+
+const NotFoundPage: React.FC<NotFoundPageProps> = ({
+  location,
+}: NotFoundPageProps) => (
   <Layout>
-    <SEO title="404: Not found | Satellytes" />
+    <SEO title="404: Not found | Satellytes" location={location} />
     <Grid center>
       <GridItem xs={0} md={2} />
       <GridItem xs={12} md={8}>
@@ -28,3 +35,17 @@ const NotFoundPage: React.FC = () => (
 );
 
 export default NotFoundPage;
+
+export const NotFoundPageQuery = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;

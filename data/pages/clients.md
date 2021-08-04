@@ -1,72 +1,77 @@
-Da diese meist streng geheim sind, schätzen unsere Auftraggeber Diskretion. Sie verstehen sicher, dass wir deshalb an
-dieser Stelle keine konkreten Namen nennen möchten, sondern uns auf generische Branchenbezeichnungen beschränken. Unsere
-vier größten Kunden sind:
+---
+title: Clients
+language: en
+---
 
-- Ein Versicherungskonzern
-- Eine Bank
-- Ein Sportverein
-- Ein Automobilclub
+Since these are usually top secret, our clients value discretion. You will understand that we do not want to
+that we do not want to mention any specific names here, but limit ourselves to generic industry names. Our
+four largest clients are:
 
-Diese Kunden spiegeln unsere langjährige Erfahrung in der Banken-, Versicherungs-, Automobil- und Sportbranche wider.
-Nachfolgend eine kurze Betrachtung der Aufgabengebiete für die jeweiligen Kundentypen:
+- An insurance group
+- A bank
+- A sports club
+- An automobile club
 
-### [Versicherungskonzern](#versicherungskonzern)
+These clients reflect our years of experience in the banking, insurance, automotive and sports industries.
+Below is a brief look at the scope of work for each type of client:
 
-Seit mehr als zwei Jahren helfen wir diesem Kunden bei der Umsetzung seiner digitalen Strategie. Geschätzt werden wir
-für unsere Expertise in der Frontend-Architektur und unsere nachhaltige und verlässliche Implementierung.
+### [Insurance Group](#insurancegroup)
 
-Mit unserer Hilfe entsteht auf Basis von Angular eine moderne und erweiterbare Plattform für die weltweite Skalierung
-und Angleichung der technologischen Frontend Landschaft. Neben der Architektur und der konkreten Implementierung
-unterstützen wir den Kunden in der Etablierung von nachhaltigen Governance-Strukturen durch die Ausgestaltung von
-Prozessen, dem Aufbau von Teamstrukturen sowie der Anfertigung von leicht verständlichen Dokumentationen.
+We have been helping this client implement their digital strategy for more than two years. We are valued
+for our expertise in front-end architecture and our sustainable and reliable implementation.
 
-Wollen Sie mit uns über Ihr Projekt in der Versicherungsbranche sprechen?
+With our help, a modern and extensible platform based on Angular is being created for the global scaling
+and alignment of the technological frontend landscape. Besides the architecture and the concrete implementation
+we support the customer in the establishment of sustainable governance structures by designing processes
+processes, the development of team structures and the creation of easy-to-understand documentation.
 
-[Kontaktieren Sie uns >](/contact)
+Would you like to talk to us about your project in the insurance industry?
+
+[Contact us >](/contact/)
 
 ### [Bank](#bank)
 
-Für unseren Bankkunden erarbeiten wir zentrale Bestandteile der Privat- und Geschäftskunden-Interaktionen. Mit einem
-großen Team aus Frontend- und Backend-Entwicklern:innen arbeiten wir an Themen wie der Umsetzung des
-Online-Banking-Portals, der Infrastruktur und der Sicherheit. Wir setzen dafür die Technologien Angular und Java ein. Da
-dieser kritische Geschäftsbereich ein Höchstmaß an Qualität erfordert, definieren wir zudem umfangreiche Testpakete im
-Rahmen der Testpyramide (Unit, Integration, E2E) und lassen diese auf unterschiedlichen Ebenen automatisiert ablaufen.
+For our bank client we develop key components of private and business customer interactions. With a
+team of frontend and backend developers, we work on topics such as the implementation of the online banking portal
+online banking portal, infrastructure and security. We use Angular and Java technologies for this. Since
+critical business area requires the highest level of quality, we also define extensive test packages as part of the test pyramid.
+test pyramid (unit, integration, E2E) and run them automatically at different levels.
 
-Ein modernes Banking-Portal ist zudem auf ein schlankes, zeitgemäßes Bedienkonzept angewiesen. Wir setzen daher unsere
-UX/UI-Design-Experten ein und unterstützen den Kunden in der Konzeption und Umsetzung.
+A modern banking portal also relies on a streamlined, up-to-date operating concept. We therefore deploy our
+UX/UI design experts and support the customer in conception and implementation.
 
-Wollen Sie mit uns über Ihr Projekt in der Banken- oder Finanzbranche sprechen?
+Want to talk to us about your project in the banking or finance industry?
 
-[Kontaktieren Sie uns >](/contact)
+[Contact us >](/contact/)
 
-### [Sportverein](#sportverein)
+### [Sports Club](#sportclub)
 
-Wir sind seit Mitte 2018 stolzer Unterstützer eines weltbekannten Sportvereins.
+We have been a proud supporter of a world-renowned sports club since mid-2018.
 
-Für diesen arbeiten wir federführend am Relaunch des gesamten Webauftritts. Dabei liegt es uns am Herzen, mit unserer
-Expertise im Technologiebereich nachhaltige Ergebnisse zu erzielen und uns als langfristiger Partner zu etablieren.
+For this we are working in a lead role on the relaunch of the entire website. In doing so, it is close to our heart to use our
+expertise in the technology sector to achieve sustainable results and establish ourselves as a long-term partner.
 
-Unsere UX/UI-Experten haben ein modernes und ergonomisches UX-Konzept samt Design-System realisiert. Die Umsetzung der
-Webseite basiert technisch auf Gatsby und React – angebunden per API an ein Bestands-CMS (Headless). Dadurch können
-sämtliche bisherigen Inhalte (weit mehr als 100.000 Seiten) ohne große Migration beibehalten werden.
+Our UX/UI experts realized a modern and ergonomic UX concept including a design system. The implementation of the
+website is technically based on Gatsby and React - connected via API to an existing CMS (Headless). This way
+all previous content (well over 100,000 pages) can be retained without major migration.
 
-Neben der Webseite unterstützen wir den Kunden zudem in der Umsetzung einer Self-Service-Lösung für Fans und
-Unterstützer, die sich für Ticketkäufe, Bestellungen im Fanshop u.v.m. einloggen können. Wir greifen dabei auf unsere
-Erfahrung mit Enterprise-Projekten zurück und haben eine Softwarelösung basierend auf Angular erarbeitet, die den
-Anforderungen der Self-Services vollumfänglich gerecht wird.
+In addition to the website, we also supported the client in implementing a self-service solution for fans and
+supporters, who can log in for ticket purchases, orders in the fan store and much more. We draw on our
+experience with enterprise projects and have developed a software solution based on Angular, which fully meets the
+fully meets the requirements of self-services.
 
-Sind Sie ein Verantwortlicher in der Sportbranche, wollen mehr erfahren oder haben ein konkretes Anliegen?
+Are you a responsible person in the sports industry, do you want to learn more or do you have a specific request?
 
-[Kontaktieren Sie uns >](/contact)
+[Contact us >](/contact/)
 
-### [Automobilclub](#automobilclub)
+### [Automobile Club](#automobilclub)
 
-Für einen großen deutschen Verkehrsclub arbeiten wir seit Herbst 2020 am Design und an der Umsetzung der zukünftigen
-Webplattform. Dabei greifen wir auf die erfolgreiche Nutzung von Gatsby und React zurück.
+For a large German traffic club, we have been working since fall 2020 on the design and implementation of the future
+web platform. In doing so, we draw on the successful use of Gatsby and React.
 
-Diese nutzen wir an dieser Stelle, um das CMS auf Basis von Contentful selbst mitzuentwickeln und als Partner von Gatsby
-die Gatsby-Cloud für die beschleunigte Ausbringung aktualisierter Inhalte einzusetzen.
+At this point, we use this to co-develop the CMS based on Contentful itself and, as a partner of Gatsby
+to use the Gatsby cloud for accelerated delivery of updated content.
 
-Sind Sie ein Verantwortlicher in der Automobilbranche, wollen mehr erfahren oder haben ein konkretes Anliegen?
+Are you a responsible person in the automotive industry, want to learn more or have a specific request?
 
-[Kontaktieren Sie uns >](/contact)
+[Contact us >](/contact/)

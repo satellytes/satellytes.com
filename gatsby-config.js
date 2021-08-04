@@ -131,7 +131,12 @@ module.exports = {
           {
             userAgent: '*',
             allow: '/',
-            disallow: ['/imprint', '/data-privacy'],
+            disallow: [
+              '/imprint/',
+              '/data-privacy/',
+              '/de/imprint/',
+              '/de/data-privacy/',
+            ],
           },
         ],
       },
@@ -139,7 +144,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        excludes: ['/imprint', '/data-privacy'],
+        excludes: [
+          '/imprint/',
+          '/data-privacy/',
+          '/de/imprint/',
+          '/de/data-privacy/',
+        ],
         resolvePagePath: ({ path }) => {
           if (!path.endsWith('/')) {
             console.warn(
@@ -153,6 +163,46 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-netlify`,
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/locales`,
+        name: `locale`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-react-i18next`,
+      options: {
+        localeJsonSourceName: `locale`, // name given to `gatsby-source-filesystem` plugin.
+        languages: [`en`, `de`],
+        defaultLanguage: `en`,
+        redirect: false,
+        fallbackLng: `en`,
+        siteUrl: `https://satellytes.com/`,
+        // you can pass any i18next options
+        // pass following options to allow message content as a key
+        i18nextOptions: {
+          interpolation: {
+            escapeValue: false, // not needed for react as it escapes by default
+          },
+          nsSeparator: false,
+        },
+        pages: [
+          {
+            matchPath: '/:lang?/career/:id/',
+            getLanguageFromPath: true,
+          },
+          {
+            matchPath: '/:lang?/career/',
+            getLanguageFromPath: true,
+          },
+          {
+            matchPath: '/blog/:title/',
+            languages: ['en'],
+          },
+        ],
+      },
     },
   ],
 };

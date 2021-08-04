@@ -19,12 +19,19 @@ interface ClientTemplateProps {
       details?: string[];
     };
   };
+  location: Location;
 }
 
-const ClientDetailsTemplate: React.FC<ClientTemplateProps> = ({ data }) => {
+const ClientDetailsTemplate: React.FC<ClientTemplateProps> = ({
+  data,
+  location,
+}) => {
   return (
     <Layout siteTitleUrl={'/clients'} transparentHeader={true}>
-      <SEO title={`${data.clientsJson.name} | Satellytes`} />
+      <SEO
+        title={`${data.clientsJson.name} | Satellytes`}
+        location={location}
+      />
       <Grid>
         <GridItem>
           <ClientPage data={data} />
@@ -34,7 +41,7 @@ const ClientDetailsTemplate: React.FC<ClientTemplateProps> = ({ data }) => {
   );
 };
 
-export const CLIENT_PAGE_QUERY = graphql`
+export const ClientDetailPageQuery = graphql`
   query ($linkToThePage: String) {
     clientsJson(path: { eq: $linkToThePage }) {
       industry

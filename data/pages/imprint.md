@@ -1,62 +1,65 @@
-Pflichtangaben nach § 5 Telemediengesetz/Impressum
+---
+title: Imprint
+language: en
+---
 
-Satellytes Digital Consulting GmbH<br>
-Carola-Neher-Str. 10<br>
-81379 München
+Mandatory information according to § 5 Telemediengesetz/Imprint
 
-#### Vertreten durch
+Satellytes Digital Consulting GmbH Carola-Neher-Str. 10 81379 Munich, Germany
 
-Geschäftsführer: Gholam Abdol, Eric Singhartinger
+#### Represented by
 
-#### Kontakt
+Managing Directors: Gholam Abdol, Eric Singhartinger
 
-E-Mail: [beep@satellytes.com](mailto:beep@satellytes.com)
+#### Contact
 
-Internetadresse: [https://satellytes.com](https://satellytes.com)
+E-mail: [beep@satellytes.com](mailto:beep@satellytes.com)
 
-#### Registereintrag Satellytes Digital Consulting GmbH
+Internet address: [https://satellytes.com](https://satellytes.com)
 
-Eintragung im Handelsregister Registergericht: Amtsgericht München Registernummer: HRB 240581
+#### Register entry Satellytes Digital Consulting GmbH
 
-#### Umsatzsteuer-ID Satellytes Digital Consulting GmbH
+Entry in the Commercial Register Register Court: Munich Local Court Register Number: HRB 240581
 
-Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz: DE317837432
+#### Sales tax ID Satellytes Digital Consulting GmbH
 
-#### Inhaltlich Verantwortlicher gemäß § 55 RStV
+Sales tax identification number according to §27 a Umsatzsteuergesetz: DE317837432
 
-Gholam Abdol, Carola-Neher-Straße 10, 81379 München
+#### Responsible for content according to § 55 RStV
 
-#### Nutzungsbedingungen/Disclaimer
+Gholam Abdol, Carola-Neher-Strasse 10, 81379 Munich, Germany
 
-1. Diese Website ist Gegenstand der nachfolgenden Nutzungsbedingungen, die im Verhältnis zwischen Nutzer und
-   Dienstanbieter mit dem Aufruf dieser Website verbindlich vereinbart sind. Soweit spezielle Bedingungen für einzelne
-   Nutzungen dieser Website von den nachfolgenden Nutzungsbedingungen abweichen, wird in der Website an entsprechender
-   Stelle ausdrücklich darauf hingewiesen. Es gelten dann im jeweiligen Einzelfall ergänzend die besonderen
-   Nutzungsbedingungen.
-2. Diese Website beinhaltet Daten und Informationen aller Art, die marken- und/oder urheberrechtlich zugunsten des
-   Diensteanbieters oder im Einzelfall auch zugunsten Dritter geschützt sind. Es ist daher nicht gestattet, die Website
-   im Ganzen oder einzelne Teile davon herunterzuladen, zu vervielfältigen und/oder zu verbreiten. Gestattet ist vor
-   allem die technisch bedingte Vervielfältigung zum Zwecke des Browsing, soweit diese Handlung keinen wirtschaftlichen
-   Zwecken dient, sowie die dauerhafte Vervielfältigung für den eigenen Gebrauch.
-3. Es ist gestattet, einen Link auf diese Website zu setzen, soweit er allein der Querreferenz dient. Der
-   Diensteanbieter behält sich das Recht vor, die Gestattung zu widerrufen. Das Framen dieser Website ist nicht
-   gestattet.
-4. Der Diensteanbieter übernimmt die Haftung für die Inhalte seiner Website gemäß den gesetzlichen Bestimmungen. Eine
-   Gewähr für Richtigkeit und Vollständigkeit der auf der Website befindlichen Information wird nicht übernommen.
-   Verweise und Links auf Websites Dritter bedeuten nicht, dass sich der Diensteanbieter die hinter dem Verweis oder
-   Link liegenden Inhalte zu eigen macht. Die Inhalte begründen keine Verantwortung des Diensteanbieters für die dort
-   bereit gehaltenen Daten und Informationen. Der Diensteanbieter hat keinen Einfluss auf die hinter dem Link liegenden
-   Inhalte. Für rechtswidrige, fehlerhafte oder unvollständige Inhalte und für Schäden, die aufgrund der Nutzung von
-   einem hinter dem Link liegenden Inhalt verursacht worden sind, haftet der Diensteanbieter daher nicht.
-5. Die Nutzung des Internets erfolgt auf eigene Gefahr des Nutzers. Der Diensteanbieter haftet vor allem nicht für den
-   technisch bedingten Ausfall des Internets bzw. des Zugangs zum Internet.
-6. Gerichtsstand ist, wenn der Vertragspartner Kaufmann, juristische Person des öffentlichen Rechts oder
-   öffentlich-rechtliches Sondervermögen ist, am Sitz des Diensteanbieters. Es gilt deutsches Recht unter Ausschluss des
-   UN-Kaufrechts.
-7. Für den Fall, dass der Nutzer Verbraucher (nicht Unternehmer) ist, erfolgt der Hinweis gemäß Art. 14 der VO (EU) Nr.
-   524/2013 – ODR-Verordnung auf die Möglichkeit außergerichtlicher Streitbeilegung. Details hierzu finden sich in der
-   vorgenannten Verordnung und unter [https://ec.europa.eu/consumers/odr](https://ec.europa.eu/consumers/odr).
-8. Der Diensteanbieter behält sich das Recht vor, diese Nutzungsbedingungen von Zeit zu Zeit zu modifizieren und sie der
-   technischen sowie rechtlichen Entwicklung anzupassen. Der Nutzer – soweit er sich registriert hat – wird auf die
-   Veränderung gesondert hingewiesen. Im Falle der Unwirksamkeit einzelner Regelungen dieser Nutzungsvereinbarung bleibt
-   die Wirksamkeit im Übrigen unberührt.
+#### Terms of Use/Disclaimer
+
+1. This website is subject to the following terms of use, which apply to the relationship between the user and the service provider.
+   service provider with the call of this website are bindingly agreed. Insofar as special conditions for individual
+   conditions for individual uses of this website deviate from the following terms of use, this will be expressly
+   website at the appropriate place. The special terms of use shall then apply in addition in the respective individual case.
+   terms of use shall apply in each individual case.
+2. This website contains data and information of all kinds that are protected by trademark and/or copyright law for the benefit of the service provider or, in individual cases, for the benefit of the user.
+   service provider or in individual cases also in favor of third parties. It is therefore not permitted to download the website
+   in whole or in part, to download, reproduce and/or distribute it.
+   permitted is the technically conditional reproduction for the purpose of browsing, as long as this action does not serve any commercial purposes.
+   purposes, as well as permanent reproduction for personal use.
+3. It is permitted to set a link to this website, as far as it serves only the cross-reference. The
+   service provider reserves the right to revoke the permission. The framing of this website is not
+   permitted.
+4. The service provider assumes liability for the content of its website in accordance with the statutory provisions. A
+   guarantee for correctness and completeness of the information on the website is not assumed.
+   References and links to third-party websites do not mean that the service provider adopts the content behind the reference or link as its own.
+   contents behind the reference or link as its own. The contents do not constitute any responsibility of the service provider for the data and information
+   for the data and information provided there. The service provider has no influence on the content behind the link.
+   contents. The service provider shall not be liable for illegal, incorrect or incomplete content or for damage caused by the use of
+   the use of the content behind the link, the service provider is therefore not liable.
+5. The use of the internet is at the user's own risk. The Service Provider shall not be liable in particular for the
+   technical failure of the internet or the access to the internet.
+6. If the contractual partner is a merchant, a legal entity under public law or a special fund under public law, the place of jurisdiction is
+   special assets under public law, at the registered office of the Service Provider. German law shall apply to the exclusion of the
+   UN Convention on Contracts for the International Sale of Goods.
+7. In the event that the user is a consumer (not an entrepreneur), the notice shall be made in accordance with Art. 14 of the VO (EU) No.
+   524/2013 - ODR Regulation to the possibility of out-of-court dispute resolution. Details on this can be found in the
+   aforementioned regulation and at [https://ec.europa.eu/consumers/odr](https://ec.europa.eu/consumers/odr).
+   The Service Provider reserves the right to modify these Terms of Use from time to time and to adapt them to technical and legal developments.
+   technical and legal developments. The user - as far as he has registered - will be informed separately about the
+   of the change separately. In the event of the invalidity of individual provisions of this user agreement, the validity of
+   the validity of the remaining provisions shall remain unaffected.

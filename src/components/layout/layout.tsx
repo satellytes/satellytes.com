@@ -58,6 +58,8 @@ interface LayoutProps {
   light?: boolean;
   hero?: ReactNode;
   children?: ReactNode;
+  showLanguageSwitch?: boolean;
+  translation?: string;
 }
 enum POLARITY {
   DARK = 'dark',
@@ -102,7 +104,16 @@ function overrideDarkFromQuery() {
   return params.has('dark');
 }
 
-const Layout = (props: LayoutProps): JSX.Element => {
+const Layout = ({
+  transparentHeader,
+  heroImage,
+  siteTitleUrl,
+  light,
+  hero,
+  children,
+  showLanguageSwitch = true,
+  translation,
+}: LayoutProps): JSX.Element => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -113,7 +124,7 @@ const Layout = (props: LayoutProps): JSX.Element => {
     }
   `);
 
-  const isLight = props.light === true && !overrideDarkFromQuery();
+  const isLight = light === true && !overrideDarkFromQuery();
 
   useAnchorTagScrolling();
 
@@ -124,15 +135,17 @@ const Layout = (props: LayoutProps): JSX.Element => {
       <GlobalStyle $lightTheme={isLight} />
       <Header
         siteTitle={data.site.siteMetadata.title}
-        siteTitleUrl={props.siteTitleUrl}
+        siteTitleUrl={siteTitleUrl}
         $lightTheme={isLight}
-        transparent={props.transparentHeader || Boolean(props.heroImage)}
+        transparent={transparentHeader || Boolean(heroImage)}
+        showLanguageSwitch={showLanguageSwitch}
+        translation={translation}
       />
       {/* pass in a hero node or try to use the hero image url */}
-      {props.hero ?? <HeroImageLegacy image={props.heroImage} />}
+      {hero ?? <HeroImageLegacy image={heroImage} />}
 
       <FullHeightContainer>
-        <Main>{props.children}</Main>
+        <Main>{children}</Main>
         <footer>
           <Navigation />
         </footer>

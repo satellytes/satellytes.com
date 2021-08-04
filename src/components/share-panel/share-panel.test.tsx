@@ -2,6 +2,14 @@ import { render } from '@testing-library/react';
 import React from 'react';
 import SharePanel from './share-panel';
 
+jest.mock('gatsby-plugin-react-i18next', () => ({
+  useTranslation: () => {
+    return {
+      t: (str) => str,
+    };
+  },
+}));
+
 describe('SharePanel', () => {
   let sharePanel: any;
 
@@ -14,7 +22,7 @@ describe('SharePanel', () => {
   });
 
   it('should contain a header', () => {
-    const title = sharePanel.getByText('Artikel teilen');
+    const title = sharePanel.getByText('blog.share');
     expect(title).toBeInTheDocument();
   });
 

@@ -12,9 +12,11 @@ import SharePanel from '../components/share-panel/share-panel';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
 import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { HeroImage } from '../components/hero-image/hero-image';
+import { LocalesQuery } from '../pages';
 
 interface BlogArticleTemplateProps {
   data: {
+    locales: LocalesQuery;
     markdownRemark: {
       excerpt: string;
       htmlAst;
@@ -42,6 +44,7 @@ interface BlogArticleTemplateProps {
       rawMarkdownBody: string;
     };
   };
+  location: Location;
 }
 
 const BlogPostTitle = styled(SectionTitle)`
@@ -74,7 +77,10 @@ const BlogHeader = ({ readingTime, frontmatter }) => {
   );
 };
 
-const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
+const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
+  data,
+  location,
+}) => {
   const markdown = data.markdownRemark;
 
   const { featuredImage, featuredImageSquared, attribution } =
@@ -88,7 +94,13 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
     />
   );
   return (
-    <Layout transparentHeader siteTitleUrl={'/blog'} light hero={heroImage}>
+    <Layout
+      transparentHeader
+      siteTitleUrl={'/blog'}
+      light
+      hero={heroImage}
+      showLanguageSwitch={false}
+    >
       {/*
        * SEO Notes:
        * Recommended meta description length these days is 120 - 158 characters. The lower number is relevant for mobile devices.
@@ -101,6 +113,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
         imageUrl={markdown.fields?.socialCard}
         siteType="article"
         description={markdown.frontmatter.shortSummary ?? markdown.excerpt}
+        location={location}
       />
       <Grid center>
         <GridItem xs={0} md={2} />
@@ -117,8 +130,17 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({ data }) => {
   );
 };
 
-export const BLOG_POST_PAGE_QUERY = graphql`
-  query ($path: String!) {
+export const BlogPostPageQuery = graphql`
+  query ($path: String!, $language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       htmlAst

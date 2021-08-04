@@ -4,6 +4,7 @@ import { render } from '@testing-library/react';
 import { ClientList } from './client-list';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../layout/theme';
+import { formatDate } from '../util/format-date';
 
 const testClients = [
   {
@@ -12,6 +13,25 @@ const testClients = [
     path: '/clients/client1/',
   },
 ];
+
+jest.mock('gatsby-plugin-react-i18next', () => ({
+  useTranslation: () => {
+    return {
+      t: (str) => str,
+    };
+  },
+  useI18next: () => {
+    return {
+      language: 'de',
+    };
+  },
+  Link: jest.fn().mockImplementation(({ to, ...rest }) =>
+    React.createElement('a', {
+      ...rest,
+      href: to,
+    }),
+  ),
+}));
 
 describe('Client List', () => {
   it('should render', () => {
@@ -30,11 +50,11 @@ describe('Client List', () => {
           <ClientList clients={testClients as any} />
         </ThemeProvider>,
       );
-      expect(getByText('client name')).toBeInTheDocument();
+      expect(getByText('clients.title')).toBeInTheDocument();
     });
 
     it('title should direct to linked page', () => {
-      const clientTitle = testClients[0].name;
+      const clientStart = formatDate(testClients[0].start, 'MMMM y', 'de');
       const clientLink = testClients[0].path;
       const { getByText } = render(
         <ThemeProvider theme={theme}>
@@ -42,10 +62,9 @@ describe('Client List', () => {
         </ThemeProvider>,
       );
 
-      expect(getByText(clientTitle).closest('a')).toHaveAttribute(
-        'href',
-        clientLink,
-      );
+      expect(
+        getByText(clientStart, { exact: false }).closest('a'),
+      ).toHaveAttribute('href', clientLink);
     });
   });
 });

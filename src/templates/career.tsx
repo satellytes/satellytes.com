@@ -10,12 +10,13 @@ import {
   TextLink,
 } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import { JobCard } from '../components/cards/job-card';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
 import { Aurora, AuroraType } from '../components/aurora/aurora';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 
 const PositionsTitle = styled(SectionTitle)`
   font-size: 24px;
@@ -42,11 +43,9 @@ const InfoText = styled(Text)`
 `;
 
 interface CareerQuery {
-  markdownRemark: {
-    htmlAst: string;
-    fields: {
-      socialCard: string;
-    };
+  htmlAst: string;
+  fields: {
+    socialCard: string;
   };
 }
 
@@ -76,20 +75,29 @@ export interface PersonioJobPosition {
 interface CareerPageProps {
   pageContext: {
     positions: PersonioJobPosition[];
+    language: string;
+  };
+  location: Location;
+  data: {
+    markdownRemark: CareerQuery;
+    locales: {
+      edges: {
+        node: {
+          ns: string;
+          language: string;
+          data: string;
+        };
+      }[];
+    };
   };
 }
 
-const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
-  const data = useStaticQuery<CareerQuery>(graphql`
-    query {
-      markdownRemark(fileAbsolutePath: { regex: "/(pages/career)/" }) {
-        htmlAst
-        fields {
-          socialCard
-        }
-      }
-    }
-  `);
+const CareerPage = ({
+  pageContext,
+  data,
+  location,
+}: CareerPageProps): JSX.Element => {
+  const { t } = useTranslation();
 
   const socialCard = data.markdownRemark?.fields?.socialCard;
   return (
@@ -98,19 +106,18 @@ const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
       <Layout transparentHeader={true}>
         <SEO
           imageUrl={socialCard}
-          title="Karriere | Satellytes"
-          description="Wir suchen Entwickler:innen aus Leidenschaft! Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung."
+          title={t('career.seo.title')}
+          description={t('career.seo.description')}
+          location={location}
         />
         <Grid>
           <GridItem>
-            <PageTitle>Karriere</PageTitle>
+            <PageTitle>{t('career.title')}</PageTitle>
           </GridItem>
           <GridItem xs={12} md={8}>
-            <LargeText as={'h2'}>
-              Wir suchen Entwickler:innen aus Leidenschaft!
-            </LargeText>
+            <LargeText as={'h2'}>{t('career.subheading')}</LargeText>
             <MarkdownAst htmlAst={data.markdownRemark.htmlAst} />
-            <PositionsTitle>Unsere offenen Stellen</PositionsTitle>
+            <PositionsTitle>{t('career.title-positions')}</PositionsTitle>
           </GridItem>
           <GridItem xs={0} md={4} />
           {pageContext.positions.map((position) => (
@@ -123,12 +130,14 @@ const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
             </JobCardGridItem>
           ))}
           <GridItem xs={12}>
-            <InfoText>
-              Oder schicke deine Bewerbung an:{' '}
-              <TextLink to="mailto:career@satellytes.com">
-                career@satellytes.com
-              </TextLink>
-            </InfoText>
+            <Trans i18nKey={'career.actions.alternative'}>
+              <InfoText>
+                Oder schicke deine Bewerbung an:{' '}
+                <TextLink to="mailto:career@satellytes.com">
+                  career@satellytes.com
+                </TextLink>
+              </InfoText>
+            </Trans>
           </GridItem>
         </Grid>
       </Layout>
@@ -137,3 +146,30 @@ const CareerPage = ({ pageContext }: CareerPageProps): JSX.Element => {
 };
 
 export default CareerPage;
+
+export const CareerPageQuery = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+    markdownRemark(
+      fileAbsolutePath: { regex: "/(pages/career)/" }
+      frontmatter: { language: { eq: $language } }
+    ) {
+      htmlAst
+      fields {
+        socialCard
+      }
+      frontmatter {
+        title
+        language
+      }
+    }
+  }
+`;
