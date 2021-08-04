@@ -43,7 +43,7 @@ const MetaContainer = styled.div`
   order: 2;
 
   width: 100%;
-  margin-top: 40px;
+  margin-top: 54px;
 
   ${up('md')} {
     flex-direction: column;
@@ -69,11 +69,17 @@ const LegalLinks = styled.ul`
 `;
 
 const UnstyledListItem = styled.li`
+  &:not(:last-of-type) {
+    margin-right: 24px;
+    margin-bottom: 24px;
+  }
+
   ${up('md')} {
     display: inline-block;
 
     &:not(:last-of-type) {
-      margin-right: 12px;
+      margin-right: 24px;
+      margin-bottom: 0;
     }
   }
 `;
@@ -84,7 +90,7 @@ const SocialLinks = styled.ul`
 
   ${up('md')} {
     order: 1;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
   }
 `;
 
@@ -108,7 +114,7 @@ const LegalLink = styled(Link)<{ $isSelected: boolean }>`
   display: block;
 
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 22px;
 
   text-decoration: none;
