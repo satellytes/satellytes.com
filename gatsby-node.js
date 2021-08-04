@@ -2,7 +2,9 @@ const {
   extractPersonioSlug,
   PERSONIO_SLUG_FIELD_NAME,
 } = require('./gatsby/util/extract-personio-slug');
-const { generateCard } = require('./tooling/generate-card/generate-card');
+const {
+  generateCard,
+} = require('./gatsby/util/preview-card-generator/generate-card');
 const slugify = require('slugify');
 const path = require('path');
 const fetch = require('node-fetch');
@@ -10,6 +12,9 @@ const xmlParser = require('fast-xml-parser');
 const { decode } = require('html-entities');
 const { siteMetadata } = require('./gatsby-config');
 const { createRedirects } = require('./gatsby/create-pages/create-redirects');
+const {
+  createPreviewCard,
+} = require('./gatsby/create-node/create-preview-card');
 
 const BLOG_POST_TEMPLATE_PATH = path.resolve('src/templates/blog-post.tsx');
 const CLIENT_TEMPLATE_PATH = path.resolve('src/templates/client-details.tsx');
@@ -22,32 +27,8 @@ const PERSONIO_JOBS_URL = 'https://satellytes.jobs.personio.de/xml';
 const PERSONIO_SHORT_DESCRIPTION_NAME = 'Kurzbeschreibung';
 const LANGUAGES = ['en', 'de'];
 
-exports.onCreateNode = ({ node, getNode, actions, graphql }, options) => {
-  const { createNodeField } = actions;
-
-  if (node.internal.type === 'MarkdownRemark') {
-    const post = node.frontmatter;
-
-    // we need the title in order to generate anything
-    if (!post.title) {
-      return;
-    }
-
-    // we create a file name from the path (which is the page slug and more unique) but if none is available take the title
-    const fileName = `social-card---${slugify(post.path || post.title, {
-      lower: true,
-    })}.jpg`;
-    const outputFile = path.join('public', fileName);
-    const publicUrl = `${siteMetadata.siteUrl}/${fileName}`;
-
-    generateCard({ title: post.title }, outputFile).then((filename) => {
-      createNodeField({
-        node,
-        name: `socialCard`,
-        value: publicUrl,
-      });
-    });
-  }
+exports.onCreateNode = (gatsbyCreateNodeArgs) => {
+  createPreviewCard(gatsbyCreateNodeArgs);
 };
 
 exports.createPages = async (createPagesArgs) => {

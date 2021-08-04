@@ -21,7 +21,6 @@ const PADDING_X = 80;
  * and modified to curry with context because I love currying to free my mind.
  * https://codepen.io/peterhry/pen/AGIEa
  */
-
 const wrapTextFactory = (context) => (text, x, y, maxWidth, lineHeight) => {
   var words = text.split(' '),
     line = '',
