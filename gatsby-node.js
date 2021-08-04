@@ -17,7 +17,6 @@ const {
 } = require('./gatsby/create-node/create-preview-card');
 
 const BLOG_POST_TEMPLATE_PATH = path.resolve('src/templates/blog-post.tsx');
-const CLIENT_TEMPLATE_PATH = path.resolve('src/templates/client-details.tsx');
 const CAREER_TEMPLATE_PATH = path.resolve('src/templates/career.tsx');
 const CAREER_DETAILS_TEMPLATE_PATH = path.resolve(
   'src/templates/career-details.tsx',
@@ -34,8 +33,6 @@ exports.onCreateNode = (gatsbyCreateNodeArgs) => {
 exports.createPages = async (createPagesArgs) => {
   await createCareerPages(createPagesArgs);
   await createBlogPages(createPagesArgs);
-  // await createClientPages(createPagesArgs);
-
   createRedirects(createPagesArgs);
 };
 
@@ -240,35 +237,6 @@ const createBlogPages = async ({ actions, reporter, graphql }) => {
       path: appendTrailingSlash(node.frontmatter.path),
       component: BLOG_POST_TEMPLATE_PATH,
       context: {},
-    });
-  });
-};
-
-const createClientPages = async ({ actions, reporter, graphql }) => {
-  const { createPage } = actions;
-
-  const clientPages = await graphql(`
-    {
-      allClientsJson {
-        nodes {
-          path
-        }
-      }
-    }
-  `);
-
-  if (clientPages.errors) {
-    reporter.panicOnBuild(
-      `Error while running GraphQL query for client pages.`,
-    );
-    return;
-  }
-
-  clientPages.data.allClientsJson.nodes.forEach((node) => {
-    createPage({
-      path: appendTrailingSlash(node.path),
-      component: CLIENT_TEMPLATE_PATH,
-      context: { linkToThePage: node.path },
     });
   });
 };
