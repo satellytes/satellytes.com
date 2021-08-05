@@ -90,7 +90,7 @@ export const SuccessMessage = () => {
       <Headline>{t('career.thank')} </Headline>
       <p>{t('career.email-confirmation')}</p>
       <SentButton type="button">
-        <ButtonText>{t('career.sent')}</ButtonText> <CheckmarkIcon />
+        <ButtonText>{t('career.action.send')}</ButtonText> <CheckmarkIcon />
       </SentButton>
     </div>
   );

@@ -130,7 +130,7 @@ const CareerPage = ({
             </JobCardGridItem>
           ))}
           <GridItem xs={12}>
-            <Trans i18nKey={'career.actions.alternative'}>
+            <Trans i18nKey={'career.action.alternative'}>
               <InfoText>
                 Oder schicke deine Bewerbung an:{' '}
                 <TextLink to="mailto:career@satellytes.com">

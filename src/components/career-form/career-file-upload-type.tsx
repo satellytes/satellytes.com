@@ -27,14 +27,15 @@ const StyledSelect = styled.select`
   position: relative;
   width: 100%;
   height: 32px;
-  background: rgba(255, 255, 255, 0.1);
+  background: #fff;
   border: none;
   border-radius: 20px;
   padding: 9px 37px 8px 16px;
-  color: white;
+  color: #000;
   font-weight: bold;
   font-size: 14px;
   cursor: pointer;
+
   ${up('md')} {
     width: unset;
     display: inline-block;
