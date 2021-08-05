@@ -3,11 +3,9 @@ title: Services
 language: en
 ---
 
-We have great fun with technology and look forward to new challenges. We focus on long-term
-long-term commitments in the Group's business.
+We have great fun with technology and look forward to new challenges. We focus on long-term commitments in the Group's business.
 
-We always approach new tasks with appropriate respect. We always strive for high-quality and contemporary solutions - the choice of technology is secondary for us.
-the choice of technology is secondary for us. We would be happy to support you in the following disciplines:
+We always approach new tasks with appropriate respect. We always strive for high-quality and contemporary solutions - the choice of technology is secondary for us. We would be happy to support you in the following disciplines:
 
 ### Enterprise Applications & Libraries
 
@@ -35,7 +33,6 @@ BFF (Backend for Frontend) - or completely decentralized microservices.
 We offer you, for example, the full analysis of your website: regarding UX/UI, loading speed,
 technical structure, accessibility or search engine compatibility. Such an analysis is accompanied by a
 list of concrete suggestions for improvement. Do you want to analyze your website in the areas mentioned above?
-in the above-mentioned areas?
 
 [Interested? Contact us >](/contact/)
 
@@ -43,13 +40,10 @@ in the above-mentioned areas?
 
 With around 20 years of experience in the design and implementation of digital interfaces, we cover the entire spectrum of the
 user experience (UX). The small, visible part of it is the user interface (UI). The large, invisible one (UX) is
-much more relevant for achieving your business goals. Because only with user-friendly, easily
-user-friendly, easy-to-understand journeys across all end devices, user groups, and usage contexts, users - and therefore
-you - reach your goal.
+much more relevant for achieving your business goals. Because only with user-friendly, easy-to-understand journeys across all end devices, user groups, and usage contexts, users - and therefore you - reach your goal.
 
 For our enterprise customers, we conceptualize and design websites with modern, ergonomic and well thought-out
 UX standards and best practices, adhere to accessibility guidelines, constantly test, measure and, if desired, provide all components in a well-structured and expandable design system.
-available.
 
 + Information Architecture (and Navigation)
 + Information/Content Design (Readability, Scalability, Consistency, Density, Sizes)

@@ -3,7 +3,7 @@ title: Kunden
 language: de
 ---
 
-Da diese meist streng geheim sind, schätzen unsere Auftraggeber Diskretion. Sie verstehen sicher, dass wir deshalb an
+Da diese Strategien meist streng geheim sind, schätzen unsere Auftraggeber Diskretion. Sie verstehen sicher, dass wir deshalb an
 dieser Stelle keine konkreten Namen nennen möchten, sondern uns auf generische Branchenbezeichnungen beschränken. Unsere
 vier größten Kunden sind:
 
