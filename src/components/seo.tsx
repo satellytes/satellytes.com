@@ -15,7 +15,7 @@ interface SeoProps {
   imageUrl?: string;
   siteType?: string;
   noIndex?: boolean;
-  translation?: string;
+  noTranslation?: boolean;
   location: Location;
 }
 
@@ -25,7 +25,7 @@ const SEO: React.FC<SeoProps> = ({
   imageUrl,
   siteType,
   noIndex,
-  translation,
+  noTranslation,
   location,
 }) => {
   const { site } = useStaticQuery(
@@ -52,29 +52,14 @@ const SEO: React.FC<SeoProps> = ({
 
   const currentPathname = location.pathname.replace('/de', '');
 
-  const prependAndAppendTrailingSlash = (path) => {
-    const prependedPath = path.startsWith('/') ? path : `/${path}`;
-    return prependedPath.endsWith('/') ? prependedPath : `${prependedPath}/`;
-  };
-
   // functions returns links for each localized version of the page (en and de).
   // This will help Google to show the most appropriate version by language,
   // for more information: https://developers.google.com/search/docs/advanced/crawling/localized-versions#html
-  const listLocalizedVersions = () => {
+  const listLocalizedVersions = (pathName) => {
     return LANGUAGES.map((lang) => {
-      const href = `${location.origin}${lang === 'en' ? '' : `/${lang}`}`;
-      const pathname =
-        language !== lang && translation
-          ? prependAndAppendTrailingSlash(translation)
-          : currentPathname;
-      return (
-        <link
-          rel="alternate"
-          href={href.concat(pathname)}
-          hrefLang={lang}
-          key={lang}
-        />
-      );
+      const languagePath = lang === 'en' ? '' : `/${lang}`;
+      const href = `${location.origin}${languagePath}${pathName}`;
+      return <link rel="alternate" href={href} hrefLang={lang} key={lang} />;
     });
   };
 
@@ -140,7 +125,7 @@ const SEO: React.FC<SeoProps> = ({
       />
 
       {/* -- Alternate Links --*/}
-      {listLocalizedVersions()}
+      {!noTranslation && listLocalizedVersions(currentPathname)}
     </Helmet>
   );
 };

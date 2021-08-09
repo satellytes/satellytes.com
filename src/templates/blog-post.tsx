@@ -114,6 +114,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
         siteType="article"
         description={markdown.frontmatter.shortSummary ?? markdown.excerpt}
         location={location}
+        noTranslation={true}
       />
       <Grid center>
         <GridItem xs={0} md={2} />
