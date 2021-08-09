@@ -116,7 +116,8 @@ const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
           description={t('career.seo.description-detail', {
             name: pageContext.position.name,
           })}
-          translation={pageContext.translation}
+          translatedPath={pageContext.translation}
+          noTranslation={!pageContext.translation}
           location={props.location}
         />
         <Grid>

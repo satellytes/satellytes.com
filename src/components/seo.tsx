@@ -16,6 +16,7 @@ interface SeoProps {
   siteType?: string;
   noIndex?: boolean;
   noTranslation?: boolean;
+  translatedPath?: string;
   location: Location;
 }
 
@@ -25,6 +26,7 @@ const SEO: React.FC<SeoProps> = ({
   imageUrl,
   siteType,
   noIndex,
+  translatedPath,
   noTranslation,
   location,
 }) => {
@@ -58,7 +60,11 @@ const SEO: React.FC<SeoProps> = ({
   const listLocalizedVersions = (pathName) => {
     return LANGUAGES.map((lang) => {
       const languagePath = lang === 'en' ? '' : `/${lang}`;
-      const href = `${location.origin}${languagePath}${pathName}`;
+      const pathNameWithSlashes =
+        language !== lang && translatedPath
+          ? prependAndAppendTrailingSlash(translatedPath)
+          : pathName;
+      const href = `${location.origin}${languagePath}${pathNameWithSlashes}`;
       return <link rel="alternate" href={href} hrefLang={lang} key={lang} />;
     });
   };
@@ -128,6 +134,11 @@ const SEO: React.FC<SeoProps> = ({
       {!noTranslation && listLocalizedVersions(currentPathname)}
     </Helmet>
   );
+};
+
+const prependAndAppendTrailingSlash = (path) => {
+  const prependedPath = path.startsWith('/') ? path : `/${path}`;
+  return prependedPath.endsWith('/') ? prependedPath : `${prependedPath}/`;
 };
 
 export default SEO;
