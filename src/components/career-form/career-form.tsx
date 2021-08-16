@@ -20,6 +20,7 @@ import styled from 'styled-components';
 import { CheckboxMark } from '../icons/checkbox';
 import { up } from '../breakpoint/breakpoint';
 import { rgba } from 'polished';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 
 interface CareerFormProps {
   recruiting_channel_id: string;
@@ -43,6 +44,74 @@ const API_ENDPOINT = 'https://api.personio.de/recruiting/applicant';
 const PRIVACY_POLICY = 'https://satellytes.jobs.personio.de/privacy-policy';
 export const SIMPLE_EMAIL_PATTERN = /.+@.+\..+/;
 
+const Container = styled.div`
+  margin-bottom: 24px;
+`;
+
+export const Headline = styled(TextTitle)`
+  margin-top: 40px;
+  margin-bottom: 29px;
+
+  ${up('md')} {
+    margin-top: 80px;
+  }
+`;
+
+const InfoTextContainer = styled.div`
+  display: flex;
+  align-items: left;
+  flex-direction: row;
+  margin: 24px 0px;
+  line-height: 24px;
+`;
+
+const PolicyText = styled.div`
+  width: calc(100% - 40px);
+  font-size: 14px;
+  line-height: 130%;
+
+  .policy-link {
+    font-size: 14px;
+    line-height: 110%;
+  }
+`;
+
+const CheckboxLabel = styled.label`
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    position: relative;
+    top: -2px;
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+    background: ${rgba('#7A8FCC', 0.3)};
+    border-radius: 4px;
+  }
+
+  &:hover::before {
+    background: ${rgba('#7A8FCC', 0.5)};
+  }
+`;
+
+const CheckboxContainer = styled.div`
+  position: relative;
+  cursor: pointer;
+
+  svg {
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    width: 11px;
+    height: 11px;
+  }
+`;
+
 export const CareerForm: React.FC<CareerFormProps> = (props) => {
   const {
     register,
@@ -53,6 +122,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
     setValue,
     formState: { errors, isSubmitSuccessful, isSubmitting },
   } = useForm();
+  const { t } = useTranslation();
   const [uploadProgress, setUploadProgress] = useState(0);
   const selectedFiles = watch('documents');
   const privacyChecked = watch('privacy');
@@ -61,7 +131,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
     if (!privacyChecked) {
       setError(
         'privacy',
-        { type: 'manual', message: 'Deine Zustimmung fehlt' },
+        { type: 'manual', message: t('career.approval') },
         { shouldFocus: true },
       );
       return;
@@ -140,7 +210,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
 
   return (
     <CareerFormStyled onSubmit={handleSubmit(onSubmit, onError)}>
-      <Headline>Bewirb dich jetzt</Headline>
+      <Headline>{t('career.headline')}</Headline>
       <Fieldset disabled={isSubmitting}>
         <Grid nested>
           <CareerTextFields register={register} errors={errors} />
@@ -158,9 +228,11 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
           >
             <>
               {(!selectedFiles || selectedFiles.length === 0) && <Upload />}
-              <div>
-                Drop files to upload or <span>browse</span>
-              </div>
+              <Trans i18nKey="career.action.upload">
+                <div>
+                  Drop files to upload or <span>browse</span>
+                </div>
+              </Trans>
             </>
           </FileUpload>
 
@@ -172,12 +244,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
           </GridItem>
 
           <GridItem>
-            <InfoTextContainer>
-              Lade hier bitte deine relevanten Dokumente hoch, wie zb Lebenslauf
-              (CV), Motivationschreiben oder Referenzen. Erlaubt sind
-              ausschließlich 3 PDF Dateien, die maximale Größe pro Datei beträgt
-              20MB.
-            </InfoTextContainer>
+            <InfoTextContainer>{t('career.info-text')}</InfoTextContainer>
           </GridItem>
 
           {/*Privacy-Policy Checkbox*/}
@@ -188,18 +255,20 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
                   type="checkbox"
                   id={'privacy-policy'}
                   {...register('privacy', {
-                    required: 'Deine Zustimmung fehlt',
+                    required: t<string>('career.error.approval'),
                   })}
                 />
                 <CheckboxLabel htmlFor="privacy-policy">
                   {privacyChecked && <CheckboxMark />}
-                  <PolicyText>
-                    Hiermit bestätige ich, dass ich die{' '}
-                    <TextLink to={PRIVACY_POLICY} className={'policy-link'}>
-                      Datenschutzerklärung
-                    </TextLink>{' '}
-                    zur Kenntnis genommen habe. <Sup aria-hidden={true}>*</Sup>
-                  </PolicyText>
+                  <Trans i18nKey={'career.privacy-policy'}>
+                    <PolicyText>
+                      Hiermit bestätige ich, dass ich die
+                      <TextLink to={PRIVACY_POLICY} className={'policy-link'}>
+                        Datenschutzerklärung
+                      </TextLink>{' '}
+                      <Sup aria-hidden={true}>*</Sup>
+                    </PolicyText>
+                  </Trans>
                 </CheckboxLabel>
               </CheckboxContainer>
               {errors.privacy && <FormError error={errors.privacy} />}
@@ -218,7 +287,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
           <GridItem>
             <FileContainer>
               <CaptionText>
-                <Sup>*</Sup> Pflichtfeld
+                <Sup>*</Sup> {t('career.mandatory-field')}
               </CaptionText>
             </FileContainer>
           </GridItem>
@@ -227,71 +296,3 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
     </CareerFormStyled>
   );
 };
-
-const Container = styled.div`
-  margin-bottom: 24px;
-`;
-
-export const Headline = styled(TextTitle)`
-  margin-top: 40px;
-  margin-bottom: 29px;
-
-  ${up('md')} {
-    margin-top: 80px;
-  }
-`;
-
-const InfoTextContainer = styled.div`
-  display: flex;
-  align-items: left;
-  flex-direction: row;
-  margin: 24px 0px;
-  line-height: 24px;
-`;
-
-const PolicyText = styled.div`
-  width: calc(100% - 40px);
-  font-size: 14px;
-  line-height: 130%;
-
-  .policy-link {
-    font-size: 14px;
-    line-height: 110%;
-  }
-`;
-
-const CheckboxLabel = styled.label`
-  display: flex;
-  position: relative;
-  flex-direction: row;
-  cursor: pointer;
-
-  &::before {
-    content: '';
-    display: inline-block;
-    position: relative;
-    top: -2px;
-    width: 20px;
-    height: 20px;
-    margin-right: 20px;
-    background: ${rgba('#7A8FCC', 0.3)};
-    border-radius: 4px;
-  }
-
-  &:hover::before {
-    background: ${rgba('#7A8FCC', 0.5)};
-  }
-`;
-
-const CheckboxContainer = styled.div`
-  position: relative;
-  cursor: pointer;
-
-  svg {
-    position: absolute;
-    top: 2px;
-    left: 5px;
-    width: 11px;
-    height: 11px;
-  }
-`;

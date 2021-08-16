@@ -4,47 +4,45 @@ import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 import { PageTitle } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import { Text } from '../components/typography/typography';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
-
-interface ImprintQuery {
-  markdownRemark: {
-    htmlAst: string;
-  };
-}
+import { LocalesQuery } from './index';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 const BottomNote = styled(Text)`
   margin-top: 80px;
   opacity: 0.8;
 `;
 
-const ImprintPage: React.FC = () => {
-  const data = useStaticQuery<ImprintQuery>(graphql`
-    query {
-      markdownRemark(fileAbsolutePath: { regex: "/(pages/imprint)/" }) {
-        htmlAst
-      }
-    }
-  `);
+interface ImprintPageProps {
+  data: {
+    locales: LocalesQuery;
+    markdownRemark: {
+      htmlAst: string;
+    };
+  };
+  location: Location;
+}
 
+const ImprintPage = ({ data, location }: ImprintPageProps) => {
+  const { t } = useTranslation();
   return (
     <Layout>
       <SEO
-        title="Impressum | Satellytes"
-        description="Pflichtangaben nach § 5 Telemediengesetz/Impressum"
+        title={`${t('imprint.title')} | Satellytes`}
+        description={t('imprint.info')}
+        location={location}
         noIndex={true}
       />
       <Grid>
         <GridItem>
-          <PageTitle>Impressum</PageTitle>
+          <PageTitle>{t('navigation.imprint')}</PageTitle>
         </GridItem>
         <GridItem xs={12} md={8}>
           <MarkdownAst htmlAst={data.markdownRemark.htmlAst} />
-          <BottomNote>
-            Aktualisiert: 16.Juli 2020, Erstellt: 12.Sep. 2018
-          </BottomNote>
+          <BottomNote>{t('imprint.updated')}</BottomNote>
         </GridItem>
       </Grid>
     </Layout>
@@ -52,3 +50,23 @@ const ImprintPage: React.FC = () => {
 };
 
 export default ImprintPage;
+
+export const ImprintPageQuery = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+    markdownRemark(
+      fileAbsolutePath: { regex: "/(pages/imprint)/" }
+      frontmatter: { language: { eq: $language } }
+    ) {
+      htmlAst
+    }
+  }
+`;

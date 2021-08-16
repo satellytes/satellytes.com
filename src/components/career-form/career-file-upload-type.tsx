@@ -9,6 +9,7 @@ import {
   UseFormSetValue,
   UseFormWatch,
 } from 'react-hook-form';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { up } from '../breakpoint/breakpoint';
 import { SelectArrow } from '../icons/select-arrow';
 
@@ -21,6 +22,57 @@ interface CareerFileUploadTypeProps {
   file: File;
 }
 
+const StyledSelect = styled.select`
+  appearance: none;
+  position: relative;
+  width: 100%;
+  height: 32px;
+  background: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 9px 37px 8px 16px;
+  color: #000;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+
+  ${up('md')} {
+    width: unset;
+    display: inline-block;
+    min-width: 144px;
+    margin-top: 0px;
+  }
+`;
+
+const Wrapper = styled.div`
+  display: block;
+  position: relative;
+  background: none;
+  border: none;
+  width: calc(100% + 25px);
+  margin-top: 10px;
+  ${up('md')} {
+    display: inline-block;
+    width: unset;
+    margin-top: 0px;
+  }
+`;
+
+const SelectContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  > svg {
+    position: absolute;
+    right: 16px;
+    height: 32px;
+    z-index: -1;
+  }
+`;
+
+const FormErrorWrapper = styled.div`
+  margin-left: 16px;
+`;
+
 export const CareerFileUploadType = ({
   errors,
   file,
@@ -29,6 +81,7 @@ export const CareerFileUploadType = ({
   clearError,
   watch,
 }: CareerFileUploadTypeProps) => {
+  const { t } = useTranslation();
   const fileName = file.name.split('.');
   const name = `category_select.${fileName[0]}`;
   const selectedFileType = watch(name);
@@ -53,74 +106,22 @@ export const CareerFileUploadType = ({
           onChange={onChange}
         >
           <option value={'default'} disabled>
-            File category
+            {t('career.file-category')}
           </option>
-          <option value="cv">CV</option>
-          <option value="cover-letter">Cover-Letter</option>
-          <option value="other">other</option>
+          <option value="cv">{t('career.cv')}</option>
+          <option value="cover-letter">{t('career.cover-letter')}</option>
+          <option value="other">{t('career.other')}</option>
         </StyledSelect>
         <SelectArrow />
       </SelectContainer>
       {errors.category_select?.[fileName[0]] && (
         <FormErrorWrapper>
           <FormError
-            error={{ message: 'Deine Auswahl fehlt' }}
-            lineHeight={90}
+            error={{ message: t<string>('career.error.selection') }}
+            lineHeight={100}
           />
         </FormErrorWrapper>
       )}
     </Wrapper>
   );
 };
-
-const StyledSelect = styled.select`
-  appearance: none;
-  position: relative;
-  width: 100%;
-  height: 32px;
-
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
-  border-radius: 20px;
-  padding: 9px 37px 8px 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 14px;
-  cursor: pointer;
-
-  ${up('md')} {
-    width: 144px;
-    margin-top: 0px;
-  }
-`;
-
-const Wrapper = styled.div`
-  display: block;
-  position: relative;
-
-  background: none;
-  border: none;
-  width: calc(100% + 25px);
-  margin-top: 10px;
-
-  ${up('md')} {
-    width: 144px;
-    margin-top: 0px;
-  }
-`;
-
-const SelectContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-
-  > svg {
-    position: absolute;
-    right: 16px;
-    height: 32px;
-    z-index: -1;
-  }
-`;
-
-const FormErrorWrapper = styled.div`
-  margin-left: 16px;
-`;

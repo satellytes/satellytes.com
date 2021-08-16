@@ -3,25 +3,32 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import CocoGothicBoldWoff2 from './layout/fonts/CocoGothic-Bold.woff2';
 import CocoGothicWoff2 from './layout/fonts/CocoGothic.woff2';
+import { useI18next } from 'gatsby-plugin-react-i18next';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 const DEFAULT_META_IMAGE_URL_PATH = '/sy-share-image.jpg';
+const LANGUAGES = ['en', 'de'];
 
 interface SeoProps {
   title: string;
   description?: string;
-  lang?: string;
   imageUrl?: string;
   siteType?: string;
   noIndex?: boolean;
+  noTranslation?: boolean;
+  translatedPath?: string;
+  location: Location;
 }
 
 const SEO: React.FC<SeoProps> = ({
   description = '',
-  lang = 'de',
   title,
   imageUrl,
   siteType,
   noIndex,
+  translatedPath,
+  noTranslation,
+  location,
 }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -29,7 +36,6 @@ const SEO: React.FC<SeoProps> = ({
         site {
           siteMetadata {
             title
-            description
             author
             siteUrl
           }
@@ -37,16 +43,36 @@ const SEO: React.FC<SeoProps> = ({
       }
     `,
   );
+  const { t } = useTranslation();
 
-  const metaDescription = description || site.siteMetadata.description;
+  const metaDescription = description || t('main.description');
   const typeOfSite = siteType || 'website';
   const metaImageUrl =
     imageUrl || site.siteMetadata.siteUrl + DEFAULT_META_IMAGE_URL_PATH;
 
+  const { language } = useI18next();
+
+  const currentPathname = location.pathname.replace('/de', '');
+
+  // functions returns links for each localized version of the page (en and de).
+  // This will help Google to show the most appropriate version by language,
+  // for more information: https://developers.google.com/search/docs/advanced/crawling/localized-versions#html
+  const listLocalizedVersions = (pathName) => {
+    return LANGUAGES.map((lang) => {
+      const languagePath = lang === 'en' ? '' : `/${lang}`;
+      const pathNameWithSlashes =
+        language !== lang && translatedPath
+          ? prependAndAppendTrailingSlash(translatedPath)
+          : pathName;
+      const href = `${location.origin}${languagePath}${pathNameWithSlashes}`;
+      return <link rel="alternate" href={href} hrefLang={lang} key={lang} />;
+    });
+  };
+
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        lang: language,
       }}
       title={title}
     >
@@ -103,8 +129,16 @@ const SEO: React.FC<SeoProps> = ({
         type="font/woff2"
         crossOrigin="anonymous"
       />
+
+      {/* -- Alternate Links --*/}
+      {!noTranslation && listLocalizedVersions(currentPathname)}
     </Helmet>
   );
+};
+
+const prependAndAppendTrailingSlash = (path) => {
+  const prependedPath = path.startsWith('/') ? path : `/${path}`;
+  return prependedPath.endsWith('/') ? prependedPath : `${prependedPath}/`;
 };
 
 export default SEO;

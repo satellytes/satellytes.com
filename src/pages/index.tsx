@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
@@ -14,15 +14,15 @@ import {
 } from '../components/typography/typography';
 import { HEADER_HEIGHT } from '../components/header/header';
 import { Aurora, AuroraType } from '../components/aurora/aurora';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 interface AllClientsQuery {
-  allClientsJson: {
-    nodes: {
-      start: string;
-      name: string;
-      path: string;
-    }[];
-  };
+  nodes: {
+    start: string;
+    name: string;
+    nameEN: string;
+    path: string;
+  }[];
 }
 
 const HomePageTitleContainer = styled.div`
@@ -61,24 +61,31 @@ const IndexPageSubTitle = styled(TextTitle)`
   font-weight: 400;
 `;
 
-const IndexPage: React.FC = () => {
-  const data = useStaticQuery<AllClientsQuery>(graphql`
-    query {
-      allClientsJson {
-        nodes {
-          name
-          path
-          start
-        }
-      }
-    }
-  `);
+export interface LocalesQuery {
+  edges: {
+    node: {
+      ns: string;
+      language: string;
+      data: string;
+    };
+  }[];
+}
 
+interface IndexPageProps {
+  data: {
+    locales: LocalesQuery;
+    allClientsJson: AllClientsQuery;
+  };
+  location: Location;
+}
+
+const IndexPage = ({ data, location }: IndexPageProps) => {
+  const { t } = useTranslation();
   return (
     <>
       <Aurora type={AuroraType.BrightBlue} />
       <Layout transparentHeader={true}>
-        <SEO title="Satellytes" />
+        <SEO title="Satellytes" location={location} />
         <Grid center>
           <GridItem xs={0} md={2} />
           <GridItem xs={12} md={8}>
@@ -97,46 +104,29 @@ const IndexPage: React.FC = () => {
           <GridItem xs={12} md={10}>
             <HomePageBlockTeaser
               margin
-              preTitle="Leistungen"
-              title="Das bieten wir"
-              link="Leistungen"
-              linkTo="/services"
+              preTitle={t('services.title')}
+              title={t('main.services.title')}
+              link={t('services.title')}
+              linkTo="/services/"
             >
-              <Text>
-                Satellytes – das sind ausschließlich leidenschaftliche
-                Entwickler:innen und Designer:innen. Wir haben großen Spaß an
-                Technologie und freuen uns auf neue Herausforderungen. Dabei
-                fokussieren wir uns auf langfristige Engagements im
-                Konzerngeschäft.
-              </Text>
+              <Text>{t('main.services.text')}</Text>
             </HomePageBlockTeaser>
             <HomePageBlockTeaser
-              preTitle="Kunden"
-              title="Nachhaltige und moderne Projekte"
+              preTitle={t('clients.title')}
+              title={t('main.clients.title')}
               splitView
             >
-              <Text>
-                Wir unterstützen große Konzerne bei der Umsetzung ihrer
-                digitalen Strategien. Finden Sie heraus für welche Kunden &
-                Branchen wir tätig sind.
-              </Text>
+              <Text>{t('main.clients.text')}</Text>
             </HomePageBlockTeaser>
             <ClientList clients={data.allClientsJson.nodes} />
             <HomePageBlockTeaser
-              preTitle="Karriere"
-              title="Arbeite mit uns"
+              preTitle={t('career.title')}
+              title={t('main.career.title')}
               splitView
-              link="Karriere"
-              linkTo="/career"
+              link={t('career.title')}
+              linkTo="/career/"
             >
-              <Text>
-                Wir suchen Entwickler:innen aus Leidenschaft! Du hast noch nicht
-                viel Berufserfahrung? Kein Problem. Denn alles, was du wissen
-                musst, lernst Du bei uns. Du kannst schon alles? Dann findest Du
-                bei Satellytes neue Herausforderungen und erfahrene Kollegen,
-                mit denen Du weiter wachsen kannst. Schaue Dir unsere offenen
-                Stellen an. Wir freuen uns auf Deine Bewerbung.
-              </Text>
+              <Text>{t('main.career.text')}</Text>
             </HomePageBlockTeaser>
           </GridItem>
         </Grid>
@@ -146,3 +136,25 @@ const IndexPage: React.FC = () => {
 };
 
 export default IndexPage;
+
+export const IndexPageQuery = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+    allClientsJson {
+      nodes {
+        name
+        nameEN
+        path
+        start
+      }
+    }
+  }
+`;

@@ -6,6 +6,7 @@ import { GRID_GAP_MOBILE } from '../grid/grid';
 import { formatDate } from '../util/format-date';
 import { Link, LinkButton } from '../links/links';
 import { RightArrowIcon } from '../icons/buttons-icons/right-arrow';
+import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
 
 const linkStyles = css`
   color: ${theme.palette.text.link.default};
@@ -120,21 +121,30 @@ const ClientListLinkButton = styled(LinkButton)`
 
 interface ClientListEntryProps {
   name: string;
+  nameEN: string;
   start: string;
   path: string;
 }
 
 const ClientListEntry: React.FC<ClientListEntryProps> = ({
   name,
+  nameEN,
   start,
   path,
 }) => {
+  const { t } = useTranslation();
+  const { language } = useI18next();
+  const localizedName = 'en' === language ? nameEN : name;
   return (
     <ClientListEntryLi>
       <ClientListEntryLink to={path}>
-        <StyledTitle title={`Show client: ${name}`}>{name}</StyledTitle>
-        <StyledTimestamp>Seit {formatDate(start, 'MMMM y')}</StyledTimestamp>
-        <StyledArrow title={`Show client: ${name}`}>
+        <StyledTitle title={t('clients.arrow-title', { name: localizedName })}>
+          {localizedName}
+        </StyledTitle>
+        <StyledTimestamp>
+          {t('clients.since')} {formatDate(start, 'MMMM y', language)}
+        </StyledTimestamp>
+        <StyledArrow title={t('clients.arrow-title', { name: localizedName })}>
           <RightArrowIcon />
         </StyledArrow>
       </ClientListEntryLink>
@@ -147,20 +157,22 @@ interface ClientListProps {
 }
 
 export const ClientList: React.FC<ClientListProps> = ({ clients }) => {
+  const { t } = useTranslation();
   return (
     <Wrapper>
       <ClientListContainer>
-        {clients.map(({ name, start, path }) => (
+        {clients.map(({ name, nameEN, start, path }) => (
           <ClientListEntry
             key={`${name}_${start}`}
             name={name}
+            nameEN={nameEN}
             start={start}
             path={path}
           />
         ))}
       </ClientListContainer>
-      <ClientListLinkButton to="/clients" title="Show all clients">
-        Kunden
+      <ClientListLinkButton to="/clients/" title="Show all clients">
+        {t('clients.title')}
       </ClientListLinkButton>
     </Wrapper>
   );

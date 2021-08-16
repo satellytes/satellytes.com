@@ -1,112 +1,115 @@
-#### §1 Information über die Erhebung personenbezogener Daten
+---
+title: Data Privacy
+language: en
+---
 
-1. Im Folgenden informieren wir über die Erhebung personenbezogener Daten bei Nutzung unserer Website. Personenbezogene
-   Daten sind alle Daten, die auf Sie persönlich beziehbar sind, z. B. Name, Adresse, E-Mail-Adressen, Nutzerverhalten.
-2. Verantwortlicher gem. Art. 4 Abs. 7 EU-Datenschutz-Grundverordnung (DS-GVO) ist Satellytes Digital Consulting GmbH,
-   Carola-Neher-Straße 10, 81379 München, gholam.abdol@satellytes.com (siehe [Impressum](/imprint)).
-3. Bei Ihrer Kontaktaufnahme mit uns per E-Mail oder über ein Kontaktformular werden die von Ihnen mitgeteilten Daten (
-   Ihre E-Mail-Adresse, ggf. Ihr Name und Ihre Telefonnummer) von uns gespeichert, um Ihre Fragen zu beantworten. Die in
-   diesem Zusammenhang anfallenden Daten löschen wir, nachdem die Speicherung nicht mehr erforderlich ist, oder
-   schränken die Verarbeitung ein, falls gesetzliche Aufbewahrungspflichten bestehen.
-4. Falls wir für einzelne Funktionen unseres Angebots auf beauftragte Dienstleister zurückgreifen oder Ihre Daten für
-   werbliche Zwecke nutzen möchten, werden wir Sie untenstehend im Detail über die jeweiligen Vorgänge informieren.
-   Dabei nennen wir auch die festgelegten Kriterien der Speicherdauer.
+#### §1 Information about the collection of personal data
 
-#### §2 Ihre Rechte
+1. In the following we inform about the collection of personal data when using our website. Personal
+   data are all data that can be related to you personally, e.g. name, address, e-mail addresses, user behavior. 
+2. The responsible party pursuant to Article 4 (7) of the EU General Data Protection Regulation (DS-GVO) is Satellytes Digital Consulting GmbH,
+   Carola-Neher-Straße 10, 81379 Munich, Germany, gholam.abdol@satellytes.com (see [Imprint](/imprint/)).
+3. When you contact us by e-mail or via a contact form, the data you provide (
+   your e-mail address, if applicable your name and your telephone number) will be stored by us in order to answer your questions. The data
+   in this context, we will delete the data after the storage is no longer necessary, or
+   restrict the processing if there are legal obligations to retain the data.
+4. If we use contracted service providers for individual functions of our offer or if we wish to use your data for advertising purposes, we will inform you of this.
+   advertising purposes, we will inform you in detail about the respective processes below.
+   In doing so, we will also state the specified criteria for the storage period.
 
-1. Sie haben gegenüber uns folgende Rechte hinsichtlich der Sie betreffenden personenbezogenen Daten:
+#### §2 Your rights
 
-    - Recht auf Auskunft
-    - Recht auf Berichtigung oder Löschung
-    - Recht auf Einschränkung der Verarbeitung
-    - Recht auf Widerspruch gegen die Verarbeitung
-    - Recht auf Datenübertragbarkeit
+1. You have the following rights with regard to the personal data concerning you:
 
-2. Sie haben zudem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen
-   Daten durch uns zu beschweren.
+   - Right to information
+   - Right to correction or deletion
+   - Right to restriction of processing
+   - Right to object to processing
+   - Right to data portability
 
-#### §3 Erhebung personenbezogener Daten bei Besuch unserer Website
+2. You also have the right to complain to a data protection supervisory authority about the processing of your personal data by us.
 
-1. Bei der bloß informatorischen Nutzung der Website, also wenn Sie sich nicht registrieren oder uns anderweitig
-   Informationen übermitteln, erheben wir nur die personenbezogenen Daten, die Ihr Browser an unseren Server
-   übermittelt. Wenn Sie unsere Website betrachten möchten, erheben wir die folgenden Daten, die für uns technisch
-   erforderlich sind, um Ihnen unsere Website anzuzeigen und die Stabilität und Sicherheit zu gewährleisten (
-   Rechtsgrundlage ist Art. 6 Abs. 1 S. 1 lit. f DS-GVO):
+#### §3 Collection of personal data when visiting our website
 
-    - IP-Adresse
-    - Datum und Uhrzeit der Anfrage
-    - Zeitzonendifferenz zur Greenwich Mean Time (GMT)
-    - Inhalt der Anforderung (konkrete Seite)
-    - Zugriffsstatus/HTTP-Statuscode
-    - jeweils übertragene Datenmenge
-    - Website, von der die Anforderung kommt
-    - Browser
-    - Betriebssystem und dessen Oberfläche
-    - Sprache und Version der Browsersoftware.
+1. When you use the website for information purposes only, i.e. if you do not register or otherwise send us any
+   information, we only collect the personal data that your browser transmits to our server.
+   transmitted. If you wish to view our website, we collect the following data, which are technically
+   necessary for us to display our website to you and to ensure its stability and security (
+   Legal basis is Art. 6 para. 1 p. 1 lit. f DS-GVO):
 
-2. Zusätzlich zu den zuvor genannten Daten werden bei Ihrer Nutzung unserer Website Cookies auf Ihrem Rechner
-   gespeichert. Bei Cookies handelt es sich um kleine Textdateien, die auf Ihrer Festplatte dem von Ihnen verwendeten
-   Browser zugeordnet gespeichert werden und durch welche der Stelle, die den Cookie setzt (hier durch uns), bestimmte
-   Informationen zufließen. Cookies können keine Programme ausführen oder Viren auf Ihren Computer übertragen. Sie
-   dienen dazu, das Internetangebot insgesamt nutzerfreundlicher und effektiver zu machen.
-3. Einsatz von Cookies:
-    - a) Diese Website nutzt folgende Arten von Cookies, deren Umfang und Funktionsweise im Folgenden erläutert werden: Transiente Cookies (dazu b) und Persistente Cookies (dazu c).
-    - b) Transiente Cookies werden automatisiert gelöscht, wenn Sie den Browser schließen. Dazu zählen insbesondere die
-      Session-Cookies. Diese speichern eine sogenannte Session-ID, mit welcher sich verschiedene Anfragen Ihres Browsers
-      der gemeinsamen Sitzung zuordnen lassen. Dadurch kann Ihr Rechner wiedererkannt werden, wenn Sie auf unsere
-      Website zurückkehren. Die Session-Cookies werden gelöscht, wenn Sie sich ausloggen oder den Browser schließen.
-    - c) Persistente Cookies werden automatisiert nach einer vorgegebenen Dauer gelöscht, die sich je nach Cookie
-      unterscheiden kann. Sie können die Cookies in den Sicherheitseinstellungen Ihres Browsers jederzeit löschen.
-    - d) Sie können Ihre Browser-Einstellung entsprechend Ihren Wünschen konfigurieren und z. B. die Annahme von
-      Third-Party-Cookies oder allen Cookies ablehnen. Wir weisen Sie darauf hin, dass Sie eventuell nicht alle
-      Funktionen dieser Website nutzen können.
+   - IP address
+   - Date and time of the request
+   - Time zone difference to Greenwich Mean Time (GMT)
+   - Content of the request (specific page)
+   - Access status/HTTP status code
+   - Amount of data transferred in each case
+   - Website from which the request comes
+   - browser
+   - Operating system and its interface
+   - language and version of the browser software.
 
-#### §4 Weitere Funktionen und Angebote unserer Website
+2. In addition to the aforementioned data, cookies are stored on your computer when you use our website.
+   stored. Cookies are small text files that are stored on your hard drive assigned to the browser you are using and by which the
+   browser used by you and through which the body that sets the cookie (in this case by us) receives certain
+   information. Cookies cannot execute programs or transfer viruses to your computer. They
+   serve to make the Internet offer as a whole more user-friendly and effective.
+3. Use of cookies:
+   - a) This website uses the following types of cookies, the scope and functionality of which are explained below: Transient Cookies (in addition b) and Persistent Cookies (in addition c).
+   - b) Transient cookies are automatically deleted when you close the browser. These include in particular
+     Session cookies. These store a so-called session ID, which can be used to assign various requests from your browser to the joint session.
+     can be assigned to the joint session. This allows your computer to be recognized when you return to our website.
+     website again. The session cookies are deleted when you log out or close the browser.
+   - c) Persistent cookies are deleted automatically after a specified period of time, which may differ depending on the cookie.
+     may differ. You can delete the cookies in the security settings of your browser at any time.
+   - d) You can configure your browser settings according to your preferences and, for example, refuse the acceptance of
+     Third-Party-Cookies or reject all cookies. We would like to point out that you may not be able to use all of the
+     functions of this website.
 
-1. Neben der rein informatorischen Nutzung unserer Website bieten wir verschiedene Leistungen an, die Sie bei Interesse
-   nutzen können. Dazu müssen Sie in der Regel weitere personenbezogene Daten angeben, die wir zur Erbringung der
-   jeweiligen Leistung nutzen und für die die zuvor genannten Grundsätze zur Datenverarbeitung gelten.
-2. Teilweise bedienen wir uns zur Verarbeitung Ihrer Daten externer Dienstleister. Diese wurden von uns sorgfältig
-   ausgewählt und beauftragt, sind an unsere Weisungen gebunden und werden regelmäßig kontrolliert.
-3. Weiterhin können wir Ihre personenbezogenen Daten an Dritte weitergeben, wenn Aktionsteilnahmen, Gewinnspiele,
-   Vertragsabschlüsse oder ähnliche Leistungen von uns gemeinsam mit Partnern angeboten werden. Nähere Informationen
-   hierzu erhalten Sie bei Angabe Ihrer personenbezogenen Daten oder untenstehend in der Beschreibung des Angebotes.
-4. Soweit unsere Dienstleister oder Partner ihren Sitz in einem Staat außerhalb des Europäischen Wirtschaftsraumen (EWR)
-   haben, informieren wir Sie über die Folgen dieses Umstands in der Beschreibung des Angebotes.
+#### §4 Further functions and offers of our website
 
-#### §5 Widerspruch oder Widerruf gegen die Verarbeitung Ihrer Daten
+1. in addition to the purely informational use of our website, we offer various services which you can
+   use. For this purpose, you will usually have to provide further personal data, which we use to provide the
+   aforementioned data processing principles apply to these services.
+2. In some cases, we use external service providers to process your data. These have been carefully
+   selected and commissioned by us, are bound by our instructions and are regularly monitored. 3.
+3. we may also pass on your personal data to third parties when we offer promotions, competitions, contracts or similar services,
+   contract conclusions or similar services are offered by us together with partners. More detailed information
+   You will receive more information about this when you provide your personal data or in the description of the offer below. 4.
+4. if our service providers or partners are based in a country outside the European Economic Area (EEA), we will inform you about
+   the consequences of this circumstance in the description of the offer.
 
-1. Falls Sie eine Einwilligung zur Verarbeitung Ihrer Daten erteilt haben, können Sie diese jederzeit widerrufen. Ein
-   solcher Widerruf beeinflusst die Zulässigkeit der Verarbeitung Ihrer personenbezogenen Daten, nachdem Sie ihn
-   gegenüber uns ausgesprochen haben.
-2. Soweit wir die Verarbeitung Ihrer personenbezogenen Daten auf die Interessenabwägung stützen, können Sie Widerspruch
-   gegen die Verarbeitung einlegen. Dies ist der Fall, wenn die Verarbeitung insbesondere nicht zur Erfüllung eines
-   Vertrags mit Ihnen erforderlich ist, was von uns jeweils bei der nachfolgenden Beschreibung der Funktionen
-   dargestellt wird. Bei Ausübung eines solchen Widerspruchs bitten wir um Darlegung der Gründe, weshalb wir Ihre
-   personenbezogenen Daten nicht wie von uns durchgeführt verarbeiten sollten. Im Falle Ihres begründeten Widerspruchs
-   prüfen wir die Sachlage und werden entweder die Datenverarbeitung einstellen bzw. anpassen oder Ihnen unsere
-   zwingenden schutzwürdigen Gründe aufzeigen, aufgrund derer wir die Verarbeitung fortführen.
-3. Selbstverständlich können Sie der Verarbeitung Ihrer personenbezogenen Daten für Zwecke der Werbung und Datenanalyse
-   jederzeit widersprechen. Über Ihren Werbewiderspruch können Sie uns unter folgenden Kontaktdaten informieren:
-   siehe [Impressum](/imprint).
+#### §5 Objection or revocation against the processing of your data
 
-#### §6 Einsatz von Netlify
+1. If you have given your consent to the processing of your data, you may revoke this consent at any time. A
+   such revocation will affect the permissibility of the processing of your personal data after you
+   have expressed it to us.
+2. Insofar as we base the processing of your personal data on the balancing of interests, you may object
+   against the processing. This is the case if the processing is in particular not necessary for the performance of a
+   contract with you, which is shown by us in each case in the following description of the functions.
+   illustrated in the following description of the functions. When exercising such an objection, we ask you to explain the reasons why we do not process your
+   why we should not process your personal data as we have done. In the event of your justified objection
+   we will review the situation and either discontinue or adjust the data processing or provide you with our
+   compelling reasons worthy of protection, on the basis of which we will continue the processing. 
+3. You can, of course, object to the processing of your personal data for the purposes of advertising and data analysis at any time.
+   at any time. You can inform us of your advertising objection using the following contact details:
+   [imprint](/imprint/).
 
-Zur Bereitstellung der Dienste und zur Verbesserung der Qualität der Webseite und der Dienste, zur effektiveren Nutzung
-der Webseite und Dienste, zur Bewertung von Serviceniveaus, zur Bewertung von Verkehrsmustern sowie zur Messung der
-Beliebtheit verschiedener Serviceoptionen verwenden wir den Dienst von Netlify Inc.
+#### §6 Use of Netlify
 
-Der Erhebung, Verwendung und Offenlegung Ihrer personenbezogenen Daten an Netlify können Sie jederzeit widersprechen (
-siehe hierzu § 5.).
+To provide the services and to improve the quality of the website and services, to use more effectively
+the Website and Services, to evaluate service levels, to evaluate traffic patterns, and to measure the
+Popularity of various service options, we use the service of Netlify Inc.
 
-Weitergehende Informationen zu diesem Dienst finden Sie
-unter [https://www.netlify.com/tos](https://www.netlify.com/tos/). Allgemeine Informationen zu den
-Datenschutzbestimmungen von Netlify finden Sie unter [https://www.netlify.com/privacy](https://www.netlify.com/privacy/)
-.
+You may object to the collection, use and disclosure of your personal data to Netlify at any time (
+see § 5.).
 
-#### §7 Datensicherheit
+Further information about this service can be found
+at [https://www.netlify.com/tos](https://www.netlify.com/tos/). General information about the
+Privacy Policy of Netlify can be found at [https://www.netlify.com/privacy](https://www.netlify.com/privacy/).
 
-Wir setzen zudem technische und organisatorische Sicherheitsmaßnahmen ein, um anfallende oder erhobene personenbezogene
-Daten zu schützen, insbesondere gegen zufällige oder vorsätzlich Manipulation, Verlust, Zerstörung oder gegen den
-Angriff unberechtigter Personen. Unsere Sicherheitsmaßnahmen werden entsprechend der technologischen Entwicklung
-fortlaufend verbessert.
+#### §7 Data security
+
+We also use technical and organizational security measures to protect personal data that we receive or collect, in particular against
+or collected personal data, in particular against accidental or intentional manipulation, loss, destruction or against
+attack by unauthorized persons. Our security measures are continuously improved in line with technological
+continuously improved.

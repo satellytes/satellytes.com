@@ -12,6 +12,9 @@ import { Grid, GridItem } from '../components/grid/grid';
 import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
 import { up } from '../components/breakpoint/breakpoint';
+import { graphql } from 'gatsby';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 
 /**
  * We can't wrap StaticImage as it doesn't support higher order functions.
@@ -29,20 +32,23 @@ const Intro = styled(LargeText)`
   }
 `;
 
-const OfficePage = () => {
+interface OfficePageProps {
+  location: Location;
+}
+
+const OfficePage = ({ location }: OfficePageProps) => {
+  const { t } = useTranslation();
+  const { language } = useI18next();
   return (
     <Layout>
-      <SEO title="Office | Satellytes" />
+      <SEO title={`${t('office.title')} | Satellytes`} location={location} />
       <Grid>
         <GridItem>
-          <PageTitle>Unser Büro</PageTitle>
+          <PageTitle>{t('office.heading')}</PageTitle>
         </GridItem>
 
         <GridItem xs={12} md={8}>
-          <Intro>
-            Fühl dich wohl bei uns. Ein kleiner Eindruck von unserem Büro in der
-            Sendlinger Straße im Herzen Münchens.
-          </Intro>
+          <Intro>{t('office.subheading')}</Intro>
         </GridItem>
 
         <GridItem>
@@ -84,10 +90,16 @@ const OfficePage = () => {
           </OfficeImageWrapper>
         </GridItem>
         <GridItem>
-          <Text>
-            Wenn du mit uns in diesem Office arbeiten möchtest, dann schau dir
-            doch unsere <TextLink to={'/career'}>offenen Stellen</TextLink> an.
-          </Text>
+          <Trans i18nKey="office.link">
+            <Text>
+              Wenn du mit uns in diesem Office arbeiten möchtest, dann schau dir
+              doch unsere
+              <TextLink to={'/career/'} language={language}>
+                offenen Stellen
+              </TextLink>
+              an.
+            </Text>
+          </Trans>
         </GridItem>
       </Grid>
     </Layout>
@@ -95,3 +107,17 @@ const OfficePage = () => {
 };
 
 export default OfficePage;
+
+export const OfficePageQuery = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;

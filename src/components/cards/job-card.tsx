@@ -2,7 +2,7 @@ import React from 'react';
 import { ImageCardSubtitle, TextLink } from '../typography/typography';
 import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
-import { navigate } from 'gatsby';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 
 const JobCardContainer = styled.div`
   display: flex;
@@ -50,6 +50,7 @@ interface JobCardProps {
 }
 
 export const JobCard = (props: JobCardProps): JSX.Element => {
+  const { language, navigate } = useI18next();
   return (
     <JobCardContainer onClick={() => navigate(props.link)}>
       <JobCardTitle>{props.title}</JobCardTitle>
@@ -60,7 +61,9 @@ export const JobCard = (props: JobCardProps): JSX.Element => {
           }}
         />
       </JobCardText>
-      <TextLink to={props.link}>Apply</TextLink>
+      <TextLink to={props.link} language={language}>
+        Apply
+      </TextLink>
     </JobCardContainer>
   );
 };

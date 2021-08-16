@@ -6,6 +6,7 @@ import { LinkedinWrapper } from '../icons/social/linkedin';
 import { XingWrapper } from '../icons/social/xing';
 import { GithubIconWrapper } from '../icons/social/github';
 import { Link } from '../links/links';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 const NavigationBackground = styled.div`
   background: #4d79ff;
@@ -42,7 +43,7 @@ const MetaContainer = styled.div`
   order: 2;
 
   width: 100%;
-  margin-top: 40px;
+  margin-top: 54px;
 
   ${up('md')} {
     flex-direction: column;
@@ -68,11 +69,17 @@ const LegalLinks = styled.ul`
 `;
 
 const UnstyledListItem = styled.li`
+  &:not(:last-of-type) {
+    margin-right: 24px;
+    margin-bottom: 24px;
+  }
+
   ${up('md')} {
     display: inline-block;
 
     &:not(:last-of-type) {
-      margin-right: 12px;
+      margin-right: 24px;
+      margin-bottom: 0;
     }
   }
 `;
@@ -83,7 +90,7 @@ const SocialLinks = styled.ul`
 
   ${up('md')} {
     order: 1;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
   }
 `;
 
@@ -107,7 +114,7 @@ const LegalLink = styled(Link)<{ $isSelected: boolean }>`
   display: block;
 
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 22px;
 
   text-decoration: none;
@@ -189,6 +196,7 @@ const SiteNavigationLink = styled(Link)<{ $isSelected: boolean }>`
 `;
 
 const Navigation: React.FC = (props) => {
+  const { t } = useTranslation();
   const [activePath, setActivePath] = useState('');
   useEffect(() => {
     setActivePath(window.location.pathname);
@@ -239,7 +247,7 @@ const Navigation: React.FC = (props) => {
                     to="/imprint"
                     $isSelected={activePath.includes('/imprint')}
                   >
-                    Impressum
+                    {t('navigation.imprint')}
                   </LegalLink>
                 </UnstyledListItem>
                 <UnstyledListItem>
@@ -247,13 +255,13 @@ const Navigation: React.FC = (props) => {
                     to="/data-privacy"
                     $isSelected={activePath.includes('/data-privacy')}
                   >
-                    Datenschutz
+                    {t('navigation.data-privacy')}
                   </LegalLink>
                 </UnstyledListItem>
               </LegalLinks>
             </MetaContainer>
             <SiteNavigation>
-              <SiteNavigationTitle>Menu</SiteNavigationTitle>
+              <SiteNavigationTitle>{t('navigation.menu')}</SiteNavigationTitle>
               <nav>
                 <SiteNavigationList>
                   <NavigationListItem>
@@ -261,7 +269,7 @@ const Navigation: React.FC = (props) => {
                       to="/services"
                       $isSelected={activePath.includes('/services')}
                     >
-                      Leistungen
+                      {t('navigation.services')}
                     </SiteNavigationLink>
                   </NavigationListItem>
                   <NavigationListItem>
@@ -269,7 +277,7 @@ const Navigation: React.FC = (props) => {
                       to="/clients"
                       $isSelected={activePath.includes('/clients')}
                     >
-                      Kunden
+                      {t('navigation.clients')}
                     </SiteNavigationLink>
                   </NavigationListItem>
                   <NavigationListItem>
@@ -277,7 +285,7 @@ const Navigation: React.FC = (props) => {
                       to="/career"
                       $isSelected={activePath.includes('/career')}
                     >
-                      Karriere
+                      {t('navigation.career')}
                     </SiteNavigationLink>
                   </NavigationListItem>
                   <NavigationListItem>
@@ -285,7 +293,7 @@ const Navigation: React.FC = (props) => {
                       to="/office"
                       $isSelected={activePath.includes('/office')}
                     >
-                      Büro
+                      {t('navigation.office')}
                     </SiteNavigationLink>
                   </NavigationListItem>
                   <NavigationListItem>
@@ -293,7 +301,7 @@ const Navigation: React.FC = (props) => {
                       to="/blog"
                       $isSelected={activePath.includes('/blog')}
                     >
-                      Blog
+                      {t('navigation.blog')}
                     </SiteNavigationLink>
                   </NavigationListItem>
                   <NavigationListItem>
@@ -301,7 +309,7 @@ const Navigation: React.FC = (props) => {
                       to="/contact"
                       $isSelected={activePath.includes('/contact')}
                     >
-                      Kontakt
+                      {t('navigation.contact')}
                     </SiteNavigationLink>
                   </NavigationListItem>
                 </SiteNavigationList>

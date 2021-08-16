@@ -7,6 +7,7 @@ import { CloseBurgerMenuIcon } from '../icons/buttons-icons/close-burger-menu';
 import { NavigationFlyout } from './menu-flyout';
 import { Link } from '../links/links';
 import { Swoosh } from '../icons/swoosh';
+import { LanguageSwitch } from '../language-switch/language-switch';
 
 export const HEADER_HEIGHT = '65px';
 
@@ -75,7 +76,7 @@ const SiteMenu = styled.button<{ $lightTheme: boolean }>`
    * we make the button extra large
    */
   height: 100%;
-  width: 50px;
+  width: 35px;
   text-align: right;
   margin-right: -${() => GRID_GAP_MOBILE};
   padding-right: ${() => GRID_GAP_MOBILE};
@@ -100,11 +101,18 @@ const SiteMenu = styled.button<{ $lightTheme: boolean }>`
   }
 `;
 
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: end;
+`;
+
 interface HeaderProps {
   siteTitle: string;
   siteTitleUrl?: string;
   $lightTheme?: boolean;
   transparent?: boolean;
+  translation?: string;
+  showLanguageSwitch?: boolean;
 }
 
 const Header: React.FC<HeaderProps> = (props) => {
@@ -143,15 +151,20 @@ const Header: React.FC<HeaderProps> = (props) => {
         <HeaderSwoosh />
         {props.siteTitle}
       </SiteTitle>
-      <SiteMenu
-        aria-label="Open menu"
-        $lightTheme={Boolean(!isHeaderTransparent && props.$lightTheme)}
-        onClick={() => {
-          setIsNavigationVisible(!isNavigationVisible);
-        }}
-      >
-        {!isNavigationVisible ? <BurgerMenu /> : <CloseBurgerMenuIcon />}
-      </SiteMenu>
+      <Wrapper>
+        {(props.translation || props.showLanguageSwitch) && (
+          <LanguageSwitch translation={props.translation} />
+        )}
+        <SiteMenu
+          aria-label="Open menu"
+          $lightTheme={Boolean(!isHeaderTransparent && props.$lightTheme)}
+          onClick={() => {
+            setIsNavigationVisible(!isNavigationVisible);
+          }}
+        >
+          {!isNavigationVisible ? <BurgerMenu /> : <CloseBurgerMenuIcon />}
+        </SiteMenu>
+      </Wrapper>
       <NavigationFlyout visible={isNavigationVisible} />
     </StyledHeader>
   );

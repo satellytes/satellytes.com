@@ -1,30 +1,23 @@
-/**
- * On gatsby cloud the deployment urls follow a strict pattern:
- * - https:// DOMAIN_NAME - BRANCH_NAME .gatsby.io
- *
- * Only lower case letters and numbers are used, everything else is filtered out.
- *
- */
-const extractGatsbyCloudPreviewUrl = () => {
-  const PRODUCTION_BRANCH_NAME = 'main';
-  const DOMAIN_NAME = 'satellytescommain';
+const {
+  buildGatsbyCloudPreviewUrl,
+} = require('./gatsby/util/build-gatsby-cloud-preview-url');
 
-  // the branch name is set via an env variable on gatsby cloud
-  // -> https://support.gatsbyjs.com/hc/en-us/articles/360052322954-Environment-Variables-Specific-to-Gatsby-Cloud
-  const BRANCH_NAME = process.env.BRANCH;
-  if (!BRANCH_NAME || BRANCH_NAME === PRODUCTION_BRANCH_NAME) {
-    return process.env.GATBSY_BASE_URL || '';
-  }
+const BASE_URL = buildGatsbyCloudPreviewUrl({
+  branchName: process.env.BRANCH, // https://support.gatsbyjs.com/hc/en-us/articles/360052322954-Environment-Variables-Specific-to-Gatsby-Cloud
+  fallbackUrl: process.env.GATBSY_BASE_URL || 'http://localhost:8000',
+});
+const LANGUAGES = ['en', 'de'];
+const DEFAULT_LANGUAGE = 'en';
 
-  const formattedBranchName = BRANCH_NAME.toLowerCase().replace(
-    /[^a-zA-Z0-9]/gi,
-    '',
-  );
-
-  return `https://${DOMAIN_NAME}-${formattedBranchName}.gtsb.io`;
-};
-
-const BASE_URL = extractGatsbyCloudPreviewUrl() || 'http://localhost:8000';
+// excluded urls for sitemap and robots.txt
+const SEO_EXCLUDED_URLS = [
+  '/imprint/',
+  '/data-privacy/',
+  '/de/imprint/',
+  '/de/data-privacy/',
+  '/**/404',
+  '/**/404.html',
+];
 
 module.exports = {
   flags: {
@@ -131,7 +124,7 @@ module.exports = {
           {
             userAgent: '*',
             allow: '/',
-            disallow: ['/imprint', '/data-privacy'],
+            disallow: SEO_EXCLUDED_URLS,
           },
         ],
       },
@@ -139,7 +132,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        excludes: ['/imprint', '/data-privacy'],
+        excludes: SEO_EXCLUDED_URLS,
         resolvePagePath: ({ path }) => {
           if (!path.endsWith('/')) {
             console.warn(
@@ -153,6 +146,46 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-netlify`,
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/locales`,
+        name: `locale`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-react-i18next`,
+      options: {
+        localeJsonSourceName: `locale`, // name given to `gatsby-source-filesystem` plugin.
+        languages: LANGUAGES,
+        defaultLanguage: DEFAULT_LANGUAGE,
+        redirect: false,
+        fallbackLng: DEFAULT_LANGUAGE,
+        siteUrl: `https://satellytes.com/`,
+        // you can pass any i18next options
+        // pass following options to allow message content as a key
+        i18nextOptions: {
+          interpolation: {
+            escapeValue: false, // not needed for react as it escapes by default
+          },
+          nsSeparator: false,
+        },
+        pages: [
+          {
+            matchPath: '/:lang?/career/:id/',
+            getLanguageFromPath: true,
+          },
+          {
+            matchPath: '/:lang?/career/',
+            getLanguageFromPath: true,
+          },
+          {
+            matchPath: '/blog/:title/',
+            languages: [DEFAULT_LANGUAGE],
+          },
+        ],
+      },
     },
   ],
 };
