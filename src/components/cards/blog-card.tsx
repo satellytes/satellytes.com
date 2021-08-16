@@ -26,6 +26,14 @@ const BlogCardWrapper = styled(CardWrapper)<{ $image: boolean }>`
     css`
       padding: 24px 16px;
     `}
+
+  transition: transform 0.2s ease-in, box-shadow 0.2s ease-in;
+
+  :hover {
+    transform: translateY(-3px);
+    box-shadow: inset 0px -3px 0px #668cff;
+    cursor: pointer;
+  }
 `;
 
 const BlogCardImage = styled(GatsbyImage)<GatsbyImageProps>`
