@@ -1,6 +1,5 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { theme } from '../layout/theme';
 import { up } from '../breakpoint/breakpoint';
 import { CardProps, CardWrapper, CardTitle, CardText } from './card';
 import { Link } from '../links/links';
@@ -45,11 +44,6 @@ const BlogCardTitle = styled(CardTitle)<{ $image: boolean; large: boolean }>`
   margin-bottom: 16px;
   font-size: 32px;
 
-  transition: color 0.3s;
-  ${BlogCardWrapper}:hover & {
-    color: ${theme.palette.primary.main};
-  }
-
   ${(props) =>
     props.large &&
     css`
@@ -80,11 +74,6 @@ const BlogCardTitle = styled(CardTitle)<{ $image: boolean; large: boolean }>`
 const BlogCardText = styled(CardText)<{ large: boolean }>`
   flex-grow: inherit;
   margin-bottom: 8px;
-
-  transition: color 0.3s;
-  ${BlogCardWrapper}:hover & {
-    color: ${theme.palette.primary.main};
-  }
 `;
 
 const CardCaption = styled.p`
