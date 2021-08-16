@@ -75,7 +75,7 @@ const SiteMenu = styled.button<{ $lightTheme: boolean }>`
    * to make it simpler to click (especially on mobile), 
    * we make the button extra large
    */
-  height: 100%;
+  height: 16px;
   width: 35px;
   text-align: right;
   margin-right: -${() => GRID_GAP_MOBILE};
@@ -104,6 +104,7 @@ const SiteMenu = styled.button<{ $lightTheme: boolean }>`
 const Wrapper = styled.div`
   display: flex;
   justify-content: end;
+  align-items: center;
 `;
 
 interface HeaderProps {
@@ -120,6 +121,7 @@ const Header: React.FC<HeaderProps> = (props) => {
   const [isHeaderTransparent, setIsHeaderTransparent] = useState<boolean>(
     Boolean(props.transparent),
   );
+  const [hoverWithTransition, setHoverWithTransition] = useState(true);
 
   useEffect(() => {
     const onScroll = (): void => {
@@ -160,9 +162,17 @@ const Header: React.FC<HeaderProps> = (props) => {
           $lightTheme={Boolean(!isHeaderTransparent && props.$lightTheme)}
           onClick={() => {
             setIsNavigationVisible(!isNavigationVisible);
+            setHoverWithTransition(false);
           }}
         >
-          {!isNavigationVisible ? <BurgerMenu /> : <CloseBurgerMenuIcon />}
+          {!isNavigationVisible ? (
+            <BurgerMenu
+              transition={hoverWithTransition}
+              setHoverTransition={() => setHoverWithTransition(true)}
+            />
+          ) : (
+            <CloseBurgerMenuIcon />
+          )}
         </SiteMenu>
       </Wrapper>
       <NavigationFlyout visible={isNavigationVisible} />

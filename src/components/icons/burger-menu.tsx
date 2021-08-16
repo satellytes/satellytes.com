@@ -1,15 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const BurgerMenu = () => (
-  <Wrapper>
-    <div className="bar" />
-    <div className="bar" />
-    <div className="bar" />
-  </Wrapper>
-);
+interface BurgerMenuProps {
+  transition: boolean;
+  setHoverTransition: () => void;
+}
+export const BurgerMenu = ({
+  transition,
+  setHoverTransition,
+}: BurgerMenuProps) => {
+  return (
+    <Wrapper transition={transition} onMouseLeave={() => setHoverTransition()}>
+      <div className="bar" />
+      <div className="bar" />
+      <div className="bar" />
+    </Wrapper>
+  );
+};
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ transition: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -49,15 +58,18 @@ const Wrapper = styled.div`
 
     &:hover {
       .bar:nth-child(1) {
-        transition: all 0.1s;
+        ${({ transition }) =>
+          transition ? `transition: all 0.1s;` : `transition: none;`}
         width: 18px;
       }
       .bar:nth-child(2) {
-        transition: all 0.1s 0.1s;
+        ${({ transition }) =>
+          transition ? `transition: all 0.1s 0.1s;` : `transition: none;`}
         width: 14px;
       }
       .bar:nth-child(3) {
-        transition: all 0.1s 0.2s;
+        ${({ transition }) =>
+          transition ? `transition: all 0.1s 0.2s;` : `transition: none;`}
         width: 10px;
       }
     }
