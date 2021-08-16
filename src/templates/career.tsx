@@ -17,6 +17,7 @@ import { up } from '../components/breakpoint/breakpoint';
 import { Aurora, AuroraType } from '../components/aurora/aurora';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
+import { ProcessAccordion } from '../components/process-accordion/process-accordion';
 
 const PositionsTitle = styled(SectionTitle)`
   font-size: 24px;
@@ -25,6 +26,12 @@ const PositionsTitle = styled(SectionTitle)`
   ${up('md')} {
     font-size: 32px;
     margin: 120px 0 32px 0;
+  }
+`;
+
+const ProcessTitle = styled(PositionsTitle)`
+  ${up('md')} {
+    margin: 120px 0 24px 0;
   }
 `;
 
@@ -138,6 +145,16 @@ const CareerPage = ({
                 </TextLink>
               </InfoText>
             </Trans>
+          </GridItem>
+          <GridItem xs={12} md={8}>
+            <ProcessTitle>Prozess</ProcessTitle>
+            <Text>
+              So läuft deine Bewerbung bei uns ab. Wir legen viel Wert auf
+              Transparenz. Zu jedem Zeitpunkt wirst du wissen, wie es weiter
+              geht und was dich erwartet. Lies dir unsere nachfolgende
+              Beschreibung gut durch, dann kann dich nichts mehr überraschen
+            </Text>
+            <ProcessAccordion />
           </GridItem>
         </Grid>
       </Layout>
