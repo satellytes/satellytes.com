@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 interface LinkedinProps {
   color?: string;
+  opacity?: string;
 }
 
 export const IconLinkedIn: React.FC<LinkedinProps> = (props) => (
@@ -22,8 +23,9 @@ export const IconLinkedIn: React.FC<LinkedinProps> = (props) => (
 
 export const LinkedinWrapper = styled(IconLinkedIn)<LinkedinProps>`
   transition: fill 0.2s ease-in;
-  fill: ${(props) => (props.color ? props.color : '#202840')};
+  fill: ${(props) => (props.color ? props.color : '#FFFFFF')};
   &:hover {
     fill: ${(props) => (props.color ? props.color : '#ffffff')};
+    opacity: 1;
   }
 `;

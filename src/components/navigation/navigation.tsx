@@ -220,7 +220,7 @@ const Navigation: React.FC<NavigationProps> = ({
                     href="https://www.linkedin.com/company/satellytes"
                     title="Go to the Satellytes LinkedIn profile"
                   >
-                    <LinkedinWrapper />
+                    <LinkedinWrapper opacity={'0.3'} />
                   </SocialLink>
                 </SocialLinkItem>
                 <SocialLinkItem>
@@ -230,7 +230,7 @@ const Navigation: React.FC<NavigationProps> = ({
                     rel="noopener noreferrer"
                     href="https://www.xing.com/companies/satellytesgmbh"
                   >
-                    <XingWrapper />
+                    <XingWrapper opacity={'0.3'} />
                   </SocialLink>
                 </SocialLinkItem>
                 <SocialLinkItem>
@@ -240,7 +240,7 @@ const Navigation: React.FC<NavigationProps> = ({
                     rel="noopener noreferrer"
                     href="https://github.com/satellytes"
                   >
-                    <GithubIconWrapper />
+                    <GithubIconWrapper opacity={'0.3'} />
                   </SocialLink>
                 </SocialLinkItem>
               </SocialLinks>
