@@ -61,7 +61,31 @@
       "description": "Wir suchen Entwickler:innen aus Leidenschaft! Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung."
     },
     "thank": "Danke für deine Bewerbung!",
-    "email-confirmation": "Wir haben dir eine E-Mail zur Bestätigung geschickt und melden uns bei dir."
+    "email-confirmation": "Wir haben dir eine E-Mail zur Bestätigung geschickt und melden uns bei dir.",
+    "process": {
+      "title": "Prozess",
+      "introduction": "So läuft deine Bewerbung bei uns ab. Wir legen viel Wert auf Transparenz. Zu jedem Zeitpunkt wirst du wissen, wie es weiter geht und was dich erwartet. Lies dir unsere nachfolgende Beschreibung gut durch, dann kann dich nichts mehr überraschen",
+      "application": {
+        "title": "Bewirb dich",
+        "text": "Du hast eine Stelle gefunden, von der du überzeugt bist du bist, der richtig:e Kandidat:in? Sehr gut, wir freuen uns auf Dich! Du füllst das Bewerbungsformular der Stelle mit allen nötigen Daten und Dateien aus und schickst das Formular ab. Deine Bewerbung landet dann bei uns und Teile deines zukünftigen Teams werden sich deine Bewerbung genau ansehen. Sind wir ebenfalls davon überzeugt, dass du der richtige Kandidat bist, dann laden wir dich ein."
+      },
+      "interview": {
+        "title": "Erste Interview: Das Kennenlernen",
+        "text": "Diese Interview ist auf rund 30min bis 45min ausgelegt. Jemand aus unserer Personalabteilung wird sich mit dir über deine Bewerbung locker unterhalten. Du wirst erste Details zu deinem zukünftigen Projekt erfahren und wir besprechen mit dir erste Rahmenbedingungen, beispielsweise wann du anfangen willst oder deine Gehaltsvorstellung.\n\n Sobald das Interview vorbei ist, bekommst du von uns innerhalb von 2 Tagen Bescheid, wie es mit uns weiter geht"
+      },
+      "knowledge": {
+        "title": "Zweites Interview: Deine Technische Expertise",
+        "text": "Dieses Interview ist der umfangreichste Teil deiner Bewerbung und kann bis zu 120 Minuten dauern und du musst ggf. etwas vorbereiten. Wir lassen unsere Bewerber keinen Code schreiben. Stattdessen werden wir mit dir technische Fragen durchgehen und du wirst mit uns eine Code Review durchsprechen. Das hilft uns einzuschätzen, wie gut deine technischen Fähigkeiten sind.\n\n Du bekommst innerhalb von 2 Tagen Bescheid, wie es weiter geht."
+      },
+      "team": {
+        "title": "Das Team kennenlernen",
+        "text": "Glückwunsch. Du hast uns bewiesen, dass du kannst, was du uns versprochen hast. In diesem letzten Schritt wirst du dein zukünftiges Team kennenlernen. Wir werden hier vor allem über deine soft skills sprechen. Wie hast du dich in der Vergangenheit verhalten, wie hast du Probleme gemeistert und welche Erwartungen hast du an deine Arbeitsumgebung und Kollegen. \n\n Wir wollen hier auf Augenhöhe mit dir sprechen und sicherstellen, dass du genau weißt, was auf dich zu kommt und wir wollen herausfinden, ob du nicht nur aufgrund deiner technischen Expertise sondern auch mit deiner Persönlichkeit zu uns passt."
+      },
+      "result": {
+        "title": "Das Ergebnis",
+        "text": "Wenn alles geklappt hat, werden wir dir freudig die Neuigkeiten zukommen lassen und alles was nun folgt besprechen. Dein Arbeitsvertrag wird vorbereitet, dein Startdatum ausgemacht."
+      }
+    }
   },
   "office": {
     "title": "Büro",

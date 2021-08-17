@@ -147,13 +147,8 @@ const CareerPage = ({
             </Trans>
           </GridItem>
           <GridItem xs={12} md={8}>
-            <ProcessTitle>Prozess</ProcessTitle>
-            <Text>
-              So läuft deine Bewerbung bei uns ab. Wir legen viel Wert auf
-              Transparenz. Zu jedem Zeitpunkt wirst du wissen, wie es weiter
-              geht und was dich erwartet. Lies dir unsere nachfolgende
-              Beschreibung gut durch, dann kann dich nichts mehr überraschen
-            </Text>
+            <ProcessTitle>{t('career.process.title')}</ProcessTitle>
+            <Text>{t('career.process.introduction')}</Text>
             <ProcessAccordion />
           </GridItem>
         </Grid>

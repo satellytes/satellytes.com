@@ -61,7 +61,31 @@
       "description": "We are looking for passionate developers! Take a look at our open positions. We look forward to receiving your application."
     },
     "thank": "Thank you for your application!",
-    "email-confirmation": "We sent you a confirmation-email and we will contact you."
+    "email-confirmation": "We sent you a confirmation-email and we will contact you.",
+    "process": {
+      "title": "Process",
+      "introduction": "This is how our application process works. We put a lot of emphasis on transparency. You will know at all times how things will proceed and what to expect. Read the following description carefully, then nothing can surprise you.",
+      "application": {
+        "title": "Apply",
+        "text": "You have found a job that you are convinced you are the right candidate for? Very good, we are looking forward to hearing from you! You fill in the application form for the job with all the necessary data and files and send it off. Your application will then be sent to us and members of your future team will take a close look at your application. If we are also convinced that you are the right candidate, we will invite you to join us."
+      },
+      "interview": {
+        "title": "First interview",
+        "text": "This interview is designed to be around 30min to 45min. Someone from our HR department will have a chat with you about your application. You will learn first details about your future project and we will discuss first general conditions with you, for example, when you want to start or your salary expectations.\n\nOnce the interview is over, you will hear from us within 2 days about what happens next with us."
+      },
+      "knowledge": {
+        "title": "Second interview: Your technical knowledge",
+        "text": "This interview is the most extensive part of your application and can take up to 120 minutes. You may need to do some preparation. We don't let our applicants write code. Instead, we will go through technical questions with you and you will talk through a code review with us. This helps us assess how good your technical skills are.\n\n You'll hear back within 2 days about what happens next."
+      },
+      "team": {
+        "title": "Getting to know our team",
+        "text": "Congratulations! You have proven to us that you can do what you promised us. In this last step, you will get to know your future team. We will mainly talk about your soft skills. How did you behave in the past, how did you cope with problems and what do you expect from your working environment and colleagues. \n\nWe want to talk to you at eye level and make sure that you know exactly what is coming up and we want to find out whether you fit in with us not only because of your technical expertise but also because of your personality."
+      },
+      "result": {
+        "title": "The result",
+        "text": "When everything has worked out, we will happily send you the news and discuss everything that follows. Your employment contract will be prepared and your start date will be set."
+      }
+    }
   },
   "office": {
     "title": "Office",

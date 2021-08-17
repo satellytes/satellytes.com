@@ -8,6 +8,7 @@ import {
 import '@reach/accordion/styles.css';
 import styled from 'styled-components';
 import { CaptionText } from '../typography/typography';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 const ProcessCaption = styled(CaptionText)`
   font-size: 16px;
@@ -20,6 +21,9 @@ const StyledAccordion = styled(Accordion)`
 
 const StyledAccordionPanel = styled(AccordionPanel)`
   padding: 16px;
+  font-size: 16px;
+  line-height: 150%;
+  white-space: pre-line;
 `;
 
 const StyledAccordionButton = styled(AccordionButton)`
@@ -70,42 +74,49 @@ const StyledAccordionItem = styled(AccordionItem)`
 `;
 
 export const ProcessAccordion = () => {
+  const { t } = useTranslation();
   return (
     <StyledAccordion collapsible multiple>
       <StyledAccordionItem>
         <StyledAccordionButton>
-          <ProcessCaption>1. Bewerbung</ProcessCaption>
-        </StyledAccordionButton>
-        <StyledAccordionPanel>Hier bewirbst du dich</StyledAccordionPanel>
-      </StyledAccordionItem>
-      <StyledAccordionItem>
-        <StyledAccordionButton>
-          <ProcessCaption>2. Kennenlernen</ProcessCaption>
-        </StyledAccordionButton>
-        <StyledAccordionPanel>Hier lernen wir dich kennen</StyledAccordionPanel>
-      </StyledAccordionItem>
-      <StyledAccordionItem>
-        <StyledAccordionButton>
-          <ProcessCaption>3. Tech Expertise</ProcessCaption>
+          <ProcessCaption>
+            {t('career.process.application.title')}
+          </ProcessCaption>
         </StyledAccordionButton>
         <StyledAccordionPanel>
-          Hier testen wir deine Tech Expertise
+          {t('career.process.application.text')}
         </StyledAccordionPanel>
       </StyledAccordionItem>
       <StyledAccordionItem>
         <StyledAccordionButton>
-          <ProcessCaption>4. Team</ProcessCaption>
+          <ProcessCaption>{t('career.process.interview.title')}</ProcessCaption>
         </StyledAccordionButton>
         <StyledAccordionPanel>
-          Hier stellen wir dich unserem Team vor
+          {t('career.process.interview.text')}
         </StyledAccordionPanel>
       </StyledAccordionItem>
       <StyledAccordionItem>
         <StyledAccordionButton>
-          <ProcessCaption>5. Ergebnis</ProcessCaption>
+          <ProcessCaption>{t('career.process.knowledge.title')}</ProcessCaption>
         </StyledAccordionButton>
         <StyledAccordionPanel>
-          Hier verkünden wir das Ergebnis
+          {t('career.process.knowledge.text')}
+        </StyledAccordionPanel>
+      </StyledAccordionItem>
+      <StyledAccordionItem>
+        <StyledAccordionButton>
+          <ProcessCaption>{t('career.process.team.title')}</ProcessCaption>
+        </StyledAccordionButton>
+        <StyledAccordionPanel>
+          {t('career.process.team.text')}
+        </StyledAccordionPanel>
+      </StyledAccordionItem>
+      <StyledAccordionItem>
+        <StyledAccordionButton>
+          <ProcessCaption>{t('career.process.result.title')}</ProcessCaption>
+        </StyledAccordionButton>
+        <StyledAccordionPanel>
+          {t('career.process.result.text')}
         </StyledAccordionPanel>
       </StyledAccordionItem>
     </StyledAccordion>
