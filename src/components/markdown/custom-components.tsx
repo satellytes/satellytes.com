@@ -1,4 +1,7 @@
 import {
+  CodeBlockCaption,
+  Figure,
+  ImageCaption,
   SmallTitle,
   SubTitle,
   Text,
@@ -154,6 +157,15 @@ const customSatellytesComponents = {
   },
   p(props) {
     return <Text>{props.children}</Text>;
+  },
+  figure(props) {
+    return <Figure>{props.children}</Figure>;
+  },
+  figcaption(props) {
+    return <CodeBlockCaption>{props.children}</CodeBlockCaption>;
+  },
+  em(props) {
+    return <ImageCaption>{props.children}</ImageCaption>;
   },
   table(props) {
     return (

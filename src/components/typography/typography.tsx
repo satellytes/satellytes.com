@@ -130,6 +130,26 @@ export const CaptionText = styled.p`
   color: #668cff;
 `;
 
+export const ImageCaption = styled.em`
+  margin: 0px;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 28px;
+
+  opacity: 0.5;
+`;
+
+export const CodeBlockCaption = styled.figcaption`
+  margin-bottom: 32px;
+  font-size: 16px;
+
+  opacity: 0.5;
+`;
+
+export const Figure = styled.figure`
+  margin: 10px 0px;
+`;
+
 /**
  *
  * Image Card
