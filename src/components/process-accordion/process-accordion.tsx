@@ -9,6 +9,11 @@ import '@reach/accordion/styles.css';
 import styled from 'styled-components';
 import { CaptionText } from '../typography/typography';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { LaunchingRocket } from '../icons/launching-rocket';
+import { Circle } from '../icons/circle';
+import { FlyingRocket } from '../icons/flying-rocket';
+import { FlagOnEarth } from '../icons/flag-on-earth';
+import { Satellite } from '../icons/satellite';
 
 const ProcessCaption = styled(CaptionText)`
   font-size: 16px;
@@ -21,9 +26,15 @@ const StyledAccordion = styled(Accordion)`
 
 const StyledAccordionPanel = styled(AccordionPanel)`
   padding: 16px;
+  padding-top: 8px;
   font-size: 16px;
   line-height: 150%;
   white-space: pre-line;
+
+  > svg {
+    display: block;
+    margin-bottom: 16px;
+  }
 `;
 
 const StyledAccordionButton = styled(AccordionButton)`
@@ -39,17 +50,20 @@ const StyledAccordionButton = styled(AccordionButton)`
 `;
 
 const StyledAccordionItem = styled(AccordionItem)`
+  &:hover {
+    background: linear-gradient(
+      180deg,
+      rgba(77, 121, 255, 0.1) 0%,
+      rgba(77, 121, 255, 0) 100%
+    );
+  }
+
   &:last-child {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   &[data-state='open'] {
     position: relative;
-    background: linear-gradient(
-      180deg,
-      rgba(77, 121, 255, 0.1) 0%,
-      rgba(77, 121, 255, 0) 100%
-    );
     &::after {
       content: url("data:image/svg+xml;utf8,<svg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'>
       <path d='M10 6L6 2L2 6' stroke='%23668CFF' stroke-width='2.5' stroke-linecap='round'/></svg>");
@@ -84,6 +98,7 @@ export const ProcessAccordion = () => {
           </ProcessCaption>
         </StyledAccordionButton>
         <StyledAccordionPanel>
+          <LaunchingRocket />
           {t('career.process.application.text')}
         </StyledAccordionPanel>
       </StyledAccordionItem>
@@ -92,6 +107,7 @@ export const ProcessAccordion = () => {
           <ProcessCaption>{t('career.process.interview.title')}</ProcessCaption>
         </StyledAccordionButton>
         <StyledAccordionPanel>
+          <Circle />
           {t('career.process.interview.text')}
         </StyledAccordionPanel>
       </StyledAccordionItem>
@@ -100,6 +116,7 @@ export const ProcessAccordion = () => {
           <ProcessCaption>{t('career.process.knowledge.title')}</ProcessCaption>
         </StyledAccordionButton>
         <StyledAccordionPanel>
+          <FlyingRocket />
           {t('career.process.knowledge.text')}
         </StyledAccordionPanel>
       </StyledAccordionItem>
@@ -108,6 +125,7 @@ export const ProcessAccordion = () => {
           <ProcessCaption>{t('career.process.team.title')}</ProcessCaption>
         </StyledAccordionButton>
         <StyledAccordionPanel>
+          <Satellite />
           {t('career.process.team.text')}
         </StyledAccordionPanel>
       </StyledAccordionItem>
@@ -116,6 +134,7 @@ export const ProcessAccordion = () => {
           <ProcessCaption>{t('career.process.result.title')}</ProcessCaption>
         </StyledAccordionButton>
         <StyledAccordionPanel>
+          <FlagOnEarth />
           {t('career.process.result.text')}
         </StyledAccordionPanel>
       </StyledAccordionItem>
