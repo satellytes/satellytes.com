@@ -40,6 +40,7 @@
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-canonical-urls": "^3.11.0",
     "gatsby-plugin-catch-links": "^3.11.0",
+    "gatsby-plugin-feed": "^3.11.0",
     "gatsby-plugin-image": "^1.11.0",
     "gatsby-plugin-manifest": "3.11.0",
     "gatsby-plugin-netlify": "^3.11.0",
