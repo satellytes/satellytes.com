@@ -4,7 +4,7 @@ import styled from 'styled-components';
 interface GithubProps {
   opacity?: string;
 }
-const GithubIcon: React.FC = (props) => {
+const IconGithub: React.FC<GithubProps> = (props) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -18,7 +18,7 @@ const GithubIcon: React.FC = (props) => {
   );
 };
 
-export const GithubIconWrapper = styled(GithubIcon)<GithubProps>`
+export const GithubIconWrapper = styled(IconGithub)<GithubProps>`
   transition: fill 0.2s ease-in;
   fill: #ffffff;
 
