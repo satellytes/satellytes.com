@@ -56,6 +56,21 @@ const XingShareButton = styled.a`
   margin: 0;
 `;
 
+const RSSWrapper = styled.div`
+  display: block;
+  position: relative;
+  margin-bottom: 3px;
+`;
+
+const RSSLink = styled.a`
+  position: absolute;
+  top: -18px;
+
+  font-size: 20px;
+  color: #668cff;
+  text-decoration: none;
+`;
+
 export const SharePanel: React.FC<ShareProps> = ({ title }) => {
   const [shareUrl, setShareUrl] = useState('');
   const { t } = useTranslation();
@@ -104,6 +119,11 @@ export const SharePanel: React.FC<ShareProps> = ({ title }) => {
           >
             <XingWrapper color="#668cff" />
           </XingShareButton>
+        </SocialLinkItem>
+        <SocialLinkItem data-testid="rss">
+          <RSSWrapper>
+            <RSSLink href="/blog/rss.xml">RSS</RSSLink>
+          </RSSWrapper>
         </SocialLinkItem>
       </SocialLinks>
     </SharePanelContainer>
