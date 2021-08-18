@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { GRID_GAP_DESKTOP, GRID_GAP_MOBILE } from '../grid/grid';
+import { up } from '../breakpoint/breakpoint';
 
 interface BurgerMenuProps {
   transition: boolean;
@@ -22,6 +24,15 @@ const Wrapper = styled.div<{ transition: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  padding: 3px 0px;
+
+  margin-right: -${() => GRID_GAP_MOBILE};
+  padding-right: ${() => GRID_GAP_MOBILE};
+
+  ${up('md')} {
+    margin-right: -${() => GRID_GAP_DESKTOP};
+    padding-right: ${() => GRID_GAP_DESKTOP};
+  }
 
   .bar {
     height: 2px;
