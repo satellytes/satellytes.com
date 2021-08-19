@@ -137,7 +137,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
           <MarkdownAst htmlAst={markdown.htmlAst} />
           <PanelContainer>
             <SharePanel title={markdown.frontmatter.title} />
-            <FollowPanel title={markdown.frontmatter.title} />
+            <FollowPanel />
           </PanelContainer>
         </GridItem>
       </Grid>
