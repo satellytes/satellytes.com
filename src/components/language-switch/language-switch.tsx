@@ -14,11 +14,14 @@ const StyledLanguageLink = styled(Link)<{ selected?: boolean }>`
   ${({ selected }) => (selected ? `color: #668CFF;` : `color: #FFFFFF;`)}
 `;
 
-export const LanguageSwitch = ({ translation }) => {
+export const LanguageSwitch = ({
+  translation,
+  className = 'language-switch',
+}) => {
   const { languages, language, originalPath } = useI18next();
 
   return (
-    <div>
+    <div className={className}>
       {languages.map((languageOfLink) => {
         return (
           <StyledLanguageLink
