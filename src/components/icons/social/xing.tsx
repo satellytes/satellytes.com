@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 interface XingProps {
   color?: string;
+  opacity?: string;
 }
 
 export const IconXing: React.FC<XingProps> = (props) => (
@@ -20,9 +21,10 @@ export const IconXing: React.FC<XingProps> = (props) => (
 );
 
 export const XingWrapper = styled(IconXing)<XingProps>`
-  transition: fill 0.2s ease-in;
-  fill: ${(props) => (props.color ? props.color : '#202840')};
+  transition: all 0.2s ease-in;
+  fill: ${(props) => (props.color ? props.color : '#FFFFFF')};
   &:hover {
     fill: ${(props) => (props.color ? props.color : '#ffffff')};
+    opacity: 1;
   }
 `;

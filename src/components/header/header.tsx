@@ -175,7 +175,13 @@ const Header: React.FC<HeaderProps> = (props) => {
           )}
         </SiteMenu>
       </Wrapper>
-      <NavigationFlyout visible={isNavigationVisible} />
+      <NavigationFlyout
+        visible={isNavigationVisible}
+        showLanguageSwitch={Boolean(
+          props.translation || props.showLanguageSwitch,
+        )}
+        translation={props.translation}
+      />
     </StyledHeader>
   );
 };
