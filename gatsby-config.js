@@ -19,6 +19,8 @@ const SEO_EXCLUDED_URLS = [
   '/**/404.html',
 ];
 
+const RSS_FEED_URL = '/blog/rss.xml';
+
 module.exports = {
   flags: {
     DEV_SSR: true,
@@ -146,7 +148,7 @@ module.exports = {
                 }
               }
             `,
-            output: '/blog/rss.xml',
+            output: RSS_FEED_URL,
             title: 'Satellytes Blog Feed',
             // optional configuration to insert feed reference in pages:
             // if `string` is used, it will be used to create RegExp and then test if pathname of
