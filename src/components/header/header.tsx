@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
 import { GRID_GAP_DESKTOP, GRID_GAP_MOBILE } from '../grid/grid';
-import BurgerMenu from '../icons/burger-menu';
+import { BurgerMenu } from '../icons/burger-menu';
 import { CloseBurgerMenuIcon } from '../icons/buttons-icons/close-burger-menu';
 import { NavigationFlyout } from './menu-flyout';
 import { Link } from '../links/links';
@@ -75,7 +75,7 @@ const SiteMenu = styled.button<{ $lightTheme: boolean }>`
    * to make it simpler to click (especially on mobile), 
    * we make the button extra large
    */
-  height: 100%;
+  height: 16px;
   width: 35px;
   text-align: right;
   margin-right: -${() => GRID_GAP_MOBILE};
@@ -84,6 +84,13 @@ const SiteMenu = styled.button<{ $lightTheme: boolean }>`
   ${up('md')} {
     margin-right: -${() => GRID_GAP_DESKTOP};
     padding-right: ${() => GRID_GAP_DESKTOP};
+  }
+
+  .bar {
+    background-color: ${(props) =>
+      props.$lightTheme
+        ? props.theme.palette.text.headerLight
+        : props.theme.palette.text.header};
   }
 
   rect {
@@ -97,6 +104,7 @@ const SiteMenu = styled.button<{ $lightTheme: boolean }>`
 const Wrapper = styled.div`
   display: flex;
   justify-content: end;
+  align-items: center;
 `;
 
 interface HeaderProps {
@@ -113,6 +121,7 @@ const Header: React.FC<HeaderProps> = (props) => {
   const [isHeaderTransparent, setIsHeaderTransparent] = useState<boolean>(
     Boolean(props.transparent),
   );
+  const [hoverWithTransition, setHoverWithTransition] = useState(true);
 
   useEffect(() => {
     const onScroll = (): void => {
@@ -153,9 +162,17 @@ const Header: React.FC<HeaderProps> = (props) => {
           $lightTheme={Boolean(!isHeaderTransparent && props.$lightTheme)}
           onClick={() => {
             setIsNavigationVisible(!isNavigationVisible);
+            setHoverWithTransition(false);
           }}
         >
-          {!isNavigationVisible ? <BurgerMenu /> : <CloseBurgerMenuIcon />}
+          {!isNavigationVisible ? (
+            <BurgerMenu
+              transition={hoverWithTransition}
+              setHoverTransition={() => setHoverWithTransition(true)}
+            />
+          ) : (
+            <CloseBurgerMenuIcon />
+          )}
         </SiteMenu>
       </Wrapper>
       <NavigationFlyout
