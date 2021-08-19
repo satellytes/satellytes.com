@@ -38,13 +38,18 @@ const NoScrollBody = createGlobalStyle`
 interface NavigationFlyoutProp {
   visible: boolean;
   onClick?: () => void;
+  translation?: string;
+  showLanguageSwitch?: boolean;
 }
 
 export const NavigationFlyout: React.FC<NavigationFlyoutProp> = (props) => {
   return (
     <FullscreenOverlay visible={props.visible} onClick={props.onClick}>
       <ScrollContainer>
-        <FullHeightNavigation />
+        <FullHeightNavigation
+          translation={props.translation}
+          showLanguageSwitch={props.showLanguageSwitch}
+        />
       </ScrollContainer>
       {props.visible && <NoScrollBody />}
     </FullscreenOverlay>

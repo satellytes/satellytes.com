@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const GithubIcon: React.FC = (props) => {
+interface GithubProps {
+  opacity?: string;
+}
+const IconGithub: React.FC<GithubProps> = (props) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -15,11 +18,12 @@ const GithubIcon: React.FC = (props) => {
   );
 };
 
-export const GithubIconWrapper = styled(GithubIcon)`
+export const GithubIconWrapper = styled(IconGithub)<GithubProps>`
   transition: fill 0.2s ease-in;
-  fill: #202840;
+  fill: #ffffff;
 
   &:hover {
     fill: #ffffff;
+    opacity: 1;
   }
 `;

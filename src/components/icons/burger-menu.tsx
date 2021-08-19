@@ -1,17 +1,88 @@
 import React from 'react';
+import styled from 'styled-components';
+import { GRID_GAP_DESKTOP, GRID_GAP_MOBILE } from '../grid/grid';
+import { up } from '../breakpoint/breakpoint';
 
-const BurgerMenu: React.FC = () => (
-  <svg
-    width="12"
-    height="10"
-    viewBox="0 0 12 10"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <rect width="12" height="2" rx="1" fill="#668CFF" />
-    <rect x="2" y="4" width="10" height="2" rx="1" fill="#668CFF" />
-    <rect x="4" y="8" width="8" height="2" rx="1" fill="#668CFF" />
-  </svg>
-);
+interface BurgerMenuProps {
+  transition: boolean;
+  setHoverTransition: () => void;
+}
+export const BurgerMenu = ({
+  transition,
+  setHoverTransition,
+}: BurgerMenuProps) => {
+  return (
+    <Wrapper transition={transition} onMouseLeave={() => setHoverTransition()}>
+      <div className="bar" />
+      <div className="bar" />
+      <div className="bar" />
+    </Wrapper>
+  );
+};
 
-export default BurgerMenu;
+const Wrapper = styled.div<{ transition: boolean }>`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 3px 0px;
+
+  margin-right: -${() => GRID_GAP_MOBILE};
+  padding-right: ${() => GRID_GAP_MOBILE};
+
+  ${up('md')} {
+    margin-right: -${() => GRID_GAP_DESKTOP};
+    padding-right: ${() => GRID_GAP_DESKTOP};
+  }
+
+  .bar {
+    height: 2px;
+    margin-bottom: 2px;
+    background-color: white;
+    border-radius: 2px;
+  }
+
+  .bar:nth-child(1) {
+    width: 12px;
+  }
+
+  .bar:nth-child(2) {
+    width: 10px;
+  }
+
+  .bar:nth-child(3) {
+    width: 8px;
+    margin-bottom: 0px;
+  }
+
+  @media (pointer: fine) {
+    .bar:nth-child(1) {
+      transition: all 0.1s 0.2s;
+    }
+
+    .bar:nth-child(2) {
+      transition: all 0.1s 0.1s;
+    }
+
+    .bar:nth-child(3) {
+      transition: all 0.1s;
+    }
+
+    &:hover {
+      .bar:nth-child(1) {
+        ${({ transition }) =>
+          transition ? `transition: all 0.1s;` : `transition: none;`}
+        width: 18px;
+      }
+      .bar:nth-child(2) {
+        ${({ transition }) =>
+          transition ? `transition: all 0.1s 0.1s;` : `transition: none;`}
+        width: 14px;
+      }
+      .bar:nth-child(3) {
+        ${({ transition }) =>
+          transition ? `transition: all 0.1s 0.2s;` : `transition: none;`}
+        width: 10px;
+      }
+    }
+  }
+`;

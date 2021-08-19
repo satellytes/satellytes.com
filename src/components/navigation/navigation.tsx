@@ -7,9 +7,10 @@ import { XingWrapper } from '../icons/social/xing';
 import { GithubIconWrapper } from '../icons/social/github';
 import { Link } from '../links/links';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { LanguageSwitch } from '../language-switch/language-switch';
 
 const NavigationBackground = styled.div`
-  background: #4d79ff;
+  background: linear-gradient(289.7deg, #543fd7 2.95%, #2756fd 100.82%);
   clip-path: polygon(
     0 16vw /* left top */,
     100% 0 /* right top */,
@@ -71,7 +72,7 @@ const LegalLinks = styled.ul`
 const UnstyledListItem = styled.li`
   &:not(:last-of-type) {
     margin-right: 24px;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
   }
 
   ${up('md')} {
@@ -150,14 +151,8 @@ const SiteNavigation = styled.div`
   }
 `;
 
-const SiteNavigationTitle = styled.span`
+const LanguageSwitchWrapper = styled(LanguageSwitch)`
   margin-bottom: 16px;
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 110%;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #ffffff;
 `;
 
 const SiteNavigationList = styled.ul`
@@ -195,7 +190,15 @@ const SiteNavigationLink = styled(Link)<{ $isSelected: boolean }>`
   }
 `;
 
-const Navigation: React.FC = (props) => {
+interface NavigationProps {
+  showLanguageSwitch?: boolean;
+  translation?: string;
+}
+
+const Navigation: React.FC<NavigationProps> = ({
+  showLanguageSwitch,
+  translation,
+}) => {
   const { t } = useTranslation();
   const [activePath, setActivePath] = useState('');
   useEffect(() => {
@@ -203,7 +206,7 @@ const Navigation: React.FC = (props) => {
   });
 
   return (
-    <NavigationBackground {...props}>
+    <NavigationBackground>
       <Grid center>
         <GridItem xs={0} md={1} />
         <GridItem xs={12} md={10} noGap>
@@ -217,7 +220,7 @@ const Navigation: React.FC = (props) => {
                     href="https://www.linkedin.com/company/satellytes"
                     title="Go to the Satellytes LinkedIn profile"
                   >
-                    <LinkedinWrapper />
+                    <LinkedinWrapper opacity={'0.3'} />
                   </SocialLink>
                 </SocialLinkItem>
                 <SocialLinkItem>
@@ -227,7 +230,7 @@ const Navigation: React.FC = (props) => {
                     rel="noopener noreferrer"
                     href="https://www.xing.com/companies/satellytesgmbh"
                   >
-                    <XingWrapper />
+                    <XingWrapper opacity={'0.3'} />
                   </SocialLink>
                 </SocialLinkItem>
                 <SocialLinkItem>
@@ -237,7 +240,7 @@ const Navigation: React.FC = (props) => {
                     rel="noopener noreferrer"
                     href="https://github.com/satellytes"
                   >
-                    <GithubIconWrapper />
+                    <GithubIconWrapper opacity={'0.3'} />
                   </SocialLink>
                 </SocialLinkItem>
               </SocialLinks>
@@ -261,7 +264,12 @@ const Navigation: React.FC = (props) => {
               </LegalLinks>
             </MetaContainer>
             <SiteNavigation>
-              <SiteNavigationTitle>{t('navigation.menu')}</SiteNavigationTitle>
+              {showLanguageSwitch && (
+                <LanguageSwitchWrapper
+                  translation={translation}
+                  className={'language-switch'}
+                />
+              )}
               <nav>
                 <SiteNavigationList>
                   <NavigationListItem>
