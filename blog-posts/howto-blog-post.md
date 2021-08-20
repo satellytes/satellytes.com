@@ -53,7 +53,25 @@ Here a 4MB picture that should get prepared by gatsby properly.
 We don't want to load 4MB but the processed image:
 
 ![twilight coloured imaginary planet where the surface shows some pink crystals growing and three planets visible in the sky](./images/space.jpg)
-<a href='https://www.freepik.com/vectors/star'>Star vector created by upklyak</a>
+*[Star vector created by upklyak](https://www.freepik.com/vectors/star)*
+
+#### Image caption
+
+To maintain a valid HTML image structure and an easily readable markdown-file, the caption for the image can be added like this:
+```
+![alt-text](./image-url)
+*Picture 1: This is an example caption.*
+```
+
+which is resolved to:
+
+```html
+<p>
+  <img src='./image-url' alt='alt-text'/>
+  <em>Picture 1: This is an example caption.</em>
+</p>
+```
+<br/>
 
 This is a PDF file that should get processed and copied to `public/`:
 [My PDF Download](./images/test.pdf)
@@ -67,7 +85,7 @@ determine the expected syntax. If you omit
 
 ```
 ~~~javascript
-cosnt myJavaScrip = true;
+const myJavaScrip = true;
 ~~~
 ```
 
@@ -166,6 +184,16 @@ footer p {
 
 ```
 
+#### Code Block Caption
+
+A code block caption can be added with:
+```html
+<figure>
+  
+  // Code Block
+  <figcaption>Code Block 1: This is an example for a caption.</figcaption>
+</figure>
+```
 
 ### Tables (tbd)
 Super cheap design that we might want to update.

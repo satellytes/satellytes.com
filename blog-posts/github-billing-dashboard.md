@@ -25,13 +25,10 @@ This can be a problem if you have multiple projects, as it’s not obvious which
 The following screenshot shows all the billing information you get from the GitHub Settings. No historical data, no expense per service.
 
 ![screenshot of the billing settings in a Github account](images/gh-billing-dashboard-screenshot-of-gh-billing-settings.png)
-*Screenshot of the billing settings in a Github account*
-
 
 And this is what you get from the GitHub Billing Dashboard. Costs per service per month with historic data:
 
 ![screenshot of the Github billing dashboard with some charts](images/gh-billing-dashboard-screenshot-of-gh-dashboard.png)
-*Screenshot of the Github billing dashboard with some charts*
 
 This blog post gives you some insights into how we build it.
 
@@ -61,8 +58,6 @@ Date,Product,Repository Slug,Quantity,Unit Type,Price Per Unit,Actions Workflow,
 2021-06-15,actions,sample-repository3,26,UBUNTU,$0.008,.github/workflows/main.yml,
 2021-06-15,actions,sample-repository2,17,UBUNTU,$0.008,.github/workflows/integration-test.yml,
 ```
-
-<figure>
 
 ```tsx
 export interface UsageReportCsvEntry {
@@ -98,8 +93,6 @@ parse<UsageReportCsvEntry>(file, {
 	},
 });
 ```
-<figcaption>Code Example: Conversion from CVS to JSON</figcaption>
-</figure>
 
 ### Recharts
 
