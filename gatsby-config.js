@@ -15,8 +15,10 @@ const SEO_EXCLUDED_URLS = [
   '/data-privacy/',
   '/de/imprint/',
   '/de/data-privacy/',
-  '/**/404',
+  '/**/404/',
+  '/de/404/',
   '/**/404.html',
+  '/de/404.html',
 ];
 
 module.exports = {
@@ -132,15 +134,73 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
+        // to read more: https://www.gatsbyjs.com/plugins/gatsby-plugin-sitemap/#options
         excludes: SEO_EXCLUDED_URLS,
-        resolvePagePath: ({ path }) => {
-          if (!path.endsWith('/')) {
+        query: `
+        {
+          site {
+             siteMetadata {
+               siteUrl
+             }
+           }
+          allSitePage {
+            nodes {
+              path
+            }
+          }
+        }`,
+        // returns path und translated path of page
+        resolvePages: ({ allSitePage: { nodes: allPages } }) => {
+          return allPages.map((page) => {
+            const translation = allPages.find((translatedPage) => {
+              const path = page.path;
+              const translatedPath = translatedPage.path;
+              if (translatedPath === path) {
+                return false;
+              }
+              if (path.includes('/de/')) {
+                return path.replace('/de', '') === translatedPath;
+              } else {
+                return translatedPath.replace('/de/', '/') === path;
+              }
+            });
+            return {
+              path: page.path,
+              translation: translation ? translation.path : undefined,
+            };
+          });
+        },
+        filterPages: (page, excludes) => {
+          if (excludes === page.path) {
+            return true; // excludes page
+          }
+          if (!page.path.endsWith('/')) {
             console.warn(
               'Path of the page does not end with a slash! For SEO reasons all paths should end with a slash:',
-              path,
+              page.path,
             );
           }
-          return path;
+          return false;
+        },
+        serialize: ({ path, translation }) => {
+          const isGermanPath = path.includes('/de/');
+          if (!translation) {
+            return {
+              url: path,
+              changefreq: 'daily',
+              priority: 0.7,
+              links: [{ lang: isGermanPath ? 'de' : 'en', url: path }],
+            };
+          }
+          return {
+            url: path,
+            changefreq: 'daily',
+            priority: 0.7,
+            links: [
+              { lang: 'de', url: isGermanPath ? path : translation },
+              { lang: 'en', url: isGermanPath ? translation : path },
+            ],
+          };
         },
       },
     },
