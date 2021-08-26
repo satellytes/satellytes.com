@@ -8,34 +8,49 @@ interface CodeBlockProps {
 }
 
 const StyledCodeBlock = styled.pre`
-  background: #f5f2f0;
   padding: 1em;
   margin: 0.5em 0;
   overflow: auto;
   position: relative;
+`;
+
+const CodeBlockWrapper = styled.div`
+  background: #f5f2f0;
+  position: relative;
+  cursor: default;
+
+  &:hover {
+    background: #e4e8f3;
+  }
 
   > svg {
     position: absolute;
     top: 16px;
     right: 16px;
     cursor: pointer;
+    z-index: 2;
     &:active {
       border: 2px solid #f5f2f0;
+    }
+    &:hover {
+      > circle {
+        fill: #668cff;
+      }
     }
   }
 `;
 
 export const CodeBlock = (props: CodeBlockProps) => {
   const copyCodeBlock = (event) => {
-    const codeNode = event.currentTarget.previousSibling;
+    const codeNode = event.currentTarget.nextSibling;
     const { innerText } = codeNode;
     copy(innerText);
   };
 
   return (
-    <StyledCodeBlock>
-      {props.children}
+    <CodeBlockWrapper>
       <CopyIcon onClick={copyCodeBlock} />
-    </StyledCodeBlock>
+      <StyledCodeBlock>{props.children}</StyledCodeBlock>
+    </CodeBlockWrapper>
   );
 };
