@@ -37,7 +37,7 @@ interface BlogArticleTemplateProps {
         image?: string;
         author?: string;
         authorSummary?: string;
-        shortSummary?: string;
+        seoMetaText?: string;
         featuredImage: IGatsbyImageData;
         featuredImageSquared: IGatsbyImageData;
       };
@@ -78,9 +78,9 @@ const BlogHeader = ({ readingTime, frontmatter }) => {
 };
 
 const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
-  data,
-  location,
-}) => {
+                                                                   data,
+                                                                   location,
+                                                                 }) => {
   const markdown = data.markdownRemark;
 
   const { featuredImage, featuredImageSquared, attribution } =
@@ -104,7 +104,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
       {/*
        * SEO Notes:
        * Recommended meta description length these days is 120 - 158 characters. The lower number is relevant for mobile devices.
-       * This means authored blog posts should always come with an explicit 120 character summary (`shortSummary`). In case an author doesn't provide such a summary
+       * This means authored blog posts should always come with an explicit 120 character summary (`seoMetaText`). In case an author doesn't provide such a summary
        * we will fallback to a generated excerpt fixed to the 158 characters to provide a little bit more text as the automatic extraction is usually
        * less condense in terms of content.
        */}
@@ -112,7 +112,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
         title={`${markdown.frontmatter.title} | Satellytes`}
         imageUrl={markdown.fields?.socialCard}
         siteType="article"
-        description={markdown.frontmatter.shortSummary ?? markdown.excerpt}
+        description={markdown.frontmatter.seoMetaText ?? markdown.excerpt}
         location={location}
         noTranslation={true}
       />
@@ -132,63 +132,63 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
 };
 
 export const BlogPostPageQuery = graphql`
-  query ($path: String!, $language: String!) {
-    locales: allLocale(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          ns
-          data
-          language
+    query ($path: String!, $language: String!) {
+        locales: allLocale(filter: { language: { eq: $language } }) {
+            edges {
+                node {
+                    ns
+                    data
+                    language
+                }
+            }
         }
-      }
-    }
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
-      htmlAst
-      fields {
-        socialCard
-        readingTime {
-          minutes
-        }
-      }
-      excerpt(pruneLength: 158)
-      frontmatter {
-        attribution {
-          creator
-          source
-        }
-        date
-        path
-        title
-        author
-        authorSummary
-        shortSummary
+        markdownRemark(frontmatter: { path: { eq: $path } }) {
+            html
+            htmlAst
+            fields {
+                socialCard
+                readingTime {
+                    minutes
+                }
+            }
+            excerpt(pruneLength: 158)
+            frontmatter {
+                attribution {
+                    creator
+                    source
+                }
+                date
+                path
+                title
+                author
+                authorSummary
+                seoMetaText
 
-        featuredImage {
-          childImageSharp {
-            gatsbyImageData(
-              aspectRatio: 2.5
-              layout: FULL_WIDTH
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
-            )
-          }
-        }
+                featuredImage {
+                    childImageSharp {
+                        gatsbyImageData(
+                            aspectRatio: 2.5
+                            layout: FULL_WIDTH
+                            placeholder: BLURRED
+                            formats: [AUTO, WEBP, AVIF]
+                        )
+                    }
+                }
 
-        featuredImageSquared: featuredImage {
-          childImageSharp {
-            gatsbyImageData(
-              aspectRatio: 1
-              layout: FULL_WIDTH
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
-            )
-          }
+                featuredImageSquared: featuredImage {
+                    childImageSharp {
+                        gatsbyImageData(
+                            aspectRatio: 1
+                            layout: FULL_WIDTH
+                            placeholder: BLURRED
+                            formats: [AUTO, WEBP, AVIF]
+                        )
+                    }
+                }
+            }
+            rawMarkdownBody
         }
-      }
-      rawMarkdownBody
     }
-  }
 `;
 
 export default BlogArticleTemplate;

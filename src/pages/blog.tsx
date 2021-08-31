@@ -25,7 +25,8 @@ interface AllBlogPostsQuery {
       date: string;
       path: string;
       title: string;
-      shortSummary?: string;
+      seoMetaText?: string;
+      teaserText?: string;
       featuredImage: IGatsbyImageData;
     };
     rawMarkdownBody: string;
@@ -100,7 +101,7 @@ const BlogPostOverview = ({ blogPosts }) => (
           large={topBlogPost}
           image={getImage(post.frontmatter.featuredImage)}
           title={post.frontmatter.title}
-          text={post.frontmatter.shortSummary ?? post.excerpt}
+          text={post.frontmatter.teaserText ?? post.excerpt}
           caption={formatDate(post.frontmatter.date)}
           link={post.frontmatter.path}
         />
@@ -131,7 +132,8 @@ export const BlogPageQuery = graphql`
                     date
                     path
                     title
-                    shortSummary
+                    seoMetaText
+                    teaserText
                     featuredImage {
                         childImageSharp {
                             gatsbyImageData(
