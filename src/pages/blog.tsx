@@ -25,7 +25,6 @@ interface AllBlogPostsQuery {
       date: string;
       path: string;
       title: string;
-      seoMetaText?: string;
       teaserText?: string;
       featuredImage: IGatsbyImageData;
     };
@@ -111,43 +110,42 @@ const BlogPostOverview = ({ blogPosts }) => (
 );
 
 export const BlogPageQuery = graphql`
-    query ($language: String!) {
-        locales: allLocale(filter: { language: { eq: $language } }) {
-            edges {
-                node {
-                    ns
-                    data
-                    language
-                }
-            }
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
         }
-        allMarkdownRemark(
-            sort: { fields: frontmatter___date, order: DESC }
-            filter: { fileAbsolutePath: { regex: "/(blog-posts)/" } }
-        ) {
-            nodes {
-                id
-                excerpt(pruneLength: 500)
-                frontmatter {
-                    date
-                    path
-                    title
-                    seoMetaText
-                    teaserText
-                    featuredImage {
-                        childImageSharp {
-                            gatsbyImageData(
-                                width: 600
-                                aspectRatio: 1.77
-                                layout: CONSTRAINED
-                                placeholder: BLURRED
-                                formats: [AUTO, WEBP, AVIF]
-                            )
-                        }
-                    }
-                }
-                rawMarkdownBody
-            }
-        }
+      }
     }
+    allMarkdownRemark(
+      sort: { fields: frontmatter___date, order: DESC }
+      filter: { fileAbsolutePath: { regex: "/(blog-posts)/" } }
+    ) {
+      nodes {
+        id
+        excerpt(pruneLength: 500)
+        frontmatter {
+          date
+          path
+          title
+          teaserText
+          featuredImage {
+            childImageSharp {
+              gatsbyImageData(
+                width: 600
+                aspectRatio: 1.77
+                layout: CONSTRAINED
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
+            }
+          }
+        }
+        rawMarkdownBody
+      }
+    }
+  }
 `;
