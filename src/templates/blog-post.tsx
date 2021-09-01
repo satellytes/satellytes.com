@@ -78,9 +78,9 @@ const BlogHeader = ({ readingTime, frontmatter }) => {
 };
 
 const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
-                                                                   data,
-                                                                   location,
-                                                                 }) => {
+  data,
+  location,
+}) => {
   const markdown = data.markdownRemark;
 
   const { featuredImage, featuredImageSquared, attribution } =
@@ -132,63 +132,63 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
 };
 
 export const BlogPostPageQuery = graphql`
-    query ($path: String!, $language: String!) {
-        locales: allLocale(filter: { language: { eq: $language } }) {
-            edges {
-                node {
-                    ns
-                    data
-                    language
-                }
-            }
+  query ($path: String!, $language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
         }
-        markdownRemark(frontmatter: { path: { eq: $path } }) {
-            html
-            htmlAst
-            fields {
-                socialCard
-                readingTime {
-                    minutes
-                }
-            }
-            excerpt(pruneLength: 158)
-            frontmatter {
-                attribution {
-                    creator
-                    source
-                }
-                date
-                path
-                title
-                author
-                authorSummary
-                seoMetaText
-
-                featuredImage {
-                    childImageSharp {
-                        gatsbyImageData(
-                            aspectRatio: 2.5
-                            layout: FULL_WIDTH
-                            placeholder: BLURRED
-                            formats: [AUTO, WEBP, AVIF]
-                        )
-                    }
-                }
-
-                featuredImageSquared: featuredImage {
-                    childImageSharp {
-                        gatsbyImageData(
-                            aspectRatio: 1
-                            layout: FULL_WIDTH
-                            placeholder: BLURRED
-                            formats: [AUTO, WEBP, AVIF]
-                        )
-                    }
-                }
-            }
-            rawMarkdownBody
-        }
+      }
     }
+    markdownRemark(frontmatter: { path: { eq: $path } }) {
+      html
+      htmlAst
+      fields {
+        socialCard
+        readingTime {
+          minutes
+        }
+      }
+      excerpt(pruneLength: 158)
+      frontmatter {
+        attribution {
+          creator
+          source
+        }
+        date
+        path
+        title
+        author
+        authorSummary
+        seoMetaText
+
+        featuredImage {
+          childImageSharp {
+            gatsbyImageData(
+              aspectRatio: 2.5
+              layout: FULL_WIDTH
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
+
+        featuredImageSquared: featuredImage {
+          childImageSharp {
+            gatsbyImageData(
+              aspectRatio: 1
+              layout: FULL_WIDTH
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
+      }
+      rawMarkdownBody
+    }
+  }
 `;
 
 export default BlogArticleTemplate;
