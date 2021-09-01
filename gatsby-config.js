@@ -1,6 +1,7 @@
 const {
   buildGatsbyCloudPreviewUrl,
 } = require('./gatsby/util/build-gatsby-cloud-preview-url');
+const siteMapTransformers = require('./gatsby/gatsby-plugin-sitemap/resolve-pages');
 
 const BASE_URL = buildGatsbyCloudPreviewUrl({
   branchName: process.env.BRANCH, // https://support.gatsbyjs.com/hc/en-us/articles/360052322954-Environment-Variables-Specific-to-Gatsby-Cloud
@@ -150,58 +151,9 @@ module.exports = {
           }
         }`,
         // returns path und translated path of page
-        resolvePages: ({ allSitePage: { nodes: allPages } }) => {
-          return allPages.map((page) => {
-            const translation = allPages.find((translatedPage) => {
-              const path = page.path;
-              const translatedPath = translatedPage.path;
-              if (translatedPath === path) {
-                return false;
-              }
-              if (path.includes('/de/')) {
-                return path.replace('/de', '') === translatedPath;
-              } else {
-                return translatedPath.replace('/de/', '/') === path;
-              }
-            });
-            return {
-              path: page.path,
-              translation: translation ? translation.path : undefined,
-            };
-          });
-        },
-        filterPages: (page, excludes) => {
-          if (excludes === page.path) {
-            return true; // excludes page
-          }
-          if (!page.path.endsWith('/')) {
-            console.warn(
-              'Path of the page does not end with a slash! For SEO reasons all paths should end with a slash:',
-              page.path,
-            );
-          }
-          return false;
-        },
-        serialize: ({ path, translation }) => {
-          const isGermanPath = path.includes('/de/');
-          if (!translation) {
-            return {
-              url: path,
-              changefreq: 'daily',
-              priority: 0.7,
-              links: [{ lang: isGermanPath ? 'de' : 'en', url: path }],
-            };
-          }
-          return {
-            url: path,
-            changefreq: 'daily',
-            priority: 0.7,
-            links: [
-              { lang: 'de', url: isGermanPath ? path : translation },
-              { lang: 'en', url: isGermanPath ? translation : path },
-            ],
-          };
-        },
+        resolvePages: siteMapTransformers.resolvePages,
+        filterPages: siteMapTransformers.filterPages,
+        serialize: siteMapTransformers.serialize,
       },
     },
     {
