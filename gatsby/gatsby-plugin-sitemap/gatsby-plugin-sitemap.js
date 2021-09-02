@@ -114,7 +114,7 @@ const createTranslationLinks = (normalizedPath, languages) => {
  * const sitemapResult = filteredPages.map(page => serialize(page));
  * ```
  */
-function resolvePages({ allSitePage: { nodes: allPages } }) {
+function gatsbyPluginSitemap({ allSitePage: { nodes: allPages } }) {
   const paths = allPages.map(({ path }) => path);
   const translationLookup = createPageTranslationLookup(paths);
 
@@ -165,7 +165,7 @@ function filterPages({ path }, excludes) {
 }
 
 module.exports = {
-  resolvePages,
+  resolvePages: gatsbyPluginSitemap,
   serialize,
   filterPages,
 };

@@ -1,4 +1,8 @@
-const { resolvePages, serialize, filterPages } = require('./resolve-pages');
+const {
+  resolvePages,
+  serialize,
+  filterPages,
+} = require('./gatsby-plugin-sitemap');
 
 const EXAMPLES_NODES = {
   allSitePage: {

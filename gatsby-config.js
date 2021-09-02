@@ -1,7 +1,7 @@
 const {
   buildGatsbyCloudPreviewUrl,
 } = require('./gatsby/util/build-gatsby-cloud-preview-url');
-const siteMapTransformers = require('./gatsby/gatsby-plugin-sitemap/resolve-pages');
+const siteMapTransformers = require('./gatsby/gatsby-plugin-sitemap/gatsby-plugin-sitemap');
 
 const BASE_URL = buildGatsbyCloudPreviewUrl({
   branchName: process.env.BRANCH, // https://support.gatsbyjs.com/hc/en-us/articles/360052322954-Environment-Variables-Specific-to-Gatsby-Cloud
