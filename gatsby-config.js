@@ -137,6 +137,7 @@ module.exports = {
       options: {
         // to read more: https://www.gatsbyjs.com/plugins/gatsby-plugin-sitemap/#options
         excludes: SEO_EXCLUDED_URLS,
+        // TODO: We want to include a modified time for a given page. File tiem won't work (CI not present). What else?
         query: `
         {
           site {
