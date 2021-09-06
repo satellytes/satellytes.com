@@ -5,6 +5,8 @@ title: "GitHub CSV Billing Dashboard"
 featuredImage: images/gh-billing-dashboard-cockpit.jpg
 author: "Felix Hofmann and Fabian Dietenberger"
 authorSummary: "Working Student and Senior Developer at Satellytes"
+teaserText: We have developed a dashboard that graphically displays the costs incurred by GitHub Actions. In this article you can learn more about the technologies and libraries we used in this project. It also explains some background information about GitHub Actions and the corresponding costs.
+seoMetaText: Some background information about our self-developed GitHub Billing Dashboard
 attribution:
     creator: Launde Morel
     source: https://unsplash.com/photos/4VSsq9ErzOs
