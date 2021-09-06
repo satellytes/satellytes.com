@@ -6,9 +6,21 @@ const { createBlogPosts } = require('./gatsby/create-pages/create-blog-posts');
 const {
   createCareerDetails,
 } = require('./gatsby/create-pages/create-carrer-details');
+const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.onCreateNode = (gatsbyCreateNodeArgs) => {
   createPreviewCard(gatsbyCreateNodeArgs);
+  const { node, actions, getNode } = gatsbyCreateNodeArgs;
+  const { createNodeField } = actions;
+
+  if (node.internal.type === `MarkdownRemark`) {
+    const value = createFilePath({ node, getNode });
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    });
+  }
 };
 
 exports.createPages = async (createPagesArgs) => {

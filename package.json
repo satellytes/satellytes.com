@@ -82,7 +82,8 @@
     "slugify": "^1.6.0",
     "styled-components": "^5.3.1",
     "unified": "^10.1.0",
-    "what-input": "^5.2.10"
+    "what-input": "^5.2.10",
+    "gatsby-plugin-feed": "^3.11.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.14.1",
