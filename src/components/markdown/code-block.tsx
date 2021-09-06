@@ -2,6 +2,7 @@ import React from 'react';
 import { CopyIcon } from '../icons/copy';
 import copy from 'copy-to-clipboard';
 import styled from 'styled-components';
+import { onlyText } from '../util/only-text';
 
 interface CodeBlockProps {
   children: React.ReactNode;
@@ -41,10 +42,8 @@ const CodeBlockWrapper = styled.div`
 `;
 
 export const CodeBlock = (props: CodeBlockProps) => {
-  const copyCodeBlock = (event) => {
-    const codeNode = event.currentTarget.nextSibling;
-    const { innerText } = codeNode;
-    copy(innerText);
+  const copyCodeBlock = () => {
+    copy(onlyText(props.children));
   };
 
   return (
