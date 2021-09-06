@@ -8,11 +8,12 @@ import { Grid, GridItem } from '../components/grid/grid';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 import { SectionTitle } from '../components/typography/typography';
-import SharePanel from '../components/share-panel/share-panel';
+import SharePanel from '../components/social-panel/share-panel';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
 import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { HeroImage } from '../components/hero-image/hero-image';
 import { LocalesQuery } from '../pages';
+import FollowPanel from '../components/social-panel/follow-panel';
 
 interface BlogArticleTemplateProps {
   data: {
@@ -37,7 +38,7 @@ interface BlogArticleTemplateProps {
         image?: string;
         author?: string;
         authorSummary?: string;
-        shortSummary?: string;
+        seoMetaText?: string;
         featuredImage: IGatsbyImageData;
         featuredImageSquared: IGatsbyImageData;
       };
@@ -58,6 +59,16 @@ const BlogHeaderContainer = styled.div`
   ${up('md')} {
     margin-top: 80px;
     margin-bottom: 32px;
+  }
+`;
+
+const PanelContainer = styled.div`
+  display: block;
+  margin-top: 80px;
+
+  ${up('md')} {
+    display: flex;
+    justify-content: space-between;
   }
 `;
 
@@ -104,7 +115,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
       {/*
        * SEO Notes:
        * Recommended meta description length these days is 120 - 158 characters. The lower number is relevant for mobile devices.
-       * This means authored blog posts should always come with an explicit 120 character summary (`shortSummary`). In case an author doesn't provide such a summary
+       * This means authored blog posts should always come with an explicit 120 character summary (`seoMetaText`). In case an author doesn't provide such a summary
        * we will fallback to a generated excerpt fixed to the 158 characters to provide a little bit more text as the automatic extraction is usually
        * less condense in terms of content.
        */}
@@ -112,7 +123,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
         title={`${markdown.frontmatter.title} | Satellytes`}
         imageUrl={markdown.fields?.socialCard}
         siteType="article"
-        description={markdown.frontmatter.shortSummary ?? markdown.excerpt}
+        description={markdown.frontmatter.seoMetaText ?? markdown.excerpt}
         location={location}
         noTranslation={true}
       />
@@ -124,7 +135,10 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
             frontmatter={markdown.frontmatter}
           />
           <MarkdownAst htmlAst={markdown.htmlAst} />
-          <SharePanel title={markdown.frontmatter.title} />
+          <PanelContainer>
+            <SharePanel title={markdown.frontmatter.title} />
+            <FollowPanel />
+          </PanelContainer>
         </GridItem>
       </Grid>
     </Layout>
@@ -162,7 +176,7 @@ export const BlogPostPageQuery = graphql`
         title
         author
         authorSummary
-        shortSummary
+        seoMetaText
 
         featuredImage {
           childImageSharp {

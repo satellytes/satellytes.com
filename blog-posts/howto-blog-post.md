@@ -5,6 +5,7 @@ title: "How to do a blog post"
 featuredImage: images/space.jpg
 author: "Georgios Kaleadis & Fabian Dietenberger"
 authorSummary: "CTO and Senior Developer at Satellytes"
+teaserText: "Learn how to properly write a blog post – in terms of formatting – so that everything is rendered properly & our blog looks super shiny."
 attribution:
   creator: upklyak
   source: https://www.freepik.com/free-vector/space-landscape-night_13748451.htm
@@ -19,8 +20,11 @@ learn how to properly write a blog post – in terms of formatting – so that e
 
 <!-- stop excerpt -->
 
-## Excerpt
-See the comment `<!-- stop excerpt -->` in the markdown file above this section? That's the stop word for the excerpt. You don't need to use it as gatsby will extract an excerpt from the given markdown content with some heuristic, but that code word gives you the power to shorten it.
+## Teaser
+You can write a short text that is used as a teaser of your article on the blog overview page. To do this, set the `teaserText` tag in the metadata of your article and add a short summary.
+
+Instead of a self-written text you can also use an excerpt from your article as a teaser: See the comment `<!-- stop excerpt -->` in the markdown file above this section? That's the stop word for the excerpt. You don't need to use it as gatsby will extract an excerpt from the given markdown content with some heuristic, but that code word gives you the power to shorten it.
+
 
 ## Accessibility
 Keep in mind that blog posts do always start with a `h1` to show the blog post title.
