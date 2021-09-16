@@ -24,7 +24,6 @@ You can find the repository on [github.com/georgiee/typescript-type-checker-beyo
 Look at the two types below. You can find primitives like `string` and `number`, types from the standard library such as `Date` and type aliases like `NestedObjectType` that refers to object types which are assembled types that can contain primitives and other object types.
 
 ```typescript
-
 // we will start our inspection here
 type MainObjectType = {
   propertyWithTypeAlias: NestedObjectType;
@@ -38,7 +37,7 @@ type NestedObjectType = {
 
 ```
 
-The ideal output we want to get for the above content is a list of property names and type names separated by a colon including the hierarchy to visualize where a property belongs to. 
+The ideal output we want to get for the above content is a list of property names and type names separated by a colon, including the hierarchy to visualize where a property belongs to. 
 
 ```
 MainObjectType:
@@ -50,8 +49,8 @@ MainObjectType:
 
 Those are our rules for the processing:
 
-+ [Type aliases](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases) such as `propertyWithTypeAlias: NestedType` need to be resolved into the types that are referred to. This can be other type aliases or primitives.
-+ Primitives itself can't be processed anymore and should be output as is such as `value1: string` and `value2: number`.
++ [Type aliases](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases) such as `propertyWithTypeAlias: NestedObjectType` need to be resolved into the types that are referred to. This can be other type aliases or primitives.
++ Primitives itself can't be processed anymore and should be output as is, such as `value1: string` and `value2: number`.
 + We have no interest in type details from the [standard library](https://github.com/microsoft/TypeScript/tree/5afe42e14e61d7e4df5d75cc0022283711cb593a/lib) such as `value3: Date` or even `value1: string` with the `length` property. They potentially bring dozens of properties we don't want to see in our output list. 
 
 Let's find out how we can approach this problem.
@@ -65,7 +64,7 @@ That output looks promising. I guess this could work for very simple types 👍
 
 The problem with the AST: it's a static analysis, which means you're processing code without executing it. That's why you are missing information from the runtime. Typescript needs to run the code to understand it and to add additional semantics. You will encounter the following problems when you try to approach the problem with the AST:
 
-+ The AST can't see imported files as `import` statements are not processed
++ The AST can't see imported files, as `import` statements are not processed
 + [Created types](https://www.typescriptlang.org/docs/handbook/2/types-from-types.html) with operands like `keyof` & `typeof` are constructed only during runtime
 + [Narrowing (type guards)](https://www.typescriptlang.org/docs/handbook/2/narrowing.html) or [conditional types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html) rely on being processed by typescript otherwise you have no chance to understand and process them
 
@@ -73,7 +72,7 @@ Eventually, the AST approach is a dead end.
 
 ## Walking beyond the AST
 
-There must be another solution 🤔 Your favourite IDE does this type of processing all day, for instance when you are presented a list of inspections or completions for a given type. See the screenshot below, where I hovered over a type `NestedObjectType` in IntelliJ. IntelliJ somehow knows the details of that type which is exactly what we want to achieve here. 
+There must be another solution 🤔 Your favourite IDE does this type of processing all day, for instance when you are presented a list of inspections or completions for a given type. See the screenshot below, where I hovered over a type `NestedObjectType` in IntelliJ. IntelliJ somehow knows the details of that type, which is exactly what we want to achieve here. 
 
 ![](images/type-check-intellij.png)
 
@@ -87,7 +86,7 @@ Your favourite IDE can support Typescript because TypeScript offers the [tsserve
 
 Have you ever restarted an ominous *Typescript Server* in IntelliJ or VSCode from time to time while debugging typing or tsconfig issues with typescript? That server is based on `tsserver` and offers optimized code completion support based on some technique we want to use to solve our problem. 
 
-`tsserver` is as the name says a server though and not suited to process single files. If you look careful through the  [typescript architecture overview](https://github.com/microsoft/TypeScript/wiki/Architectural-Overview) you will notice a `checker.ts` at the foundation of the diagram — the core of typescript.
+`tsserver` is as the name says a server though it is not suited to process single files. If you look careful through the  [typescript architecture overview](https://github.com/microsoft/TypeScript/wiki/Architectural-Overview) you will notice a `checker.ts` at the foundation of the diagram — the core of typescript.
 
 ![](images/typescript-architecture.png)
 
@@ -112,7 +111,7 @@ const classSymbol = checker.getSymbolAtLocation(node.name);
 ```
 
 ## Type Checker Usage
-Getting the checker setup is pretty straightforward, as usually it gets complicated with all the details. Let's tackle it step by step. We start by preparing a file `file-with-types.ts` that should contain the types we want to examine.
+Getting the checker setup is pretty straightforward, but as usually it gets complicated with all the details. Let's tackle it step by step. We start by preparing a file `file-with-types.ts` that should contain the types we want to examine.
 
 
 ```typescript
@@ -159,7 +158,7 @@ ts.forEachChild(mySourceFile, node => {
 });
 ```
 
-`node` has the type `ts.Node` which doesn't have the property `node.name` instead you can check for the inherited type `TypeAliasDeclarations` with the method `ts.isTypeAliasDeclaration(node)`. This will type guard accessing `node.name` so typescript won't throw a typing error for `node.name` as you ensure the correct content.
+`node` has the type `ts.Node` which doesn't have the property `node.name`. Instead you can check for the inherited type `TypeAliasDeclaration` with the method `ts.isTypeAliasDeclaration(node)`. This will type guard accessing `node.name` so typescript won't throw a typing error for `node.name` as you ensure the correct content.
 
 By finding that AST node we have found the exact place in the source file to ask the type checker for more information. We can do this with the method `checker.getTypeAtLocation(node)`. We pass in the node and in return we get an instance of `ts.Type` from the checker. This is a specific object that contains added semantics, which we need to go beyond the AST.
 
@@ -192,7 +191,7 @@ type MainObjectType = {
 };
 ```
 
-On that level we only have one property `propertyWithTypeAlias: NestedObjectType` in our original type definition, so we can save us one loop and simply extract the first element and name it `propertyWithTypeAlias`. The value has the type `ts.Symbol` which is similar to `ts.Type` a value with added semantics compared to the AST-related `ts.Node`.
+On that level we only have one property `propertyWithTypeAlias: NestedObjectType` in our original type definition, so we can save us one loop and simply extract the first element and name it `propertyWithTypeAlias`. The value has the type `ts.Symbol` which is similar to `ts.Type`, a value with added semantics compared to the AST-related `ts.Node`.
 
 We can use the symbol, to access the name of the variable and the actual name of the type. The type checker gives us the methods `getTypeOfSymbolAtLocation` and `typeToString` to do that, and we can print the final result to the console.
 
@@ -602,6 +601,6 @@ function processProperty(type: ts.Type, node: ts.Node, level = 0) {
 
 ## Conclusion
 
-Interacting with the type checker is similar difficult as interacting with the AST. That's because you usually don't have a complete visual representation in your mind what data is given to you by typescript, which makes this task super hard. 
+Interacting with the type checker is similarly difficult as interacting with the AST. That's because you usually don't have a complete visual representation in your mind what data is given to you by typescript, which makes this task super hard. 
 
 Don't let you fool from this blog post, to this day I still rely on `debugger` and `console.log` to find my way through solving a specific challenge with the type checker. After a while you experience kicks in, and you will be more fluent handling `ts.Symbol`, `ts.Type` or `ts.Node`. Then it's more and more fun to interact with your own written code from such a refreshing and exciting perspective ✨
