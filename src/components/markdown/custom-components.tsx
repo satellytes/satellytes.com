@@ -10,6 +10,7 @@ import { rgba } from 'polished';
 import React from 'react';
 import { up } from '../breakpoint/breakpoint';
 import { theme } from '../layout/theme';
+import { CodeBlock } from './code-block';
 
 /**
  * Override markdown generated html content with custom React components (for us mostly to pass in custom styling)
@@ -154,6 +155,9 @@ const customSatellytesComponents = {
   },
   p(props) {
     return <Text>{props.children}</Text>;
+  },
+  pre(props) {
+    return <CodeBlock>{props.children}</CodeBlock>;
   },
   table(props) {
     return (
