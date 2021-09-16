@@ -124,7 +124,8 @@
   },
   "blog": {
     "info": "Our developers and designers talk about the latest trends and know-how around tech, especially about our latest learnings and insights on creating good software for the web.",
-    "share": "Share article"
+    "share": "Share article",
+    "follow": "Follow blog"
   },
   "404": "Oh sorry! Our Satellite took the wrong direction."
 }

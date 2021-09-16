@@ -8,11 +8,12 @@ import { Grid, GridItem } from '../components/grid/grid';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 import { SectionTitle } from '../components/typography/typography';
-import SharePanel from '../components/share-panel/share-panel';
+import SharePanel from '../components/social-panel/share-panel';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
 import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { HeroImage } from '../components/hero-image/hero-image';
 import { LocalesQuery } from '../pages';
+import FollowPanel from '../components/social-panel/follow-panel';
 
 interface BlogArticleTemplateProps {
   data: {
@@ -58,6 +59,16 @@ const BlogHeaderContainer = styled.div`
   ${up('md')} {
     margin-top: 80px;
     margin-bottom: 32px;
+  }
+`;
+
+const PanelContainer = styled.div`
+  display: block;
+  margin-top: 80px;
+
+  ${up('md')} {
+    display: flex;
+    justify-content: space-between;
   }
 `;
 
@@ -124,7 +135,10 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
             frontmatter={markdown.frontmatter}
           />
           <MarkdownAst htmlAst={markdown.htmlAst} />
-          <SharePanel title={markdown.frontmatter.title} />
+          <PanelContainer>
+            <SharePanel title={markdown.frontmatter.title} />
+            <FollowPanel />
+          </PanelContainer>
         </GridItem>
       </Grid>
     </Layout>
