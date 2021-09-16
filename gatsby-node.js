@@ -1,16 +1,3 @@
-const {
-  extractPersonioSlug,
-  PERSONIO_SLUG_FIELD_NAME,
-} = require('./gatsby/util/extract-personio-slug');
-const {
-  generateCard,
-} = require('./gatsby/util/preview-card-generator/generate-card');
-const slugify = require('slugify');
-const path = require('path');
-const fetch = require('node-fetch');
-const xmlParser = require('fast-xml-parser');
-const { decode } = require('html-entities');
-const { siteMetadata } = require('./gatsby-config');
 const { createRedirects } = require('./gatsby/create-pages/create-redirects');
 const {
   createPreviewCard,
@@ -19,9 +6,21 @@ const { createBlogPosts } = require('./gatsby/create-pages/create-blog-posts');
 const {
   createCareerDetails,
 } = require('./gatsby/create-pages/create-carrer-details');
+const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.onCreateNode = (gatsbyCreateNodeArgs) => {
   createPreviewCard(gatsbyCreateNodeArgs);
+  const { node, actions, getNode } = gatsbyCreateNodeArgs;
+  const { createNodeField } = actions;
+
+  if (node.internal.type === `MarkdownRemark`) {
+    const value = createFilePath({ node, getNode });
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    });
+  }
 };
 
 exports.createPages = async (createPagesArgs) => {

@@ -23,7 +23,6 @@ export interface ShareProps {
 
 const SharePanelContainer = styled.div`
   color: #668cff;
-  margin-top: 80px;
   font-weight: bold;
   font-size: 16px;
 `;
