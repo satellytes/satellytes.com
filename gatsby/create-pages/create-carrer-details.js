@@ -1,4 +1,5 @@
-const fetch = require('node-fetch');
+const axios = require('axios').default;
+
 const { decode } = require('html-entities');
 const xmlParser = require('fast-xml-parser');
 const {
@@ -38,8 +39,10 @@ const createCareerDetails = async ({ actions }) => {
       const PERSONIO_JOBS_URL_LANG = PERSONIO_JOBS_URL.concat(
         `?language=${languageKey}`,
       );
-      const jobsXmlResponse = await fetch(PERSONIO_JOBS_URL_LANG);
-      const jobsXml = await jobsXmlResponse.text();
+
+      const jobsXmlResponse = await axios.get(PERSONIO_JOBS_URL_LANG);
+      const jobsXml = await jobsXmlResponse.data;
+
       const options = {
         tagValueProcessor: (a) => decode(a), // &#039; -> '
       };
