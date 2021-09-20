@@ -1,6 +1,7 @@
 const {
   buildGatsbyCloudPreviewUrl,
 } = require('./gatsby/util/build-gatsby-cloud-preview-url');
+const siteMapTransformers = require('./gatsby/gatsby-plugin-sitemap/gatsby-plugin-sitemap');
 
 const BASE_URL = buildGatsbyCloudPreviewUrl({
   branchName: process.env.BRANCH, // https://support.gatsbyjs.com/hc/en-us/articles/360052322954-Environment-Variables-Specific-to-Gatsby-Cloud
@@ -15,8 +16,10 @@ const SEO_EXCLUDED_URLS = [
   '/data-privacy/',
   '/de/imprint/',
   '/de/data-privacy/',
-  '/**/404',
+  '/**/404/',
+  '/de/404/',
   '/**/404.html',
+  '/de/404.html',
 ];
 
 const RSS_FEED_URL = '/blog/rss.xml';
@@ -196,16 +199,26 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
+        // to read more: https://www.gatsbyjs.com/plugins/gatsby-plugin-sitemap/#options
         excludes: SEO_EXCLUDED_URLS,
-        resolvePagePath: ({ path }) => {
-          if (!path.endsWith('/')) {
-            console.warn(
-              'Path of the page does not end with a slash! For SEO reasons all paths should end with a slash:',
-              path,
-            );
+        // TODO: We want to include a modified time for a given page. File tiem won't work (CI not present). What else?
+        query: `
+        {
+          site {
+             siteMetadata {
+               siteUrl
+             }
+           }
+          allSitePage {
+            nodes {
+              path
+            }
           }
-          return path;
-        },
+        }`,
+        // returns path und translated path of page
+        resolvePages: siteMapTransformers.resolvePages,
+        filterPages: siteMapTransformers.filterPages,
+        serialize: siteMapTransformers.serialize,
       },
     },
     {
