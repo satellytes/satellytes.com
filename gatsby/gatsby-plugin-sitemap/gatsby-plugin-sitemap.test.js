@@ -11,7 +11,6 @@ const EXAMPLES_NODES = {
       { path: '/de/some-page/' },
       { path: '/de/only-german/' },
       { path: '/only-default/' },
-      ,
       { path: '/ignore-me/' },
     ],
   },
@@ -20,6 +19,7 @@ const EXAMPLES_NODES = {
 const createPagesNodes = (nodes) => {
   return { allSitePage: { nodes } };
 };
+
 describe('Gatsby Plugin Sitemap', () => {
   test('works', () => {
     const allPages = resolvePages(EXAMPLES_NODES);
