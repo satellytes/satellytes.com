@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Gatsby Plugin Sitemap works 1`] = `
+Array [
+  Object {
+    "links": Array [
+      Object {
+        "lang": "en",
+        "url": "/some-page/",
+      },
+      Object {
+        "lang": "de",
+        "url": "/de/some-page/",
+      },
+    ],
+    "url": "/some-page/",
+  },
+  Object {
+    "links": Array [
+      Object {
+        "lang": "en",
+        "url": "/some-page/",
+      },
+      Object {
+        "lang": "de",
+        "url": "/de/some-page/",
+      },
+    ],
+    "url": "/de/some-page/",
+  },
+  Object {
+    "links": Array [
+      Object {
+        "lang": "de",
+        "url": "/de/only-german/",
+      },
+    ],
+    "url": "/de/only-german/",
+  },
+  Object {
+    "links": Array [
+      Object {
+        "lang": "en",
+        "url": "/only-default/",
+      },
+    ],
+    "url": "/only-default/",
+  },
+]
+`;
