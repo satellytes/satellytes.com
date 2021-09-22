@@ -1,15 +1,15 @@
 ---
-path: "/blog/the-modern-code-reviewer-2021/"
-date: "2021-09-21"
-title: "The modern code reviewer"
+path: /blog/the-modern-code-reviewer-2021/
+date: 2021-09-22
+title: The modern code reviewer
 featuredImage: images/IBM_Electronic_Data_Processing_Machine_-_GPN-2000-001881.jpg
-seoMetaText: A differentiated way to conduct pull requests code reviews to improve the PR throughput. 
-teaserText: A differentiated way to conduct pull requests code reviews to improve the PR throughput. Let your people choose a code review intensity that matches their experience, confidence, involvement, role, available time and project timeline.
+seoMetaText: Read about a differentiated way to conduct pull request code reviews to improve the PR throughput. 
+teaserText: Read about differentiated way to conduct pull request code reviews to improve the PR throughput. Let your people choose a code review intensity that matches their experience, confidence, involvement, role, available time and project timeline.
 attribution:
     creator: NASA
     source: https://de.m.wikipedia.org/wiki/Datei:IBM_Electronic_Data_Processing_Machine_-_GPN-2000-001881.jpg
 author: Georgios Kaleadis
-authorSummary: "CTO at Satellytes"
+authorSummary: CTO at Satellytes
 ---
 
 # Long story short
