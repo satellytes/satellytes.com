@@ -16,7 +16,7 @@ authorSummary: "CTO at Satellytes"
 
 In this blog post, I try to propose a differentiated way to conduct pull requests code reviews to improve their **throughput**. Let your people choose a code review intensity that matches their experience, confidence, involvement, role, available time, and project timeline. You do this by offering three different pull request review types: **shallow review**, **common review**, and **expert review**.
 
-Your review will be much more accessible to every one of your team, including new team members and the rather shy ones. Additionally, your most involved people, who are usually the bottleneck, will get an instrument to conduct code reviews with reduced intensities when it's not always required.
+Your review will be much more accessible to every one of your team, including new team members and the rather shy ones. Additionally, your most involved people, who are usually the bottleneck, will get an instrument to conduct code reviews with reduced intensity in cases where it is sufficient.
 
 The moment you understand that you have a choice when you are requested for a code review, you can distribute your time more evenly and steer away from situations that would cause you to be the bottleneck.
 
@@ -74,8 +74,8 @@ You can observe a lack of knowledge and confidence usually among new team member
 
 - You are an **inexperienced developer** and the things you see in a PR, just scare you.
 - You feel intimidated. You don't feel comfortable reviewing a given PR, because the PR is created by a seasoned colleague with a much **higher level.** Your feedback is not worth nor expected.
-- It's a super **complex PR**. I don't even understand the problem it's solving. I feel **intimidated** and leave the fun to others.
-- You're **new to the team**. It's **intimidating** to review and potentially criticize the code of my new colleagues.
+- It's a super **complex PR**. You don't even understand the problem it's solving. You feel **intimidated** and leave the fun to others.
+- You're **new to the team**. It's **intimidating** to review and potentially criticize the code of your new colleagues.
 
 ## **Lack of accessibility**
 
@@ -84,7 +84,7 @@ You can observe a lack of knowledge and confidence usually among new team member
 
 ## **Lack of empathy**
 
-- You don't **feel other people's pain** when waiting for a PR review. Instead, you focus on your work, create your PR, and expecting people to jump in the review right away.
+- You don't **feel other people's pain** when waiting for a PR review. Instead, you focus on your work, create your PR, and expect people to jump in the review right away.
 - There are plenty of PRs open.  Unfortunately, you have your own set of urgent code changes. That means you must create yet another PR instead of participating in the review to clear the review jam. In addition, you explicitly ask people to review your PR to move to the front of the queue. Otherwise, your PR will lay around for days. Instead of solving or discussing the problem with the team, you are **selfish and unfair** to your colleagues by trying to get your stuff covered while ignoring the rest.
 - The last time you reviewed a PR you debated and argued with the reviewee. That's why you don't feel comfortable providing another review.
 
@@ -102,7 +102,7 @@ This code review pattern gives you a choice. You can fit more reviews in the sam
 
 ## The shallow review
 
-The shallow review is best suited for peers who are in a hurry (_lacking time_), not deeply involved (_lacking knowledge_), or feel intimidated by the code or experience of the reviewee (_lacking confidence_). A majority of pull requests should be suitable for this code review type, as long they have a size small enough. When a code change introduces major architectural changes, people with shallow reviews are still welcomed but the reviewee must additionally require in-depth reviews.
+The shallow review is best suited for peers who are in a hurry (_lacking time_), not deeply involved (_lacking knowledge_), or feel intimidated by the code or experience of the reviewee (_lacking confidence_). A majority of pull requests should be suitable for this code review type, as long they have a size small enough. When a code change introduces major architectural changes, people with shallow reviews are still welcome but the reviewee must additionally require in-depth reviews.
 
 ### Reviewer's cost
 
@@ -125,7 +125,7 @@ The reviewee will get an overall confirmation that their solution works, fits th
 
 ### What the reviewee won't get
 
-The reviewee won't get detailed feedback for their code, extensive discussions around the chosen methodology, or people running the code. It's a confirmation of the validity and correctness of the change and the reviewee won't get many insights on [code elegance](https://blog.codinghorror.com/code-elegance-code-balance/), edge cases, or the architectural choices
+The reviewee won't get detailed feedback for their code, extensive discussions around the chosen methodology, or people running the code. It's a confirmation of the validity and correctness of the change and the reviewee won't get many insights on [code elegance](https://blog.codinghorror.com/code-elegance-code-balance/), edge cases, or the architectural choices.
 
 
 ## The common review
@@ -154,7 +154,7 @@ This review type can have few iterations of feedback, especially when the underl
 - Leave some praise for the good parts or things you learned 👍
 - Try to spot irregularities in code that jump to mind. Can be things that are too complex to understand, functions that are too big, or simply things that seem not to fit the existing codebase. Provide a comment to share your doubts.
 - Challenge the solution. Does it fit the stated problem? Ask questions and fuel a discussion.
-- Write a note about aspects that could be improved but that are not crucial to the acceptance of the PR
+- Write a note about aspects that could be improved but that are not crucial to the acceptance of the PR.
 - Look out for tests. Do they test relevant things? Are they present at all?
 - Optionally you run the code locally and verify the expected results. Can you break it?
 - Write a summary of your findings and if required repeat the important things to change or future things to improve beyond this PR. Such a summary improves the accessibility of your feedback and makes the pull request more enjoyable.
@@ -167,7 +167,7 @@ The reviewee will get a thorough review of their changes. People will happily di
 
 ### What the reviewee won't get
 
-The purpose of this type of review is to provide feedback to shape and approve a rocking solid code change which can include new and additional features but not drastic architectural changes or the introduction of other new concepts and approaches.
+The purpose of this type of review is to provide feedback to shape and approve a rock-solid code change which can include new and additional features but not drastic architectural changes or the introduction of other new concepts and approaches.
 
 ## The expert review
 
@@ -177,9 +177,9 @@ The involved expert reviews the code changes, carefully verifies the tests for r
 
 ### The reviewer's cost
 
-Typically the common review costs you 30 to 90 minutes. The cognitive load is high and intense. People ideally know the in and outs of the affected code parts and they understand the business domain to put the changes into the right context for evaluation. This type of review is ideal for complex features with new architectural decisions which will influence and shape the future of the project.
+Typically the expert review costs you 30 to 90 minutes. The cognitive load is high and intense. People ideally know the in and outs of the affected code parts and they understand the business domain to put the changes into the right context for evaluation. This type of review is ideal for complex features with new architectural decisions which will influence and shape the future of the project.
 
-The review is also a great candidate to educate and influence less seasoned developers. Give them a chance to work on some complex project and provide an expert review to accompany them in delivering a future-proof change.
+This type of review is a great candidate to educate and influence less seasoned developers. Give them a chance to work on some complex project and provide an expert review to accompany them in delivering a future-proof change.
 
 ### How to conduct
 
@@ -217,7 +217,7 @@ Being a team, the knowledge of different code review intensities helps to preven
 
 # Further improvements
 
-We focused solely on the reviewer and how to conduct the actual review. Being the author of a PR (reviewee), you can enhance the chances to receive a review if you make your PR more accessible. Provide a clear description. Repeat parts of any given Jira ticket, make the PR small enough, if it's big tell the reviewer why and where to focus on. Give clear instructions to run the code and to follow your changes.
+We focused solely on the reviewer and how to conduct the actual review. Being the author of a PR (reviewee), you can increase the chances to receive a review if you make your PR more accessible. Provide a clear description. Repeat parts of any given Jira ticket, make the PR small enough, if it's big tell the reviewer why and where to focus on. Give clear instructions to run the code and to follow your changes.
 
 This will greatly improve your chances to receive a review as you lower the effort to quickly check into your PR and you will encourage people who lack confidence or knowledge to provide their review too.
 
@@ -227,6 +227,6 @@ I'm planning to provide a follow-up to this blog post describing the ideal pull 
 
 If you want to use the described approach, you need a working code review environment where people trust each other. Shallow reviews won't magically solve your toxic environment. You have to fix the foundation before optimizing your PR throughput.
 
-Encourage the less experienced colleagues to start with shallow code reviews to actively take part in shaping the future of your codebase. Pick your code review type wisely though. If everyone gets lazy and provides only shallow reviews, your overall coding quality might suffer, because nobody takes their time to check the important details of a code change.
+Encourage the less experienced colleagues to start with shallow code reviews to actively take part in shaping the future of your codebase. Pick your code review type wisely though. If everyone gets lazy and provides only shallow reviews, your overall code quality might suffer, because nobody takes their time to check the important details of a code change.
 
 Choose the common or even expert review too often and you will make yourself the bottleneck for the team and get stressed quickly.
