@@ -1,7 +1,7 @@
 ---
 path: /blog/the-modern-code-reviewer-2021/
 date: 2021-09-22
-title: The modern code reviewer
+title: The Modern Code Reviewer
 featuredImage: images/IBM_Electronic_Data_Processing_Machine_-_GPN-2000-001881.jpg
 seoMetaText: Read about a differentiated way to conduct pull request code reviews to improve the PR throughput. 
 teaserText: Read about differentiated way to conduct pull request code reviews to improve the PR throughput. Let your people choose a code review intensity that matches their experience, confidence, involvement, role, available time and project timeline.
