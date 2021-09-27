@@ -112,6 +112,8 @@
     "info": "Information on the collection of personal data"
   },
   "navigation": {
+    "language-aria": "Language Select",
+    "main-navigation-aria": "Main Navigation",
     "menu": "Navigation",
     "imprint": "Imprint",
     "data-privacy": "Data Privacy",
