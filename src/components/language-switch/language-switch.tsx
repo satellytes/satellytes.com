@@ -19,10 +19,9 @@ export const LanguageSwitch = ({
   className = 'language-switch',
 }) => {
   const { languages, language, originalPath, t } = useI18next();
-  const languageSwitchLabel = t('navigation.language-aria');
 
   return (
-    <nav aria-label={languageSwitchLabel} className={className}>
+    <nav aria-label={t('navigation.language-aria')} className={className}>
       {languages.map((languageOfLink) => {
         return (
           <StyledLanguageLink
@@ -34,6 +33,7 @@ export const LanguageSwitch = ({
             }
             language={languageOfLink}
             selected={language === languageOfLink}
+            title={t(`navigation.${languageOfLink}`)}
           >
             {languageOfLink}
           </StyledLanguageLink>

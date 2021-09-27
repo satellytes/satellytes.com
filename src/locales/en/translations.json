@@ -114,6 +114,8 @@
   "navigation": {
     "language-aria": "Language Select",
     "main-navigation-aria": "Main Navigation",
+    "en": "English",
+    "de": "Deutsch",
     "menu": "Navigation",
     "imprint": "Imprint",
     "data-privacy": "Data Privacy",
