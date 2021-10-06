@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Grid, GridItem } from '../grid/grid';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import {
   Actions,
   CareerFormStyled,
@@ -30,7 +30,7 @@ interface CareerFormProps {
   scrollToStart: () => void;
 }
 
-interface FormData {
+interface RawFormData {
   first_name: string;
   last_name: string;
   email: string;
@@ -112,6 +112,10 @@ const CheckboxContainer = styled.div`
   }
 `;
 
+interface PersonioApiResponse {
+  success: string;
+}
+
 export const CareerForm: React.FC<CareerFormProps> = (props) => {
   const {
     register,
@@ -127,7 +131,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
   const selectedFiles = watch('documents');
   const privacyChecked = watch('privacy');
 
-  const onSubmit = async (formValues: FormData): Promise<void> => {
+  const onSubmit = async (formValues: RawFormData): Promise<void> => {
     if (!privacyChecked) {
       setError(
         'privacy',
@@ -166,18 +170,24 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
       }
     }
     formData.append('gender', 'diverse');
-
-    // await new Promise(resolve => setTimeout(resolve, 2000));
     await axios
-      .post(API_ENDPOINT, formData, {
-        onUploadProgress: (progressEvent) =>
-          setUploadProgress(progressEvent.loaded / progressEvent.total),
-      })
-      .then((res) => res.data)
-      .then((json) => {
-        if (json.success) {
+      .post<FormData, AxiosResponse<PersonioApiResponse>>(
+        API_ENDPOINT,
+        formData,
+        {
+          onUploadProgress: (progressEvent) =>
+            setUploadProgress(progressEvent.loaded / progressEvent.total),
+        },
+      )
+      .then((response) => response.data)
+      .then((data) => {
+        // will contain 'Applicant successfully applied to the job position!'
+        // from the Personio API.
+        if (data.success) {
           // all good
           props.scrollToStart();
+        } else {
+          console.error('Something was wrong with the received response', data);
         }
       })
       .catch((error) => {
