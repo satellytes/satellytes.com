@@ -2,7 +2,7 @@
 path: "/blog/interview-daniel-eißing/"
 date: "2021-10-20"
 title: Daniel Eißing - Senior Frontend Engineer 
-featuredImage: images/interview-daniel.jpg
+featuredImage: images/interview/daniel-hero.jpg
 author: "Satellytes"
 ---
 
@@ -10,7 +10,7 @@ author: "Satellytes"
 ## Interview mit Daniel Eißing
 Daniel Eißing ist seit einem Monat Senior Frontend Engineer bei Satellytes und das zu 100% remote. Davor hat er fast zwei Jahre lang als Freelancer für Satellytes gearbeitet. Wir haben ihn zum Interview gebeten, damit er uns mehr über Freelance vs. Festanstellung, 100% remote und seinen ungewöhnlichen Arbeitsalltag erzählt.
 
-![Daniel](images/interview/daniel_1.jpg)
+
 <hr>
 
 **Hallo Daniel. Schön, dass Du Dir die Zeit nimmst. Stell Dich doch mal kurz vor.**<br>
@@ -24,6 +24,8 @@ An sich hat sich ja nichts geändert, wir haben seit Projektanfang nur Remote ge
 
 **Gab es Reaktionen von Kollegen?**<br>
 Es wurde "als natürlich" zur Kenntnis genommen, weil viele nach der Pandemie  überlegen, ob fünf Tage im Office noch die beste Lösung sind – aus Sicht von Produktivität, Spaß an der Arbeit, Pensum. Man überlegt auf welche Art und Weise man den Arbeitsalltag verbringen kann, der einen ausgeglichen hält und einem gut tut. Für mich persönlich sind Arbeitslast und Ausgleich besser von zu Hause im Einklang.
+
+![Daniel](images/interview/daniel.jpg)
 
 **Du arbeitest 100% von zu Hause und hast auch sehr ungewöhnliche Arbeitszeiten. Erzähl doch mal wie dein normaler Arbeitsalltag abläuft.**<br>
 Ich wache ohne Wecker täglich zwischen 5 und 6 Uhr auf. Dann mache ich mir erst mal einen Kaffee. Danach arbeite ich sehr produktiv 2 bis 3 Stunden, dann frühstücke ich eine Stunde in Ruhe. Nach dem Frühstück fange ich meistens um ca. 9 Uhr wieder an zu arbeiten. Um diese Uhrzeit sind dann auch alle Kollegen aktiv und es wird viel abgestimmt: Requirements Engineering, Tickets schreiben – im Prinzip viel was nicht Programmierarbeit ist, aber trotzdem gemacht werden muss. Manchmal mache ich vormittags sogar noch eine Stunde Sport, andernfalls abends. Um 12:30 bis 13 Uhr mache ich dann Mittag. Von 12 bis 15 Uhr bin ich AFK für Einkaufen, Essen zubereiten, essen und News lesen. In dieser Zeit mache ich auch gerne private Besorgungen, dann springt der Kreislauf wieder an. Ab 17 Uhr bin ich dann wieder am Rechner. So fix ist das aber auch nicht. Ich plane meine Wochen nicht nach 5 x 8 Stunden, sondern nach 7 x N. Im Endeffekt arbeite ich wie ein Freelancer mit fixer Wochenstundenzahl. Meine Tasks und Ziele, die ich in der aktuellen Arbeitswoche erreichen will, habe ich im Kopf. Daran orientiere ich mich, nicht an klassischen 5-Tage-Wochen.
