@@ -1,5 +1,5 @@
 ---
-path: "/blog/interview-daniel-eissing/"
+path: "/blog/interview-daniel-eißing/"
 date: "2021-10-20"
 title: Daniel Eißing - Senior Frontend Engineer 
 featuredImage: images/interview-daniel.jpg
@@ -7,14 +7,14 @@ author: "Satellytes"
 ---
 
 
-## Interview mit Daniel Eissing
-Daniel Eissing ist seit einem Monat Senior Frontend Engineer bei Satellytes und das zu 100% remote. Davor hat er fast zwei Jahre lang als Freelancer für Satellytes gearbeitet. Wir haben ihn zum Interview gebeten, damit er uns mehr über Freelance vs. Festanstellung, 100% remote und seinen ungewöhnlichen Arbeitsalltag erzählt.
+## Interview mit Daniel Eißing
+Daniel Eißing ist seit einem Monat Senior Frontend Engineer bei Satellytes und das zu 100% remote. Davor hat er fast zwei Jahre lang als Freelancer für Satellytes gearbeitet. Wir haben ihn zum Interview gebeten, damit er uns mehr über Freelance vs. Festanstellung, 100% remote und seinen ungewöhnlichen Arbeitsalltag erzählt.
 
 ![Daniel](images/interview/daniel_1.jpg)
 <hr>
 
 **Hallo Daniel. Schön, dass Du Dir die Zeit nimmst. Stell Dich doch mal kurz vor.**<br>
-Gerne. Ich bin Daniel Eissing, Entwickler. Ich würde mich als Generalist bezeichnen, denn mir macht die Web-Programmierung insgesamt einfach wahnsinnig viel Spaß. Am spannendsten finde ich den Gap zwischen Technik und User Experience – und diesen zu schließen. In der Web-Entwicklung gibt's dafür die besten Tools, die Entwicklung schreitet extrem schnell voran und so kann man täglich dazulernen um bessere Lösungen zu entwickeln – und mein Glück ist, dass ich sehr gerne dazulerne. In den letzten 8 Jahren habe ich in München gelebt, ein Jahr bei Tomtec gearbeitet und danach fünf Jahre bei SinnerSchrader. Das hat extrem viel Spaß gemacht, ich habe interessante Leute kennen- und viel dazugelernt, aber am Ende gekündigt, um als Freelancer unabhängiger in meinen Entscheidungen zu sein woran ich arbeite.
+Gerne. Ich bin Daniel Eißing, Entwickler. Ich würde mich als Generalist bezeichnen, denn mir macht die Web-Programmierung insgesamt einfach wahnsinnig viel Spaß. Am spannendsten finde ich den Gap zwischen Technik und User Experience – und diesen zu schließen. In der Web-Entwicklung gibt's dafür die besten Tools, die Entwicklung schreitet extrem schnell voran und so kann man täglich dazulernen um bessere Lösungen zu entwickeln – und mein Glück ist, dass ich sehr gerne dazulerne. In den letzten 8 Jahren habe ich in München gelebt, ein Jahr bei Tomtec gearbeitet und danach fünf Jahre bei SinnerSchrader. Das hat extrem viel Spaß gemacht, ich habe interessante Leute kennen- und viel dazugelernt, aber am Ende gekündigt, um als Freelancer unabhängiger in meinen Entscheidungen zu sein woran ich arbeite.
 
 **Wieso hast du deine freiberufliche Tätigkeit aufgegeben und bei Satellytes angefangen?**<br>
 Kurz gesagt: Weil's einfach gepasst hat. In der Pandemie haben wir ja ein Jahr 100% remote zusammengearbeitet und das hat sich gut angefühlt und das hat perfekt mit meinen Plänen zusammengepasst wieder zurück nach Fulda zu ziehen. Es macht für mich einfach viel Sinn mit Leuten zusammenzuarbeiten bei denen ich weiß, dass es klappt. Und: Das Firmenkonzept passt. Satellytes sind ein paar feine Jungs mit tollen Projekten. Die Kommunikation ist direkt, absolut transparent und auf Augenhöhe. Mehr noch: Es herrscht eine sehr offene Feedback-Kultur, man wird ermutigt Feedback einzubringen, sowohl fachlich auf Projekten als auch im Unternehmen selbst. Ich finde es gut, dass man tatsächlich Ownership an den Sachen an denen man arbeitet übernehmen kann und Einfluss auf das Ergebnis hat und es nicht ins Leere läuft. Man hat die Möglichkeit das Produkt jenseits seiner Kernverantwortung und -kompetenz voranzubringen. Vertrauen war auch ein Faktor, natürlich beidseitig.
@@ -31,7 +31,7 @@ Ich wache ohne Wecker täglich zwischen 5 und 6 Uhr auf. Dann mache ich mir erst
 **Einen Arbeitsplatz im Büro brauchst Du ja nicht. Wie sieht deiner zu Hause aus?**<br>
 Ich habe ein M1 MacBook bekommen, ein Trackpad und eine Tastatur meiner Wahl. Stuhl und Schreibtisch wurde mir angeboten, brauche ich aber nicht. Aber ein gutes Headset ist wichtig, wenn man mal out-of-home arbeitet.
 
-**Wie bleibst Du mit deinen Kollegen in Kontakt? Wie lernst Du Neues und wie/wo lässt Du Dich inspirieren? Die gemeinsame Küche gibt's ja nicht mehr für Plaudereien.**<br></br>
+**Wie bleibst Du mit deinen Kollegen in Kontakt? Wie lernst Du Neues und wie/wo lässt Du Dich inspirieren? Die gemeinsame Küche gibt's ja nicht mehr für Plaudereien.**<br>
 Unser Daily-Coffee-Talk-Hangout hat die Pandemie überlebt und in Meetings sprechen wir am Anfang oder Ende auch immer paar Minuten privat. Ab und zu komme ich nach München, dann mache ich mir Lunch-Termine mit meinen Kollegen. Und wir wollen die Tage mal "Twitter Spaces" versuchen, das ist ähnlich wie bei Slack "Huddle". Das Format finde ich gut.
 
 **Was vermisst Du bei Home Office vs. Office?**<br>
