@@ -16,7 +16,7 @@ Banken- und Automobilbranche. Angular hat sich für derartige Applikationen zur 
 bringen tiefgreifende Erfahrung mit dieser Technologie mit und liefern Ihnen eine maßgeschneiderte Lösung zu jedem
 Problem.
 
-Wir sind zudem sehr erfahren in der Einführung ganzheitlicher Plattformen –beispielsweise einer Infrastruktur aus
+Wir sind zudem sehr erfahren in der Einführung ganzheitlicher Plattformen – beispielsweise einer Infrastruktur aus
 Angular-Libraries, dem Aufsetzen von CI/CD-Pipelines und der Umsetzung gut getesteter Applikationen in mehreren Sprachen
 und Konfigurationen.
 
