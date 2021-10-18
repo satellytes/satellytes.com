@@ -53,7 +53,7 @@ const ContactPage: React.FC<ContactPageProps> = (props: ContactPageProps) => {
               <Trans i18nKey="contact.info-link">
                 <Text style={{ marginBottom: '40px' }}>
                   Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine
-                  E-Mail an&nbsp;
+                  E-Mail an
                   <TextLink to="mailto:beep@satellytes.com">
                     beep@satellytes.com
                   </TextLink>

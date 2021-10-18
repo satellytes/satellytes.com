@@ -85,14 +85,14 @@
     "info-link": "<0>Use our contact-form or write an e-mail to <1>beep@satellytes.com</1></0>",
     "info": "Use our contact-form or write an e-mail to beep@satellytes.com",
     "name": "Name",
-    "email": "E-mail-adress",
+    "email": "E-mail address",
     "message": "Your message to us",
     "mandatory-field": "mandatory field",
     "error": {
       "name": "Your name is missing",
       "message": "Your message is missing",
       "email": "Your e-mail is missing",
-      "email-unknown": "Something is wrong with the e-mail-adress"
+      "email-unknown": "Something is wrong with the e-mail address"
     },
     "action": {
       "again-text": "An error occurred. Please try again. If it does not work, please send your message to <2>beep@satellytes.com</2>",
