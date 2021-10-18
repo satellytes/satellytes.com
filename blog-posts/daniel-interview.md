@@ -1,5 +1,5 @@
 ---
-path: "/blog/interview-daniel-eißing/"
+path: "/blog/interview-daniel-eissing/"
 date: "2021-10-20"
 title: Daniel Eißing - Senior Frontend Engineer 
 featuredImage: images/interview/daniel-hero.jpg
