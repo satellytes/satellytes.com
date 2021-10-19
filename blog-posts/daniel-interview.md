@@ -1,9 +1,10 @@
 ---
 path: "/blog/interview-daniel-eissing/"
 date: "2021-10-20"
-title: Daniel Eißing - Senior Frontend Engineer 
+title: Daniel Eißing – Senior Frontend Engineer 
 featuredImage: images/interview/daniel-hero.jpg
 author: "Satellytes"
+authorSummary: "Interview mit Daniel Eißing"
 ---
 
 
