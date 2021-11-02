@@ -155,7 +155,10 @@ const Header: React.FC<HeaderProps> = (props) => {
       </SiteTitle>
       <Wrapper>
         {(props.translation || props.showLanguageSwitch) && (
-          <LanguageSwitch translation={props.translation} />
+          <LanguageSwitch
+            translation={props.translation}
+            $lightTheme={Boolean(!isHeaderTransparent && props.$lightTheme)}
+          />
         )}
         <SiteMenu
           aria-label="Open menu"

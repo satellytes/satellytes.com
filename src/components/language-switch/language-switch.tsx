@@ -1,44 +1,47 @@
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from '../links/links';
+import { Chevron } from '../icons/chevron';
 
-const StyledLanguageLink = styled(Link)<{ selected?: boolean }>`
-  margin: 1px 0 1px 12px;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 110%;
-  cursor: pointer;
+interface LanguageSwitchProps {
+  translation: any;
+  className?: string;
+  $lightTheme?: boolean;
+}
+const StyledSelection = styled.select<{ $lightTheme: boolean }>`
+  background: none;
+  border: none;
   text-transform: uppercase;
-
-  ${({ selected }) => (selected ? `color: #668CFF;` : `color: #FFFFFF;`)}
+  color: ${(props) =>
+    props.$lightTheme
+      ? props.theme.palette.text.headerLight
+      : props.theme.palette.text.header};
+  appearance: none;
+  margin-left: 4px;
 `;
 
 export const LanguageSwitch = ({
-  translation,
   className = 'language-switch',
-}) => {
-  const { languages, language, originalPath, t } = useI18next();
+  $lightTheme,
+}: LanguageSwitchProps) => {
+  const { languages, language, t, changeLanguage } = useI18next();
 
   return (
     <nav aria-label={t('navigation.language-aria')} className={className}>
-      {languages.map((languageOfLink) => {
-        return (
-          <StyledLanguageLink
-            key={languageOfLink}
-            to={
-              language !== languageOfLink && translation
-                ? translation
-                : originalPath
-            }
-            language={languageOfLink}
-            selected={language === languageOfLink}
-            title={t(`navigation.${languageOfLink}`)}
-          >
+      <Chevron />
+      <StyledSelection
+        onChange={(event) => {
+          changeLanguage(event.target.value);
+        }}
+        value={language}
+        $lightTheme={Boolean($lightTheme)}
+      >
+        {languages.map((languageOfLink) => (
+          <option value={languageOfLink} key={languageOfLink}>
             {languageOfLink}
-          </StyledLanguageLink>
-        );
-      })}
+          </option>
+        ))}
+      </StyledSelection>
     </nav>
   );
 };
