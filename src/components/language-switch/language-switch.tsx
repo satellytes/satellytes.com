@@ -7,22 +7,34 @@ interface LanguageSwitchProps {
   translation: any;
   className?: string;
   $lightTheme?: boolean;
+  fromNavigation?: boolean;
 }
-const StyledSelection = styled.select<{ $lightTheme: boolean }>`
+
+const StyledSelection = styled.select<{
+  $lightTheme?: boolean;
+  fromNavigation?: boolean;
+}>`
   background: none;
   border: none;
   text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
   color: ${(props) =>
-    props.$lightTheme
+    props.fromNavigation
+      ? props.theme.palette.background.body
+      : props.$lightTheme
       ? props.theme.palette.text.headerLight
       : props.theme.palette.text.header};
+
   appearance: none;
   margin-left: 4px;
+  cursor: pointer;
 `;
 
 export const LanguageSwitch = ({
   className = 'language-switch',
   $lightTheme,
+  fromNavigation,
 }: LanguageSwitchProps) => {
   const { languages, language, t, changeLanguage } = useI18next();
 
@@ -34,7 +46,8 @@ export const LanguageSwitch = ({
           changeLanguage(event.target.value);
         }}
         value={language}
-        $lightTheme={Boolean($lightTheme)}
+        $lightTheme={$lightTheme}
+        fromNavigation={fromNavigation}
       >
         {languages.map((languageOfLink) => (
           <option value={languageOfLink} key={languageOfLink}>
