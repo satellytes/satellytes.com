@@ -10,6 +10,25 @@ interface LanguageSwitchProps {
   fromNavigation?: boolean;
 }
 
+const StyledNav = styled.nav<{
+  $lightTheme?: boolean;
+  fromNavigation?: boolean;
+}>`
+  transition: color 0.2s;
+  color: ${(props) =>
+    props.fromNavigation || props.$lightTheme
+      ? props.theme.palette.text.default
+      : props.theme.palette.text.header};
+  &:hover {
+    color: ${(props) =>
+      props.fromNavigation
+        ? props.theme.palette.text.header
+        : !props.$lightTheme &&
+          !props.fromNavigation &&
+          props.theme.palette.text.headerHover};
+  }
+`;
+
 const StyledSelection = styled.select<{
   $lightTheme?: boolean;
   fromNavigation?: boolean;
@@ -19,13 +38,10 @@ const StyledSelection = styled.select<{
   text-transform: uppercase;
   font-weight: bold;
   font-size: 14px;
-  color: ${(props) =>
-    props.fromNavigation || props.$lightTheme
-      ? props.theme.palette.text.default
-      : props.theme.palette.text.header};
+  color: inherit;
 
   appearance: none;
-  margin-left: 4px;
+  padding-left: 10px;
   cursor: pointer;
 `;
 
@@ -34,10 +50,8 @@ export const StyledChevron = styled(Chevron)<{
   fromNavigation?: boolean;
 }>`
   margin-bottom: 2px;
-  color: ${(props) =>
-    props.fromNavigation || props.$lightTheme
-      ? props.theme.palette.text.default
-      : props.theme.palette.text.header};
+  /*margin-right: -6px makes the Chevron clickable*/
+  margin-right: -6px;
 `;
 
 export const LanguageSwitch = ({
@@ -48,7 +62,12 @@ export const LanguageSwitch = ({
   const { languages, language, t, changeLanguage } = useI18next();
 
   return (
-    <nav aria-label={t('navigation.language-aria')} className={className}>
+    <StyledNav
+      aria-label={t('navigation.language-aria')}
+      className={className}
+      $lightTheme={$lightTheme}
+      fromNavigation={fromNavigation}
+    >
       <StyledChevron
         $lightTheme={$lightTheme}
         fromNavigation={fromNavigation}
@@ -67,6 +86,6 @@ export const LanguageSwitch = ({
           </option>
         ))}
       </StyledSelection>
-    </nav>
+    </StyledNav>
   );
 };

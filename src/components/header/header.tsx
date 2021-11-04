@@ -59,10 +59,17 @@ const SiteTitle = styled(Link)<{ $lightTheme: boolean }>`
   font-size: 20px;
   font-weight: bold;
   text-decoration: none;
+  transition: color 0.2s;
+
   color: ${(props) =>
     props.$lightTheme
       ? props.theme.palette.text.headerLight
       : props.theme.palette.text.header};
+
+  &:hover {
+    color: ${(props) =>
+      !props.$lightTheme && props.theme.palette.text.headerHover};
+  }
 `;
 
 const SiteMenu = styled.button<{ $lightTheme: boolean }>`
@@ -96,6 +103,13 @@ const SiteMenu = styled.button<{ $lightTheme: boolean }>`
       props.$lightTheme
         ? props.theme.palette.text.headerLight
         : props.theme.palette.text.header};
+  }
+
+  &:hover {
+    .bar {
+      background-color: ${(props) =>
+        !props.$lightTheme && props.theme.palette.text.headerHover};
+    }
   }
 `;
 
