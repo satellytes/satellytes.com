@@ -8,6 +8,7 @@ import styled, { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './global-style';
 import { FluidObject } from 'gatsby-image';
 import { HeroImageLegacy } from '../header/hero-image-legacy';
+import { Leadbox, LeadboxProps } from '../leadbox/leadbox';
 
 /**
  * this container is used to push the footer to the bottom
@@ -60,6 +61,7 @@ interface LayoutProps {
   children?: ReactNode;
   showLanguageSwitch?: boolean;
   translation?: string;
+  leadbox?: LeadboxProps;
 }
 enum POLARITY {
   DARK = 'dark',
@@ -113,6 +115,7 @@ const Layout = ({
   children,
   showLanguageSwitch = true,
   translation,
+  leadbox,
 }: LayoutProps): JSX.Element => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -146,6 +149,7 @@ const Layout = ({
 
       <FullHeightContainer>
         <Main>{children}</Main>
+        {leadbox && <Leadbox {...leadbox} />}
         <footer>
           <Navigation />
         </footer>

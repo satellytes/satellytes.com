@@ -37,6 +37,7 @@ declare module 'styled-components' {
         body: string;
         card: string;
         footer: string;
+        leadbox: string;
       };
     };
     breakpoints: Breakpoints;

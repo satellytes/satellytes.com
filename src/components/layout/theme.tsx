@@ -27,6 +27,7 @@ export const theme: DefaultTheme = {
       bodyLight: '#FFFFFF',
       card: '#F5F6F7',
       footer: '#4D79FF',
+      leadbox: '#F7F8FA',
     },
   },
   breakpoints: {

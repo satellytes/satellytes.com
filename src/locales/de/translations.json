@@ -71,7 +71,13 @@
   },
   "services": {
     "title": "Leistungen",
-    "subheading": "Satellytes – das sind ausschließlich leidenschaftliche Entwickler:innen und Designer:innen."
+    "subheading": "Satellytes – das sind ausschließlich leidenschaftliche Entwickler:innen und Designer:innen.",
+    "leadbox": {
+      "title": "Haben Sie Interesse bekommen?",
+      "subtitle": "Projektanfragen",
+      "text": "Gholam Abdol, Geschäftsführer",
+      "mail": "gholam.abdol@satellytes.com"
+    }
   },
   "clients": {
     "title": "Kunden",
