@@ -88,7 +88,7 @@
     "what-input": "^5.2.10"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.0",
+    "@babel/core": "~7.15.8",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-essentials": "^6.3.12",
     "@storybook/addon-links": "^6.3.12",
@@ -130,6 +130,7 @@
     ]
   },
   "resolutions": {
-    "cheerio": "1.0.0-rc.10"
+    "cheerio": "1.0.0-rc.10",
+    "webpack": "^5"
   }
 }
