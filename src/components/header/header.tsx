@@ -83,7 +83,7 @@ const SiteMenu = styled.button<{ $lightTheme: boolean }>`
   .bar {
     background-color: ${(props) =>
       props.$lightTheme
-        ? props.theme.palette.text.headerLight
+        ? props.theme.palette.text.default
         : props.theme.palette.text.header};
   }
 

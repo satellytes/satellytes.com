@@ -20,10 +20,8 @@ const StyledSelection = styled.select<{
   font-weight: bold;
   font-size: 14px;
   color: ${(props) =>
-    props.fromNavigation
-      ? props.theme.palette.background.body
-      : props.$lightTheme
-      ? props.theme.palette.text.headerLight
+    props.fromNavigation || props.$lightTheme
+      ? props.theme.palette.text.default
       : props.theme.palette.text.header};
 
   appearance: none;
@@ -37,10 +35,8 @@ export const StyledChevron = styled(Chevron)<{
 }>`
   margin-bottom: 2px;
   color: ${(props) =>
-    props.fromNavigation
-      ? props.theme.palette.background.body
-      : props.$lightTheme
-      ? props.theme.palette.text.headerLight
+    props.fromNavigation || props.$lightTheme
+      ? props.theme.palette.text.default
       : props.theme.palette.text.header};
 `;
 
