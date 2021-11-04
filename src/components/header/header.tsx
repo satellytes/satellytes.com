@@ -21,16 +21,15 @@ const StyledHeader = styled.header<{
   z-index: 100;
   transition: background 0.2s;
 
-  background-color: ${(props) =>
+  background: ${(props) =>
     props.$transparent
-      ? 'none'
+      ? props.$lightTheme
+        ? props.theme.palette.background.headerTransperent
+        : 'none'
       : props.$lightTheme
       ? props.theme.palette.background.bodyLight
       : props.theme.palette.background.body};
-  background: ${(props) =>
-    props.$transparent &&
-    props.$lightTheme &&
-    props.theme.palette.background.headerTransperent};
+
   height: ${HEADER_HEIGHT};
   display: flex;
   justify-content: space-between;
