@@ -19,7 +19,7 @@ const StyledHeader = styled.header<{
   top: 0;
   width: 100%;
   z-index: 100;
-  transition: background-color 0.2s;
+  transition: background 0.2s;
 
   background-color: ${(props) =>
     props.$transparent
@@ -32,16 +32,10 @@ const StyledHeader = styled.header<{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 16px;
+  padding: 0 24px;
 
   border-bottom: ${(props) =>
-    props.$lightTheme
-      ? '1px solid rgba(32, 40, 64, 0.05)'
-      : '1px solid rgba(255, 255, 255, 0.1)'};
-
-  ${up('md')} {
-    padding: 0 24px;
-  }
+    props.$lightTheme ? '1px solid rgba(32, 40, 64, 0.05)' : 'none'};
 `;
 
 const HeaderSwoosh = styled(Swoosh)`

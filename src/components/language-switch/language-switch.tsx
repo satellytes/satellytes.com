@@ -31,6 +31,19 @@ const StyledSelection = styled.select<{
   cursor: pointer;
 `;
 
+export const StyledChevron = styled(Chevron)<{
+  $lightTheme?: boolean;
+  fromNavigation?: boolean;
+}>`
+  margin-bottom: 2px;
+  color: ${(props) =>
+    props.fromNavigation
+      ? props.theme.palette.background.body
+      : props.$lightTheme
+      ? props.theme.palette.text.headerLight
+      : props.theme.palette.text.header};
+`;
+
 export const LanguageSwitch = ({
   className = 'language-switch',
   $lightTheme,
@@ -40,7 +53,10 @@ export const LanguageSwitch = ({
 
   return (
     <nav aria-label={t('navigation.language-aria')} className={className}>
-      <Chevron />
+      <StyledChevron
+        $lightTheme={$lightTheme}
+        fromNavigation={fromNavigation}
+      />
       <StyledSelection
         onChange={(event) => {
           changeLanguage(event.target.value);
