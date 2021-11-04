@@ -7,8 +7,8 @@ import {
 } from '../typography/typography';
 import { theme } from '../layout/theme';
 import { Grid, GridItem } from '../grid/grid';
-import { LinkButton } from '../links/links';
-import { down } from '../breakpoint/breakpoint';
+import { Link, LinkButton } from '../links/links';
+import { down, up } from '../breakpoint/breakpoint';
 
 export interface LeadboxProps {
   title: string;
@@ -31,9 +31,14 @@ const StyledLeadbox = styled.div`
   color: ${theme.palette.text.default};
 
   width: 100%;
-  padding: 80px 0 500px;
-  margin-bottom: -400px;
+  padding: 120px 0 500px;
+  margin-bottom: -380px;
   z-index: 0;
+
+  ${up('md')} {
+    padding-top: 80px;
+    margin-bottom: -420px;
+  }
 `;
 
 const StyledGrid = styled(Grid)`
@@ -44,15 +49,20 @@ const Illustration = styled.div`
   position: absolute;
   top: -70px;
 
-  ${down('sm')} {
+  ${down('md')} {
     left: 0;
     right: 0;
   }
 `;
 
-const Mail = styled.a`
+const Mail = styled(Link)`
   font-size: 14px;
   line-height: 150%;
+  color: ${theme.palette.text.link.default};
+
+  &:hover {
+    border-bottom: 1px solid ${theme.palette.text.link.default};
+  }
 `;
 
 const StyledLinkButton = styled(LinkButton)`
@@ -76,7 +86,7 @@ export const Leadbox: React.FC<LeadboxProps> = ({
           <LeadBoxTitle>{title}</LeadBoxTitle>
           {subtitle && <LeadboxSubtitle>{subtitle}</LeadboxSubtitle>}
           {text && <LeadboxText>{text}</LeadboxText>}
-          {mail && <Mail href={`mailto:${mail}`}>{mail}</Mail>}
+          {mail && <Mail to={`mailto:${mail}`}>{mail}</Mail>}
           {linkTo && link && (
             <StyledLinkButton to={linkTo}>{link}</StyledLinkButton>
           )}

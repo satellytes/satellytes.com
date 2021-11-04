@@ -13,7 +13,7 @@ export const theme: DefaultTheme = {
       header: '#FFFFFF',
       headerLight: '#668CFF',
       link: {
-        default: '#668CFF',
+        default: '#3E61EE',
         hover: '#4D79FF',
       },
       contrastLink: {
