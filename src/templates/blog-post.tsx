@@ -14,6 +14,8 @@ import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { HeroImage } from '../components/hero-image/hero-image';
 import { LocalesQuery } from '../pages';
 import FollowPanel from '../components/social-panel/follow-panel';
+import { Astronaut } from '../components/icons/illustrations/astronaut';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 
 interface BlogArticleTemplateProps {
   data: {
@@ -96,6 +98,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
 
   const { featuredImage, featuredImageSquared, attribution } =
     data.markdownRemark.frontmatter;
+  const { t } = useI18next();
 
   const heroImage = (
     <HeroImage
@@ -104,12 +107,20 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
       squareImage={getImage(featuredImageSquared)!}
     />
   );
+  const leadbox = {
+    title: t('office.leadbox.title'),
+    link: t('office.leadbox.link'),
+    linkTo: '/career/',
+    icon: <Astronaut />,
+  };
+
   return (
     <Layout
       transparentHeader
       siteTitleUrl={'/blog'}
       light
       hero={heroImage}
+      leadbox={leadbox}
       showLanguageSwitch={false}
     >
       {/*

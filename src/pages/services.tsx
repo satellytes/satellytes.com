@@ -9,7 +9,7 @@ import { Aurora, AuroraType } from '../components/aurora/aurora';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
 import { LocalesQuery } from './index';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { Astronaut } from '../components/icons/illustrations/astronaut';
+import { SpaceShuttle } from '../components/icons/illustrations/space-shuttle';
 
 interface ServicePageProps {
   data: {
@@ -28,8 +28,9 @@ const ServicesPage = ({ data, location }: ServicePageProps) => {
     subtitle: t('services.leadbox.subtitle'),
     text: t('services.leadbox.text'),
     mail: t('services.leadbox.mail'),
-    icon: <Astronaut />,
+    icon: <SpaceShuttle />,
   };
+
   return (
     <>
       <Aurora type={AuroraType.Pink} />

@@ -31,7 +31,7 @@ const StyledLeadbox = styled.div`
   color: ${theme.palette.text.default};
 
   width: 100%;
-  padding: 120px 0 500px;
+  padding: 80px 0 500px;
   margin-bottom: -400px;
   z-index: 0;
 `;
@@ -77,7 +77,7 @@ export const Leadbox: React.FC<LeadboxProps> = ({
           {subtitle && <LeadboxSubtitle>{subtitle}</LeadboxSubtitle>}
           {text && <LeadboxText>{text}</LeadboxText>}
           {mail && <Mail href={`mailto:${mail}`}>{mail}</Mail>}
-          {linkTo && !link && (
+          {linkTo && link && (
             <StyledLinkButton to={linkTo}>{link}</StyledLinkButton>
           )}
         </GridItem>
