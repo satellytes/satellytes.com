@@ -33,6 +33,7 @@ const StyledLeadbox = styled.div`
   width: 100%;
   padding: 120px 0 500px;
   margin-bottom: -380px;
+  margin-top: 70px;
   z-index: 0;
 
   ${up('md')} {
