@@ -27,7 +27,10 @@ const StyledHeader = styled.header<{
       : props.$lightTheme
       ? props.theme.palette.background.bodyLight
       : props.theme.palette.background.body};
-
+  background: ${(props) =>
+    props.$transparent &&
+    props.$lightTheme &&
+    props.theme.palette.background.headerTransperent};
   height: ${HEADER_HEIGHT};
   display: flex;
   justify-content: space-between;
@@ -35,7 +38,9 @@ const StyledHeader = styled.header<{
   padding: 0 24px;
 
   border-bottom: ${(props) =>
-    props.$lightTheme ? '1px solid rgba(32, 40, 64, 0.05)' : 'none'};
+    props.$lightTheme && !props.$transparent
+      ? '1px solid rgba(32, 40, 64, 0.05)'
+      : 'none'};
 `;
 
 const HeaderSwoosh = styled(Swoosh)`

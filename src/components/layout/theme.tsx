@@ -28,6 +28,8 @@ export const theme: DefaultTheme = {
       bodyLight: '#FFFFFF',
       card: '#F5F6F7',
       footer: '#4D79FF',
+      headerTransperent:
+        'linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);',
       leadbox: '#F7F8FA',
     },
   },

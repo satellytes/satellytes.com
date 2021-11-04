@@ -38,6 +38,7 @@ declare module 'styled-components' {
         body: string;
         card: string;
         footer: string;
+        headerTransperent: string;
         leadbox: string;
       };
     };
