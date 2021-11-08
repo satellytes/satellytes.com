@@ -108,8 +108,8 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
     />
   );
   const leadbox = {
-    title: t('office.leadbox.title'),
-    link: t('office.leadbox.link'),
+    title: t('blogpost.leadbox.title'),
+    link: t('blogpost.leadbox.link'),
     linkTo: '/career/',
     icon: <Astronaut />,
   };
