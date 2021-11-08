@@ -8,7 +8,7 @@ This repository contains the new https://satellytes.com website.
 
 To run the project:
 
-```
+```sh
 # install dependencies
 yarn
 
@@ -17,6 +17,18 @@ yarn start
 
 # create production bundle
 yarn build
+```
+
+## Component development with Storybook
+
+This repository comes with [storybook](https://storybook.js.org/). Storybook helps to develop and understand the single components of the website by showing them in isolation.
+
+```sh
+# start storybook
+yarn storybook
+
+# build storybook
+yarn build-storybook
 ```
 
 ## Writing a blog post
