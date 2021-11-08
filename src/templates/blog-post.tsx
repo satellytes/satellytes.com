@@ -16,6 +16,7 @@ import { LocalesQuery } from '../pages';
 import FollowPanel from '../components/social-panel/follow-panel';
 import { Astronaut } from '../components/icons/illustrations/astronaut';
 import { useI18next } from 'gatsby-plugin-react-i18next';
+import { LeadboxProps } from '../components/leadbox/leadbox';
 
 interface BlogArticleTemplateProps {
   data: {
@@ -41,6 +42,7 @@ interface BlogArticleTemplateProps {
         author?: string;
         authorSummary?: string;
         seoMetaText?: string;
+        leadboxText?: string;
         featuredImage: IGatsbyImageData;
         featuredImageSquared: IGatsbyImageData;
       };
@@ -96,7 +98,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
 }) => {
   const markdown = data.markdownRemark;
 
-  const { featuredImage, featuredImageSquared, attribution } =
+  const { featuredImage, featuredImageSquared, attribution, leadboxText } =
     data.markdownRemark.frontmatter;
   const { t } = useI18next();
 
@@ -107,8 +109,8 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
       squareImage={getImage(featuredImageSquared)!}
     />
   );
-  const leadbox = {
-    title: t('blogpost.leadbox.title'),
+  const leadbox: LeadboxProps = {
+    title: leadboxText || t('blogpost.leadbox.title'),
     link: t('blogpost.leadbox.link'),
     linkTo: '/career/',
     icon: <Astronaut />,
@@ -188,6 +190,7 @@ export const BlogPostPageQuery = graphql`
         author
         authorSummary
         seoMetaText
+        leadboxText
 
         featuredImage {
           childImageSharp {
