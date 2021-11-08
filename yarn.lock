@@ -8428,6 +8428,15 @@ gatsby-page-utils@^2.1.2:
     lodash "^4.17.21"
     micromatch "^4.0.4"
 
+gatsby-plugin-breadcrumb@^12.2.0:
+  version "12.2.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-breadcrumb/-/gatsby-plugin-breadcrumb-12.2.0.tgz#db44e0b2ffc4a83fa2039f94fab5e8ce7f2820aa"
+  integrity sha512-FGsyfT4IUu7xD1830nkcP3kiqNbwW0gGkxXQ+6Bqg5gSkdZ5T32P7uS0g4TWxtbZNkNbPA1yTsUBnc/XcyWBtQ==
+  dependencies:
+    identity-obj-proxy "3.0.0"
+    prop-types "15.7.2"
+    wildcard-match "5.1.2"
+
 gatsby-plugin-canonical-urls@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-canonical-urls/-/gatsby-plugin-canonical-urls-4.1.0.tgz#fd1e14eeaf4070557fab1d14188535842089a138"
@@ -9963,7 +9972,7 @@ icss-utils@^5.0.0, icss-utils@^5.1.0:
   resolved "https://registry.yarnpkg.com/icss-utils/-/icss-utils-5.1.0.tgz#c6be6858abd013d768e98366ae47e25d5887b1ae"
   integrity sha512-soFhflCVWLfRNOPU3iv5Z9VUdT44xFRbzjLsEzSr5AQmgqPMTHdU3PMT1Cf1ssx8fLNJDA1juftYl+PUcv3MqA==
 
-identity-obj-proxy@^3.0.0:
+identity-obj-proxy@3.0.0, identity-obj-proxy@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/identity-obj-proxy/-/identity-obj-proxy-3.0.0.tgz#94d2bda96084453ef36fbc5aaec37e0f79f1fc14"
   integrity sha1-lNK9qWCERT7zb7xarsN+D3nx/BQ=
@@ -18245,6 +18254,11 @@ widest-line@^3.1.0:
   integrity sha512-NsmoXalsWVDMGupxZ5R08ka9flZjjiLvHVAWYOKtiKM8ujtZWr9cRffak+uSE48+Ob8ObalXpwyeUiyDD6QFgg==
   dependencies:
     string-width "^4.0.0"
+
+wildcard-match@5.1.2:
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/wildcard-match/-/wildcard-match-5.1.2.tgz#66b438001391674d8599b45da051e0bd9f33cd2a"
+  integrity sha512-qNXwI591Z88c8bWxp+yjV60Ch4F8Riawe3iGxbzquhy8Xs9m+0+SLFBGb/0yCTIDElawtaImC37fYZ+dr32KqQ==
 
 wildcard@^2.0.0:
   version "2.0.0"

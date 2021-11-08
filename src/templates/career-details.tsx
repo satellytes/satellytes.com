@@ -75,6 +75,12 @@ interface CareerPageProps {
     hasTranslation: boolean;
     language: string;
     translation: string;
+    breadcrumb: {
+      crumbs: {
+        pathname: string;
+        crumbLabel: string;
+      }[];
+    };
   };
   location: Location;
 }
@@ -99,6 +105,7 @@ const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
     }
     return <PersonioHtml dangerouslySetInnerHTML={{ __html: text }} />;
   };
+
   return (
     <>
       <Aurora type={AuroraType.Pink} />
@@ -107,6 +114,8 @@ const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
         transparentHeader={true}
         translation={pageContext.translation}
         showLanguageSwitch={Boolean(pageContext.translation)}
+        breadcrumb={pageContext.breadcrumb.crumbs}
+        breadcrumbCustomLabel={pageContext.position.name}
       >
         <SEO
           imageUrl={pageContext.socialCardImage}

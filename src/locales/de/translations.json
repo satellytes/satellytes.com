@@ -12,7 +12,8 @@
     "career": {
       "title": "Arbeite mit uns",
       "text": "Wir suchen Entwickler:innen aus Leidenschaft! Du hast noch nicht viel Berufserfahrung? Kein Problem. Denn alles, was du wissen musst, lernst Du bei uns. Du kannst schon alles? Dann findest Du bei Satellytes neue Herausforderungen und erfahrene Kollegen, mit denen Du weiter wachsen kannst. Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung."
-    }
+    },
+    "breadcrumb": "Satellytes"
   },
   "career": {
     "title": "Karriere",
@@ -67,7 +68,8 @@
       "subtitle": "Initiativbewerbung",
       "text": "Georgios Kaleadis, HR Manager",
       "mail": "career@satellytes.com"
-    }
+    },
+    "breadcrumb": "Karriere"
   },
   "office": {
     "title": "Büro",
@@ -151,7 +153,8 @@
   "blog": {
     "info": "Unsere Entwickler und Designer sprechen über die neuesten Trends und das Know-how rund um Tech, insbesondere über unsere neuesten Erkenntnisse und Einsichten zur Entwicklung guter Software für das Web.\n\n Der Blog ist nur auf Englisch verfügbar.",
     "share": "Artikel teilen",
-    "follow": "Blog abonnieren"
+    "follow": "Blog abonnieren",
+    "breadcrumb": "Blog"
   },
   "blogpost": {
     "leadbox": {

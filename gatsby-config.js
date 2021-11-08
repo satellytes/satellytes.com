@@ -264,5 +264,18 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-breadcrumb`,
+      options: {
+        useAutoGen: true,
+        autoGenHomeLabel: `main`,
+        crumbLabelUpdates: [
+          {
+            pathname: '/de',
+            crumbLabel: 'main',
+          },
+        ],
+      },
+    },
   ],
 };

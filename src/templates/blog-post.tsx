@@ -14,6 +14,7 @@ import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { HeroImage } from '../components/hero-image/hero-image';
 import { LocalesQuery } from '../pages';
 import FollowPanel from '../components/social-panel/follow-panel';
+import { PageContext } from 'gatsby/internal';
 import { Astronaut } from '../components/icons/illustrations/astronaut';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { LeadboxProps } from '../components/leadbox/leadbox';
@@ -50,6 +51,7 @@ interface BlogArticleTemplateProps {
     };
   };
   location: Location;
+  pageContext: PageContext;
 }
 
 const BlogPostTitle = styled(SectionTitle)`
@@ -95,8 +97,12 @@ const BlogHeader = ({ readingTime, frontmatter }) => {
 const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
   data,
   location,
+  pageContext,
 }) => {
   const markdown = data.markdownRemark;
+  const {
+    breadcrumb: { crumbs },
+  } = pageContext;
 
   const { featuredImage, featuredImageSquared, attribution, leadboxText } =
     data.markdownRemark.frontmatter;
@@ -124,6 +130,8 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
       hero={heroImage}
       leadbox={leadbox}
       showLanguageSwitch={false}
+      breadcrumb={crumbs}
+      breadcrumbCustomLabel={markdown.frontmatter.title}
     >
       {/*
        * SEO Notes:

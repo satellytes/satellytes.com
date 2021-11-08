@@ -9,6 +9,7 @@ import { GlobalStyle } from './global-style';
 import { FluidObject } from 'gatsby-image';
 import { HeroImageLegacy } from '../header/hero-image-legacy';
 import { Leadbox, LeadboxProps } from '../leadbox/leadbox';
+import { Breadcrumb, BreadcrumbType } from '../breadcrumb/breadcrumb';
 
 /**
  * this container is used to push the footer to the bottom
@@ -61,8 +62,11 @@ interface LayoutProps {
   children?: ReactNode;
   showLanguageSwitch?: boolean;
   translation?: string;
+  breadcrumb?: BreadcrumbType[];
+  breadcrumbCustomLabel?: string;
   leadbox?: LeadboxProps;
 }
+
 enum POLARITY {
   DARK = 'dark',
   LIGHT = 'light',
@@ -115,6 +119,8 @@ const Layout = ({
   children,
   showLanguageSwitch = true,
   translation,
+  breadcrumb,
+  breadcrumbCustomLabel,
   leadbox,
 }: LayoutProps): JSX.Element => {
   const data = useStaticQuery(graphql`
@@ -148,6 +154,13 @@ const Layout = ({
       {hero ?? <HeroImageLegacy image={heroImage} />}
 
       <FullHeightContainer>
+        {breadcrumb && (
+          <Breadcrumb
+            hasHero={Boolean(hero)}
+            breadcrumbEntries={breadcrumb}
+            customLabel={breadcrumbCustomLabel}
+          />
+        )}
         <Main>{children}</Main>
         {leadbox && <Leadbox {...leadbox} />}
         <footer>
