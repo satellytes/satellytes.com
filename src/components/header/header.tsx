@@ -24,7 +24,7 @@ const StyledHeader = styled.header<{
   background: ${(props) =>
     props.$transparent
       ? props.$lightTheme
-        ? props.theme.palette.background.headerTransperent
+        ? props.theme.palette.background.headerTransparent
         : 'none'
       : props.$lightTheme
       ? props.theme.palette.background.bodyLight
