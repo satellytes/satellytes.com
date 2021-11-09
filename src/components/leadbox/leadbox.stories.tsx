@@ -4,7 +4,7 @@ import { Leadbox } from './leadbox';
 import { Astronaut } from '../icons/illustrations/astronaut';
 import { SpaceShuttle } from '../icons/illustrations/space-shuttle';
 
-const icons = { Astronaut: (<Astronaut />), SpaceShuttle: (<SpaceShuttle />) };
+const icons = { Astronaut: <Astronaut />, SpaceShuttle: <SpaceShuttle /> };
 
 export default {
   component: Leadbox,
@@ -16,8 +16,8 @@ export default {
     icon: {
       options: Object.keys(icons),
       mapping: icons,
-    }
-  }
+    },
+  },
 } as ComponentMeta<typeof Leadbox>;
 
 const Template: ComponentStory<typeof Leadbox> = (args) => (

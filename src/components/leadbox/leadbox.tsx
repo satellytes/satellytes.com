@@ -81,7 +81,7 @@ export const Leadbox: React.FC<LeadboxProps> = ({
 }) => {
   return (
     <StyledLeadbox>
-      <StyledGrid>
+      <StyledGrid nested>
         <GridItem>
           <Illustration>{icon}</Illustration>
           <LeadBoxTitle>{title}</LeadBoxTitle>
