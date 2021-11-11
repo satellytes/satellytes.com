@@ -121,7 +121,6 @@ const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
         translation={pageContext.translation}
         showLanguageSwitch={Boolean(pageContext.translation)}
         breadcrumb={breadcrumb}
-        breadcrumbCustomLabel={pageContext.position.name}
       >
         <SEO
           imageUrl={pageContext.socialCardImage}

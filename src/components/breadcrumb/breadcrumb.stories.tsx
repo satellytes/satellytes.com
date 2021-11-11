@@ -17,17 +17,8 @@ const Template: ComponentStory<typeof Breadcrumb> = (args) => (
 export const Regular = Template.bind({});
 Regular.args = {
   breadcrumbEntries: [
-    { pathname: '/', label: 'main' },
-    { pathname: '/blog', label: 'blog' },
+    { pathname: '/', label: 'Main' },
+    { pathname: '/blog', label: 'Blog' },
+    { pathname: '/blog/howto-blog-post/', label: 'How to do a blog post' },
   ],
-};
-
-export const WithCustomLabel = Template.bind({});
-WithCustomLabel.args = {
-  breadcrumbEntries: [
-    { pathname: '/', label: 'main' },
-    { pathname: '/blog', label: 'blog' },
-    { pathname: '/blog/howto-blog-post/', label: 'howto-blog-post' },
-  ],
-  customLabel: 'How to do a blog post',
 };

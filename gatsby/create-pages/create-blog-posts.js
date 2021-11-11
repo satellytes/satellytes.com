@@ -3,8 +3,8 @@ const path = require('path');
 
 const BLOG_POST_TEMPLATE_PATH = path.resolve('src/templates/blog-post.tsx');
 const BREADCRUMB = [
-  { pathname: '/', label: 'main' },
-  { pathname: '/blog', label: 'blog' },
+  { pathname: '/', label: 'Satellytes' },
+  { pathname: '/blog', label: 'Blog' },
 ];
 
 const createBlogPosts = async ({ actions, reporter, graphql }) => {

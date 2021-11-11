@@ -67,7 +67,6 @@ interface LayoutProps {
   showLanguageSwitch?: boolean;
   translation?: string;
   breadcrumb?: BreadcrumbEntry[];
-  breadcrumbCustomLabel?: string;
   leadbox?: LeadboxProps;
 }
 
@@ -124,7 +123,6 @@ const Layout = ({
   showLanguageSwitch = true,
   translation,
   breadcrumb,
-  breadcrumbCustomLabel,
   leadbox,
 }: LayoutProps): JSX.Element => {
   const data = useStaticQuery(graphql`
@@ -159,10 +157,7 @@ const Layout = ({
 
       {breadcrumb && (
         <BreadcrumbContainer hero={Boolean(hero)}>
-          <Breadcrumb
-            breadcrumbEntries={breadcrumb}
-            customLabel={breadcrumbCustomLabel}
-          />
+          <Breadcrumb breadcrumbEntries={breadcrumb} />
         </BreadcrumbContainer>
       )}
       <FullHeightContainer>

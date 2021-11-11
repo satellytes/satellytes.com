@@ -134,7 +134,6 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
       leadbox={leadbox}
       showLanguageSwitch={false}
       breadcrumb={breadcrumb}
-      breadcrumbCustomLabel={markdown.frontmatter.title}
     >
       {/*
        * SEO Notes:

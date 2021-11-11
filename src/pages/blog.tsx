@@ -59,8 +59,8 @@ const BlogPage = ({ data, location }: BlogPageProps) => {
   const blogPosts = data.allMarkdownRemark.nodes;
   const { language, changeLanguage } = useI18next();
   const breadcrumb = [
-    { pathname: '/', label: 'main' },
-    { pathname: '/blog', label: 'blog' },
+    { pathname: '/', label: 'Satellytes' },
+    { pathname: '/blog', label: 'Blog' },
   ];
 
   const onClick = (event) => {

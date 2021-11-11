@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from '../links/links';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { BreadcrumbText } from '../typography/typography';
 import { theme } from '../layout/theme';
 
@@ -33,7 +32,6 @@ const BreadcrumbListItem = styled(BreadcrumbText)`
 `;
 interface BreadcrumbProps {
   breadcrumbEntries: BreadcrumbEntry[];
-  customLabel?: string;
 }
 
 export interface BreadcrumbEntry {
@@ -43,19 +41,13 @@ export interface BreadcrumbEntry {
 
 export const Breadcrumb = ({
   breadcrumbEntries,
-  customLabel,
 }: BreadcrumbProps): JSX.Element => {
-  const { t } = useTranslation();
-
   return (
     <BreadcrumbContainer>
-      {breadcrumbEntries.map((breadcrumbEntry, index) => {
-        const crumbLabel: string =
-          (index === breadcrumbEntries.length - 1 && customLabel) ||
-          t(`${breadcrumbEntry.label}.breadcrumb`);
+      {breadcrumbEntries.map((breadcrumbEntry) => {
         return (
-          <BreadcrumbListItem key={crumbLabel}>
-            <Link to={breadcrumbEntry.pathname}>{crumbLabel}</Link>
+          <BreadcrumbListItem key={breadcrumbEntry.label}>
+            <Link to={breadcrumbEntry.pathname}>{breadcrumbEntry.label}</Link>
           </BreadcrumbListItem>
         );
       })}

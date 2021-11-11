@@ -12,8 +12,7 @@
     "career": {
       "title": "Work with us",
       "text": "We are looking for developers with passion! You don't have much work experience yet? No problem. Because everything you need to know, you'll learn with us. You can already do everything? Then you will find new challenges and experienced colleagues at Satellytes with whom you can grow. Take a look at our open positions. We look forward to receiving your application."
-    },
-    "breadcrumb": "Satellytes"
+    }
   },
   "career": {
     "title": "Career",
@@ -68,8 +67,7 @@
       "subtitle": "Unsolicited Application",
       "text": "Georgios Kaleadis, HR Manager",
       "mail": "career@satellytes.com"
-    },
-    "breadcrumb": "Career"
+    }
   },
   "office": {
     "title": "Office",
@@ -153,8 +151,7 @@
   "blog": {
     "info": "Our developers and designers talk about the latest trends and know-how around tech, especially about our latest learnings and insights on creating good software for the web.",
     "share": "Share article",
-    "follow": "Follow blog",
-    "breadcrumb": "Blog"
+    "follow": "Follow blog"
   },
   "blogpost": {
     "leadbox": {

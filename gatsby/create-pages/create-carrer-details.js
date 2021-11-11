@@ -22,9 +22,13 @@ const CAREER_DETAILS_TEMPLATE_PATH = path.resolve(
 const PERSONIO_JOBS_URL = 'https://satellytes.jobs.personio.de/xml';
 const PERSONIO_SHORT_DESCRIPTION_NAME = 'Kurzbeschreibung';
 const PERSONIO_LANGUAGES = ['en', 'de'];
-const BREADCRUMB = [
-  { pathname: '/', label: 'main' },
-  { pathname: '/career', label: 'career' },
+const BREADCRUMB_EN = [
+  { pathname: '/', label: 'Satellytes' },
+  { pathname: '/career', label: 'Career' },
+];
+const BREADCRUMB_DE = [
+  { pathname: '/', label: 'Satellytes' },
+  { pathname: '/career', label: 'Karriere' },
 ];
 
 /**
@@ -61,7 +65,7 @@ const createCareerDetails = async ({ actions }) => {
       for (let index = 0; index < positionsByLanguage.length; index++) {
         const positions = positionsByLanguage[index].positions;
         const languageKey = positionsByLanguage[index].languageKey;
-
+        const breadcrumb = languageKey === 'en' ? BREADCRUMB_EN : BREADCRUMB_DE;
         // position is valid if it has a job description and slug
         const isValidPosition = (position) => {
           const { jobDescription } = position.jobDescriptions;
@@ -180,7 +184,7 @@ const createCareerDetails = async ({ actions }) => {
               socialCardImage: publicUrl,
               language: languageKey,
               translation: getTranslation(position.id),
-              breadcrumb: BREADCRUMB,
+              breadcrumb: breadcrumb,
             },
           });
         });
@@ -197,7 +201,7 @@ const createCareerDetails = async ({ actions }) => {
           context: {
             positions: jobPositions,
             language: languageKey,
-            breadcrumb: BREADCRUMB,
+            breadcrumb: breadcrumb,
           },
         });
       }
