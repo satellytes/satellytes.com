@@ -31,6 +31,10 @@ const Main = styled.main`
   margin: 0 auto;
 `;
 
+const BreadcrumbContainer = styled.div<{ hero: boolean }>`
+  margin-top: ${(props) => !props.hero && `calc(${HEADER_HEIGHT} + 16px)`};
+`;
+
 const useAnchorTagScrolling = (): void => {
   useEffect(() => {
     if (window.location.hash) {
@@ -153,14 +157,15 @@ const Layout = ({
       {/* pass in a hero node or try to use the hero image url */}
       {hero ?? <HeroImageLegacy image={heroImage} />}
 
-      <FullHeightContainer>
-        {breadcrumb && (
+      {breadcrumb && (
+        <BreadcrumbContainer hero={Boolean(hero)}>
           <Breadcrumb
-            hasHero={Boolean(hero)}
             breadcrumbEntries={breadcrumb}
             customLabel={breadcrumbCustomLabel}
           />
-        )}
+        </BreadcrumbContainer>
+      )}
+      <FullHeightContainer>
         <Main>{children}</Main>
         {leadbox && <Leadbox {...leadbox} />}
         <footer>

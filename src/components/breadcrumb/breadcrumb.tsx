@@ -1,14 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { HEADER_HEIGHT } from '../header/header';
 import { Link } from '../links/links';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { BreadcrumbText } from '../typography/typography';
 import { theme } from '../layout/theme';
 
-const BreadcrumbContainer = styled.ol<{ hasHero: boolean }>`
-  margin: calc(${HEADER_HEIGHT} + 16px) 24px 0;
-  margin-top: ${(props) => props.hasHero && '16px'};
+const BreadcrumbContainer = styled.ol`
+  margin: 16px 24px 0;
   list-style: none;
   display: flex;
   flex-wrap: nowrap;
@@ -35,7 +33,6 @@ const BreadcrumbListItem = styled(BreadcrumbText)`
 `;
 interface BreadcrumbProps {
   breadcrumbEntries: BreadcrumbEntry[];
-  hasHero: boolean;
   customLabel?: string;
 }
 
@@ -47,12 +44,11 @@ export interface BreadcrumbEntry {
 export const Breadcrumb = ({
   breadcrumbEntries,
   customLabel,
-  hasHero,
 }: BreadcrumbProps): JSX.Element => {
   const { t } = useTranslation();
 
   return (
-    <BreadcrumbContainer hasHero={hasHero}>
+    <BreadcrumbContainer>
       {breadcrumbEntries.map((breadcrumbEntry, index) => {
         const crumbLabel: string =
           (index === breadcrumbEntries.length - 1 && customLabel) ||

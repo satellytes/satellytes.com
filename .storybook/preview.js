@@ -7,7 +7,7 @@ import { i18n } from './i18next';
 addDecorator((storyFn) => (
   <>
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
+      <GlobalStyle $lightTheme />
       {storyFn()}
     </ThemeProvider>
   </>
