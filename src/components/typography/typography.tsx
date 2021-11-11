@@ -130,6 +130,41 @@ export const CaptionText = styled.p`
   color: #668cff;
 `;
 
+export const Topline = styled.p`
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 110%;
+  margin: 0;
+
+  color: ${theme.palette.text.topline};
+`;
+
+export const Timestamp = styled.p`
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: ${theme.palette.text.timestamp};
+`;
+
+/**
+ * Teaser
+ */
+export const TeaserTitleLarge = styled.p`
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 110%;
+  margin-bottom: 8px;
+  margin-top: 20px;
+`;
+
+export const TeaserTitle = styled.p`
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 110%;
+  margin: 8px 0;
+`;
+
 /**
  *
  * Image Card
@@ -167,6 +202,11 @@ export const TextLink = styled(Link)<{ small?: boolean }>`
   }
 `;
 
+/**
+ *
+ * Leadbox
+ *
+ */
 export const LeadBoxTitle = styled.p`
   font-weight: bold;
   font-size: 28px;

@@ -6,7 +6,7 @@ import { GlobalStyle } from '../src/components/layout/global-style';
 addDecorator((storyFn) => (
   <>
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
+      <GlobalStyle $lightTheme={true} />
       {storyFn()}
     </ThemeProvider>
   </>

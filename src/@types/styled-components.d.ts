@@ -22,6 +22,8 @@ declare module 'styled-components' {
         secondary: string;
         header: string;
         headerLight: string;
+        topline: string;
+        timestamp: string;
         link: {
           default: string;
           hover: string;
