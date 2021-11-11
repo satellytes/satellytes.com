@@ -12,6 +12,7 @@ import { HEADER_HEIGHT } from '../components/header/header';
 import { Aurora, AuroraType } from '../components/aurora/aurora';
 import { graphql } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { BreadcrumbEntry } from '../components/breadcrumb/breadcrumb';
 
 const PERSONIO_SHORT_DESCRIPTION_NAME = 'Kurzbeschreibung';
 
@@ -75,12 +76,7 @@ interface CareerPageProps {
     hasTranslation: boolean;
     language: string;
     translation: string;
-    breadcrumb: {
-      crumbs: {
-        pathname: string;
-        crumbLabel: string;
-      }[];
-    };
+    breadcrumb: BreadcrumbEntry[];
   };
   location: Location;
 }
@@ -89,6 +85,10 @@ const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
   const { t } = useTranslation();
 
   const ref = React.useRef<HTMLDivElement | null>(null);
+  const breadcrumb = [
+    ...pageContext.breadcrumb,
+    { pathname: pageContext.translation, label: pageContext.position.name },
+  ];
   const scrollToStart = () => {
     ref?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
@@ -114,7 +114,7 @@ const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
         transparentHeader={true}
         translation={pageContext.translation}
         showLanguageSwitch={Boolean(pageContext.translation)}
-        breadcrumb={pageContext.breadcrumb.crumbs}
+        breadcrumb={breadcrumb}
         breadcrumbCustomLabel={pageContext.position.name}
       >
         <SEO

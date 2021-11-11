@@ -9,7 +9,7 @@ import { GlobalStyle } from './global-style';
 import { FluidObject } from 'gatsby-image';
 import { HeroImageLegacy } from '../header/hero-image-legacy';
 import { Leadbox, LeadboxProps } from '../leadbox/leadbox';
-import { Breadcrumb, BreadcrumbType } from '../breadcrumb/breadcrumb';
+import { Breadcrumb, BreadcrumbEntry } from '../breadcrumb/breadcrumb';
 
 /**
  * this container is used to push the footer to the bottom
@@ -62,7 +62,7 @@ interface LayoutProps {
   children?: ReactNode;
   showLanguageSwitch?: boolean;
   translation?: string;
-  breadcrumb?: BreadcrumbType[];
+  breadcrumb?: BreadcrumbEntry[];
   breadcrumbCustomLabel?: string;
   leadbox?: LeadboxProps;
 }

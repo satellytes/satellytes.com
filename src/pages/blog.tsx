@@ -14,7 +14,6 @@ import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
 import { LocalesQuery } from './index';
 import { ButtonText, SendButton } from '../components/form/controls';
 import { RightArrowIcon } from '../components/icons/buttons-icons/right-arrow';
-import { PageContext } from 'gatsby/internal';
 
 const TOP_POST_COUNT = 2;
 
@@ -44,7 +43,6 @@ interface BlogPageProps {
     allMarkdownRemark: AllBlogPostsQuery;
   };
   location: Location;
-  pageContext: PageContext;
 }
 
 const BlogPageTitle = styled(PageTitle)`
@@ -56,13 +54,14 @@ const BlogPageSubTitle = styled(Text)`
   white-space: pre-line;
 `;
 
-const BlogPage = ({ data, location, pageContext }: BlogPageProps) => {
+const BlogPage = ({ data, location }: BlogPageProps) => {
   const { t } = useTranslation();
   const blogPosts = data.allMarkdownRemark.nodes;
   const { language, changeLanguage } = useI18next();
-  const {
-    breadcrumb: { crumbs },
-  } = pageContext;
+  const breadcrumb = [
+    { pathname: '/', label: 'main' },
+    { pathname: '/blog', label: 'blog' },
+  ];
 
   const onClick = (event) => {
     event.preventDefault();
@@ -70,7 +69,7 @@ const BlogPage = ({ data, location, pageContext }: BlogPageProps) => {
   };
 
   return (
-    <Layout light showLanguageSwitch={false} breadcrumb={crumbs}>
+    <Layout light showLanguageSwitch={false} breadcrumb={breadcrumb}>
       <SEO title="Blog | Satellytes" location={location} />
       <Grid center>
         <GridItem>

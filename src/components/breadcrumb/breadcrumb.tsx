@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { HEADER_HEIGHT } from '../header/header';
 import { Link } from '../links/links';
-import { useI18next } from 'gatsby-plugin-react-i18next';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { BreadcrumbText } from '../typography/typography';
 import { theme } from '../layout/theme';
 
@@ -34,14 +34,14 @@ const BreadcrumbListItem = styled(BreadcrumbText)`
   }
 `;
 interface BreadcrumbProps {
-  breadcrumbEntries: BreadcrumbType[];
-  customLabel?: string;
+  breadcrumbEntries: BreadcrumbEntry[];
   hasHero: boolean;
+  customLabel?: string;
 }
 
-export interface BreadcrumbType {
+export interface BreadcrumbEntry {
   pathname: string;
-  crumbLabel: string;
+  label: string;
 }
 
 export const Breadcrumb = ({
@@ -49,23 +49,17 @@ export const Breadcrumb = ({
   customLabel,
   hasHero,
 }: BreadcrumbProps): JSX.Element => {
-  const { t, language, defaultLanguage } = useI18next();
-  const isDefaultLanguage = language === defaultLanguage;
+  const { t } = useTranslation();
 
   return (
     <BreadcrumbContainer hasHero={hasHero}>
       {breadcrumbEntries.map((breadcrumbEntry, index) => {
-        if (index === 0 && !isDefaultLanguage) {
-          return;
-        }
         const crumbLabel: string =
           (index === breadcrumbEntries.length - 1 && customLabel) ||
-          t(`${breadcrumbEntry.crumbLabel}.breadcrumb`);
+          t(`${breadcrumbEntry.label}.breadcrumb`);
         return (
           <BreadcrumbListItem key={crumbLabel}>
-            <Link to={breadcrumbEntry.pathname} language={defaultLanguage}>
-              {crumbLabel}
-            </Link>
+            <Link to={breadcrumbEntry.pathname}>{crumbLabel}</Link>
           </BreadcrumbListItem>
         );
       })}

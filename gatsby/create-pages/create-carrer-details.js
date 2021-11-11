@@ -22,6 +22,10 @@ const CAREER_DETAILS_TEMPLATE_PATH = path.resolve(
 const PERSONIO_JOBS_URL = 'https://satellytes.jobs.personio.de/xml';
 const PERSONIO_SHORT_DESCRIPTION_NAME = 'Kurzbeschreibung';
 const PERSONIO_LANGUAGES = ['en', 'de'];
+const BREADCRUMB = [
+  { pathname: '/', label: 'main' },
+  { pathname: '/career', label: 'career' },
+];
 
 /**
  * Generate all career pages by querying the personio API.
@@ -176,6 +180,7 @@ const createCareerDetails = async ({ actions }) => {
               socialCardImage: publicUrl,
               language: languageKey,
               translation: getTranslation(position.id),
+              breadcrumb: BREADCRUMB,
             },
           });
         });
@@ -192,6 +197,7 @@ const createCareerDetails = async ({ actions }) => {
           context: {
             positions: jobPositions,
             language: languageKey,
+            breadcrumb: BREADCRUMB,
           },
         });
       }

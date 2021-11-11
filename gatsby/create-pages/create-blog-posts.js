@@ -2,6 +2,10 @@ const { appendTrailingSlash } = require('../util/append-trailing-slash');
 const path = require('path');
 
 const BLOG_POST_TEMPLATE_PATH = path.resolve('src/templates/blog-post.tsx');
+const BREADCRUMB = [
+  { pathname: '/', label: 'main' },
+  { pathname: '/blog', label: 'blog' },
+];
 
 const createBlogPosts = async ({ actions, reporter, graphql }) => {
   const { createPage } = actions;
@@ -31,7 +35,9 @@ const createBlogPosts = async ({ actions, reporter, graphql }) => {
     createPage({
       path: appendTrailingSlash(node.frontmatter.path),
       component: BLOG_POST_TEMPLATE_PATH,
-      context: {},
+      context: {
+        breadcrumb: BREADCRUMB,
+      },
     });
   });
 };

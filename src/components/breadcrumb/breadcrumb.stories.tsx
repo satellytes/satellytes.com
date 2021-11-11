@@ -35,17 +35,17 @@ const CustomHeader = (transparent = false) => (
 export const Regular = Template.bind({});
 Regular.args = {
   breadcrumbEntries: [
-    { pathname: '/', crumbLabel: 'main' },
-    { pathname: '/blog', crumbLabel: 'blog' },
+    { pathname: '/', label: 'main' },
+    { pathname: '/blog', label: 'blog' },
   ],
 };
 
 export const WithCustomLabel = Template.bind({});
 WithCustomLabel.args = {
   breadcrumbEntries: [
-    { pathname: '/', crumbLabel: 'main' },
-    { pathname: '/blog', crumbLabel: 'blog' },
-    { pathname: '/blog/howto-blog-post/', crumbLabel: 'howto-blog-post' },
+    { pathname: '/', label: 'main' },
+    { pathname: '/blog', label: 'blog' },
+    { pathname: '/blog/howto-blog-post/', label: 'howto-blog-post' },
   ],
   customLabel: 'How to do a blog post',
 };
@@ -53,9 +53,9 @@ WithCustomLabel.args = {
 export const WithHeader = Template.bind({});
 WithHeader.args = {
   breadcrumbEntries: [
-    { pathname: '/', crumbLabel: 'main' },
-    { pathname: '/blog', crumbLabel: 'blog' },
-    { pathname: '/blog/howto-blog-post/', crumbLabel: 'howto-blog-post' },
+    { pathname: '/', label: 'main' },
+    { pathname: '/blog', label: 'blog' },
+    { pathname: '/blog/howto-blog-post/', label: 'howto-blog-post' },
   ],
   customLabel: 'How to do a blog post',
 };

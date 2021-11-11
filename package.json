@@ -41,7 +41,6 @@
     "gatsby": "4.1.4",
     "gatsby-background-image": "^1.5.3",
     "gatsby-image": "^3.11.0",
-    "gatsby-plugin-breadcrumb": "^12.2.0",
     "gatsby-plugin-canonical-urls": "^4.1.0",
     "gatsby-plugin-catch-links": "^4.1.0",
     "gatsby-plugin-feed": "^4.1.1",

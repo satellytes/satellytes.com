@@ -14,7 +14,7 @@ import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { HeroImage } from '../components/hero-image/hero-image';
 import { LocalesQuery } from '../pages';
 import FollowPanel from '../components/social-panel/follow-panel';
-import { PageContext } from 'gatsby/internal';
+import { BreadcrumbEntry } from '../components/breadcrumb/breadcrumb';
 import { Astronaut } from '../components/icons/illustrations/astronaut';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { LeadboxProps } from '../components/leadbox/leadbox';
@@ -51,7 +51,9 @@ interface BlogArticleTemplateProps {
     };
   };
   location: Location;
-  pageContext: PageContext;
+  pageContext: {
+    breadcrumb: BreadcrumbEntry[];
+  };
 }
 
 const BlogPostTitle = styled(SectionTitle)`
@@ -100,9 +102,10 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
   pageContext,
 }) => {
   const markdown = data.markdownRemark;
-  const {
-    breadcrumb: { crumbs },
-  } = pageContext;
+  const breadcrumb = [
+    ...pageContext.breadcrumb,
+    { pathname: location.pathname, label: markdown.frontmatter.title },
+  ];
 
   const { featuredImage, featuredImageSquared, attribution, leadboxText } =
     data.markdownRemark.frontmatter;
@@ -130,7 +133,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
       hero={heroImage}
       leadbox={leadbox}
       showLanguageSwitch={false}
-      breadcrumb={crumbs}
+      breadcrumb={breadcrumb}
       breadcrumbCustomLabel={markdown.frontmatter.title}
     >
       {/*
