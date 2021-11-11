@@ -77,6 +77,9 @@ interface CareerPageProps {
     language: string;
     translation: string;
     breadcrumb: BreadcrumbEntry[];
+    i18n: {
+      originalPath: string;
+    };
   };
   location: Location;
 }
@@ -87,7 +90,10 @@ const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
   const ref = React.useRef<HTMLDivElement | null>(null);
   const breadcrumb = [
     ...pageContext.breadcrumb,
-    { pathname: pageContext.translation, label: pageContext.position.name },
+    {
+      pathname: pageContext.i18n.originalPath,
+      label: pageContext.position.name,
+    },
   ];
   const scrollToStart = () => {
     ref?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
