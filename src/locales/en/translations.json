@@ -61,24 +61,46 @@
       "description": "We are looking for passionate developers! Take a look at our open positions. We look forward to receiving your application."
     },
     "thank": "Thank you for your application!",
-    "email-confirmation": "We sent you a confirmation-email and we will contact you."
+    "email-confirmation": "We sent you a confirmation-email and we will contact you.",
+    "leadbox": {
+      "title": "Your job not included?",
+      "subtitle": "Unsolicited Application",
+      "text": "Georgios Kaleadis, HR Manager",
+      "mail": "career@satellytes.com"
+    }
   },
   "office": {
     "title": "Office",
     "heading": "Our Office",
     "subheading": "Feel at home with us. A small impression of our office in Sendlinger Straße in the heart of Munich.",
-    "link": "<0>If you want to work with us in this office, check out our <1>open positions</1>.</0>"
+    "link": "<0>If you want to work with us in this office, check out our <1>open positions</1>.</0>",
+    "leadbox": {
+      "title": "Interested in working with us?",
+      "link": "Career"
+    }
   },
   "services": {
     "title": "Services",
-    "subheading": "Satellytes – passionate developers and designers."
+    "subheading": "Satellytes – passionate developers and designers.",
+    "leadbox": {
+      "title": "Interested?",
+      "subtitle": "Project Requests",
+      "text": "Gholam Abdol, Managing Director",
+      "mail": "info@satellytes.com"
+    }
   },
   "clients": {
     "title": "Clients",
     "since": "Since",
     "subheading": "We support large corporations in implementing their digital strategies.",
     "description": "Find out which customers & industries we work for.",
-    "arrow-title": "Show client: {{name}}"
+    "arrow-title": "Show client: {{name}}",
+    "leadbox": {
+      "title": "Interested?",
+      "subtitle": "Project Requests",
+      "text": "Gholam Abdol, Managing Director",
+      "mail": "info@satellytes.com"
+    }
   },
   "contact": {
     "title": "Contact",
@@ -130,6 +152,12 @@
     "info": "Our developers and designers talk about the latest trends and know-how around tech, especially about our latest learnings and insights on creating good software for the web.",
     "share": "Share article",
     "follow": "Follow blog"
+  },
+  "blogpost": {
+    "leadbox": {
+      "title": "Interested in working with us?",
+      "link": "Career"
+    }
   },
   "404": "Oh sorry! Our Satellite took the wrong direction."
 }

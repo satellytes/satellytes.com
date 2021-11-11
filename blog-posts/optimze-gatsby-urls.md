@@ -5,6 +5,7 @@ title: "How consistency helps you to optimize Gatsby URLs for users and search e
 featuredImage: images/how-to-optimize-gatsby-url-hero.jpeg 
 author: "Fabian Dietenberger"
 authorSummary: "Senior Developer at Satellytes"
+leadboxText: Have you learned something about Gatsby? Then join us to learn more!
 attribution:
     creator: Jonny Clow 
     source: https://unsplash.com/photos/FwMBtl6IQQA

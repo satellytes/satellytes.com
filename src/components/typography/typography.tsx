@@ -166,3 +166,26 @@ export const TextLink = styled(Link)<{ small?: boolean }>`
     text-decoration: underline;
   }
 `;
+
+export const LeadBoxTitle = styled.p`
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 110%;
+  margin: 0 auto 24px;
+  max-width: 320px;
+`;
+
+export const LeadboxSubtitle = styled.p`
+  font-size: 14px;
+  line-height: 150%;
+  font-weight: bold;
+  margin: 0 auto;
+  max-width: 320px;
+`;
+
+export const LeadboxText = styled.p`
+  font-size: 14px;
+  line-height: 150%;
+  margin: 0 auto;
+  max-width: 320px;
+`;

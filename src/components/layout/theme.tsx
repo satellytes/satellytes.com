@@ -13,7 +13,7 @@ export const theme: DefaultTheme = {
       header: '#FFFFFF',
       headerLight: '#668CFF',
       link: {
-        default: '#668CFF',
+        default: '#3E61EE',
         hover: '#4D79FF',
       },
       contrastLink: {
@@ -27,6 +27,7 @@ export const theme: DefaultTheme = {
       bodyLight: '#FFFFFF',
       card: '#F5F6F7',
       footer: '#4D79FF',
+      leadbox: '#F7F8FA',
     },
   },
   breakpoints: {

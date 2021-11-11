@@ -9,6 +9,7 @@ import { Aurora, AuroraType } from '../components/aurora/aurora';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
 import { LocalesQuery } from './index';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { SpaceShuttle } from '../components/icons/illustrations/space-shuttle';
 
 interface ServicePageProps {
   data: {
@@ -22,10 +23,18 @@ interface ServicePageProps {
 
 const ServicesPage = ({ data, location }: ServicePageProps) => {
   const { t } = useTranslation();
+  const leadbox = {
+    title: t('services.leadbox.title'),
+    subtitle: t('services.leadbox.subtitle'),
+    text: t('services.leadbox.text'),
+    mail: t('services.leadbox.mail'),
+    icon: <SpaceShuttle />,
+  };
+
   return (
     <>
       <Aurora type={AuroraType.Pink} />
-      <Layout transparentHeader={true}>
+      <Layout transparentHeader={true} leadbox={leadbox}>
         <SEO
           title={`${t('services.title')} | Satellytes`}
           location={location}
