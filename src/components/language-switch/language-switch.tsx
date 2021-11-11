@@ -1,6 +1,6 @@
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import React from 'react';
-import styled from 'styled-components';
+import styled, { DefaultTheme } from 'styled-components';
 import { Chevron } from '../icons/chevron';
 
 interface LanguageSwitchProps {
@@ -10,22 +10,46 @@ interface LanguageSwitchProps {
   fromNavigation?: boolean;
 }
 
+const getTextColor = ({
+  fromNavigation,
+  $lightTheme,
+  theme,
+}: {
+  fromNavigation?: boolean;
+  $lightTheme?: boolean;
+  theme: DefaultTheme;
+}) => {
+  if (fromNavigation || $lightTheme) {
+    return theme.palette.text.default;
+  } else {
+    return theme.palette.text.header;
+  }
+};
+
+const getTextHoverColor = ({
+  fromNavigation,
+  $lightTheme,
+  theme,
+}: {
+  fromNavigation?: boolean;
+  $lightTheme?: boolean;
+  theme: DefaultTheme;
+}) => {
+  if (fromNavigation) {
+    return theme.palette.text.header;
+  } else if (!$lightTheme) {
+    return theme.palette.text.headerHover;
+  }
+};
+
 const StyledNav = styled.nav<{
   $lightTheme?: boolean;
   fromNavigation?: boolean;
 }>`
   transition: color 0.2s;
-  color: ${(props) =>
-    props.fromNavigation || props.$lightTheme
-      ? props.theme.palette.text.default
-      : props.theme.palette.text.header};
+  color: ${(props) => getTextColor(props)};
   &:hover {
-    color: ${(props) =>
-      props.fromNavigation
-        ? props.theme.palette.text.header
-        : !props.$lightTheme &&
-          !props.fromNavigation &&
-          props.theme.palette.text.headerHover};
+    color: ${(props) => getTextHoverColor(props)};
   }
 `;
 
