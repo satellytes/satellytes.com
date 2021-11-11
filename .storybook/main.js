@@ -4,6 +4,7 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     'storybook-addon-gatsby',
+    'storybook-react-i18next',
   ],
   core: {
     builder: 'webpack5',
