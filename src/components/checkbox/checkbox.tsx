@@ -3,14 +3,10 @@ import styled from 'styled-components';
 
 const Checkbox = (props) => {
   const [BoxChecked, setBoxChecked] = useState(true);
-  const handleCheckboxChange = (event) => {
-    // alert(event.target.checked);
-    setBoxChecked(event.target.checked);
-  };
 
   const HiddenCheckbox = styled.input.attrs({
     type: 'checkbox',
-    onInput: handleCheckboxChange,
+    onChange: () => setBoxChecked(!BoxChecked),
   })`
     height: 1px;
     width: 1px;
@@ -51,7 +47,7 @@ const Checkbox = (props) => {
         </StyledCheckbox>
       </CheckboxContainer>
       <span>{props.label}</span>
-      <span>{BoxChecked}</span>
+      <span>{BoxChecked ? 'Checked' : 'Unchecked'}</span>
     </label>
   );
 };
