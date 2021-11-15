@@ -48,6 +48,7 @@ const CallOutIcon = styled.div`
  - The user's name should always be present when using Avatar – either printed beside the avatar or in a tooltip.
  **/
 const Callout = (props: CalloutProps) => {
+  console.log({ props });
   return (
     <CalloutLayout>
       {props.illustration && <CallOutIcon>{props.illustration}</CallOutIcon>}

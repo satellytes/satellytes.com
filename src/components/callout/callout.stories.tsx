@@ -23,6 +23,7 @@ export default {
       mapping: EXAMPLE_ILLUSTRATIONS,
       description:
         'This is an example list of icons, there is not default set. You have to provide a svg react component/',
+      defaultValue: 'ShootingStar',
       control: {
         type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
         labels: {
@@ -42,7 +43,6 @@ const Template: ComponentStory<typeof Callout> = (args) => {
 
 export const Regular = Template.bind({});
 Regular.args = {
-  illustration: <ConstellationBigDipper />,
   children: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 Ut enim ad minim veniam.`,
@@ -50,20 +50,11 @@ Ut enim ad minim veniam.`,
 
 export const WithLongText = Template.bind({});
 WithLongText.args = {
-  illustration: <ConstellationBigDipper />,
   children: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-Ut enim ad minim veniam.`,
-};
-
-export const NoIcon = Template.bind({});
-NoIcon.args = {
-  illustration: null,
-  children: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 Ut enim ad minim veniam.`,
 };
