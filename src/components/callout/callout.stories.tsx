@@ -68,7 +68,7 @@ Ut enim ad minim veniam.`,
 
 export const WithIcon = Template.bind({});
 WithIcon.args = {
-  icon: 'Shooting Star',
+  icon: 'Constellation',
   text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 Ut enim ad minim veniam.`,
