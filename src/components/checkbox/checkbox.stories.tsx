@@ -17,3 +17,11 @@ export const Regular = Template.bind({});
 Regular.args = {
   label: 'Satellytes',
 };
+Regular.parameters = {
+  backgrounds: {
+    values: [
+      { name: 'black', value: '#000' },
+      { name: 'white (figma)', value: '#F2F2F2;' },
+    ],
+  },
+};

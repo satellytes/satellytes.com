@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Text } from '../typography/typography';
 
 const Checkbox = (props) => {
   const [checked, setChecked] = useState(true);
@@ -24,7 +25,8 @@ const Checkbox = (props) => {
   const Icon = styled.svg`
     display: inline-block;
     fill: none;
-    padding: 9.6px;
+    margin-top: 5px;
+    margin-left: 5px;
   `;
 
   const StyledCheckbox = styled.div`
@@ -41,22 +43,28 @@ const Checkbox = (props) => {
   `;
 
   const CheckboxContainer = styled.div`
-    display: inline-block;
-    padding: 24px;
+    display: flex;
+    align-items: center;
   `;
 
-  const CheckboxLabel = styled.label`
+  const HiddenCheckboxLabel = styled.label`
+    display: inline-block;
+  `;
+
+  const LabelText = styled(Text)`
+    letter-spacing: -0.01em;
+    color: #202840;
     margin-left: 12px;
   `;
 
   return (
     <CheckboxContainer>
-      <CheckboxLabel>
+      <HiddenCheckboxLabel>
         <HiddenCheckbox />
         <StyledCheckbox>
           <Icon
-            width="12"
-            height="12"
+            width="26"
+            height="26"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -68,8 +76,8 @@ const Checkbox = (props) => {
             />
           </Icon>
         </StyledCheckbox>
-        <span>{props.label}</span>
-      </CheckboxLabel>
+      </HiddenCheckboxLabel>
+      <LabelText>{props.label}</LabelText>
     </CheckboxContainer>
   );
 };
