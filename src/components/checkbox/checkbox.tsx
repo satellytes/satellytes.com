@@ -18,6 +18,7 @@ const Checkbox = (props) => {
     margin: -1px;
     overflow: hidden;
     position: absolute;
+    visibility: hidden;
   `;
 
   const Icon = styled.svg`
