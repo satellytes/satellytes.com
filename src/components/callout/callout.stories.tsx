@@ -22,12 +22,11 @@ export default {
       options: Object.keys(EXAMPLE_ILLUSTRATIONS),
       mapping: EXAMPLE_ILLUSTRATIONS,
       description:
-        'This is an example list of icons, there is not default set. You have to provide a svg react component/',
+        'This is an example list of icons, there is no default set. You have to provide a svg react component.',
       defaultValue: 'ShootingStar',
       control: {
-        type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
+        type: 'radio',
         labels: {
-          // 'labels' maps option values to string labels
           None: 'None',
           ShootingStar: 'Shooting Star',
           ConstellationBigDipper: 'Constellation (Big Dipper)',
