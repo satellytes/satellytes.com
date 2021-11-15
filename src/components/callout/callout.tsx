@@ -44,11 +44,11 @@ const CallOutIcon = styled.div`
 `;
 
 /**
- - Use an avatar for attributing actions or content to specific users.
- - The user's name should always be present when using Avatar – either printed beside the avatar or in a tooltip.
- **/
+ * Callouts are useful for highlighting specific text or breaking it out from the rest of a document.
+ * This allows to easily provide related information to an authored text. Besides the text you can provide
+ * an illustration to make it stand out more. The illustration is placed near the text.
+ */
 const Callout = (props: CalloutProps) => {
-  console.log({ props });
   return (
     <CalloutLayout>
       {props.illustration && <CallOutIcon>{props.illustration}</CallOutIcon>}
