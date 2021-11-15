@@ -166,3 +166,12 @@ export const TextLink = styled(Link)<{ small?: boolean }>`
     text-decoration: underline;
   }
 `;
+
+export const CheckboxLabelText = styled.span`
+  font-size: 16px;
+  line-height: 150%;
+
+  letter-spacing: -0.01em;
+  color: #202840;
+  margin-left: 12px;
+`;
