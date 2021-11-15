@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-
 import { up } from '../breakpoint/breakpoint';
+
 interface CalloutProps {
-  icon?: React.ReactNode;
-  text: string;
+  illustration?: React.ReactNode;
+  children: ReactNode | ReactNode[];
 }
 
 const CalloutLayout = styled.div`
@@ -50,8 +50,8 @@ const CallOutIcon = styled.div`
 const Callout = (props: CalloutProps) => {
   return (
     <CalloutLayout>
-      {props.icon && <CallOutIcon>{props.icon}</CallOutIcon>}
-      <CallOutText>{props.text}</CallOutText>
+      {props.illustration && <CallOutIcon>{props.illustration}</CallOutIcon>}
+      <CallOutText>{props.children}</CallOutText>
     </CalloutLayout>
   );
 };

@@ -1,13 +1,13 @@
 import React from 'react';
-import { ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import Callout from './callout';
 import ShootingStar from '../../illustrations/shooting-star.svg';
 import ConstellationBigDipper from '../../illustrations/constellation-big-dipper.svg';
-import { Story } from '@storybook/react/dist/ts3.9/client/preview/types-6-0';
 
-type CalloutProps = {
-  icon: string;
-  text: string;
+const EXAMPLE_ILLUSTRATIONS = {
+  None: null,
+  ShootingStar: <ShootingStar />,
+  ConstellationBigDipper: <ConstellationBigDipper />,
 };
 
 export default {
@@ -18,70 +18,52 @@ export default {
       'Display additional information detached from your surrounding text content',
   },
   argTypes: {
-    text: {
-      control: { type: 'text' },
-    },
-    icon: {
-      defaultValue: 'Shooting Star',
+    illustration: {
+      options: Object.keys(EXAMPLE_ILLUSTRATIONS),
+      mapping: EXAMPLE_ILLUSTRATIONS,
       description:
         'This is an example list of icons, there is not default set. You have to provide a svg react component/',
-      options: ['None', 'Shooting Star', 'Constellation'],
-      control: { type: 'select' },
+      control: {
+        type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
+        labels: {
+          // 'labels' maps option values to string labels
+          None: 'None',
+          ShootingStar: 'Shooting Star',
+          ConstellationBigDipper: 'Constellation (Big Dipper)',
+        },
+      },
     },
   },
 } as ComponentMeta<typeof Callout>;
 
-function getExampleIcon(iconId: string) {
-  switch (iconId) {
-    case 'None':
-      return null;
-    case 'Shooting Star':
-      return <ShootingStar />;
-    case 'Constellation':
-      return <ConstellationBigDipper />;
-    default:
-      return null;
-  }
-}
-
-const Template: Story<CalloutProps> = (args) => {
-  const actualIcon = getExampleIcon(args.icon);
-  return <Callout icon={actualIcon} text={args.text} />;
+const Template: ComponentStory<typeof Callout> = (args) => {
+  return <Callout {...args}>{args.children}</Callout>;
 };
 
 export const Regular = Template.bind({});
 Regular.args = {
-  text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-Ut enim ad minim veniam.`,
-};
-/**
- * works
- */
-export const NoIcon = Template.bind({});
-NoIcon.args = {
-  icon: 'None',
-  text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-Ut enim ad minim veniam.`,
-};
-
-export const WithIcon = Template.bind({});
-WithIcon.args = {
-  icon: 'Constellation',
-  text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+  illustration: <ConstellationBigDipper />,
+  children: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 Ut enim ad minim veniam.`,
 };
 
 export const WithLongText = Template.bind({});
 WithLongText.args = {
-  icon: 'Shooting Star',
-  text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+  illustration: <ConstellationBigDipper />,
+  children: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Ut enim ad minim veniam.`,
+};
+
+export const NoIcon = Template.bind({});
+NoIcon.args = {
+  illustration: null,
+  children: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 Ut enim ad minim veniam.`,
 };
