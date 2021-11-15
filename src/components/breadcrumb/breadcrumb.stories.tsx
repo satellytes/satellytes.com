@@ -5,9 +5,6 @@ import { Breadcrumb } from './breadcrumb';
 export default {
   component: Breadcrumb,
   title: 'Components/Breadcrumb',
-  parameters: {
-    layout: 'fullscreen',
-  },
 } as ComponentMeta<typeof Breadcrumb>;
 
 const Template: ComponentStory<typeof Breadcrumb> = (args) => (

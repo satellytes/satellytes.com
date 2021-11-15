@@ -60,7 +60,7 @@ const BlogPage = ({ data, location }: BlogPageProps) => {
   const { language, changeLanguage } = useI18next();
   const breadcrumb = [
     { pathname: '/', label: 'Satellytes' },
-    { pathname: '/blog', label: 'Blog' },
+    { pathname: '/blog', label: t('navigation.blog') },
   ];
 
   const onClick = (event) => {

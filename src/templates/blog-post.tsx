@@ -14,9 +14,8 @@ import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { HeroImage } from '../components/hero-image/hero-image';
 import { LocalesQuery } from '../pages';
 import FollowPanel from '../components/social-panel/follow-panel';
-import { BreadcrumbEntry } from '../components/breadcrumb/breadcrumb';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Astronaut } from '../components/icons/illustrations/astronaut';
-import { useI18next } from 'gatsby-plugin-react-i18next';
 import { LeadboxProps } from '../components/leadbox/leadbox';
 
 interface BlogArticleTemplateProps {
@@ -51,9 +50,6 @@ interface BlogArticleTemplateProps {
     };
   };
   location: Location;
-  pageContext: {
-    breadcrumb: BreadcrumbEntry[];
-  };
 }
 
 const BlogPostTitle = styled(SectionTitle)`
@@ -99,17 +95,17 @@ const BlogHeader = ({ readingTime, frontmatter }) => {
 const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
   data,
   location,
-  pageContext,
 }) => {
+  const { t } = useTranslation();
   const markdown = data.markdownRemark;
   const breadcrumb = [
-    ...pageContext.breadcrumb,
+    { pathname: '/', label: 'Satellytes' },
+    { pathname: '/blog', label: t('navigation.blog') },
     { pathname: location.pathname, label: markdown.frontmatter.title },
   ];
 
   const { featuredImage, featuredImageSquared, attribution, leadboxText } =
     data.markdownRemark.frontmatter;
-  const { t } = useI18next();
 
   const heroImage = (
     <HeroImage
