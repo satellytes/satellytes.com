@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
   TeaserTitle,
   TeaserTitleLarge,
@@ -11,9 +11,9 @@ import { Arrow } from '../icons/arrow';
 import { theme } from '../layout/theme';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { Link } from '../links/links';
+import { up } from '../breakpoint/breakpoint';
 
 const TeaserContainer = styled.div`
-  width: 320px;
   cursor: pointer;
   &:hover {
     color: ${theme.palette.text.topline};
@@ -30,9 +30,44 @@ const ToplineContainer = styled.div`
   justify-content: space-between;
 `;
 
-const TeaserText = styled(Text)<{ hasImage: boolean }>`
+const StyledTeaserTitleLarge = styled(TeaserTitleLarge)<{
+  hideOverflow?: boolean;
+}>`
+  ${(props) =>
+    props.hideOverflow &&
+    css`
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    `}
+`;
+const StyledTeaserTitle = styled(TeaserTitle)<{ hideOverflow?: boolean }>`
+  ${(props) =>
+    props.hideOverflow &&
+    css`
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    `}
+`;
+
+const TeaserText = styled(Text)<{ hasImage: boolean; hideOverflow?: boolean }>`
   margin-bottom: 22px;
   margin-top: ${(props) => (props.hasImage ? '8px' : '16px')};
+
+  ${(props) =>
+    props.hideOverflow &&
+    css`
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+
+      ${up('md')} {
+        -webkit-line-clamp: 2;
+      }
+    `}
 `;
 
 const TeaserImage = styled(GatsbyImage)`
@@ -48,6 +83,7 @@ interface TeaserProps {
   title: string;
   topline?: string;
   timestamp?: string;
+  hideOverflow?: boolean;
   icon?: JSX.Element;
   image?: IGatsbyImageData;
   linkTo: string;
@@ -60,6 +96,7 @@ export const Teaser: React.FC<TeaserProps> = ({
   icon,
   image,
   linkTo,
+  hideOverflow,
   children,
 }) => {
   const largeTitle = !image && !icon;
@@ -76,11 +113,17 @@ export const Teaser: React.FC<TeaserProps> = ({
         )}
 
         {largeTitle ? (
-          <TeaserTitleLarge>{title}</TeaserTitleLarge>
+          <StyledTeaserTitleLarge hideOverflow={hideOverflow}>
+            {title}
+          </StyledTeaserTitleLarge>
         ) : (
-          <TeaserTitle>{title}</TeaserTitle>
+          <StyledTeaserTitle hideOverflow={hideOverflow}>
+            {title}
+          </StyledTeaserTitle>
         )}
-        <TeaserText hasImage={Boolean(image)}>{children}</TeaserText>
+        <TeaserText hideOverflow={hideOverflow} hasImage={Boolean(image)}>
+          {children}
+        </TeaserText>
         <Arrow />
       </Link>
     </TeaserContainer>

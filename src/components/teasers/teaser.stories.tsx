@@ -40,7 +40,7 @@ export const WithImage = Template.bind({});
 WithImage.args = {
   ...Regular.args,
   topline: 'Topline',
-  timestamp: 'Timestamp',
+  timestamp: '15th November 2021',
   image: {
     layout: 'constrained',
     placeholder: {
