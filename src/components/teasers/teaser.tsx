@@ -15,10 +15,20 @@ import { up } from '../breakpoint/breakpoint';
 
 const TeaserContainer = styled.div`
   cursor: pointer;
+  overflow: hidden;
+
+  .teaser-img {
+    transition: transform 0.2s;
+  }
+
   &:hover {
     color: ${theme.palette.text.topline};
     p {
       color: ${theme.palette.text.topline};
+    }
+
+    .teaser-img {
+      transform: scale(1.05);
     }
   }
 `;
@@ -70,6 +80,10 @@ const TeaserText = styled(Text)<{ hasImage: boolean; hideOverflow?: boolean }>`
     `}
 `;
 
+const ImageContainer = styled.div`
+  overflow: hidden;
+`;
+
 const TeaserImage = styled(GatsbyImage)`
   margin: 0;
   width: 100%;
@@ -104,7 +118,11 @@ export const Teaser: React.FC<TeaserProps> = ({
     <TeaserContainer>
       <Link to={linkTo}>
         <Illustration>{icon}</Illustration>
-        {image && <TeaserImage alt={''} image={image} />}
+        {image && (
+          <ImageContainer>
+            <TeaserImage className="teaser-img" alt={''} image={image} />
+          </ImageContainer>
+        )}
         {(topline || timestamp) && (
           <ToplineContainer>
             <Topline>{topline}</Topline>
