@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ComponentMeta } from '@storybook/react';
 import Callout from './callout';
 import ShootingStar from '../../illustrations/shooting-star.svg';
 import ConstellationBigDipper from '../../illustrations/constellation-big-dipper.svg';
@@ -9,13 +9,14 @@ type CalloutProps = {
   icon: string;
   text: string;
 };
-/**
- * iconSelection is not actual property. It's a story-only argument
- * to render the "complex" value `icon` with different variants.
- */
+
 export default {
   component: Callout,
   title: 'Components/Callout',
+  parameters: {
+    componentSubtitle:
+      'Display additional information detached from your surrounding text content',
+  },
   argTypes: {
     text: {
       control: { type: 'text' },
@@ -42,6 +43,7 @@ function getExampleIcon(iconId: string) {
       return null;
   }
 }
+
 const Template: Story<CalloutProps> = (args) => {
   const actualIcon = getExampleIcon(args.icon);
   return <Callout icon={actualIcon} text={args.text} />;
@@ -50,6 +52,36 @@ const Template: Story<CalloutProps> = (args) => {
 export const Regular = Template.bind({});
 Regular.args = {
   text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Ut enim ad minim veniam.`,
+};
+/**
+ * works
+ */
+export const NoIcon = Template.bind({});
+NoIcon.args = {
+  icon: 'None',
+  text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Ut enim ad minim veniam.`,
+};
+
+export const WithIcon = Template.bind({});
+WithIcon.args = {
+  icon: 'Shooting Star',
+  text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Ut enim ad minim veniam.`,
+};
+
+export const WithLongText = Template.bind({});
+WithLongText.args = {
+  icon: 'Shooting Star',
+  text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 Ut enim ad minim veniam.`,
 };

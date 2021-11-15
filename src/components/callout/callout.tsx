@@ -44,14 +44,9 @@ const CallOutIcon = styled.div`
 `;
 
 /**
- * This callout components helps to include related text outside of the tex flow.
- * That's ideal for a blog post, where you can point out details or related information
- * without breaking your text flow.
- *
- * The callout component is made of a border to separate it from the surrounding content.
- * Within that area you will find the mandatory text content and an optional callout illustration
- * which can be any React component, but it's best one of the available space illustrations.
- */
+ - Use an avatar for attributing actions or content to specific users.
+ - The user's name should always be present when using Avatar – either printed beside the avatar or in a tooltip.
+ **/
 const Callout = (props: CalloutProps) => {
   return (
     <CalloutLayout>

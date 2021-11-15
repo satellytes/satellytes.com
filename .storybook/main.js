@@ -12,14 +12,15 @@ module.exports = {
     builder: 'webpack5',
   },
   webpackFinal: async (config) => {
-    // continue here, how to load svgr in storybook
-    // https://stackoverflow.com/questions/54292667/react-storybook-svg-failed-to-execute-createelement-on-document
+    /**
+     * 1. We exclude svgs from the default file-loader configured by storybook
+     * 2. Then we add a new rule to process svg files with `svgr/webpack` so we
+     * can load them as React components.
+     */
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test.toString().includes('svg'),
     );
     fileLoaderRule.exclude = /\.svg$/;
-
-    console.log('XXX found svgRule', fileLoaderRule);
 
     config.module.rules.push({
       test: /\.svg$/,
@@ -29,23 +30,6 @@ module.exports = {
       include: path.resolve(__dirname, '../'),
     });
 
-    //     config.module.rules.forEach((rule) => {
-    //       if (rule.oneOf) {
-    //         // Iterate over the oneOf array and look for the file loader
-    //         rule.oneOf.forEach((oneOfRule) => {
-    //           if (oneOfRule.loader && oneOfRule.loader.test('file-loader')) {
-    //             // Exclude the inline SVGs from the file loader
-    //             oneOfRule.exclude.push(/\.svg$/);
-    //           }
-    //         })
-    // console.log('found rule', rule)
-    //         rule.push({
-    //           test: /\.svg$/,
-    //           enforce: 'pre',
-    //           loader: require.resolve('@svgr/webpack'),
-    //         });
-    //       }
-    //     });
     return config;
   },
 };
