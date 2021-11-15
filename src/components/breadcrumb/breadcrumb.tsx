@@ -5,7 +5,6 @@ import { BreadcrumbText } from '../typography/typography';
 import { theme } from '../layout/theme';
 
 const BreadcrumbContainer = styled.ol`
-  margin: 16px 24px 0;
   list-style: none;
   display: flex;
   flex-wrap: nowrap;

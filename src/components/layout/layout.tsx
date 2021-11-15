@@ -32,7 +32,7 @@ const Main = styled.main`
 `;
 
 const BreadcrumbContainer = styled.div<{ hero: boolean }>`
-  margin-top: ${(props) => !props.hero && `calc(${HEADER_HEIGHT} + 16px)`};
+  margin: ${(props) => !props.hero && `calc(${HEADER_HEIGHT} + 16px)`} 24px 16px;
 `;
 
 const useAnchorTagScrolling = (): void => {
