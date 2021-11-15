@@ -264,5 +264,6 @@ module.exports = {
         ],
       },
     },
+    'gatsby-plugin-svgr',
   ],
 };
