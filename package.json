@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@reach/tabs": "^0.16.1",
+    "@svgr/webpack": "^5.5.0",
     "@types/leaflet": "^1.7.5",
     "axios": "^0.24.0",
     "babel-plugin-styled-components": "^1.13.3",
@@ -56,6 +57,7 @@
     "gatsby-plugin-smoothscroll": "^1.2.0",
     "gatsby-plugin-styled-components": "^5.1.0",
     "gatsby-plugin-typescript": "4.1.2",
+    "gatsby-plugin-svgr": "^3.0.0-beta.0",
     "gatsby-remark-copy-linked-files": "^5.1.0",
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^6.1.3",
