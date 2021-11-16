@@ -1,14 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import Callout from './callout';
-import ShootingStar from '../../illustrations/shooting-star.svg';
-import ConstellationBigDipper from '../../illustrations/constellation-big-dipper.svg';
-
-const EXAMPLE_ILLUSTRATIONS = {
-  None: null,
-  ShootingStar: <ShootingStar />,
-  ConstellationBigDipper: <ConstellationBigDipper />,
-};
+import { ILLUSTRATION_NAMES } from '../illustration/illustration-set';
 
 export default {
   component: Callout,
@@ -19,25 +12,22 @@ export default {
   },
   argTypes: {
     illustration: {
-      options: Object.keys(EXAMPLE_ILLUSTRATIONS),
-      mapping: EXAMPLE_ILLUSTRATIONS,
+      options: ILLUSTRATION_NAMES,
       description:
-        'This is an example list of icons, there is no default set. You have to provide a svg react component.',
-      defaultValue: 'ShootingStar',
+        'Pick one of the available illustrations. See the Illustration component for more details.',
       control: {
-        type: 'radio',
-        labels: {
-          None: 'None',
-          ShootingStar: 'Shooting Star',
-          ConstellationBigDipper: 'Constellation (Big Dipper)',
-        },
+        type: 'select',
       },
     },
   },
 } as ComponentMeta<typeof Callout>;
 
 const Template: ComponentStory<typeof Callout> = (args) => {
-  return <Callout {...args}>{args.children}</Callout>;
+  return (
+    <Callout illustration={args.illustration || ILLUSTRATION_NAMES[0]}>
+      {args.children}
+    </Callout>
+  );
 };
 
 export const Regular = Template.bind({});
