@@ -22,6 +22,7 @@ declare module 'styled-components' {
         secondary: string;
         header: string;
         headerLight: string;
+        breadcrumb: string;
         link: {
           default: string;
           hover: string;

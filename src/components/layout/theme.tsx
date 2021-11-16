@@ -12,6 +12,7 @@ export const theme: DefaultTheme = {
       secondary: 'rgba(32,40,64,0.5)',
       header: '#FFFFFF',
       headerLight: '#668CFF',
+      breadcrumb: 'rgba(0, 0, 0, 0.5)',
       link: {
         default: '#3E61EE',
         hover: '#4D79FF',

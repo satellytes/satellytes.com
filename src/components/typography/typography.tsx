@@ -130,6 +130,14 @@ export const CaptionText = styled.p`
   color: #668cff;
 `;
 
+export const BreadcrumbText = styled.li`
+  font-size: 12px;
+  line-height: 150%;
+  /* identical to box height, or 18px */
+
+  letter-spacing: -0.01em;
+`;
+
 /**
  *
  * Image Card

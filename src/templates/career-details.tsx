@@ -75,6 +75,9 @@ interface CareerPageProps {
     hasTranslation: boolean;
     language: string;
     translation: string;
+    i18n: {
+      originalPath: string;
+    };
   };
   location: Location;
 }
@@ -83,6 +86,14 @@ const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
   const { t } = useTranslation();
 
   const ref = React.useRef<HTMLDivElement | null>(null);
+  const breadcrumb = [
+    { pathname: '/', label: 'Satellytes' },
+    { pathname: '/career', label: t('navigation.career') },
+    {
+      pathname: pageContext.i18n.originalPath,
+      label: pageContext.position.name,
+    },
+  ];
   const scrollToStart = () => {
     ref?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
@@ -99,6 +110,7 @@ const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
     }
     return <PersonioHtml dangerouslySetInnerHTML={{ __html: text }} />;
   };
+
   return (
     <>
       <Aurora type={AuroraType.Pink} />
@@ -107,6 +119,7 @@ const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
         transparentHeader={true}
         translation={pageContext.translation}
         showLanguageSwitch={Boolean(pageContext.translation)}
+        breadcrumb={breadcrumb}
       >
         <SEO
           imageUrl={pageContext.socialCardImage}
