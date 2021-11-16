@@ -35,6 +35,19 @@ interface OverviewProps {
   filterPattern: string;
 }
 
+/**
+ * General Usage Stories with the common template.
+ */
+const Template: ComponentStory<typeof Illustration> = (args) => {
+  return <Illustration {...args} />;
+};
+
+export const Regular = Template.bind({});
+
+Regular.args = {
+  show: 'alien_002',
+};
+
 const OverviewTemplate = (props: OverviewProps) => {
   let items = ILLUSTRATION_NAMES;
 
@@ -67,17 +80,4 @@ Overview.argTypes = {
 Overview.parameters = {
   // We only want to expose our
   controls: { exclude: ['show', 'size'] },
-};
-
-/**
- * General Usage Stories with the common template.
- */
-const Template: ComponentStory<typeof Illustration> = (args) => {
-  return <Illustration {...args} />;
-};
-
-export const Default = Template.bind({});
-
-Default.args = {
-  show: 'alien_002',
 };
