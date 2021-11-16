@@ -143,7 +143,8 @@ export const Timestamp = styled.p`
   font-size: 14px;
   line-height: 150%;
   letter-spacing: -0.01em;
-  margin: 0;
+  margin: 0 0 0 auto;
+  text-align: right;
   color: ${theme.palette.text.timestamp};
 `;
 

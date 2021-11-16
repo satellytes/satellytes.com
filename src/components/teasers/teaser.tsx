@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import {
   TeaserTitle,
   TeaserTitleLarge,
@@ -11,13 +11,12 @@ import { Arrow } from '../icons/arrow';
 import { theme } from '../layout/theme';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { Link } from '../links/links';
-import { up } from '../breakpoint/breakpoint';
 
 const TeaserContainer = styled.div`
   cursor: pointer;
   overflow: hidden;
 
-  .teaser-img {
+  img {
     transition: transform 0.2s;
   }
 
@@ -27,7 +26,7 @@ const TeaserContainer = styled.div`
       color: ${theme.palette.text.topline};
     }
 
-    .teaser-img {
+    img {
       transform: scale(1.05);
     }
   }
@@ -40,44 +39,9 @@ const ToplineContainer = styled.div`
   justify-content: space-between;
 `;
 
-const StyledTeaserTitleLarge = styled(TeaserTitleLarge)<{
-  hideOverflow?: boolean;
-}>`
-  ${(props) =>
-    props.hideOverflow &&
-    css`
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    `}
-`;
-const StyledTeaserTitle = styled(TeaserTitle)<{ hideOverflow?: boolean }>`
-  ${(props) =>
-    props.hideOverflow &&
-    css`
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    `}
-`;
-
-const TeaserText = styled(Text)<{ hasImage: boolean; hideOverflow?: boolean }>`
+const TeaserText = styled(Text)<{ hasImage: boolean }>`
   margin-bottom: 22px;
   margin-top: ${(props) => (props.hasImage ? '8px' : '16px')};
-
-  ${(props) =>
-    props.hideOverflow &&
-    css`
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-
-      ${up('md')} {
-        -webkit-line-clamp: 2;
-      }
-    `}
 `;
 
 const ImageContainer = styled.div`
@@ -96,8 +60,7 @@ const Illustration = styled.div`
 interface TeaserProps {
   title: string;
   topline?: string;
-  timestamp?: string;
-  hideOverflow?: boolean;
+  dateFormatted?: string;
   icon?: JSX.Element;
   image?: IGatsbyImageData;
   linkTo: string;
@@ -106,42 +69,34 @@ interface TeaserProps {
 export const Teaser: React.FC<TeaserProps> = ({
   topline,
   title,
-  timestamp,
+  dateFormatted,
   icon,
   image,
   linkTo,
-  hideOverflow,
   children,
 }) => {
-  const largeTitle = !image && !icon;
   return (
     <TeaserContainer>
       <Link to={linkTo}>
         <Illustration>{icon}</Illustration>
         {image && (
           <ImageContainer>
-            <TeaserImage className="teaser-img" alt={''} image={image} />
+            <TeaserImage alt={''} image={image} />
           </ImageContainer>
         )}
-        {(topline || timestamp) && (
+        {(topline || dateFormatted) && (
           <ToplineContainer>
-            <Topline>{topline}</Topline>
-            <Timestamp>{timestamp}</Timestamp>
+            {topline && <Topline>{topline}</Topline>}
+            {dateFormatted && <Timestamp>{dateFormatted}</Timestamp>}
           </ToplineContainer>
         )}
 
-        {largeTitle ? (
-          <StyledTeaserTitleLarge hideOverflow={hideOverflow}>
-            {title}
-          </StyledTeaserTitleLarge>
+        {!image && !icon ? (
+          <TeaserTitleLarge>{title}</TeaserTitleLarge>
         ) : (
-          <StyledTeaserTitle hideOverflow={hideOverflow}>
-            {title}
-          </StyledTeaserTitle>
+          <TeaserTitle>{title}</TeaserTitle>
         )}
-        <TeaserText hideOverflow={hideOverflow} hasImage={Boolean(image)}>
-          {children}
-        </TeaserText>
+        <TeaserText hasImage={Boolean(image)}>{children}</TeaserText>
         <Arrow />
       </Link>
     </TeaserContainer>
