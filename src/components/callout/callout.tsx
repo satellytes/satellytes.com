@@ -51,8 +51,7 @@ const Callout = (props: CalloutProps) => {
     <CalloutLayout>
       {props.illustration && (
         <CallOutIcon>
-          {' '}
-          <Illustration show={props.illustration} />{' '}
+          <Illustration show={props.illustration} />
         </CallOutIcon>
       )}
       <CallOutText>{props.children}</CallOutText>
