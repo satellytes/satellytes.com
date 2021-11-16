@@ -22,6 +22,7 @@ const TeaserContainer = styled.div`
 
   &:hover {
     color: ${theme.palette.text.topline};
+
     p {
       color: ${theme.palette.text.topline};
     }
@@ -66,6 +67,11 @@ interface TeaserProps {
   linkTo: string;
 }
 
+/**
+ * Teasers are used to link to another page and give the user a brief overview of the content of that page.
+ * This requires a headline, the path to the page (linkTo) and a short text, which is entered as a child.
+ * In addition, an illustration or an icon, a formatted date and a topline can be displayed.
+ */
 export const Teaser: React.FC<TeaserProps> = ({
   topline,
   title,
