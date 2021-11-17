@@ -14,7 +14,7 @@ export interface IllustrationProps {
    */
   show: IllustrationType;
   /**
-   * Choose the size. Defaults to 72x72px, can be large (172x172px) or grow with the container.
+   * Choose the size. Defaults to 72x72px, can be large (144x14px) or grow with the container.
    */
   size?: IllustrationSize;
 }
@@ -48,7 +48,7 @@ export const Illustration = (props: IllustrationProps) => {
   const IllustrationSvg = IllustrationSet[props.show];
 
   return (
-    <IllustrationLayout size={props.size ?? IllustrationSize.NORMAL} {...props}>
+    <IllustrationLayout size={props.size ?? IllustrationSize.NORMAL}>
       <IllustrationSvg />
     </IllustrationLayout>
   );

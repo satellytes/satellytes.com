@@ -10,33 +10,10 @@ export default {
   parameters: {
     componentSubtitle: 'Helps to show one of our illustrations',
   },
-  /**
-   * I would like to add an argType for 'show' in order to configure
-   * that property, but once I add it it's applied to any story, even the overview
-   * one. When excluding the control by name there are still leftovers (bug?)
-   *
-   * Similar problems with the defaultValue. It's not clear, nor working properly.
-   * One deprecation warning is also given even though following the official docs.
-   * Reference: https://storybook.js.org/docs/react/api/argtypes
-   */
 } as ComponentMeta<typeof Illustration>;
 
 /**
- * Special Story
- *
- * Overview of all illustrations.
- * It wasn't straight forward to store this story in a separate file
- * hence I keep it in this file even though it's not a classic story
- * describing the component itself.
- *
- * Comes first to be the first story to be shown.
- */
-interface OverviewProps {
-  filterPattern: string;
-}
-
-/**
- * General Usage Stories with the common template.
+ * General Usage Story with the common template.
  */
 const Template: ComponentStory<typeof Illustration> = (args) => {
   return <Illustration {...args} />;
@@ -47,6 +24,18 @@ export const Regular = Template.bind({});
 Regular.args = {
   show: 'alien_002',
 };
+
+/**
+ * Special Story
+ *
+ * Overview of all illustrations.
+ * It wasn't straight forward to store this story in a separate file
+ * hence I keep it in this file even though it's not a classic story
+ * describing the component itself.
+ */
+interface OverviewProps {
+  filterPattern: string;
+}
 
 const OverviewTemplate = (props: OverviewProps) => {
   let items = ILLUSTRATION_NAMES;
@@ -68,9 +57,6 @@ export const Overview = OverviewTemplate.bind({}) as any;
 Overview.argTypes = {
   filterPattern: {
     name: 'Search',
-    table: {
-      type: { summary: 'string' },
-    },
     control: {
       type: 'text',
     },
@@ -78,6 +64,6 @@ Overview.argTypes = {
 };
 
 Overview.parameters = {
-  // We only want to expose our
+  // We only want to expose our `filter` property on this special story
   controls: { exclude: ['show', 'size'] },
 };

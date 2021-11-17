@@ -4,7 +4,7 @@ import { up } from '../breakpoint/breakpoint';
 import { Illustration } from '../illustration/illustration';
 import { IllustrationType } from '../illustration/illustration-set';
 
-export interface CalloutProps {
+interface CalloutProps {
   illustration?: IllustrationType | null;
   children: ReactNode | ReactNode[];
 }

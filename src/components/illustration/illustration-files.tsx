@@ -1,9 +1,3 @@
-/**
- * This file was manually created.
- * Based on the svg files exported by hand from Figma.
- *
- * Created on 16.11.2021
- */
 export { default as shooting_stars_037 } from '../../illustrations/037-shooting stars.svg';
 export { default as blimp_001 } from '../../illustrations/001-blimp.svg';
 export { default as alien_002 } from '../../illustrations/002-alien.svg';

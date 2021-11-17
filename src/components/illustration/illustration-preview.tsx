@@ -24,8 +24,9 @@ const IllustrationPreviewLayout = styled.div`
     background-color: #efefef;
   }
 `;
+
 /**
- * A (story local) component to help displaying an illustration as a Tile with Name.
+ * A (story-local) component to help displaying an illustration as a Tile with Name.
  */
 export const IllustrationPreview = (props) => {
   return (
