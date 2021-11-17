@@ -3,6 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import Callout from './callout';
 import { ILLUSTRATION_NAMES } from '../illustration/illustration-set';
 
+const EXAMPLE_ILLUSTRATIONS = [null, ...ILLUSTRATION_NAMES.slice(0, 5)];
 export default {
   component: Callout,
   title: 'Components/Callout',
@@ -12,11 +13,14 @@ export default {
   },
   argTypes: {
     illustration: {
-      options: ILLUSTRATION_NAMES,
+      options: EXAMPLE_ILLUSTRATIONS,
       description:
         'Pick one of the available illustrations. See the Illustration component for more details.',
       control: {
         type: 'select',
+        labels: {
+          null: 'None',
+        },
       },
     },
   },
@@ -24,7 +28,7 @@ export default {
 
 const Template: ComponentStory<typeof Callout> = (args) => {
   return (
-    <Callout illustration={args.illustration || ILLUSTRATION_NAMES[0]}>
+    <Callout illustration={args.illustration || EXAMPLE_ILLUSTRATIONS[1]}>
       {args.children}
     </Callout>
   );

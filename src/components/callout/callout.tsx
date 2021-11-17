@@ -5,7 +5,7 @@ import { Illustration } from '../illustration/illustration';
 import { IllustrationType } from '../illustration/illustration-set';
 
 export interface CalloutProps {
-  illustration?: IllustrationType;
+  illustration?: IllustrationType | null;
   children: ReactNode | ReactNode[];
 }
 
