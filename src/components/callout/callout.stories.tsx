@@ -1,15 +1,9 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import Callout from './callout';
-import ShootingStar from '../../illustrations/shooting-star.svg';
-import ConstellationBigDipper from '../../illustrations/constellation-big-dipper.svg';
+import { ILLUSTRATION_NAMES } from '../illustration/illustration-set';
 
-const EXAMPLE_ILLUSTRATIONS = {
-  None: null,
-  ShootingStar: <ShootingStar />,
-  ConstellationBigDipper: <ConstellationBigDipper />,
-};
-
+const EXAMPLE_ILLUSTRATIONS = [null, ...ILLUSTRATION_NAMES.slice(0, 5)];
 export default {
   component: Callout,
   title: 'Components/Callout',
@@ -19,17 +13,13 @@ export default {
   },
   argTypes: {
     illustration: {
-      options: Object.keys(EXAMPLE_ILLUSTRATIONS),
-      mapping: EXAMPLE_ILLUSTRATIONS,
+      options: EXAMPLE_ILLUSTRATIONS,
       description:
-        'This is an example list of icons, there is no default set. You have to provide a svg react component.',
-      defaultValue: 'ShootingStar',
+        'Pick one of the available illustrations. See the Illustration component for more details.',
       control: {
-        type: 'radio',
+        type: 'select',
         labels: {
-          None: 'None',
-          ShootingStar: 'Shooting Star',
-          ConstellationBigDipper: 'Constellation (Big Dipper)',
+          null: 'None',
         },
       },
     },
@@ -37,7 +27,11 @@ export default {
 } as ComponentMeta<typeof Callout>;
 
 const Template: ComponentStory<typeof Callout> = (args) => {
-  return <Callout {...args}>{args.children}</Callout>;
+  return (
+    <Callout illustration={args.illustration || EXAMPLE_ILLUSTRATIONS[1]}>
+      {args.children}
+    </Callout>
+  );
 };
 
 export const Regular = Template.bind({});

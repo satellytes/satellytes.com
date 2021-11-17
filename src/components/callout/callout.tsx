@@ -1,9 +1,11 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
+import { Illustration } from '../illustration/illustration';
+import { IllustrationType } from '../illustration/illustration-set';
 
 interface CalloutProps {
-  illustration?: React.ReactNode;
+  illustration?: IllustrationType | null;
   children: ReactNode | ReactNode[];
 }
 
@@ -29,15 +31,11 @@ const CallOutText = styled.div`
 `;
 const CallOutIcon = styled.div`
   float: left;
-  width: 48px;
-  height: 48px;
   padding-right: 0.5em;
 
   ${up('sm')} {
     padding-right: 0;
     padding-left: 0.5em;
-    width: 72px;
-    height: 72px;
     flex: 0 0 72px;
     order: 1;
   }
@@ -51,7 +49,11 @@ const CallOutIcon = styled.div`
 const Callout = (props: CalloutProps) => {
   return (
     <CalloutLayout>
-      {props.illustration && <CallOutIcon>{props.illustration}</CallOutIcon>}
+      {props.illustration && (
+        <CallOutIcon>
+          <Illustration show={props.illustration} />
+        </CallOutIcon>
+      )}
       <CallOutText>{props.children}</CallOutText>
     </CalloutLayout>
   );
