@@ -22,6 +22,7 @@ declare module 'styled-components' {
         secondary: string;
         header: string;
         headerLight: string;
+        headerHover: string;
         breadcrumb: string;
         link: {
           default: string;
@@ -38,6 +39,7 @@ declare module 'styled-components' {
         body: string;
         card: string;
         footer: string;
+        headerTransparent: string;
         leadbox: string;
       };
     };

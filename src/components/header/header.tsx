@@ -19,11 +19,13 @@ const StyledHeader = styled.header<{
   top: 0;
   width: 100%;
   z-index: 100;
-  transition: background-color 0.2s;
+  transition: background 0.2s;
 
-  background-color: ${(props) =>
+  background: ${(props) =>
     props.$transparent
-      ? 'none'
+      ? props.$lightTheme
+        ? props.theme.palette.background.headerTransparent
+        : 'none'
       : props.$lightTheme
       ? props.theme.palette.background.bodyLight
       : props.theme.palette.background.body};
@@ -32,16 +34,12 @@ const StyledHeader = styled.header<{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 16px;
+  padding: 0 24px;
 
   border-bottom: ${(props) =>
-    props.$lightTheme
+    props.$lightTheme && !props.$transparent
       ? '1px solid rgba(32, 40, 64, 0.05)'
-      : '1px solid rgba(255, 255, 255, 0.1)'};
-
-  ${up('md')} {
-    padding: 0 24px;
-  }
+      : 'none'};
 `;
 
 const HeaderSwoosh = styled(Swoosh)`
@@ -61,10 +59,17 @@ const SiteTitle = styled(Link)<{ $lightTheme: boolean }>`
   font-size: 20px;
   font-weight: bold;
   text-decoration: none;
+  transition: color 0.2s;
+
   color: ${(props) =>
     props.$lightTheme
       ? props.theme.palette.text.headerLight
       : props.theme.palette.text.header};
+
+  &:hover {
+    color: ${(props) =>
+      !props.$lightTheme && props.theme.palette.text.headerHover};
+  }
 `;
 
 const SiteMenu = styled.button<{ $lightTheme: boolean }>`
@@ -89,7 +94,7 @@ const SiteMenu = styled.button<{ $lightTheme: boolean }>`
   .bar {
     background-color: ${(props) =>
       props.$lightTheme
-        ? props.theme.palette.text.headerLight
+        ? props.theme.palette.text.default
         : props.theme.palette.text.header};
   }
 
@@ -98,6 +103,13 @@ const SiteMenu = styled.button<{ $lightTheme: boolean }>`
       props.$lightTheme
         ? props.theme.palette.text.headerLight
         : props.theme.palette.text.header};
+  }
+
+  &:hover {
+    .bar {
+      background-color: ${(props) =>
+        !props.$lightTheme && props.theme.palette.text.headerHover};
+    }
   }
 `;
 
@@ -155,7 +167,10 @@ const Header: React.FC<HeaderProps> = (props) => {
       </SiteTitle>
       <Wrapper>
         {(props.translation || props.showLanguageSwitch) && (
-          <LanguageSwitch translation={props.translation} />
+          <LanguageSwitch
+            translation={props.translation}
+            $lightTheme={Boolean(!isHeaderTransparent && props.$lightTheme)}
+          />
         )}
         <SiteMenu
           aria-label="Open menu"

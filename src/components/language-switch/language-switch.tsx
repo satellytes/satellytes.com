@@ -1,44 +1,104 @@
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import React from 'react';
-import styled from 'styled-components';
-import { Link } from '../links/links';
+import styled, { DefaultTheme } from 'styled-components';
+import { Chevron } from '../icons/chevron';
 
-const StyledLanguageLink = styled(Link)<{ selected?: boolean }>`
-  margin: 1px 0 1px 12px;
+interface LanguageSwitchProps {
+  translation: any;
+  className?: string;
+  $lightTheme?: boolean;
+  fromNavigation?: boolean;
+}
+
+const getTextColor = ({
+  fromNavigation,
+  $lightTheme,
+  theme,
+}: {
+  fromNavigation?: boolean;
+  $lightTheme?: boolean;
+  theme: DefaultTheme;
+}) => {
+  if (fromNavigation || $lightTheme) {
+    return theme.palette.text.default;
+  } else {
+    return theme.palette.text.header;
+  }
+};
+
+const getTextHoverColor = ({
+  fromNavigation,
+  $lightTheme,
+  theme,
+}: {
+  fromNavigation?: boolean;
+  $lightTheme?: boolean;
+  theme: DefaultTheme;
+}) => {
+  if (fromNavigation) {
+    return theme.palette.text.header;
+  } else if (!$lightTheme) {
+    return theme.palette.text.headerHover;
+  }
+};
+
+const StyledNav = styled.nav<{
+  $lightTheme?: boolean;
+  fromNavigation?: boolean;
+}>`
+  transition: color 0.2s;
+  color: ${(props) => getTextColor(props)};
+  &:hover {
+    color: ${(props) => getTextHoverColor(props)};
+  }
+`;
+
+const StyledSelection = styled.select`
+  background: none;
+  border: none;
+  text-transform: uppercase;
   font-weight: bold;
   font-size: 14px;
-  line-height: 110%;
-  cursor: pointer;
-  text-transform: uppercase;
+  color: inherit;
 
-  ${({ selected }) => (selected ? `color: #668CFF;` : `color: #FFFFFF;`)}
+  appearance: none;
+  padding-left: 10px;
+  cursor: pointer;
+`;
+
+export const StyledChevron = styled(Chevron)`
+  margin-bottom: 2px;
+  /*margin-right: -6px makes the Chevron clickable*/
+  margin-right: -6px;
 `;
 
 export const LanguageSwitch = ({
-  translation,
   className = 'language-switch',
-}) => {
-  const { languages, language, originalPath, t } = useI18next();
+  $lightTheme,
+  fromNavigation,
+}: LanguageSwitchProps) => {
+  const { languages, language, t, changeLanguage } = useI18next();
 
   return (
-    <nav aria-label={t('navigation.language-aria')} className={className}>
-      {languages.map((languageOfLink) => {
-        return (
-          <StyledLanguageLink
-            key={languageOfLink}
-            to={
-              language !== languageOfLink && translation
-                ? translation
-                : originalPath
-            }
-            language={languageOfLink}
-            selected={language === languageOfLink}
-            title={t(`navigation.${languageOfLink}`)}
-          >
+    <StyledNav
+      aria-label={t('navigation.language-aria')}
+      className={className}
+      $lightTheme={$lightTheme}
+      fromNavigation={fromNavigation}
+    >
+      <StyledChevron />
+      <StyledSelection
+        onChange={(event) => {
+          changeLanguage(event.target.value);
+        }}
+        value={language}
+      >
+        {languages.map((languageOfLink) => (
+          <option value={languageOfLink} key={languageOfLink}>
             {languageOfLink}
-          </StyledLanguageLink>
-        );
-      })}
-    </nav>
+          </option>
+        ))}
+      </StyledSelection>
+    </StyledNav>
   );
 };
