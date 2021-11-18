@@ -53,10 +53,7 @@ const StyledNav = styled.nav<{
   }
 `;
 
-const StyledSelection = styled.select<{
-  $lightTheme?: boolean;
-  fromNavigation?: boolean;
-}>`
+const StyledSelection = styled.select`
   background: none;
   border: none;
   text-transform: uppercase;
@@ -69,10 +66,7 @@ const StyledSelection = styled.select<{
   cursor: pointer;
 `;
 
-export const StyledChevron = styled(Chevron)<{
-  $lightTheme?: boolean;
-  fromNavigation?: boolean;
-}>`
+export const StyledChevron = styled(Chevron)`
   margin-bottom: 2px;
   /*margin-right: -6px makes the Chevron clickable*/
   margin-right: -6px;
@@ -92,17 +86,12 @@ export const LanguageSwitch = ({
       $lightTheme={$lightTheme}
       fromNavigation={fromNavigation}
     >
-      <StyledChevron
-        $lightTheme={$lightTheme}
-        fromNavigation={fromNavigation}
-      />
+      <StyledChevron />
       <StyledSelection
         onChange={(event) => {
           changeLanguage(event.target.value);
         }}
         value={language}
-        $lightTheme={$lightTheme}
-        fromNavigation={fromNavigation}
       >
         {languages.map((languageOfLink) => (
           <option value={languageOfLink} key={languageOfLink}>
