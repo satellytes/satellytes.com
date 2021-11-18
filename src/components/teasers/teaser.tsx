@@ -9,7 +9,6 @@ import {
 } from '../typography/typography';
 import { Arrow } from '../icons/arrow';
 import { theme } from '../layout/theme';
-import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { Link } from '../links/links';
 
 const TeaserContainer = styled.div`
@@ -40,69 +39,59 @@ const ToplineContainer = styled.div`
   justify-content: space-between;
 `;
 
-const TeaserText = styled(Text)<{ hasImage: boolean }>`
-  margin-bottom: 22px;
-  margin-top: ${(props) => (props.hasImage ? '8px' : '16px')};
+const TeaserText = styled(Text)`
+  margin: 16px 0 22px;
 `;
 
-const ImageContainer = styled.div`
+const StyledTeaserTitle = styled(TeaserTitle)<{ hasTopline: boolean }>`
+  margin-top: ${(props) => (props.hasTopline ? '8px' : '24px')};
+`;
+
+const CoverContainer = styled.div`
   overflow: hidden;
-`;
-
-const TeaserImage = styled(GatsbyImage)`
-  margin: 0;
-  width: 100%;
-`;
-
-const Illustration = styled.div`
-  margin-bottom: 24px;
 `;
 
 interface TeaserProps {
   title: string;
   topline?: string;
   dateFormatted?: string;
-  icon?: JSX.Element;
-  image?: IGatsbyImageData;
+  cover?: JSX.Element;
   linkTo: string;
 }
 
 /**
  * Teasers are used to link to another page and give the user a brief overview of the content of that page.
  * This requires a headline, the path to the page (linkTo) and a short text, which is entered as a child.
- * In addition, an illustration or an icon, a formatted date and a topline can be displayed.
+ * In addition, an illustration or an image, a formatted date and a topline can be displayed.
  */
 export const Teaser: React.FC<TeaserProps> = ({
   topline,
   title,
   dateFormatted,
-  icon,
-  image,
+  cover,
   linkTo,
   children,
 }) => {
+  const hasToplineContainer = Boolean(topline || dateFormatted);
+
   return (
     <TeaserContainer>
       <Link to={linkTo}>
-        <Illustration>{icon}</Illustration>
-        {image && (
-          <ImageContainer>
-            <TeaserImage alt={''} image={image} />
-          </ImageContainer>
-        )}
-        {(topline || dateFormatted) && (
+        {cover && <CoverContainer>{cover}</CoverContainer>}
+        {hasToplineContainer && (
           <ToplineContainer>
             {topline && <Topline>{topline}</Topline>}
             {dateFormatted && <Timestamp>{dateFormatted}</Timestamp>}
           </ToplineContainer>
         )}
-
-        {!image && !icon ? (
-          <TeaserTitleLarge>{title}</TeaserTitleLarge>
+        {cover ? (
+          <StyledTeaserTitle hasTopline={hasToplineContainer}>
+            {title}
+          </StyledTeaserTitle>
         ) : (
-          <TeaserTitle>{title}</TeaserTitle>
+          <TeaserTitleLarge>{title}</TeaserTitleLarge>
         )}
-        <TeaserText hasImage={Boolean(image)}>{children}</TeaserText>
+        <TeaserText>{children}</TeaserText>
         <Arrow />
       </Link>
     </TeaserContainer>

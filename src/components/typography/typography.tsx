@@ -171,7 +171,7 @@ export const TeaserTitle = styled.p`
   font-weight: bold;
   font-size: 20px;
   line-height: 110%;
-  margin: 8px 0;
+  margin-bottom: 8px;
 `;
 
 /**
