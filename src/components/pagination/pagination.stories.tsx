@@ -14,4 +14,15 @@ const Template: ComponentStory<typeof Pagination> = (args) => (
 );
 
 export const Regular = Template.bind({});
-Regular.args = {};
+Regular.args = {
+  amountOfPages: 3,
+  onNextClick: () => {
+    return;
+  },
+  onPreviousClick: () => {
+    return;
+  },
+  onDropdownSelect: (selectedPage) => {
+    return selectedPage;
+  },
+};
