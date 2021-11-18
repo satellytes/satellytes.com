@@ -135,6 +135,12 @@ const Header: React.FC<HeaderProps> = (props) => {
   );
   const [hoverWithTransition, setHoverWithTransition] = useState(true);
 
+  const transparent = Boolean(props.transparent);
+
+  useEffect(() => {
+    setIsHeaderTransparent(transparent);
+  }, [transparent]);
+
   useEffect(() => {
     const onScroll = (): void => {
       if (props.transparent) {
