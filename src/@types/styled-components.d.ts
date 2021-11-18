@@ -24,6 +24,7 @@ declare module 'styled-components' {
         headerLight: string;
         topline: string;
         timestamp: string;
+        breadcrumb: string;
         link: {
           default: string;
           hover: string;

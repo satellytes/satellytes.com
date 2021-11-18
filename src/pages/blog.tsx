@@ -58,6 +58,10 @@ const BlogPage = ({ data, location }: BlogPageProps) => {
   const { t } = useTranslation();
   const blogPosts = data.allMarkdownRemark.nodes;
   const { language, changeLanguage } = useI18next();
+  const breadcrumb = [
+    { pathname: '/', label: 'Satellytes' },
+    { pathname: '/blog', label: t('navigation.blog') },
+  ];
 
   const onClick = (event) => {
     event.preventDefault();
@@ -65,7 +69,7 @@ const BlogPage = ({ data, location }: BlogPageProps) => {
   };
 
   return (
-    <Layout light showLanguageSwitch={false}>
+    <Layout light showLanguageSwitch={false} breadcrumb={breadcrumb}>
       <SEO title="Blog | Satellytes" location={location} />
       <Grid center>
         <GridItem>

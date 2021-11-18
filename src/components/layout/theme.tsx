@@ -14,6 +14,7 @@ export const theme: DefaultTheme = {
       headerLight: '#668CFF',
       topline: '#3E61EE',
       timestamp: 'rgba(0, 0, 0, 0.5)',
+      breadcrumb: 'rgba(0, 0, 0, 0.5)',
       link: {
         default: '#3E61EE',
         hover: '#4D79FF',
