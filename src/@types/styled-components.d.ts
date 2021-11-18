@@ -20,9 +20,11 @@ declare module 'styled-components' {
         defaultLight: string;
         defaultDark: string;
         secondary: string;
-        header: string;
-        headerLight: string;
-        headerHover: string;
+        header: {
+          default: string;
+          light: string;
+          hover: string;
+        };
         breadcrumb: string;
         link: {
           default: string;

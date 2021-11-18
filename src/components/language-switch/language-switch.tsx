@@ -22,7 +22,7 @@ const getTextColor = ({
   if (fromNavigation || $lightTheme) {
     return theme.palette.text.default;
   } else {
-    return theme.palette.text.header;
+    return theme.palette.text.header.default;
   }
 };
 
@@ -36,9 +36,9 @@ const getTextHoverColor = ({
   theme: DefaultTheme;
 }) => {
   if (fromNavigation) {
-    return theme.palette.text.header;
+    return theme.palette.text.header.default;
   } else if (!$lightTheme) {
-    return theme.palette.text.headerHover;
+    return theme.palette.text.header.hover;
   }
 };
 
