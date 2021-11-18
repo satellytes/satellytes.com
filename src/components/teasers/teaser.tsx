@@ -29,6 +29,10 @@ const TeaserContainer = styled.div`
     img {
       transform: scale(1.05);
     }
+
+    svg path {
+      fill: ${theme.palette.text.topline};
+    }
   }
 `;
 
