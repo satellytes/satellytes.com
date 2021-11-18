@@ -151,7 +151,8 @@
   "blog": {
     "info": "Unsere Entwickler und Designer sprechen über die neuesten Trends und das Know-how rund um Tech, insbesondere über unsere neuesten Erkenntnisse und Einsichten zur Entwicklung guter Software für das Web.\n\n Der Blog ist nur auf Englisch verfügbar.",
     "share": "Artikel teilen",
-    "follow": "Blog abonnieren"
+    "follow": "Blog abonnieren",
+    "pagination": "Seite"
   },
   "blogpost": {
     "leadbox": {

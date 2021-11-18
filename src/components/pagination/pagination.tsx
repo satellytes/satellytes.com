@@ -4,6 +4,7 @@ import { PrevArrow } from '../icons/buttons-icons/prev-arrow';
 import { NextArrow } from '../icons/buttons-icons/next-arrow';
 import { theme } from '../layout/theme';
 import { PaginationDropdown } from '../typography/typography';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 interface PaginationProps {
   onPreviousClick: () => any;
@@ -53,10 +54,11 @@ export const Pagination: React.FC<PaginationProps> = ({
   onDropdownSelect,
 }: PaginationProps) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const options: JSX.Element[] = [];
+  const { t } = useTranslation();
 
+  const options: JSX.Element[] = [];
   for (let i = 1; i <= amountOfPages; i++) {
-    options.push(<option value={i}>Page {i}</option>);
+    options.push(<option value={i}>{`${t('blog.pagination')} ${i}`}</option>);
   }
 
   const handlePreviousClick = () => {
