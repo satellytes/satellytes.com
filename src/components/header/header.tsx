@@ -15,10 +15,8 @@ const StyledHeader = styled.header<{
   $lightTheme: boolean;
   $transparent: boolean;
 }>`
-  position: fixed;
-  top: 0;
+  position: relative;
   width: 100%;
-  z-index: 100;
   transition: background 0.2s;
 
   background: ${(props) =>
