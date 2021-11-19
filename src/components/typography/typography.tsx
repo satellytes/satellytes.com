@@ -130,6 +130,14 @@ export const CaptionText = styled.p`
   color: #668cff;
 `;
 
+export const BreadcrumbText = styled.li`
+  font-size: 12px;
+  line-height: 150%;
+  /* identical to box height, or 18px */
+
+  letter-spacing: -0.01em;
+`;
+
 /**
  *
  * Image Card
@@ -174,4 +182,27 @@ export const CheckboxLabelText = styled.span`
   letter-spacing: -0.01em;
   color: #202840;
   margin-left: 12px;
+`;
+
+export const LeadBoxTitle = styled.p`
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 110%;
+  margin: 0 auto 24px;
+  max-width: 320px;
+`;
+
+export const LeadboxSubtitle = styled.p`
+  font-size: 14px;
+  line-height: 150%;
+  font-weight: bold;
+  margin: 0 auto;
+  max-width: 320px;
+`;
+
+export const LeadboxText = styled.p`
+  font-size: 14px;
+  line-height: 150%;
+  margin: 0 auto;
+  max-width: 320px;
 `;

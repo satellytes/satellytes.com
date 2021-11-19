@@ -10,10 +10,14 @@ export const theme: DefaultTheme = {
       defaultLight: '#FFFFFF',
       defaultDark: '#FFFFFF',
       secondary: 'rgba(32,40,64,0.5)',
-      header: '#FFFFFF',
-      headerLight: '#668CFF',
+      header: {
+        default: '#FFFFFF',
+        light: '#668CFF',
+        hover: '#3E61EE',
+      },
+      breadcrumb: 'rgba(0, 0, 0, 0.5)',
       link: {
-        default: '#668CFF',
+        default: '#3E61EE',
         hover: '#4D79FF',
       },
       contrastLink: {
@@ -27,6 +31,9 @@ export const theme: DefaultTheme = {
       bodyLight: '#FFFFFF',
       card: '#F5F6F7',
       footer: '#4D79FF',
+      headerTransparent:
+        'linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);',
+      leadbox: '#F7F8FA',
     },
   },
   breakpoints: {

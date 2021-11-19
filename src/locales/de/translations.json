@@ -61,24 +61,46 @@
       "description": "Wir suchen Entwickler:innen aus Leidenschaft! Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung."
     },
     "thank": "Danke für deine Bewerbung!",
-    "email-confirmation": "Wir haben dir eine E-Mail zur Bestätigung geschickt und melden uns bei dir."
+    "email-confirmation": "Wir haben dir eine E-Mail zur Bestätigung geschickt und melden uns bei dir.",
+    "leadbox": {
+      "title": "Deine Stelle nicht dabei?",
+      "subtitle": "Initiativbewerbung",
+      "text": "Georgios Kaleadis, HR Manager",
+      "mail": "career@satellytes.com"
+    }
   },
   "office": {
     "title": "Büro",
     "heading": "Unser Büro",
     "subheading": "Fühl dich wohl bei uns. Ein kleiner Eindruck von unserem Büro in der Sendlinger Straße im Herzen Münchens.",
-    "link": "<0>Wenn du mit uns in diesem Office arbeiten möchtest, dann schau dir doch unsere <1>offenen Stellen</1> an.</0>"
+    "link": "<0>Wenn du mit uns in diesem Office arbeiten möchtest, dann schau dir doch unsere <1>offenen Stellen</1> an.</0>",
+    "leadbox": {
+      "title": "Interesse mit und bei uns zu arbeiten?",
+      "link": "Karriere"
+    }
   },
   "services": {
     "title": "Leistungen",
-    "subheading": "Satellytes – das sind ausschließlich leidenschaftliche Entwickler:innen und Designer:innen."
+    "subheading": "Satellytes – das sind ausschließlich leidenschaftliche Entwickler:innen und Designer:innen.",
+    "leadbox": {
+      "title": "Haben Sie Interesse bekommen?",
+      "subtitle": "Projektanfragen",
+      "text": "Gholam Abdol, Geschäftsführer",
+      "mail": "info@satellytes.com"
+    }
   },
   "clients": {
     "title": "Kunden",
     "since": "Seit",
     "subheading": "Wir unterstützen große Konzerne bei der Umsetzung ihrer digitalen Strategien.",
     "description": "Finden Sie heraus für welche Kunden & Branchen wir tätig sind.",
-    "arrow-title": "Zeige Kunden: {{name}}"
+    "arrow-title": "Zeige Kunden: {{name}}",
+    "leadbox": {
+      "title": "Haben Sie Interesse bekommen?",
+      "subtitle": "Projektanfragen",
+      "text": "Gholam Abdol, Geschäftsführer",
+      "mail": "info@satellytes.com"
+    }
   },
   "contact": {
     "title": "Kontakt",
@@ -130,6 +152,12 @@
     "info": "Unsere Entwickler und Designer sprechen über die neuesten Trends und das Know-how rund um Tech, insbesondere über unsere neuesten Erkenntnisse und Einsichten zur Entwicklung guter Software für das Web.\n\n Der Blog ist nur auf Englisch verfügbar.",
     "share": "Artikel teilen",
     "follow": "Blog abonnieren"
+  },
+  "blogpost": {
+    "leadbox": {
+      "title": "Interesse mit und bei uns zu arbeiten?",
+      "link": "Karriere"
+    }
   },
   "404": "Oh sorry! Our Satellite took the wrong direction."
 }

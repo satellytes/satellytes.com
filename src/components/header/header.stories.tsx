@@ -15,10 +15,7 @@ const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />;
 export const Regular = Template.bind({});
 Regular.args = {
   siteTitle: 'Satellytes',
-};
-
-export const WithLanguageSwitch = Template.bind({});
-WithLanguageSwitch.args = {
-  ...Regular.args,
+  $lightTheme: false,
   showLanguageSwitch: true,
+  transparent: false,
 };

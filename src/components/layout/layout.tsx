@@ -8,6 +8,8 @@ import styled, { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './global-style';
 import { FluidObject } from 'gatsby-image';
 import { HeroImageLegacy } from '../header/hero-image-legacy';
+import { Leadbox, LeadboxProps } from '../leadbox/leadbox';
+import { Breadcrumb, BreadcrumbEntry } from '../breadcrumb/breadcrumb';
 
 /**
  * this container is used to push the footer to the bottom
@@ -27,6 +29,10 @@ const Main = styled.main`
   width: 100%;
   max-width: ${(props) => props.theme.maxWidth};
   margin: 0 auto;
+`;
+
+const BreadcrumbContainer = styled.div<{ hero: boolean }>`
+  margin: ${(props) => !props.hero && `calc(${HEADER_HEIGHT} + 16px)`} 24px 16px;
 `;
 
 const useAnchorTagScrolling = (): void => {
@@ -60,7 +66,10 @@ interface LayoutProps {
   children?: ReactNode;
   showLanguageSwitch?: boolean;
   translation?: string;
+  breadcrumb?: BreadcrumbEntry[];
+  leadbox?: LeadboxProps;
 }
+
 enum POLARITY {
   DARK = 'dark',
   LIGHT = 'light',
@@ -113,6 +122,8 @@ const Layout = ({
   children,
   showLanguageSwitch = true,
   translation,
+  breadcrumb,
+  leadbox,
 }: LayoutProps): JSX.Element => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -144,8 +155,14 @@ const Layout = ({
       {/* pass in a hero node or try to use the hero image url */}
       {hero ?? <HeroImageLegacy image={heroImage} />}
 
+      {breadcrumb && (
+        <BreadcrumbContainer hero={Boolean(hero)}>
+          <Breadcrumb breadcrumbEntries={breadcrumb} />
+        </BreadcrumbContainer>
+      )}
       <FullHeightContainer>
         <Main>{children}</Main>
+        {leadbox && <Leadbox {...leadbox} />}
         <footer>
           <Navigation />
         </footer>

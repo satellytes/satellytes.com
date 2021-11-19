@@ -14,6 +14,9 @@ import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { HeroImage } from '../components/hero-image/hero-image';
 import { LocalesQuery } from '../pages';
 import FollowPanel from '../components/social-panel/follow-panel';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { Astronaut } from '../components/icons/illustrations/astronaut';
+import { LeadboxProps } from '../components/leadbox/leadbox';
 
 interface BlogArticleTemplateProps {
   data: {
@@ -39,6 +42,7 @@ interface BlogArticleTemplateProps {
         author?: string;
         authorSummary?: string;
         seoMetaText?: string;
+        leadboxText?: string;
         featuredImage: IGatsbyImageData;
         featuredImageSquared: IGatsbyImageData;
       };
@@ -92,9 +96,15 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
   data,
   location,
 }) => {
+  const { t } = useTranslation();
   const markdown = data.markdownRemark;
+  const breadcrumb = [
+    { pathname: '/', label: 'Satellytes' },
+    { pathname: '/blog', label: t('navigation.blog') },
+    { pathname: location.pathname, label: markdown.frontmatter.title },
+  ];
 
-  const { featuredImage, featuredImageSquared, attribution } =
+  const { featuredImage, featuredImageSquared, attribution, leadboxText } =
     data.markdownRemark.frontmatter;
 
   const heroImage = (
@@ -104,13 +114,22 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
       squareImage={getImage(featuredImageSquared)!}
     />
   );
+  const leadbox: LeadboxProps = {
+    title: leadboxText || t('blogpost.leadbox.title'),
+    link: t('blogpost.leadbox.link'),
+    linkTo: '/career/',
+    icon: <Astronaut />,
+  };
+
   return (
     <Layout
       transparentHeader
       siteTitleUrl={'/blog'}
       light
       hero={heroImage}
+      leadbox={leadbox}
       showLanguageSwitch={false}
+      breadcrumb={breadcrumb}
     >
       {/*
        * SEO Notes:
@@ -177,6 +196,7 @@ export const BlogPostPageQuery = graphql`
         author
         authorSummary
         seoMetaText
+        leadboxText
 
         featuredImage {
           childImageSharp {
