@@ -1,23 +1,42 @@
 import React from 'react';
 import styled from 'styled-components';
-import { TextfieldLabel } from './../typography/typography';
+import { css } from 'styled-components';
 
-const StyledLabel = styled(TextfieldLabel)`
+const TextXS = css`
+  font-size: 12px;
+  line-height: 150%;
+`;
+
+const TextR = css`
+  font-size: 16px;
+  line-height: 150%;
+`;
+
+const StyledLabel = styled.span`
+  ${TextXS}
   display: block;
   margin-bottom: 4px;
 
-  &.error {
-    font-weight: 700;
-    color: #ff0d35;
-  }
+  letter-spacing: -0.01em;
+  color: #202840;
 `;
 
-interface Textfield {
+const StyledErrorMessage = styled.span`
+  display: block;
+  margin-top: 4px;
+
+  ${TextXS}
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  color: #ff0d35;
+`;
+
+interface TextfieldProps {
   errorMessage: string;
   label: string;
 }
 
-const Textfield = ({ label, errorMessage }) => {
+const Textfield = ({ label, errorMessage }: TextfieldProps) => {
   const StyledInputText = styled.input.attrs({
     type: 'input',
   })`
@@ -27,8 +46,7 @@ const Textfield = ({ label, errorMessage }) => {
     padding-left: 16px;
     padding-right: 16px;
 
-    font-size: 16px;
-    line-height: 150%;
+    ${TextR}
     letter-spacing: -0.01em;
     color: #202840;
 
@@ -41,9 +59,7 @@ const Textfield = ({ label, errorMessage }) => {
     <label>
       <StyledLabel>{label}</StyledLabel>
       <StyledInputText />
-      {errorMessage && (
-        <StyledLabel className="error">{errorMessage}</StyledLabel>
-      )}
+      {errorMessage && <StyledErrorMessage>{errorMessage}</StyledErrorMessage>}
     </label>
   );
 };

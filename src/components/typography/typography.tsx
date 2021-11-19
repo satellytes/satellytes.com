@@ -197,10 +197,3 @@ export const LeadboxText = styled.p`
   margin: 0 auto;
   max-width: 320px;
 `;
-
-export const TextfieldLabel = styled.span`
-  font-size: 12px;
-  line-height: 150%;
-  letter-spacing: -0.01em;
-  color: #202840;
-`;
