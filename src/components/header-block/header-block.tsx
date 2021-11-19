@@ -96,9 +96,14 @@ const HeaderBlock = (props) => {
         )}
         <HeaderBlockText>{props.children}</HeaderBlockText>
       </TextWrapper>
-      <IconWrapper>
-        <Illustration show={props.illustration} size={IllustrationSize.LARGE} />
-      </IconWrapper>
+      {props.illustration && (
+        <IconWrapper>
+          <Illustration
+            show={props.illustration}
+            size={IllustrationSize.LARGE}
+          />
+        </IconWrapper>
+      )}
     </BlockWrapper>
   );
 };
