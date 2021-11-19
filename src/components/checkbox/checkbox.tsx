@@ -6,8 +6,9 @@ const Checkbox = (props) => {
   const [checked, setChecked] = useState(true);
 
   const handleChange = () => {
-    setChecked(!checked);
-    props.onChange?.(checked);
+    const newChecked = !checked;
+    props.onChange?.(newChecked);
+    setChecked(newChecked);
   };
 
   const HiddenCheckbox = styled.input.attrs({
@@ -59,7 +60,7 @@ const Checkbox = (props) => {
           />
         </svg>
       </StyledCheckbox>
-      <CheckboxLabelText>{props.label}</CheckboxLabelText>
+      {props.label && <CheckboxLabelText>{props.label}</CheckboxLabelText>}
     </CheckboxLabel>
   );
 };
