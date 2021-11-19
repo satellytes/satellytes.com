@@ -6,13 +6,18 @@ const StyledLabel = styled(TextfieldLabel)`
   display: block;
   margin-bottom: 4px;
 
-  &.danger {
+  &.error {
     font-weight: 700;
     color: #ff0d35;
   }
 `;
 
-const Textfield = (props) => {
+interface Textfield {
+  errorMessage: string;
+  label: string;
+}
+
+const Textfield = ({ label, errorMessage }) => {
   const StyledInputText = styled.input.attrs({
     type: 'input',
   })`
@@ -28,17 +33,17 @@ const Textfield = (props) => {
     color: #202840;
 
     border: 2px solid;
-    border-color: ${props.error ? '#FF0D35' : '#f7f8fa'};
+    border-color: ${errorMessage ? '#FF0D35' : '#f7f8fa'};
     background: #f7f8fa;
   `;
 
   return (
     <label>
-      <StyledLabel>{props.label}</StyledLabel>
+      <StyledLabel>{label}</StyledLabel>
       <StyledInputText />
-      <StyledLabel className="danger">
-        {props.error ? props.errorMessage : ''}
-      </StyledLabel>
+      {errorMessage && (
+        <StyledLabel className="error">{errorMessage}</StyledLabel>
+      )}
     </label>
   );
 };
