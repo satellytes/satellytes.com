@@ -47,9 +47,7 @@ const TextWrapper = styled.div`
 const IconWrapper = styled.div`
   width: 144px;
   height: 144px;
-  ${down('sm')} {
-    margin-left: auto;
-  }
+  margin-left: auto;
 `;
 
 const Topline = styled.p`
@@ -64,6 +62,10 @@ const HeaderBlock = (props) => {
     letter-spacing: -0.01em;
     color: #202840;
     margin-top: 32px;
+
+    ${down('sm')} {
+      margin-top: 24px;
+    }
   `;
 
   const Headline = styled.p`
@@ -74,12 +76,11 @@ const HeaderBlock = (props) => {
     margin-bottom: ${props.large ? '32px' : '16px'};
   `;
 
-  const Timestamp = styled.p`
+  const Metaline = styled.p`
     ${TextS}
     letter-spacing: -0.01em;
     color: rgba(0, 0, 0, 0.5);
     margin-top: ${props.large ? '32px' : '16px'};
-    margin-bottom: 32px;
   `;
 
   return (
@@ -87,13 +88,7 @@ const HeaderBlock = (props) => {
       <TextWrapper>
         <Topline>{props.topline}</Topline>
         <Headline>{props.headline}</Headline>
-        {(props.date || props.author) && (
-          <Timestamp>
-            {props.date}
-            {props.date && props.author && ' · '}
-            {props.author}
-          </Timestamp>
-        )}
+        {props.metaline && <Metaline>{props.metaline}</Metaline>}
         <HeaderBlockText>{props.children}</HeaderBlockText>
       </TextWrapper>
       {props.illustration && (

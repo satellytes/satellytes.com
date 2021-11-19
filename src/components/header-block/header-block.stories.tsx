@@ -19,8 +19,8 @@ export const Regular = Template.bind({});
 Regular.args = {
   topline: 'Topline',
   headline: 'Headline',
-  date: 'vor 3 Tagen',
-  author: 'von Fabian Dietenberger, Frontend Engineer, Satellytes',
+  metaline:
+    'vor 3 Tagen · von Fabian Dietenberger, Frontend Engineer, Satellytes',
   illustration: 'rocket_011',
   large: true,
 };
