@@ -175,6 +175,15 @@ export const TextLink = styled(Link)<{ small?: boolean }>`
   }
 `;
 
+export const CheckboxLabelText = styled.span`
+  font-size: 16px;
+  line-height: 150%;
+
+  letter-spacing: -0.01em;
+  color: #202840;
+  margin-left: 12px;
+`;
+
 export const LeadBoxTitle = styled.p`
   font-weight: bold;
   font-size: 28px;
