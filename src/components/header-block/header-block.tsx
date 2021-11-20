@@ -2,7 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 import { css } from 'styled-components';
 import { Illustration, IllustrationSize } from '../illustration/illustration';
+import { IllustrationType } from '../illustration/illustration-set';
 import { down, up } from '../breakpoint/breakpoint';
+import { getMainProps } from 'gatsby-plugin-image/dist/src/components/hooks';
+
+interface HeaderBlockProps {
+  topline: string;
+  headline: string;
+  metaline: string;
+  children: string;
+  large: boolean;
+  illustration?: IllustrationType | null;
+}
+
+interface LargeProps {
+  large: boolean;
+}
 
 const TopLineR = css`
   font-weight: bold;
@@ -56,9 +71,23 @@ const Topline = styled.p`
   margin: 0;
 `;
 
-const HeaderBlock = (props) => {
-  const HeaderBlockText = styled.p`
-    ${props.large ? TextL : Text}}
+const Headline = styled.p<LargeProps>`
+  ${HeadlineXL}
+  letter-spacing: -0.01em;
+  color: #202840;
+  margin-top: 16px;
+  margin-bottom: ${({ large }) => (large ? '32px' : '16px')};
+`;
+
+const Metaline = styled.p<LargeProps>`
+  ${TextS}
+  letter-spacing: -0.01em;
+  color: rgba(0, 0, 0, 0.5);
+  margin-top: ${({ large }) => (large ? '32px' : '16px')};
+`;
+
+const HeaderBlockText = styled.p<LargeProps>`
+    ${({ large }) => (large ? TextL : Text)}}
     letter-spacing: -0.01em;
     color: #202840;
     margin-top: 32px;
@@ -68,28 +97,16 @@ const HeaderBlock = (props) => {
     }
   `;
 
-  const Headline = styled.p`
-    ${HeadlineXL}
-    letter-spacing: -0.01em;
-    color: #202840;
-    margin-top: 16px;
-    margin-bottom: ${props.large ? '32px' : '16px'};
-  `;
-
-  const Metaline = styled.p`
-    ${TextS}
-    letter-spacing: -0.01em;
-    color: rgba(0, 0, 0, 0.5);
-    margin-top: ${props.large ? '32px' : '16px'};
-  `;
-
+const HeaderBlock = (props: HeaderBlockProps) => {
   return (
     <BlockWrapper>
       <TextWrapper>
         <Topline>{props.topline}</Topline>
-        <Headline>{props.headline}</Headline>
-        {props.metaline && <Metaline>{props.metaline}</Metaline>}
-        <HeaderBlockText>{props.children}</HeaderBlockText>
+        <Headline large={props.large}>{props.headline}</Headline>
+        {props.metaline && (
+          <Metaline large={props.large}>{props.metaline}</Metaline>
+        )}
+        <HeaderBlockText large={props.large}>{props.children}</HeaderBlockText>
       </TextWrapper>
       {props.illustration && (
         <IconWrapper>
