@@ -1,10 +1,11 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-const ToplineR = css`
+const toplineR = css`
   font-weight: bold;
   font-size: 16px;
   line-height: 110%;
+  letter-spacing: -0.01em;
 `;
 
 const StyledButton = styled.button`
@@ -27,9 +28,7 @@ const StyledIcon = styled.span`
 const ButtonText = styled.span`
   padding-left: 16px;
 
-  ${ToplineR}
-
-  letter-spacing: -0.01em;
+  ${toplineR}
   color: #ffffff;
 `;
 
