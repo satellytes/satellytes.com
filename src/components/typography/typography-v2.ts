@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from 'styled-components';
 
-export const timestamp = css`
+const timestamp = css`
   font-weight: normal;
   font-size: 14px;
   line-height: 110%;
@@ -10,7 +10,7 @@ export const timestamp = css`
   color: #000000;
 `;
 
-export const toplineR = css`
+const toplineR = css`
   font-weight: bold;
   font-size: 16px;
   line-height: 110%;
@@ -18,7 +18,7 @@ export const toplineR = css`
   color: #000000;
 `;
 
-export const toplineS = css`
+const toplineS = css`
   font-weight: bold;
   font-size: 14px;
   line-height: 110%;
@@ -26,7 +26,7 @@ export const toplineS = css`
   color: #000000;
 `;
 
-export const headlineXL = css`
+const headlineXL = css`
   font-weight: bold;
   font-size: 48px;
   line-height: 110%;
@@ -36,7 +36,7 @@ export const headlineXL = css`
   color: #000000;
 `;
 
-export const headlineL = css`
+const headlineL = css`
   font-weight: bold;
   font-size: 32px;
   line-height: 110%;
@@ -46,7 +46,7 @@ export const headlineL = css`
   color: #000000;
 `;
 
-export const headlineM = css`
+const headlineM = css`
   font-weight: bold;
   font-size: 28px;
   line-height: 110%;
@@ -56,7 +56,7 @@ export const headlineM = css`
   color: #000000;
 `;
 
-export const headlineS = css`
+const headlineS = css`
   font-weight: bold;
   font-size: 20px;
   line-height: 110%;
@@ -66,7 +66,7 @@ export const headlineS = css`
   color: #000000;
 `;
 
-export const headlineXS = css`
+const headlineXS = css`
   font-weight: bold;
   font-size: 16px;
   line-height: 150%;
@@ -76,7 +76,7 @@ export const headlineXS = css`
   color: #000000;
 `;
 
-export const textL = css`
+const textL = css`
   font-weight: normal;
   font-size: 20px;
   line-height: 150%;
@@ -86,7 +86,7 @@ export const textL = css`
   color: #000000;
 `;
 
-export const textR = css`
+const textR = css`
   font-weight: normal;
   font-size: 16px;
   line-height: 150%;
@@ -96,7 +96,7 @@ export const textR = css`
   color: #000000;
 `;
 
-export const textS = css`
+const textS = css`
   font-weight: normal;
   font-size: 14px;
   line-height: 150%;
@@ -106,7 +106,7 @@ export const textS = css`
   color: #000000;
 `;
 
-export const textXS = css`
+const textXS = css`
   font-weight: normal;
   font-size: 12px;
   line-height: 150%;
@@ -116,7 +116,7 @@ export const textXS = css`
   color: #000000;
 `;
 
-export const quote = css`
+const quote = css`
   font-style: italic;
   font-weight: normal;
   font-size: 20px;
@@ -125,7 +125,7 @@ export const quote = css`
   color: #000000;
 `;
 
-export const code = css`
+const code = css`
   font-family: Monaco;
   font-style: normal;
   font-weight: normal;
@@ -135,7 +135,7 @@ export const code = css`
   color: #000000;
 `;
 
-export const menuItemR = css`
+const menuItemR = css`
   font-weight: bold;
   font-size: 48px;
   line-height: 150%;
@@ -145,7 +145,7 @@ export const menuItemR = css`
   color: #000000;
 `;
 
-export const menuItemS = css`
+const menuItemS = css`
   font-weight: bold;
   font-size: 32px;
   line-height: 150%;
@@ -156,10 +156,32 @@ export const menuItemS = css`
 `;
 
 // MenuLaguage has the exact same configuration as MenuMeta
-export const menuMeta = css`
+const menuMeta = css`
   font-weight: bold;
   font-size: 14px;
   line-height: 110%;
 
   color: #000000;
 `;
+
+const TextStyles = {
+  timestamp,
+  toplineR,
+  toplineS,
+  headlineXL,
+  headlineL,
+  headlineM,
+  headlineS,
+  headlineXS,
+  textL,
+  textR,
+  textS,
+  textXS,
+  quote,
+  code,
+  menuItemR,
+  menuItemS,
+  menuMeta,
+};
+
+export default TextStyles;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { headlineM, textS, textXS } from '../typography/typography-v2';
+import TextStyles from '../typography/typography-v2';
 import { theme } from '../layout/theme';
 import { Grid, GridItem } from '../grid/grid';
 import { Link, LinkButton } from '../links/links';
@@ -53,7 +53,7 @@ const Illustration = styled.div`
 `;
 
 const Mail = styled(Link)`
-  ${textS}
+  ${TextStyles.textS}
 
   color: ${theme.palette.text.link.default};
 
@@ -67,14 +67,14 @@ const StyledLinkButton = styled(LinkButton)`
 `;
 
 const LeadBoxTitle = styled.p`
-  ${headlineM}
+  ${TextStyles.headlineM}
 
   margin: 0 auto 24px;
   max-width: 320px;
 `;
 
 const LeadboxSubtitle = styled.p`
-  ${textS}
+  ${TextStyles.textS}
 
   font-weight: bold;
   margin: 0 auto;
@@ -82,7 +82,7 @@ const LeadboxSubtitle = styled.p`
 `;
 
 const LeadboxText = styled.p`
-  ${textXS}
+  ${TextStyles.textXS}
 
   margin: 0 auto;
   max-width: 320px;

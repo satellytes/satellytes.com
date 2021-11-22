@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from '../links/links';
-import { textXS } from '../typography/typography-v2';
+import TextStyles from '../typography/typography-v2';
 import { theme } from '../layout/theme';
 
 const BreadcrumbContainer = styled.ol`
@@ -13,7 +13,7 @@ const BreadcrumbContainer = styled.ol`
 `;
 
 const BreadcrumbListItem = styled.li`
-  ${textXS}
+  ${TextStyles.textXS}
 
   white-space: nowrap;
   color: ${theme.palette.text.breadcrumb};

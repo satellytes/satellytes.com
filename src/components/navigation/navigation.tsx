@@ -8,7 +8,7 @@ import { GithubIconWrapper } from '../icons/social/github';
 import { Link } from '../links/links';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { LanguageSwitch } from '../language-switch/language-switch';
-import { menuItemR, menuItemS, menuMeta } from '../typography/typography-v2';
+import TextStyles from '../typography/typography-v2';
 
 const NavigationBackground = styled.div`
   background: linear-gradient(289.7deg, #543fd7 2.95%, #2756fd 100.82%);
@@ -115,7 +115,7 @@ const SocialLink = styled.a`
 const LegalLink = styled(Link)<{ $isSelected: boolean }>`
   display: block;
 
-  ${menuMeta}
+  ${TextStyles.menuMeta}
 
   text-decoration: none;
   color: ${(props) => (props.$isSelected ? '#ffffff' : '#202840')};
@@ -163,7 +163,7 @@ const NavigationListItem = styled.li`
 `;
 
 const SiteNavigationLink = styled(Link)<{ $isSelected: boolean }>`
-  ${menuItemS}
+  ${TextStyles.menuItemS}
 
   text-decoration: none;
   color: ${(props) => (props.$isSelected ? '#ffffff' : '#202840')};
@@ -177,7 +177,7 @@ const SiteNavigationLink = styled(Link)<{ $isSelected: boolean }>`
   }
 
   ${up('md')} {
-    ${menuItemR}
+    ${TextStyles.menuItemR}
   }
 
   transition: color 0.2s;
