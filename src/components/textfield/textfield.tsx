@@ -1,20 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { css } from 'styled-components';
-
-const textXS = css`
-  font-size: 12px;
-  line-height: 150%;
-  letter-spacing: -0.01em;
-`;
-
-const textR = css`
-  font-size: 16px;
-  line-height: 150%;
-`;
+import { TextStyles } from '../typography/typography-v2';
 
 const StyledLabel = styled.span`
-  ${textXS}
+  ${TextStyles.textXS}
   display: block;
   margin-bottom: 4px;
 
@@ -22,7 +11,7 @@ const StyledLabel = styled.span`
 `;
 
 const StyledErrorMessage = styled.span`
-  ${textXS}
+  ${TextStyles.textXS}
   display: block;
   margin-top: 4px;
 
@@ -45,7 +34,7 @@ const Textfield = ({ label, errorMessage }: TextfieldProps) => {
     padding-left: 16px;
     padding-right: 16px;
 
-    ${textR}
+    ${TextStyles.textR}
     letter-spacing: -0.01em;
     color: #202840;
 
