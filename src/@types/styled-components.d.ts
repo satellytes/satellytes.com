@@ -20,10 +20,13 @@ declare module 'styled-components' {
         defaultLight: string;
         defaultDark: string;
         secondary: string;
-        header: string;
-        headerLight: string;
         topline: string;
         timestamp: string;
+        header: {
+          default: string;
+          light: string;
+          hover: string;
+        };
         breadcrumb: string;
         link: {
           default: string;
@@ -40,6 +43,7 @@ declare module 'styled-components' {
         body: string;
         card: string;
         footer: string;
+        headerTransparent: string;
         leadbox: string;
       };
     };

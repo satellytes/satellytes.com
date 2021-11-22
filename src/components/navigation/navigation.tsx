@@ -268,6 +268,7 @@ const Navigation: React.FC<NavigationProps> = ({
                 <LanguageSwitchWrapper
                   translation={translation}
                   className={'language-switch'}
+                  fromNavigation
                 />
               )}
               <nav>
