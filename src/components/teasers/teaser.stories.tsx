@@ -1,15 +1,10 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ComponentStory } from '@storybook/react';
 import { Teaser } from './teaser';
 import ExampleImage from '../../../blog-posts/images/angular.png';
 import styled from 'styled-components';
 import { Illustration, IllustrationSize } from '../illustration/illustration';
 import { ILLUSTRATION_NAMES } from '../illustration/illustration-set';
-
-export default {
-  component: Teaser,
-  title: 'Components/Teaser',
-} as ComponentMeta<typeof Teaser>;
 
 const Template: ComponentStory<typeof Teaser> = (args) => <Teaser {...args} />;
 
