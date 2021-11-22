@@ -20,6 +20,8 @@ declare module 'styled-components' {
         defaultLight: string;
         defaultDark: string;
         secondary: string;
+        topline: string;
+        timestamp: string;
         header: {
           default: string;
           light: string;
