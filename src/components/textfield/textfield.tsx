@@ -1,17 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { css } from 'styled-components';
-
-const textXS = css`
-  font-size: 12px;
-  line-height: 150%;
-  letter-spacing: -0.01em;
-`;
-
-const textR = css`
-  font-size: 16px;
-  line-height: 150%;
-`;
+import { textR, textXS } from '../typography/typography-v2';
 
 const StyledLabel = styled.span`
   ${textXS}

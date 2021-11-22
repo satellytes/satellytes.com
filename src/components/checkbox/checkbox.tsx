@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { CheckboxLabelText } from '../typography/typography';
+import { textR } from '../typography/typography-v2';
 
 const Checkbox = (props) => {
   const [checked, setChecked] = useState(true);
@@ -39,6 +39,13 @@ const Checkbox = (props) => {
   const CheckboxLabel = styled.label`
     display: inline-flex;
     align-items: center;
+  `;
+
+  const CheckboxLabelText = styled.span`
+    ${textR}
+
+    color: #202840;
+    margin-left: 12px;
   `;
 
   return (

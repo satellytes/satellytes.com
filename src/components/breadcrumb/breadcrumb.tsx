@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from '../links/links';
-import { BreadcrumbText } from '../typography/typography';
+import { textXS } from '../typography/typography-v2';
 import { theme } from '../layout/theme';
 
 const BreadcrumbContainer = styled.ol`
@@ -12,7 +12,9 @@ const BreadcrumbContainer = styled.ol`
   padding: 0;
 `;
 
-const BreadcrumbListItem = styled(BreadcrumbText)`
+const BreadcrumbListItem = styled.li`
+  ${textXS}
+
   white-space: nowrap;
   color: ${theme.palette.text.breadcrumb};
   &:not(:last-child) {
