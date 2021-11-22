@@ -1,0 +1,57 @@
+import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Teaser } from './teaser';
+import ExampleImage from '../../../blog-posts/images/angular.png';
+import styled from 'styled-components';
+import { Illustration, IllustrationSize } from '../illustration/illustration';
+import { ILLUSTRATION_NAMES } from '../illustration/illustration-set';
+
+export default {
+  component: Teaser,
+  title: 'Components/Teaser',
+} as ComponentMeta<typeof Teaser>;
+
+const Template: ComponentStory<typeof Teaser> = (args) => <Teaser {...args} />;
+
+export const Regular = Template.bind({});
+Regular.args = {
+  title: 'Leadbox Title',
+  children:
+    'Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna.',
+  linkTo: '/blog',
+};
+
+const icons = {};
+{
+  ILLUSTRATION_NAMES.forEach((name) => {
+    icons[name] = (
+      <Illustration key={name} show={name} size={IllustrationSize.MEDIUM} />
+    );
+  });
+}
+
+export const WithIllustration = Template.bind({});
+WithIllustration.args = {
+  ...Regular.args,
+  cover: (
+    <Illustration show={'space_shuttle_043'} size={IllustrationSize.MEDIUM} />
+  ),
+};
+WithIllustration.argTypes = {
+  cover: {
+    options: ILLUSTRATION_NAMES,
+    mapping: icons,
+  },
+};
+
+const SampleImage = styled.img`
+  width: 100%;
+`;
+
+export const WithImage = Template.bind({});
+WithImage.args = {
+  ...Regular.args,
+  topline: 'Topline',
+  dateFormatted: '15th November 2021',
+  cover: <SampleImage src={ExampleImage} alt="" />,
+};
