@@ -31,7 +31,7 @@ yarn storybook
 yarn build-storybook
 ```
 
-The `main` branch automatically gets deployed to https://satellytes-website-storybook.netlify.app. Pull Requests on 
+The storybook for the `main` branch automatically gets deployed to https://satellytes-website-storybook.netlify.app. Pull Requests on 
 Github will also be updated with a separate deployment URL.
 
 ## Writing a blog post
