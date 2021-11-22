@@ -31,7 +31,7 @@ const Main = styled.main`
   margin: 0 auto;
 `;
 
-const HeaderPositioningLayout = styled.div`
+const HeaderStickyContainer = styled.div`
   position: fixed;
   top: 0;
   width: 100%;
@@ -151,7 +151,7 @@ const Layout = ({
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle $lightTheme={isLight} />
-      <HeaderPositioningLayout>
+      <HeaderStickyContainer>
         <Header
           siteTitle={data.site.siteMetadata.title}
           siteTitleUrl={siteTitleUrl}
@@ -160,7 +160,7 @@ const Layout = ({
           showLanguageSwitch={showLanguageSwitch}
           translation={translation}
         />
-      </HeaderPositioningLayout>
+      </HeaderStickyContainer>
       {/* pass in a hero node or try to use the hero image url */}
       {hero ?? <HeroImageLegacy image={heroImage} />}
 
