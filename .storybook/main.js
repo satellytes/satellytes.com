@@ -1,12 +1,16 @@
 const path = require('path');
 
 module.exports = {
-  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: [
+    '../src/**/*.stories.mdx',
+    '../src/**/*.stories.@(js|jsx|ts|tsx|mdx)',
+  ],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     'storybook-addon-gatsby',
     'storybook-react-i18next',
+    '@storybook/addon-docs',
   ],
   core: {
     builder: 'webpack5',
