@@ -138,6 +138,34 @@ export const BreadcrumbText = styled.li`
   letter-spacing: -0.01em;
 `;
 
+export const Topline = styled.p`
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 110%;
+  margin: 0;
+
+  color: ${theme.palette.text.topline};
+`;
+
+export const Timestamp = styled.p`
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  margin: 0 0 0 auto;
+  text-align: right;
+  color: ${theme.palette.text.timestamp};
+`;
+
+/**
+ * Teaser
+ */
+export const TeaserTitle = styled.p`
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 110%;
+  margin-bottom: 8px;
+`;
+
 /**
  *
  * Image Card
@@ -184,6 +212,11 @@ export const CheckboxLabelText = styled.span`
   margin-left: 12px;
 `;
 
+/**
+ *
+ * Leadbox
+ *
+ */
 export const LeadBoxTitle = styled.p`
   font-weight: bold;
   font-size: 28px;
