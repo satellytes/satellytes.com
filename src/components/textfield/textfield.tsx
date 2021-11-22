@@ -2,31 +2,30 @@ import React from 'react';
 import styled from 'styled-components';
 import { css } from 'styled-components';
 
-const TextXS = css`
+const textXS = css`
   font-size: 12px;
   line-height: 150%;
+  letter-spacing: -0.01em;
 `;
 
-const TextR = css`
+const textR = css`
   font-size: 16px;
   line-height: 150%;
 `;
 
 const StyledLabel = styled.span`
-  ${TextXS}
+  ${textXS}
   display: block;
   margin-bottom: 4px;
 
-  letter-spacing: -0.01em;
   color: #202840;
 `;
 
 const StyledErrorMessage = styled.span`
+  ${textXS}
   display: block;
   margin-top: 4px;
 
-  ${TextXS}
-  letter-spacing: -0.01em;
   font-weight: 700;
   color: #ff0d35;
 `;
@@ -46,7 +45,7 @@ const Textfield = ({ label, errorMessage }: TextfieldProps) => {
     padding-left: 16px;
     padding-right: 16px;
 
-    ${TextR}
+    ${textR}
     letter-spacing: -0.01em;
     color: #202840;
 
