@@ -61,12 +61,12 @@ const SiteTitle = styled(Link)<{ $lightTheme: boolean }>`
 
   color: ${(props) =>
     props.$lightTheme
-      ? props.theme.palette.text.headerLight
-      : props.theme.palette.text.header};
+      ? props.theme.palette.text.header.light
+      : props.theme.palette.text.header.default};
 
   &:hover {
     color: ${(props) =>
-      !props.$lightTheme && props.theme.palette.text.headerHover};
+      !props.$lightTheme && props.theme.palette.text.header.hover};
   }
 `;
 
@@ -93,20 +93,20 @@ const SiteMenu = styled.button<{ $lightTheme: boolean }>`
     background-color: ${(props) =>
       props.$lightTheme
         ? props.theme.palette.text.default
-        : props.theme.palette.text.header};
+        : props.theme.palette.text.header.default};
   }
 
   rect {
     fill: ${(props) =>
       props.$lightTheme
-        ? props.theme.palette.text.headerLight
-        : props.theme.palette.text.header};
+        ? props.theme.palette.text.header.light
+        : props.theme.palette.text.header.default};
   }
 
   &:hover {
     .bar {
       background-color: ${(props) =>
-        !props.$lightTheme && props.theme.palette.text.headerHover};
+        !props.$lightTheme && props.theme.palette.text.header.hover};
     }
   }
 `;
@@ -132,6 +132,12 @@ const Header: React.FC<HeaderProps> = (props) => {
     Boolean(props.transparent),
   );
   const [hoverWithTransition, setHoverWithTransition] = useState(true);
+
+  const transparent = Boolean(props.transparent);
+
+  useEffect(() => {
+    setIsHeaderTransparent(transparent);
+  }, [transparent]);
 
   useEffect(() => {
     const onScroll = (): void => {

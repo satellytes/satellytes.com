@@ -17,17 +17,5 @@ Regular.args = {
   siteTitle: 'Satellytes',
   $lightTheme: false,
   showLanguageSwitch: true,
-};
-
-export const WithLightTheme = Template.bind({});
-WithLightTheme.args = {
-  ...Regular.args,
-  $lightTheme: true,
-};
-
-export const WithLightThemeTransparent = Template.bind({});
-WithLightThemeTransparent.args = {
-  ...Regular.args,
-  $lightTheme: true,
-  transparent: true,
+  transparent: false,
 };
