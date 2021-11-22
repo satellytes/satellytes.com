@@ -1,17 +1,17 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import RegularButton from './regular-button';
+import Button from './regular-button';
 
 export default {
-  component: RegularButton,
-  title: 'Components/RegularButton',
+  component: Button,
+  title: 'Components/Button',
   argTypes: {
     onClick: { action: 'onChange' },
   },
-} as ComponentMeta<typeof RegularButton>;
+} as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof RegularButton> = (args) => (
-  <RegularButton {...args}></RegularButton>
+const Template: ComponentStory<typeof Button> = (args) => (
+  <Button {...args}></Button>
 );
 
 export const Regular = Template.bind({});
