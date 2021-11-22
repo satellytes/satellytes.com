@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import TextStyles from '../typography/typography-v2';
+import { TextStyles } from '../typography/typography-v2';
 
 const Checkbox = (props) => {
   const [checked, setChecked] = useState(true);

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
 import { Illustration } from '../illustration/illustration';
 import { IllustrationType } from '../illustration/illustration-set';
-import TextStyles from '../typography/typography-v2';
+import { TextStyles } from '../typography/typography-v2';
 
 interface CalloutProps {
   illustration?: IllustrationType | null;

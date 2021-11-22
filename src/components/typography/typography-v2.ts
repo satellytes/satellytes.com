@@ -164,7 +164,7 @@ const menuMeta = css`
   color: #000000;
 `;
 
-const TextStyles = {
+export const TextStyles = {
   timestamp,
   toplineR,
   toplineS,
@@ -183,5 +183,3 @@ const TextStyles = {
   menuItemS,
   menuMeta,
 };
-
-export default TextStyles;

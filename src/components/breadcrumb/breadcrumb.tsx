@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from '../links/links';
-import TextStyles from '../typography/typography-v2';
+import { TextStyles } from '../typography/typography-v2';
 import { theme } from '../layout/theme';
 
 const BreadcrumbContainer = styled.ol`

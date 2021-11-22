@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import TextStyles from '../typography/typography-v2';
+import { TextStyles } from '../typography/typography-v2';
 
 const StyledButton = styled.button`
   height: 40px;
