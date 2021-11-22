@@ -11,7 +11,7 @@ const Template: ComponentStory<typeof Teaser> = (args) => <Teaser {...args} />;
 
 export const Regular = Template.bind({});
 Regular.args = {
-  title: 'Leadbox Title',
+  title: 'Teaser Title',
   children:
     'Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna.',
   linkTo: '/blog',
