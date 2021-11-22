@@ -159,14 +159,6 @@ export const Timestamp = styled.p`
 /**
  * Teaser
  */
-export const TeaserTitleLarge = styled.p`
-  font-weight: bold;
-  font-size: 28px;
-  line-height: 110%;
-  margin-bottom: 8px;
-  margin-top: 20px;
-`;
-
 export const TeaserTitle = styled.p`
   font-weight: bold;
   font-size: 20px;
