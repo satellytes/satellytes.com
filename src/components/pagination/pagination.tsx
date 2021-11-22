@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React from 'react';
+import styled, { css } from 'styled-components';
 import { PrevArrow } from '../icons/buttons-icons/prev-arrow';
 import { NextArrow } from '../icons/buttons-icons/next-arrow';
 import { theme } from '../layout/theme';
@@ -11,13 +11,13 @@ interface PaginationProps {
   onNextClick: () => any;
   onDropdownSelect: (selectedPage: number) => any;
   amountOfPages: number;
+  currentPage: number;
 }
 
 const PaginationContainer = styled.div`
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: 'previous dropdown next';
+  display: flex;
+  justify-content: space-between;
 `;
 
 const Dropdown = styled(PaginationDropdown)`
@@ -25,26 +25,20 @@ const Dropdown = styled(PaginationDropdown)`
   border: none;
   color: ${theme.palette.text.link.default};
   cursor: pointer;
-
-  grid-area: dropdown;
-  justify-self: center;
 `;
 
-const Button = styled.button`
+const StyledButton = styled.button<{ inactive: boolean }>`
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
-`;
 
-const PreviousButton = styled(Button)`
-  grid-area: previous;
-  justify-self: start;
-`;
-
-const NextButton = styled(Button)`
-  grid-area: next;
-  justify-self: end;
+  ${(props) =>
+    props.inactive &&
+    css`
+      cursor: default;
+      opacity: 50%;
+    `}
 `;
 
 export const Pagination: React.FC<PaginationProps> = ({
@@ -52,8 +46,8 @@ export const Pagination: React.FC<PaginationProps> = ({
   onNextClick,
   amountOfPages,
   onDropdownSelect,
+  currentPage,
 }: PaginationProps) => {
-  const [currentPage, setCurrentPage] = useState(1);
   const { t } = useTranslation();
 
   const options: JSX.Element[] = [];
@@ -63,39 +57,35 @@ export const Pagination: React.FC<PaginationProps> = ({
 
   const handlePreviousClick = () => {
     if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
       onPreviousClick();
     }
   };
 
   const handleNextClick = () => {
     if (currentPage < amountOfPages) {
-      setCurrentPage(currentPage + 1);
       onNextClick();
     }
   };
 
   const handleDropdownChange = (event) => {
     const selectedPage = parseInt(event.target.value);
-    setCurrentPage(selectedPage);
     onDropdownSelect(selectedPage);
   };
 
   return (
     <PaginationContainer>
-      {currentPage !== 1 && (
-        <PreviousButton onClick={handlePreviousClick}>
-          <PrevArrow />
-        </PreviousButton>
-      )}
+      <StyledButton onClick={handlePreviousClick} inactive={currentPage == 1}>
+        <PrevArrow />
+      </StyledButton>
       <Dropdown onChange={handleDropdownChange} value={currentPage}>
         {options}
       </Dropdown>
-      {currentPage !== amountOfPages && (
-        <NextButton onClick={handleNextClick}>
-          <NextArrow />
-        </NextButton>
-      )}
+      <StyledButton
+        onClick={handleNextClick}
+        inactive={currentPage == amountOfPages}
+      >
+        <NextArrow />
+      </StyledButton>
     </PaginationContainer>
   );
 };
