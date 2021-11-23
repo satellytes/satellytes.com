@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { PrevArrow } from '../icons/buttons-icons/prev-arrow';
 import { NextArrow } from '../icons/buttons-icons/next-arrow';
 import { theme } from '../layout/theme';
-import { PaginationDropdown } from '../typography/typography';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { TextStyles } from '../typography/typography-v2';
 
 interface PaginationProps {
   onPreviousClick: () => any;
@@ -20,7 +20,8 @@ const PaginationContainer = styled.div`
   justify-content: space-between;
 `;
 
-const Dropdown = styled(PaginationDropdown)`
+const Dropdown = styled.select`
+  ${TextStyles.toplineR}
   background: none;
   border: none;
   color: ${theme.palette.text.link.default};
