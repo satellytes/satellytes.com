@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components';
 
 export enum IllustrationSize {
   NORMAL = 'normal', // 72px
+  MEDIUM = 'medium', // 80px
   LARGE = 'large', // 144px
   INHERIT = 'inherit', // 100% of the container
 }
@@ -22,6 +23,13 @@ export interface IllustrationProps {
 const IllustrationLayout = styled.div<Pick<IllustrationProps, 'size'>>`
   width: 72px;
   height: 72px;
+
+  ${({ size }) =>
+    size === IllustrationSize.MEDIUM &&
+    css`
+      width: 80px;
+      height: 80px;
+    `}
 
   ${({ size }) =>
     size === IllustrationSize.LARGE &&
