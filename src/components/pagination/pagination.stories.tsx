@@ -25,11 +25,11 @@ Regular.args = {
   onDropdownSelect: (selectedPage) => {
     return selectedPage;
   },
-  currentPage: 1,
+  currentPage: 0,
 };
 
 const ComponentWithPagination = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
 
   const mockData = [
     'Blogpost: 1',
@@ -60,8 +60,8 @@ const ComponentWithPagination = () => {
 
   const isInRange = (blogpostIndex) => {
     const currentRange = [
-      currentPage * itemsPerPage - 2,
-      currentPage * itemsPerPage - 1,
+      (currentPage + 1) * itemsPerPage - 2,
+      (currentPage + 1) * itemsPerPage - 1,
     ];
     return currentRange.includes(blogpostIndex);
   };
@@ -70,7 +70,7 @@ const ComponentWithPagination = () => {
     <div>
       {mockData.map((blogpost, index) => {
         if (isInRange(index)) {
-          return <p>{blogpost}</p>;
+          return <p key={blogpost}>{blogpost}</p>;
         }
       })}
       <Pagination

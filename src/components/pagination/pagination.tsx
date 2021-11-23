@@ -28,14 +28,20 @@ const Dropdown = styled(PaginationDropdown)`
 `;
 
 const StyledButton = styled.button`
-  background: none;
+  padding: 14px 12px;
   border: none;
-  padding: 0;
+  background: linear-gradient(275.41deg, #543fd7 0%, #2756fd 100%);
+  border-radius: 30px;
   cursor: pointer;
+  display: flex;
 
   &:disabled {
     opacity: 50%;
     cursor: default;
+  }
+
+  &:hover:enabled {
+    background: ${theme.palette.text.link.default};
   }
 `;
 
@@ -48,10 +54,13 @@ export const Pagination = ({
 }: PaginationProps): JSX.Element => {
   const { t } = useTranslation();
 
-  const options: JSX.Element[] = [];
-  for (let i = 1; i <= amountOfPages; i++) {
-    options.push(<option value={i}>{`${t('blog.pagination')} ${i}`}</option>);
-  }
+  const options = new Array(amountOfPages)
+    .fill(null)
+    .map((_, index) => (
+      <option key={index} value={index}>{`${t('blog.pagination')} ${
+        index + 1
+      }`}</option>
+    ));
 
   const handleDropdownChange = (event) => {
     const selectedPage = parseInt(event.target.value);
@@ -60,7 +69,7 @@ export const Pagination = ({
 
   return (
     <PaginationContainer>
-      <StyledButton onClick={onPreviousClick} disabled={currentPage == 1}>
+      <StyledButton onClick={onPreviousClick} disabled={currentPage === 0}>
         <PrevArrow />
       </StyledButton>
       <Dropdown onChange={handleDropdownChange} value={currentPage}>
@@ -68,7 +77,7 @@ export const Pagination = ({
       </Dropdown>
       <StyledButton
         onClick={onNextClick}
-        disabled={currentPage == amountOfPages}
+        disabled={currentPage + 1 === amountOfPages}
       >
         <NextArrow />
       </StyledButton>
