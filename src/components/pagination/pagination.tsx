@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { PrevArrow } from '../icons/buttons-icons/prev-arrow';
 import { NextArrow } from '../icons/buttons-icons/next-arrow';
 import { theme } from '../layout/theme';
@@ -27,45 +27,31 @@ const Dropdown = styled(PaginationDropdown)`
   cursor: pointer;
 `;
 
-const StyledButton = styled.button<{ inactive: boolean }>`
+const StyledButton = styled.button`
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
 
-  ${(props) =>
-    props.inactive &&
-    css`
-      cursor: default;
-      opacity: 50%;
-    `}
+  &:disabled {
+    opacity: 50%;
+    cursor: default;
+  }
 `;
 
-export const Pagination: React.FC<PaginationProps> = ({
+export const Pagination = ({
   onPreviousClick,
   onNextClick,
   amountOfPages,
   onDropdownSelect,
   currentPage,
-}: PaginationProps) => {
+}: PaginationProps): JSX.Element => {
   const { t } = useTranslation();
 
   const options: JSX.Element[] = [];
   for (let i = 1; i <= amountOfPages; i++) {
     options.push(<option value={i}>{`${t('blog.pagination')} ${i}`}</option>);
   }
-
-  const handlePreviousClick = () => {
-    if (currentPage > 1) {
-      onPreviousClick();
-    }
-  };
-
-  const handleNextClick = () => {
-    if (currentPage < amountOfPages) {
-      onNextClick();
-    }
-  };
 
   const handleDropdownChange = (event) => {
     const selectedPage = parseInt(event.target.value);
@@ -74,15 +60,15 @@ export const Pagination: React.FC<PaginationProps> = ({
 
   return (
     <PaginationContainer>
-      <StyledButton onClick={handlePreviousClick} inactive={currentPage == 1}>
+      <StyledButton onClick={onPreviousClick} disabled={currentPage == 1}>
         <PrevArrow />
       </StyledButton>
       <Dropdown onChange={handleDropdownChange} value={currentPage}>
         {options}
       </Dropdown>
       <StyledButton
-        onClick={handleNextClick}
-        inactive={currentPage == amountOfPages}
+        onClick={onNextClick}
+        disabled={currentPage == amountOfPages}
       >
         <NextArrow />
       </StyledButton>
