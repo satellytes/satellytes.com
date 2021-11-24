@@ -30,7 +30,7 @@ export const onRenderBody = ({ setPostBodyComponents, setHeadComponents }) => {
         type="font/woff2"
         crossOrigin="anonymous"
       />,
-      <link key={'fonts-css'} rel="stylesheet" href="/fonts/fonts.css" />,
+      <link key="fonts-css" rel="stylesheet" href="/fonts/fonts.css" />,
     ].filter(Boolean),
   );
 
