@@ -1,8 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import CocoGothicBoldWoff2 from './layout/fonts/CocoGothic-Bold.woff2';
-import CocoGothicWoff2 from './layout/fonts/CocoGothic.woff2';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 
