@@ -14,10 +14,14 @@ addDecorator((storyFn) => (
 ));
 
 export const parameters = {
-  // doesn't work reliable on the first vist
-  // viewMode: 'docs',
+  viewMode: 'docs',
   previewTabs: {
-    'storybook/docs/panel': { index: -1 },
+    // move the docs tab to the front
+    'storybook/docs/panel': { index: -1, title: 'Documentation' },
+    'storybook/canvas/panel': { title: 'Code' },
+    canvas: {
+      title: 'Code',
+    },
   },
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
@@ -31,5 +35,10 @@ export const parameters = {
   locales: {
     en: 'English',
     de: 'Deutsch',
+  },
+  options: {
+    storySort: {
+      order: ['Getting started', 'Components'],
+    },
   },
 };

@@ -15,7 +15,8 @@ export interface AccordionProps {
    */
   children: React.ReactNode;
   /**
-   * A default value for the open panel's index or indices in an uncontrolled accordion component when it is initially rendered
+   * Specify the panel's index or indices to open once the component is initially rendered.
+   * **Later updates will be ignored.**
    */
   defaultIndex?: number | number[];
 }
@@ -60,8 +61,7 @@ const PanelIllustration = styled(Illustration)`
     padding-right: 0;
     padding-left: 36px;
     /**
-    prevent the illustration from changing it's size 
-    being a flex child due to shriking and growing
+    Prevent the illustration from changing it's size due to shrinking and growing being a flex child here
     **/
     flex: 0 0 auto;
     order: 1;
@@ -91,11 +91,7 @@ export const AccordionSection = (props: AccordionSectionProps) => {
 
 export const Accordion = (props: AccordionProps) => {
   return (
-    <AccordionStyled
-      multiple
-      collapsible
-      defaultIndex={props.defaultIndex || 0}
-    >
+    <AccordionStyled collapsible multiple defaultIndex={props.defaultIndex}>
       {props.children}
     </AccordionStyled>
   );

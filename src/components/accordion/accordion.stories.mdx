@@ -1,37 +1,45 @@
-import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { Canvas, Meta, Story, Props, ArgsTable } from '@storybook/addon-docs';
 import { AccordionContainerExample, AccordionSectionExample, Regular } from './accordion.stories';
 import { Accordion, AccordionSection } from './accordion';
 
 <Meta
     title="Components/Accordion"
-    component={Accordion}
-    subcomponents={{AccordionSection}} />
+    component={{ Accordion }}
+    subcomponents={{Accordion, AccordionSection}} />
 
 # Accordion
-An accordion is a vertically stacked group of collapsible sections. Our accordion is based on the [Accordion](https://reach.tech/accordion/) from ReachUI. We have baked in many of our design and UX decisions which makes it easier to use. Somete noteable things:
+An accordion is a vertically stacked group of collapsible sections. Our accordion is based on the [Accordion](https://reach.tech/accordion/) from ReachUI. We have baked in many of our configuration and design decisions which makes it easier to use. 
 
-+ Every accordion receives the toggles `multiple` & `collapsible` which you can't remove.
-+ There is only one child component to define your content:  `AccordionContent`.
+**Some notable things:**
+
++ Every accordion receives internally the toggles `multiple` & `collapsible` which you can't remove. 
++ `AccordionContent` is the only child component to define your content.
 + You can't define your own `AccordionButton`, `AccordionPanel` and such, everything is predefined and bundled in the `AccordionContent` component.
 
 <Canvas>
   <Story story={Regular}/>
 </Canvas>
 
+
 ## Component API
+
+<ArgsTable of={Accordion} />
 
 ### Accordion
 The wrapper component for all other accordion components. Each accordion component must be a `<AccordionContent/>` component.
-You can define which section to open first through `defaultIndex` and you can pass in an array to open multiple sections too.
+You can define which section to open first through `defaultIndex` and you can pass in an array to open multiple sections too. 
 
 <Canvas>
   <Story story={AccordionContainerExample}/>
 </Canvas>
 
 ### AccordionContent
-The `AccordionContent` are the bread and butter of the Accordion. For each component you can pass in the `title`, `illustration` and the actual content through `children`. The illustration is optional and will push the content aside accordingly.
+The `AccordionContent` component is the bread and butter of the Accordion. For each component you can pass in the `title`, `illustration` and the actual content through `children`. The illustration is optional and will push the content aside accordingly.
 
 <Canvas>
   <Story story={AccordionSectionExample}/>
 </Canvas>
 
+## Animation
+
+The animation can't be configured. It's based on [react-spring](https://react-spring.io/hooks/use-spring).

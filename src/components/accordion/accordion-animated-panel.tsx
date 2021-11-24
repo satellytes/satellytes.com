@@ -19,6 +19,11 @@ const AnimatedPanelContainer = styled.div`
  *
  * Read this if forwardRef is unclear:
  * https://reactjs.org/docs/forwarding-refs.html
+ *
+ * Based on:
+ * https://github.com/raunofreiberg/reach-ui/blob/6742f0cdcef05ba23077f63c21e3ede3bbfcae52/packages/accordion/examples/animated.example.js#L74-L89
+ * 1. We removed the forwardRef as we don't benefit from forwarding the ref as of now)
+ * 2. Added the aria-hidden flag based on this feedback: https://github.com/reach/reach-ui/pull/500#discussion_r403603183
  */
 export const AccordionAnimatedPanel = ({ children }) => {
   const { isExpanded } = useAccordionItemContext();
@@ -37,7 +42,11 @@ export const AccordionAnimatedPanel = ({ children }) => {
   });
 
   return (
-    <AnimatedAccordionPanel style={props} hidden={false}>
+    <AnimatedAccordionPanel
+      style={props}
+      hidden={false}
+      aria-hidden={!isExpanded}
+    >
       <AnimatedPanelContainer ref={ref}>{children}</AnimatedPanelContainer>
     </AnimatedAccordionPanel>
   );

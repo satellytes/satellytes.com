@@ -5,7 +5,7 @@ import { ILLUSTRATION_NAMES } from '../illustration/illustration-set';
 
 export const Regular = () => {
   return (
-    <Accordion defaultIndex={0}>
+    <Accordion>
       <AccordionSection
         title="1. Deine Bewerbung"
         illustration={'scientistB_007'}
@@ -75,6 +75,10 @@ export const AccordionSectionExample = (args) => {
 };
 
 const EXAMPLE_ILLUSTRATIONS = [...ILLUSTRATION_NAMES.slice(0, 5)];
+AccordionSectionExample.args = {
+  illustration: ILLUSTRATION_NAMES[0],
+};
+
 AccordionSectionExample.argTypes = {
   children: {
     table: {
@@ -88,7 +92,6 @@ AccordionSectionExample.argTypes = {
   },
   illustration: {
     options: EXAMPLE_ILLUSTRATIONS,
-    defaultValue: ILLUSTRATION_NAMES[0],
     description:
       'Pick one of the available illustrations. See the Illustration component for more details.',
     control: {
