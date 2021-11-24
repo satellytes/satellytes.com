@@ -1,4 +1,4 @@
-import { addDecorator } from '@storybook/react';
+import { addDecorator, addParameters } from '@storybook/react';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../src/components/layout/theme';
 import { GlobalStyle } from '../src/components/layout/global-style';
@@ -14,6 +14,11 @@ addDecorator((storyFn) => (
 ));
 
 export const parameters = {
+  // doesn't work reliable on the first vist
+  // viewMode: 'docs',
+  previewTabs: {
+    'storybook/docs/panel': { index: -1 },
+  },
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {

@@ -29,7 +29,7 @@ const resetButton = css`
   appearance: none;
   background: 0;
   border: 0;
-  boxshadow: none;
+  box-shadow: none;
 `;
 
 const AccordionButton = styled(ReachAccordion.AccordionButton)`

@@ -29,10 +29,11 @@ export const AccordionAnimatedPanel = ({ children }) => {
    * https://react-spring.io/basics
    */
   const props = useSpring({
-    duration: 1500,
     height: isExpanded ? height : 0,
     overflow: 'hidden',
-    config: config.default,
+    config: {
+      ...config.default,
+    },
   });
 
   return (

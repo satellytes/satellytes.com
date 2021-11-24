@@ -9,14 +9,29 @@ import { AccordionAnimatedPanel } from './accordion-animated-panel';
 import { IllustrationType } from '../illustration/illustration-set';
 import { AccordionHeader } from './accordion-header';
 
-interface AccordionProps {
+export interface AccordionProps {
+  /**
+   * `AccordionSection` components are the only valid type for children
+   */
   children: React.ReactNode;
-  defaultIndex?: number;
+  /**
+   * A default value for the open panel's index or indices in an uncontrolled accordion component when it is initially rendered
+   */
+  defaultIndex?: number | number[];
 }
 
-interface AccordionContentProps {
+export interface AccordionSectionProps {
+  /**
+   * Typically a text string that serves as a label for the accordion section.
+   */
   title: string;
+  /**
+   * Inner collapsible content for the accordion item..
+   */
   children: React.ReactNode;
+  /**
+   * (Optional) Pass in a valid illustration keyword to show the according illustration.
+   */
   illustration?: IllustrationType;
 }
 
@@ -44,7 +59,6 @@ const PanelIllustration = styled(Illustration)`
     margin-left: auto;
     padding-right: 0;
     padding-left: 36px;
-
     /**
     prevent the illustration from changing it's size 
     being a flex child due to shriking and growing
@@ -59,7 +73,7 @@ const AccordionStyled = styled(ReachAccordion.Accordion)`
   padding-right: 24px;
 `;
 
-export const AccordionContent = (props: AccordionContentProps) => {
+export const AccordionSection = (props: AccordionSectionProps) => {
   return (
     <AccordionItem>
       <AccordionHeader>{props.title}</AccordionHeader>
@@ -77,7 +91,11 @@ export const AccordionContent = (props: AccordionContentProps) => {
 
 export const Accordion = (props: AccordionProps) => {
   return (
-    <AccordionStyled multiple collapsible defaultIndex={props.defaultIndex}>
+    <AccordionStyled
+      multiple
+      collapsible
+      defaultIndex={props.defaultIndex || 0}
+    >
       {props.children}
     </AccordionStyled>
   );

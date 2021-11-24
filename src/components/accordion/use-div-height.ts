@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 /**
- * lovely height measurement, from here:
+ * Lovely height measurement, from here:
  * https://github.com/raunofreiberg/reach-ui/blob/6742f0cdcef05ba23077f63c21e3ede3bbfcae52/packages/accordion/examples/animated.example.js#L19-L39
  */
 export function useDivHeight() {
