@@ -1,5 +1,5 @@
 # CODEOWNERS file
-# Documentation: https://help.github.com/en/enterprise/2.19/user/github/creating-cloning-and-archiving-repositories/about-code-owners
+# Documentation: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
 
 # REPOSITORY OWNER
 # Every change in this repo belongs to this team. This means evert PR is automatically assigned to them.
