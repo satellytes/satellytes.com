@@ -27,7 +27,8 @@
     "precommit": "lint-staged",
     "storybook": "start-storybook --port 6006 --static-dir ./static",
     "storybook:build": "build-storybook --static-dir ./static",
-    "storybook:serve": "serve storybook-static"
+    "storybook:serve": "serve storybook-static",
+    "build-storybook": "yarn storybook:build"
   },
   "dependencies": {
     "@reach/tabs": "^0.16.4",
