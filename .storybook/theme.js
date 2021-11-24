@@ -1,6 +1,6 @@
 import { create } from '@storybook/theming';
 
-export default create({
+export const customTheme = create({
   base: 'light',
   brandTitle: 'Satellytes UI',
 });
