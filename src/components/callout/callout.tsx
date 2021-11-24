@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
 import { Illustration } from '../illustration/illustration';
 import { IllustrationType } from '../illustration/illustration-set';
+import { TextStyles } from '../typography/typography-v2';
 
 interface CalloutProps {
   illustration?: IllustrationType | null;
@@ -10,9 +11,8 @@ interface CalloutProps {
 }
 
 const CalloutLayout = styled.div`
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 24px;
+  ${TextStyles.headlineXS}
+
   padding: 16px 20px;
   color: #3e61ee;
   border: 2px solid currentColor;

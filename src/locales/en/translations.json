@@ -151,7 +151,8 @@
   "blog": {
     "info": "Our developers and designers talk about the latest trends and know-how around tech, especially about our latest learnings and insights on creating good software for the web.",
     "share": "Share article",
-    "follow": "Follow blog"
+    "follow": "Follow blog",
+    "pagination": "Page"
   },
   "blogpost": {
     "leadbox": {

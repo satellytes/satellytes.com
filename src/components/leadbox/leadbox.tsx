@@ -1,10 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {
-  LeadboxSubtitle,
-  LeadboxText,
-  LeadBoxTitle,
-} from '../typography/typography';
+import { TextStyles } from '../typography/typography-v2';
 import { theme } from '../layout/theme';
 import { Grid, GridItem } from '../grid/grid';
 import { Link, LinkButton } from '../links/links';
@@ -57,8 +53,8 @@ const Illustration = styled.div`
 `;
 
 const Mail = styled(Link)`
-  font-size: 14px;
-  line-height: 150%;
+  ${TextStyles.textS}
+
   color: ${theme.palette.text.link.default};
 
   &:hover {
@@ -68,6 +64,28 @@ const Mail = styled(Link)`
 
 const StyledLinkButton = styled(LinkButton)`
   margin-top: 16px;
+`;
+
+const LeadBoxTitle = styled.p`
+  ${TextStyles.headlineM}
+
+  margin: 0 auto 24px;
+  max-width: 320px;
+`;
+
+const LeadboxSubtitle = styled.p`
+  ${TextStyles.textS}
+
+  font-weight: bold;
+  margin: 0 auto;
+  max-width: 320px;
+`;
+
+const LeadboxText = styled.p`
+  ${TextStyles.textXS}
+
+  margin: 0 auto;
+  max-width: 320px;
 `;
 
 export const Leadbox: React.FC<LeadboxProps> = ({
