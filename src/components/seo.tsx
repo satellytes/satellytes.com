@@ -107,29 +107,6 @@ const SEO: React.FC<SeoProps> = ({
 
       {noIndex && <meta name="robots" content="noindex" />}
 
-      {/*
-       * All fonts that are linked with a preload are getting loaded before any
-       * other resources, no matter if the used or not. We therefore need to
-       * only list fonts that are used in almost all places.
-       * Some browsers are smart enough to NOT preload different font types
-       * of the same font (like woff2 and woff), but as Chrome is preloading all
-       * listed font types, we will only include the most common one woff2.
-       */}
-      <link
-        rel="preload"
-        as="font"
-        href={CocoGothicWoff2}
-        type="font/woff2"
-        crossOrigin="anonymous"
-      />
-      <link
-        rel="preload"
-        as="font"
-        href={CocoGothicBoldWoff2}
-        type="font/woff2"
-        crossOrigin="anonymous"
-      />
-
       {/* -- Alternate Links --*/}
       {!noTranslation && listLocalizedVersions(currentPathname)}
     </Helmet>
