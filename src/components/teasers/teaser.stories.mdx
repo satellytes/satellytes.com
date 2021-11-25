@@ -1,6 +1,6 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { Teaser } from './teaser';
-import {Regular, WithImage, WithIllustration} from './teaser.stories'
+import {Regular, WithImage, WithIllustration, TeaserGrid} from './teaser.stories'
 
 
 <Meta title="Components/Teaser" component={Teaser} />
@@ -27,4 +27,9 @@ A short overview with all variants of the teaser that are currently included in 
 #### With Illustration
 <Canvas>
   <Story story={WithIllustration}/>
+</Canvas>
+
+### With CSS Grid
+<Canvas>
+  <Story story={TeaserGrid}/>
 </Canvas>

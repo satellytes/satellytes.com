@@ -64,7 +64,7 @@ const CoverContainer = styled.div`
   overflow: hidden;
 `;
 
-interface TeaserProps {
+export interface TeaserProps {
   title: string;
   topline?: string;
   dateFormatted?: string;
