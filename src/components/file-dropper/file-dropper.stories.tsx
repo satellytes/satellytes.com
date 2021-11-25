@@ -11,12 +11,7 @@ Regular.args = {
   illustration: 'monitor_024',
   maxFiles: 1,
   acceptedFileTypes: '.pdf',
-  onDrop: (acceptedFiles) => {
-    console.log('Accepted:', acceptedFiles);
-  },
-  onDropRejected: (rejectedData) => {
-    console.log('Rejected:', rejectedData);
-  },
+  onDrop: (acceptedFiles) => acceptedFiles,
 };
 Regular.parameters = {
   controls: {
