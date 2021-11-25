@@ -27,7 +27,9 @@ const AnimatedPanelContainer = styled.div`
  */
 export const AccordionAnimatedPanel = ({ children }) => {
   const { isExpanded } = useAccordionItemContext();
-  const { ref, height } = useDivHeight();
+
+  const divRef = React.useRef(null);
+  const { height } = useDivHeight(divRef);
 
   /**
    * Check the basics of useSpring
@@ -47,7 +49,7 @@ export const AccordionAnimatedPanel = ({ children }) => {
       hidden={false}
       aria-hidden={!isExpanded}
     >
-      <AnimatedPanelContainer ref={ref}>{children}</AnimatedPanelContainer>
+      <AnimatedPanelContainer ref={divRef}>{children}</AnimatedPanelContainer>
     </AnimatedAccordionPanel>
   );
 };
