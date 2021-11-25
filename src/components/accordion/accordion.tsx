@@ -38,10 +38,15 @@ export interface AccordionSectionProps {
 
 const AccordionItem = styled(ReachAccordion.AccordionItem)`
   border-top: 1px solid #eeeeee;
-  border-bottom: 1px solid #eeeeee;
 
-  & + & {
-    margin-top: 34px;
+  &:last-of-type {
+    border-bottom: 1px solid #eeeeee;
+  }
+
+  ${up('sm')} {
+    & + & {
+      margin-top: 5px;
+    }
   }
 `;
 
@@ -52,7 +57,6 @@ const PanelContainer = styled.div`
 `;
 
 const PanelIllustration = styled(Illustration)`
-  shape-outside: circle();
   padding-right: 1em;
   float: left;
 
@@ -68,10 +72,7 @@ const PanelIllustration = styled(Illustration)`
   }
 `;
 
-const AccordionStyled = styled(ReachAccordion.Accordion)`
-  padding-left: 24px;
-  padding-right: 24px;
-`;
+const AccordionStyled = styled(ReachAccordion.Accordion)``;
 
 export const AccordionSection = (props: AccordionSectionProps) => {
   return (

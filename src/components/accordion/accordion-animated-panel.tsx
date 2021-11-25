@@ -8,6 +8,8 @@ import React from 'react';
 const AnimatedAccordionPanel = animated(ReachAccordion.AccordionPanel);
 const AnimatedPanelContainer = styled.div`
   padding-bottom: 16px;
+  padding-left: 24px;
+  padding-right: 24px;
 `;
 /**
  * Animated version of the AccordionPanel.

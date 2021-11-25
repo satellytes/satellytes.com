@@ -46,8 +46,7 @@ const AccordionButton = styled(ReachAccordion.AccordionButton)`
 
   display: flex;
   align-items: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 24px 20px;
 `;
 
 const AccordionChevron = (props: AccordionChevronProps) => {
@@ -63,12 +62,12 @@ const AccordionChevronStyled = styled(AccordionChevron)`
   margin-left: auto;
 
   transition: transform 0.1s ease-out;
-  transform: rotate(0deg);
+  transform: rotate(180deg);
 
   ${(props) =>
     props.open &&
     css`
-      transform: rotate(180deg);
+      transform: rotate(0deg);
     `}
 `;
 
