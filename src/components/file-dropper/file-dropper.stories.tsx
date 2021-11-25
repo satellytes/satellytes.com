@@ -1,13 +1,6 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentStory } from '@storybook/react';
 import { FileDropper } from './file-dropper';
-
-export default {
-  component: FileDropper,
-  title: 'Components/FileDropper',
-  parameters: {},
-  argTypes: {},
-} as ComponentMeta<typeof FileDropper>;
 
 const Template: ComponentStory<typeof FileDropper> = (args) => (
   <FileDropper {...args} />
@@ -16,11 +9,17 @@ const Template: ComponentStory<typeof FileDropper> = (args) => (
 export const Regular = Template.bind({});
 Regular.args = {
   illustration: 'monitor_024',
+  maxFiles: 1,
   acceptedFileTypes: '.pdf',
   onDrop: (acceptedFiles) => {
-    console.log(acceptedFiles);
+    console.log('Accepted:', acceptedFiles);
   },
   onDropRejected: (rejectedData) => {
-    console.log(rejectedData);
+    console.log('Rejected:', rejectedData);
+  },
+};
+Regular.parameters = {
+  controls: {
+    exclude: ['onDropRejected', 'onDrop', 'validator'],
   },
 };
