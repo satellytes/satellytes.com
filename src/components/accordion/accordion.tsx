@@ -42,12 +42,6 @@ const AccordionItem = styled(ReachAccordion.AccordionItem)`
   &:last-of-type {
     border-bottom: 1px solid #eeeeee;
   }
-
-  ${up('sm')} {
-    & + & {
-      margin-top: 5px;
-    }
-  }
 `;
 
 const PanelContainer = styled.div`
