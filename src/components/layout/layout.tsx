@@ -31,6 +31,13 @@ const Main = styled.main`
   margin: 0 auto;
 `;
 
+const HeaderStickyContainer = styled.div`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+`;
+
 const BreadcrumbContainer = styled.div<{ hero: boolean }>`
   margin: ${(props) => !props.hero && `calc(${HEADER_HEIGHT} + 16px)`} 24px 16px;
 `;
@@ -144,14 +151,16 @@ const Layout = ({
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle $lightTheme={isLight} />
-      <Header
-        siteTitle={data.site.siteMetadata.title}
-        siteTitleUrl={siteTitleUrl}
-        $lightTheme={isLight}
-        transparent={transparentHeader || Boolean(heroImage)}
-        showLanguageSwitch={showLanguageSwitch}
-        translation={translation}
-      />
+      <HeaderStickyContainer>
+        <Header
+          siteTitle={data.site.siteMetadata.title}
+          siteTitleUrl={siteTitleUrl}
+          $lightTheme={isLight}
+          transparent={transparentHeader || Boolean(heroImage)}
+          showLanguageSwitch={showLanguageSwitch}
+          translation={translation}
+        />
+      </HeaderStickyContainer>
       {/* pass in a hero node or try to use the hero image url */}
       {hero ?? <HeroImageLegacy image={heroImage} />}
 
