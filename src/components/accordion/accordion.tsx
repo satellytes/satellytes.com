@@ -72,8 +72,6 @@ const PanelIllustration = styled(Illustration)`
   }
 `;
 
-const AccordionStyled = styled(ReachAccordion.Accordion)``;
-
 export const AccordionSection = (props: AccordionSectionProps) => {
   return (
     <AccordionItem>
@@ -92,8 +90,12 @@ export const AccordionSection = (props: AccordionSectionProps) => {
 
 export const Accordion = (props: AccordionProps) => {
   return (
-    <AccordionStyled collapsible multiple defaultIndex={props.defaultIndex}>
+    <ReachAccordion.Accordion
+      collapsible
+      multiple
+      defaultIndex={props.defaultIndex}
+    >
       {props.children}
-    </AccordionStyled>
+    </ReachAccordion.Accordion>
   );
 };
