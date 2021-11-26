@@ -7,6 +7,12 @@ import styled from 'styled-components';
 export default {
   component: ImageContentBlock,
   title: 'Components/ImageContentBlock',
+  argTypes: {
+    textAlign: {
+      options: ['left', 'right', 'bottom'],
+      control: { type: 'radio' },
+    },
+  },
 } as ComponentMeta<typeof ImageContentBlock>;
 
 const SampleImage = styled.img`
