@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { css } from 'styled-components';
 import { Illustration, IllustrationSize } from '../illustration/illustration';
 import { IllustrationType } from '../illustration/illustration-set';
-import { down, up } from '../breakpoint/breakpoint';
-import { getMainProps } from 'gatsby-plugin-image/dist/src/components/hooks';
+import { down } from '../breakpoint/breakpoint';
+import { TextStyles } from '../typography/typography-v2';
 
 interface HeaderBlockProps {
   topline: string;
@@ -18,35 +17,6 @@ interface HeaderBlockProps {
 interface LargeProps {
   large: boolean;
 }
-
-const TopLineR = css`
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 110%;
-`;
-
-const HeadlineXL = css`
-  font-weight: bold;
-  font-size: 48px;
-  line-height: 110%;
-`;
-
-const TextS = css`
-  font-size: 14px;
-  line-height: 150%;
-`;
-
-const TextL = css`
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 150%;
-`;
-
-const Text = css`
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 150%;
-`;
 
 const BlockWrapper = styled.div`
   display: flex;
@@ -66,13 +36,13 @@ const IconWrapper = styled.div`
 `;
 
 const Topline = styled.p`
-  ${TopLineR}
+  ${TextStyles.toplineR}
   color: #3e61ee;
   margin: 0;
 `;
 
 const Headline = styled.p<LargeProps>`
-  ${HeadlineXL}
+  ${TextStyles.headlineXL}
   letter-spacing: -0.01em;
   color: #202840;
   margin-top: 16px;
@@ -80,14 +50,14 @@ const Headline = styled.p<LargeProps>`
 `;
 
 const Metaline = styled.p<LargeProps>`
-  ${TextS}
+  ${TextStyles.textS}
   letter-spacing: -0.01em;
   color: rgba(0, 0, 0, 0.5);
   margin-top: ${({ large }) => (large ? '32px' : '16px')};
 `;
 
 const HeaderBlockText = styled.p<LargeProps>`
-    ${({ large }) => (large ? TextL : Text)}}
+    ${({ large }) => (large ? TextStyles.textL : TextStyles.textR)}}
     letter-spacing: -0.01em;
     color: #202840;
     margin-top: 32px;
