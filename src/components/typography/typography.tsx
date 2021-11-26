@@ -159,14 +159,6 @@ export const Timestamp = styled.p`
 /**
  * Teaser
  */
-export const TeaserTitleLarge = styled.p`
-  font-weight: bold;
-  font-size: 28px;
-  line-height: 110%;
-  margin-bottom: 8px;
-  margin-top: 20px;
-`;
-
 export const TeaserTitle = styled.p`
   font-weight: bold;
   font-size: 20px;
@@ -209,41 +201,4 @@ export const TextLink = styled(Link)<{ small?: boolean }>`
     color: ${theme.palette.text.link.hover};
     text-decoration: underline;
   }
-`;
-
-export const CheckboxLabelText = styled.span`
-  font-size: 16px;
-  line-height: 150%;
-
-  letter-spacing: -0.01em;
-  color: #202840;
-  margin-left: 12px;
-`;
-
-/**
- *
- * Leadbox
- *
- */
-export const LeadBoxTitle = styled.p`
-  font-weight: bold;
-  font-size: 28px;
-  line-height: 110%;
-  margin: 0 auto 24px;
-  max-width: 320px;
-`;
-
-export const LeadboxSubtitle = styled.p`
-  font-size: 14px;
-  line-height: 150%;
-  font-weight: bold;
-  margin: 0 auto;
-  max-width: 320px;
-`;
-
-export const LeadboxText = styled.p`
-  font-size: 14px;
-  line-height: 150%;
-  margin: 0 auto;
-  max-width: 320px;
 `;

@@ -1,8 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
   TeaserTitle,
-  TeaserTitleLarge,
   Text,
   Timestamp,
   Topline,
@@ -47,15 +46,25 @@ const TeaserText = styled(Text)`
   margin: 16px 0 22px;
 `;
 
-const StyledTeaserTitle = styled(TeaserTitle)<{ hasTopline: boolean }>`
+const StyledTeaserTitle = styled(TeaserTitle)<{
+  hasTopline: boolean;
+  large: boolean;
+}>`
   margin-top: ${(props) => (props.hasTopline ? '8px' : '24px')};
+
+  ${(props) =>
+    props.large &&
+    css`
+      margin-top: 20px;
+      font-size: 28px;
+    `}
 `;
 
 const CoverContainer = styled.div`
   overflow: hidden;
 `;
 
-interface TeaserProps {
+export interface TeaserProps {
   title: string;
   topline?: string;
   dateFormatted?: string;
@@ -88,13 +97,9 @@ export const Teaser: React.FC<TeaserProps> = ({
             {dateFormatted && <Timestamp>{dateFormatted}</Timestamp>}
           </ToplineContainer>
         )}
-        {cover ? (
-          <StyledTeaserTitle hasTopline={hasToplineContainer}>
-            {title}
-          </StyledTeaserTitle>
-        ) : (
-          <TeaserTitleLarge>{title}</TeaserTitleLarge>
-        )}
+        <StyledTeaserTitle hasTopline={hasToplineContainer} large={!cover}>
+          {title}
+        </StyledTeaserTitle>
         <TeaserText>{children}</TeaserText>
         <Arrow />
       </Link>

@@ -18,6 +18,10 @@ export interface IllustrationProps {
    * Choose the size. Defaults to 72x72px, can be large (144x14px) or grow with the container.
    */
   size?: IllustrationSize;
+  /**
+   * let's support styled components and friends by accepting this property
+   */
+  className?: string;
 }
 
 const IllustrationLayout = styled.div<Pick<IllustrationProps, 'size'>>`
@@ -56,7 +60,10 @@ export const Illustration = (props: IllustrationProps) => {
   const IllustrationSvg = IllustrationSet[props.show];
 
   return (
-    <IllustrationLayout size={props.size ?? IllustrationSize.NORMAL}>
+    <IllustrationLayout
+      className={props.className}
+      size={props.size ?? IllustrationSize.NORMAL}
+    >
       <IllustrationSvg />
     </IllustrationLayout>
   );

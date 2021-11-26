@@ -1,7 +1,7 @@
 const axios = require('axios').default;
 
 const { decode } = require('html-entities');
-const xmlParser = require('fast-xml-parser');
+const { XMLParser } = require('fast-xml-parser');
 const {
   PERSONIO_SLUG_FIELD_NAME,
   extractPersonioSlug,
@@ -43,10 +43,10 @@ const createCareerDetails = async ({ actions }) => {
       const jobsXmlResponse = await axios.get(PERSONIO_JOBS_URL_LANG);
       const jobsXml = await jobsXmlResponse.data;
 
-      const options = {
+      const xmlParser = new XMLParser({
         tagValueProcessor: (a) => decode(a), // &#039; -> '
-      };
-      const jobsParse = xmlParser.parse(jobsXml, options);
+      });
+      const jobsParse = xmlParser.parse(jobsXml);
       const positions = jobsParse['workzag-jobs'].position;
       return { positions, languageKey };
     },
