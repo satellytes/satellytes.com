@@ -67,6 +67,12 @@ const FileDropperContainer = styled.div<{
       align-items: flex-start;
       padding: 12px 16px;
     `}
+
+  &:hover {
+    span {
+      border-bottom: 1px solid ${theme.palette.text.link.default};
+    }
+  }
 `;
 
 const Description = styled.p`

@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { theme } from '../layout/theme';
 import { TextStyles } from '../typography/typography-v2';
-import { rgba } from 'polished';
 
 interface FileListItemProps {
   fileName: string;
@@ -48,8 +47,8 @@ const FileCategoryDropdown = styled.select`
   background: none;
   cursor: pointer;
   margin-right: 24px;
+  box-sizing: border-box;
 
-  border-bottom: ${rgba(0, 0, 0, 0)} 1px solid;
   &:hover {
     border-bottom: ${theme.palette.text.topline} 1px solid;
   }
@@ -62,8 +61,8 @@ const RemoveButton = styled.button`
   border: none;
   background: none;
   cursor: pointer;
+  box-sizing: border-box;
 
-  border-bottom: ${rgba(0, 0, 0, 0)} 1px solid;
   &:hover {
     border-bottom: ${theme.palette.text.topline} 1px solid;
   }
