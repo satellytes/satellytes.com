@@ -1,4 +1,5 @@
 import React from 'react';
+import { Trans } from 'react-i18next';
 import styled, { css } from 'styled-components';
 import { up } from '../breakpoint/breakpoint';
 import { theme } from '../layout/theme';
@@ -99,7 +100,7 @@ export const Image = ({
         {children}
         {attribution && (
           <AttributionContainer>
-            Photo by{' '}
+            <Trans i18nKey="image.attribution">Photo by </Trans>
             <StyledLink
               rel="nofollow noreferrer"
               target="_blank"
