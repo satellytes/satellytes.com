@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { theme } from '../layout/theme';
 import { TextStyles } from '../typography/typography-v2';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 interface FileListItemProps {
   fileName: string;
@@ -75,6 +76,7 @@ export const FileListItem = ({
   onRemove,
   onFileCategorySelect,
 }: FileListItemProps): JSX.Element => {
+  const { t } = useTranslation();
   return (
     <FileListItemContainer>
       <FileName>{fileName}</FileName>
@@ -86,14 +88,16 @@ export const FileListItem = ({
             }
           >
             <option value="" disabled selected>
-              Select file category
+              {t('career.file-category')}
             </option>
             {fileCategories.map((category) => (
               <option key={category}>{category}</option>
             ))}
           </FileCategoryDropdown>
         )}
-        <RemoveButton onClick={() => onRemove(index)}>Remove</RemoveButton>
+        <RemoveButton onClick={() => onRemove(index)}>
+          {t('career.remove-file')}
+        </RemoveButton>
       </Actions>
     </FileListItemContainer>
   );
