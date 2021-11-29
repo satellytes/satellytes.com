@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentStory } from '@storybook/react';
 import { HeaderBlock } from './header-block';
 
 const Template: ComponentStory<typeof HeaderBlock> = (args) => (
