@@ -3,7 +3,7 @@ import { TextStyles } from '../typography/typography-v2';
 import { ellipsis } from 'polished';
 import * as ReachAccordion from '@reach/accordion';
 import { theme } from '../layout/theme';
-import ChevronSVG from './chevron.svg';
+import { ReactComponent as ChevronSVG } from './chevron.svg';
 import { useAccordionItemContext } from '@reach/accordion';
 import React from 'react';
 
