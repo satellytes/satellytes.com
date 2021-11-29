@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import HeaderBlock from './header-block';
+import { HeaderBlock } from './header-block';
 
 export default {
   component: HeaderBlock,

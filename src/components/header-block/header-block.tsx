@@ -67,7 +67,7 @@ const HeaderBlockText = styled.p<LargeProps>`
     }
   `;
 
-const HeaderBlock = (props: HeaderBlockProps) => {
+export const HeaderBlock = (props: HeaderBlockProps) => {
   return (
     <BlockWrapper>
       <TextWrapper>
@@ -89,5 +89,3 @@ const HeaderBlock = (props: HeaderBlockProps) => {
     </BlockWrapper>
   );
 };
-
-export default HeaderBlock;
