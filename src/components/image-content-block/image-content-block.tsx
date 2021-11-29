@@ -1,24 +1,33 @@
 import React from 'react';
-import styled from 'styled-components';
-import { down } from '../breakpoint/breakpoint';
+import styled, { css } from 'styled-components';
+import { up } from '../breakpoint/breakpoint';
 import { theme } from '../layout/theme';
 import { TextStyles } from '../typography/typography-v2';
 
-const BlockWrapper = styled.div<{
+const mapTextAlignToFlex = (textAlign: 'right' | 'left' | 'bottom') => {
+  if (textAlign === 'right') {
+    return 'row';
+  } else if (textAlign === 'left') {
+    return 'row-reverse';
+  } else {
+    return 'column';
+  }
+};
+
+interface TextAlignProps {
   textAlign: 'right' | 'left' | 'bottom';
-}>`
+}
+
+const BlockWrapper = styled.div<TextAlignProps>`
   display: inline-flex;
-  flex-direction: ${({ textAlign }) =>
-    textAlign === 'right'
-      ? 'row'
-      : textAlign === 'left'
-      ? 'row-reverse'
-      : 'column'};
+  flex-direction: column;
+
+  gap: 12px 24px;
 
   width: 100%;
 
-  ${down('sm')} {
-    flex-direction: column;
+  ${up('sm')} {
+    flex-direction: ${({ textAlign }) => mapTextAlignToFlex(textAlign)};
   }
 `;
 
@@ -46,46 +55,39 @@ const StyledLink = styled.a`
   color: #ffffff;
 `;
 
-const TextWrapper = styled.div<{
-  textAlign: 'right' | 'left' | 'bottom';
-}>`
-  ${({ textAlign }) =>
-    textAlign === 'right'
-      ? 'margin-left: 24px;'
-      : textAlign === 'left'
-      ? 'margin-right: 24px;'
-      : 'margin-top: 12px;'}
+const TextWrapper = styled.div<TextAlignProps>`
+  ${TextStyles.textXS}
 
-  ${({ textAlign }) =>
-    textAlign === 'bottom' ? TextStyles.textXS : TextStyles.textS}
+  max-width: 100%;
+  color: ${theme.palette.text.default};
 
-  ${({ textAlign }) =>
-    textAlign === 'bottom' ? 'width 0; min-width:100%;' : ''}
-  ${({ textAlign }) => (textAlign !== 'bottom' ? 'max-width: 228px;' : '')}
+  ${up('sm')} {
+    ${({ textAlign }) =>
+      textAlign === 'bottom' &&
+      css`
+        ${TextStyles.textXS}
+      `}
 
-  ${down('sm')} {
-    ${TextStyles.textXS}
-
-    margin: 12px 0;
-    width 0;
-    min-width: 100%;
-    max-width: 100;
+    ${({ textAlign }) =>
+      textAlign !== 'bottom' &&
+      css`
+        ${TextStyles.textS}
+        max-width: 228px;
+      `}
   }
-
-  ${theme.palette.text.default};
 `;
 
 interface ImageContentBlockProps {
   children: React.ReactNode;
   textAlign: 'right' | 'left' | 'bottom';
   description: string;
-  attribution: {
+  attribution?: {
     source: string;
     creator: string;
   };
 }
 
-const ImageContentBlock = ({
+export const Image = ({
   children,
   textAlign,
   description,
@@ -112,5 +114,3 @@ const ImageContentBlock = ({
     </BlockWrapper>
   );
 };
-
-export default ImageContentBlock;

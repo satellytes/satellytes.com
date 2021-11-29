@@ -1,0 +1,23 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { Image } from './image-content-block';
+import { Regular } from './image-content-block.stories';
+
+<Meta title="Components/Image" component={Image} />
+
+# Image
+
+The ContentBlock/Image Component can be used to display pictures with a description and an optional `attribution` tag in the bottom right corner.
+The image itself is passed as children. (e.g. as GatsbyImage Component, but always with `width: 100%;`for correct layouting).
+
+The `textAlign` property defines where the text is displayed.
+Valid values are: `right`, `left`, `bottom`.
+
+## Image Layouts
+
+A short overview with some variants.
+
+#### Regular
+
+<Canvas>
+  <Story story={Regular} />
+</Canvas>
