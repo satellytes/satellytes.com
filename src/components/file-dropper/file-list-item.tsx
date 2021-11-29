@@ -83,13 +83,12 @@ export const FileListItem = ({
       <Actions>
         {fileCategories && (
           <FileCategoryDropdown
+            defaultValue={t('career.file-category').toString()}
             onChange={(event) =>
               onFileCategorySelect(index, event.target.value)
             }
           >
-            <option value="" disabled selected>
-              {t('career.file-category')}
-            </option>
+            <option disabled>{t('career.file-category')}</option>
             {fileCategories.map((category) => (
               <option key={category}>{category}</option>
             ))}

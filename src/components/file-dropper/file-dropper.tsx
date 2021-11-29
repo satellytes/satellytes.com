@@ -31,7 +31,7 @@ interface FileDropperProps {
    */
   acceptedFileTypes?: string;
   /**
-   * (Optional) Set a maximum number of files that can be uploaded. If this number is exceeded, `onDropRejected()` is called with all uploaded files and `onDrop()` is called with an empty array.
+   * (Optional) Set a maximum number of files that can be uploaded. If this number is exceeded, `onDropRejected()` is called with all uploaded files.
    */
   maxFiles?: number;
   /**
