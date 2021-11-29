@@ -16,6 +16,6 @@ Regular.args = {
 };
 Regular.parameters = {
   controls: {
-    exclude: ['onDropRejected', 'onDrop', 'validator'],
+    exclude: ['onDropRejected', 'onFileChange', 'validator'],
   },
 };
