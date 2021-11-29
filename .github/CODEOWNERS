@@ -1,0 +1,7 @@
+# CODEOWNERS file
+# Documentation: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# REPOSITORY OWNER
+# Every change in this repo belongs to this team. This means evert PR is automatically assigned to them.
+# You can add additional teams for other parts in the repo if needed in the future.
+* @satellytes/website-crew

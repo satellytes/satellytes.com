@@ -110,8 +110,8 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
   const heroImage = (
     <HeroImage
       attribution={attribution}
-      wideImage={getImage(featuredImage)!}
-      squareImage={getImage(featuredImageSquared)!}
+      wideImage={getImage(featuredImage)}
+      squareImage={getImage(featuredImageSquared)}
     />
   );
   const leadbox: LeadboxProps = {
