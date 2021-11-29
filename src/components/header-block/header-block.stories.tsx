@@ -2,11 +2,6 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { HeaderBlock } from './header-block';
 
-export default {
-  component: HeaderBlock,
-  title: 'Components/HeaderBlock',
-} as ComponentMeta<typeof HeaderBlock>;
-
 const Template: ComponentStory<typeof HeaderBlock> = (args) => (
   <HeaderBlock {...args}></HeaderBlock>
 );
