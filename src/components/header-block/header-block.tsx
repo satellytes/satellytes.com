@@ -8,14 +8,14 @@ import { TextStyles } from '../typography/typography-v2';
 interface HeaderBlockProps {
   topline: string;
   headline: string;
-  metaline: string;
+  metaline?: string;
   children: string;
-  large: boolean;
-  illustration?: IllustrationType | null;
+  large?: boolean;
+  illustration?: IllustrationType;
 }
 
 interface LargeProps {
-  large: boolean;
+  large?: boolean;
 }
 
 const BlockWrapper = styled.div`
