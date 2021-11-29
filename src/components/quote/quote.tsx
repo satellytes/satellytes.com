@@ -7,15 +7,13 @@ interface QuoteProps {
   children: ReactNode | ReactNode[];
 }
 
-const QuoteText = styled.p`
+const QuoteText = styled.blockquote`
   ${TextStyles.quote}
   color: ${theme.palette.text.topline};
   padding-left: 20px;
   margin: 0;
 `;
 
-const Quote = ({ children }: QuoteProps) => {
+export const Quote = ({ children }: QuoteProps) => {
   return <QuoteText>{children}</QuoteText>;
 };
-
-export default Quote;

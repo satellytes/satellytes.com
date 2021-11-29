@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory } from '@storybook/react';
-import Quote from './quote';
+import { Quote } from './quote';
 
 const Template: ComponentStory<typeof Quote> = (args) => {
   return <Quote>{args.children}</Quote>;
