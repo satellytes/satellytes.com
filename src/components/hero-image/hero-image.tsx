@@ -4,14 +4,14 @@ import React from 'react';
 
 const ImageWide = styled(GatsbyImage)`
   display: block;
-  @media (max-aspect-ratio: 0.75) {
+  @media (max-aspect-ratio: 3/4) {
     display: none;
   }
 `;
 
 const ImageTall = styled(GatsbyImage)`
   display: none;
-  @media (max-aspect-ratio: 0.75) {
+  @media (max-aspect-ratio: 3/4) {
     display: block;
   }
 `;

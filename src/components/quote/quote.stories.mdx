@@ -1,0 +1,13 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { Quote } from './quote';
+import {Regular} from './quote.stories'
+
+<Meta title="Components/Quote" component={Quote} />
+
+# Quote
+
+Special text formatting for quotes. Used mainly in blog posts. Text is passed through `children`.
+
+<Canvas>
+  <Story story={Regular}/>
+</Canvas>
