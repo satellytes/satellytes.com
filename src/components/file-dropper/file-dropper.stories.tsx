@@ -11,7 +11,8 @@ Regular.args = {
   illustration: 'monitor_024',
   maxFiles: 1,
   acceptedFileTypes: '.pdf',
-  onDrop: (acceptedFiles) => acceptedFiles,
+  onFileChange: (acceptedFiles) => console.log(acceptedFiles),
+  fileCategories: ['CV', 'Cover letter'],
 };
 Regular.parameters = {
   controls: {

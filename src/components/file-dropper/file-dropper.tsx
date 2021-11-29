@@ -1,17 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FileError, FileRejection, useDropzone } from 'react-dropzone';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { theme } from '../layout/theme';
 import { Illustration, IllustrationSize } from '../illustration/illustration';
 import { IllustrationType } from '../illustration/illustration-set';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import { TextStyles } from '../typography/typography-v2';
+import { FileListItem } from './file-list-item';
+
+interface FileDropperType {
+  file: File;
+  fileCategory: string | null;
+}
 
 interface FileDropperProps {
   /**
-   * (Optional) Pass in a valid illustration keyword to show the according illustration.
+   * Called when files are uploaded and all conditions (e.g. `acceptedFileTypes` or `maxFiles`) are fulfilled or when a file changes (e.g. files gets removed or a fileCategory is added to a file). `acceptedFiles` always contains all valid files.
    */
-  illustration?: IllustrationType;
+  onFileChange: (acceptedFiles: FileDropperType[]) => any;
+  /**
+   * (Optional) Called when files are uploaded and a condition (e.g. wrong file type) is not fulfilled.
+   */
+  onDropRejected?: (rejectedData: FileRejection[]) => any;
+  /**
+   * (Optional) Allows custom validation of uploaded files. If the file is accepted, the `validator()` function must return null. Otherwise the function returns a FileError object. See also: [react-dropzone: custom validation](https://react-dropzone.js.org/#section-custom-validation)
+   */
+  validator?: (file: File) => FileError | FileError[] | null;
   /**
    * (Optional) comma-separated list of unique content type specifiers (e.g. `'image/jpeg, image/png, .pdf'`) or `undefined` to allow all files. See also: [react-dropzone: accepting specific file types](https://react-dropzone.js.org/#section-accepting-specific-file-types)
    */
@@ -21,35 +35,44 @@ interface FileDropperProps {
    */
   maxFiles?: number;
   /**
-   * Called when files are uploaded and all conditions (e.g. `acceptedFileTypes` or `maxFiles`) are fulfilled.
-   */
-  onDrop: (acceptedFiles: File[]) => any;
+   * (Optional) Categories that the user can add to each uploaded file (e.g. 'CV' or 'Cover Letter')
+   * */
+  fileCategories?: string[];
   /**
-   * (Optional) Called when files are uploaded and a condition (e.g. wrong file type) is not fulfilled.
+   * (Optional) Pass in a valid illustration keyword to show the according illustration.
    */
-  onDropRejected?: (rejectedData: FileRejection[]) => any;
-  /**
-   * (Optional) Allows custom validation of uploaded files. If the file is accepted, the `validator()` function must return null. Otherwise the function returns a FileError object. See also: [react-dropzone: custom validation](https://react-dropzone.js.org/#section-custom-validation)
-   */
-  validator?: (file: File) => FileError | FileError[] | null;
+  illustration?: IllustrationType;
 }
 
-const FileDropperContainer = styled.div<{ isDragActive: boolean }>`
+const FileDropperContainer = styled.div<{
+  isDragActive: boolean;
+  hasFiles: boolean;
+}>`
   display: flex;
+  gap: 16px;
   flex-direction: column;
   align-items: center;
   padding: 28px 0;
   background-color: ${theme.palette.background.leadbox};
+  cursor: pointer;
   border: 3px solid
     ${(props) =>
       props.isDragActive
         ? theme.palette.text.link.default
         : theme.palette.background.leadbox};
+
+  ${(props) =>
+    props.hasFiles &&
+    css`
+      align-items: flex-start;
+      padding: 12px 16px;
+    `}
 `;
 
 const Description = styled.p`
   ${TextStyles.timestamp};
   letter-spacing: 0;
+  margin: 0;
 `;
 
 const Highlight = styled.span`
@@ -61,9 +84,37 @@ export const FileDropper = ({
   acceptedFileTypes,
   validator,
   onDropRejected,
-  onDrop,
+  onFileChange,
   maxFiles,
+  fileCategories,
 }: FileDropperProps): JSX.Element => {
+  const [currentFiles, setCurrenFiles] = useState<FileDropperType[]>([]);
+
+  const onDrop = (acceptedFiles: File[]) => {
+    const newFiles = acceptedFiles.map((acceptedFile) => ({
+      file: acceptedFile,
+      fileCategory: null,
+    }));
+    setCurrenFiles([...currentFiles, ...newFiles]);
+    onFileChange(newFiles);
+  };
+
+  const onRemoveFile = (fileIndex) => {
+    const newFiles = [...currentFiles];
+    newFiles.splice(fileIndex, 1);
+    setCurrenFiles(newFiles);
+    onFileChange(newFiles);
+  };
+
+  const onFileCategorySelect = (fileIndex, selectedCategory) => {
+    const newFiles = [...currentFiles];
+    newFiles[fileIndex] = {
+      ...currentFiles[fileIndex],
+      fileCategory: selectedCategory,
+    };
+    onFileChange(newFiles);
+  };
+
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: acceptedFileTypes,
@@ -72,17 +123,36 @@ export const FileDropper = ({
     maxFiles,
   });
 
+  const hasFiles = Boolean(currentFiles.length);
+
   return (
-    <FileDropperContainer {...getRootProps()} isDragActive={isDragActive}>
-      <input {...getInputProps()} />
-      {illustration && (
-        <Illustration show={illustration} size={IllustrationSize.NORMAL} />
-      )}
-      <Trans i18nKey="career.action.upload">
-        <Description>
-          Drop files to upload or <Highlight>browse</Highlight>
-        </Description>
-      </Trans>
-    </FileDropperContainer>
+    <>
+      <FileDropperContainer
+        {...getRootProps()}
+        isDragActive={isDragActive}
+        hasFiles={hasFiles}
+      >
+        <input {...getInputProps()} />
+        {!hasFiles && illustration && (
+          <Illustration show={illustration} size={IllustrationSize.NORMAL} />
+        )}
+        <Trans i18nKey="career.action.upload">
+          <Description>
+            Drop files to upload or <Highlight>browse</Highlight>
+          </Description>
+        </Trans>
+      </FileDropperContainer>
+
+      {currentFiles.map((currentFile, index) => (
+        <FileListItem
+          key={currentFile.file.name}
+          fileName={currentFile.file.name}
+          index={index}
+          onRemove={onRemoveFile}
+          fileCategories={fileCategories}
+          onFileCategorySelect={onFileCategorySelect}
+        />
+      ))}
+    </>
   );
 };
