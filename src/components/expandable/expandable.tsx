@@ -1,10 +1,23 @@
 import React, { ReactNode, useState } from 'react';
 import styled, { css } from 'styled-components';
-import { ExpandableChevron } from '../icons/expandable-chevron';
+import ChevronSVG from './expandable-chevron.svg';
+import { theme } from '../layout/theme';
+import { TextStyles } from '../typography/typography-v2';
 
 interface ExpandableProps {
+  /**
+   * Headline of the Expandable
+   * */
   label: string;
+  /**
+   * The actual text is passed as a child into the component
+   * */
   children: ReactNode | ReactNode[];
+}
+
+interface ExpandableChevronProps {
+  open: boolean;
+  className?: string;
 }
 
 const ExpandableContainer = styled.div`
@@ -14,36 +27,52 @@ const ExpandableContainer = styled.div`
 const LabelContainer = styled.div`
   display: flex;
   align-items: center;
-`;
+  cursor: pointer;
+  color: ${theme.palette.text.topline};
 
-const ExpandableChevronStyled = styled(ExpandableChevron)<{ open: boolean }>`
-  transition: transform 0.1s ease-out;
-  transform: rotate(0deg);
-  ${(props) =>
-    props.open &&
-    css`
-      transform: rotate(180deg);
-    `}
+  &:hover {
+    color: ${theme.palette.text.default};
+  }
 `;
 
 const Label = styled.p`
-  margin-left: 8px;
+  ${TextStyles.headlineXS}
+  margin: 0 0 0 8px;
 `;
 
-const ExpandableText = styled.div<{ open: boolean }>`
-  ${(props) => !props.open && 'display: none'};
-  margin-left: 38px;
+const AccordionChevron = (props: ExpandableChevronProps) => {
+  return (
+    <div className={props.className}>
+      <ChevronSVG />
+    </div>
+  );
+};
+
+const ExpandableChevronStyled = styled(AccordionChevron)<{ open: boolean }>`
+  transition: transform 0.1s ease-out;
+
+  ${(props) =>
+    props.open &&
+    css`
+      transform: rotate(90deg);
+    `}
+`;
+
+const ExpandableText = styled.div`
+  margin-left: 14px;
+  margin-top: 12px;
 `;
 
 export const Expandable = ({ label, children }: ExpandableProps) => {
   const [open, setOpen] = useState<boolean>(false);
+
   return (
     <ExpandableContainer>
       <LabelContainer onClick={() => setOpen(!open)}>
         <ExpandableChevronStyled open={open} />
         <Label>{label}</Label>
       </LabelContainer>
-      <ExpandableText open={open}>{children}</ExpandableText>
+      {open && <ExpandableText>{children}</ExpandableText>}
     </ExpandableContainer>
   );
 };
