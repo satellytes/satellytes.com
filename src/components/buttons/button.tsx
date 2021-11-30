@@ -1,29 +1,45 @@
 import React from 'react';
 import styled from 'styled-components';
-import { TextStyles } from '../typography/typography-v2';
+import { Icon, IconSize } from '../icon/icon';
+import { resetButton } from '../utils';
+import { lighten } from 'polished';
 
 const StyledButton = styled.button`
-  height: 40px;
+  ${resetButton};
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 40px;
+  border-radius: 30px;
+  vertical-align: middle;
+  cursor: pointer;
 
   background: linear-gradient(275.41deg, #543fd7 0%, #2756fd 100%);
-  border-radius: 30px;
-  border: none;
 
   &:hover {
     background: #3e61ee;
   }
+
+  &:active {
+    background: ${lighten(0.1, '#3e61ee')};
+  }
 `;
 
-const StyledIcon = styled.span`
-  padding-left: 24px;
-  padding-right: 16px;
+const StyledIcon = styled(Icon)`
+  padding-right: 10px;
+  // pull the fixed size icon closer to the text
+  margin-left: -4px;
+  /**
+    This is a magic number to match the vertical middle of the button
+    with the icon which has a fixed bounding box which won't allow us to align
+    it based on the actual shape of the icon.
+   */
+  vertical-align: -18%;
 `;
 
 const ButtonText = styled.span`
   padding-left: 16px;
-
-  ${TextStyles.toplineR}
-  color: #ffffff;
+  padding-right: 16px;
 `;
 
 interface RegularButtonProps {
@@ -35,22 +51,7 @@ const Button = ({ children, onClick }: RegularButtonProps) => {
   return (
     <StyledButton onClick={(event) => onClick?.(event)}>
       <ButtonText>{children}</ButtonText>
-      <StyledIcon>
-        <svg
-          width="7"
-          height="12"
-          viewBox="0 0 7 12"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M2 2L5 6L2 10"
-            stroke="white"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-          />
-        </svg>
-      </StyledIcon>
+      <StyledIcon show={'chevron_right'} size={IconSize.NORMAL} />
     </StyledButton>
   );
 };

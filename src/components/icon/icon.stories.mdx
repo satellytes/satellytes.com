@@ -1,0 +1,87 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import { Overview, Regular } from './icon.stories';
+import { Icon, IconSize } from './icon'; import Callout from '../callout/callout';
+
+<Meta
+  title="Components/Icon"
+  component={{ Icon }}/>
+
+# Icon
+The default size is set to `normal` which equals `24px`. You can set a size of `inherit` to grow with the text (where it's size 150% of your text size). 
+
+<Canvas withSource="open">
+  <Story story={Regular}/>
+</Canvas>
+
+<ArgsTable of={Icon} />
+
+## Overview
+Find here the all available icons and their name.
+
+<Story name="Overview">
+  <Overview/>
+</Story>
+
+
+## Usage
+The icon can be used in various situations. Here some examples with buttons and inside a text.
+
+<p>
+  <Callout illustration={'scientist_042'}>
+    This is not a component that magically works everywhere.
+    You want to adjust the icons in particular situations to fit the given design expectations.
+  </Callout>
+</p>
+
+### With Buttons
+
+<Canvas>
+  <Story name="With Buttons">
+    <div>
+      <button>
+        <Icon show={'theme_switch'} size={IconSize.NORMAL} />
+      </button>
+      <button>
+        <Icon show={'burger_nav'} size={IconSize.NORMAL} /> Menu
+      </button>
+    </div>
+  </Story>
+</Canvas>
+
+### With Text
+<Canvas>
+  <Story name="With Text">
+    <div>
+      <p style={{fontSize: '12px', margin:0 }}>
+        The quick brown fox jumps <Icon size={IconSize.INHERIT} show={'chevron_right'} />
+        over the lazy dog <Icon size={IconSize.INHERIT} show={'checkmark_bold'} />
+      </p>
+      <p style={{fontSize: '16px', margin:0 }}>
+        The quick brown fox jumps <Icon size={IconSize.INHERIT} show={'chevron_right'} />
+        over the lazy dog <Icon size={IconSize.INHERIT} show={'checkmark_bold'} />
+      </p>
+      <p style={{fontSize: '20px', margin:0 }}>
+        The quick brown fox jumps <Icon size={IconSize.INHERIT} show={'chevron_right'} />
+        over the lazy dog <Icon size={IconSize.INHERIT} show={'checkmark_bold'} />
+      </p>
+      <p style={{fontSize: '30px', margin:0 }}>
+        The quick brown fox jumps <Icon size={IconSize.INHERIT} show={'chevron_right'} />
+        over the lazy dog <Icon size={IconSize.INHERIT} show={'checkmark_bold'} />
+      </p>
+    </div>
+  </Story>
+</Canvas>
+
+## How to add icons
+### 1. Store files
+Place new icons in the assets folder `src/icons` as svg and reference them in `icon-files.tsx`.
+
+### 2. Ensure we can resize the svg to any size
++ Remove any fixed `height` and `width` assignments
++ Make sure there is a `viewBox` assigned
++ Make sure the svg tag has `fill="none"` assigned.
+
+### 3. Ensure we can colorize the svg in any color
+This will allow the svg to pick up the surrounding color. This also means you can't have more than one color.
++ Make sure any `stroke` color assignment is replaced with `stroke="currentColor"`
++ Make sure any `fill` color assignment is replaced with `fill="currentColor"`
