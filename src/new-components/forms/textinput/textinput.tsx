@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { TextStyles } from '../typography/typography-v2';
+import { TextStyles } from '../../../components/typography/typography-v2';
 
 const StyledLabel = styled.span`
   ${TextStyles.textXS}
@@ -19,12 +19,12 @@ const StyledErrorMessage = styled.span`
   color: #ff0d35;
 `;
 
-interface TextfieldProps {
+interface TextInputProps {
   errorMessage: string;
   label: string;
 }
 
-const Textfield = ({ label, errorMessage }: TextfieldProps) => {
+export const TextInput = ({ label, errorMessage }: TextInputProps) => {
   const StyledInputText = styled.input.attrs({
     type: 'input',
   })`
@@ -51,5 +51,3 @@ const Textfield = ({ label, errorMessage }: TextfieldProps) => {
     </label>
   );
 };
-
-export default Textfield;
