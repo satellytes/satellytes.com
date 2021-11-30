@@ -1,5 +1,4 @@
 import React, { ReactNode, useEffect } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
 
 import Header, { HEADER_HEIGHT } from './../header/header';
 import Navigation from './../navigation/navigation';
@@ -7,9 +6,8 @@ import { theme } from './theme';
 import styled, { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './global-style';
 import { FluidObject } from 'gatsby-image';
-import { HeroImageLegacy } from '../header/hero-image-legacy';
 import { Leadbox, LeadboxProps } from '../leadbox/leadbox';
-import { Breadcrumb, BreadcrumbEntry } from '../breadcrumb/breadcrumb';
+import { up } from '../breakpoint/breakpoint';
 
 /**
  * this container is used to push the footer to the bottom
@@ -38,8 +36,14 @@ const HeaderStickyContainer = styled.div`
   z-index: 100;
 `;
 
-const BreadcrumbContainer = styled.div<{ hero: boolean }>`
-  margin: ${(props) => !props.hero && `calc(${HEADER_HEIGHT} + 16px)`} 24px 16px;
+const HeroContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 520px;
+
+  ${up('md')} {
+    height: 640px;
+  }
 `;
 
 const useAnchorTagScrolling = (): void => {
@@ -73,7 +77,6 @@ interface LayoutProps {
   children?: ReactNode;
   showLanguageSwitch?: boolean;
   translation?: string;
-  breadcrumb?: BreadcrumbEntry[];
   leadbox?: LeadboxProps;
 }
 
@@ -108,6 +111,7 @@ function setPolarityBodyClass(isLight: boolean) {
  * and/or store manual overridden value (through a switch)
  * in the local storage.
  */
+
 function overrideDarkFromQuery() {
   const noBrowser = typeof window === 'undefined';
 
@@ -119,7 +123,7 @@ function overrideDarkFromQuery() {
   return params.has('dark');
 }
 
-const Layout = ({
+export const LayoutV2 = ({
   transparentHeader,
   heroImage,
   siteTitleUrl,
@@ -128,19 +132,8 @@ const Layout = ({
   children,
   showLanguageSwitch = true,
   translation,
-  breadcrumb,
   leadbox,
 }: LayoutProps): JSX.Element => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
-
   const isLight = light === true && !overrideDarkFromQuery();
 
   useAnchorTagScrolling();
@@ -152,7 +145,7 @@ const Layout = ({
       <GlobalStyle $lightTheme={isLight} />
       <HeaderStickyContainer>
         <Header
-          siteTitle={data.site.siteMetadata.title}
+          siteTitle="Satellytes"
           siteTitleUrl={siteTitleUrl}
           $lightTheme={isLight}
           transparent={transparentHeader || Boolean(heroImage)}
@@ -160,14 +153,7 @@ const Layout = ({
           translation={translation}
         />
       </HeaderStickyContainer>
-      {/* pass in a hero node or try to use the hero image url */}
-      {hero ?? <HeroImageLegacy image={heroImage} />}
-
-      {breadcrumb && (
-        <BreadcrumbContainer hero={Boolean(hero)}>
-          <Breadcrumb breadcrumbEntries={breadcrumb} />
-        </BreadcrumbContainer>
-      )}
+      {hero && <HeroContainer>{hero}</HeroContainer>}
       <FullHeightContainer>
         <Main>{children}</Main>
         {leadbox && <Leadbox {...leadbox} />}
@@ -178,5 +164,3 @@ const Layout = ({
     </ThemeProvider>
   );
 };
-
-export default Layout;

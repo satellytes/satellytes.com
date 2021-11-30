@@ -9,9 +9,10 @@ interface HeaderBlockProps {
   topline: string;
   headline: string;
   metaline?: string;
-  children: string;
+  children: string | React.ReactNode;
   large?: boolean;
   illustration?: IllustrationType;
+  className?: string;
 }
 
 interface LargeProps {
@@ -20,6 +21,7 @@ interface LargeProps {
 
 const BlockWrapper = styled.div`
   display: flex;
+
   ${down('sm')} {
     flex-direction: column;
   }
@@ -57,19 +59,20 @@ const Metaline = styled.p<LargeProps>`
 `;
 
 const HeaderBlockText = styled.p<LargeProps>`
-    ${({ large }) => (large ? TextStyles.textL : TextStyles.textR)}}
-    letter-spacing: -0.01em;
-    color: #202840;
-    margin-top: 32px;
+  ${({ large }) => (large ? TextStyles.textL : TextStyles.textR)};
 
-    ${down('sm')} {
-      margin-top: 24px;
-    }
-  `;
+  letter-spacing: -0.01em;
+  color: #202840;
+  margin-top: 32px;
+
+  ${down('sm')} {
+    margin-top: 24px;
+  }
+`;
 
 export const HeaderBlock = (props: HeaderBlockProps) => {
   return (
-    <BlockWrapper>
+    <BlockWrapper className={props.className}>
       <TextWrapper>
         <Topline>{props.topline}</Topline>
         <Headline large={props.large}>{props.headline}</Headline>
