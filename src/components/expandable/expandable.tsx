@@ -1,6 +1,6 @@
 import React, { ReactNode, useState } from 'react';
 import styled, { css } from 'styled-components';
-import ChevronSVG from './expandable-chevron.svg';
+import { ReactComponent as ChevronSVG } from './expandable-chevron.svg';
 import { theme } from '../layout/theme';
 import { TextStyles } from '../typography/typography-v2';
 
