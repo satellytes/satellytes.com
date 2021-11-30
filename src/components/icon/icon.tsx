@@ -54,7 +54,7 @@ const transformSizeToDimension = (size: IconSize) => {
   `;
 };
 
-const IconContainer = styled.div<IconContainerProps>`
+const IconContainer = styled.span<IconContainerProps>`
   display: inline-block;
   vertical-align: middle;
   ${(props) => transformSizeToDimension(props.size)}

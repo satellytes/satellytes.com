@@ -15,10 +15,7 @@ const Name = styled.span`
   ${ellipsis()}
 `;
 
-// create local styled instance to use them in a nested rule in `IllustrationPreviewLayout`
-const IconStyled = styled(Icon)``;
-
-const IllustrationPreviewLayout = styled.div`
+const IconPreviewLayout = styled.div`
   aspect-ratio: 1;
 
   user-select: all;
@@ -31,7 +28,7 @@ const IllustrationPreviewLayout = styled.div`
   &:hover {
     background-color: #efefef;
 
-    ${IconStyled} {
+    .icon {
       background-color: #fff;
     }
   }
@@ -39,9 +36,9 @@ const IllustrationPreviewLayout = styled.div`
 
 export const IconPreview = (props) => {
   return (
-    <IllustrationPreviewLayout title={props.name}>
-      <IconStyled key={props.name} show={props.name} />
+    <IconPreviewLayout title={props.name}>
+      <Icon className={'icon'} key={props.name} show={props.name} />
       <Name>{props.name}</Name>
-    </IllustrationPreviewLayout>
+    </IconPreviewLayout>
   );
 };
