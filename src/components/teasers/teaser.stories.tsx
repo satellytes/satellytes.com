@@ -80,7 +80,7 @@ const TeaserGridTemplate = ({
 
   for (let i = 0; i < amountOfTeasers; i++) {
     teasers.push(
-      <GridItem sm={6} md={4}>
+      <GridItem key={i} sm={6} md={4}>
         {teaser}
       </GridItem>,
     );
