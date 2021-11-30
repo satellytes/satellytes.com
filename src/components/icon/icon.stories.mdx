@@ -49,24 +49,26 @@ The icon can be used in various situations. Here some examples with buttons and 
 </Canvas>
 
 ### With Text
+Here you can see how an icon sized as "inherit" grows with the text and always takes the color of the text.
+
 <Canvas>
   <Story name="With Text">
     <div>
       <p style={{fontSize: '12px', margin:0 }}>
         The quick brown fox jumps <Icon size={IconSize.INHERIT} show={'chevron_right'} />
-        over the lazy dog <Icon size={IconSize.INHERIT} show={'checkmark_bold'} />
+        <span style={{ color: 'hotpink' }}>over the lazy dog <Icon size={IconSize.INHERIT} show={'checkmark_bold'} /></span>
       </p>
       <p style={{fontSize: '16px', margin:0 }}>
         The quick brown fox jumps <Icon size={IconSize.INHERIT} show={'chevron_right'} />
-        over the lazy dog <Icon size={IconSize.INHERIT} show={'checkmark_bold'} />
+        <span style={{ color: 'hotpink' }}>over the lazy dog <Icon size={IconSize.INHERIT} show={'checkmark_bold'} /></span>
       </p>
       <p style={{fontSize: '20px', margin:0 }}>
         The quick brown fox jumps <Icon size={IconSize.INHERIT} show={'chevron_right'} />
-        over the lazy dog <Icon size={IconSize.INHERIT} show={'checkmark_bold'} />
+        <span style={{ color: 'hotpink' }}>over the lazy dog <Icon size={IconSize.INHERIT} show={'checkmark_bold'} /></span>
       </p>
       <p style={{fontSize: '30px', margin:0 }}>
         The quick brown fox jumps <Icon size={IconSize.INHERIT} show={'chevron_right'} />
-        over the lazy dog <Icon size={IconSize.INHERIT} show={'checkmark_bold'} />
+        <span style={{ color: 'hotpink' }}>over the lazy dog <Icon size={IconSize.INHERIT} show={'checkmark_bold'} /></span>
       </p>
     </div>
   </Story>

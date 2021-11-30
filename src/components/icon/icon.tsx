@@ -7,6 +7,8 @@ export enum IconSize {
   INHERIT = 'inherit', // width and height equals 150% of the text size of the container
 }
 
+const DEFAULT_ICON_SIZE = IconSize.NORMAL;
+
 const ICON_SIZE_MAP = {
   [IconSize.NORMAL]: {
     width: '24px',
@@ -18,9 +20,13 @@ const ICON_SIZE_MAP = {
   },
 };
 
-export interface IconProps {
+interface IconContainerProps {
+  size: IconSize;
+}
+
+interface IconProps {
   /**
-   * Pick an illustration by name.
+   * Pick an icon by name.
    */
   show: IconType /**
    /**
@@ -33,9 +39,7 @@ export interface IconProps {
   className?: string;
 }
 
-const DEFAULT_ICON_SIZE = IconSize.NORMAL;
-
-const calculateIconSize = (size: IconSize) => {
+const transformSizeToDimension = (size: IconSize) => {
   if (!Object.keys(ICON_SIZE_MAP).includes(size)) {
     size = DEFAULT_ICON_SIZE;
     console.warn(
@@ -50,20 +54,10 @@ const calculateIconSize = (size: IconSize) => {
   `;
 };
 
-interface IconContainerProps {
-  size: IconSize;
-}
-
 const IconContainer = styled.div<IconContainerProps>`
   display: inline-block;
-  color: inherit;
-  ${(props) => calculateIconSize(props.size)}
   vertical-align: middle;
-
-  svg {
-    display: block;
-    color: currentColor;
-  }
+  ${(props) => transformSizeToDimension(props.size)}
 `;
 
 export const Icon = (props: IconProps) => {
