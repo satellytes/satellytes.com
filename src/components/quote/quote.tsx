@@ -12,7 +12,7 @@ const QuoteText = styled.blockquote`
   color: ${theme.palette.text.topline};
   padding-left: 20px;
   margin: 0;
-  box-shadow: inset 2px 0 0 ${theme.palette.text.topline};
+  border-left: 2px solid ${theme.palette.text.topline};
 `;
 
 export const Quote = ({ children }: QuoteProps) => {
