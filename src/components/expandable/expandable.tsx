@@ -8,7 +8,7 @@ interface ExpandableProps {
   /**
    * Headline of the Expandable
    * */
-  label: string;
+  summary: string;
   /**
    * The actual text is passed as a child into the component
    * */
@@ -20,22 +20,27 @@ interface ExpandableChevronProps {
   className?: string;
 }
 
-const ExpandableContainer = styled.div`
+const ExpandableContainer = styled.details`
   padding: 0 20px;
 `;
 
-const LabelContainer = styled.div`
+const SummaryContainer = styled.summary`
   display: flex;
   align-items: center;
   cursor: pointer;
   color: ${theme.palette.text.topline};
+  list-style-type: none;
+
+  &::marker {
+    display: none;
+  }
 
   &:hover {
     color: ${theme.palette.text.default};
   }
 `;
 
-const Label = styled.p`
+const SummaryText = styled.p`
   ${TextStyles.headlineXS}
   margin: 0 0 0 8px;
 `;
@@ -63,16 +68,20 @@ const ExpandableText = styled.div`
   margin-top: 12px;
 `;
 
-export const Expandable = ({ label, children }: ExpandableProps) => {
-  const [open, setOpen] = useState<boolean>(false);
+export const Expandable = ({ summary, children }: ExpandableProps) => {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <ExpandableContainer>
-      <LabelContainer onClick={() => setOpen(!open)}>
-        <ExpandableChevronStyled open={open} />
-        <Label>{label}</Label>
-      </LabelContainer>
-      {open && <ExpandableText>{children}</ExpandableText>}
+      <SummaryContainer
+        onClick={() => {
+          setIsOpen(!isOpen);
+        }}
+      >
+        <ExpandableChevronStyled open={isOpen} />
+        <SummaryText>{summary}</SummaryText>
+      </SummaryContainer>
+      <ExpandableText>{children}</ExpandableText>
     </ExpandableContainer>
   );
 };
