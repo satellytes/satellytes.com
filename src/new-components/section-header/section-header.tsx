@@ -1,11 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { TextStyles } from '../../components/typography/typography-v2';
-import { IllustrationType } from '../../components/illustration/illustration-set';
-import {
-  Illustration,
-  IllustrationSize,
-} from '../../components/illustration/illustration';
 import { up } from '../../components/breakpoint/breakpoint';
 
 interface BlogHeaderProps {
@@ -14,15 +9,11 @@ interface BlogHeaderProps {
    */
   kicker?: string;
   /**
-   * The headline for the given blog post
+   * The headline for the given section
    */
   headline: string;
   /**
-   * Display one of our illustration side by side with the given content
-   */
-  illustration?: IllustrationType;
-  /**
-   * The actual content
+   * The actual text content
    */
   children?: React.ReactNode;
 }
@@ -45,43 +36,20 @@ const HeadlineStyled = styled.h1`
   }
 `;
 
-const IllustrationStyled = styled(Illustration)`
-  margin-left: auto;
+const ContentStyled = styled.div`
+  ${TextStyles.textR}
 
   ${up('md')} {
-    order: 1;
-    margin-left: auto;
-    flex: 0 0 auto;
-    padding-left: 100px;
-  }
-`;
-
-const TextContent = styled.div`
-  ${up('md')} {
-    order: 0;
-  }
-`;
-
-const Layout = styled.div`
-  ${up('md')} {
-    display: flex;
+    ${TextStyles.textL}
   }
 `;
 
 export const SectionHeader = (props: BlogHeaderProps) => {
   return (
-    <Layout>
-      {props.illustration && (
-        <IllustrationStyled
-          size={IllustrationSize.LARGE}
-          show={props.illustration}
-        />
-      )}
-      <TextContent>
-        {props.kicker && <KickerStyled>{props.kicker}</KickerStyled>}
-        <HeadlineStyled>{props.headline}</HeadlineStyled>
-        {props.children}
-      </TextContent>
-    </Layout>
+    <div>
+      {props.kicker && <KickerStyled>{props.kicker}</KickerStyled>}
+      <HeadlineStyled>{props.headline}</HeadlineStyled>
+      <ContentStyled>{props.children}</ContentStyled>
+    </div>
   );
 };
