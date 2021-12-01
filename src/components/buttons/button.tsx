@@ -1,19 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Icon, IconSize } from '../icon/icon';
-import { resetButton } from '../utils';
+import { resetButton } from '../css-helpers';
 import { lighten } from 'polished';
+import { TextStyles } from '../typography/typography-v2';
 
 const StyledButton = styled.button`
   ${resetButton};
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: bold;
-  line-height: 40px;
-  border-radius: 30px;
-  vertical-align: middle;
-  cursor: pointer;
+  ${TextStyles.toplineR}
 
+  line-height: 40px;
+  color: #ffffff;
+  border-radius: 30px;
+  cursor: pointer;
   background: linear-gradient(275.41deg, #543fd7 0%, #2756fd 100%);
 
   &:hover {

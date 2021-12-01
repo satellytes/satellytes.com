@@ -8,8 +8,14 @@ export enum IconSize {
 }
 
 const DEFAULT_ICON_SIZE = IconSize.NORMAL;
+interface Dimensions {
+  width: string;
+  height: string;
+}
 
-const ICON_SIZE_MAP = {
+type IconSizeMap = { [key in IconSize]: Dimensions };
+
+const ICON_SIZE_MAP: IconSizeMap = {
   [IconSize.NORMAL]: {
     width: '24px',
     height: '24px',
@@ -40,12 +46,6 @@ interface IconProps {
 }
 
 const transformSizeToDimension = (size: IconSize) => {
-  if (!Object.keys(ICON_SIZE_MAP).includes(size)) {
-    size = DEFAULT_ICON_SIZE;
-    console.warn(
-      `Received unknown size '${size}' for an icon. Please check, falling back to the default size`,
-    );
-  }
   const sizeMapped = ICON_SIZE_MAP[size];
 
   return css`

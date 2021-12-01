@@ -6,7 +6,7 @@ import { theme } from '../layout/theme';
 import { ReactComponent as ChevronSVG } from './chevron.svg';
 import { useAccordionItemContext } from '@reach/accordion';
 import React from 'react';
-import { resetButton } from '../utils';
+import { resetButton } from '../css-helpers';
 
 interface AccordionHeaderProps {
   children: React.ReactNode;
