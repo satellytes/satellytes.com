@@ -1,0 +1,47 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import { BlogHeader } from './blog-header';
+
+<Meta
+  title="Components/BlogHeader"
+  component={{ ArticleHeader: BlogHeader }}/>
+
+# Blog Header
+The blog header consists of a `kicker`, `headline`, a `byline` to note the author & time. The content it receices through the `children` prop acts as the `lead` text for the following blog content. 
+
+<Canvas withSource="open">
+  <Story name="Regular">
+    <BlogHeader
+        kicker="Kicker"
+        headline="Headline"
+        byline="A ByLine to list author and time">
+      The lead text for the blog content that is described.
+    </BlogHeader>
+  </Story>
+</Canvas>
+
+<ArgsTable of={BlogHeader}/>
+
+## Usage
+The `BlogHeader` should only be used within a blog article which is wrapped by ab `<article></article>` to ensure a proper semantic markup.
+
+<Canvas>
+  <Story name="Usage">
+    <article>
+      <BlogHeader
+        headline="Going beyond the Abstract syntax tree"
+        byline="vor 3 Tagen · von Fabian Dietenberger, Frontend Engineer, Satellytes"
+        kicker="Frontend">
+        distinctio ducimus eaque eos ex itaque iure laborum minus odit officia, officiis quam quod sapiente totam unde voluptates.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid cumque dignissimos exercitationem hic quo recusandae, ullam vero. Accusantium blanditiis exercitationem impedit,
+        magnam non perspiciatis quos ratione, reprehenderit sapiente unde velit.
+      </BlogHeader>
+      
+      <p>
+        Some other content of the blog follows here.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi asperiores cum eaque, error explicabo facere facilis id iure laudantium nostrum odit optio quam quibusdam recusandae, rerum sit vitae voluptate.
+      </p>
+    </article>
+    
+  </Story>
+</Canvas>
+
