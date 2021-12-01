@@ -25,7 +25,7 @@ const KickerStyled = styled.span`
   margin-bottom: 16px;
 `;
 
-const HeadlineStyled = styled.h1`
+const HeadlineStyled = styled.h2`
   ${TextStyles.headlineXL}
   margin: 0;
   color: #202840;
