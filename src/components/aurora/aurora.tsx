@@ -23,20 +23,21 @@ interface AuroraBackgroundProps {
 
 const AuroraBackground = styled.div<AuroraBackgroundProps>`
   background-color: #202840;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: absolute;
+
   background-image: url(${(props) => props.source});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center -20vw;
   z-index: ${BACKGROUND_LAYER_Z};
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
 `;
 
 const AuroraForeground = styled.div`
-  position: fixed;
+  position: absolute;
   z-index: ${FOREGROUND_LAYER_Z};
   overflow: hidden;
   left: 0;
