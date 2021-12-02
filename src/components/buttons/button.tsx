@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Icon, IconSize } from '../icon/icon';
+import { Icon, IconSize } from '../../new-components/icon/icon';
 import { resetButton } from '../css-helpers';
 import { lighten } from 'polished';
 import { TextStyles } from '../typography/typography-v2';
