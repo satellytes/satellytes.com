@@ -25,9 +25,6 @@ const SEO_EXCLUDED_URLS = [
 const RSS_FEED_URL = '/blog/rss.xml';
 
 module.exports = {
-  flags: {
-    DEV_SSR: true,
-  },
   siteMetadata: {
     title: 'Satellytes',
     description:

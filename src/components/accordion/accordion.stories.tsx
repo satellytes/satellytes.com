@@ -35,12 +35,12 @@ export const Regular = () => {
 };
 
 interface AccordionExampleProps {
-  defaultIndex: number;
+  defaultIndex?: number | number[];
 }
 
 export const AccordionContainerExample = (props: AccordionExampleProps) => {
   return (
-    <Accordion defaultIndex={[0, 1]}>
+    <Accordion defaultIndex={props.defaultIndex || [0, 1]}>
       <AccordionSection title="Section A">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab dolorem
         itaque nam, quisquam quos sed totam voluptas voluptatem voluptatibus.
