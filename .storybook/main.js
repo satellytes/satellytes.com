@@ -8,6 +8,7 @@ module.exports = {
     'storybook-addon-gatsby',
     'storybook-react-i18next',
   ],
+  staticDirs: ['../static'],
   core: {
     builder: 'webpack5',
   },
