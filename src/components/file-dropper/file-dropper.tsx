@@ -49,6 +49,10 @@ interface FileDropperProps {
   illustration?: IllustrationType;
 }
 
+const Highlight = styled.span`
+  color: ${theme.palette.text.link.default};
+`;
+
 const FileDropperContainer = styled.div<{
   isDragActive: boolean;
   hasFiles: boolean;
@@ -73,10 +77,8 @@ const FileDropperContainer = styled.div<{
       padding: 12px 16px;
     `}
 
-  &:hover {
-    span {
-      border-bottom: 1px solid ${theme.palette.text.link.default};
-    }
+  &:hover ${Highlight} {
+    border-bottom: 1px solid ${theme.palette.text.link.default};
   }
 `;
 
@@ -84,10 +86,6 @@ const Description = styled.p`
   ${TextStyles.timestamp};
   letter-spacing: 0;
   margin: 0;
-`;
-
-const Highlight = styled.span`
-  color: ${theme.palette.text.link.default};
 `;
 
 export const FileDropper = ({
