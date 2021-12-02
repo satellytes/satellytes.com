@@ -2,8 +2,6 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
-
-import { Grid } from '../components/grid/grid';
 import SEO from '../components/seo';
 import { LayoutV2 } from '../components/layout/layout-v2';
 import { Aurora } from '../components/aurora/aurora';
@@ -16,7 +14,6 @@ import {
 } from '../components/illustration/illustration';
 import { TeaserGrid } from '../components/teasers/grid/teaser-grid';
 import { ContentBlockContainer } from '../components/layout/content-block-container';
-import { PageContainer } from '../components/layout/page-container';
 
 interface AllClientsQuery {
   nodes: {
@@ -27,20 +24,21 @@ interface AllClientsQuery {
   }[];
 }
 
-const HeroPageContainer = styled(PageContainer)`
+const HeroContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 
-  padding-top: 285px;
-  padding-bottom: 48px;
+  margin: 0 auto;
+  padding: 285px 24px 48px 24px;
 
   color: #ffffff;
 
   ${up('md')} {
-    padding-top: 357px;
-    padding-bottom: 108px;
+    padding: 357px 0 108px 0;
+
+    max-width: 816px;
   }
 `;
 
@@ -91,7 +89,7 @@ const IndexPage = ({ location }: IndexPageProps) => {
         hero={
           <>
             <Aurora />
-            <HeroPageContainer>
+            <HeroContainer>
               <IndexPageTitle>Satellytes</IndexPageTitle>
               <IndexPageSubTitle as="h2">
                 Integer posuere erat a ante venenatis dapibus posuere velit
@@ -99,28 +97,27 @@ const IndexPage = ({ location }: IndexPageProps) => {
                 eros. Maecenas sed diam eget risus varius blandit sit amet non
                 magna.
               </IndexPageSubTitle>
-            </HeroPageContainer>
+            </HeroContainer>
           </>
         }
       >
-        <PageContainer>
-          <ContentBlockContainer>
-            <HomePageHeaderBlock
-              topline="Unsere Services"
-              headline="Development & Design"
-              large={true}
-            >
-              <>
-                Wir haben großen Spaß an Technologie und freuen uns auf neue
-                Herausforderungen. Dabei fokussieren wir uns auf langfristige
-                Engagements im Konzerngeschäft. <br />
-                Neuen Aufgaben begegnen wir immer mit angemessenem Respekt. Wir
-                streben stets hochwertige und zeitgemäße Lösungen an – die Wahl
-                der Technologie ist für uns dabei sekundär. Gern unterstützen
-                wir auch Sie in den folgenden Disziplinen:
-              </>
-            </HomePageHeaderBlock>
-          </ContentBlockContainer>
+        <ContentBlockContainer>
+          <HomePageHeaderBlock
+            topline="Unsere Services"
+            headline="Development & Design"
+            large={true}
+          >
+            <>
+              Wir haben großen Spaß an Technologie und freuen uns auf neue
+              Herausforderungen. Dabei fokussieren wir uns auf langfristige
+              Engagements im Konzerngeschäft. <br />
+              Neuen Aufgaben begegnen wir immer mit angemessenem Respekt. Wir
+              streben stets hochwertige und zeitgemäße Lösungen an – die Wahl
+              der Technologie ist für uns dabei sekundär. Gern unterstützen wir
+              auch Sie in den folgenden Disziplinen:
+            </>
+          </HomePageHeaderBlock>
+
           <TeaserGrid>
             <Teaser
               title="Enterprise Applikationen & Libraries"
@@ -167,82 +164,81 @@ const IndexPage = ({ location }: IndexPageProps) => {
               XP nennt.
             </Teaser>
           </TeaserGrid>
-          <ContentBlockContainer>
-            <HomePageHeaderBlock
-              topline="Unsere Kunden"
-              headline="Kundenbeziehungen statt Kundenprojekte"
-              large={true}
-            >
-              Wir unterstützen große Konzerne bei der Umsetzung ihrer digitalen
-              Strategien. Finden Sie heraus für welche Kunden & Branchen wir
-              tätig sind. Integer posuere erat a ante venenatis dapibus posuere
-              velit aliquet. Morbi leo risus, porta ac consectetur ac,
-              vestibulum at eros. Maecenas sed diam eget risus varius blandit
-              sit amet non magna.
-            </HomePageHeaderBlock>
-
-            <TeaserGrid>
-              <Teaser title="Versicherung" linkTo="/clients">
-                Integer posuere erat a ante venenatis dapibus posuere velit
-                aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at
-                eros. Maecenas sed diam eget risus varius blandit sit amet non
-                magna.
-              </Teaser>
-              <Teaser title="Sportverein" linkTo="/clients">
-                Integer posuere erat a ante venenatis dapibus posuere velit
-                aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at
-                eros. Maecenas sed diam eget risus varius blandit sit amet non
-                magna.
-              </Teaser>
-              <Teaser title="Bank" linkTo="/clients">
-                Integer posuere erat a ante venenatis dapibus posuere velit
-                aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at
-                eros. Maecenas sed diam eget risus varius blandit sit amet non
-                magna.
-              </Teaser>
-              <Teaser title="Automobilclub" linkTo="/clients">
-                Integer posuere erat a ante venenatis dapibus posuere velit
-                aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at
-                eros. Maecenas sed diam eget risus varius blandit sit amet non
-                magna.
-              </Teaser>
-            </TeaserGrid>
-          </ContentBlockContainer>
-          <ContentBlockContainer>
-            <HomePageHeaderBlock
-              topline="Karriere bei Satellytes"
-              headline="Arbeite mit uns"
-              large={true}
-            >
-              Wir suchen Entwickler:innen aus Leidenschaft! Du hast noch nicht
-              viel Berufserfahrung? Kein Problem. Denn alles, was du wissen
-              musst, lernst Du bei uns. Du kannst schon alles? Dann findest Du
-              bei Satellytes neue Herausforderungen und erfahrene Kollegen, mit
-              denen Du weiter wachsen kannst. Schaue Dir unsere offenen Stellen
-              an. Wir freuen uns auf Deine Bewerbung.
-            </HomePageHeaderBlock>
-            <TeaserGrid>
-              <Teaser title="Frontend Engineer" linkTo="/clients">
-                Wir suchen eine:n Frontend Engineer (w/m/x) mit erster
-                professioneller Erfahrung als Webentwickler:in. Werde Teil eines
-                Teams, bei dem du von Experten den Umgang mit Frameworks &
-                Testing ausbauen und verfeinern kannst.
-              </Teaser>
-              <Teaser title="Senior Backend Engineer" linkTo="/clients">
-                Dir sind Spring Boot, Jenkins, Kubernetes keine Fremdwörter?
-                Java ist keine Fremdsprache für dich? Du hast Lust auf
-                anspruchsvolle, komplexe Backend-Projekte mit eigenständigen
-                Aufgaben und Entscheidungen im Team?
-              </Teaser>
-              <Teaser title="Senior Frontend Engineer" linkTo="/clients">
-                Wir suchen einen &quot;Senior Frontend Engineer (m/w/x)&quot;
-                für unser Office in München. Du wirst Teil eines erfahrenen
-                Frontend-Teams, um moderne Web-Applikationen und Bibliotheken
-                basierend auf React oder Angular umzusetzen.
-              </Teaser>
-            </TeaserGrid>
-          </ContentBlockContainer>
-        </PageContainer>
+        </ContentBlockContainer>
+        <ContentBlockContainer>
+          <HomePageHeaderBlock
+            topline="Unsere Kunden"
+            headline="Kundenbeziehungen statt Kundenprojekte"
+            large={true}
+          >
+            Wir unterstützen große Konzerne bei der Umsetzung ihrer digitalen
+            Strategien. Finden Sie heraus für welche Kunden & Branchen wir tätig
+            sind. Integer posuere erat a ante venenatis dapibus posuere velit
+            aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at
+            eros. Maecenas sed diam eget risus varius blandit sit amet non
+            magna.
+          </HomePageHeaderBlock>
+          <TeaserGrid>
+            <Teaser title="Versicherung" linkTo="/clients">
+              Integer posuere erat a ante venenatis dapibus posuere velit
+              aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at
+              eros. Maecenas sed diam eget risus varius blandit sit amet non
+              magna.
+            </Teaser>
+            <Teaser title="Sportverein" linkTo="/clients">
+              Integer posuere erat a ante venenatis dapibus posuere velit
+              aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at
+              eros. Maecenas sed diam eget risus varius blandit sit amet non
+              magna.
+            </Teaser>
+            <Teaser title="Bank" linkTo="/clients">
+              Integer posuere erat a ante venenatis dapibus posuere velit
+              aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at
+              eros. Maecenas sed diam eget risus varius blandit sit amet non
+              magna.
+            </Teaser>
+            <Teaser title="Automobilclub" linkTo="/clients">
+              Integer posuere erat a ante venenatis dapibus posuere velit
+              aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at
+              eros. Maecenas sed diam eget risus varius blandit sit amet non
+              magna.
+            </Teaser>
+          </TeaserGrid>
+        </ContentBlockContainer>
+        <ContentBlockContainer>
+          <HomePageHeaderBlock
+            topline="Karriere bei Satellytes"
+            headline="Arbeite mit uns"
+            large={true}
+          >
+            Wir suchen Entwickler:innen aus Leidenschaft! Du hast noch nicht
+            viel Berufserfahrung? Kein Problem. Denn alles, was du wissen musst,
+            lernst Du bei uns. Du kannst schon alles? Dann findest Du bei
+            Satellytes neue Herausforderungen und erfahrene Kollegen, mit denen
+            Du weiter wachsen kannst. Schaue Dir unsere offenen Stellen an. Wir
+            freuen uns auf Deine Bewerbung.
+          </HomePageHeaderBlock>
+          <TeaserGrid>
+            <Teaser title="Frontend Engineer" linkTo="/clients">
+              Wir suchen eine:n Frontend Engineer (w/m/x) mit erster
+              professioneller Erfahrung als Webentwickler:in. Werde Teil eines
+              Teams, bei dem du von Experten den Umgang mit Frameworks & Testing
+              ausbauen und verfeinern kannst.
+            </Teaser>
+            <Teaser title="Senior Backend Engineer" linkTo="/clients">
+              Dir sind Spring Boot, Jenkins, Kubernetes keine Fremdwörter? Java
+              ist keine Fremdsprache für dich? Du hast Lust auf anspruchsvolle,
+              komplexe Backend-Projekte mit eigenständigen Aufgaben und
+              Entscheidungen im Team?
+            </Teaser>
+            <Teaser title="Senior Frontend Engineer" linkTo="/clients">
+              Wir suchen einen &quot;Senior Frontend Engineer (m/w/x)&quot; für
+              unser Office in München. Du wirst Teil eines erfahrenen
+              Frontend-Teams, um moderne Web-Applikationen und Bibliotheken
+              basierend auf React oder Angular umzusetzen.
+            </Teaser>
+          </TeaserGrid>
+        </ContentBlockContainer>
       </LayoutV2>
     </>
   );

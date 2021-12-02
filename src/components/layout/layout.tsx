@@ -19,12 +19,12 @@ const FullHeightContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  /** min-height: height of screen - fixed element (in this case: header) */
-  min-height: calc(100vh - 56px);
+  min-height: 100vh;
 `;
 
 const Main = styled.main`
   flex-grow: 1;
+
   padding-bottom: 160px;
   width: 100%;
   max-width: ${(props) => props.theme.maxWidth};
