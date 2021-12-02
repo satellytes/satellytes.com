@@ -2,19 +2,18 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
-import { ClientList } from '../components/client-list/client-list';
-import { Grid, GridItem } from '../components/grid/grid';
-import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
-import { BlockTeaser } from '../components/teasers/block-teaser';
+import { LayoutV2 } from '../components/layout/layout-v2';
+import { Aurora } from '../components/aurora/aurora';
+import { TextStyles } from '../components/typography/typography-v2';
+import { HeaderBlock } from '../components/header-block/header-block';
+import { Teaser } from '../components/teasers/teaser';
 import {
-  PageTitle,
-  Text,
-  TextTitle,
-} from '../components/typography/typography';
-import { HEADER_HEIGHT } from '../components/header/header';
-import { Aurora, AuroraType } from '../components/aurora/aurora';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
+  Illustration,
+  IllustrationSize,
+} from '../components/illustration/illustration';
+import { TeaserGrid } from '../components/teasers/grid/teaser-grid';
+import { ContentBlockContainer } from '../components/layout/content-block-container';
 
 interface AllClientsQuery {
   nodes: {
@@ -25,40 +24,41 @@ interface AllClientsQuery {
   }[];
 }
 
-const HomePageTitleContainer = styled.div`
+const HeroContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 
-  height: 92vh;
-  min-height: min-content;
-  margin: 0;
-  padding-top: ${HEADER_HEIGHT};
+  margin: 0 auto;
+  padding: 285px 24px 48px 24px;
+
   color: #ffffff;
 
   ${up('md')} {
-    height: 100vh;
+    padding: 357px 0 108px 0;
+
+    max-width: 816px;
   }
 `;
 
-const HomePageBlockTeaser = styled(BlockTeaser)<{
-  margin?: boolean;
-}>`
-  margin-bottom: ${(props) => props.margin && '160px'};
-`;
+const IndexPageTitle = styled.h1`
+  ${TextStyles.headlineXL};
 
-const IndexPageTitle = styled(PageTitle)`
   margin-top: 0;
-  margin-bottom: 16px;
-
-  ${up('md')} {
-    margin-bottom: 32px;
-  }
+  margin-bottom: 32px;
 `;
 
-const IndexPageSubTitle = styled(TextTitle)`
+const IndexPageSubTitle = styled.h2`
+  ${TextStyles.textL};
+
   margin-top: 0;
   font-weight: 400;
+  max-width: 640px;
+`;
+
+const HomePageHeaderBlock = styled(HeaderBlock)`
+  margin-bottom: 80px;
 `;
 
 export interface LocalesQuery {
@@ -79,58 +79,167 @@ interface IndexPageProps {
   location: Location;
 }
 
-const IndexPage = ({ data, location }: IndexPageProps) => {
-  const { t } = useTranslation();
+const IndexPage = ({ location }: IndexPageProps) => {
   return (
     <>
-      <Aurora type={AuroraType.BrightBlue} />
-      <Layout transparentHeader={true}>
-        <SEO title="Satellytes" location={location} />
-        <Grid center>
-          <GridItem xs={0} md={2} />
-          <GridItem xs={12} md={8}>
-            <HomePageTitleContainer>
-              <div>
-                <IndexPageTitle>Satellytes</IndexPageTitle>
-                <IndexPageSubTitle as="h2">
-                  We are pragmatic professionals, creating reliable software for
-                  the web.
-                </IndexPageSubTitle>
-              </div>
-            </HomePageTitleContainer>
-          </GridItem>
-          <GridItem xs={0} md={2} />
-          <GridItem xs={0} md={1} />
-          <GridItem xs={12} md={10}>
-            <HomePageBlockTeaser
-              margin
-              preTitle={t('services.title')}
-              title={t('main.services.title')}
-              link={t('services.title')}
-              linkTo="/services/"
+      <SEO title="Satellytes" location={location} />
+      <LayoutV2
+        transparentHeader={true}
+        light={true}
+        hero={
+          <>
+            <Aurora />
+            <HeroContainer>
+              <IndexPageTitle>Satellytes</IndexPageTitle>
+              <IndexPageSubTitle as="h2">
+                Integer posuere erat a ante venenatis dapibus posuere velit
+                aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at
+                eros. Maecenas sed diam eget risus varius blandit sit amet non
+                magna.
+              </IndexPageSubTitle>
+            </HeroContainer>
+          </>
+        }
+      >
+        <ContentBlockContainer>
+          <HomePageHeaderBlock
+            topline="Unsere Services"
+            headline="Development & Design"
+            large={true}
+          >
+            <>
+              Wir haben großen Spaß an Technologie und freuen uns auf neue
+              Herausforderungen. Dabei fokussieren wir uns auf langfristige
+              Engagements im Konzerngeschäft. <br />
+              Neuen Aufgaben begegnen wir immer mit angemessenem Respekt. Wir
+              streben stets hochwertige und zeitgemäße Lösungen an – die Wahl
+              der Technologie ist für uns dabei sekundär. Gern unterstützen wir
+              auch Sie in den folgenden Disziplinen:
+            </>
+          </HomePageHeaderBlock>
+
+          <TeaserGrid>
+            <Teaser
+              title="Enterprise Applikationen & Libraries"
+              linkTo="/clients"
+              cover={
+                <Illustration
+                  show="space_shuttle_043"
+                  size={IllustrationSize.MEDIUM}
+                />
+              }
             >
-              <Text>{t('main.services.text')}</Text>
-            </HomePageBlockTeaser>
-            <HomePageBlockTeaser
-              preTitle={t('clients.title')}
-              title={t('main.clients.title')}
-              splitView
+              Teams aus Designern, Produktmanagern, Entwicklern,
+              Supportmitarbeitern, Marketingspezialisten usw. bringen die
+              richtige Mischung aus Know-how und Erfahrung mit und sorgen dafür,
+              dass auch mal über den Tellerrand geschaut wird.
+            </Teaser>
+            <Teaser
+              title="Technische Analyse"
+              linkTo="/clients"
+              cover={
+                <Illustration
+                  show="space_shuttle_043"
+                  size={IllustrationSize.MEDIUM}
+                />
+              }
             >
-              <Text>{t('main.clients.text')}</Text>
-            </HomePageBlockTeaser>
-            <ClientList clients={data.allClientsJson.nodes} />
-            <HomePageBlockTeaser
-              preTitle={t('career.title')}
-              title={t('main.career.title')}
-              splitView
-              link={t('career.title')}
-              linkTo="/career/"
+              Jedes Team bei Satellytes ist für seine eigenen Aufgaben
+              verantwortlich. In den Worten des Agilen Manifests: „Die besten
+              Architekturen, Anforderungen und Entwürfe entstehen durch
+              selbstorganisierte Teams.“
+            </Teaser>
+            <Teaser
+              title="UX/UI"
+              linkTo="/clients"
+              cover={
+                <Illustration
+                  show="space_shuttle_043"
+                  size={IllustrationSize.MEDIUM}
+                />
+              }
             >
-              <Text>{t('main.career.text')}</Text>
-            </HomePageBlockTeaser>
-          </GridItem>
-        </Grid>
-      </Layout>
+              Schnelles Feedback, kurze Entscheidungswege und Offenheit für
+              Veränderung sind uns wichtig – egal, ob man es Scrum, Kanban oder
+              XP nennt.
+            </Teaser>
+          </TeaserGrid>
+        </ContentBlockContainer>
+        <ContentBlockContainer>
+          <HomePageHeaderBlock
+            topline="Unsere Kunden"
+            headline="Kundenbeziehungen statt Kundenprojekte"
+            large={true}
+          >
+            Wir unterstützen große Konzerne bei der Umsetzung ihrer digitalen
+            Strategien. Finden Sie heraus für welche Kunden & Branchen wir tätig
+            sind. Integer posuere erat a ante venenatis dapibus posuere velit
+            aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at
+            eros. Maecenas sed diam eget risus varius blandit sit amet non
+            magna.
+          </HomePageHeaderBlock>
+          <TeaserGrid>
+            <Teaser title="Versicherung" linkTo="/clients">
+              Integer posuere erat a ante venenatis dapibus posuere velit
+              aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at
+              eros. Maecenas sed diam eget risus varius blandit sit amet non
+              magna.
+            </Teaser>
+            <Teaser title="Sportverein" linkTo="/clients">
+              Integer posuere erat a ante venenatis dapibus posuere velit
+              aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at
+              eros. Maecenas sed diam eget risus varius blandit sit amet non
+              magna.
+            </Teaser>
+            <Teaser title="Bank" linkTo="/clients">
+              Integer posuere erat a ante venenatis dapibus posuere velit
+              aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at
+              eros. Maecenas sed diam eget risus varius blandit sit amet non
+              magna.
+            </Teaser>
+            <Teaser title="Automobilclub" linkTo="/clients">
+              Integer posuere erat a ante venenatis dapibus posuere velit
+              aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at
+              eros. Maecenas sed diam eget risus varius blandit sit amet non
+              magna.
+            </Teaser>
+          </TeaserGrid>
+        </ContentBlockContainer>
+        <ContentBlockContainer>
+          <HomePageHeaderBlock
+            topline="Karriere bei Satellytes"
+            headline="Arbeite mit uns"
+            large={true}
+          >
+            Wir suchen Entwickler:innen aus Leidenschaft! Du hast noch nicht
+            viel Berufserfahrung? Kein Problem. Denn alles, was du wissen musst,
+            lernst Du bei uns. Du kannst schon alles? Dann findest Du bei
+            Satellytes neue Herausforderungen und erfahrene Kollegen, mit denen
+            Du weiter wachsen kannst. Schaue Dir unsere offenen Stellen an. Wir
+            freuen uns auf Deine Bewerbung.
+          </HomePageHeaderBlock>
+          <TeaserGrid>
+            <Teaser title="Frontend Engineer" linkTo="/clients">
+              Wir suchen eine:n Frontend Engineer (w/m/x) mit erster
+              professioneller Erfahrung als Webentwickler:in. Werde Teil eines
+              Teams, bei dem du von Experten den Umgang mit Frameworks & Testing
+              ausbauen und verfeinern kannst.
+            </Teaser>
+            <Teaser title="Senior Backend Engineer" linkTo="/clients">
+              Dir sind Spring Boot, Jenkins, Kubernetes keine Fremdwörter? Java
+              ist keine Fremdsprache für dich? Du hast Lust auf anspruchsvolle,
+              komplexe Backend-Projekte mit eigenständigen Aufgaben und
+              Entscheidungen im Team?
+            </Teaser>
+            <Teaser title="Senior Frontend Engineer" linkTo="/clients">
+              Wir suchen einen &quot;Senior Frontend Engineer (m/w/x)&quot; für
+              unser Office in München. Du wirst Teil eines erfahrenen
+              Frontend-Teams, um moderne Web-Applikationen und Bibliotheken
+              basierend auf React oder Angular umzusetzen.
+            </Teaser>
+          </TeaserGrid>
+        </ContentBlockContainer>
+      </LayoutV2>
     </>
   );
 };
