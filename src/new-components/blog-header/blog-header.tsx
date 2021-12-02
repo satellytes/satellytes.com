@@ -37,15 +37,17 @@ const HeadlineStyled = styled.h1`
 `;
 
 const BylineStyled = styled.span`
+  ${TextStyles.timestamp}
   color: #808080;
 `;
 
 const LeadStyled = styled.div`
-  ${TextStyles.textL}
+  ${TextStyles.textR}
   margin-top: 48px;
 
   ${up('md')} {
     margin-top: 32px;
+    ${TextStyles.textL}
   }
 `;
 
