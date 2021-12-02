@@ -12,6 +12,7 @@ Regular.args = {
   maxFiles: 1,
   acceptedFileTypes: '.pdf',
   onFileChange: (acceptedFiles) => console.log(acceptedFiles),
+  onDropRejected: (rejectedData) => console.log(rejectedData),
   fileCategories: ['CV', 'Cover letter'],
 };
 Regular.parameters = {

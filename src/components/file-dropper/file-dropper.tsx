@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
-import { FileError, FileRejection, useDropzone } from 'react-dropzone';
+import {
+  ErrorCode,
+  FileError,
+  FileRejection,
+  useDropzone,
+} from 'react-dropzone';
 import styled, { css } from 'styled-components';
 import { theme } from '../layout/theme';
 import { Illustration, IllustrationSize } from '../illustration/illustration';
 import { IllustrationType } from '../illustration/illustration-set';
-import { Trans } from 'gatsby-plugin-react-i18next';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { TextStyles } from '../typography/typography-v2';
 import { FileListItem } from './file-list-item';
 
@@ -95,8 +100,25 @@ export const FileDropper = ({
   fileCategories,
 }: FileDropperProps): JSX.Element => {
   const [currentFiles, setCurrenFiles] = useState<FileDropperType[]>([]);
+  const { t } = useTranslation();
 
   const onDrop = (acceptedFiles: File[]) => {
+    if (maxFiles && currentFiles.length + acceptedFiles.length > maxFiles) {
+      if (onDropRejected) {
+        const rejectFiles = acceptedFiles.map((acceptedFile) => ({
+          file: acceptedFile,
+          errors: [
+            {
+              message: t('career.error.max-number'),
+              code: ErrorCode.TooManyFiles,
+            },
+          ],
+        }));
+        onDropRejected(rejectFiles);
+      }
+      return;
+    }
+
     const newFiles = acceptedFiles.map((acceptedFile) => ({
       file: acceptedFile,
       fileCategory: null,
