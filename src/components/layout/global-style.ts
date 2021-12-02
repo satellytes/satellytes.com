@@ -21,6 +21,16 @@ export const GlobalStyle = createGlobalStyle<{ $lightTheme?: boolean }>`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  button, select {
+    font-family: ${(props) => props.theme.typography.fontFamily},
+    "Helvetica",
+    "Lucida Grande",
+    Tahoma,
+    Sans-Serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
   
   *:focus {
     outline: none
