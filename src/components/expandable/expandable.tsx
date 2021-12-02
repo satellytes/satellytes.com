@@ -55,6 +55,7 @@ const AccordionChevron = (props: ExpandableChevronProps) => {
 
 const ExpandableChevronStyled = styled(AccordionChevron)<{ open: boolean }>`
   transition: transform 0.1s ease-out;
+  margin-bottom: 1px;
 
   ${(props) =>
     props.open &&
