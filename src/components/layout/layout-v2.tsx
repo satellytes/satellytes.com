@@ -6,7 +6,11 @@ import { theme } from './theme';
 import styled, { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './global-style';
 import { FluidObject } from 'gatsby-image';
-import { Leadbox, LeadboxProps } from '../leadbox/leadbox';
+import {
+  Leadbox,
+  LeadboxFooterContainer,
+  LeadboxProps,
+} from '../leadbox/leadbox';
 import { up } from '../breakpoint/breakpoint';
 
 /**
@@ -178,7 +182,11 @@ export const LayoutV2 = ({
       {hero && <HeroContainer>{hero}</HeroContainer>}
       <FullHeightContainer>
         <Main>{children}</Main>
-        {leadbox && <Leadbox {...leadbox} />}
+        {leadbox && (
+          <LeadboxFooterContainer>
+            <Leadbox {...leadbox} />
+          </LeadboxFooterContainer>
+        )}
         <footer>
           <Navigation />
         </footer>
