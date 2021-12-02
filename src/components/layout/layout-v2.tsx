@@ -23,10 +23,11 @@ const FullHeightContainer = styled.div`
 
 const Main = styled.main`
   flex-grow: 1;
-  padding-bottom: 160px;
-  width: 100%;
-  max-width: ${(props) => props.theme.maxWidth};
-  margin: 0 auto;
+  padding-bottom: 121px;
+
+  ${up('md')} {
+    padding-bottom: 160px;
+  }
 `;
 
 const HeaderStickyContainer = styled.div`
