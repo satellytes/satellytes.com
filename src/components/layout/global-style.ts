@@ -22,14 +22,8 @@ export const GlobalStyle = createGlobalStyle<{ $lightTheme?: boolean }>`
     -moz-osx-font-smoothing: grayscale;
   }
 
-  button, select {
-    font-family: ${(props) => props.theme.typography.fontFamily},
-    "Helvetica",
-    "Lucida Grande",
-    Tahoma,
-    Sans-Serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  button, select, input, textarea {
+    font-family: inherit;
   }
   
   *:focus {
