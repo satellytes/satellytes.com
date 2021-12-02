@@ -1,17 +1,66 @@
 {
   "main": {
-    "description": "Satellytes ist eine Digital-Agentur, die um große Unternehmen kreist und ihnen bei der Transformation und Optimierung digitaler Services und Interfaces hilft.",
+    "description": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna.",
     "services": {
-      "title": "Das bieten wir",
-      "text": "Satellytes – das sind ausschließlich leidenschaftliche Entwickler:innen und Designer:innen. Wir haben großen Spaß an Technologie und freuen uns auf neue Herausforderungen. Dabei fokussieren wir uns auf langfristige Engagements im Konzerngeschäft."
+      "title": "Development & Design",
+      "topline": "Unsere Services",
+      "text": "Wir haben großen Spaß an Technologie und freuen uns auf neue Herausforderungen. Dabei fokussieren wir uns auf langfristige Engagements im Konzerngeschäft. Neuen Aufgaben begegnen wir immer mit angemessenem Respekt. Wir streben stets hochwertige und zeitgemäße Lösungen an – die Wahl der Technologie ist für uns dabei sekundär. Gern unterstützen wir auch Sie in den folgenden Disziplinen:",
+      "teasers": {
+        "first": {
+          "title": "Enterprise Applikationen & Libraries",
+          "text": "Teams aus Designern, Produktmanagern, Entwicklern, Supportmitarbeitern, Marketingspezialisten usw. bringen die richtige Mischung aus Know-how und Erfahrung mit und sorgen dafür, dass auch mal über den Tellerrand geschaut wird."
+        },
+        "second": {
+          "title": "Technische Analyse",
+          "text": "Jedes Team bei Satellytes ist für seine eigenen Aufgaben verantwortlich. In den Worten des Agilen Manifests: „Die besten Architekturen, Anforderungen und Entwürfe entstehen durch selbstorganisierte Teams.“"
+        },
+        "third": {
+          "title": "UX/UI",
+          "text": "Schnelles Feedback, kurze Entscheidungswege und Offenheit für Veränderung sind uns wichtig – egal, ob man es Scrum, Kanban oder XP nennt."
+        }
+      }
     },
     "clients": {
-      "title": "Nachhaltige und moderne Projekte",
-      "text": "Wir unterstützen große Konzerne bei der Umsetzung ihrer digitalen Strategien. Finden Sie heraus für welche Kunden & Branchen wir tätig sind."
+      "title": "Kundenbeziehungen statt Kundenprojekte",
+      "topline": "Unsere Kunden",
+      "text": "Wir unterstützen große Konzerne bei der Umsetzung ihrer digitalen Strategien. Finden Sie heraus für welche Kunden & Branchen wir tätig sind. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna.",
+      "teasers": {
+        "first": {
+          "title": "Versicherung",
+          "text": "Integer posuere erat a ante venenatis dapibus posuere velit Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna."
+        },
+        "second": {
+          "title": "Sportverein",
+          "text": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna."
+        },
+        "third": {
+          "title": "Bank",
+          "text": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna."
+        },
+        "fourth": {
+          "title": "Automobilclub",
+          "text": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna."
+        }
+      }
     },
     "career": {
       "title": "Arbeite mit uns",
-      "text": "Wir suchen Entwickler:innen aus Leidenschaft! Du hast noch nicht viel Berufserfahrung? Kein Problem. Denn alles, was du wissen musst, lernst Du bei uns. Du kannst schon alles? Dann findest Du bei Satellytes neue Herausforderungen und erfahrene Kollegen, mit denen Du weiter wachsen kannst. Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung."
+      "topline": "Karriere bei Satellytes",
+      "text": "Wir suchen Entwickler:innen aus Leidenschaft! Du hast noch nicht viel Berufserfahrung? Kein Problem. Denn alles, was du wissen musst, lernst Du bei uns. Du kannst schon alles? Dann findest Du bei Satellytes neue Herausforderungen und erfahrene Kollegen, mit denen Du weiter wachsen kannst. Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung.",
+      "teasers": {
+        "first": {
+          "title": "Frontend Engineer",
+          "text": "Wir suchen eine:n Frontend Engineer (w/m/x) mit erster professioneller Erfahrung als Webentwickler:in. Werde Teil eines Teams, bei dem du von Experten den Umgang mit Frameworks & Testing ausbauen und verfeinern kannst."
+        },
+        "second": {
+          "title": "Senior Backend Engineer",
+          "text": "Dir sind Spring Boot, Jenkins, Kubernetes keine Fremdwörter? Java ist keine Fremdsprache für dich? Du hast Lust auf anspruchsvolle, komplexe Backend-Projekte mit eigenständigen Aufgaben und Entscheidungen im Team?"
+        },
+        "third": {
+          "title": "Senior Frontend Engineer",
+          "text": "Wir suchen einen \"Senior Frontend Engineer (m/w/x)\" für unser Office in München. Du wirst Teil eines erfahrenen Frontend-Teams, um moderne Web-Applikationen und Bibliotheken basierend auf React oder Angular umzusetzen."
+        }
+      }
     }
   },
   "career": {
