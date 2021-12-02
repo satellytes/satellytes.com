@@ -1,19 +1,10 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentStory } from '@storybook/react';
 import { TeaserGrid } from './teaser-grid';
-import {
-  Illustration,
-  IllustrationSize,
-} from '../../illustration/illustration';
 import { Teaser } from '../teaser';
 
-export default {
-  component: TeaserGrid,
-  title: 'Components/TeaserGrid',
-} as ComponentMeta<typeof TeaserGrid>;
-
-const Template: ComponentStory<typeof TeaserGrid> = (args) => (
-  <TeaserGrid {...args} />
+const Template: ComponentStory<typeof TeaserGrid> = ({ children, ...rest }) => (
+  <TeaserGrid {...rest}>{children}</TeaserGrid>
 );
 
 const ExampleTeaser = () => (
