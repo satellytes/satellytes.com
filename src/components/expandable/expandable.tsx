@@ -34,6 +34,10 @@ const SummaryContainer = styled.summary`
   &::marker {
     display: none;
   }
+  
+  &::-webkit-details-marker{
+    display: none;
+  }
 
   &:hover {
     color: ${theme.palette.text.default};
