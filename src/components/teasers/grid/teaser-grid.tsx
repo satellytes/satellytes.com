@@ -4,10 +4,19 @@ import { up } from '../../breakpoint/breakpoint';
 
 const ScrollContainer = styled.div`
   overflow-x: scroll;
-  margin-right: -16px;
+
+  /**
+   * we stretch the container on the left and right over the PageLayout, 
+   * so that they scroll from side to side
+   */
+  margin-right: -24px;
+  margin-left: -24px;
+  padding-left: 24px;
 
   ${up('md')} {
+    margin-right: 0;
     margin-left: 0;
+    padding-left: 0;
   }
 `;
 
