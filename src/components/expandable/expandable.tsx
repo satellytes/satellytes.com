@@ -34,8 +34,8 @@ const SummaryContainer = styled.summary`
   &::marker {
     display: none;
   }
-  
-  &::-webkit-details-marker{
+
+  &::-webkit-details-marker {
     display: none;
   }
 
