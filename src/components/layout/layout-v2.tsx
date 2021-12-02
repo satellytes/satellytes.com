@@ -17,17 +17,38 @@ const FullHeightContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  /** min-height: height of screen - fixed element (in this case: header) */
-  min-height: calc(100vh - 56px);
+  min-height: 100vh;
 `;
 
 const Main = styled.main`
+  /** make the element take up all available space */
   flex-grow: 1;
+
+  /** 
+   * put the children into a container to give them a centered max width 
+   * https://www.joshwcomeau.com/css/full-bleed/
+   */
+  display: grid;
+  grid-template-columns:
+    1fr
+    min(821px, calc(100% - 2 * 24px))
+    1fr;
+
+  > * {
+    grid-column: 2;
+  }
+
+  /** make sure the distance to the footer is always the same */
   padding-bottom: 121px;
 
   ${up('md')} {
     padding-bottom: 160px;
   }
+`;
+
+export const FullWidth = styled.div`
+  width: 100%;
+  grid-column: 1 / 4;
 `;
 
 const HeaderStickyContainer = styled.div`
