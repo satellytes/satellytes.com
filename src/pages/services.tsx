@@ -9,6 +9,7 @@ import { TextStyles } from '../components/typography/typography-v2';
 import { HeaderBlock } from '../components/header-block/header-block';
 import { SectionHeader } from '../new-components/section-header/section-header';
 import { ContentBlockContainer } from '../components/layout/content-block-container';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 const HeroContainer = styled.div`
   position: relative;
@@ -39,121 +40,68 @@ interface ServicesPageProps {
 }
 
 const ServicesPage = ({ location }: ServicesPageProps) => {
+  const { t } = useTranslation();
+
+  const leadbox = {
+    title: t('services.leadbox.title'),
+    subtitle: t('services.leadbox.subtitle'),
+    text: t('services.leadbox.text'),
+    mail: t('services.leadbox.mail'),
+    icon: 'space_shuttle_043',
+  };
+
   return (
     <>
-      <SEO title="Satellytes" location={location} />
+      <SEO title={`${t('services.title')} | Satellytes`} location={location} />
       <LayoutV2
         transparentHeader={true}
         light={true}
+        leadbox={leadbox}
         hero={
           <>
             <Aurora />
             <HeroContainer>
-              <ServicesPageTitle>Services</ServicesPageTitle>
+              <ServicesPageTitle>{t('services.title')}</ServicesPageTitle>
             </HeroContainer>
           </>
         }
       >
         <ContentBlockContainer>
           <SectionHeader
-            headline={'Development & Design'}
-            kicker={'Unsere Services'}
+            headline={t('services.header.title')}
+            kicker={t('services.header.kicker')}
           >
-            <p>
-              Wir haben großen Spaß an Technologie und freuen uns auf neue
-              Herausforderungen. Dabei fokussieren wir uns auf langfristige
-              Engagements im Konzerngeschäft.{' '}
-            </p>
-            <p>
-              Neuen Aufgaben begegnen wir immer mit angemessenem Respekt. Wir
-              streben stets hochwertige und zeitgemäße Lösungen an – die Wahl
-              der Technologie ist für uns dabei sekundär. Gern unterstützen wir
-              auch Sie in den folgenden Disziplinen:{' '}
-            </p>
+            {t('services.header.text')}
           </SectionHeader>
         </ContentBlockContainer>
         <ContentBlockContainer>
           <HeaderBlock
-            headline="Enterprise Applikationen & Libraries"
+            headline={t('services.contentblocks.first.title')}
             illustration="rocket_011"
             large
-            topline="Development"
+            topline={t('services.contentblocks.first.kicker')}
           >
-            Wir haben große Erfahrung in der Entwicklung moderner und
-            verlässlicher Web-Applikationen für die Versicherungs-, Banken- und
-            Automobilbranche. Angular hat sich für derartige Applikationen zur
-            Standardtechnologie entwickelt. Wir bringen tiefgreifende Erfahrung
-            mit dieser Technologie mit und liefern Ihnen eine maßgeschneiderte
-            Lösung zu jedem Problem. Wir sind zudem sehr erfahren in der
-            Einführung ganzheitlicher Plattformen –beispielsweise einer
-            Infrastruktur aus Angular-Libraries, dem Aufsetzen von
-            CI/CD-Pipelines und der Umsetzung gut getesteter Applikationen in
-            mehreren Sprachen und Konfigurationen. Zudem sind wir Profis für die
-            Entwicklung von Java Backends in allen Variationen. Wir sind
-            erfahren in der Anbindung von Bestandssystemen, der Neuentwicklung
-            von versionierten APIs und der spezifischen Anbindung von
-            Frontend-Applikationen auf Basis von BFF (Backend for Frontend) –
-            oder vollkommen dezentralen Microservices. Experten für Projekte in
-            Angular & React (wir lieben aber auch Vue & Svelte) UI-Library
-            Entwicklung mit Release Management Backend Begleitung mit unseren
-            Java und Node-Experten Ihr Ansprechpartner für Inner source Projekte
-            & Prozessbegleitung
+            {t('services.contentblocks.first.text')}
           </HeaderBlock>
         </ContentBlockContainer>
         <ContentBlockContainer>
           <HeaderBlock
-            headline="Enterprise Applikationen & Libraries"
+            headline={t('services.contentblocks.second.title')}
             illustration="rocket_011"
             large
-            topline="Development"
+            topline={t('services.contentblocks.second.kicker')}
           >
-            Wir haben große Erfahrung in der Entwicklung moderner und
-            verlässlicher Web-Applikationen für die Versicherungs-, Banken- und
-            Automobilbranche. Angular hat sich für derartige Applikationen zur
-            Standardtechnologie entwickelt. Wir bringen tiefgreifende Erfahrung
-            mit dieser Technologie mit und liefern Ihnen eine maßgeschneiderte
-            Lösung zu jedem Problem. Wir sind zudem sehr erfahren in der
-            Einführung ganzheitlicher Plattformen –beispielsweise einer
-            Infrastruktur aus Angular-Libraries, dem Aufsetzen von
-            CI/CD-Pipelines und der Umsetzung gut getesteter Applikationen in
-            mehreren Sprachen und Konfigurationen. Zudem sind wir Profis für die
-            Entwicklung von Java Backends in allen Variationen. Wir sind
-            erfahren in der Anbindung von Bestandssystemen, der Neuentwicklung
-            von versionierten APIs und der spezifischen Anbindung von
-            Frontend-Applikationen auf Basis von BFF (Backend for Frontend) –
-            oder vollkommen dezentralen Microservices. Experten für Projekte in
-            Angular & React (wir lieben aber auch Vue & Svelte) UI-Library
-            Entwicklung mit Release Management Backend Begleitung mit unseren
-            Java und Node-Experten Ihr Ansprechpartner für Inner source Projekte
-            & Prozessbegleitung
+            {t('services.contentblocks.second.text')}
           </HeaderBlock>
         </ContentBlockContainer>
         <ContentBlockContainer>
           <HeaderBlock
-            headline="Enterprise Applikationen & Libraries"
+            headline={t('services.contentblocks.third.title')}
             illustration="rocket_011"
             large
-            topline="Development"
+            topline={t('services.contentblocks.third.kicker')}
           >
-            Wir haben große Erfahrung in der Entwicklung moderner und
-            verlässlicher Web-Applikationen für die Versicherungs-, Banken- und
-            Automobilbranche. Angular hat sich für derartige Applikationen zur
-            Standardtechnologie entwickelt. Wir bringen tiefgreifende Erfahrung
-            mit dieser Technologie mit und liefern Ihnen eine maßgeschneiderte
-            Lösung zu jedem Problem. Wir sind zudem sehr erfahren in der
-            Einführung ganzheitlicher Plattformen –beispielsweise einer
-            Infrastruktur aus Angular-Libraries, dem Aufsetzen von
-            CI/CD-Pipelines und der Umsetzung gut getesteter Applikationen in
-            mehreren Sprachen und Konfigurationen. Zudem sind wir Profis für die
-            Entwicklung von Java Backends in allen Variationen. Wir sind
-            erfahren in der Anbindung von Bestandssystemen, der Neuentwicklung
-            von versionierten APIs und der spezifischen Anbindung von
-            Frontend-Applikationen auf Basis von BFF (Backend for Frontend) –
-            oder vollkommen dezentralen Microservices. Experten für Projekte in
-            Angular & React (wir lieben aber auch Vue & Svelte) UI-Library
-            Entwicklung mit Release Management Backend Begleitung mit unseren
-            Java und Node-Experten Ihr Ansprechpartner für Inner source Projekte
-            & Prozessbegleitung
+            {t('services.contentblocks.third.text')}
           </HeaderBlock>
         </ContentBlockContainer>
       </LayoutV2>
