@@ -25,8 +25,8 @@
     "test:format": "prettier \"**/*.{tsx,ts,md}\" --check",
     "postinstall": "husky install",
     "precommit": "lint-staged",
-    "storybook": "start-storybook --port 6006 --static-dir ./static",
-    "storybook:build": "build-storybook --static-dir ./static",
+    "storybook": "start-storybook --port 6006",
+    "storybook:build": "build-storybook",
     "storybook:serve": "serve storybook-static",
     "build-storybook": "yarn storybook:build"
   },
