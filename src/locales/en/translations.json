@@ -1,6 +1,6 @@
 {
   "main": {
-    "description": "Satellytes is a digital agency that circles around large companies, helping them transform and optimize digital services and interfaces.",
+    "description": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna.",
     "services": {
       "title": "Development & Design",
       "topline": "Our Services",
@@ -23,23 +23,23 @@
     "clients": {
       "title": "Customer Relationships instead of Customer Projects",
       "topline": "Our Clients",
-      "text": "",
+      "text": "Wir unterstützen große Konzerne bei der Umsetzung ihrer digitalen Strategien. Finden Sie heraus für welche Kunden & Branchen wir tätig sind. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna.",
       "teasers": {
         "first": {
           "title": "Insurance Group",
-          "text": ""
+          "text": "Integer posuere erat a ante venenatis dapibus posuere velit Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna."
         },
         "second": {
           "title": "Sport Club",
-          "text": ""
+          "text": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna."
         },
         "third": {
           "title": "Bank",
-          "text": ""
+          "text": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna."
         },
         "fourth": {
           "title": "Automobile Club",
-          "text": ""
+          "text": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna."
         }
       }
     },

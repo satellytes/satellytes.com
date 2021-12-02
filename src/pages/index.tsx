@@ -94,10 +94,7 @@ const IndexPage = ({ location }: IndexPageProps) => {
             <HeroContainer>
               <IndexPageTitle>Satellytes</IndexPageTitle>
               <IndexPageSubTitle as="h2">
-                Integer posuere erat a ante venenatis dapibus posuere velit
-                aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at
-                eros. Maecenas sed diam eget risus varius blandit sit amet non
-                magna.
+                {t('main.description')}
               </IndexPageSubTitle>
             </HeroContainer>
           </>
@@ -157,50 +154,32 @@ const IndexPage = ({ location }: IndexPageProps) => {
             headline={t('main.clients.title')}
             large={true}
           >
-            Wir unterstützen große Konzerne bei der Umsetzung ihrer digitalen
-            Strategien. Finden Sie heraus für welche Kunden & Branchen wir tätig
-            sind. Integer posuere erat a ante venenatis dapibus posuere velit
-            aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at
-            eros. Maecenas sed diam eget risus varius blandit sit amet non
-            magna.
+            {t('main.clients.text')}
           </HomePageHeaderBlock>
           <TeaserGrid>
             <Teaser
               title={t('main.clients.teasers.first.title')}
               linkTo="/clients"
             >
-              Integer posuere erat a ante venenatis dapibus posuere velit
-              Integer posuere erat a ante venenatis dapibus posuere velit
-              aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at
-              eros. Maecenas sed diam eget risus varius blandit sit amet non
-              magna.
+              {t('main.clients.teasers.first.text')}
             </Teaser>
             <Teaser
               title={t('main.clients.teasers.second.title')}
               linkTo="/clients"
             >
-              Integer posuere erat a ante venenatis dapibus posuere velit
-              aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at
-              eros. Maecenas sed diam eget risus varius blandit sit amet non
-              magna.
+              {t('main.clients.teasers.second.text')}
             </Teaser>
             <Teaser
               title={t('main.clients.teasers.third.title')}
               linkTo="/clients"
             >
-              Integer posuere erat a ante venenatis dapibus posuere velit
-              aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at
-              eros. Maecenas sed diam eget risus varius blandit sit amet non
-              magna.
+              {t('main.clients.teasers.third.text')}
             </Teaser>
             <Teaser
               title={t('main.clients.teasers.fourth.title')}
               linkTo="/clients"
             >
-              Integer posuere erat a ante venenatis dapibus posuere velit
-              aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at
-              eros. Maecenas sed diam eget risus varius blandit sit amet non
-              magna.
+              {t('main.clients.teasers.fourth.text')}
             </Teaser>
           </TeaserGrid>
         </ContentBlockContainer>
