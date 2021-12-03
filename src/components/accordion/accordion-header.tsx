@@ -6,6 +6,7 @@ import { theme } from '../layout/theme';
 import { ReactComponent as ChevronSVG } from './chevron.svg';
 import { useAccordionItemContext } from '@reach/accordion';
 import React from 'react';
+import { resetButton } from '../css-helpers';
 
 interface AccordionHeaderProps {
   children: React.ReactNode;
@@ -21,15 +22,6 @@ const AccordionTitleHeadline = styled.span`
   ${ellipsis()}
   padding-right: 20px;
   color: inherit;
-`;
-
-const resetButton = css`
-  padding: 0;
-  margin: 0;
-  appearance: none;
-  background: 0;
-  border: 0;
-  box-shadow: none;
 `;
 
 const AccordionButton = styled(ReachAccordion.AccordionButton)`
