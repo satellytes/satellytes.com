@@ -21,6 +21,10 @@ export const GlobalStyle = createGlobalStyle<{ $lightTheme?: boolean }>`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  button, select, input, textarea {
+    font-family: inherit;
+  }
   
   *:focus {
     outline: none
