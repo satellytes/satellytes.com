@@ -1,8 +1,8 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentStory } from '@storybook/react';
 import Button from './button';
 import { IconButton } from './icon-button';
-import { Icon, IconSize } from '../../new-components/icon/icon';
+import { Icon } from '../../new-components/icon/icon';
 import styled from 'styled-components';
 
 const Template: ComponentStory<typeof Button> = (args) => (
