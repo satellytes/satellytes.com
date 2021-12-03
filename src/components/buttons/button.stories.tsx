@@ -5,15 +5,6 @@ import { IconButton } from './icon-button';
 import { Icon, IconSize } from '../../new-components/icon/icon';
 import styled from 'styled-components';
 
-// export default {
-//   component: Button,
-//   subcomponents: { IconButton },
-//   title: 'Components/Button',
-//   argTypes: {
-//     onClick: { action: 'onChange' },
-//   },
-// };
-
 const Template: ComponentStory<typeof Button> = (args) => (
   <Button {...args}>{args.children}</Button>
 );
