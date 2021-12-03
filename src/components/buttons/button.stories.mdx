@@ -1,14 +1,16 @@
-import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import { IconButton } from './icon-button';
 import { Button } from './button';
-import { Regular, WithIcon } from './button.stories';
+import { Icon } from './../../new-components/icon/icon';
 
 <Meta title="Components/Button" component={(Button, IconButton)} />
 
 # Button
 
-Those components offer multiple styled Buttons for different situations. They all take a `onClick` property to control its functionality.
-Beyond this property the single components differ a little bit in use.
+There are multiple Button components for different situations. They all take an `onClick` property to control its functionality.
+The displayed values are passed as `children` property. Only the valid types of those property differ for the different components.
+
+<ArgsTable of={Button} />
 
 ### Overview of Buttons
 
@@ -18,19 +20,24 @@ Beyond this property the single components differ a little bit in use.
 
 This is the Regular Button, which should be used in all the standard use cases. Pass the `label` as `children` to the Button.
 
-<Canvas>
-  <Story story={Regular} />
+<Canvas withSource="open">
+  <Story name="Regular">
+    <Button onClick={() => console.log('Regular Button clicked')} children="">
+      Alle Services
+    </Button>
+  </Story>
 </Canvas>
 
 #### IconButton
 
 This is the Icon Button. It is always of the size `24x24`. You can choose the displayed Icon by passing an [Icon](?path=/docs/components-icon--regular) as children.
 
-When passing an Icon to the Button, you have to:
+When passing an Icon to the Button, you have to use the default size (that is `IconSize.NORMAL`, but just leave out the size property).
 
-- use the default size (that is `IconSize.NORMAL`, but just leave out the size property)
-- choose your wanted color of the icon by wrapping it in a Container with that color as font color (in this case `white`)
-
-<Canvas>
-  <Story story={WithIcon} />
+<Canvas withSource="open">
+  <Story name="WithIcon">
+    <IconButton onClick={() => console.log('Icon Button clicked')}>
+      <Icon show="clone" />
+    </IconButton>
+  </Story>
 </Canvas>

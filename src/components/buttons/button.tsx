@@ -46,7 +46,7 @@ interface RegularButtonProps {
   onClick: React.MouseEventHandler;
 }
 
-const Button = ({ children, onClick }: RegularButtonProps) => {
+export const Button = ({ children, onClick }: RegularButtonProps) => {
   return (
     <StyledButton onClick={(event) => onClick?.(event)}>
       <ButtonText>{children}</ButtonText>
@@ -54,5 +54,3 @@ const Button = ({ children, onClick }: RegularButtonProps) => {
     </StyledButton>
   );
 };
-
-export default Button;
