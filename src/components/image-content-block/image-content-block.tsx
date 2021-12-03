@@ -16,19 +16,18 @@ const mapTextAlignToFlex = (textAlign: 'right' | 'left' | 'bottom') => {
 };
 
 interface TextAlignProps {
-  textAlign: 'right' | 'left' | 'bottom';
+  textPlacement: 'right' | 'left' | 'bottom';
 }
 
 const BlockWrapper = styled.div<TextAlignProps>`
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
 
   gap: 12px 24px;
 
-  width: 100%;
-
   ${up('sm')} {
-    flex-direction: ${({ textAlign }) => mapTextAlignToFlex(textAlign)};
+    flex-direction: ${({ textPlacement: textPlacement }) =>
+      mapTextAlignToFlex(textPlacement)};
   }
 `;
 
@@ -63,14 +62,14 @@ const TextWrapper = styled.div<TextAlignProps>`
   color: ${theme.palette.text.default};
 
   ${up('sm')} {
-    ${({ textAlign }) =>
-      textAlign === 'bottom' &&
+    ${({ textPlacement: textPlacement }) =>
+      textPlacement === 'bottom' &&
       css`
         ${TextStyles.textXS}
       `}
 
-    ${({ textAlign }) =>
-      textAlign !== 'bottom' &&
+    ${({ textPlacement: textPlacement }) =>
+      textPlacement !== 'bottom' &&
       css`
         ${TextStyles.textS}
         max-width: 228px;
@@ -95,7 +94,7 @@ export const Image = ({
   attribution,
 }: ImageContentBlockProps) => {
   return (
-    <BlockWrapper textAlign={textAlign}>
+    <BlockWrapper textPlacement={textAlign}>
       <ImageWrapper>
         {children}
         {attribution && (
@@ -111,7 +110,7 @@ export const Image = ({
           </AttributionContainer>
         )}
       </ImageWrapper>
-      <TextWrapper textAlign={textAlign}>{description}</TextWrapper>
+      <TextWrapper textPlacement={textAlign}>{description}</TextWrapper>
     </BlockWrapper>
   );
 };
