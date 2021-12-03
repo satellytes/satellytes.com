@@ -10,7 +10,7 @@ import {
   Leadbox,
   LeadboxFooterContainer,
   LeadboxProps,
-} from '../leadbox/leadbox';
+} from '../../new-components/leadbox/leadbox';
 import { up } from '../breakpoint/breakpoint';
 
 /**

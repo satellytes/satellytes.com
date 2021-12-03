@@ -9,7 +9,7 @@ import { Aurora, AuroraType } from '../components/aurora/aurora';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
 import { LocalesQuery } from './index';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { LeadboxProps } from '../components/leadbox/leadbox';
+import { LeadboxProps } from '../new-components/leadbox/leadbox';
 
 interface ServicePageProps {
   data: {

@@ -1,11 +1,14 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
-import { TextStyles } from '../typography/typography-v2';
-import { theme } from '../layout/theme';
-import { Link, LinkButton } from '../links/links';
-import { up } from '../breakpoint/breakpoint';
-import { Illustration, IllustrationSize } from '../illustration/illustration';
-import { IllustrationType } from '../illustration/illustration-set';
+import styled from 'styled-components';
+import { TextStyles } from '../../components/typography/typography-v2';
+import { theme } from '../../components/layout/theme';
+import { Link, LinkButton } from '../../components/links/links';
+import { up } from '../../components/breakpoint/breakpoint';
+import {
+  Illustration,
+  IllustrationSize,
+} from '../../components/illustration/illustration';
+import { IllustrationType } from '../../components/illustration/illustration-set';
 
 export interface LeadContact {
   headline: string;

@@ -10,7 +10,7 @@ import { MarkdownAst } from '../components/markdown/markdown-ast';
 import { LocalesQuery } from './index';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { SpaceShuttle } from '../components/icons/illustrations/space-shuttle';
-import { LeadboxProps, LeadContact } from '../components/leadbox/leadbox';
+import { LeadboxProps, LeadContact } from '../new-components/leadbox/leadbox';
 
 interface ClientPageProps {
   data: {

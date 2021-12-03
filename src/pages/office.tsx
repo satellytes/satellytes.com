@@ -16,7 +16,7 @@ import { graphql } from 'gatsby';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Astronaut } from '../components/icons/illustrations/astronaut';
-import { LeadboxProps } from '../components/leadbox/leadbox';
+import { LeadboxProps } from '../new-components/leadbox/leadbox';
 
 /**
  * We can't wrap StaticImage as it doesn't support higher order functions.

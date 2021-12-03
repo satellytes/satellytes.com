@@ -17,7 +17,7 @@ import { up } from '../components/breakpoint/breakpoint';
 import { Aurora, AuroraType } from '../components/aurora/aurora';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
-import { LeadboxProps } from '../components/leadbox/leadbox';
+import { LeadboxProps } from '../new-components/leadbox/leadbox';
 
 const PositionsTitle = styled(SectionTitle)`
   font-size: 24px;

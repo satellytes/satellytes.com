@@ -12,7 +12,7 @@ import {
   Leadbox,
   LeadboxFooterContainer,
   LeadboxProps,
-} from '../leadbox/leadbox';
+} from '../../new-components/leadbox/leadbox';
 import { Breadcrumb, BreadcrumbEntry } from '../breadcrumb/breadcrumb';
 
 /**
