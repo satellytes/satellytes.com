@@ -73,11 +73,13 @@
   },
   "office": {
     "title": "Office",
-    "heading": "Our Office",
-    "subheading": "Feel at home with us. A small impression of our office in Sendlinger Straße in the heart of Munich.",
-    "link": "<0>If you want to work with us in this office, check out our <1>open positions</1>.</0>",
+    "heading": "Our new Office directly next to Sendlinger Tor",
+    "team": {
+      "title": "Team",
+      "heading": "That is who we are"
+    },
     "leadbox": {
-      "title": "Interested in working with us?",
+      "title": "Did you get interested?",
       "link": "Career"
     }
   },

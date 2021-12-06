@@ -86,12 +86,14 @@
     }
   },
   "office": {
-    "title": "Büro",
-    "heading": "Unser Büro",
-    "subheading": "Fühl dich wohl bei uns. Ein kleiner Eindruck von unserem Büro in der Sendlinger Straße im Herzen Münchens.",
-    "link": "<0>Wenn du mit uns in diesem Office arbeiten möchtest, dann schau dir doch unsere <1>offenen Stellen</1> an.</0>",
+    "title": "Office",
+    "heading": "Unser neues Office direkt am Sendlinger Tor",
+    "team": {
+      "title": "Team",
+      "heading": "Das sind wir"
+    },
     "leadbox": {
-      "title": "Interesse mit und bei uns zu arbeiten?",
+      "title": "Haben Sie Interesse bekommen?",
       "link": "Karriere"
     }
   },
