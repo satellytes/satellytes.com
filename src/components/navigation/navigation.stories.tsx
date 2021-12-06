@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Leadbox } from '../leadbox/leadbox';
+import { Leadbox } from '../../new-components/leadbox/leadbox';
 import Navigation from './navigation';
 
 export default {

@@ -20,29 +20,6 @@
         }
       }
     },
-    "clients": {
-      "title": "Customer Relationships instead of Customer Projects",
-      "topline": "Our Clients",
-      "text": "Wir unterstützen große Konzerne bei der Umsetzung ihrer digitalen Strategien. Finden Sie heraus für welche Kunden & Branchen wir tätig sind. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna.",
-      "teasers": {
-        "first": {
-          "title": "Insurance Group",
-          "text": "Integer posuere erat a ante venenatis dapibus posuere velit Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna."
-        },
-        "second": {
-          "title": "Sport Club",
-          "text": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna."
-        },
-        "third": {
-          "title": "Bank",
-          "text": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna."
-        },
-        "fourth": {
-          "title": "Automobile Club",
-          "text": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna."
-        }
-      }
-    },
     "career": {
       "title": "Work with us",
       "topline": "Career at Satellytes",
@@ -139,19 +116,6 @@
       "mail": "info@satellytes.com"
     }
   },
-  "clients": {
-    "title": "Clients",
-    "since": "Since",
-    "subheading": "We support large corporations in implementing their digital strategies.",
-    "description": "Find out which customers & industries we work for.",
-    "arrow-title": "Show client: {{name}}",
-    "leadbox": {
-      "title": "Interested?",
-      "subtitle": "Project Requests",
-      "text": "Gholam Abdol, Managing Director",
-      "mail": "info@satellytes.com"
-    }
-  },
   "contact": {
     "title": "Contact",
     "info-link": "<0>Use our contact-form or write an e-mail to <1>beep@satellytes.com</1></0>",
@@ -192,7 +156,6 @@
     "imprint": "Imprint",
     "data-privacy": "Data Privacy",
     "services": "Services",
-    "clients": "Clients",
     "career": "Career",
     "office": "Office",
     "blog": "Blog",
