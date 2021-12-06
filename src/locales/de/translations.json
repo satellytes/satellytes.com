@@ -20,29 +20,6 @@
         }
       }
     },
-    "clients": {
-      "title": "Kundenbeziehungen statt Kundenprojekte",
-      "topline": "Unsere Kunden",
-      "text": "Wir unterstützen große Konzerne bei der Umsetzung ihrer digitalen Strategien. Finden Sie heraus für welche Kunden & Branchen wir tätig sind. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna.",
-      "teasers": {
-        "first": {
-          "title": "Versicherung",
-          "text": "Integer posuere erat a ante venenatis dapibus posuere velit Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna."
-        },
-        "second": {
-          "title": "Sportverein",
-          "text": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna."
-        },
-        "third": {
-          "title": "Bank",
-          "text": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna."
-        },
-        "fourth": {
-          "title": "Automobilclub",
-          "text": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna."
-        }
-      }
-    },
     "career": {
       "title": "Arbeite mit uns",
       "topline": "Karriere bei Satellytes",
@@ -139,19 +116,6 @@
       "mail": "info@satellytes.com"
     }
   },
-  "clients": {
-    "title": "Kunden",
-    "since": "Seit",
-    "subheading": "Wir unterstützen große Konzerne bei der Umsetzung ihrer digitalen Strategien.",
-    "description": "Finden Sie heraus für welche Kunden & Branchen wir tätig sind.",
-    "arrow-title": "Zeige Kunden: {{name}}",
-    "leadbox": {
-      "title": "Haben Sie Interesse bekommen?",
-      "subtitle": "Projektanfragen",
-      "text": "Gholam Abdol, Geschäftsführer",
-      "mail": "info@satellytes.com"
-    }
-  },
   "contact": {
     "title": "Kontakt",
     "info-link": "<0>Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine E-Mail an <1>beep@satellytes.com</1></0>",
@@ -192,7 +156,6 @@
     "imprint": "Impressum",
     "data-privacy": "Datenschutz",
     "services": "Leistungen",
-    "clients": "Kunden",
     "career": "Karriere",
     "office": "Büro",
     "blog": "Blog",
