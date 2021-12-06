@@ -9,7 +9,7 @@ import { Aurora, AuroraType } from '../components/aurora/aurora';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
 import { LocalesQuery } from './index';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { SpaceShuttle } from '../components/icons/illustrations/space-shuttle';
+import { LeadboxProps } from '../new-components/leadbox/leadbox';
 
 interface ClientPageProps {
   data: {
@@ -23,18 +23,21 @@ interface ClientPageProps {
 
 const ClientsPage = ({ data, location }: ClientPageProps) => {
   const { t } = useTranslation();
-  const leadbox = {
-    title: t('services.leadbox.title'),
-    subtitle: t('services.leadbox.subtitle'),
-    text: t('services.leadbox.text'),
-    mail: t('services.leadbox.mail'),
-    icon: <SpaceShuttle />,
+
+  const leadboxProps: LeadboxProps = {
+    title: t('clients.leadbox.title'),
+    illustration: 'space_shuttle_043',
+    contact: {
+      headline: t('clients.leadbox.subtitle'),
+      title: t('clients.leadbox.text'),
+      email: t('clients.leadbox.mail'),
+    },
   };
 
   return (
     <>
       <Aurora type={AuroraType.Pink} />
-      <Layout transparentHeader={true} leadbox={leadbox}>
+      <Layout transparentHeader={true} leadbox={leadboxProps}>
         <SEO
           title={`${t('clients.title')} | Satellytes`}
           description={`${t('clients.subheading')} ${t('clients.description')}`}

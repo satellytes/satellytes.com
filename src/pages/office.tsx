@@ -16,6 +16,7 @@ import { graphql } from 'gatsby';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Astronaut } from '../components/icons/illustrations/astronaut';
+import { LeadboxProps } from '../new-components/leadbox/leadbox';
 
 /**
  * We can't wrap StaticImage as it doesn't support higher order functions.
@@ -40,15 +41,18 @@ interface OfficePageProps {
 const OfficePage = ({ location }: OfficePageProps) => {
   const { t } = useTranslation();
   const { language } = useI18next();
-  const leadbox = {
+
+  const leadboxProps: LeadboxProps = {
     title: t('office.leadbox.title'),
-    link: t('office.leadbox.link'),
-    linkTo: '/career/',
-    icon: <Astronaut />,
+    illustration: 'astronaut_012',
+    link: {
+      title: t('office.leadbox.link'),
+      href: '/career/',
+    },
   };
 
   return (
-    <Layout leadbox={leadbox}>
+    <Layout leadbox={leadboxProps}>
       <SEO title={`${t('office.title')} | Satellytes`} location={location} />
       <Grid>
         <GridItem>

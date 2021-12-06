@@ -17,7 +17,7 @@ import { up } from '../components/breakpoint/breakpoint';
 import { Aurora, AuroraType } from '../components/aurora/aurora';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
-import { Astronaut } from '../components/icons/illustrations/astronaut';
+import { LeadboxProps } from '../new-components/leadbox/leadbox';
 
 const PositionsTitle = styled(SectionTitle)`
   font-size: 24px;
@@ -101,18 +101,21 @@ const CareerPage = ({
   const { t } = useTranslation();
 
   const socialCard = data.markdownRemark?.fields?.socialCard;
-  const leadbox = {
+
+  const leadboxProps: LeadboxProps = {
     title: t('career.leadbox.title'),
-    subtitle: t('career.leadbox.subtitle'),
-    text: t('career.leadbox.text'),
-    mail: t('career.leadbox.mail'),
-    icon: <Astronaut />,
+    illustration: 'astronaut_012',
+    contact: {
+      headline: t('career.leadbox.subtitle'),
+      title: t('career.leadbox.text'),
+      email: t('career.leadbox.mail'),
+    },
   };
 
   return (
     <>
       <Aurora type={AuroraType.Pink} />
-      <Layout transparentHeader={true} leadbox={leadbox}>
+      <Layout transparentHeader={true} leadbox={leadboxProps}>
         <SEO
           imageUrl={socialCard}
           title={t('career.seo.title')}
