@@ -1,9 +1,9 @@
 import React from 'react';
 import { Trans } from 'react-i18next';
 import styled, { css } from 'styled-components';
-import { up } from '../breakpoint/breakpoint';
-import { theme } from '../layout/theme';
-import { TextStyles } from '../typography/typography-v2';
+import { up } from '../../components/breakpoint/breakpoint';
+import { theme } from '../../components/layout/theme';
+import { TextStyles } from '../../components/typography/typography-v2';
 
 const mapTextAlignToFlex = (textAlign: 'right' | 'left' | 'bottom') => {
   if (textAlign === 'right') {

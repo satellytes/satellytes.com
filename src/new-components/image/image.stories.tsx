@@ -1,7 +1,7 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentStory } from '@storybook/react';
 import ExampleImage from '../../images/office/sy-office-01.jpg';
-import { Image } from './image-content-block';
+import { Image } from './image';
 import styled from 'styled-components';
 
 const SampleImage = styled.img`
