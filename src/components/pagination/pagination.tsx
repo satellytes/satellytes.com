@@ -5,6 +5,8 @@ import { NextArrow } from '../icons/buttons-icons/next-arrow';
 import { theme } from '../layout/theme';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { TextStyles } from '../typography/typography-v2';
+import { Dropdown, DropdownOption } from '../dropdown/dropdown';
+import { Icon } from '../../new-components/icon/icon';
 
 interface PaginationProps {
   onPreviousClick: () => any;
@@ -17,15 +19,13 @@ interface PaginationProps {
 const PaginationContainer = styled.div`
   width: 100%;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 `;
 
-const Dropdown = styled.select`
+const PaginationDropdown = styled(Dropdown)`
   ${TextStyles.toplineR}
-  background: none;
-  border: none;
   color: ${theme.palette.text.link.default};
-  cursor: pointer;
 `;
 
 const StyledButton = styled.button`
@@ -58,13 +58,13 @@ export const Pagination = ({
   const options = new Array(amountOfPages)
     .fill(null)
     .map((_, index) => (
-      <option key={index} value={index}>{`${t('blog.pagination')} ${
-        index + 1
-      }`}</option>
+      <DropdownOption key={index} value={index.toString()}>{`${t(
+        'blog.pagination',
+      )} ${index + 1}`}</DropdownOption>
     ));
 
-  const handleDropdownChange = (event) => {
-    const selectedPage = parseInt(event.target.value);
+  const handleDropdownChange = (selectedOption) => {
+    const selectedPage = parseInt(selectedOption);
     onDropdownSelect(selectedPage);
   };
 
@@ -73,9 +73,13 @@ export const Pagination = ({
       <StyledButton onClick={onPreviousClick} disabled={currentPage === 0}>
         <PrevArrow />
       </StyledButton>
-      <Dropdown onChange={handleDropdownChange} value={currentPage}>
+      <PaginationDropdown
+        onChange={handleDropdownChange}
+        value={currentPage.toString()}
+        arrow={<Icon show={'chevron_down'} />}
+      >
         {options}
-      </Dropdown>
+      </PaginationDropdown>
       <StyledButton
         onClick={onNextClick}
         disabled={currentPage + 1 === amountOfPages}

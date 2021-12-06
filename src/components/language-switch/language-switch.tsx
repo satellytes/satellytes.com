@@ -2,6 +2,7 @@ import { useI18next } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import styled, { DefaultTheme } from 'styled-components';
 import { Chevron } from '../icons/chevron';
+import { Dropdown, DropdownOption } from '../dropdown/dropdown';
 
 interface LanguageSwitchProps {
   translation: any;
@@ -51,19 +52,15 @@ const StyledNav = styled.nav<{
   &:hover {
     color: ${(props) => getTextHoverColor(props)};
   }
+  display: flex;
+  align-items: center;
 `;
 
-const StyledSelection = styled.select`
-  background: none;
-  border: none;
+const StyledSelection = styled(Dropdown)`
   text-transform: uppercase;
   font-weight: bold;
   font-size: 14px;
   color: inherit;
-
-  appearance: none;
-  padding-left: 10px;
-  cursor: pointer;
 `;
 
 export const StyledChevron = styled(Chevron)`
@@ -88,15 +85,19 @@ export const LanguageSwitch = ({
     >
       <StyledChevron />
       <StyledSelection
-        onChange={(event) => {
-          changeLanguage(event.target.value);
+        onChange={(selectedOption) => {
+          changeLanguage(selectedOption);
         }}
         value={language}
       >
         {languages.map((languageOfLink) => (
-          <option value={languageOfLink} key={languageOfLink}>
-            {languageOfLink}
-          </option>
+          <DropdownOption
+            value={languageOfLink}
+            key={languageOfLink}
+            label={languageOfLink}
+          >
+            {languageOfLink == 'de' ? 'Deutsch' : 'English'}
+          </DropdownOption>
         ))}
       </StyledSelection>
     </StyledNav>

@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "@reach/accordion": "^0.16.1",
+    "@reach/listbox": "^0.16.2",
     "@reach/tabs": "^0.16.4",
     "@svgr/webpack": "^6.1.1",
     "@types/leaflet": "^1.7.6",

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { theme } from '../layout/theme';
 import { TextStyles } from '../typography/typography-v2';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { Dropdown, DropdownOption } from '../dropdown/dropdown';
 
 interface FileListItemProps {
   fileName: string;
@@ -39,15 +40,12 @@ const Actions = styled.div`
   padding-top: 1px;
 `;
 
-const FileCategoryDropdown = styled.select`
+const FileCategoryDropdown = styled(Dropdown)`
   ${TextStyles.textR}
   color: ${theme.palette.text.topline};
 
-  appearance: none;
-  border: none;
-  background: none;
-  cursor: pointer;
   margin-right: 24px;
+  padding: 0;
 
   border-bottom: rgba(0, 0, 0, 0) 1px solid;
   &:hover {
@@ -59,6 +57,7 @@ const RemoveButton = styled.button`
   ${TextStyles.textR}
   color: ${theme.palette.text.topline};
 
+  padding: 0;
   border: none;
   background: none;
   cursor: pointer;
@@ -84,13 +83,17 @@ export const FileListItem = ({
         {fileCategories && (
           <FileCategoryDropdown
             defaultValue={t('career.file-category').toString()}
-            onChange={(event) =>
-              onFileCategorySelect(index, event.target.value)
+            onChange={(selectedOption) =>
+              onFileCategorySelect(index, selectedOption)
             }
           >
-            <option disabled>{t('career.file-category')}</option>
+            <DropdownOption value={t('career.file-category')} disabled>
+              {t('career.file-category')}
+            </DropdownOption>
             {fileCategories.map((category) => (
-              <option key={category}>{category}</option>
+              <DropdownOption value={category} key={category}>
+                {category}
+              </DropdownOption>
             ))}
           </FileCategoryDropdown>
         )}
