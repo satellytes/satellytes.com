@@ -3,6 +3,7 @@ declare module '*.woff';
 declare module '*.eot';
 declare module '*.ttf';
 declare module '*.png';
+declare module '*.jpg';
 
 /**
  * This type matches the svg export as configured in storybook for SVGR.

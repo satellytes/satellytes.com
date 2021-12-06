@@ -173,5 +173,8 @@
       "link": "Career"
     }
   },
+  "image": {
+    "attribution": "Photo by "
+  },
   "404": "Oh sorry! Our Satellite took the wrong direction."
 }
