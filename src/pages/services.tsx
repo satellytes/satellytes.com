@@ -10,6 +10,7 @@ import { HeaderBlock } from '../components/header-block/header-block';
 import { SectionHeader } from '../new-components/section-header/section-header';
 import { ContentBlockContainer } from '../components/layout/content-block-container';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { LeadboxProps } from '../new-components/leadbox/leadbox';
 
 const HeroContainer = styled.div`
   position: relative;
@@ -42,12 +43,14 @@ interface ServicesPageProps {
 const ServicesPage = ({ location }: ServicesPageProps) => {
   const { t } = useTranslation();
 
-  const leadbox = {
+  const leadbox: LeadboxProps = {
     title: t('services.leadbox.title'),
-    subtitle: t('services.leadbox.subtitle'),
-    text: t('services.leadbox.text'),
-    mail: t('services.leadbox.mail'),
-    icon: 'space_shuttle_043',
+    illustration: 'space_shuttle_043',
+    contact: {
+      headline: t('services.leadbox.subtitle'),
+      title: t('services.leadbox.text'),
+      email: t('services.leadbox.mail'),
+    },
   };
 
   return (
