@@ -16,15 +16,6 @@ import { TeaserGrid } from '../components/teasers/grid/teaser-grid';
 import { ContentBlockContainer } from '../components/layout/content-block-container';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 
-interface AllClientsQuery {
-  nodes: {
-    start: string;
-    name: string;
-    nameEN: string;
-    path: string;
-  }[];
-}
-
 const HeroContainer = styled.div`
   position: relative;
   display: flex;
@@ -75,7 +66,6 @@ export interface LocalesQuery {
 interface IndexPageProps {
   data: {
     locales: LocalesQuery;
-    allClientsJson: AllClientsQuery;
   };
   location: Location;
 }
@@ -112,7 +102,7 @@ const IndexPage = ({ location }: IndexPageProps) => {
           <TeaserGrid>
             <Teaser
               title={t('main.services.teasers.first.title')}
-              linkTo="/clients"
+              linkTo="/services"
               cover={
                 <Illustration
                   show="space_shuttle_043"
@@ -124,7 +114,7 @@ const IndexPage = ({ location }: IndexPageProps) => {
             </Teaser>
             <Teaser
               title={t('main.services.teasers.second.title')}
-              linkTo="/clients"
+              linkTo="/services"
               cover={
                 <Illustration
                   show="space_shuttle_043"
@@ -136,7 +126,7 @@ const IndexPage = ({ location }: IndexPageProps) => {
             </Teaser>
             <Teaser
               title={t('main.services.teasers.third.title')}
-              linkTo="/clients"
+              linkTo="/services"
               cover={
                 <Illustration
                   show="space_shuttle_043"
@@ -148,41 +138,7 @@ const IndexPage = ({ location }: IndexPageProps) => {
             </Teaser>
           </TeaserGrid>
         </ContentBlockContainer>
-        <ContentBlockContainer>
-          <HomePageHeaderBlock
-            topline={t('main.clients.topline')}
-            headline={t('main.clients.title')}
-            large={true}
-          >
-            {t('main.clients.text')}
-          </HomePageHeaderBlock>
-          <TeaserGrid>
-            <Teaser
-              title={t('main.clients.teasers.first.title')}
-              linkTo="/clients"
-            >
-              {t('main.clients.teasers.first.text')}
-            </Teaser>
-            <Teaser
-              title={t('main.clients.teasers.second.title')}
-              linkTo="/clients"
-            >
-              {t('main.clients.teasers.second.text')}
-            </Teaser>
-            <Teaser
-              title={t('main.clients.teasers.third.title')}
-              linkTo="/clients"
-            >
-              {t('main.clients.teasers.third.text')}
-            </Teaser>
-            <Teaser
-              title={t('main.clients.teasers.fourth.title')}
-              linkTo="/clients"
-            >
-              {t('main.clients.teasers.fourth.text')}
-            </Teaser>
-          </TeaserGrid>
-        </ContentBlockContainer>
+
         <ContentBlockContainer>
           <HomePageHeaderBlock
             topline={t('main.career.topline')}
@@ -228,14 +184,6 @@ export const IndexPageQuery = graphql`
           data
           language
         }
-      }
-    }
-    allClientsJson {
-      nodes {
-        name
-        nameEN
-        path
-        start
       }
     }
   }

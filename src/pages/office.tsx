@@ -15,7 +15,6 @@ import { up } from '../components/breakpoint/breakpoint';
 import { graphql } from 'gatsby';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Astronaut } from '../components/icons/illustrations/astronaut';
 import { LeadboxProps } from '../new-components/leadbox/leadbox';
 
 /**

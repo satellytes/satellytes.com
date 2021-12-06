@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { up } from '../../breakpoint/breakpoint';
 
 const ScrollContainer = styled.div`
-  overflow-x: scroll;
+  overflow-x: auto;
 
   /**
    * we stretch the container on the left and right over the PageLayout, 
