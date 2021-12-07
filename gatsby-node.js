@@ -5,7 +5,7 @@ const {
 const { createBlogPosts } = require('./gatsby/create-pages/create-blog-posts');
 const {
   createCareerDetails,
-} = require('./gatsby/create-pages/create-carrer-details');
+} = require('./gatsby/create-pages/create-career-details');
 const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.onCreateNode = (gatsbyCreateNodeArgs) => {

@@ -3,7 +3,6 @@ import {
   Accordion,
   AccordionSection,
 } from '../../components/accordion/accordion';
-import { TextStyles } from '../../components/typography/typography-v2';
 import styled from 'styled-components';
 import { SectionHeader } from '../../new-components/section-header/section-header';
 
