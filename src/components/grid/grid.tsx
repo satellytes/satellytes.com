@@ -1,5 +1,5 @@
 import styled, { css, CSSProp } from 'styled-components';
-import { up } from '../breakpoint/breakpoint';
+import { up } from '../style-utils/breakpoint';
 
 type GridItemSize = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 

@@ -9,7 +9,7 @@ import {
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { LatLngExpression } from 'leaflet';
-import { up } from '../breakpoint/breakpoint';
+import { up } from '../style-utils/breakpoint';
 
 import { BringMeHome } from './bring-home';
 import { SatellytesMarkerIcon } from './sy-marker';

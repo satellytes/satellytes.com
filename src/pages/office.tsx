@@ -11,7 +11,7 @@ import {
 import { Grid, GridItem } from '../components/grid/grid';
 import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
-import { up } from '../components/breakpoint/breakpoint';
+import { up } from '../components/style-utils/breakpoint';
 import { graphql } from 'gatsby';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { useI18next } from 'gatsby-plugin-react-i18next';

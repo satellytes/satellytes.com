@@ -5,7 +5,7 @@ import SEO from '../components/seo';
 import { SubTitle } from '../components/typography/typography';
 import { Grid, GridItem } from '../components/grid/grid';
 import styled from 'styled-components';
-import { up } from '../components/breakpoint/breakpoint';
+import { up } from '../components/style-utils/breakpoint';
 import { graphql } from 'gatsby';
 
 const NotFoundTitle = styled(SubTitle)`

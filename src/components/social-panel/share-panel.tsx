@@ -7,7 +7,7 @@ import {
   WhatsappShareButton,
 } from 'react-share';
 import styled from 'styled-components';
-import { up } from '../breakpoint/breakpoint';
+import { up } from '../style-utils/breakpoint';
 import { IconEmail } from '../icons/social/email';
 import { IconFacebook } from '../icons/social/facebook';
 import { LinkedinWrapper } from '../icons/social/linkedin';

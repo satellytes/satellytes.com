@@ -1,7 +1,7 @@
 import React from 'react';
 import { Trans } from 'react-i18next';
 import styled, { css } from 'styled-components';
-import { up } from '../../components/breakpoint/breakpoint';
+import { up } from '../../components/style-utils/breakpoint';
 import { theme } from '../../components/layout/theme';
 import { TextStyles } from '../../components/typography/typography-v2';
 
@@ -33,7 +33,7 @@ const BlockWrapper = styled.div<TextAlignProps>`
 
 const ImageWrapper = styled.div`
   display: inline;
-  position relative;
+  position: relative;
 `;
 
 const AttributionContainer = styled.div`

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { up } from '../breakpoint/breakpoint';
+import { up } from '../style-utils/breakpoint';
 import { CardProps, CardWrapper, CardTitle, CardText } from './card';
 import { Link } from '../links/links';
 import {
