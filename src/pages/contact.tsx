@@ -11,10 +11,6 @@ import { ContactForm } from '../components/form/contact';
 import styled from 'styled-components';
 import { theme } from '../components/layout/theme';
 
-const StyledContactForm = styled(ContactForm)`
-  color: black;
-`;
-
 const StyledLink = styled(Link)`
   color: ${theme.palette.text.link.default};
 
@@ -39,7 +35,10 @@ const ContactPage = ({ location }: ContactPageProps) => {
       />
       <LayoutV2 transparentHeader={true} light={true} hero={<Leaflet />}>
         <ContentBlockContainer>
-          <SectionHeader headline={t('contact.address')}>
+          <SectionHeader
+            headline={t('contact.address')}
+            kicker={t('contact.title')}
+          >
             Satellytes Digital Consulting GmbH
             <br />
             Sendlinger Straße 52
@@ -67,7 +66,7 @@ const ContactPage = ({ location }: ContactPageProps) => {
           </SectionHeader>
         </ContentBlockContainer>
 
-        <StyledContactForm />
+        <ContactForm />
       </LayoutV2>
     </>
   );
