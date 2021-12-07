@@ -23,7 +23,7 @@ const BlockWrapper = styled.div`
   display: flex;
 
   ${down('sm')} {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 `;
 
