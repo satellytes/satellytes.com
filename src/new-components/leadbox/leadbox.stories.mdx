@@ -1,0 +1,56 @@
+import { Leadbox } from './leadbox';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+
+<Meta
+  title="Components/Leadbox"
+  component={{ Leadbox }} />
+
+# Leadbox
+Give the user for further actions. This can either be a contact to approach or a destination to navigate to. Never use both.
+
+
+<Canvas withSource='open'>
+  <Story name="Regular">
+    <Leadbox
+      illustration={'space_shuttle_043'}
+      title="Haben Sie Interesse bekommen?"
+      contact={{
+        email: "example@satellytes.com",
+        title: "Gholam Abdol, Geschäftsführer",
+        headline: "Projektanfrage"
+      }}/>
+  </Story>
+</Canvas>
+
+<ArgsTable of={Leadbox}/>
+
+## Show a link
+By giving a `link` object with `title` and `href` you can offer a button beneath the illustrations for the user's next action.
+
+<Canvas withSource='open'>
+  <Story name="With Link" >
+    <Leadbox
+      illustration={'blimp_001'}
+      title="Haben Sie Interesse bekommen?"
+      link={{
+        title: "Karriere",
+        href: 'http://www.example.com'
+      }}/>
+  </Story>
+</Canvas>
+
+## Show a contact
+By giving a `contact` object with `email`, `title` & `headline` you can display a contact person to reach out for the user's next action.
+
+<Canvas withSource='open'>
+  <Story name="With Contact" >
+    <Leadbox
+      illustration={'alien_002'}
+      title="Haben Sie Interesse bekommen?"
+      contact={{
+        email: "hello@example.com",
+        title: "John Smith, CEO",
+        headline: "Projektanfrage"
+      }}/>
+  </Story>
+</Canvas>

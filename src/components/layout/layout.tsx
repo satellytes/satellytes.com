@@ -8,7 +8,11 @@ import styled, { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './global-style';
 import { FluidObject } from 'gatsby-image';
 import { HeroImageLegacy } from '../header/hero-image-legacy';
-import { Leadbox, LeadboxProps } from '../leadbox/leadbox';
+import {
+  Leadbox,
+  LeadboxFooterContainer,
+  LeadboxProps,
+} from '../../new-components/leadbox/leadbox';
 import { Breadcrumb, BreadcrumbEntry } from '../breadcrumb/breadcrumb';
 
 /**
@@ -19,12 +23,12 @@ const FullHeightContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  /** min-height: height of screen - fixed element (in this case: header) */
-  min-height: calc(100vh - 56px);
+  min-height: 100vh;
 `;
 
 const Main = styled.main`
   flex-grow: 1;
+
   padding-bottom: 160px;
   width: 100%;
   max-width: ${(props) => props.theme.maxWidth};
@@ -108,7 +112,6 @@ function setPolarityBodyClass(isLight: boolean) {
  * and/or store manual overridden value (through a switch)
  * in the local storage.
  */
-
 function overrideDarkFromQuery() {
   const noBrowser = typeof window === 'undefined';
 
@@ -171,7 +174,11 @@ const Layout = ({
       )}
       <FullHeightContainer>
         <Main>{children}</Main>
-        {leadbox && <Leadbox {...leadbox} />}
+        {leadbox && (
+          <LeadboxFooterContainer>
+            <Leadbox {...leadbox} />
+          </LeadboxFooterContainer>
+        )}
         <footer>
           <Navigation />
         </footer>
