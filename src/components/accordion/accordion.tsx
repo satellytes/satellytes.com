@@ -52,6 +52,7 @@ const PanelContainer = styled.div`
 
 const PanelIllustration = styled(Illustration)`
   padding-right: 1em;
+  box-sizing: content-box;
   float: left;
 
   ${up('sm')} {
