@@ -58,8 +58,8 @@ const ContactPage = ({ location }: ContactPageProps) => {
               <p>
                 Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine
                 E-Mail an
-                <StyledLink to="mailto:beep@satellytes.com">
-                  beep@satellytes.com
+                <StyledLink to="mailto:info@satellytes.com">
+                  info@satellytes.com
                 </StyledLink>
               </p>
             </Trans>
