@@ -61,6 +61,7 @@ const StyledSelection = styled(Dropdown)`
   font-weight: bold;
   font-size: 14px;
   color: inherit;
+  padding: 0 0 0 10px;
 `;
 
 export const StyledChevron = styled(Chevron)`
@@ -94,7 +95,7 @@ export const LanguageSwitch = ({
           <DropdownOption
             value={languageOfLink}
             key={languageOfLink}
-            label={languageOfLink}
+            popoverLabel={languageOfLink}
           >
             {languageOfLink == 'de' ? 'Deutsch' : 'English'}
           </DropdownOption>

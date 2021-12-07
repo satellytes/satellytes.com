@@ -24,11 +24,26 @@ const StyledListboxButton = styled(ListboxButton)`
 `;
 
 interface DropdownProps {
+  /**
+   * Initial value of the dropdown
+   * */
   defaultValue?: string;
+  /**
+   * Returns the value of the selected option on change
+   * */
   onChange?: (selectedOption: string) => any;
+  /**
+   * Current active value
+   * */
   value?: string;
-  children: React.ReactNode | React.ReactNode[];
+  /**
+   * An icon which is shown next to the dropdown
+   * */
   arrow?: React.ReactNode;
+  /**
+   * The DropdownOptions are passed as children
+   * */
+  children: React.ReactNode | React.ReactNode[];
 }
 
 export const Dropdown = ({
@@ -36,6 +51,7 @@ export const Dropdown = ({
   value,
   children,
   onChange,
+  arrow,
   ...props
 }: DropdownProps) => {
   return (
@@ -44,7 +60,7 @@ export const Dropdown = ({
       value={value}
       onChange={onChange}
     >
-      <StyledListboxButton {...props} />
+      <StyledListboxButton arrow={arrow} {...props} />
       <StyledListboxPopover>
         <ListboxList>{children}</ListboxList>
       </StyledListboxPopover>
@@ -53,20 +69,30 @@ export const Dropdown = ({
 };
 
 interface DropdownOptionProps {
+  /**
+   * Value which is returned when `onChange()` of the parent is called
+   * */
   value: string;
-  children: React.ReactNode | React.ReactNode[];
-  label?: string;
+  /**
+   * The label which is shown in the expanded dropdown. If no `popoverLabel` is given, the same value as in `children` is displayed
+   * */
+  popoverLabel?: string;
+
   disabled?: boolean;
+  /**
+   * Element which is shown in the collapsed state. If no `popoverLabel` is given, it will also be displayed in the expanded state.
+   * */
+  children: React.ReactNode | React.ReactNode[];
 }
 
 export const DropdownOption = ({
   value,
   children,
-  label,
+  popoverLabel,
   ...props
 }: DropdownOptionProps) => {
   return (
-    <ListboxOption value={value} label={label} {...props}>
+    <ListboxOption value={value} label={popoverLabel} {...props}>
       {children}
     </ListboxOption>
   );
