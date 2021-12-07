@@ -1,11 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import {
-  TeaserTitle,
-  Text,
-  Timestamp,
-  Topline,
-} from '../typography/typography';
+import { TeaserTitle, Timestamp, Topline } from '../typography/typography';
 import { Arrow } from '../icons/arrow';
 import { theme } from '../layout/theme';
 import { Link } from '../links/links';

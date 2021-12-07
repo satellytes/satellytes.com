@@ -7,12 +7,6 @@ import { TextStyles } from '../../components/typography/typography-v2';
 import styled from 'styled-components';
 import { SectionHeader } from '../../new-components/section-header/section-header';
 
-const Headline = styled.h2`
-  margin: 0;
-  ${TextStyles.headlineM}
-  margin-bottom: 16px;
-`;
-
 const Spacer = styled.div`
   margin-bottom: 48px;
 `;

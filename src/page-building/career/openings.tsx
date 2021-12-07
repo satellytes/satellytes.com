@@ -38,7 +38,7 @@ export const Openings = (props: OpeningsProps) => {
       <SectionHeadline>Unsere offenen Stellen</SectionHeadline>
 
       <TeaserGrid>
-        {props.jobs.map((item, index) => (
+        {props.jobs.map((item) => (
           <Teaser title={item.name} linkTo={item.satellytesPath} key={item.id}>
             <div
               dangerouslySetInnerHTML={{

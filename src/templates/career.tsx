@@ -2,7 +2,6 @@ import React from 'react';
 import SEO from '../components/seo';
 import { graphql } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { LeadboxProps } from '../new-components/leadbox/leadbox';
 import { CareerPage } from '../page-building/career/career-page';
 import { PersonioJobPosition } from '../@types/personio';
 
