@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Teaser } from '../../components/teasers/teaser';
 import { Illustration } from '../../components/illustration/illustration';
-import { up } from '../../components/breakpoint/breakpoint';
+import { up } from '../../components/style-utils/breakpoint';
 import { IllustrationType } from '../../components/illustration/illustration-set';
 import { SectionHeader } from '../../new-components/section-header/section-header';
 

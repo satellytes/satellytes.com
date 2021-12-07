@@ -4,11 +4,9 @@ import { up } from '../../style-utils/breakpoint';
 import { isNoneTouch } from '../../style-utils/is-touch';
 
 const ScrollContainer = styled.div`
-  overflow: hidden;
+  overflow-x: auto;
 
   ${isNoneTouch()} {
-    overflow-x: scroll;
-
     /**
      * we push to content box over it's boundaries to have some distance to
      * to scroll bar
@@ -55,6 +53,10 @@ const StyledTeaserGrid = styled.div<{ amountOfChildren: number }>`
     gap: 70px;
     grid-template-columns: ${(props) =>
       props.amountOfChildren > 3 ? '1fr 1fr' : '1fr 1fr 1fr'};
+
+    > :last-child {
+      padding-right: 0;
+    }
   }
 `;
 

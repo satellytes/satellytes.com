@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
-import { up } from '../components/breakpoint/breakpoint';
+import { up } from '../components/style-utils/breakpoint';
 import SEO from '../components/seo';
 import { LayoutV2 } from '../components/layout/layout-v2';
 import { Aurora } from '../components/aurora/aurora';

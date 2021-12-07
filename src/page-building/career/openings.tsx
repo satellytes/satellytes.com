@@ -1,7 +1,7 @@
 import React from 'react';
 import { Teaser } from '../../components/teasers/teaser';
 import styled from 'styled-components';
-import { up } from '../../components/breakpoint/breakpoint';
+import { up } from '../../components/style-utils/breakpoint';
 import { TextStyles } from '../../components/typography/typography-v2';
 import { SyPersonioJob } from '../../@types/personio';
 
