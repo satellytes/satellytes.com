@@ -32,7 +32,6 @@ export const ApplicationProcess = () => {
           deiner Leidenschaft fürs Coden. Zeig uns deinen GitHub oder GitLab
           Account. Hast du einen Blog? Dann verweise gerne darauf.
         </AccordionSection>
-
         <AccordionSection
           title="2. Kennenlernen"
           illustration={'astronaut_015'}
@@ -43,7 +42,6 @@ export const ApplicationProcess = () => {
           bist und was dich antreibt. Danach werden wir dich besser
           kennen und du kennst die ersten Gesichter hinter Satellytes.
         </AccordionSection>
-
         <AccordionSection title="3. Technisches Interview">
           Wir machen weder Whiteboard Interviews, noch schicken wir die
           irgendwelche Programmieraufgaben. Stattdessen wirst du vorab eine Code
@@ -54,7 +52,6 @@ export const ApplicationProcess = () => {
           wir auch Zeit etwas über unsere Kultur bei Satellytes zu sprechen, um
           sicherzustellen dass du dich bei uns wohl fühlst.
         </AccordionSection>
-
         <AccordionSection title="4. Entscheidung">
           Du hast gezeigt was du kannst und wie du arbeitest. Wir
           haben gezeigt was uns antreibt und wie wir arbeiten. Wenn alles passt
