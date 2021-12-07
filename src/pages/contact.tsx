@@ -1,21 +1,25 @@
 import React from 'react';
-
-import Layout from '../components/layout/layout';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import SEO from '../components/seo';
-import { SubTitle, Text, TextLink } from '../components/typography/typography';
-import { Grid, GridItem } from '../components/grid/grid';
+import { LayoutV2 } from '../components/layout/layout-v2';
+import { Leaflet } from '../components/leaflet/leaflet';
+import { SectionHeader } from '../new-components/section-header/section-header';
+import { Link } from '../components/links/links';
+import { graphql } from 'gatsby';
+import { ContentBlockContainer } from '../components/layout/content-block-container';
 import { ContactForm } from '../components/form/contact';
 import styled from 'styled-components';
-import { up } from '../components/breakpoint/breakpoint';
-import { Leaflet } from '../components/leaflet/leaflet';
-import { graphql } from 'gatsby';
-import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
+import { theme } from '../components/layout/theme';
 
-const ContactTitle = styled(SubTitle)`
-  margin-top: 40px;
+const StyledContactForm = styled(ContactForm)`
+  color: black;
+`;
 
-  ${up('md')} {
-    margin-top: 120px;
+const StyledLink = styled(Link)`
+  color: ${theme.palette.text.link.default};
+
+  &:hover {
+    border-bottom: 1px solid ${theme.palette.text.link.default};
   }
 `;
 
@@ -23,47 +27,48 @@ interface ContactPageProps {
   location: Location;
 }
 
-const ContactPage: React.FC<ContactPageProps> = (props: ContactPageProps) => {
+const ContactPage = ({ location }: ContactPageProps) => {
   const { t } = useTranslation();
+
   return (
     <>
-      <Layout transparentHeader={true} hero={<Leaflet />}>
-        <SEO
-          title={`${t('contact.title')} | Satellytes`}
-          description={t('contact.info')}
-          location={props.location}
-        />
+      <SEO
+        title={`${t('contact.title')} | Satellytes`}
+        description={t('contact.info')}
+        location={location}
+      />
+      <LayoutV2 transparentHeader={true} light={true} hero={<Leaflet />}>
+        <ContentBlockContainer>
+          <SectionHeader headline={t('contact.address')}>
+            Satellytes Digital Consulting GmbH
+            <br />
+            Sendlinger Straße 52
+            <br />
+            80331 München
+            <br />
+            <br />
+            <StyledLink to="https://goo.gl/maps/EGTh9xqgR7P871aC9">
+              Google Maps &gt;
+            </StyledLink>
+          </SectionHeader>
+        </ContentBlockContainer>
 
-        <Grid center>
-          <GridItem xs={0} md={2} />
-          <GridItem xs={12} md={8}>
-            <ContactTitle>{t('contact.title')}</ContactTitle>
-            <div>
-              <Text>
-                <b>Satellytes Digital Consulting GmbH</b>
-                <br />
-                Sendlinger Straße 52
-                <br />
-                80331 München
-              </Text>
-              <TextLink to="https://goo.gl/maps/EGTh9xqgR7P871aC9">
-                Google Maps &gt;
-              </TextLink>
-              <SubTitle>E-Mail</SubTitle>
-              <Trans i18nKey="contact.info-link">
-                <Text style={{ marginBottom: '40px' }}>
-                  Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine
-                  E-Mail an
-                  <TextLink to="mailto:beep@satellytes.com">
-                    beep@satellytes.com
-                  </TextLink>
-                </Text>
-              </Trans>
-              <ContactForm />
-            </div>
-          </GridItem>
-        </Grid>
-      </Layout>
+        <ContentBlockContainer>
+          <SectionHeader headline={'E-Mail'}>
+            <Trans i18nKey="contact.info-link">
+              <p>
+                Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine
+                E-Mail an
+                <StyledLink to="mailto:beep@satellytes.com">
+                  beep@satellytes.com
+                </StyledLink>
+              </p>
+            </Trans>
+          </SectionHeader>
+        </ContentBlockContainer>
+
+        <StyledContactForm />
+      </LayoutV2>
     </>
   );
 };
