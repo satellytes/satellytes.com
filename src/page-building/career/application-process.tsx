@@ -14,8 +14,8 @@ export const ApplicationProcess = () => {
   return (
     <>
       <SectionHeader headline="Bewerbungsprozess">
-        Sich auf einen Job bewerben, das kann oft frustrierend sein. Unser Team
-        hat sich deshalb etwas überlegt, was Sinn macht. Schau dir hier unsere
+        Sich auf einen Job zu bewerben kann oft frustrierend sein. Unser Team
+        hat sich deshalb etwas überlegt was Sinn macht. Schau dir hier unsere
         vier Schritte deiner Bewerbung an.
       </SectionHeader>
 
@@ -39,13 +39,13 @@ export const ApplicationProcess = () => {
         >
           Wenn wir deine Bewerbung überzeugend finden, laden wir dich zu einem
           ersten Gespräch ein. Hier werden ein oder zwei deiner zukünftigen
-          Kollegen mit dir sprechen. Darüber wie du zum Programmieren gekommen
-          bist und was dich antreibt. Danach werden werden wir dich besser
+          Kollegen mit dir sprechen und wir reden darüber wie du zum Programmieren gekommen
+          bist und was dich antreibt. Danach werden wir dich besser
           kennen und du kennst die ersten Gesichter hinter Satellytes.
         </AccordionSection>
 
         <AccordionSection title="3. Technisches Interview">
-          Wir machen keine keine Whiteboard Interviews, noch schicken wir die
+          Wir machen weder Whiteboard Interviews, noch schicken wir die
           irgendwelche Programmieraufgaben. Stattdessen wirst du vorab eine Code
           Review durchführen, die wir dann zusammen im Interview durchsprechen.
           Hier werden sich ganz automatische spannende Gespräch ergeben. Wir
@@ -56,9 +56,9 @@ export const ApplicationProcess = () => {
         </AccordionSection>
 
         <AccordionSection title="4. Entscheidung">
-          Du kennst Du hast gezeigt was du kannst und wie du arbeitest. Wir
+          Du hast gezeigt was du kannst und wie du arbeitest. Wir
           haben gezeigt was uns antreibt und wie wir arbeiten. Wenn alles passt
-          lassen wir es dir wissen. Passt etwas nicht, dann lassen wir das dich
+          lassen wir es dich wissen. Passt etwas nicht, dann lassen wir das dich
           ebenfalls wissen.
         </AccordionSection>
       </Accordion>
