@@ -8,7 +8,7 @@ const Template: ComponentStory<typeof TeaserGrid> = ({ children, ...rest }) => (
 );
 
 const ExampleTeaser = () => (
-  <Teaser title="Enterprise Applikationen & Libraries" linkTo="/clients">
+  <Teaser title="Enterprise Applikationen & Libraries" linkTo="/example">
     Teams aus Designern, Produktmanagern, Entwicklern, Supportmitarbeitern,
     Marketingspezialisten usw. bringen die richtige Mischung aus Know-how und
     Erfahrung mit und sorgen dafür, dass auch mal über den Tellerrand geschaut
