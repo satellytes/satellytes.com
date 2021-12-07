@@ -46,7 +46,7 @@ const ContactPage = ({ location }: ContactPageProps) => {
             80331 München
             <br />
             <br />
-            <StyledLink to="https://goo.gl/maps/EGTh9xqgR7P871aC9">
+            <StyledLink to="https://g.page/satellytes?share">
               Google Maps &gt;
             </StyledLink>
           </SectionHeader>
