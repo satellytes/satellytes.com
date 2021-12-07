@@ -7,7 +7,7 @@ import {
   ImageCardSubtitle,
   TextLink,
 } from '../typography/typography';
-import { up } from '../breakpoint/breakpoint';
+import { up } from '../style-utils/breakpoint';
 
 interface ImageCardProps {
   image: FluidObject;

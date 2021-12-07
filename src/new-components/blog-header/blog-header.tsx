@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { TextStyles } from '../../components/typography/typography-v2';
-import { up } from '../../components/breakpoint/breakpoint';
+import { up } from '../../components/style-utils/breakpoint';
 
 interface BlogHeaderProps {
   /**

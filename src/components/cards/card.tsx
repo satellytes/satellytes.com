@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 import { theme } from '../layout/theme';
-import { up } from '../breakpoint/breakpoint';
+import { up } from '../style-utils/breakpoint';
 import { GridItem } from '../grid/grid';
 import { Link } from '../links/links';
 

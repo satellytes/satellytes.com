@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { up } from '../breakpoint/breakpoint';
+import { up } from '../style-utils/breakpoint';
 import { theme } from '../layout/theme';
 import { Swoosh } from '../icons/swoosh';
 import { HEADER_HEIGHT } from '../header/header';

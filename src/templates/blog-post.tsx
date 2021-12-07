@@ -2,7 +2,7 @@ import parseISO from 'date-fns/parseISO';
 import { graphql } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
-import { up } from '../components/breakpoint/breakpoint';
+import { up } from '../components/style-utils/breakpoint';
 import Byline from '../components/byline/byline';
 import { Grid, GridItem } from '../components/grid/grid';
 import Layout from '../components/layout/layout';

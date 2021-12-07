@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { up } from '../breakpoint/breakpoint';
+import { up } from '../style-utils/breakpoint';
 import { LinkButton } from '../links/links';
 
 const Teaser = styled.div``;

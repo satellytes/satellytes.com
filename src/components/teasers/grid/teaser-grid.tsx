@@ -1,9 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
-import { up } from '../../breakpoint/breakpoint';
+import { up } from '../../style-utils/breakpoint';
+import { isNoneTouch } from '../../style-utils/is-touch';
 
 const ScrollContainer = styled.div`
-  overflow-x: auto;
+  overflow: hidden;
+
+  ${isNoneTouch()} {
+    overflow-x: scroll;
+
+    /**
+     * we push to content box over it's boundaries to have some distance to
+     * to scroll bar
+     */
+    padding-bottom: 16px;
+    margin-bottom: -16px;
+  }
 
   /**
    * we stretch the container on the left and right over the PageLayout, 
@@ -14,6 +26,8 @@ const ScrollContainer = styled.div`
   padding-left: 24px;
 
   ${up('md')} {
+    overflow: hidden;
+
     margin-right: 0;
     margin-left: 0;
     padding-left: 0;

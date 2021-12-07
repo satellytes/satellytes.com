@@ -5,7 +5,7 @@ import {
 } from '../util/cloudinary-util';
 import { useDebounce, useWindowSize } from 'react-use';
 import styled from 'styled-components';
-import { up } from '../breakpoint/breakpoint';
+import { up } from '../style-utils/breakpoint';
 
 const IMAGE_MAX_WIDTH = 1280;
 
