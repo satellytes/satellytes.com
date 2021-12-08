@@ -1,0 +1,47 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import { IconButton } from './icon-button';
+import { Button } from './button';
+import { Icon } from '../icon/icon';
+
+<Meta title="Components/Button" component={(Button, IconButton)} />
+
+# Button
+
+There are multiple Button components for different situations.
+
+### Overview of Buttons
+
+---
+
+#### Regular
+
+This is the Regular Button, which should be used in all the standard use cases. Pass the `label` as `children` to the Button.
+
+<ArgsTable of={Button} />
+
+<Canvas withSource="open">
+  <Story name="Regular">
+    <Button onClick={() => console.log('Regular Button clicked')}>
+      Alle Services
+    </Button>
+  </Story>
+</Canvas>
+
+#### IconButton
+
+This is the Icon Button. It is always of the size `24x24` and it shows one of the icons specified [here](?path=/docs/components-icon--regular).
+
+The `show` property of IconButton defines which Icon will be displayed.
+
+In Addition, an IconButton takes all the props of a normal `<button>`, e.g. the `onClick` property.
+
+<ArgsTable of={IconButton} />
+
+<Canvas withSource="open">
+  <Story name="WithIcon">
+    <IconButton
+      onClick={() => console.log('Icon Button clicked')}
+      show="clone"
+    />
+  </Story>
+</Canvas>

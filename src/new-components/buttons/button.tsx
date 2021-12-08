@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Icon, IconSize } from '../../new-components/icon/icon';
-import { resetButton } from '../css-helpers';
+import { Icon, IconSize } from '../icon/icon';
+import { resetButton } from '../../components/css-helpers';
 import { lighten } from 'polished';
-import { TextStyles } from '../typography/typography-v2';
+import { TextStyles } from '../../components/typography/typography-v2';
 
 const StyledButton = styled.button`
   ${resetButton};

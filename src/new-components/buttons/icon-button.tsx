@@ -1,6 +1,8 @@
 import { lighten } from 'polished';
 import React from 'react';
 import styled from 'styled-components';
+import { Icon } from '../icon/icon';
+import { IconType } from '../icon/icon-set';
 
 const StyledButton = styled.button`
   border: none;
@@ -25,11 +27,14 @@ const StyledButton = styled.button`
   }
 `;
 
-interface CopyProps {
-  onClick: React.MouseEventHandler;
-  children: React.ReactNode;
+interface IconButtonProps extends React.ComponentPropsWithoutRef<'button'> {
+  show: IconType;
 }
 
-export const IconButton = ({ onClick, children }: CopyProps) => {
-  return <StyledButton onClick={onClick}>{children}</StyledButton>;
+export const IconButton = (props: IconButtonProps) => {
+  return (
+    <StyledButton {...props}>
+      <Icon show={props.show}></Icon>
+    </StyledButton>
+  );
 };
