@@ -23,7 +23,7 @@ exports.onCreateNode = (gatsbyCreateNodeArgs) => {
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode });
     createNodeField({
-      name: `path`,
+      name: `slug`,
       node,
       value,
     });
