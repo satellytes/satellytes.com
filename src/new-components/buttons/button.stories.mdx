@@ -8,6 +8,7 @@ import { Icon } from '../icon/icon';
 # Button
 
 There are multiple Button components for different situations.
+They all take all the props of a normal `<button>`, e.g. the `onClick` property.
 
 ### Overview of Buttons
 
@@ -16,8 +17,6 @@ There are multiple Button components for different situations.
 #### Regular
 
 This is the Regular Button, which should be used in all the standard use cases. Pass the `label` as `children` to the Button.
-
-<ArgsTable of={Button} />
 
 <Canvas withSource="open">
   <Story name="Regular">
@@ -32,8 +31,6 @@ This is the Regular Button, which should be used in all the standard use cases. 
 This is the Icon Button. It is always of the size `24x24` and it shows one of the icons specified [here](?path=/docs/components-icon--regular).
 
 The `show` property of IconButton defines which Icon will be displayed.
-
-In Addition, an IconButton takes all the props of a normal `<button>`, e.g. the `onClick` property.
 
 <ArgsTable of={IconButton} />
 

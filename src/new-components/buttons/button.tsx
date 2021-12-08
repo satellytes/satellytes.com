@@ -41,15 +41,12 @@ const ButtonText = styled.span`
   padding-right: 16px;
 `;
 
-interface RegularButtonProps {
-  children: React.ReactNode;
-  onClick: React.MouseEventHandler;
-}
+type RegularButtonProps = React.ComponentPropsWithoutRef<'button'>;
 
-export const Button = ({ children, onClick }: RegularButtonProps) => {
+export const Button = (props: RegularButtonProps) => {
   return (
-    <StyledButton onClick={(event) => onClick?.(event)}>
-      <ButtonText>{children}</ButtonText>
+    <StyledButton {...props}>
+      <ButtonText>{props.children}</ButtonText>
       <StyledIcon show={'chevron_right'} size={IconSize.NORMAL} />
     </StyledButton>
   );
