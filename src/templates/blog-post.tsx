@@ -15,8 +15,7 @@ import { HeroImage } from '../components/hero-image/hero-image';
 import { LocalesQuery } from '../pages';
 import FollowPanel from '../components/social-panel/follow-panel';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { Astronaut } from '../components/icons/illustrations/astronaut';
-import { LeadboxProps } from '../components/leadbox/leadbox';
+import { LeadboxProps } from '../new-components/leadbox/leadbox';
 
 interface BlogArticleTemplateProps {
   data: {
@@ -114,11 +113,14 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
       squareImage={getImage(featuredImageSquared)}
     />
   );
-  const leadbox: LeadboxProps = {
+
+  const leadboxProps: LeadboxProps = {
     title: leadboxText || t('blogpost.leadbox.title'),
-    link: t('blogpost.leadbox.link'),
-    linkTo: '/career/',
-    icon: <Astronaut />,
+    illustration: 'astronaut_012',
+    link: {
+      title: t('blogpost.leadbox.link'),
+      href: '/career/',
+    },
   };
 
   return (
@@ -127,7 +129,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
       siteTitleUrl={'/blog'}
       light
       hero={heroImage}
-      leadbox={leadbox}
+      leadbox={leadboxProps}
       showLanguageSwitch={false}
       breadcrumb={breadcrumb}
     >

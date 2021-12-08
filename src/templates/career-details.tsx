@@ -3,7 +3,7 @@ import React from 'react';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 import { Grid, GridItem } from '../components/grid/grid';
-import { PersonioJobPosition } from './career';
+import { PersonioJobPosition } from '../@types/personio';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
 import { TextTitle } from '../components/typography/typography';

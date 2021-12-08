@@ -44,7 +44,7 @@ const createCareerDetails = async ({ actions }) => {
       const jobsXml = await jobsXmlResponse.data;
 
       const xmlParser = new XMLParser({
-        tagValueProcessor: (a) => decode(a), // &#039; -> '
+        tagValueProcessor: (_, value) => decode(value),
       });
       const jobsParse = xmlParser.parse(jobsXml);
       const positions = jobsParse['workzag-jobs'].position;
