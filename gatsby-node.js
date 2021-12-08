@@ -1,18 +1,22 @@
 const { createRedirects } = require('./gatsby/create-pages/create-redirects');
 const {
-  createPreviewCard,
-} = require('./gatsby/create-node/create-preview-card');
+  createPreviewCards,
+} = require('./gatsby/create-node/create-preview-cards');
 const { createBlogPosts } = require('./gatsby/create-pages/create-blog-posts');
 const {
-  createCareerDetails,
-} = require('./gatsby/create-pages/create-career-details');
+  createCareerPages,
+} = require('./gatsby/create-pages/create-career-pages');
 const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.onCreateNode = (gatsbyCreateNodeArgs) => {
-  createPreviewCard(gatsbyCreateNodeArgs);
+  createPreviewCards(gatsbyCreateNodeArgs);
+
   const { node, actions, getNode } = gatsbyCreateNodeArgs;
   const { createNodeField } = actions;
-
+  /**
+   * Provide a slug for any markdown page (which is not given by default)
+   * to build our pages based on this markdown file.
+   */
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode });
     createNodeField({
@@ -24,8 +28,9 @@ exports.onCreateNode = (gatsbyCreateNodeArgs) => {
 };
 
 exports.createPages = async (createPagesArgs) => {
-  await createCareerDetails(createPagesArgs);
+  await createCareerPages(createPagesArgs);
   await createBlogPosts(createPagesArgs);
+
   createRedirects(createPagesArgs);
 };
 
