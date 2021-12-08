@@ -15,7 +15,11 @@ export interface SyPersonioJob {
   short: string;
   createdAt: string;
   slug: string;
-  path: string;
   sections: SyPersonioJobSection[];
-  fields?: any;
+
+  // now owned by the source plugin, added via `onCreateNode`
+  fields: {
+    path: string;
+    socialCard: string;
+  };
 }

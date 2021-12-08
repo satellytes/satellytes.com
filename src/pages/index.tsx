@@ -92,7 +92,7 @@ const CareerSection = ({ positions }: CareerSectionProps) => {
       </HomePageHeaderBlock>
       <TeaserGrid>
         {positions.map((item) => (
-          <Teaser key={item.id} title={item.name} linkTo={item.path}>
+          <Teaser key={item.id} title={item.name} linkTo={item.fields.path}>
             {item.short}
           </Teaser>
         ))}
@@ -194,7 +194,9 @@ export const IndexPageQuery = graphql`
         short
         createdAt
         slug
-        path
+        fields {
+          path
+        }
       }
     }
 

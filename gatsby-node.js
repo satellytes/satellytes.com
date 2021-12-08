@@ -20,7 +20,26 @@ exports.onCreateNode = (gatsbyCreateNodeArgs) => {
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode });
     createNodeField({
-      name: `slug`,
+      name: `path`,
+      node,
+      value,
+    });
+  }
+
+  const getPath = ({ slug, lang }) => {
+    if (lang !== 'en') {
+      return `/${lang}/career/${slug}`;
+    }
+
+    return `/career/${slug}`;
+  };
+
+  if (node.internal.type === `SyPersonioJob`) {
+    const value = getPath(node);
+    console.log('create getPath', value);
+
+    createNodeField({
+      name: `path`,
       node,
       value,
     });

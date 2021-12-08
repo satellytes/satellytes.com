@@ -10,7 +10,7 @@ const PERSONIO_SHORT_DESCRIPTION_NAME = 'Kurzbeschreibung';
 
 /**
  * Personio doesn't offer any meta fields
- * so we store data in custom fields that aere actually
+ * so we store data in custom fields that are actually
  * meant as content.
  *
  * We find the matching descriptions for the keys
@@ -56,7 +56,7 @@ function dropDescriptions(descriptions) {
 /**
  * Incoming an array of object with the format of:
  * {name, value} where name is the custom headline defined in Personio
- * and value is a rich text fields that includes html taga.
+ * and value is a rich text fields that includes html tag.
  *
  * This function makes sure that we strip and trim the content
  * which is given to us in a pretty raw form.
@@ -83,14 +83,6 @@ function parseDescriptions(jobDescriptions) {
   return { sections, slug, short };
 }
 
-const getPath = ({ slug, lang }) => {
-  if (lang !== 'en') {
-    return `/${lang}/career/${slug}`;
-  }
-
-  return `/career/${slug}`;
-};
-
 /**
  * Given a set of positions from the XML API of Personio
  * we need to do some processing to have a proper dataset
@@ -99,6 +91,7 @@ const getPath = ({ slug, lang }) => {
 function normalize(positions, lang) {
   return positions.reduce((memo, position) => {
     const { jobDescription } = position.jobDescriptions;
+
     if (!jobDescription) {
       console.warn(
         `No description for job "${position.name}" (${position.id}) found! Job ignored.`,
@@ -107,7 +100,6 @@ function normalize(positions, lang) {
     }
 
     const { sections, slug, short } = parseDescriptions(jobDescription);
-    const path = getPath({ slug, lang });
     delete position.jobDescriptions;
 
     memo.push({
@@ -116,7 +108,6 @@ function normalize(positions, lang) {
       short,
       sections,
       lang,
-      path,
     });
 
     return memo;

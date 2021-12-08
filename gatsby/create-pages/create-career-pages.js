@@ -36,7 +36,9 @@ const createCareerPages = async ({ actions, graphql }) => {
           jobId
           name
           slug
-          path
+          fields {
+            path
+          }
         }
       }
     }
@@ -49,12 +51,12 @@ const createCareerPages = async ({ actions, graphql }) => {
     const complementPosition = complementFinder.get(position);
 
     createPage({
-      path: position.path,
+      path: position.fields.path,
       component: CAREER_DETAILS_TEMPLATE_PATH,
       context: {
         id: position.id, // internal object id which is unique across all jobs
         language: position.lang,
-        translation: complementPosition?.path ?? null,
+        translation: complementPosition?.fields.path ?? null,
       },
     });
   });
