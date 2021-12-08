@@ -3,7 +3,7 @@ import React from 'react';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 import { Grid, GridItem } from '../components/grid/grid';
-import { PersonioJobPosition } from '../@types/personio';
+import { SyPersonioJob } from '../@types/personio';
 import styled from 'styled-components';
 import { up } from '../components/breakpoint/breakpoint';
 import { TextTitle } from '../components/typography/typography';
@@ -12,8 +12,6 @@ import { HEADER_HEIGHT } from '../components/header/header';
 import { Aurora, AuroraType } from '../components/aurora/aurora';
 import { graphql } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-
-const PERSONIO_SHORT_DESCRIPTION_NAME = 'Kurzbeschreibung';
 
 const Title = styled.h1`
   font-style: normal;
@@ -70,9 +68,6 @@ export const PersonioHtml = styled.div`
 
 interface CareerPageProps {
   pageContext: {
-    position: PersonioJobPosition;
-    socialCardImage: string;
-    hasTranslation: boolean;
     language: string;
     translation: string;
     i18n: {
@@ -80,30 +75,30 @@ interface CareerPageProps {
     };
   };
   location: Location;
+  data: {
+    syPersonioJob: SyPersonioJob;
+  };
 }
 const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
   const { pageContext } = props;
-  const { t } = useTranslation();
+  const position = props.data.syPersonioJob;
 
+  const socialCardImage = position.fields.socialCard;
+
+  const { t } = useTranslation();
   const ref = React.useRef<HTMLDivElement | null>(null);
   const breadcrumb = [
     { pathname: '/', label: 'Satellytes' },
     { pathname: '/career', label: t('navigation.career') },
     {
       pathname: pageContext.i18n.originalPath,
-      label: pageContext.position.name,
+      label: position.name,
     },
   ];
   const scrollToStart = () => {
     ref?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
-  const descriptions =
-    pageContext.position.jobDescriptions.jobDescription.filter(
-      ({ name }) => name !== PERSONIO_SHORT_DESCRIPTION_NAME,
-    );
-  const intro = pageContext.position.jobDescriptions.jobDescription.find(
-    ({ name }) => name === PERSONIO_SHORT_DESCRIPTION_NAME,
-  );
+
   const IntroText = ({ text }) => {
     if (!text) {
       return null;
@@ -122,12 +117,12 @@ const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
         breadcrumb={breadcrumb}
       >
         <SEO
-          imageUrl={pageContext.socialCardImage}
+          imageUrl={socialCardImage}
           title={t('career.seo.title-detail', {
-            name: pageContext.position.name,
+            name: position.name,
           })}
           description={t('career.seo.description-detail', {
-            name: pageContext.position.name,
+            name: position.name,
           })}
           translatedPath={pageContext.translation}
           noTranslation={!pageContext.translation}
@@ -135,13 +130,15 @@ const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
         />
         <Grid>
           <GridItem xs={12} md={8}>
-            <Title>{pageContext.position.name}</Title>
-            <IntroText text={intro?.value} />
-            {descriptions.map(({ name, value }) => {
+            <Title>{position.name}</Title>
+            <IntroText text={position.short} />
+            {position.sections.map(({ headline, descriptionHtml }, index) => {
               return (
-                <div key={name}>
-                  <SectionHeadline>{name}</SectionHeadline>
-                  <PersonioHtml dangerouslySetInnerHTML={{ __html: value }} />
+                <div key={index}>
+                  <SectionHeadline>{headline}</SectionHeadline>
+                  <PersonioHtml
+                    dangerouslySetInnerHTML={{ __html: descriptionHtml }}
+                  />
                 </div>
               );
             })}
@@ -152,7 +149,7 @@ const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
               company_id="41230"
               recruiting_channel_id="329206"
               access_token="89b2acfa3a239b75c7d6"
-              job_position_id={pageContext.position.id + ''}
+              job_position_id={position.jobId + ''}
               scrollToStart={scrollToStart}
             />
           </GridItem>
@@ -163,7 +160,25 @@ const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
 };
 
 export const CareerDetailsPageQuery = graphql`
-  query ($language: String!) {
+  query ($language: String!, $id: String!) {
+    syPersonioJob(id: { eq: $id }) {
+      fields {
+        socialCard
+      }
+      id
+      lang
+      jobId
+      name
+      short
+      createdAt
+      slug
+      sections {
+        headline
+        descriptionHtml
+        description
+      }
+    }
+
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {
         node {

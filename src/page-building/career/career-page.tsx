@@ -7,7 +7,7 @@ import { TextStyles } from '../../components/typography/typography-v2';
 import { LayoutV2 } from '../../components/layout/layout-v2';
 import { Aurora } from '../../components/aurora/aurora';
 import { ContentBlockContainer } from '../../components/layout/content-block-container';
-import { PersonioJobPosition } from '../../@types/personio';
+import { SyPersonioJob } from '../../@types/personio';
 import { Culture } from './culture';
 import { Perks } from './perks';
 import { LeadboxProps } from '../../new-components/leadbox/leadbox';
@@ -21,7 +21,7 @@ const Paragraph = styled.p`
 `;
 
 interface CareerPageProps {
-  positions: PersonioJobPosition[];
+  positions: SyPersonioJob[];
 }
 
 export const CareerPage = ({ positions }: CareerPageProps) => {

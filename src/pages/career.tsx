@@ -2,53 +2,41 @@ import React from 'react';
 import SEO from '../components/seo';
 import { graphql } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { LocalesQuery } from './index';
 import { CareerPage } from '../page-building/career/career-page';
-import { PersonioJobPosition } from '../@types/personio';
+import { SyPersonioJob } from '../@types/personio';
 
-interface CareerQuery {
+interface CareerMarkdownQuery {
   htmlAst: string;
   fields: {
     socialCard: string;
   };
 }
 
-interface CareerPageProps {
-  pageContext: {
-    positions: PersonioJobPosition[];
-    language: string;
-  };
-  location: Location;
+interface CareerProps {
   data: {
-    markdownRemark: CareerQuery;
-    locales: {
-      edges: {
-        node: {
-          ns: string;
-          language: string;
-          data: string;
-        };
-      }[];
+    locales: LocalesQuery;
+    markdownRemark: CareerMarkdownQuery;
+    allSyPersonioJob: {
+      nodes: SyPersonioJob[];
     };
   };
+  location: Location;
 }
 
-const Career = ({
-  pageContext,
-  data,
-  location,
-}: CareerPageProps): JSX.Element => {
+const Career = (props: CareerProps) => {
   const { t } = useTranslation();
-  const socialCard = data.markdownRemark?.fields?.socialCard;
+  const socialCard = props.data.markdownRemark?.fields?.socialCard;
 
   return (
     <>
       <SEO
         imageUrl={socialCard}
-        title={t('career.seo.title')}
-        description={t('career.seo.description')}
-        location={location}
+        title={`${t('contact.title')} | Satellytes`}
+        description={t('contact.info')}
+        location={props.location}
       />
-      <CareerPage positions={pageContext.positions} />
+      <CareerPage positions={props.data.allSyPersonioJob.nodes} />
     </>
   );
 };
@@ -57,6 +45,21 @@ export default Career;
 
 export const CareerPageQuery = graphql`
   query ($language: String!) {
+    allSyPersonioJob(filter: { lang: { eq: $language } }) {
+      nodes {
+        id
+        lang
+        jobId
+        name
+        short
+        createdAt
+        slug
+        fields {
+          path
+        }
+      }
+    }
+
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {
         node {
@@ -66,17 +69,13 @@ export const CareerPageQuery = graphql`
         }
       }
     }
+
     markdownRemark(
       fileAbsolutePath: { regex: "/(pages/career)/" }
       frontmatter: { language: { eq: $language } }
     ) {
-      htmlAst
       fields {
         socialCard
-      }
-      frontmatter {
-        title
-        language
       }
     }
   }

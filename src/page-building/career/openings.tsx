@@ -3,7 +3,7 @@ import { Teaser } from '../../components/teasers/teaser';
 import styled from 'styled-components';
 import { up } from '../../components/breakpoint/breakpoint';
 import { TextStyles } from '../../components/typography/typography-v2';
-import { PersonioJobPosition } from '../../@types/personio';
+import { SyPersonioJob } from '../../@types/personio';
 
 const TeaserGrid = styled.div`
   display: grid;
@@ -23,28 +23,18 @@ const SectionHeadline = styled.h2`
   margin-bottom: 80px;
 `;
 
-type PersonioJobPositionPartial = Pick<
-  PersonioJobPosition,
-  'name' | 'id' | 'satellytesPath' | 'satellytesShortDescription'
->;
-
 interface OpeningsProps {
-  jobs: PersonioJobPositionPartial[];
+  jobs: SyPersonioJob[];
 }
 
 export const Openings = (props: OpeningsProps) => {
   return (
     <div>
       <SectionHeadline>Unsere offenen Stellen</SectionHeadline>
-
       <TeaserGrid>
         {props.jobs.map((item) => (
-          <Teaser title={item.name} linkTo={item.satellytesPath} key={item.id}>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: item.satellytesShortDescription,
-              }}
-            />
+          <Teaser title={item.name} linkTo={item.fields.path} key={item.id}>
+            {item.short}
           </Teaser>
         ))}
       </TeaserGrid>
