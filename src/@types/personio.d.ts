@@ -1,22 +1,21 @@
-export interface PersonioJobNameValue {
-  name: string;
-  value: string;
+/**
+ * the normalized jobs content coming from the API
+ */
+export interface SyPersonioJobSection {
+  headline: string;
+  descriptionHtml: string;
+  description: string;
 }
 
-export interface PersonioJobPosition {
+export interface SyPersonioJob {
   id: string;
-  office: string;
-  department: string;
+  lang: string;
+  jobId: string;
   name: string;
-  jobDescriptions: {
-    jobDescription: PersonioJobNameValue[];
-  };
-  employmentType: string;
-  seniority: string;
-  schedule: string;
-  // comma separated
-  keywords: string;
-
-  satellytesPath: string;
-  satellytesShortDescription: string;
+  short: string;
+  createdAt: string;
+  slug: string;
+  path: string;
+  sections: SyPersonioJobSection[];
+  fields?: any;
 }
