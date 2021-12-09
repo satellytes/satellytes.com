@@ -2,7 +2,10 @@ import { useI18next } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import styled, { DefaultTheme } from 'styled-components';
 import { Chevron } from '../icons/chevron';
-import { Dropdown, DropdownOption } from '../dropdown/dropdown';
+import {
+  Dropdown,
+  DropdownOption,
+} from '../../new-components/dropdown/dropdown';
 
 interface LanguageSwitchProps {
   translation: any;

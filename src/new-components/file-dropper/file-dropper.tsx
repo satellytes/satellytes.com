@@ -6,11 +6,14 @@ import {
   useDropzone,
 } from 'react-dropzone';
 import styled, { css } from 'styled-components';
-import { theme } from '../layout/theme';
-import { Illustration, IllustrationSize } from '../illustration/illustration';
-import { IllustrationType } from '../illustration/illustration-set';
+import { theme } from '../../components/layout/theme';
+import {
+  Illustration,
+  IllustrationSize,
+} from '../../components/illustration/illustration';
+import { IllustrationType } from '../../components/illustration/illustration-set';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
-import { TextStyles } from '../typography/typography-v2';
+import { TextStyles } from '../../components/typography/typography-v2';
 import { FileListItem } from './file-list-item';
 
 interface FileDropperType {

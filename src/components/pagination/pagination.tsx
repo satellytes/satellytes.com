@@ -5,7 +5,10 @@ import { NextArrow } from '../icons/buttons-icons/next-arrow';
 import { theme } from '../layout/theme';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { TextStyles } from '../typography/typography-v2';
-import { Dropdown, DropdownOption } from '../dropdown/dropdown';
+import {
+  Dropdown,
+  DropdownOption,
+} from '../../new-components/dropdown/dropdown';
 import { Icon } from '../../new-components/icon/icon';
 
 interface PaginationProps {
