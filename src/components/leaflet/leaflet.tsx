@@ -32,10 +32,10 @@ const MAPBOX_ATTRIBUTION = `© <a href="https://www.mapbox.com/about/maps/">Mapb
 // We need to give the leaflet container itself an explicit height
 // and a distinct z-index to move underneath the fixed header;
 const MapContainerWithHeight = styled(MapContainer)`
-  height: 344px;
+  height: 520px;
 
   ${up('md')} {
-    height: 560px;
+    height: 640px;
   }
   z-index: 0;
 

@@ -15,9 +15,13 @@ import { SIMPLE_EMAIL_PATTERN } from '../career-form/career-form';
 import { Link } from '../links/links';
 import { CaptionText } from '../typography/typography';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
+import styled from 'styled-components';
 
 type RequestStatus = 'pending' | 'success' | 'error';
 
+const StyledCaptionText = styled(CaptionText)`
+  color: inherit;
+`;
 interface FormData {
   name: string;
   email: string;
@@ -112,9 +116,9 @@ export const ContactForm: React.FC = () => {
           />
         </GridItem>
         <GridItem>
-          <CaptionText>
+          <StyledCaptionText>
             <Sup>*</Sup> {t('contact.mandatory-field')}
-          </CaptionText>
+          </StyledCaptionText>
         </GridItem>
         <GridItem>
           {requestStatus === 'pending' && (
