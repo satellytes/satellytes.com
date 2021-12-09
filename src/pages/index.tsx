@@ -101,6 +101,52 @@ const CareerSection = ({ positions }: CareerSectionProps) => {
   );
 };
 
+const ServiceSection = ({ positions }: CareerSectionProps) => {
+  const { t } = useTranslation();
+
+  return (
+    <ContentBlockContainer>
+      <HomePageHeaderBlock
+        topline={t('services.kicker')}
+        headline={t('services.title')}
+        large={true}
+      >
+        {t('main.services.text')}
+      </HomePageHeaderBlock>
+
+      <TeaserGrid>
+        <Teaser
+          title={t('services.platform.title')}
+          linkTo="/services"
+          cover={
+            <Illustration show="monitor_024" size={IllustrationSize.MEDIUM} />
+          }
+        >
+          {t('services.platform.teaser')}
+        </Teaser>
+        <Teaser
+          title={t('services.consulting.title')}
+          linkTo="/services"
+          cover={
+            <Illustration show="scientist_042" size={IllustrationSize.MEDIUM} />
+          }
+        >
+          {t('services.consulting.teaser')}
+        </Teaser>
+        <Teaser
+          title={t('services.products_services.title')}
+          linkTo="/services"
+          cover={
+            <Illustration show="book_038" size={IllustrationSize.MEDIUM} />
+          }
+        >
+          {t('services.products_services.teaser')}
+        </Teaser>
+      </TeaserGrid>
+    </ContentBlockContainer>
+  );
+};
+
 const IndexPage = ({
   location,
   data: { allSyPersonioJob },
@@ -126,55 +172,7 @@ const IndexPage = ({
           </>
         }
       >
-        <ContentBlockContainer>
-          <HomePageHeaderBlock
-            topline={t('main.services.topline')}
-            headline={t('main.services.title')}
-            large={true}
-          >
-            {t('main.services.text')}
-          </HomePageHeaderBlock>
-
-          <TeaserGrid>
-            <Teaser
-              title={t('main.services.teasers.first.title')}
-              linkTo="/services"
-              cover={
-                <Illustration
-                  show="space_shuttle_043"
-                  size={IllustrationSize.MEDIUM}
-                />
-              }
-            >
-              {t('main.services.teasers.first.text')}
-            </Teaser>
-            <Teaser
-              title={t('main.services.teasers.second.title')}
-              linkTo="/services"
-              cover={
-                <Illustration
-                  show="space_shuttle_043"
-                  size={IllustrationSize.MEDIUM}
-                />
-              }
-            >
-              {t('main.services.teasers.second.text')}
-            </Teaser>
-            <Teaser
-              title={t('main.services.teasers.third.title')}
-              linkTo="/services"
-              cover={
-                <Illustration
-                  show="space_shuttle_043"
-                  size={IllustrationSize.MEDIUM}
-                />
-              }
-            >
-              {t('main.services.teasers.third.text')}
-            </Teaser>
-          </TeaserGrid>
-        </ContentBlockContainer>
-
+        <ServiceSection />
         <CareerSection positions={jobPositions} />
       </LayoutV2>
     </>

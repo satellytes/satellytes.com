@@ -4,21 +4,7 @@
     "services": {
       "title": "Development & Design",
       "topline": "Our Services",
-      "text": "Wir haben großen Spaß an Technologie und freuen uns auf neue Herausforderungen. Dabei fokussieren wir uns auf langfristige Engagements im Konzerngeschäft. Neuen Aufgaben begegnen wir immer mit angemessenem Respekt. Wir streben stets hochwertige und zeitgemäße Lösungen an – die Wahl der Technologie ist für uns dabei sekundär. Gern unterstützen wir auch Sie in den folgenden Disziplinen:",
-      "teasers": {
-        "first": {
-          "title": "Enterprise Applications & Libraries",
-          "text": "Teams aus Designern, Produktmanagern, Entwicklern, Supportmitarbeitern, Marketingspezialisten usw. bringen die richtige Mischung aus Know-how und Erfahrung mit und sorgen dafür, dass auch mal über den Tellerrand geschaut wird."
-        },
-        "second": {
-          "title": "Technical Analysis",
-          "text": "Jedes Team bei Satellytes ist für seine eigenen Aufgaben verantwortlich. In den Worten des Agilen Manifests: „Die besten Architekturen, Anforderungen und Entwürfe entstehen durch selbstorganisierte Teams.“"
-        },
-        "third": {
-          "title": "UX/UI",
-          "text": "Schnelles Feedback, kurze Entscheidungswege und Offenheit für Veränderung sind uns wichtig – egal, ob man es Scrum, Kanban oder XP nennt."
-        }
-      }
+      "text": "We enjoy technology and look forward to new challenges. We focus on long-term commitments in the Group's business.\nWe always approach new tasks with appropriate respect. We always strive for high-quality and contemporary solutions - the choice of technology is secondary for us. We would be happy to support you in the following disciplines:"
     },
     "career": {
       "title": "Work with us",
@@ -93,29 +79,46 @@
     }
   },
   "services": {
-    "title": "Services",
-    "header": {
-      "title": "Development & Design",
-      "kicker": "Our Services",
-      "text": "Wir haben großen Spaß an Technologie und freuen uns auf neue Herausforderungen. Dabei fokussieren wir uns auf langfristige Engagements im Konzerngeschäft.\nNeuen Aufgaben begegnen wir immer mit angemessenem Respekt. Wir streben stets hochwertige und zeitgemäße Lösungen an – die Wahl der Technologie ist für uns dabei sekundär. Gern unterstützen wir auch Sie in den folgenden Disziplinen:"
+    "title": "What we offer",
+    "hero": "Services",
+    "kicker": "Platforms, Products & Consulting",
+    "text": "We enjoy technology and look forward to new challenges. We focus on long-term commitments in the Group's business.\nWe always approach new tasks with appropriate respect. We always strive for high-quality and contemporary solutions - the choice of technology is secondary for us. We would be happy to support you in the following disciplines.",
+    "platform": {
+      "title": "Digitale Platforms",
+      "teaser": "From low-code to design systems",
+      "text": "We are specialists for digital platforms from the idea to the implementation. Our many years of experience in designing B2B and B2C platforms from a wide range of industries make us the ideal partner for your project.",
+      "list.platforms": "Digital Platform Design & Development",
+      "list.lowcode": "Low-Code Systems",
+      "list.designsystems": "Design Systems",
+      "list.infrastructure": "Infrastructure & Automation"
     },
-    "contentblocks": {
-      "first": {
-        "title": "Enterprise Applications & Libraries",
-        "kicker": "Development",
-        "text": "Wir haben große Erfahrung in der Entwicklung moderner und verlässlicher Web-Applikationen für die Versicherungs-, Banken- und Automobilbranche. Angular hat sich für derartige Applikationen zur Standardtechnologie entwickelt. Wir bringen tiefgreifende Erfahrung mit dieser Technologie mit und liefern Ihnen eine maßgeschneiderte Lösung zu jedem Problem.\nWir sind zudem sehr erfahren in der Einführung ganzheitlicher Plattformen –beispielsweise einer Infrastruktur aus Angular-Libraries, dem Aufsetzen von CI/CD-Pipelines und der Umsetzung gut getesteter Applikationen in mehreren Sprachen und Konfigurationen.\nZudem sind wir Profis für die Entwicklung von Java Backends in allen Variationen. Wir sind erfahren in der Anbindung von Bestandssystemen, der Neuentwicklung von versionierten APIs und der spezifischen Anbindung von Frontend-Applikationen auf Basis von BFF (Backend for Frontend) – oder vollkommen dezentralen Microservices.\nExperten für Projekte in Angular & React (wir lieben aber auch Vue & Svelte)\nUI-Library Entwicklung mit Release Management\nBackend Begleitung mit unseren Java und Node-Experten\nIhr Ansprechpartner für Inner source Projekte & Prozessbegleitung"
-      },
-      "second": {
-        "title": "Technical Analysis",
-        "kicker": "Reviews",
-        "text": "Wir bieten Ihnen beispielsweise die vollumfängliche Analyse ihrer Webseite: hinsichtlich UX/UI, Ladegeschwindigkeit, technischem Aufbau, Barrierefreiheit oder Suchmaschinen-Kompatibilität. Begleitet wird eine derartige Analyse von einer Auflistung konkreter Verbesserungsvorschläge. Sie wollen Ihre Website in den genannten Bereichen einer Analyse unterziehen?"
-      },
-      "third": {
-        "title": "UX & UI",
-        "kicker": "Design",
-        "text": "Mit rund 20 Jahren Erfahrung in der Konzeption und Umsetzung digitaler Interfaces bilden wir das gesamte Spektrum der User Experience (UX) ab. Der kleine, sichtbare Teil davon ist das User Interface (UI). Der große, unsichtbare (UX) ist jedoch viel relevanter für das Erreichen ihrer wirtschaftlichen Ziele. Denn nur mit benutzerfreundlichen, leicht verständlichen Journeys über alle Endgeräte, Nutzergruppen und Nutzungskontexte hinweg, erreichen die User und somit Sie ihr Ziel.\nFür unsere Enterprise-Kunden konzipieren und gestalten wir Websites mit modernen, ergonomischen und durchdachten Interfaces, halten uns an UX-Standards und Best Practices, beachten Accessibility Guidelines, testen, messen und optimieren ständig und stellen auf Wunsch alle Komponenten in einem gut strukturierten und erweiterbaren Design System zur Verfügung.\nFor those fields we need:\n· Bulletpoints\n· Bold text like this\n· And text links like this"
-      }
+    "consulting": {
+      "title": "Consulting",
+      "teaser": "The experience of our employees is our most valuable treasure.",
+      "text": "The experience of our employees is our most valuable treasure. We share it with you and advise you in technical and conceptual matters. conceptual matters.",
+      "list.workshops": "Training & Workshops",
+      "list.analysis": "Technical & UX/UI Analysis"
     },
+    "products_services": {
+      "title": "Products & Services",
+      "teaser": "From Ideation to Rollout. We support you.",
+      "text": "We support your next product or service with our experts.",
+      "list.prototyping": "Prototyping",
+      "list.ideation": "Ideation & Proof of Concepts",
+      "list.development": "Product Design & Development"
+    },
+    "industries.text": "Currently we offer our services in the following industries",
+    "industries.title": "Industries",
+    "industries.bank.title": "Banks",
+    "industries.bank.text": "Umsetzung und Design der gesamten B2C-Plattform.",
+    "industries.automotive.title": "Automotive",
+    "industries.automotive.text": "Support international brands in the expansion of B2B and B2C platforms.",
+    "industries.sport.title": "Sport",
+    "industries.sport.text": "Design & implementation of the entire B2C platform of global players in the sports industry",
+    "industries.you.title": "Your industry",
+    "industries.you.text": "We become the industry expert together with your challenge. Contact us.",
+    "industries.insurance.title": "Insurances",
+    "industries.insurance.text": "Innovative B2B & B2C technical platform for market leaders to keep up with the constant changes in international markets and regulations.",
     "leadbox": {
       "title": "Interested?",
       "subtitle": "Project Requests",
