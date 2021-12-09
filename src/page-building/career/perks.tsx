@@ -7,6 +7,12 @@ import { IllustrationType } from '../../components/illustration/illustration-set
 import { SectionHeader } from '../../new-components/section-header/section-header';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 
+interface Perk {
+  illustration: IllustrationType;
+  title: string;
+  description: string;
+}
+
 const TeaserGrid = styled.div`
   display: grid;
   gap: 24px;
@@ -19,12 +25,36 @@ const TeaserGrid = styled.div`
   }
 `;
 
-const ILLUSTRATIONS: IllustrationType[] = [
-  'scientistA_006',
-  'universe_003',
-  'monitor_024',
-  'galaxy_013',
-  'planetarium_028',
+const PERKS = (t): Perk[] => [
+  {
+    title: t('career.perk.teaser.0.title'),
+    description: t('career.perk.teaser.0.description'),
+    illustration: 'scientistA_006',
+  },
+
+  {
+    title: t('career.perk.teaser.1.title'),
+    description: t('career.perk.teaser.1.description'),
+    illustration: 'universe_003',
+  },
+
+  {
+    title: t('career.perk.teaser.2.title'),
+    description: t('career.perk.teaser.2.description'),
+    illustration: 'monitor_024',
+  },
+
+  {
+    title: t('career.perk.teaser.3.title'),
+    description: t('career.perk.teaser.3.description'),
+    illustration: 'galaxy_013',
+  },
+
+  {
+    title: t('career.perk.teaser.4.title'),
+    description: t('career.perk.teaser.4.description'),
+    illustration: 'planetarium_028',
+  },
 ];
 
 const PerksTeaserGrid = styled(TeaserGrid)`
@@ -43,13 +73,13 @@ export const Perks = () => {
       </SectionHeader>
 
       <PerksTeaserGrid>
-        {ILLUSTRATIONS.map((illustration, index) => (
+        {PERKS(t).map((item, index) => (
           <Teaser
-            title={t(`career.perk.teaser.${index}.title`)}
+            title={item.title}
             key={index}
-            cover={<Illustration show={illustration} />}
+            cover={<Illustration show={item.illustration} />}
           >
-            {t(`career.perk.teaser.${index}.description`)}
+            {item.description}
           </Teaser>
         ))}
       </PerksTeaserGrid>

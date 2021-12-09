@@ -31,8 +31,8 @@ const Career = (props: CareerProps) => {
     <>
       <SEO
         imageUrl={socialCard}
-        title={`${t('contact.title')} | Satellytes`}
-        description={t('contact.info')}
+        title={`${t('career.title')} | Satellytes`}
+        description={t('career.seo.description')}
         location={props.location}
       />
       <CareerPage positions={props.data.allSyPersonioJob.nodes} />

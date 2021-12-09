@@ -7,6 +7,12 @@ import { IllustrationType } from '../../components/illustration/illustration-set
 import { SectionHeader } from '../../new-components/section-header/section-header';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 
+interface CultureAspect {
+  illustration: IllustrationType;
+  title: string;
+  description: string;
+}
+
 const TeaserGrid = styled.div`
   display: grid;
   gap: 24px;
@@ -19,13 +25,41 @@ const TeaserGrid = styled.div`
   }
 `;
 
-const ILLUSTRATIONS: IllustrationType[] = [
-  'radar_030',
-  'rocket_011',
-  'sputnik_045',
-  'planets_005',
-  'report_031',
-  'book_038',
+const ASPECTS = (t): CultureAspect[] => [
+  {
+    title: t('career.culture.teaser.0.title'),
+    description: t('career.culture.teaser.0.description'),
+    illustration: 'radar_030',
+  },
+
+  {
+    title: t('career.culture.teaser.1.title'),
+    description: t('career.culture.teaser.1.description'),
+    illustration: 'rocket_011',
+  },
+
+  {
+    title: t('career.culture.teaser.2.title'),
+    description: t('career.culture.teaser.2.description'),
+    illustration: 'sputnik_045',
+  },
+
+  {
+    title: t('career.culture.teaser.3.title'),
+    description: t('career.culture.teaser.3.description'),
+    illustration: 'planets_005',
+  },
+
+  {
+    title: t('career.culture.teaser.4.title'),
+    description: t('career.culture.teaser.4.description'),
+    illustration: 'report_031',
+  },
+  {
+    title: t('career.culture.teaser.5.title'),
+    description: t('career.culture.teaser.5.description'),
+    illustration: 'book_038',
+  },
 ];
 
 const CultureTeaserGrid = styled(TeaserGrid)`
@@ -44,13 +78,13 @@ export const Culture = () => {
       </SectionHeader>
 
       <CultureTeaserGrid>
-        {ILLUSTRATIONS.map((illustration, index) => (
+        {ASPECTS(t).map((item, index) => (
           <Teaser
-            title={t(`career.culture.teaser.${index}.title`)}
+            title={item.title}
             key={index}
-            cover={<Illustration show={illustration} />}
+            cover={<Illustration show={item.illustration} />}
           >
-            {t(`career.culture.teaser.${index}.description`)}
+            {item.description}
           </Teaser>
         ))}
       </CultureTeaserGrid>
