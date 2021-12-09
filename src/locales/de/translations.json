@@ -125,6 +125,7 @@
   },
   "contact": {
     "title": "Kontakt",
+    "address": "Adresse",
     "info-link": "<0>Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine E-Mail an <1>beep@satellytes.com</1></0>",
     "info": "Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine E-Mail an beep@satellytes.com",
     "name": "Name",
