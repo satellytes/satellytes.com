@@ -152,6 +152,7 @@ const SiteNavigation = styled.div`
 
 const LanguageSwitchWrapper = styled(LanguageSwitch)`
   margin-bottom: 16px;
+  align-self: flex-end;
 `;
 
 const SiteNavigationList = styled.ul`
