@@ -39,8 +39,10 @@ const StyledTeaserGrid = styled.div<{ amountOfChildren: number }>`
   justify-items: stretch;
 
   /**
-   * we give the last element 24px more space for the padding 
-   * -> distance to outer window
+   * On mobile, the grid overflows the page layout. To compensate this overflow 
+   * on the last element, we need to make the last element a larger and give it
+   * some padding. This way, the last element ends on the same position then all
+   * other elements on the page. 
    */
   grid-template-columns: ${(props) =>
     `repeat(${props.amountOfChildren - 1}, minmax(224px, 1fr)) 248px`};
