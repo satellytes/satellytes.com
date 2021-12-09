@@ -26,6 +26,7 @@ const PaginationContainer = styled.div`
 const PaginationDropdown = styled(Dropdown)`
   ${TextStyles.toplineR}
   color: ${theme.palette.text.link.default};
+  cursor: pointer;
 `;
 
 const StyledButton = styled.button`

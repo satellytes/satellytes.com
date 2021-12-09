@@ -57,6 +57,7 @@ const StyledNav = styled.nav<{
 `;
 
 const StyledSelection = styled(Dropdown)`
+  cursor: pointer;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 14px;
@@ -95,7 +96,7 @@ export const LanguageSwitch = ({
           <DropdownOption
             value={languageOfLink}
             key={languageOfLink}
-            popoverLabel={languageOfLink}
+            label={languageOfLink}
           >
             {languageOfLink == 'de' ? 'Deutsch' : 'English'}
           </DropdownOption>

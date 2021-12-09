@@ -43,6 +43,7 @@ const Actions = styled.div`
 const FileCategoryDropdown = styled(Dropdown)`
   ${TextStyles.textR}
   color: ${theme.palette.text.topline};
+  cursor: pointer;
 
   margin-right: 24px;
   padding: 0;
