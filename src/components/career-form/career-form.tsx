@@ -27,7 +27,7 @@ interface CareerFormProps {
   job_position_id: string;
   access_token: string;
   company_id: string;
-  scrollToStart: () => void;
+  scrollToStart?: () => void;
 }
 
 interface RawFormData {
@@ -185,7 +185,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
         // from the Personio API.
         if (data.success) {
           // all good
-          props.scrollToStart();
+          props.scrollToStart?.();
         } else {
           console.error('Something was wrong with the received response', data);
         }
@@ -204,7 +204,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
   };
 
   const onError = (event) => {
-    console.log('onError', event);
+    // console.log('onError', event);
   };
 
   // recover from some previous error

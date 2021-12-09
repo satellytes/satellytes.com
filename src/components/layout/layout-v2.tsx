@@ -12,6 +12,7 @@ import {
   LeadboxProps,
 } from '../../new-components/leadbox/leadbox';
 import { up } from '../breakpoint/breakpoint';
+import { Breadcrumb, BreadcrumbEntry } from '../breadcrumb/breadcrumb';
 
 /**
  * this container is used to push the footer to the bottom
@@ -72,6 +73,9 @@ const HeroContainer = styled.div`
   }
 `;
 
+const BreadcrumbContainer = styled.div<{ hero: boolean }>`
+  margin: ${(props) => !props.hero && `calc(${HEADER_HEIGHT} + 16px)`} 24px 16px;
+`;
 const useAnchorTagScrolling = (): void => {
   useEffect(() => {
     if (window.location.hash) {
@@ -104,6 +108,7 @@ interface LayoutProps {
   showLanguageSwitch?: boolean;
   translation?: string;
   leadbox?: LeadboxProps;
+  breadcrumb?: BreadcrumbEntry[];
 }
 
 enum POLARITY {
@@ -159,6 +164,7 @@ export const LayoutV2 = ({
   showLanguageSwitch = true,
   translation,
   leadbox,
+  breadcrumb,
 }: LayoutProps): JSX.Element => {
   const isLight = light === true && !overrideDarkFromQuery();
 
@@ -180,6 +186,11 @@ export const LayoutV2 = ({
         />
       </HeaderStickyContainer>
       {hero && <HeroContainer>{hero}</HeroContainer>}
+      {breadcrumb && (
+        <BreadcrumbContainer hero={Boolean(hero)}>
+          <Breadcrumb breadcrumbEntries={breadcrumb} />
+        </BreadcrumbContainer>
+      )}
       <FullHeightContainer>
         <Main>{children}</Main>
         {leadbox && (
