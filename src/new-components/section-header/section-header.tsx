@@ -26,13 +26,14 @@ const KickerStyled = styled.span`
 `;
 
 const HeadlineStyled = styled.h2`
-  ${TextStyles.headlineXL}
+  ${TextStyles.headlineL}
   margin: 0;
   color: #202840;
   margin-bottom: 24px;
 
   ${up('md')} {
     margin-bottom: 32px;
+    ${TextStyles.headlineXL}
   }
 `;
 

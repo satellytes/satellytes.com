@@ -1,11 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import {
-  TeaserTitle,
-  Text,
-  Timestamp,
-  Topline,
-} from '../typography/typography';
+import { TeaserTitle, Timestamp, Topline } from '../typography/typography';
 import { Arrow } from '../icons/arrow';
 import { theme } from '../layout/theme';
 import { Link } from '../links/links';
@@ -42,7 +37,9 @@ const ToplineContainer = styled.div`
   justify-content: space-between;
 `;
 
-const TeaserText = styled(Text)`
+const TeaserText = styled.div`
+  font-size: 16px;
+  line-height: 150%;
   margin: 16px 0 22px;
 `;
 
@@ -69,7 +66,7 @@ export interface TeaserProps {
   topline?: string;
   dateFormatted?: string;
   cover?: JSX.Element;
-  linkTo: string;
+  linkTo?: string;
 }
 
 /**
@@ -77,6 +74,15 @@ export interface TeaserProps {
  * This requires a headline, the path to the page (linkTo) and a short text, which is entered as a child.
  * In addition, an illustration or an image, a formatted date and a topline can be displayed.
  */
+
+const ConditionalLink = ({ to, children }) => {
+  if (to) {
+    return <Link to={to}>{children}</Link>;
+  }
+
+  return children;
+};
+
 export const Teaser: React.FC<TeaserProps> = ({
   topline,
   title,
@@ -89,7 +95,7 @@ export const Teaser: React.FC<TeaserProps> = ({
 
   return (
     <TeaserContainer>
-      <Link to={linkTo}>
+      <ConditionalLink to={linkTo}>
         {cover && <CoverContainer>{cover}</CoverContainer>}
         {hasToplineContainer && (
           <ToplineContainer>
@@ -101,8 +107,8 @@ export const Teaser: React.FC<TeaserProps> = ({
           {title}
         </StyledTeaserTitle>
         <TeaserText>{children}</TeaserText>
-        <Arrow />
-      </Link>
+        {linkTo && <Arrow />}
+      </ConditionalLink>
     </TeaserContainer>
   );
 };

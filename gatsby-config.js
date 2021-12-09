@@ -33,6 +33,7 @@ module.exports = {
     siteUrl: BASE_URL,
   },
   plugins: [
+    `sy-personio-jobs-source-plugin`,
     `gatsby-plugin-sass`,
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-smoothscroll`,
@@ -248,10 +249,6 @@ module.exports = {
         pages: [
           {
             matchPath: '/:lang?/career/:id/',
-            getLanguageFromPath: true,
-          },
-          {
-            matchPath: '/:lang?/career/',
             getLanguageFromPath: true,
           },
           {

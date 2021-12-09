@@ -23,21 +23,7 @@
     "career": {
       "title": "Arbeite mit uns",
       "topline": "Karriere bei Satellytes",
-      "text": "Wir suchen Entwickler:innen aus Leidenschaft! Du hast noch nicht viel Berufserfahrung? Kein Problem. Denn alles, was du wissen musst, lernst Du bei uns. Du kannst schon alles? Dann findest Du bei Satellytes neue Herausforderungen und erfahrene Kollegen, mit denen Du weiter wachsen kannst. Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung.",
-      "teasers": {
-        "first": {
-          "title": "Frontend Engineer",
-          "text": "Wir suchen eine:n Frontend Engineer (w/m/x) mit erster professioneller Erfahrung als Webentwickler:in. Werde Teil eines Teams, bei dem du von Experten den Umgang mit Frameworks & Testing ausbauen und verfeinern kannst."
-        },
-        "second": {
-          "title": "Senior Backend Engineer",
-          "text": "Dir sind Spring Boot, Jenkins, Kubernetes keine Fremdwörter? Java ist keine Fremdsprache für dich? Du hast Lust auf anspruchsvolle, komplexe Backend-Projekte mit eigenständigen Aufgaben und Entscheidungen im Team?"
-        },
-        "third": {
-          "title": "Senior Frontend Engineer",
-          "text": "Wir suchen einen \"Senior Frontend Engineer (m/w/x)\" für unser Office in München. Du wirst Teil eines erfahrenen Frontend-Teams, um moderne Web-Applikationen und Bibliotheken basierend auf React oder Angular umzusetzen."
-        }
-      }
+      "text": "Wir suchen Entwickler:innen aus Leidenschaft! Du hast noch nicht viel Berufserfahrung? Kein Problem. Denn alles, was du wissen musst, lernst Du bei uns. Du kannst schon alles? Dann findest Du bei Satellytes neue Herausforderungen und erfahrene Kollegen, mit denen Du weiter wachsen kannst. Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung."
     }
   },
   "career": {
@@ -107,8 +93,29 @@
     }
   },
   "services": {
-    "title": "Leistungen",
-    "subheading": "Satellytes – das sind ausschließlich leidenschaftliche Entwickler:innen und Designer:innen.",
+    "title": "Services",
+    "header": {
+      "title": "Development & Design",
+      "kicker": "Unsere Services",
+      "text": "Wir haben großen Spaß an Technologie und freuen uns auf neue Herausforderungen. Dabei fokussieren wir uns auf langfristige Engagements im Konzerngeschäft.\nNeuen Aufgaben begegnen wir immer mit angemessenem Respekt. Wir streben stets hochwertige und zeitgemäße Lösungen an – die Wahl der Technologie ist für uns dabei sekundär. Gern unterstützen wir auch Sie in den folgenden Disziplinen:"
+    },
+    "contentblocks": {
+      "first": {
+        "title": "Enterprise Applikationen & Libraries",
+        "kicker": "Development",
+        "text": "Wir haben große Erfahrung in der Entwicklung moderner und verlässlicher Web-Applikationen für die Versicherungs-, Banken- und Automobilbranche. Angular hat sich für derartige Applikationen zur Standardtechnologie entwickelt. Wir bringen tiefgreifende Erfahrung mit dieser Technologie mit und liefern Ihnen eine maßgeschneiderte Lösung zu jedem Problem.\nWir sind zudem sehr erfahren in der Einführung ganzheitlicher Plattformen –beispielsweise einer Infrastruktur aus Angular-Libraries, dem Aufsetzen von CI/CD-Pipelines und der Umsetzung gut getesteter Applikationen in mehreren Sprachen und Konfigurationen.\nZudem sind wir Profis für die Entwicklung von Java Backends in allen Variationen. Wir sind erfahren in der Anbindung von Bestandssystemen, der Neuentwicklung von versionierten APIs und der spezifischen Anbindung von Frontend-Applikationen auf Basis von BFF (Backend for Frontend) – oder vollkommen dezentralen Microservices.\nExperten für Projekte in Angular & React (wir lieben aber auch Vue & Svelte)\nUI-Library Entwicklung mit Release Management\nBackend Begleitung mit unseren Java und Node-Experten\nIhr Ansprechpartner für Inner source Projekte & Prozessbegleitung"
+      },
+      "second": {
+        "title": "Technische Analyse",
+        "kicker": "Reviews",
+        "text": "Wir bieten Ihnen beispielsweise die vollumfängliche Analyse ihrer Webseite: hinsichtlich UX/UI, Ladegeschwindigkeit, technischem Aufbau, Barrierefreiheit oder Suchmaschinen-Kompatibilität. Begleitet wird eine derartige Analyse von einer Auflistung konkreter Verbesserungsvorschläge. Sie wollen Ihre Website in den genannten Bereichen einer Analyse unterziehen?"
+      },
+      "third": {
+        "title": "UX & UI",
+        "kicker": "Design",
+        "text": "Mit rund 20 Jahren Erfahrung in der Konzeption und Umsetzung digitaler Interfaces bilden wir das gesamte Spektrum der User Experience (UX) ab. Der kleine, sichtbare Teil davon ist das User Interface (UI). Der große, unsichtbare (UX) ist jedoch viel relevanter für das Erreichen ihrer wirtschaftlichen Ziele. Denn nur mit benutzerfreundlichen, leicht verständlichen Journeys über alle Endgeräte, Nutzergruppen und Nutzungskontexte hinweg, erreichen die User und somit Sie ihr Ziel.\nFür unsere Enterprise-Kunden konzipieren und gestalten wir Websites mit modernen, ergonomischen und durchdachten Interfaces, halten uns an UX-Standards und Best Practices, beachten Accessibility Guidelines, testen, messen und optimieren ständig und stellen auf Wunsch alle Komponenten in einem gut strukturierten und erweiterbaren Design System zur Verfügung.\nFor those fields we need:\n· Bulletpoints\n· Bold text like this\n· And text links like this"
+      }
+    },
     "leadbox": {
       "title": "Haben Sie Interesse bekommen?",
       "subtitle": "Projektanfragen",
@@ -172,6 +179,9 @@
       "title": "Interesse mit und bei uns zu arbeiten?",
       "link": "Karriere"
     }
+  },
+  "image": {
+    "attribution": "Foto von "
   },
   "404": "Oh sorry! Our Satellite took the wrong direction."
 }
