@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { up } from '../../style-utils/breakpoint';
-import { isNoneTouch } from '../../style-utils/is-touch';
+import { up } from '../style-utils/breakpoint';
+import { isNoneTouch } from '../style-utils/is-touch';
 
 const ScrollContainer = styled.div`
   overflow-x: auto;
