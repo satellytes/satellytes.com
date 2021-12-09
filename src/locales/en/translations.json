@@ -23,21 +23,7 @@
     "career": {
       "title": "Work with us",
       "topline": "Career at Satellytes",
-      "text": "Wir suchen Entwickler:innen aus Leidenschaft! Du hast noch nicht viel Berufserfahrung? Kein Problem. Denn alles, was du wissen musst, lernst Du bei uns. Du kannst schon alles? Dann findest Du bei Satellytes neue Herausforderungen und erfahrene Kollegen, mit denen Du weiter wachsen kannst. Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung.",
-      "teasers": {
-        "first": {
-          "title": "Frontend Engineer",
-          "text": "Wir suchen eine:n Frontend Engineer (w/m/x) mit erster professioneller Erfahrung als Webentwickler:in. Werde Teil eines Teams, bei dem du von Experten den Umgang mit Frameworks & Testing ausbauen und verfeinern kannst."
-        },
-        "second": {
-          "title": "Senior Backend Engineer",
-          "text": "Dir sind Spring Boot, Jenkins, Kubernetes keine Fremdwörter? Java ist keine Fremdsprache für dich? Du hast Lust auf anspruchsvolle, komplexe Backend-Projekte mit eigenständigen Aufgaben und Entscheidungen im Team?"
-        },
-        "third": {
-          "title": "Senior Frontend Engineer",
-          "text": "Wir suchen einen \"Senior Frontend Engineer (m/w/x)\" für unser Office in München. Du wirst Teil eines erfahrenen Frontend-Teams, um moderne Web-Applikationen und Bibliotheken basierend auf React oder Angular umzusetzen."
-        }
-      }
+      "text": "Wir suchen Entwickler:innen aus Leidenschaft! Du hast noch nicht viel Berufserfahrung? Kein Problem. Denn alles, was du wissen musst, lernst Du bei uns. Du kannst schon alles? Dann findest Du bei Satellytes neue Herausforderungen und erfahrene Kollegen, mit denen Du weiter wachsen kannst. Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung."
     }
   },
   "career": {

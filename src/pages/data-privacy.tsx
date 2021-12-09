@@ -1,13 +1,12 @@
 import React from 'react';
-
-import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
-import { PageTitle } from '../components/typography/typography';
-import { Grid, GridItem } from '../components/grid/grid';
 import { graphql } from 'gatsby';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
 import { LocalesQuery } from './index';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { LayoutV2 } from '../components/layout/layout-v2';
+import { ContentBlockContainerWithoutHero } from '../components/layout/content-block-container';
+import { SectionHeader } from '../new-components/section-header/section-header';
 
 interface DataPrivacyPageProps {
   data: {
@@ -22,22 +21,18 @@ interface DataPrivacyPageProps {
 const DataPrivacyPage = ({ data, location }: DataPrivacyPageProps) => {
   const { t } = useTranslation();
   return (
-    <Layout>
+    <LayoutV2 light={true}>
       <SEO
         title={`${t('data-privacy.title')} | Satellytes`}
         description={t('data-privacy.info')}
         location={location}
         noIndex={true}
       />
-      <Grid>
-        <GridItem>
-          <PageTitle>{t('navigation.data-privacy')}</PageTitle>
-        </GridItem>
-        <GridItem xs={12} md={8}>
-          <MarkdownAst htmlAst={data.markdownRemark.htmlAst} />
-        </GridItem>
-      </Grid>
-    </Layout>
+      <ContentBlockContainerWithoutHero>
+        <SectionHeader headline={t('navigation.data-privacy')} />
+        <MarkdownAst htmlAst={data.markdownRemark.htmlAst} />
+      </ContentBlockContainerWithoutHero>
+    </LayoutV2>
   );
 };
 

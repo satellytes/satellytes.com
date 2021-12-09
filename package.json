@@ -89,6 +89,7 @@
     "rehype-react": "^7.0.3",
     "sass": "^1.44.0",
     "slugify": "^1.6.3",
+    "striptags": "^3.2.0",
     "styled-components": "^5.3.3",
     "unified": "^10.1.1",
     "webpack": "^5.64.4",

@@ -15,6 +15,7 @@ import {
 import { TeaserGrid } from '../components/teasers/grid/teaser-grid';
 import { ContentBlockContainer } from '../components/layout/content-block-container';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { SyPersonioJob } from '../@types/personio';
 
 const HeroContainer = styled.div`
   position: relative;
@@ -66,12 +67,47 @@ export interface LocalesQuery {
 interface IndexPageProps {
   data: {
     locales: LocalesQuery;
+
+    allSyPersonioJob: {
+      nodes: SyPersonioJob[];
+    };
   };
   location: Location;
 }
+interface CareerSectionProps {
+  positions: SyPersonioJob[];
+}
 
-const IndexPage = ({ location }: IndexPageProps) => {
+const CareerSection = ({ positions }: CareerSectionProps) => {
   const { t } = useTranslation();
+
+  return (
+    <ContentBlockContainer>
+      <HomePageHeaderBlock
+        topline={t('main.career.topline')}
+        headline={t('main.career.title')}
+        large={true}
+      >
+        {t('main.career.text')}
+      </HomePageHeaderBlock>
+      <TeaserGrid>
+        {positions.map((item) => (
+          <Teaser key={item.id} title={item.name} linkTo={item.fields.path}>
+            {item.short}
+          </Teaser>
+        ))}
+      </TeaserGrid>
+    </ContentBlockContainer>
+  );
+};
+
+const IndexPage = ({
+  location,
+  data: { allSyPersonioJob },
+}: IndexPageProps) => {
+  const { t } = useTranslation();
+  const jobPositions = allSyPersonioJob.nodes;
+
   return (
     <>
       <SEO title="Satellytes" location={location} />
@@ -139,35 +175,7 @@ const IndexPage = ({ location }: IndexPageProps) => {
           </TeaserGrid>
         </ContentBlockContainer>
 
-        <ContentBlockContainer>
-          <HomePageHeaderBlock
-            topline={t('main.career.topline')}
-            headline={t('main.career.title')}
-            large={true}
-          >
-            {t('main.career.text')}
-          </HomePageHeaderBlock>
-          <TeaserGrid>
-            <Teaser
-              title={t('main.career.teasers.first.title')}
-              linkTo="/career"
-            >
-              {t('main.career.teasers.first.text')}
-            </Teaser>
-            <Teaser
-              title={t('main.career.teasers.second.title')}
-              linkTo="/career"
-            >
-              {t('main.career.teasers.second.text')}
-            </Teaser>
-            <Teaser
-              title={t('main.career.teasers.third.title')}
-              linkTo="/career"
-            >
-              {t('main.career.teasers.third.text')}
-            </Teaser>
-          </TeaserGrid>
-        </ContentBlockContainer>
+        <CareerSection positions={jobPositions} />
       </LayoutV2>
     </>
   );
@@ -177,6 +185,21 @@ export default IndexPage;
 
 export const IndexPageQuery = graphql`
   query ($language: String!) {
+    allSyPersonioJob(filter: { lang: { eq: $language } }) {
+      nodes {
+        id
+        lang
+        jobId
+        name
+        short
+        createdAt
+        slug
+        fields {
+          path
+        }
+      }
+    }
+
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {
         node {
