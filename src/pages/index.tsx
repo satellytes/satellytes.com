@@ -12,7 +12,7 @@ import {
   Illustration,
   IllustrationSize,
 } from '../components/illustration/illustration';
-import { TeaserGrid } from '../components/teasers/grid/teaser-grid';
+import { TeaserGrid } from '../components/teasers/teaser-grid';
 import { ContentBlockContainer } from '../components/layout/content-block-container';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { SyPersonioJob } from '../@types/personio';
