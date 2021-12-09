@@ -48,6 +48,98 @@
     "other": "anderes",
     "info-text": "Lade hier bitte deine relevanten Dokumente hoch, wie zb Lebenslauf (CV), Motivationschreiben oder Referenzen. Erlaubt sind ausschließlich 3 PDF Dateien, die maximale Größe pro Datei beträgt 20MB.",
     "privacy-policy": "<0>Hiermit bestätige ich, dass ich die <1>Datenschutzerklärung</1> zur Kenntnis genommen habe. <4>*</4></0>",
+    "introduction": {
+      "headline": "Arbeite mit uns",
+      "kicker": "Karriere bei Satellytes",
+      "paragraphs": [
+        "Satellytes – das sind aktuell 14 ausschließlich leidenschaftliche Entwickler:innen und Designer:innen. Wir haben großen Spaß an Technologie und freuen uns auf neue Herausforderungen. Dabei fokussieren wir uns auf langfristige Engagements im Konzerngeschäft.",
+        "Neuen Aufgaben begegnen wir immer mit angemessenem Respekt. Wir streben stets hochwertige und zeitgemäße Lösungen an – die Wahl der Technologie ist für uns dabei sekundär.",
+        "Unser Büro befindet sich in einem wunderschönen Altbau im Herzen Münchens, in der Sendlinger Straße, unweit der gleichnamigen U-Bahn-Station. In Laufweite gibt es nicht nur dutzende Läden, Cafés, Restaurants und den bekannten Viktualienmarkt, sondern auch diverse kleinere und größere Parks. Sogar die Isar ist in der Mittagspause fußläufig oder mit der U-Bahn in nur 3 Minuten zu erreichen."
+      ]
+    },
+    "application-process": {
+      "headline": "Bewerbungsprozess",
+      "paragraph": "Sich auf einen Job zu bewerben kann oft frustrierend sein. Unser Team hat sich deshalb etwas überlegt was Sinn macht. Schau dir hier unsere vier Schritte deiner Bewerbung an.",
+      "accordion": [
+        {
+          "title": "1. Bewerb dich",
+          "paragraph": "Alles beginnt mit deiner Bewerbung. Schicke uns deinen Lebenslauf und ein kleines Anschreiben, wieso du dich gerade bei uns bewirbst. In deiner Bewerbung achten wir nicht auf Schulnoten sondern suchen nach deiner Leidenschaft fürs Coden. Zeig uns deinen GitHub oder GitLab Account. Hast du einen Blog? Dann verweise gerne darauf."
+        },
+        {
+          "title": "2. Kennenlernen",
+          "paragraph": "Wenn wir deine Bewerbung überzeugend finden, laden wir dich zu einem ersten Gespräch ein. Hier werden ein oder zwei deiner zukünftigen Kollegen mit dir sprechen und wir reden darüber wie du zum Programmieren gekommen bist und was dich antreibt. Danach werden wir dich besser kennen und du kennst die ersten Gesichter hinter Satellytes."
+        },
+        {
+          "title": "3. Technisches Interview",
+          "paragraph": "Wir machen weder Whiteboard Interviews, noch schicken wir die irgendwelche Programmieraufgaben. Stattdessen wirst du vorab eine Code Review durchführen, die wir dann zusammen im Interview durchsprechen. Hier werden sich ganz automatische spannende Gespräch ergeben. Wir werden Probleme im Code besprechen und das ein oder andere Fachwissen über relevante Technologien ansprechen. Neben der ganzen Technik haben wir auch Zeit etwas über unsere Kultur bei Satellytes zu sprechen, um sicherzustellen dass du dich bei uns wohl fühlst."
+        },
+        {
+          "title": "4. Entscheidung",
+          "paragraph": "Du hast gezeigt was du kannst und wie du arbeitest. Wir haben gezeigt was uns antreibt und wie wir arbeiten. Wenn alles passt lassen wir es dich wissen. Passt etwas nicht, dann lassen wir das dich ebenfalls wissen."
+        }
+      ]
+    },
+    "openings": {
+      "headline": "Unsere offenen Stellen"
+    },
+    "culture": {
+      "headline": "Spass an der Arbeit",
+      "kicker": "Team",
+      "paragraph": "Wir möchten die Voraussetzung schaffen, damit sich jeder persönlich wie beruflich weiterentwickeln kann.",
+      "teaser": [
+        {
+          "title": "Cross-Functional",
+          "description": "Teams aus Designern, Produktmanagern, Entwicklern, Supportmitarbeitern, Marketingspezialisten usw. bringen die richtige Mischung aus Know-how und Erfahrung mit und sorgen dafür, dass auch mal über den Tellerrand geschaut wird."
+        },
+        {
+          "title": "Self-Organisation",
+          "description": "Jedes Team bei Satellytes ist für seine eigenen Aufgaben verantwortlich. In den Worten des Agilen Manifests: „Die besten Architekturen, Anforderungen und Entwürfe entstehen durch selbstorganisierte Teams.“"
+        },
+        {
+          "title": "Agile",
+          "description": "Schnelles Feedback, kurze Entscheidungswege und Offenheit für Veränderung sind uns wichtig – egal, ob man es Scrum, Kanban oder XP nennt."
+        },
+        {
+          "title": "Erfolgreich scheitern",
+          "description": "Wenn wir etwas Neues ausprobieren, riskieren wir immer auch einen Misserfolg. Macht nichts – aus Fehlern lernen, Erkenntnisse mit anderen teilen und im nächsten Projekt in Erfolge ummünzen."
+        },
+        {
+          "title": "Feedback",
+          "description": "Zusammenarbeit ist bei uns nicht nur ein Wort: Code-Review, Inline-Kommentare, Pair Programming, tägliche Stand-up-Meetings, 360-Grad-Feedback usw."
+        },
+        {
+          "title": "Open Work",
+          "description": "Offen sein, zuhören, andere Meinungen respektieren und gemeinsam die besten Lösungen finden."
+        }
+      ]
+    },
+    "perk": {
+      "headline": "Perks & Benefits",
+      "kicker": "Arbeiten",
+      "paragraph": "Neben einem großartigen Team, interessanten Aufgaben und einer modernen Arbeitsumgebung bieten wir noch weitere Extras.",
+      "teaser": [
+        {
+          "title": "Zeit für Experimente",
+          "description": "Bei uns bekommst du Raum, um neue Technologien auszuprobieren oder mit Kollegen kleine Experimente durchzuführen"
+        },
+        {
+          "title": "Lebenslanges Lernen",
+          "description": "Du wirst bei uns jeden Tag etwas lernen, egal ob du dich als Anfänger oder Profi siehst. Sollte dir selbst mal die Muse fehlen, dann wird ein Kollege dich sicherlich kurz später zu inspirieren wissen. Und wenn du mal ein Buch brauchst: Jedes Buch geht auf uns."
+        },
+        {
+          "title": "Lieblingsausrüstung",
+          "description": "Ob MacBook oder Linux Laptop? Ob Maus oder Trackpad oder VSCode oder IntelliJ. Du hast bei uns die Wahl."
+        },
+        {
+          "title": "Arbeiten wo du willst",
+          "description": "Arbeitszeit und Arbeitsort kannst du nach Absprache mit dem Team & Kunden flexibel wählen."
+        },
+        {
+          "title": "Konferenzen",
+          "description": "Wir lieben Tech-Konferenzen und sind schon oft Besucher und manchmal sogar Speaker gewesen. Wir zahlen dir Ticket, Kost und Logis. Willst du Speaker werden? Wir unterstützen dich dabei."
+        }
+      ]
+    },
     "error": {
       "approval": "Deine Zustimmung fehlt",
       "first-name": "Dein Vorname fehlt",

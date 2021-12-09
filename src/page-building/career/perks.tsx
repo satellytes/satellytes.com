@@ -5,10 +5,7 @@ import { Illustration } from '../../components/illustration/illustration';
 import { up } from '../../components/style-utils/breakpoint';
 import { IllustrationType } from '../../components/illustration/illustration-set';
 import { SectionHeader } from '../../new-components/section-header/section-header';
-
-interface Perk {
-  illustration: IllustrationType;
-}
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 const TeaserGrid = styled.div`
   display: grid;
@@ -22,47 +19,12 @@ const TeaserGrid = styled.div`
   }
 `;
 
-interface Perk {
-  illustration: IllustrationType;
-  title: string;
-  description: string;
-}
-
-const PERKS: Perk[] = [
-  {
-    title: 'Zeit für Experimente',
-    description:
-      'Bei uns bekommst du Raum, um neue Technologien auszuprobieren oder mit Kollegen kleine Experimente durchzuführen',
-    illustration: 'scientistA_006',
-  },
-
-  {
-    title: 'Lebenslanges Lernen',
-    description:
-      'Du wirst bei uns jeden Tag etwas lernen, egal ob du dich als Anfänger oder Profi siehst. Sollte dir selbst mal die Muse fehlen, dann wird ein Kollege dich sicherlich kurz später zu inspirieren wissen. Und wenn du mal ein Buch brauchst: Jedes Buch geht auf uns.',
-    illustration: 'universe_003',
-  },
-
-  {
-    title: 'Lieblingsausrüstung',
-    description:
-      'Ob MacBook oder Linux Laptop? Ob Maus oder Trackpad oder VSCode oder IntelliJ. Du hast bei uns die Wahl.',
-    illustration: 'monitor_024',
-  },
-
-  {
-    title: 'Arbeiten wo du willst',
-    description:
-      'Arbeitszeit und Arbeitsort kannst du nach Absprache mit dem Team & Kunden flexibel wählen.',
-    illustration: 'galaxy_013',
-  },
-
-  {
-    title: 'Konferenzen',
-    description:
-      'Wir lieben Tech-Konferenzen und sind schon oft Besucher und manchmal sogar Speaker gewesen. Wir zahlen dir Ticket, Kost und Logis. Willst du Speaker werden? Wir unterstützen dich dabei.',
-    illustration: 'planetarium_028',
-  },
+const ILLUSTRATIONS: IllustrationType[] = [
+  'scientistA_006',
+  'universe_003',
+  'monitor_024',
+  'galaxy_013',
+  'planetarium_028',
 ];
 
 const PerksTeaserGrid = styled(TeaserGrid)`
@@ -70,21 +32,24 @@ const PerksTeaserGrid = styled(TeaserGrid)`
 `;
 
 export const Perks = () => {
+  const { t } = useTranslation();
   return (
     <>
-      <SectionHeader kicker="Arbeiten" headline=" Perks & Benefits  ">
-        Neben einem großartigen Team, interessanten Aufgaben und einer modernen
-        Arbeitsumgebung bieten wir noch weitere Extras.
+      <SectionHeader
+        kicker={t('career.perk.kicker')}
+        headline={t('career.perk.headline')}
+      >
+        {t('career.perk.paragraph')}
       </SectionHeader>
 
       <PerksTeaserGrid>
-        {PERKS.map((item, index) => (
+        {ILLUSTRATIONS.map((illustration, index) => (
           <Teaser
-            title={item.title}
+            title={t(`career.perk.teaser.${index}.title`)}
             key={index}
-            cover={<Illustration show={item.illustration} />}
+            cover={<Illustration show={illustration} />}
           >
-            {item.description}
+            {t(`career.perk.teaser.${index}.description`)}
           </Teaser>
         ))}
       </PerksTeaserGrid>
