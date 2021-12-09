@@ -11,7 +11,7 @@ import {
   LeadboxFooterContainer,
   LeadboxProps,
 } from '../../new-components/leadbox/leadbox';
-import { up } from '../breakpoint/breakpoint';
+import { up } from '../style-utils/breakpoint';
 import { Breadcrumb, BreadcrumbEntry } from '../breadcrumb/breadcrumb';
 
 /**

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { up } from '../breakpoint/breakpoint';
+import { up } from '../style-utils/breakpoint';
 import { HEADER_HEIGHT } from '../header/header';
 
 export const ContentBlockContainer = styled.div`

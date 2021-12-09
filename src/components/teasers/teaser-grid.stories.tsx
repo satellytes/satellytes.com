@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory } from '@storybook/react';
 import { TeaserGrid } from './teaser-grid';
-import { Teaser } from '../teaser';
+import { Teaser } from './teaser';
 
 const Template: ComponentStory<typeof TeaserGrid> = ({ children, ...rest }) => (
   <TeaserGrid {...rest}>{children}</TeaserGrid>
