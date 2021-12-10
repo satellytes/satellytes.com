@@ -1,9 +1,9 @@
 {
   "main": {
-    "description": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna.",
+    "description": "We are pragmatic professionals, creating reliable software for the web.",
     "services": {
-      "title": "Development & Design",
-      "topline": "Unsere Services",
+      "title": "Plattformen, Beratung & Products",
+      "kicker": "Unsere Services",
       "text": "Wir haben großen Spaß an Technologie und freuen uns auf neue Herausforderungen. Dabei fokussieren wir uns auf langfristige Engagements im Konzerngeschäft. Neuen Aufgaben begegnen wir immer mit angemessenem Respekt. Wir streben stets hochwertige und zeitgemäße Lösungen an – die Wahl der Technologie ist für uns dabei sekundär. Gern unterstützen wir auch Sie in den folgenden Disziplinen:",
       "teasers": {
         "first": {
@@ -22,7 +22,7 @@
     },
     "career": {
       "title": "Arbeite mit uns",
-      "topline": "Karriere bei Satellytes",
+      "kicker": "Karriere bei Satellytes",
       "text": "Wir suchen Entwickler:innen aus Leidenschaft! Du hast noch nicht viel Berufserfahrung? Kein Problem. Denn alles, was du wissen musst, lernst Du bei uns. Du kannst schon alles? Dann findest Du bei Satellytes neue Herausforderungen und erfahrene Kollegen, mit denen Du weiter wachsen kannst. Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung."
     }
   },

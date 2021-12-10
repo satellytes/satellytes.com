@@ -1,0 +1,32 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'; 
+import { Career } from './career';
+import { Service } from './service';
+
+<Meta title="Pages/Landingpage" component={{ Image }} />
+
+# Landingpage
+The landingpage page consists of various sections you can see here
+
+## Service
+
+<Canvas withSource={'open'}>
+  <Story name="ApplicationProcess">
+    <Service/>
+  </Story>
+</Canvas>
+
+
+## Career
+
+<Canvas withSource={'open'}>
+  <Story name="Career">
+    <Career positions={[
+      {name: "Frontend Engineer", short: "Come work here!", fields: {path: '#'}},
+      {name: "Senior Frontend Engineer", short: "Come work here!", fields: {path: '#'}},
+      {name: "Backend Engineer", short: "Come work here!", fields: {path: '#'}},
+      {name: "UX/UI", short: "Come work here!", fields: {path: '#'}}
+    ]}/>
+  </Story>
+</Canvas>
+
+<ArgsTable of={Career}/>
