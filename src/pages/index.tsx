@@ -74,11 +74,12 @@ interface IndexPageProps {
   };
   location: Location;
 }
+
 interface CareerSectionProps {
   positions: SyPersonioJob[];
 }
 
-const CareerSection = ({ positions }: CareerSectionProps) => {
+const CareerSection = () => {
   const { t } = useTranslation();
 
   return (

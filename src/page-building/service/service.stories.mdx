@@ -1,17 +1,26 @@
-import { Meta } from '@storybook/addon-docs'; import { Development } from './development'; import { Consulting } from './consulting'; import { Design } from './design';
+import { Meta } from '@storybook/addon-docs';
+import { Consulting } from './consulting';
+import { Industries } from './industries';
+import { Platforms } from './platforms'; import { ProductsServices } from './products-services';
 
 <Meta title="Pages/Service" component={{ Image }} />
 
 # Service
 The service page consists of various sections to highlight our expertise.
 
-## Development
+## Platforms
 <Canvas withSource={'open'}>
-  <Story name="Development">
-    <Development/>
+  <Story name="Platforms">
+    <Platforms/>
   </Story>
 </Canvas>
 
+## Product & Services
+<Canvas withSource={'open'}>
+  <Story name="Product & Services">
+    <ProductsServices/>
+  </Story>
+</Canvas>
 
 ## Consulting
 <Canvas withSource={'open'}>
@@ -20,9 +29,9 @@ The service page consists of various sections to highlight our expertise.
   </Story>
 </Canvas>
 
-## Design
+## Industries
 <Canvas withSource={'open'}>
-  <Story name="Design">
-    <Design/>
+  <Story name="Industries">
+    <Industries/>
   </Story>
 </Canvas>

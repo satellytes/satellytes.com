@@ -33,7 +33,7 @@ export const Openings = (props: OpeningsProps) => {
       <SectionHeadline>Unsere offenen Stellen</SectionHeadline>
       <TeaserGrid>
         {props.jobs.map((item) => (
-          <Teaser title={item.name} linkTo={item.fields.path} key={item.id}>
+          <Teaser title={item.name} linkTo={item.fields?.path} key={item.id}>
             {item.short}
           </Teaser>
         ))}
