@@ -25,7 +25,7 @@ const IndexPage = (props: IndexPageProps) => {
 
   return (
     <>
-      <SEO title="Satellytes" location={location} />
+      <SEO title="Satellytes" location={props.location} />
       <Landingpage positions={jobPositions} posts={blogPosts} />
     </>
   );
