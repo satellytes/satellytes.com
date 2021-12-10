@@ -5,6 +5,7 @@ import { theme } from '../layout/theme';
 import { TextStyles } from '../typography/typography-v2';
 
 interface ExpandableProps {
+  className?: string;
   /**
    * Headline of the Expandable
    * */
@@ -73,11 +74,15 @@ const ExpandableText = styled.div`
   margin-top: 12px;
 `;
 
-export const Expandable = ({ summary, children }: ExpandableProps) => {
+export const Expandable = ({
+  summary,
+  children,
+  className,
+}: ExpandableProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <ExpandableContainer>
+    <ExpandableContainer className={className}>
       <SummaryContainer
         onClick={() => {
           setIsOpen(!isOpen);

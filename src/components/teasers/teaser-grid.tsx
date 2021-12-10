@@ -63,6 +63,7 @@ const StyledTeaserGrid = styled.div<{ amountOfChildren: number }>`
 `;
 
 interface TeaserGridProps {
+  className?: string;
   children: React.ReactNode | React.ReactNode[];
 }
 
@@ -70,7 +71,7 @@ export const TeaserGrid = (props: TeaserGridProps): JSX.Element => {
   const amountOfChildren = React.Children.count(props.children);
 
   return (
-    <ScrollContainer>
+    <ScrollContainer className={props.className}>
       <StyledTeaserGrid amountOfChildren={amountOfChildren}>
         {props.children}
       </StyledTeaserGrid>

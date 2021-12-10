@@ -45,7 +45,7 @@ const TeaserText = styled.div`
 
 const StyledTeaserTitle = styled(TeaserTitle)<{
   hasTopline: boolean;
-  large: boolean;
+  large?: boolean;
 }>`
   margin-top: ${(props) => (props.hasTopline ? '8px' : '24px')};
 
@@ -67,6 +67,7 @@ export interface TeaserProps {
   dateFormatted?: string;
   cover?: JSX.Element;
   linkTo?: string;
+  className?: string;
 }
 
 /**
@@ -89,12 +90,13 @@ export const Teaser: React.FC<TeaserProps> = ({
   dateFormatted,
   cover,
   linkTo,
+  className,
   children,
 }) => {
   const hasToplineContainer = Boolean(topline || dateFormatted);
 
   return (
-    <TeaserContainer>
+    <TeaserContainer className={className}>
       <ConditionalLink to={linkTo}>
         {cover && <CoverContainer>{cover}</CoverContainer>}
         {hasToplineContainer && (
@@ -103,7 +105,7 @@ export const Teaser: React.FC<TeaserProps> = ({
             {dateFormatted && <Timestamp>{dateFormatted}</Timestamp>}
           </ToplineContainer>
         )}
-        <StyledTeaserTitle hasTopline={hasToplineContainer} large={!cover}>
+        <StyledTeaserTitle hasTopline={hasToplineContainer}>
           {title}
         </StyledTeaserTitle>
         <TeaserText>{children}</TeaserText>
