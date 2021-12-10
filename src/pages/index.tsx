@@ -1,7 +1,6 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import SEO from '../components/seo';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { SyPersonioJob } from '../@types/personio';
 import {
   Landingpage,
@@ -26,6 +25,7 @@ interface IndexPageProps {
 const IndexPage = (props: IndexPageProps) => {
   const jobPositions = props.data.allSyPersonioJob.nodes;
   const blogPosts = props.data.allMarkdownRemark.nodes;
+
   return (
     <>
       <SEO title="Satellytes" location={location} />
