@@ -12,10 +12,10 @@ import SharePanel from '../components/social-panel/share-panel';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
 import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { HeroImage } from '../components/hero-image/hero-image';
-import { LocalesQuery } from '../pages';
 import FollowPanel from '../components/social-panel/follow-panel';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { LeadboxProps } from '../new-components/leadbox/leadbox';
+import { LocalesQuery } from '../@types/blog';
 
 interface BlogArticleTemplateProps {
   data: {

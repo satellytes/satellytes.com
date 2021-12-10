@@ -8,3 +8,13 @@ export interface BlogPostTeaser {
     teaserText: string;
   };
 }
+
+export interface LocalesQuery {
+  edges: {
+    node: {
+      ns: string;
+      language: string;
+      data: string;
+    };
+  }[];
+}

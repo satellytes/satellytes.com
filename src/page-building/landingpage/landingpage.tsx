@@ -53,16 +53,6 @@ const IndexPageSubTitle = styled.h2`
   max-width: 640px;
 `;
 
-export interface LocalesQuery {
-  edges: {
-    node: {
-      ns: string;
-      language: string;
-      data: string;
-    };
-  }[];
-}
-
 const ImageFull = styled.img`
   display: block;
   width: 100%;
