@@ -3,7 +3,7 @@ import { Teaser } from '../../components/teasers/teaser';
 import styled from 'styled-components';
 import { up } from '../../components/style-utils/breakpoint';
 import { TextStyles } from '../../components/typography/typography-v2';
-import { SyPersonioJob } from '../../@types/personio';
+import { SyPersonioJob } from '../../types';
 
 const TeaserGrid = styled.div`
   display: grid;

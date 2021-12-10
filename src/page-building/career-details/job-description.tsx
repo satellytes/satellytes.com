@@ -1,8 +1,8 @@
-import { SyPersonioJobSection } from '../../@types/personio';
 import React from 'react';
 import styled from 'styled-components';
 import { TextTitle } from '../../components/typography/typography';
 import { up } from '../../components/style-utils/breakpoint';
+import { SyPersonioJobSection } from '../../types';
 
 export const SectionHeadline = styled(TextTitle)`
   margin-top: 40px;

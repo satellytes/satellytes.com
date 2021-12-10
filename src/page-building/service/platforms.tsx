@@ -1,7 +1,7 @@
 import React from 'react';
 import { ContentBlockContainer } from '../../components/layout/content-block-container';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { ExpandableStyled, Intro, UnorderedList } from './support';
+import { Intro, UnorderedList } from './support';
 
 export const Platforms = () => {
   const { t } = useTranslation();

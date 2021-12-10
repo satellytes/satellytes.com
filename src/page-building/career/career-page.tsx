@@ -7,11 +7,11 @@ import { TextStyles } from '../../components/typography/typography-v2';
 import { LayoutV2 } from '../../components/layout/layout-v2';
 import { Aurora } from '../../components/aurora/aurora';
 import { ContentBlockContainer } from '../../components/layout/content-block-container';
-import { SyPersonioJob } from '../../@types/personio';
 import { Culture } from './culture';
 import { Perks } from './perks';
 import { LeadboxProps } from '../../new-components/leadbox/leadbox';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { SyPersonioJob } from '../../types';
 
 const Paragraph = styled.p`
   ${TextStyles.textR}

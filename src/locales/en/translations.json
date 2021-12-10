@@ -1,16 +1,19 @@
 {
   "main": {
-    "description": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna.",
+    "description": "We are pragmatic professionals, creating reliable software for the web.",
     "services": {
-      "title": "Development & Design",
-      "topline": "Our Services",
+      "title": "Platforms, Consulting & Products",
+      "kicker": "Our Services",
       "text": "We enjoy technology and look forward to new challenges. We focus on long-term commitments in the Group's business.\nWe always approach new tasks with appropriate respect. We always strive for high-quality and contemporary solutions - the choice of technology is secondary for us. We would be happy to support you in the following disciplines:"
     },
     "career": {
       "title": "Work with us",
-      "topline": "Career at Satellytes",
+      "kicker": "Career at Satellytes",
       "text": "Wir suchen Entwickler:innen aus Leidenschaft! Du hast noch nicht viel Berufserfahrung? Kein Problem. Denn alles, was du wissen musst, lernst Du bei uns. Du kannst schon alles? Dann findest Du bei Satellytes neue Herausforderungen und erfahrene Kollegen, mit denen Du weiter wachsen kannst. Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung."
-    }
+    },
+    "blog.title": "Ping, Echo, Printf",
+    "blog.kicker": "News about Satellytes",
+    "blog.text": "Find best practices, interesting bits of technology and news about Satellytes and the team"
   },
   "career": {
     "title": "Career",
