@@ -6,7 +6,10 @@ const { createBlogPosts } = require('./gatsby/create-pages/create-blog-posts');
 const {
   createCareerPages,
 } = require('./gatsby/create-pages/create-career-pages');
-const { createFilePath } = require('gatsby-source-filesystem');
+const {
+  createFilePath,
+  createFileNodeFromBuffer,
+} = require('gatsby-source-filesystem');
 const {
   createCareerPagePathField,
 } = require('./gatsby/create-node/create-career-page-path');

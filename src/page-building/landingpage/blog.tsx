@@ -6,10 +6,16 @@ import { HomePageHeaderBlock } from './support';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { useLocaleFormat } from '../../new-components/i18n-helpers';
 import { BlogPostTeaser } from '../../types';
+import { LinkButton } from '../../components/links/links';
+import styled from 'styled-components';
 
 interface BlogProps {
   posts: BlogPostTeaser[];
 }
+
+const Spacer = styled.div`
+  height: 40px;
+`;
 
 export const Blog = ({ posts }: BlogProps) => {
   const { t } = useTranslation();
@@ -42,6 +48,9 @@ export const Blog = ({ posts }: BlogProps) => {
           );
         })}
       </TeaserGrid>
+
+      <Spacer />
+      <LinkButton to={'/blog'}>Alle Artikel</LinkButton>
     </>
   );
 };

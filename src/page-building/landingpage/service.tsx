@@ -7,6 +7,12 @@ import {
 } from '../../components/illustration/illustration';
 import React from 'react';
 import { HomePageHeaderBlock } from './support';
+import { LinkButton } from '../../components/links/links';
+import styled from 'styled-components';
+
+const Spacer = styled.div`
+  height: 40px;
+`;
 
 export const Service = () => {
   const { t } = useTranslation();
@@ -50,6 +56,9 @@ export const Service = () => {
           {t('services.products_services.text')}
         </Teaser>
       </TeaserGrid>
+
+      <Spacer />
+      <LinkButton to={'/services'}>Learn more</LinkButton>
     </>
   );
 };
