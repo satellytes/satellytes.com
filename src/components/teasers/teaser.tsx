@@ -45,7 +45,7 @@ const TeaserText = styled.div`
 
 const StyledTeaserTitle = styled(TeaserTitle)<{
   hasTopline: boolean;
-  large: boolean;
+  large?: boolean;
 }>`
   margin-top: ${(props) => (props.hasTopline ? '8px' : '24px')};
 
