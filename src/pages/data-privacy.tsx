@@ -6,7 +6,7 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { LayoutV2 } from '../components/layout/layout-v2';
 import { ContentBlockContainerWithoutHero } from '../components/layout/content-block-container';
 import { SectionHeader } from '../new-components/section-header/section-header';
-import { LocalesQuery } from '../@types/blog';
+import { LocalesQuery } from '../types';
 
 interface DataPrivacyPageProps {
   data: {

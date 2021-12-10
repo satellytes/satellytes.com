@@ -1,9 +1,8 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import SEO from '../components/seo';
-import { SyPersonioJob } from '../@types/personio';
 import { Landingpage } from '../page-building/landingpage/landingpage';
-import { BlogPostTeaser, LocalesQuery } from '../@types/blog';
+import { BlogPostTeaser, LocalesQuery, SyPersonioJob } from '../types';
 
 interface IndexPageProps {
   data: {

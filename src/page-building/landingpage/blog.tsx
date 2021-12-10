@@ -3,9 +3,9 @@ import { TeaserGrid } from '../../components/teasers/teaser-grid';
 import { Teaser } from '../../components/teasers/teaser';
 import React from 'react';
 import { HomePageHeaderBlock } from './support';
-import { BlogPostTeaser } from '../../@types/blog';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { useLocalFormat } from '../../new-components/i18n-helpers';
+import { useLocaleFormat } from '../../new-components/i18n-helpers';
+import { BlogPostTeaser } from '../../types';
 
 interface BlogProps {
   posts: BlogPostTeaser[];
@@ -13,7 +13,7 @@ interface BlogProps {
 
 export const Blog = ({ posts }: BlogProps) => {
   const { t } = useTranslation();
-  const dateFormatter = useLocalFormat('dd. MMMM yyyy');
+  const dateFormatter = useLocaleFormat('dd. MMMM yyyy');
 
   return (
     <>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { SyPersonioJob } from '../../@types/personio';
 import { LayoutV2 } from '../../components/layout/layout-v2';
 import { Aurora } from '../../components/aurora/aurora';
 import { ContentBlockContainer } from '../../components/layout/content-block-container';
@@ -13,7 +12,7 @@ import { Service } from './service';
 import officeImage01 from '../../images/office/sy-office-01.jpg';
 import officeImage02 from '../../images/office/sy-office-04.jpg';
 import { Blog } from './blog';
-import { BlogPostTeaser } from '../../@types/blog';
+import { BlogPostTeaser, SyPersonioJob } from '../../types';
 
 interface LandingpageProps {
   positions: SyPersonioJob[];

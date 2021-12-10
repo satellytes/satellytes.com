@@ -3,8 +3,7 @@ import SEO from '../components/seo';
 import { graphql } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { CareerPage } from '../page-building/career/career-page';
-import { SyPersonioJob } from '../@types/personio';
-import { LocalesQuery } from '../@types/blog';
+import { LocalesQuery, SyPersonioJob } from '../types';
 
 interface CareerMarkdownQuery {
   htmlAst: string;

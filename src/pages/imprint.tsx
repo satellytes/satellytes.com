@@ -8,7 +8,7 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { LayoutV2 } from '../components/layout/layout-v2';
 import { SectionHeader } from '../new-components/section-header/section-header';
 import { ContentBlockContainerWithoutHero } from '../components/layout/content-block-container';
-import { LocalesQuery } from '../@types/blog';
+import { LocalesQuery } from '../types';
 
 const BottomNote = styled(Text)`
   margin-top: 80px;

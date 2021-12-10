@@ -1,11 +1,11 @@
 import React from 'react';
-import { SyPersonioJob } from '../../@types/personio';
 import { LayoutV2 } from '../../components/layout/layout-v2';
 import { Aurora } from '../../components/aurora/aurora';
 import { CareerForm } from '../../components/career-form/career-form';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { JobDescription } from './job-description';
 import { SectionHeader } from '../../new-components/section-header/section-header';
+import { SyPersonioJob } from '../../types';
 
 interface CareerDetailsProps {
   originalPath: string;

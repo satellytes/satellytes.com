@@ -15,7 +15,7 @@ import { HeroImage } from '../components/hero-image/hero-image';
 import FollowPanel from '../components/social-panel/follow-panel';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { LeadboxProps } from '../new-components/leadbox/leadbox';
-import { LocalesQuery } from '../@types/blog';
+import { LocalesQuery } from '../types';
 
 interface BlogArticleTemplateProps {
   data: {

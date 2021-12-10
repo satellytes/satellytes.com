@@ -6,10 +6,10 @@ import { enGB, de } from 'date-fns/locale';
  * and return a formatter (date-fns) with the correct locale set
  * with the default being `enGB` for any unknown language.
  */
-export const useLocalFormat = (dateFormat) => {
+export const useLocaleFormat = (dateFormat) => {
   const { i18n } = useTranslation();
 
-  const getLocal = (language) => {
+  const getLocale = (language) => {
     if (language === 'de') {
       return de;
     }
@@ -20,7 +20,7 @@ export const useLocalFormat = (dateFormat) => {
   return (date) => {
     try {
       return format(parseISO(date), dateFormat, {
-        locale: getLocal(i18n.language),
+        locale: getLocale(i18n.language),
       });
     } catch {
       return null;

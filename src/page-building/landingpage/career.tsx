@@ -2,8 +2,8 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { TeaserGrid } from '../../components/teasers/teaser-grid';
 import { Teaser } from '../../components/teasers/teaser';
 import React from 'react';
-import { SyPersonioJob } from '../../@types/personio';
 import { HomePageHeaderBlock } from './support';
+import { SyPersonioJob } from '../../types';
 
 interface CareerProps {
   positions: SyPersonioJob[];
