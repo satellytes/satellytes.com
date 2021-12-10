@@ -23,12 +23,6 @@ const IllustrationStyled = styled(Illustration)`
     order: 1;
   }
 `;
-const KickerStyled = styled.span`
-  ${TextStyles.toplineR}
-  display: block;
-  color: #3e61ee;
-  margin-bottom: 16px;
-`;
 
 const HeadlineStyled = styled.h3`
   ${TextStyles.headlineM}
@@ -77,18 +71,3 @@ export const UnorderedList = styled.ul`
   margin: 0;
   padding-left: 1em;
 `;
-
-interface BlogHeaderProps {
-  /**
-   * A short label above the headline
-   */
-  kicker?: string;
-  /**
-   * The headline for the given section
-   */
-  headline: string;
-  /**
-   * The actual text content
-   */
-  children?: React.ReactNode;
-}

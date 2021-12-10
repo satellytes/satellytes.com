@@ -8,7 +8,6 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 import { TextStyles } from '../../components/typography/typography-v2';
 import { Consulting } from './consulting';
-import { Summary } from './summary';
 import { Industries } from './industries';
 import { Platforms } from './platforms';
 import { ProductsServices } from './products-services';
@@ -38,9 +37,6 @@ const ServicesPageTitle = styled.h1`
   margin: 0;
 `;
 
-const SummaryStyled = styled(Summary)`
-  margin-top: 40px;
-`;
 export const Service = () => {
   const { t } = useTranslation();
 
