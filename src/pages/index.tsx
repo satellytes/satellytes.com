@@ -7,6 +7,7 @@ import {
   Landingpage,
   LocalesQuery,
 } from '../page-building/landingpage/landingpage';
+import { BlogPostTeaser } from '../@types/blog';
 
 interface IndexPageProps {
   data: {
@@ -15,21 +16,21 @@ interface IndexPageProps {
     allSyPersonioJob: {
       nodes: SyPersonioJob[];
     };
+    allMarkdownRemark: {
+      nodes: BlogPostTeaser[];
+    };
   };
   location: Location;
 }
 
-const IndexPage = ({
-  location,
-  data: { allSyPersonioJob },
-}: IndexPageProps) => {
-  const { t } = useTranslation();
-  const jobPositions = allSyPersonioJob.nodes;
+const IndexPage = (props: IndexPageProps) => {
+  const jobPositions = props.data.allSyPersonioJob.nodes;
+  const blogPosts = props.data.allMarkdownRemark.nodes;
 
   return (
     <>
       <SEO title="Satellytes" location={location} />
-      <Landingpage positions={jobPositions} />
+      <Landingpage positions={jobPositions} posts={blogPosts} />
     </>
   );
 };
@@ -59,6 +60,33 @@ export const IndexPageQuery = graphql`
           ns
           data
           language
+        }
+      }
+    }
+
+    allMarkdownRemark(
+      sort: { fields: frontmatter___date, order: DESC }
+      filter: { fileAbsolutePath: { regex: "/(blog-posts)/" } }
+      limit: 3
+    ) {
+      nodes {
+        id
+        frontmatter {
+          date
+          path
+          title
+          teaserText
+          featuredImage {
+            childImageSharp {
+              gatsbyImageData(
+                width: 400
+                aspectRatio: 1.77
+                layout: CONSTRAINED
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
+            }
+          }
         }
       }
     }

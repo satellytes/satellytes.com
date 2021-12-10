@@ -5,6 +5,7 @@ title: Daniel Eißing – Senior Frontend Engineer
 featuredImage: images/interview/daniel-hero.jpg
 author: "Satellytes"
 authorSummary: "Interview mit Daniel Eißing"
+teaserText: Daniel Eißing ist seit einem Monat Senior Frontend Engineer bei Satellytes und das zu 100% remote
 ---
 
 

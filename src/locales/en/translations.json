@@ -10,7 +10,10 @@
       "title": "Work with us",
       "kicker": "Career at Satellytes",
       "text": "Wir suchen Entwickler:innen aus Leidenschaft! Du hast noch nicht viel Berufserfahrung? Kein Problem. Denn alles, was du wissen musst, lernst Du bei uns. Du kannst schon alles? Dann findest Du bei Satellytes neue Herausforderungen und erfahrene Kollegen, mit denen Du weiter wachsen kannst. Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung."
-    }
+    },
+    "blog.title": "Ping, Echo, Printf",
+    "blog.kicker": "News about Satellytes",
+    "blog.text": "Find best practices, interesting bits of technology and news about Satellytes and the team"
   },
   "career": {
     "title": "Career",

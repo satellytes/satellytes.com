@@ -2,32 +2,45 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { TeaserGrid } from '../../components/teasers/teaser-grid';
 import { Teaser } from '../../components/teasers/teaser';
 import React from 'react';
-import { SyPersonioJob } from '../../@types/personio';
 import { HomePageHeaderBlock } from './support';
+import { BlogPostTeaser } from '../../@types/blog';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { useLocalFormat } from '../../new-components/i18n-helpers';
 
-interface CareerProps {
-  positions: SyPersonioJob[];
+interface BlogProps {
+  posts: BlogPostTeaser[];
 }
 
-export const Blog = ({ posts }: CareerProps) => {
+export const Blog = ({ posts }: BlogProps) => {
   const { t } = useTranslation();
+  const dateFormatter = useLocalFormat('dd. MMMM yyyy');
 
   return (
     <>
       <HomePageHeaderBlock
-        topline={t('main.career.topline')}
-        headline={t('main.career.title')}
+        topline={t('main.blog.kicker')}
+        headline={t('main.blog.title')}
         large={true}
       >
-        {t('main.career.text')}
+        {t('main.blog.text')}
       </HomePageHeaderBlock>
 
       <TeaserGrid>
-        {posts.map((item) => (
-          <Teaser key={item.id} title={item.name} linkTo={item.fields?.path}>
-            {item.short}
-          </Teaser>
-        ))}
+        {posts.map((item) => {
+          const image = getImage(item.frontmatter.featuredImage)!;
+
+          return (
+            <Teaser
+              key={item.id}
+              title={item.frontmatter.title}
+              linkTo={item.frontmatter.path}
+              dateFormatted={dateFormatter(item.frontmatter.date)}
+              cover={<GatsbyImage alt="" image={image} />}
+            >
+              {item.frontmatter.teaserText}
+            </Teaser>
+          );
+        })}
       </TeaserGrid>
     </>
   );

@@ -3,20 +3,16 @@ import { SyPersonioJob } from '../../@types/personio';
 import { LayoutV2 } from '../../components/layout/layout-v2';
 import { Aurora } from '../../components/aurora/aurora';
 import { ContentBlockContainer } from '../../components/layout/content-block-container';
-import { TeaserGrid } from '../../components/teasers/teaser-grid';
-import { Teaser } from '../../components/teasers/teaser';
-import {
-  Illustration,
-  IllustrationSize,
-} from '../../components/illustration/illustration';
 import styled from 'styled-components';
 import { up } from '../../components/style-utils/breakpoint';
 import { TextStyles } from '../../components/typography/typography-v2';
-import { HeaderBlock } from '../../components/header-block/header-block';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Career } from './career';
 import { Service } from './service';
-import { StaticImage } from 'gatsby-plugin-image';
+
+import officeImage01 from '../../images/office/sy-office-01.jpg';
+import officeImage02 from '../../images/office/sy-office-04.jpg';
+
 interface LandingpageProps {
   positions: SyPersonioJob[];
 }
@@ -63,9 +59,6 @@ export interface LocalesQuery {
     };
   }[];
 }
-
-import officeImage01 from '../../images/office/sy-office-01.jpg';
-import officeImage02 from '../../images/office/sy-office-04.jpg';
 
 const ImageFull = styled.img`
   display: block;
