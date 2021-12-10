@@ -1,0 +1,51 @@
+[
+  {
+    "name": "Daniel",
+    "image": "team/daniel-_MG_1877.jpg"
+  },
+
+  {
+    "name": "Eric",
+    "image": "team/eric-_MG_1868.jpg"
+  },
+
+  {
+    "name": "Fabian",
+    "image": "team/fabian-_MG_1839.jpg"
+  },
+
+  {
+    "name": "Felix ",
+    "image": "team/felix-_MG_1866.jpg"
+  },
+
+  {
+    "name": "Florian",
+    "image": "team/florian-_MG_1899.jpg"
+  },
+
+  {
+    "name": "Gholam",
+    "image": "team/gholam-_MG_1909.jpg"
+  },
+
+  {
+    "name": "Jesus",
+    "image": "team/jesus-_MG_1851.jpg"
+  },
+
+  {
+    "name": "Jonathan",
+    "image": "team/jonathan.jpg"
+  },
+
+  {
+    "name": "Mark",
+    "image": "team/mark-_MG_1837.jpg"
+  },
+
+  {
+    "name": "Pavel",
+    "image": "team/pavel-_MG_1860.jpg"
+  }
+]

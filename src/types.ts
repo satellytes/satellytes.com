@@ -1,3 +1,5 @@
+import { IGatsbyImageData } from 'gatsby-plugin-image';
+
 export interface BlogPostTeaser {
   id: string;
   frontmatter: {
@@ -43,4 +45,10 @@ export interface SyPersonioJob {
     path: string;
     socialCard: string;
   };
+}
+
+export interface SyTeamMember {
+  id: string;
+  name: string;
+  image: IGatsbyImageData;
 }

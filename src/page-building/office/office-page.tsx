@@ -7,10 +7,11 @@ import { LayoutV2 } from '../../components/layout/layout-v2';
 import { LeadboxProps } from '../../new-components/leadbox/leadbox';
 import { SectionHeader } from '../../new-components/section-header/section-header';
 import { ContentBlockContainer } from '../../components/layout/content-block-container';
-import { OfficePreview } from './office-preview';
+import { Office } from './office';
 import { Team } from './team';
 
 import HeroImage from './../../images/office/sy-office-01.jpg';
+import { SyTeamMember } from '../../types';
 
 const Hero = styled.div`
   height: 520px;
@@ -24,7 +25,11 @@ const Hero = styled.div`
   background-size: cover;
 `;
 
-export const OfficePage = () => {
+interface OfficePageProps {
+  team: SyTeamMember[];
+}
+
+export const OfficePage = (props: OfficePageProps) => {
   const { t } = useTranslation();
 
   const leadbox: LeadboxProps = {
@@ -48,27 +53,17 @@ export const OfficePage = () => {
           headline={t('office.heading')}
           kicker={t('office.title')}
         >
-          Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
-          vestibulum. Etiam porta sem malesuada magna mollis euismod. Fusce
-          dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-          fermentum massa justo sit amet risus. Morbi leo risus, porta ac
-          consectetur ac, vestibulum at eros.
-          <br />
-          Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent
-          commodo cursus magna, vel scelerisque nisl consectetur et. Morbi leo
-          risus, porta ac consectetur ac, vestibulum at eros. Donec sed odio
-          dui. Integer posuere erat a ante venenatis dapibus posuere velit
-          aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam
-          venenatis vestibulum.
+          Feel at home with us. A small impression of our office in Sendlinger
+          Straße in the heart of Munich.
         </SectionHeader>
       </ContentBlockContainer>
 
       <ContentBlockContainer>
-        <OfficePreview />
+        <Office />
       </ContentBlockContainer>
 
       <ContentBlockContainer>
-        <Team />
+        <Team team={props.team} />
       </ContentBlockContainer>
     </LayoutV2>
   );
