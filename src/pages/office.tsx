@@ -3,7 +3,7 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import SEO from '../components/seo';
 import { OfficePage } from '../page-building/office/office-page';
-import { SyPersonioJob, SyTeamMember } from '../types';
+import { SyTeamMember } from '../types';
 
 interface OfficeProps {
   location: Location;
@@ -16,7 +16,6 @@ interface OfficeProps {
 
 const Office = (props: OfficeProps) => {
   const { t } = useTranslation();
-  console.log(props.data.allTeamJson);
   return (
     <>
       <SEO

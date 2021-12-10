@@ -44,7 +44,7 @@ const ContentStyled = styled.div`
   }
 `;
 
-export const Intro = ({ illustration, headline, children, kicker }: any) => (
+export const Intro = ({ illustration, headline, children }: any) => (
   <IntroLayout>
     <IllustrationStyled size={IllustrationSize.LARGE} show={illustration} />
     <div>
