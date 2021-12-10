@@ -64,7 +64,7 @@ const CoverContainer = styled.div`
 export interface TeaserProps {
   title: string;
   topline?: string;
-  dateFormatted?: string;
+  dateFormatted?: string | null;
   cover?: JSX.Element;
   linkTo?: string;
   className?: string;

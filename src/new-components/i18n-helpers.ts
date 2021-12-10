@@ -17,8 +17,14 @@ export const useLocalFormat = (dateFormat) => {
     return enGB;
   };
 
-  return (date) =>
-    format(parseISO(date), dateFormat, {
-      locale: getLocal(i18n.language),
-    });
+  return (date) => {
+    console.log(date);
+    try {
+      return format(parseISO(date), dateFormat, {
+        locale: getLocal(i18n.language),
+      });
+    } catch {
+      return null;
+    }
+  };
 };

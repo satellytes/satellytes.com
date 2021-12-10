@@ -35,7 +35,7 @@ export const Blog = ({ posts }: BlogProps) => {
               title={item.frontmatter.title}
               linkTo={item.frontmatter.path}
               dateFormatted={dateFormatter(item.frontmatter.date)}
-              cover={<GatsbyImage alt="" image={image} />}
+              cover={image && <GatsbyImage alt="" image={image} />}
             >
               {item.frontmatter.teaserText}
             </Teaser>

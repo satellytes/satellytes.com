@@ -12,9 +12,12 @@ import { Service } from './service';
 
 import officeImage01 from '../../images/office/sy-office-01.jpg';
 import officeImage02 from '../../images/office/sy-office-04.jpg';
+import { Blog } from './blog';
+import { BlogPostTeaser } from '../../@types/blog';
 
 interface LandingpageProps {
   positions: SyPersonioJob[];
+  posts: BlogPostTeaser[];
 }
 
 const HeroContainer = styled.div`
@@ -84,7 +87,7 @@ const FullWidthContainer = styled(ContentBlockContainer)`
   grid-column: -1/1;
 `;
 
-export const Landingpage = ({ positions }: LandingpageProps) => {
+export const Landingpage = ({ positions, posts }: LandingpageProps) => {
   const { t } = useTranslation();
 
   return (
@@ -114,6 +117,9 @@ export const Landingpage = ({ positions }: LandingpageProps) => {
       </ContentBlockContainer>
 
       <ImageSeparator image={officeImage02} />
+      <ContentBlockContainer>
+        <Blog posts={posts} />
+      </ContentBlockContainer>
     </LayoutV2>
   );
 };

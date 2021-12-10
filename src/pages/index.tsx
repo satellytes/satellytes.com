@@ -26,7 +26,6 @@ interface IndexPageProps {
 const IndexPage = (props: IndexPageProps) => {
   const jobPositions = props.data.allSyPersonioJob.nodes;
   const blogPosts = props.data.allMarkdownRemark.nodes;
-
   return (
     <>
       <SEO title="Satellytes" location={location} />
