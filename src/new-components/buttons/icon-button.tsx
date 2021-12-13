@@ -28,13 +28,13 @@ const StyledButton = styled.button`
 `;
 
 interface IconButtonProps extends React.ComponentPropsWithoutRef<'button'> {
-  show: IconType;
+  icon: IconType;
 }
 
 export const IconButton = (props: IconButtonProps) => {
   return (
     <StyledButton {...props}>
-      <Icon show={props.show}></Icon>
+      <Icon show={props.icon}></Icon>
     </StyledButton>
   );
 };

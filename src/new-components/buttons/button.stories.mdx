@@ -10,11 +10,7 @@ import { Icon } from '../icon/icon';
 There are multiple Button components for different situations.
 They all take all the props of a normal `<button>`, e.g. the `onClick` property.
 
-### Overview of Buttons
-
----
-
-#### Regular
+## Regular
 
 This is the Regular Button, which should be used in all the standard use cases. Pass the `label` as `children` to the Button.
 
@@ -26,11 +22,11 @@ This is the Regular Button, which should be used in all the standard use cases. 
   </Story>
 </Canvas>
 
-#### IconButton
+## IconButton
 
 This is the Icon Button. It is always of the size `24x24` and it shows one of the icons specified [here](?path=/docs/components-icon--regular).
 
-The `show` property of IconButton defines which Icon will be displayed.
+The `icon` property of IconButton defines which Icon will be displayed.
 
 <ArgsTable of={IconButton} />
 
@@ -38,7 +34,7 @@ The `show` property of IconButton defines which Icon will be displayed.
   <Story name="WithIcon">
     <IconButton
       onClick={() => console.log('Icon Button clicked')}
-      show="clone"
+      icon="clone"
     />
   </Story>
 </Canvas>
