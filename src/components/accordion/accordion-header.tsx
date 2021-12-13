@@ -3,10 +3,10 @@ import { TextStyles } from '../typography/typography-v2';
 import { ellipsis } from 'polished';
 import * as ReachAccordion from '@reach/accordion';
 import { theme } from '../layout/theme';
-import { ReactComponent as ChevronSVG } from './chevron.svg';
 import { useAccordionItemContext } from '@reach/accordion';
 import React from 'react';
 import { resetButton } from '../css-helpers';
+import { Icon } from '../../new-components/icon/icon';
 
 interface AccordionHeaderProps {
   children: React.ReactNode;
@@ -44,7 +44,7 @@ const AccordionButton = styled(ReachAccordion.AccordionButton)`
 const AccordionChevron = (props: AccordionChevronProps) => {
   return (
     <div className={props.className}>
-      <ChevronSVG />
+      <Icon show="chevron_up" />
     </div>
   );
 };
