@@ -1,5 +1,5 @@
 import React from 'react';
-import { Teaser } from '../../components/teasers/teaser';
+import { Teaser } from '../../new-components/teaser/teaser';
 import styled from 'styled-components';
 import { up } from '../../components/style-utils/breakpoint';
 import { TextStyles } from '../../components/typography/typography-v2';

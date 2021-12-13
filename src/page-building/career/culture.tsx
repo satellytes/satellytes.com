@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { up } from '../../components/style-utils/breakpoint';
-import { Teaser } from '../../components/teasers/teaser';
-import { Illustration } from '../../components/illustration/illustration';
+import { Teaser } from '../../new-components/teaser/teaser';
 import { IllustrationType } from '../../components/illustration/illustration-set';
 import { SectionHeader } from '../../new-components/section-header/section-header';
 
@@ -84,7 +83,7 @@ export const Culture = () => {
           <Teaser
             title={item.title}
             key={index}
-            cover={<Illustration show={item.illustration} />}
+            illustration={item.illustration}
           >
             {item.description}
           </Teaser>

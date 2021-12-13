@@ -1,33 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
-import { TeaserTitle, Timestamp, Topline } from '../typography/typography';
-import { Arrow } from '../icons/arrow';
-import { theme } from '../layout/theme';
-import { Link } from '../links/links';
+import {
+  TeaserTitle,
+  Timestamp,
+  Topline,
+} from '../../components/typography/typography';
+import { theme } from '../../components/layout/theme';
+import { Link } from '../../components/links/links';
+import { IllustrationType } from '../../components/illustration/illustration-set';
+import { Illustration } from '../../components/illustration/illustration';
+import { Icon } from '../icon/icon';
+import { TextStyles } from '../../components/typography/typography-v2';
 
-const TeaserContainer = styled.div`
+const TeaserContainer = styled.div<{ hover: boolean }>`
   cursor: pointer;
   overflow: hidden;
 
-  img {
-    transition: transform 0.2s;
-  }
+  color: ${(props) => props.hover && theme.palette.text.topline};
+`;
 
-  &:hover {
-    color: ${theme.palette.text.topline};
-
-    p {
-      color: ${theme.palette.text.topline};
-    }
-
-    img {
-      transform: scale(1.05);
-    }
-
-    svg path {
-      fill: ${theme.palette.text.topline};
-    }
-  }
+const StyledIllustration = styled(Illustration)<{ hover: boolean }>`
+  ${(props) =>
+    props.hover &&
+    css`
+      svg path {
+        fill: ${theme.palette.text.topline};
+      }
+    `}
 `;
 
 const ToplineContainer = styled.div`
@@ -38,8 +37,7 @@ const ToplineContainer = styled.div`
 `;
 
 const TeaserText = styled.div`
-  font-size: 16px;
-  line-height: 150%;
+  ${TextStyles.textR};
   margin: 16px 0 22px;
 `;
 
@@ -57,15 +55,18 @@ const StyledTeaserTitle = styled(TeaserTitle)<{
     `}
 `;
 
-const CoverContainer = styled.div`
+const ImageContainer = styled.div<{ hover: boolean }>`
   overflow: hidden;
+  transition: transform 0.2s;
+  transform: ${(props) => props.hover && 'scale(1.05)'};
 `;
 
 export interface TeaserProps {
   title: string;
   topline?: string;
   dateFormatted?: string | null;
-  cover?: JSX.Element;
+  teaserImage?: JSX.Element;
+  illustration?: IllustrationType;
   linkTo?: string;
   className?: string;
 }
@@ -88,17 +89,33 @@ export const Teaser: React.FC<TeaserProps> = ({
   topline,
   title,
   dateFormatted,
-  cover,
+  teaserImage,
   linkTo,
+  illustration,
   className,
   children,
 }) => {
+  const [hoverActive, setIsHoverActive] = useState<boolean>(false);
   const hasToplineContainer = Boolean(topline || dateFormatted);
 
   return (
-    <TeaserContainer className={className}>
+    <TeaserContainer
+      className={className}
+      hover={hoverActive}
+      onMouseEnter={() => {
+        Boolean(linkTo) && setIsHoverActive(true);
+      }}
+      onMouseLeave={() => {
+        setIsHoverActive(false);
+      }}
+    >
       <ConditionalLink to={linkTo}>
-        {cover && <CoverContainer>{cover}</CoverContainer>}
+        {teaserImage && (
+          <ImageContainer hover={hoverActive}>{teaserImage}</ImageContainer>
+        )}
+        {illustration && (
+          <StyledIllustration show={illustration} hover={hoverActive} />
+        )}
         {hasToplineContainer && (
           <ToplineContainer>
             {topline && <Topline>{topline}</Topline>}
@@ -109,7 +126,7 @@ export const Teaser: React.FC<TeaserProps> = ({
           {title}
         </StyledTeaserTitle>
         <TeaserText>{children}</TeaserText>
-        {linkTo && <Arrow />}
+        {linkTo && <Icon show={'arrow_right'} />}
       </ConditionalLink>
     </TeaserContainer>
   );

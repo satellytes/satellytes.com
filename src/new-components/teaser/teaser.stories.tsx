@@ -3,8 +3,11 @@ import { ComponentStory } from '@storybook/react';
 import { Teaser } from './teaser';
 import ExampleImage from '../../../blog-posts/images/angular.png';
 import styled from 'styled-components';
-import { Illustration, IllustrationSize } from '../illustration/illustration';
-import { ILLUSTRATION_NAMES } from '../illustration/illustration-set';
+import {
+  Illustration,
+  IllustrationSize,
+} from '../../components/illustration/illustration';
+import { ILLUSTRATION_NAMES } from '../../components/illustration/illustration-set';
 
 const Template: ComponentStory<typeof Teaser> = (args) => <Teaser {...args} />;
 
@@ -28,12 +31,10 @@ const icons = {};
 export const WithIllustration = Template.bind({});
 WithIllustration.args = {
   ...Regular.args,
-  cover: (
-    <Illustration show={'space_shuttle_043'} size={IllustrationSize.MEDIUM} />
-  ),
+  illustration: 'space_shuttle_043',
 };
 WithIllustration.argTypes = {
-  cover: {
+  teaserImage: {
     options: ILLUSTRATION_NAMES,
     mapping: icons,
   },
@@ -48,7 +49,7 @@ WithImage.args = {
   ...Regular.args,
   topline: 'Topline',
   dateFormatted: '15th November 2021',
-  cover: <SampleImage src={ExampleImage} alt="" />,
+  teaserImage: <SampleImage src={ExampleImage} alt="" />,
 };
 WithImage.parameters = {
   controls: { exclude: ['cover'] },
