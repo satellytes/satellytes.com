@@ -2,8 +2,6 @@ import React from 'react';
 import { ApplicationProcess } from './application-process';
 import { Openings } from './openings';
 import { SectionHeader } from '../../new-components/section-header/section-header';
-import styled from 'styled-components';
-import { TextStyles } from '../../components/typography/typography-v2';
 import { LayoutV2 } from '../../components/layout/layout-v2';
 import { Aurora } from '../../components/aurora/aurora';
 import { ContentBlockContainer } from '../../components/layout/content-block-container';
@@ -12,12 +10,6 @@ import { Perks } from './perks';
 import { LeadboxProps } from '../../new-components/leadbox/leadbox';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { SyPersonioJob } from '../../types';
-
-const Paragraph = styled.p`
-  & + & {
-    margin-bottom: 16px;
-  }
-`;
 
 interface CareerPageProps {
   positions: SyPersonioJob[];
@@ -48,7 +40,7 @@ export const CareerPage = ({ positions }: CareerPageProps) => {
           kicker={t('career.introduction.kicker')}
           headline={t('career.introduction.headline')}
         >
-          <Paragraph>{t('career.introduction.paragraphs.0')}</Paragraph>
+          {t('career.introduction.paragraphs.0')}
         </SectionHeader>
       </ContentBlockContainer>
 
