@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
-import {
-  TeaserTitle,
-  Timestamp,
-  Topline,
-} from '../../components/typography/typography';
 import { theme } from '../../components/layout/theme';
 import { Link } from '../../components/links/links';
 import { IllustrationType } from '../../components/illustration/illustration-set';
-import { Illustration } from '../../components/illustration/illustration';
+import {
+  Illustration,
+  IllustrationSize,
+} from '../../components/illustration/illustration';
 import { Icon } from '../icon/icon';
 import { TextStyles } from '../../components/typography/typography-v2';
 
@@ -20,6 +18,7 @@ const TeaserContainer = styled.div<{ hover: boolean }>`
 `;
 
 const StyledIllustration = styled(Illustration)<{ hover: boolean }>`
+  margin-bottom: 24px;
   ${(props) =>
     props.hover &&
     css`
@@ -29,36 +28,50 @@ const StyledIllustration = styled(Illustration)<{ hover: boolean }>`
     `}
 `;
 
+const ImageContainer = styled.div<{ hover: boolean }>`
+  overflow: hidden;
+  margin-bottom: 16px;
+  transition: transform 0.2s;
+  transform: ${(props) => props.hover && 'scale(1.05)'};
+`;
+
 const ToplineContainer = styled.div`
   display: flex;
-  margin-top: 16px;
+  margin-bottom: 8px;
   width: 100%;
   justify-content: space-between;
 `;
 
+const Topline = styled.p`
+  ${TextStyles.toplineS};
+  color: ${theme.palette.text.topline};
+  margin: 0;
+`;
+
+const Timestamp = styled.p`
+  ${TextStyles.timestamp};
+  color: ${theme.palette.text.timestamp};
+  margin: 0;
+`;
+
 const TeaserText = styled.div`
   ${TextStyles.textR};
-  margin: 16px 0 22px;
+  margin: 0;
 `;
 
-const StyledTeaserTitle = styled(TeaserTitle)<{
+const StyledTeaserTitle = styled.p<{
+  large: boolean;
   hasTopline: boolean;
-  large?: boolean;
 }>`
-  margin-top: ${(props) => (props.hasTopline ? '8px' : '24px')};
+  ${TextStyles.headlineS}
+  ${(props) => props.large && TextStyles.headlineM};
 
-  ${(props) =>
-    props.large &&
-    css`
-      margin-top: 20px;
-      font-size: 28px;
-    `}
+  margin-top: 0;
+  margin-bottom: ${(props) => (props.hasTopline ? '8px' : '16px')};
 `;
 
-const ImageContainer = styled.div<{ hover: boolean }>`
-  overflow: hidden;
-  transition: transform 0.2s;
-  transform: ${(props) => props.hover && 'scale(1.05)'};
+const StyledIcon = styled(Icon)`
+  margin-top: 14px;
 `;
 
 export interface TeaserProps {
@@ -114,7 +127,11 @@ export const Teaser: React.FC<TeaserProps> = ({
           <ImageContainer hover={hoverActive}>{teaserImage}</ImageContainer>
         )}
         {illustration && (
-          <StyledIllustration show={illustration} hover={hoverActive} />
+          <StyledIllustration
+            show={illustration}
+            size={IllustrationSize.MEDIUM}
+            hover={hoverActive}
+          />
         )}
         {hasToplineContainer && (
           <ToplineContainer>
@@ -122,11 +139,14 @@ export const Teaser: React.FC<TeaserProps> = ({
             {dateFormatted && <Timestamp>{dateFormatted}</Timestamp>}
           </ToplineContainer>
         )}
-        <StyledTeaserTitle hasTopline={hasToplineContainer}>
+        <StyledTeaserTitle
+          large={!(teaserImage || illustration)}
+          hasTopline={hasToplineContainer}
+        >
           {title}
         </StyledTeaserTitle>
         <TeaserText>{children}</TeaserText>
-        {linkTo && <Icon show={'arrow_right'} />}
+        {linkTo && <StyledIcon show={'arrow_right'} />}
       </ConditionalLink>
     </TeaserContainer>
   );
