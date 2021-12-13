@@ -11,9 +11,9 @@ import { BlogCard } from '../components/cards/blog-card';
 import { formatDate } from '../components/util/format-date';
 import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
-import { LocalesQuery } from './index';
 import { ButtonText, SendButton } from '../components/form/controls';
 import { RightArrowIcon } from '../components/icons/buttons-icons/right-arrow';
+import { LocalesQuery } from '../types';
 
 const TOP_POST_COUNT = 2;
 

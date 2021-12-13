@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { up } from '../breakpoint/breakpoint';
+import { up } from '../style-utils/breakpoint';
 import { isBrowser } from '../util/is-browser';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { IconRSS } from '../icons/social/rss';

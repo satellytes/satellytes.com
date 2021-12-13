@@ -18,7 +18,7 @@ import { CareerTextFields } from './career-textfields';
 import { Upload } from '../icons/upload';
 import styled from 'styled-components';
 import { CheckboxMark } from '../icons/checkbox';
-import { up } from '../breakpoint/breakpoint';
+import { up } from '../style-utils/breakpoint';
 import { rgba } from 'polished';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 
@@ -27,7 +27,7 @@ interface CareerFormProps {
   job_position_id: string;
   access_token: string;
   company_id: string;
-  scrollToStart: () => void;
+  scrollToStart?: () => void;
 }
 
 interface RawFormData {
@@ -185,7 +185,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
         // from the Personio API.
         if (data.success) {
           // all good
-          props.scrollToStart();
+          props.scrollToStart?.();
         } else {
           console.error('Something was wrong with the received response', data);
         }

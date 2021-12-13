@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { up } from '../breakpoint/breakpoint';
+import { up } from '../style-utils/breakpoint';
 import { Text } from '../typography/typography';
 
 interface ValidationProps {
@@ -36,7 +36,6 @@ export const Label = styled.label<{ required?: boolean }>`
   font-weight: bold;
   font-size: 12px;
   line-height: 110%;
-  color: #668cff;
   margin-bottom: 8px;
 `;
 
@@ -46,7 +45,6 @@ export const Sup = styled.sup`
 `;
 
 export const Input = styled.input<ValidationProps>`
-  color: #fff;
   width: 100%;
   padding: 19px 16px;
 
@@ -82,7 +80,6 @@ export const TextArea = styled.textarea<ValidationProps>`
   height: 190px;
   width: 100%;
   padding: 19px 16px;
-  color: #fff;
 
   font-size: 16px;
   line-height: 110%;

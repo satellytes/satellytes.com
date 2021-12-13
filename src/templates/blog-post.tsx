@@ -2,7 +2,7 @@ import parseISO from 'date-fns/parseISO';
 import { graphql } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
-import { up } from '../components/breakpoint/breakpoint';
+import { up } from '../components/style-utils/breakpoint';
 import Byline from '../components/byline/byline';
 import { Grid, GridItem } from '../components/grid/grid';
 import Layout from '../components/layout/layout';
@@ -12,10 +12,10 @@ import SharePanel from '../components/social-panel/share-panel';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
 import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { HeroImage } from '../components/hero-image/hero-image';
-import { LocalesQuery } from '../pages';
 import FollowPanel from '../components/social-panel/follow-panel';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { LeadboxProps } from '../new-components/leadbox/leadbox';
+import { LocalesQuery } from '../types';
 
 interface BlogArticleTemplateProps {
   data: {

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { Card } from '../cards/card';
 import { Grid } from '../grid/grid';
-import { up } from '../breakpoint/breakpoint';
+import { up } from '../style-utils/breakpoint';
 
 interface CareerGridProps {
   careerData: {

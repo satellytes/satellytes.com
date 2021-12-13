@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import BackgroundImage from 'gatsby-background-image';
-import { up } from '../breakpoint/breakpoint';
+import { up } from '../style-utils/breakpoint';
 import React from 'react';
 import { FluidObject } from 'gatsby-image';
 import { HEADER_HEIGHT } from './header';

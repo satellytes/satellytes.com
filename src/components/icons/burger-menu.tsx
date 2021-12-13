@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { GRID_GAP_DESKTOP, GRID_GAP_MOBILE } from '../grid/grid';
-import { up } from '../breakpoint/breakpoint';
+import { up } from '../style-utils/breakpoint';
 
 interface BurgerMenuProps {
   transition: boolean;

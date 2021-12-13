@@ -1,9 +1,10 @@
 import React from 'react';
 import { Teaser } from '../../components/teasers/teaser';
 import styled from 'styled-components';
-import { up } from '../../components/breakpoint/breakpoint';
+import { up } from '../../components/style-utils/breakpoint';
 import { TextStyles } from '../../components/typography/typography-v2';
-import { PersonioJobPosition } from '../../@types/personio';
+import { SyPersonioJob } from '../../types';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 const TeaserGrid = styled.div`
   display: grid;
@@ -23,28 +24,19 @@ const SectionHeadline = styled.h2`
   margin-bottom: 80px;
 `;
 
-type PersonioJobPositionPartial = Pick<
-  PersonioJobPosition,
-  'name' | 'id' | 'satellytesPath' | 'satellytesShortDescription'
->;
-
 interface OpeningsProps {
-  jobs: PersonioJobPositionPartial[];
+  jobs: SyPersonioJob[];
 }
 
 export const Openings = (props: OpeningsProps) => {
+  const { t } = useTranslation();
   return (
     <div>
-      <SectionHeadline>Unsere offenen Stellen</SectionHeadline>
-
+      <SectionHeadline>{t('career.openings.headline')}</SectionHeadline>
       <TeaserGrid>
         {props.jobs.map((item) => (
-          <Teaser title={item.name} linkTo={item.satellytesPath} key={item.id}>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: item.satellytesShortDescription,
-              }}
-            />
+          <Teaser title={item.name} linkTo={item.fields?.path} key={item.id}>
+            {item.short}
           </Teaser>
         ))}
       </TeaserGrid>

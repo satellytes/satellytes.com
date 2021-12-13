@@ -1,44 +1,19 @@
 {
   "main": {
-    "description": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna.",
+    "description": "We are pragmatic professionals, creating reliable software for the web.",
     "services": {
-      "title": "Development & Design",
-      "topline": "Our Services",
-      "text": "Wir haben großen Spaß an Technologie und freuen uns auf neue Herausforderungen. Dabei fokussieren wir uns auf langfristige Engagements im Konzerngeschäft. Neuen Aufgaben begegnen wir immer mit angemessenem Respekt. Wir streben stets hochwertige und zeitgemäße Lösungen an – die Wahl der Technologie ist für uns dabei sekundär. Gern unterstützen wir auch Sie in den folgenden Disziplinen:",
-      "teasers": {
-        "first": {
-          "title": "Enterprise Applications & Libraries",
-          "text": "Teams aus Designern, Produktmanagern, Entwicklern, Supportmitarbeitern, Marketingspezialisten usw. bringen die richtige Mischung aus Know-how und Erfahrung mit und sorgen dafür, dass auch mal über den Tellerrand geschaut wird."
-        },
-        "second": {
-          "title": "Technical Analysis",
-          "text": "Jedes Team bei Satellytes ist für seine eigenen Aufgaben verantwortlich. In den Worten des Agilen Manifests: „Die besten Architekturen, Anforderungen und Entwürfe entstehen durch selbstorganisierte Teams.“"
-        },
-        "third": {
-          "title": "UX/UI",
-          "text": "Schnelles Feedback, kurze Entscheidungswege und Offenheit für Veränderung sind uns wichtig – egal, ob man es Scrum, Kanban oder XP nennt."
-        }
-      }
+      "title": "Platforms, Consulting & Products",
+      "kicker": "Our Services",
+      "text": "We enjoy technology and look forward to new challenges. We focus on long-term commitments in the Group's business.\nWe always approach new tasks with appropriate respect. We always strive for high-quality and contemporary solutions - the choice of technology is secondary for us. We would be happy to support you in the following disciplines:"
     },
     "career": {
       "title": "Work with us",
-      "topline": "Career at Satellytes",
-      "text": "Wir suchen Entwickler:innen aus Leidenschaft! Du hast noch nicht viel Berufserfahrung? Kein Problem. Denn alles, was du wissen musst, lernst Du bei uns. Du kannst schon alles? Dann findest Du bei Satellytes neue Herausforderungen und erfahrene Kollegen, mit denen Du weiter wachsen kannst. Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung.",
-      "teasers": {
-        "first": {
-          "title": "Frontend Engineer",
-          "text": "Wir suchen eine:n Frontend Engineer (w/m/x) mit erster professioneller Erfahrung als Webentwickler:in. Werde Teil eines Teams, bei dem du von Experten den Umgang mit Frameworks & Testing ausbauen und verfeinern kannst."
-        },
-        "second": {
-          "title": "Senior Backend Engineer",
-          "text": "Dir sind Spring Boot, Jenkins, Kubernetes keine Fremdwörter? Java ist keine Fremdsprache für dich? Du hast Lust auf anspruchsvolle, komplexe Backend-Projekte mit eigenständigen Aufgaben und Entscheidungen im Team?"
-        },
-        "third": {
-          "title": "Senior Frontend Engineer",
-          "text": "Wir suchen einen \"Senior Frontend Engineer (m/w/x)\" für unser Office in München. Du wirst Teil eines erfahrenen Frontend-Teams, um moderne Web-Applikationen und Bibliotheken basierend auf React oder Angular umzusetzen."
-        }
-      }
-    }
+      "kicker": "Career at Satellytes",
+      "text": "Wir suchen Entwickler:innen aus Leidenschaft! Du hast noch nicht viel Berufserfahrung? Kein Problem. Denn alles, was du wissen musst, lernst Du bei uns. Du kannst schon alles? Dann findest Du bei Satellytes neue Herausforderungen und erfahrene Kollegen, mit denen Du weiter wachsen kannst. Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung."
+    },
+    "blog.title": "Ping, Echo, Printf",
+    "blog.kicker": "News about Satellytes",
+    "blog.text": "Find best practices, interesting bits of technology and news about Satellytes and the team"
   },
   "career": {
     "title": "Career",
@@ -59,6 +34,96 @@
     "other": "other",
     "info-text": "Please upload relevant files e.g. CV, cover letter or references. You can upload 3 pdf-documents with a maximal size of 20 MB each.",
     "privacy-policy": "<0>I hereby confirm that i have taken note of the <1>privacy policy</1>.  <4>*</4></0>",
+    "introduction": {
+      "headline": "Work with us",
+      "kicker": "Career at Satellytes",
+      "paragraphs": [
+        "We are Satellytes, a team of highly experienced developers and some designers. We bring sustainable, accessible, reliable and modern web solutions to large companies. If you are interested in joining us, check out our open positions right now."
+      ]
+    },
+    "application-process": {
+      "headline": "Application process",
+      "paragraph": "Applying for a job can often be frustrating. That's why our team has come up with something that makes sense. Check out our four steps of your application here.",
+      "accordion": [
+        {
+          "title": "1. Apply",
+          "paragraph": "Everything starts with your application. Send us your CV and a short cover letter explaining why you are applying to us. In your application, we don't look for school grades, we look for your passion for coding. Show us your GitHub or GitLab account. Do you have a blog? Then feel free to link to it."
+        },
+        {
+          "title": "2. Say Hello",
+          "paragraph": "If we find your application convincing, we will invite you to a first interview. One or two of your future colleagues will talk to you about how you got into programming and what drives you. After that, we will know you better and you will know the first faces behind Satellytes."
+        },
+        {
+          "title": "3. Technical Interview",
+          "paragraph": "We don't do whiteboard interviews, nor do we send any programming tasks. Instead, you'll do a code review in advance, which we'll then talk through together in the interview. We'll discuss issues in the code and touch on a bit of expertise about relevant technologies. Besides all the technical stuff, we'll also have time to talk a bit about our culture at Satellytes to make sure you feel comfortable working with us."
+        },
+        {
+          "title": "4. Decision",
+          "paragraph": "You have shown what you can do and how you're working. We have shown what drives us and how we work. If everything fits, we let you know. If something doesn't fit, we'll let you know that too."
+        }
+      ]
+    },
+    "openings": {
+      "headline": "Open Positions"
+    },
+    "culture": {
+      "headline": "Enjoying the work",
+      "kicker": "Team",
+      "paragraph": "We want to create the conditions for everyone to develop personally and professionally.",
+      "teaser": [
+        {
+          "title": "Cross-Functional",
+          "description": "Mixed teams of designers, product managers, developers, support staff, marketing specialists and more bring the right combination of know-how and experience to ensure that people think outside the box."
+        },
+        {
+          "title": "Self-organisation",
+          "description": "Each team at Satellytes is responsible for its own tasks. In the words of the Agile Manifesto: \"The best architectures, requirements and designs are created by self-organized teams\""
+        },
+        {
+          "title": "Agile",
+          "description": "Fast feedback, short decision-making processes and open mindedness are important to us - whether you call it Scrum, Kanban or XP."
+        },
+        {
+          "title": "Fail fast",
+          "description": "When we try something new, we always risk failure. That's the ideal way to learn from mistakes, share insights with others and turn them into successes in the next situation."
+        },
+        {
+          "title": "Feedback",
+          "description": "Feedback is our most important tool. Code reviews, pair programming, daily stand-up meetings, 360-degree feedback and more give everyone the opportunity to constantly improve."
+        },
+        {
+          "title": "Open Work",
+          "description": "Being open, listening, respecting other opinions and finding the best solutions together."
+        }
+      ]
+    },
+    "perk": {
+      "headline": "Perks & Benefits",
+      "kicker": "Work",
+      "paragraph": "In addition to a great team, interesting tasks and a modern working environment, we also offer a few extras.",
+      "teaser": [
+        {
+          "title": "Time for experiments",
+          "description": "You'll get time & space to try out new technologies or conduct small experiments with colleagues"
+        },
+        {
+          "title": "Always learning",
+          "description": "You will learn something with us every day, whether you consider yourself a beginner or a professional. If you're lacking the muse yourself, then a colleague will surely know how to inspire you shortly afterwards. If you ever need a book: every book is on us."
+        },
+        {
+          "title": "Favorite gear",
+          "description": "MacBook vs. Linux laptop, mouse vs. trackpad or VSCode vs. IntelliJ. You have the choice with us."
+        },
+        {
+          "title": "Work from anywhere",
+          "description": "You can flexibly choose your working hours and place of work after consultation with the team & customers."
+        },
+        {
+          "title": "Conferences",
+          "description": "We love tech conferences and have often been visitors and sometimes even speakers. We'll pay for your ticket, room and board. Want to become a speaker? We support you."
+        }
+      ]
+    },
     "error": {
       "approval": "Your approval is missing",
       "first-name": "Your first name is missing",
@@ -92,44 +157,64 @@
     "leadbox": {
       "title": "Your job not included?",
       "subtitle": "Unsolicited Application",
-      "text": "Georgios Kaleadis, HR Manager",
+      "text": "Georgios Kaleadis, CTO",
       "mail": "career@satellytes.com"
     }
   },
   "office": {
     "title": "Office",
-    "heading": "Our Office",
-    "subheading": "Feel at home with us. A small impression of our office in Sendlinger Straße in the heart of Munich.",
-    "link": "<0>If you want to work with us in this office, check out our <1>open positions</1>.</0>",
+    "heading": "Our new Office directly next to Sendlinger Tor",
+    "team": {
+      "title": "Team",
+      "heading": "That is who we are",
+      "text": "Our experienced team of engineers and designers"
+    },
     "leadbox": {
-      "title": "Interested in working with us?",
+      "title": "Did you get interested?",
       "link": "Career"
     }
   },
   "services": {
-    "title": "Services",
-    "header": {
-      "title": "Development & Design",
-      "kicker": "Our Services",
-      "text": "Wir haben großen Spaß an Technologie und freuen uns auf neue Herausforderungen. Dabei fokussieren wir uns auf langfristige Engagements im Konzerngeschäft.\nNeuen Aufgaben begegnen wir immer mit angemessenem Respekt. Wir streben stets hochwertige und zeitgemäße Lösungen an – die Wahl der Technologie ist für uns dabei sekundär. Gern unterstützen wir auch Sie in den folgenden Disziplinen:"
+    "title": "What we offer",
+    "hero": "Services",
+    "kicker": "Platforms, Products & Consulting",
+    "text": "We enjoy technology and look forward to new challenges. We focus on long-term commitments in the Group's business.\nWe always approach new tasks with appropriate respect. We always strive for high-quality and contemporary solutions - the choice of technology is secondary for us. We would be happy to support you in the following disciplines.",
+    "platform": {
+      "title": "Digitale Platforms",
+      "teaser": "From low-code to design systems",
+      "text": "We are specialists for digital platforms from the idea to the implementation. Our many years of experience in designing B2B and B2C platforms from a wide range of industries make us the ideal partner for your project.",
+      "list.platforms": "Digital Platform Design & Development",
+      "list.lowcode": "Low-Code Systems",
+      "list.designsystems": "Design Systems",
+      "list.infrastructure": "Infrastructure & Automation"
     },
-    "contentblocks": {
-      "first": {
-        "title": "Enterprise Applications & Libraries",
-        "kicker": "Development",
-        "text": "Wir haben große Erfahrung in der Entwicklung moderner und verlässlicher Web-Applikationen für die Versicherungs-, Banken- und Automobilbranche. Angular hat sich für derartige Applikationen zur Standardtechnologie entwickelt. Wir bringen tiefgreifende Erfahrung mit dieser Technologie mit und liefern Ihnen eine maßgeschneiderte Lösung zu jedem Problem.\nWir sind zudem sehr erfahren in der Einführung ganzheitlicher Plattformen –beispielsweise einer Infrastruktur aus Angular-Libraries, dem Aufsetzen von CI/CD-Pipelines und der Umsetzung gut getesteter Applikationen in mehreren Sprachen und Konfigurationen.\nZudem sind wir Profis für die Entwicklung von Java Backends in allen Variationen. Wir sind erfahren in der Anbindung von Bestandssystemen, der Neuentwicklung von versionierten APIs und der spezifischen Anbindung von Frontend-Applikationen auf Basis von BFF (Backend for Frontend) – oder vollkommen dezentralen Microservices.\nExperten für Projekte in Angular & React (wir lieben aber auch Vue & Svelte)\nUI-Library Entwicklung mit Release Management\nBackend Begleitung mit unseren Java und Node-Experten\nIhr Ansprechpartner für Inner source Projekte & Prozessbegleitung"
-      },
-      "second": {
-        "title": "Technical Analysis",
-        "kicker": "Reviews",
-        "text": "Wir bieten Ihnen beispielsweise die vollumfängliche Analyse ihrer Webseite: hinsichtlich UX/UI, Ladegeschwindigkeit, technischem Aufbau, Barrierefreiheit oder Suchmaschinen-Kompatibilität. Begleitet wird eine derartige Analyse von einer Auflistung konkreter Verbesserungsvorschläge. Sie wollen Ihre Website in den genannten Bereichen einer Analyse unterziehen?"
-      },
-      "third": {
-        "title": "UX & UI",
-        "kicker": "Design",
-        "text": "Mit rund 20 Jahren Erfahrung in der Konzeption und Umsetzung digitaler Interfaces bilden wir das gesamte Spektrum der User Experience (UX) ab. Der kleine, sichtbare Teil davon ist das User Interface (UI). Der große, unsichtbare (UX) ist jedoch viel relevanter für das Erreichen ihrer wirtschaftlichen Ziele. Denn nur mit benutzerfreundlichen, leicht verständlichen Journeys über alle Endgeräte, Nutzergruppen und Nutzungskontexte hinweg, erreichen die User und somit Sie ihr Ziel.\nFür unsere Enterprise-Kunden konzipieren und gestalten wir Websites mit modernen, ergonomischen und durchdachten Interfaces, halten uns an UX-Standards und Best Practices, beachten Accessibility Guidelines, testen, messen und optimieren ständig und stellen auf Wunsch alle Komponenten in einem gut strukturierten und erweiterbaren Design System zur Verfügung.\nFor those fields we need:\n· Bulletpoints\n· Bold text like this\n· And text links like this"
-      }
+    "consulting": {
+      "title": "Consulting",
+      "teaser": "The experience of our employees is our most valuable treasure.",
+      "text": "The experience of our employees is our most valuable treasure. We share it with you and advise you in technical and conceptual matters. conceptual matters.",
+      "list.workshops": "Training & Workshops",
+      "list.analysis": "Technical & UX/UI Analysis"
     },
+    "products_services": {
+      "title": "Products & Services",
+      "teaser": "From Ideation to Rollout. We support you.",
+      "text": "We support your next product or service with our experts.",
+      "list.prototyping": "Prototyping",
+      "list.ideation": "Ideation & Proof of Concepts",
+      "list.development": "Product Design & Development"
+    },
+    "industries.text": "Currently we offer our services in the following industries",
+    "industries.title": "Industries",
+    "industries.bank.title": "Banks",
+    "industries.bank.text": "Umsetzung und Design der gesamten B2C-Plattform.",
+    "industries.automotive.title": "Automotive",
+    "industries.automotive.text": "Support international brands in the expansion of B2B and B2C platforms.",
+    "industries.sport.title": "Sport",
+    "industries.sport.text": "Design & implementation of the entire B2C platform of global players in the sports industry",
+    "industries.you.title": "Your industry",
+    "industries.you.text": "We become the industry expert together with your challenge. Contact us.",
+    "industries.insurance.title": "Insurances",
+    "industries.insurance.text": "Innovative B2B & B2C technical platform for market leaders to keep up with the constant changes in international markets and regulations.",
     "leadbox": {
       "title": "Interested?",
       "subtitle": "Project Requests",
@@ -139,6 +224,7 @@
   },
   "contact": {
     "title": "Contact",
+    "address": "Address",
     "info-link": "<0>Use our contact-form or write an e-mail to <1>beep@satellytes.com</1></0>",
     "info": "Use our contact-form or write an e-mail to beep@satellytes.com",
     "name": "Name",

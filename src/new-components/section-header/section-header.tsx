@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { TextStyles } from '../../components/typography/typography-v2';
-import { up } from '../../components/breakpoint/breakpoint';
+import { up } from '../../components/style-utils/breakpoint';
 
 interface BlogHeaderProps {
   /**
@@ -26,13 +26,14 @@ const KickerStyled = styled.span`
 `;
 
 const HeadlineStyled = styled.h2`
-  ${TextStyles.headlineXL}
+  ${TextStyles.headlineL}
   margin: 0;
   color: #202840;
   margin-bottom: 24px;
 
   ${up('md')} {
     margin-bottom: 32px;
+    ${TextStyles.headlineXL}
   }
 `;
 

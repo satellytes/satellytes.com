@@ -1,15 +1,14 @@
 import React from 'react';
-
-import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
-import { PageTitle } from '../components/typography/typography';
-import { Grid, GridItem } from '../components/grid/grid';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import { Text } from '../components/typography/typography';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
-import { LocalesQuery } from './index';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { LayoutV2 } from '../components/layout/layout-v2';
+import { SectionHeader } from '../new-components/section-header/section-header';
+import { ContentBlockContainerWithoutHero } from '../components/layout/content-block-container';
+import { LocalesQuery } from '../types';
 
 const BottomNote = styled(Text)`
   margin-top: 80px;
@@ -29,23 +28,19 @@ interface ImprintPageProps {
 const ImprintPage = ({ data, location }: ImprintPageProps) => {
   const { t } = useTranslation();
   return (
-    <Layout>
+    <LayoutV2 light={true}>
       <SEO
         title={`${t('imprint.title')} | Satellytes`}
         description={t('imprint.info')}
         location={location}
         noIndex={true}
       />
-      <Grid>
-        <GridItem>
-          <PageTitle>{t('navigation.imprint')}</PageTitle>
-        </GridItem>
-        <GridItem xs={12} md={8}>
-          <MarkdownAst htmlAst={data.markdownRemark.htmlAst} />
-          <BottomNote>{t('imprint.updated')}</BottomNote>
-        </GridItem>
-      </Grid>
-    </Layout>
+      <ContentBlockContainerWithoutHero>
+        <SectionHeader headline={t('navigation.imprint')} />
+        <MarkdownAst htmlAst={data.markdownRemark.htmlAst} />
+        <BottomNote>{t('imprint.updated')}</BottomNote>
+      </ContentBlockContainerWithoutHero>
+    </LayoutV2>
   );
 };
 

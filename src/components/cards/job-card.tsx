@@ -1,7 +1,7 @@
 import React from 'react';
 import { ImageCardSubtitle, TextLink } from '../typography/typography';
 import styled from 'styled-components';
-import { up } from '../breakpoint/breakpoint';
+import { up } from '../style-utils/breakpoint';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 
 const JobCardContainer = styled.div`
