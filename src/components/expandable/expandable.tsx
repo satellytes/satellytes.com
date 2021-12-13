@@ -43,6 +43,7 @@ const SummaryContainer = styled.summary`
 const SummaryText = styled.p`
   ${TextStyles.headlineXS}
   margin: 0;
+  line-height: 1;
 `;
 
 const ExpandableChevronStyled = styled(Icon)<{ open: boolean }>`
