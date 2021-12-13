@@ -14,7 +14,6 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { SyPersonioJob } from '../../types';
 
 const Paragraph = styled.p`
-  ${TextStyles.textR}
   & + & {
     margin-bottom: 16px;
   }
