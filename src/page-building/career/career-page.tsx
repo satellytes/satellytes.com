@@ -50,17 +50,15 @@ export const CareerPage = ({ positions }: CareerPageProps) => {
           headline={t('career.introduction.headline')}
         >
           <Paragraph>{t('career.introduction.paragraphs.0')}</Paragraph>
-          <Paragraph>{t('career.introduction.paragraphs.1')}</Paragraph>
-          <Paragraph>{t('career.introduction.paragraphs.2')}</Paragraph>
         </SectionHeader>
       </ContentBlockContainer>
 
       <ContentBlockContainer>
-        <ApplicationProcess />
+        <Openings jobs={positions} />
       </ContentBlockContainer>
 
       <ContentBlockContainer>
-        <Openings jobs={positions} />
+        <ApplicationProcess />
       </ContentBlockContainer>
 
       <ContentBlockContainer>

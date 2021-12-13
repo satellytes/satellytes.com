@@ -35,94 +35,92 @@
     "info-text": "Please upload relevant files e.g. CV, cover letter or references. You can upload 3 pdf-documents with a maximal size of 20 MB each.",
     "privacy-policy": "<0>I hereby confirm that i have taken note of the <1>privacy policy</1>.  <4>*</4></0>",
     "introduction": {
-      "headline": "Arbeite mit uns",
-      "kicker": "Karriere bei Satellytes",
+      "headline": "Work with us",
+      "kicker": "Career at Satellytes",
       "paragraphs": [
-        "Satellytes – das sind aktuell 14 ausschließlich leidenschaftliche Entwickler:innen und Designer:innen. Wir haben großen Spaß an Technologie und freuen uns auf neue Herausforderungen. Dabei fokussieren wir uns auf langfristige Engagements im Konzerngeschäft.",
-        "Neuen Aufgaben begegnen wir immer mit angemessenem Respekt. Wir streben stets hochwertige und zeitgemäße Lösungen an – die Wahl der Technologie ist für uns dabei sekundär.",
-        "Unser Büro befindet sich in einem wunderschönen Altbau im Herzen Münchens, in der Sendlinger Straße, unweit der gleichnamigen U-Bahn-Station. In Laufweite gibt es nicht nur dutzende Läden, Cafés, Restaurants und den bekannten Viktualienmarkt, sondern auch diverse kleinere und größere Parks. Sogar die Isar ist in der Mittagspause fußläufig oder mit der U-Bahn in nur 3 Minuten zu erreichen."
+        "We are Satellytes, a team of highly experienced developers and some designers. We bring sustainable, accessible, reliable and modern web solutions to large companies. If you are interested in joining us, check out our open positions right now."
       ]
     },
     "application-process": {
-      "headline": "Bewerbungsprozess",
-      "paragraph": "Sich auf einen Job zu bewerben kann oft frustrierend sein. Unser Team hat sich deshalb etwas überlegt was Sinn macht. Schau dir hier unsere vier Schritte deiner Bewerbung an.",
+      "headline": "Application process",
+      "paragraph": "Applying for a job can often be frustrating. That's why our team has come up with something that makes sense. Check out our four steps of your application here.",
       "accordion": [
         {
-          "title": "1. Bewerb dich",
-          "paragraph": "Alles beginnt mit deiner Bewerbung. Schicke uns deinen Lebenslauf und ein kleines Anschreiben, wieso du dich gerade bei uns bewirbst. In deiner Bewerbung achten wir nicht auf Schulnoten sondern suchen nach deiner Leidenschaft fürs Coden. Zeig uns deinen GitHub oder GitLab Account. Hast du einen Blog? Dann verweise gerne darauf."
+          "title": "1. Apply",
+          "paragraph": "Everything starts with your application. Send us your CV and a short cover letter explaining why you are applying to us. In your application, we don't look for school grades, we look for your passion for coding. Show us your GitHub or GitLab account. Do you have a blog? Then feel free to link to it."
         },
         {
-          "title": "2. Kennenlernen",
-          "paragraph": "Wenn wir deine Bewerbung überzeugend finden, laden wir dich zu einem ersten Gespräch ein. Hier werden ein oder zwei deiner zukünftigen Kollegen mit dir sprechen und wir reden darüber wie du zum Programmieren gekommen bist und was dich antreibt. Danach werden wir dich besser kennen und du kennst die ersten Gesichter hinter Satellytes."
+          "title": "2. Say Hello",
+          "paragraph": "If we find your application convincing, we will invite you to a first interview. One or two of your future colleagues will talk to you about how you got into programming and what drives you. After that, we will know you better and you will know the first faces behind Satellytes."
         },
         {
-          "title": "3. Technisches Interview",
-          "paragraph": "Wir machen weder Whiteboard Interviews, noch schicken wir die irgendwelche Programmieraufgaben. Stattdessen wirst du vorab eine Code Review durchführen, die wir dann zusammen im Interview durchsprechen. Hier werden sich ganz automatische spannende Gespräch ergeben. Wir werden Probleme im Code besprechen und das ein oder andere Fachwissen über relevante Technologien ansprechen. Neben der ganzen Technik haben wir auch Zeit etwas über unsere Kultur bei Satellytes zu sprechen, um sicherzustellen dass du dich bei uns wohl fühlst."
+          "title": "3. Technical Interview",
+          "paragraph": "We don't do whiteboard interviews, nor do we send any programming tasks. Instead, you'll do a code review in advance, which we'll then talk through together in the interview. We'll discuss issues in the code and touch on a bit of expertise about relevant technologies. Besides all the technical stuff, we'll also have time to talk a bit about our culture at Satellytes to make sure you feel comfortable working with us."
         },
         {
-          "title": "4. Entscheidung",
-          "paragraph": "Du hast gezeigt was du kannst und wie du arbeitest. Wir haben gezeigt was uns antreibt und wie wir arbeiten. Wenn alles passt lassen wir es dich wissen. Passt etwas nicht, dann lassen wir das dich ebenfalls wissen."
+          "title": "4. Decision",
+          "paragraph": "You have shown what you can do and how you're working. We have shown what drives us and how we work. If everything fits, we let you know. If something doesn't fit, we'll let you know that too."
         }
       ]
     },
     "openings": {
-      "headline": "Unsere offenen Stellen"
+      "headline": "Open Positions"
     },
     "culture": {
-      "headline": "Spass an der Arbeit",
+      "headline": "Enjoying the work",
       "kicker": "Team",
-      "paragraph": "Wir möchten die Voraussetzung schaffen, damit sich jeder persönlich wie beruflich weiterentwickeln kann.",
+      "paragraph": "We want to create the conditions for everyone to develop personally and professionally.",
       "teaser": [
         {
           "title": "Cross-Functional",
-          "description": "Teams aus Designern, Produktmanagern, Entwicklern, Supportmitarbeitern, Marketingspezialisten usw. bringen die richtige Mischung aus Know-how und Erfahrung mit und sorgen dafür, dass auch mal über den Tellerrand geschaut wird."
+          "description": "Mixed teams of designers, product managers, developers, support staff, marketing specialists and more bring the right combination of know-how and experience to ensure that people think outside the box."
         },
         {
-          "title": "Self-Organisation",
-          "description": "Jedes Team bei Satellytes ist für seine eigenen Aufgaben verantwortlich. In den Worten des Agilen Manifests: „Die besten Architekturen, Anforderungen und Entwürfe entstehen durch selbstorganisierte Teams.“"
+          "title": "Self-organisation",
+          "description": "Each team at Satellytes is responsible for its own tasks. In the words of the Agile Manifesto: \"The best architectures, requirements and designs are created by self-organized teams\""
         },
         {
           "title": "Agile",
-          "description": "Schnelles Feedback, kurze Entscheidungswege und Offenheit für Veränderung sind uns wichtig – egal, ob man es Scrum, Kanban oder XP nennt."
+          "description": "Fast feedback, short decision-making processes and open mindedness are important to us - whether you call it Scrum, Kanban or XP."
         },
         {
-          "title": "Erfolgreich scheitern",
-          "description": "Wenn wir etwas Neues ausprobieren, riskieren wir immer auch einen Misserfolg. Macht nichts – aus Fehlern lernen, Erkenntnisse mit anderen teilen und im nächsten Projekt in Erfolge ummünzen."
+          "title": "Fail fast",
+          "description": "When we try something new, we always risk failure. That's the ideal way to learn from mistakes, share insights with others and turn them into successes in the next situation."
         },
         {
           "title": "Feedback",
-          "description": "Zusammenarbeit ist bei uns nicht nur ein Wort: Code-Review, Inline-Kommentare, Pair Programming, tägliche Stand-up-Meetings, 360-Grad-Feedback usw."
+          "description": "Feedback is our most important tool. Code reviews, pair programming, daily stand-up meetings, 360-degree feedback and more give everyone the opportunity to constantly improve."
         },
         {
           "title": "Open Work",
-          "description": "Offen sein, zuhören, andere Meinungen respektieren und gemeinsam die besten Lösungen finden."
+          "description": "Being open, listening, respecting other opinions and finding the best solutions together."
         }
       ]
     },
     "perk": {
       "headline": "Perks & Benefits",
-      "kicker": "Arbeiten",
-      "paragraph": "Neben einem großartigen Team, interessanten Aufgaben und einer modernen Arbeitsumgebung bieten wir noch weitere Extras.",
+      "kicker": "Work",
+      "paragraph": "In addition to a great team, interesting tasks and a modern working environment, we also offer a few extras.",
       "teaser": [
         {
-          "title": "Zeit für Experimente",
-          "description": "Bei uns bekommst du Raum, um neue Technologien auszuprobieren oder mit Kollegen kleine Experimente durchzuführen"
+          "title": "Time for experiments",
+          "description": "You'll get time & space to try out new technologies or conduct small experiments with colleagues"
         },
         {
-          "title": "Lebenslanges Lernen",
-          "description": "Du wirst bei uns jeden Tag etwas lernen, egal ob du dich als Anfänger oder Profi siehst. Sollte dir selbst mal die Muse fehlen, dann wird ein Kollege dich sicherlich kurz später zu inspirieren wissen. Und wenn du mal ein Buch brauchst: Jedes Buch geht auf uns."
+          "title": "Always learning",
+          "description": "You will learn something with us every day, whether you consider yourself a beginner or a professional. If you're lacking the muse yourself, then a colleague will surely know how to inspire you shortly afterwards. If you ever need a book: every book is on us."
         },
         {
-          "title": "Lieblingsausrüstung",
-          "description": "Ob MacBook oder Linux Laptop? Ob Maus oder Trackpad oder VSCode oder IntelliJ. Du hast bei uns die Wahl."
+          "title": "Favorite gear",
+          "description": "MacBook vs. Linux laptop, mouse vs. trackpad or VSCode vs. IntelliJ. You have the choice with us."
         },
         {
-          "title": "Arbeiten wo du willst",
-          "description": "Arbeitszeit und Arbeitsort kannst du nach Absprache mit dem Team & Kunden flexibel wählen."
+          "title": "Work from anywhere",
+          "description": "You can flexibly choose your working hours and place of work after consultation with the team & customers."
         },
         {
-          "title": "Konferenzen",
-          "description": "Wir lieben Tech-Konferenzen und sind schon oft Besucher und manchmal sogar Speaker gewesen. Wir zahlen dir Ticket, Kost und Logis. Willst du Speaker werden? Wir unterstützen dich dabei."
+          "title": "Conferences",
+          "description": "We love tech conferences and have often been visitors and sometimes even speakers. We'll pay for your ticket, room and board. Want to become a speaker? We support you."
         }
       ]
     },
@@ -159,7 +157,7 @@
     "leadbox": {
       "title": "Your job not included?",
       "subtitle": "Unsolicited Application",
-      "text": "Georgios Kaleadis, HR Manager",
+      "text": "Georgios Kaleadis, CTO",
       "mail": "career@satellytes.com"
     }
   },
