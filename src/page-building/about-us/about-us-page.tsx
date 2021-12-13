@@ -39,8 +39,7 @@ export const AboutUsPage = (props: AboutUsPageProps) => {
           headline={t('about-us.office.heading')}
           kicker={t('about-us.office.title')}
         >
-          Feel at home with us. A small impression of our office in Sendlinger
-          Straße in the heart of Munich.
+          {t('about-us.office.text')}
         </SectionHeader>
       </ContentBlockContainer>
 
