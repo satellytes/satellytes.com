@@ -12,9 +12,8 @@ interface AccordionHeaderProps {
   children: React.ReactNode;
 }
 
-interface AccordionChevronProps {
+interface StyledIconProps {
   open: boolean;
-  className?: string;
 }
 
 const AccordionTitleHeadline = styled.span`
@@ -41,15 +40,7 @@ const AccordionButton = styled(ReachAccordion.AccordionButton)`
   padding: 24px 20px;
 `;
 
-const AccordionChevron = (props: AccordionChevronProps) => {
-  return (
-    <div className={props.className}>
-      <Icon show="chevron_up" />
-    </div>
-  );
-};
-
-const AccordionChevronStyled = styled(AccordionChevron)`
+const StyledIcon = styled(Icon)<StyledIconProps>`
   // embed in a flex layout we want to push the chevron to the far right
   margin-left: auto;
 
@@ -69,7 +60,7 @@ export const AccordionHeader = (props: AccordionHeaderProps) => {
   return (
     <AccordionButton>
       <AccordionTitleHeadline>{props.children}</AccordionTitleHeadline>
-      <AccordionChevronStyled open={isExpanded} />
+      <StyledIcon open={isExpanded} show="chevron_up" />
     </AccordionButton>
   );
 };
