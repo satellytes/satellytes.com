@@ -1,287 +1,193 @@
 {
-  "main": {
-    "description": "We are pragmatic professionals, creating reliable software for the web.",
-    "services": {
-      "title": "Platforms, Consulting & Products",
-      "kicker": "Our Services",
-      "text": "We enjoy technology and look forward to new challenges. We focus on long-term commitments in the Group's business.\nWe always approach new tasks with appropriate respect. We always strive for high-quality and contemporary solutions - the choice of technology is secondary for us. We would be happy to support you in the following disciplines:"
-    },
-    "career": {
-      "title": "Work with us",
-      "kicker": "Career at Satellytes",
-      "text": "Wir suchen Entwickler:innen aus Leidenschaft! Du hast noch nicht viel Berufserfahrung? Kein Problem. Denn alles, was du wissen musst, lernst Du bei uns. Du kannst schon alles? Dann findest Du bei Satellytes neue Herausforderungen und erfahrene Kollegen, mit denen Du weiter wachsen kannst. Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung."
-    },
-    "blog.title": "Ping, Echo, Printf",
-    "blog.kicker": "News about Satellytes",
-    "blog.text": "Find best practices, interesting bits of technology and news about Satellytes and the team"
-  },
-  "career": {
-    "title": "Career",
-    "subheading": "We are looking for passionate developers!",
-    "title-positions": "Our open positions",
-    "headline": "Apply now",
-    "mandatory-field": "mandatory field",
-    "first-name": "First name",
-    "last-name": "Last name",
-    "email": "E-mail-adresse",
-    "location": "Location",
-    "available-from": "Available from",
-    "salary-expectations": "Salary expectations",
-    "cover-letter": "Cover letter",
-    "file-category": "File category",
-    "remove-file": "Remove",
-    "cv": "CV",
-    "other": "other",
-    "info-text": "Please upload relevant files e.g. CV, cover letter or references. You can upload 3 pdf-documents with a maximal size of 20 MB each.",
-    "privacy-policy": "<0>I hereby confirm that i have taken note of the <1>privacy policy</1>.  <4>*</4></0>",
-    "introduction": {
-      "headline": "Work with us",
-      "kicker": "Career at Satellytes",
-      "paragraphs": [
-        "We are Satellytes, a team of highly experienced developers and some designers. We bring sustainable, accessible, reliable and modern web solutions to large companies. If you are interested in joining us, check out our open positions right now."
-      ]
-    },
-    "application-process": {
-      "headline": "Application process",
-      "paragraph": "Applying for a job can often be frustrating. That's why our team has come up with something that makes sense. Check out our four steps of your application here.",
-      "accordion": [
-        {
-          "title": "1. Apply",
-          "paragraph": "Everything starts with your application. Send us your CV and a short cover letter explaining why you are applying to us. In your application, we don't look for school grades, we look for your passion for coding. Show us your GitHub or GitLab account. Do you have a blog? Then feel free to link to it."
-        },
-        {
-          "title": "2. Say Hello",
-          "paragraph": "If we find your application convincing, we will invite you to a first interview. One or two of your future colleagues will talk to you about how you got into programming and what drives you. After that, we will know you better and you will know the first faces behind Satellytes."
-        },
-        {
-          "title": "3. Technical Interview",
-          "paragraph": "We don't do whiteboard interviews, nor do we send any programming tasks. Instead, you'll do a code review in advance, which we'll then talk through together in the interview. We'll discuss issues in the code and touch on a bit of expertise about relevant technologies. Besides all the technical stuff, we'll also have time to talk a bit about our culture at Satellytes to make sure you feel comfortable working with us."
-        },
-        {
-          "title": "4. Decision",
-          "paragraph": "You have shown what you can do and how you're working. We have shown what drives us and how we work. If everything fits, we let you know. If something doesn't fit, we'll let you know that too."
-        }
-      ]
-    },
-    "openings": {
-      "headline": "Open Positions"
-    },
-    "culture": {
-      "headline": "Enjoying the work",
-      "kicker": "Team",
-      "paragraph": "We want to create the conditions for everyone to develop personally and professionally.",
-      "teaser": [
-        {
-          "title": "Cross-Functional",
-          "description": "Mixed teams of designers, product managers, developers, support staff, marketing specialists and more bring the right combination of know-how and experience to ensure that people think outside the box."
-        },
-        {
-          "title": "Self-organisation",
-          "description": "Each team at Satellytes is responsible for its own tasks. In the words of the Agile Manifesto: \"The best architectures, requirements and designs are created by self-organized teams\""
-        },
-        {
-          "title": "Agile",
-          "description": "Fast feedback, short decision-making processes and open mindedness are important to us - whether you call it Scrum, Kanban or XP."
-        },
-        {
-          "title": "Fail fast",
-          "description": "When we try something new, we always risk failure. That's the ideal way to learn from mistakes, share insights with others and turn them into successes in the next situation."
-        },
-        {
-          "title": "Feedback",
-          "description": "Feedback is our most important tool. Code reviews, pair programming, daily stand-up meetings, 360-degree feedback and more give everyone the opportunity to constantly improve."
-        },
-        {
-          "title": "Open Work",
-          "description": "Being open, listening, respecting other opinions and finding the best solutions together."
-        }
-      ]
-    },
-    "perk": {
-      "headline": "Perks & Benefits",
-      "kicker": "Work",
-      "paragraph": "In addition to a great team, interesting tasks and a modern working environment, we also offer a few extras.",
-      "teaser": [
-        {
-          "title": "Time for experiments",
-          "description": "You'll get time & space to try out new technologies or conduct small experiments with colleagues"
-        },
-        {
-          "title": "Always learning",
-          "description": "You will learn something with us every day, whether you consider yourself a beginner or a professional. If you're lacking the muse yourself, then a colleague will surely know how to inspire you shortly afterwards. If you ever need a book: every book is on us."
-        },
-        {
-          "title": "Favorite gear",
-          "description": "MacBook vs. Linux laptop, mouse vs. trackpad or VSCode vs. IntelliJ. You have the choice with us."
-        },
-        {
-          "title": "Work from anywhere",
-          "description": "You can flexibly choose your working hours and place of work after consultation with the team & customers."
-        },
-        {
-          "title": "Conferences",
-          "description": "We love tech conferences and have often been visitors and sometimes even speakers. We'll pay for your ticket, room and board. Want to become a speaker? We support you."
-        }
-      ]
-    },
-    "error": {
-      "approval": "Your approval is missing",
-      "first-name": "Your first name is missing",
-      "last-name": "Your last name is missing",
-      "email": "Your e-mail is missing",
-      "email-unknown": "Something is wrong with the email-adresse",
-      "cv": "Your CV is missing",
-      "cover-letter": "Your cover letter is missing",
-      "selection": "Your selection is missing",
-      "max-number": "Maximal number of documents is reached.",
-      "max-size": "Maximal filesize of 20 MB is reached.",
-      "uploaded": "The document \"{{name}}\" was already uploaded."
-    },
-    "action": {
-      "alternative": "<0>Or send your application to <1>career@satellytes.com</1></0>",
-      "upload": "<0>Drop the files here or <1>browse</1></0>",
-      "send": "Send",
-      "sent": "Sent",
-      "again": "Send again",
-      "again-text": "Please try again. In case it does not work, please sent your application to <1>career@satellytes.com</1>",
-      "missing": "Please fill in the missing fields"
-    },
-    "seo": {
-      "title-detail": "Career - {{name}} | Satellytes",
-      "description-detail": "Apply now to become a {{name}}! Take a look at our other vacancies. We look forward to receiving your application.",
-      "title": "Career | Satellytes",
-      "description": "We are looking for passionate developers! Take a look at our open positions. We look forward to receiving your application."
-    },
-    "thank": "Thank you for your application!",
-    "email-confirmation": "We sent you a confirmation-email and we will contact you.",
-    "leadbox": {
-      "title": "Your job not included?",
-      "subtitle": "Unsolicited Application",
-      "text": "Georgios Kaleadis, CTO",
-      "mail": "career@satellytes.com"
-    }
-  },
-  "office": {
-    "title": "Office",
-    "heading": "Our new Office directly next to Sendlinger Tor",
-    "team": {
-      "title": "Team",
-      "heading": "That is who we are",
-      "text": "Our experienced team of engineers and designers"
-    },
-    "leadbox": {
-      "title": "Did you get interested?",
-      "link": "Career"
-    }
-  },
-  "services": {
-    "title": "What we offer",
-    "hero": "Services",
-    "kicker": "Platforms, Products & Consulting",
-    "text": "We enjoy technology and look forward to new challenges. We focus on long-term commitments in the Group's business.\nWe always approach new tasks with appropriate respect. We always strive for high-quality and contemporary solutions - the choice of technology is secondary for us. We would be happy to support you in the following disciplines.",
-    "platform": {
-      "title": "Digitale Platforms",
-      "teaser": "From low-code to design systems",
-      "text": "We are specialists for digital platforms from the idea to the implementation. Our many years of experience in designing B2B and B2C platforms from a wide range of industries make us the ideal partner for your project.",
-      "list.platforms": "Digital Platform Design & Development",
-      "list.lowcode": "Low-Code Systems",
-      "list.designsystems": "Design Systems",
-      "list.infrastructure": "Infrastructure & Automation"
-    },
-    "consulting": {
-      "title": "Consulting",
-      "teaser": "The experience of our employees is our most valuable treasure.",
-      "text": "The experience of our employees is our most valuable treasure. We share it with you and advise you in technical and conceptual matters. conceptual matters.",
-      "list.workshops": "Training & Workshops",
-      "list.analysis": "Technical & UX/UI Analysis"
-    },
-    "products_services": {
-      "title": "Products & Services",
-      "teaser": "From Ideation to Rollout. We support you.",
-      "text": "We support your next product or service with our experts.",
-      "list.prototyping": "Prototyping",
-      "list.ideation": "Ideation & Proof of Concepts",
-      "list.development": "Product Design & Development"
-    },
-    "industries.text": "Currently we offer our services in the following industries",
-    "industries.title": "Industries",
-    "industries.bank.title": "Banks",
-    "industries.bank.text": "Umsetzung und Design der gesamten B2C-Plattform.",
-    "industries.automotive.title": "Automotive",
-    "industries.automotive.text": "Support international brands in the expansion of B2B and B2C platforms.",
-    "industries.sport.title": "Sport",
-    "industries.sport.text": "Design & implementation of the entire B2C platform of global players in the sports industry",
-    "industries.you.title": "Your industry",
-    "industries.you.text": "We become the industry expert together with your challenge. Contact us.",
-    "industries.insurance.title": "Insurances",
-    "industries.insurance.text": "Innovative B2B & B2C technical platform for market leaders to keep up with the constant changes in international markets and regulations.",
-    "leadbox": {
-      "title": "Interested?",
-      "subtitle": "Project Requests",
-      "text": "Gholam Abdol, Managing Director",
-      "mail": "info@satellytes.com"
-    }
-  },
-  "contact": {
-    "title": "Contact",
-    "address": "Address",
-    "info-link": "<0>Use our contact-form or write an e-mail to <1>beep@satellytes.com</1></0>",
-    "info": "Use our contact-form or write an e-mail to beep@satellytes.com",
-    "name": "Name",
-    "email": "E-mail address",
-    "message": "Your message to us",
-    "mandatory-field": "mandatory field",
-    "error": {
-      "name": "Your name is missing",
-      "message": "Your message is missing",
-      "email": "Your e-mail is missing",
-      "email-unknown": "Something is wrong with the e-mail address"
-    },
-    "action": {
-      "again-text": "An error occurred. Please try again. If it does not work, please send your message to <2>beep@satellytes.com</2>",
-      "missing": "Please fill in the missing fields",
-      "send": "Send",
-      "sent": "Sent",
-      "again": "Send again"
-    }
-  },
-  "imprint": {
-    "title": "Imprint",
-    "info": "Mandatory information according to § 5 Telemediengesetz/Impressum",
-    "updated": "Updated: 16.July 2020, Created: 12.Sep. 2018"
-  },
-  "data-privacy": {
-    "title": "Data Privacy",
-    "info": "Information on the collection of personal data"
-  },
-  "navigation": {
-    "language-aria": "Language Select",
-    "main-navigation-aria": "Main Navigation",
-    "en": "English",
-    "de": "Deutsch",
-    "menu": "Navigation",
-    "imprint": "Imprint",
-    "data-privacy": "Data Privacy",
-    "services": "Services",
-    "career": "Career",
-    "office": "Office",
-    "blog": "Blog",
-    "contact": "Contact"
-  },
-  "blog": {
-    "info": "Our developers and designers talk about the latest trends and know-how around tech, especially about our latest learnings and insights on creating good software for the web.",
-    "share": "Share article",
-    "follow": "Follow blog",
-    "pagination": "Page"
-  },
-  "blogpost": {
-    "leadbox": {
-      "title": "Interested in working with us?",
-      "link": "Career"
-    }
-  },
-  "image": {
-    "attribution": "Photo by "
-  },
+  "main.description": "We are pragmatic professionals, creating reliable software for the web.",
+  "main.services.title": "Platforms, Consulting & Products",
+  "main.services.kicker": "Our Services",
+  "main.services.text": "We enjoy technology and look forward to new challenges. We focus on long-term commitments in the Group's business.\nWe always approach new tasks with appropriate respect. We always strive for high-quality and contemporary solutions - the choice of technology is secondary for us. We would be happy to support you in the following disciplines:",
+  "main.services.teasers.first.title": "Enterprise Applications & Libraries\n",
+  "main.services.teasers.first.text": "Mixed teams of designers, product managers, developers, support staff, marketing specialists and more bring the right combination of know-how and experience to ensure that people think outside the box.",
+  "main.services.teasers.second.title": "Technical Analysis",
+  "main.services.teasers.second.text": "Each team at Satellytes is responsible for its own tasks. In the words of the Agile Manifesto: \"The best architectures, requirements and designs are created by self-organized teams\"",
+  "main.services.teasers.third.title": "UX/UI",
+  "main.services.teasers.third.text": "Fast feedback, short decision-making processes and open mindedness are important to us - whether you call it Scrum, Kanban or XP.",
+  "main.career.title": "Work with us",
+  "main.career.kicker": "Career at Satellytes",
+  "main.career.text": "Wir suchen Entwickler:innen aus Leidenschaft! Du hast noch nicht viel Berufserfahrung? Kein Problem. Denn alles, was du wissen musst, lernst Du bei uns. Du kannst schon alles? Dann findest Du bei Satellytes neue Herausforderungen und erfahrene Kollegen, mit denen Du weiter wachsen kannst. Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung.",
+  "main.blog.title": "Ping, Echo, Printf",
+  "main.blog.kicker": "News about Satellytes",
+  "main.blog.text": "Find best practices, interesting bits of technology and news about Satellytes and the team",
+  "career.title": "Career",
+  "career.subheading": "We are looking for passionate developers!",
+  "career.title-positions": "Our open positions",
+  "career.headline": "Apply now",
+  "career.mandatory-field": "mandatory field",
+  "career.first-name": "First name",
+  "career.last-name": "Last name",
+  "career.email": "E-mail-adresse",
+  "career.location": "Location",
+  "career.available-from": "Available from",
+  "career.salary-expectations": "Salary expectations",
+  "career.cover-letter": "Cover letter",
+  "career.file-category": "File category",
+  "career.remove-file": "Remove",
+  "career.cv": "CV",
+  "career.other": "other",
+  "career.info-text": "Please upload relevant files e.g. CV, cover letter or references. You can upload 3 pdf-documents with a maximal size of 20 MB each.",
+  "career.privacy-policy": "<0>I hereby confirm that i have taken note of the <1>privacy policy</1>.  <4>*</4></0>",
+  "career.introduction.headline": "Work with us",
+  "career.introduction.kicker": "Career at Satellytes",
+  "career.introduction.paragraphs.0": "We are Satellytes, a team of highly experienced developers and some designers. We bring sustainable, accessible, reliable and modern web solutions to large companies. If you are interested in joining us, check out our open positions right now.",
+  "career.application-process.headline": "Application process",
+  "career.application-process.paragraph": "Applying for a job can often be frustrating. That's why our team has come up with something that makes sense. Check out our four steps of your application here.",
+  "career.application-process.accordion.0.title": "1. Apply",
+  "career.application-process.accordion.0.paragraph": "Everything starts with your application. Send us your CV and a short cover letter explaining why you are applying to us. In your application, we don't look for school grades, we look for your passion for coding. Show us your GitHub or GitLab account. Do you have a blog? Then feel free to link to it.",
+  "career.application-process.accordion.1.title": "2. Say Hello",
+  "career.application-process.accordion.1.paragraph": "If we find your application convincing, we will invite you to a first interview. One or two of your future colleagues will talk to you about how you got into programming and what drives you. After that, we will know you better and you will know the first faces behind Satellytes.",
+  "career.application-process.accordion.2.title": "3. Technical Interview",
+  "career.application-process.accordion.2.paragraph": "We don't do whiteboard interviews, nor do we send any programming tasks. Instead, you'll do a code review in advance, which we'll then talk through together in the interview. We'll discuss issues in the code and touch on a bit of expertise about relevant technologies. Besides all the technical stuff, we'll also have time to talk a bit about our culture at Satellytes to make sure you feel comfortable working with us.",
+  "career.application-process.accordion.3.title": "4. Decision",
+  "career.application-process.accordion.3.paragraph": "You have shown what you can do and how you're working. We have shown what drives us and how we work. If everything fits, we let you know. If something doesn't fit, we'll let you know that too.",
+  "career.openings.headline": "Open Positions",
+  "career.culture.headline": "Enjoying the work",
+  "career.culture.kicker": "Team",
+  "career.culture.paragraph": "We want to create the conditions for everyone to develop personally and professionally.",
+  "career.culture.teaser.0.title": "Cross-Functional",
+  "career.culture.teaser.0.description": "Mixed teams of designers, product managers, developers, support staff, marketing specialists and more bring the right combination of know-how and experience to ensure that people think outside the box.",
+  "career.culture.teaser.1.title": "Self-organisation",
+  "career.culture.teaser.1.description": "Each team at Satellytes is responsible for its own tasks. In the words of the Agile Manifesto: \"The best architectures, requirements and designs are created by self-organized teams\"",
+  "career.culture.teaser.2.title": "Agile",
+  "career.culture.teaser.2.description": "Fast feedback, short decision-making processes and open mindedness are important to us - whether you call it Scrum, Kanban or XP.",
+  "career.culture.teaser.3.title": "Fail fast",
+  "career.culture.teaser.3.description": "When we try something new, we always risk failure. That's the ideal way to learn from mistakes, share insights with others and turn them into successes in the next situation.",
+  "career.culture.teaser.4.title": "Feedback",
+  "career.culture.teaser.4.description": "Feedback is our most important tool. Code reviews, pair programming, daily stand-up meetings, 360-degree feedback and more give everyone the opportunity to constantly improve.",
+  "career.culture.teaser.5.title": "Open Work",
+  "career.culture.teaser.5.description": "Being open, listening, respecting other opinions and finding the best solutions together.",
+  "career.perk.headline": "Perks & Benefits",
+  "career.perk.kicker": "Work",
+  "career.perk.paragraph": "In addition to a great team, interesting tasks and a modern working environment, we also offer a few extras.",
+  "career.perk.teaser.0.title": "Time for experiments",
+  "career.perk.teaser.0.description": "You'll get time & space to try out new technologies or conduct small experiments with colleagues",
+  "career.perk.teaser.1.title": "Always learning",
+  "career.perk.teaser.1.description": "You will learn something with us every day, whether you consider yourself a beginner or a professional. If you're lacking the muse yourself, then a colleague will surely know how to inspire you shortly afterwards. If you ever need a book: every book is on us.",
+  "career.perk.teaser.2.title": "Favorite gear",
+  "career.perk.teaser.2.description": "MacBook vs. Linux laptop, mouse vs. trackpad or VSCode vs. IntelliJ. You have the choice with us.",
+  "career.perk.teaser.3.title": "Work from anywhere",
+  "career.perk.teaser.3.description": "You can flexibly choose your working hours and place of work after consultation with the team & customers.",
+  "career.perk.teaser.4.title": "Conferences",
+  "career.perk.teaser.4.description": "We love tech conferences and have often been visitors and sometimes even speakers. We'll pay for your ticket, room and board. Want to become a speaker? We support you.",
+  "career.error.approval": "Your approval is missing",
+  "career.error.first-name": "Your first name is missing",
+  "career.error.last-name": "Your last name is missing",
+  "career.error.email": "Your e-mail is missing",
+  "career.error.email-undefined": "Something is wrong with this email",
+  "career.error.cv": "Your CV is missing",
+  "career.error.cover-letter": "Your cover letter is missing",
+  "career.error.selection": "Your selection is missing",
+  "career.error.max-number": "Maximal number of documents is reached.",
+  "career.error.max-size": "Maximal filesize of 20 MB is reached.",
+  "career.error.uploaded": "The document \"{{name}}\" was already uploaded.",
+  "career.action.alternative": "<0>Or send your application to <1>career@satellytes.com</1></0>",
+  "career.action.upload": "<0>Drop the files here or <1>browse</1></0>",
+  "career.action.send": "Send",
+  "career.action.sent": "Sent",
+  "career.action.again": "Send again",
+  "career.action.again-text": "Please try again. In case it does not work, please sent your application to <1>career@satellytes.com</1>",
+  "career.action.missing": "Please fill in the missing fields",
+  "career.seo.title-detail": "Career - {{name}} | Satellytes",
+  "career.seo.description-detail": "Apply now to become a {{name}}! Take a look at our other vacancies. We look forward to receiving your application.",
+  "career.seo.title": "Career | Satellytes",
+  "career.seo.description": "We are looking for passionate developers! Take a look at our open positions. We look forward to receiving your application.",
+  "career.thank": "Thank you for your application!",
+  "career.email-confirmation": "We sent you a confirmation-email and we will contact you.",
+  "career.leadbox.title": "Your job not included?",
+  "career.leadbox.subtitle": "Unsolicited Application",
+  "career.leadbox.text": "Georgios Kaleadis, CTO",
+  "career.leadbox.mail": "career@satellytes.com",
+  "office.title": "Office",
+  "office.heading": "Our new Office directly next to Sendlinger Tor",
+  "office.team.title": "Team",
+  "office.team.heading": "That is who we are",
+  "office.team.text": "Our experienced team of engineers and designers",
+  "office.leadbox.title": "Did you get interested?",
+  "office.leadbox.link": "Career",
+  "services.hero": "Services",
+  "services.title": "What we offer",
+  "services.kicker": "Platforms, Products & Consulting",
+  "services.text": "We enjoy technology and look forward to new challenges. We focus on long-term commitments in the Group's business.\nWe always approach new tasks with appropriate respect. We always strive for high-quality and contemporary solutions - the choice of technology is secondary for us. We would be happy to support you in the following disciplines.",
+  "services.platform.title": "Digitale Platforms",
+  "services.platform.teaser": "From low-code to design systems",
+  "services.platform.text": "We are specialists for digital platforms from the idea to the implementation. Our many years of experience in designing B2B and B2C platforms from a wide range of industries make us the ideal partner for your project.",
+  "services.platform.list.platforms": "Digital Platform Design & Development",
+  "services.platform.list.lowcode": "Low-Code Systems",
+  "services.platform.list.designsystems": "Design Systems",
+  "services.platform.list.infrastructure": "Infrastructure & Automation",
+  "services.consulting.title": "Consulting",
+  "services.consulting.teaser": "The experience of our employees is our most valuable treasure.",
+  "services.consulting.text": "The experience of our employees is our most valuable treasure. We share it with you and advise you in technical and conceptual matters. conceptual matters.",
+  "services.consulting.list.workshops": "Training & Workshops",
+  "services.consulting.list.analysis": "Technical & UX/UI Analysis",
+  "services.products_services.title": "Products & Services",
+  "services.products_services.teaser": "From Ideation to Rollout. We support you.",
+  "services.products_services.text": "We support your next product or service with our experts.",
+  "services.products_services.list.prototyping": "Prototyping",
+  "services.products_services.list.ideation": "Ideation & Proof of Concepts",
+  "services.products_services.list.development": "Product Design & Development",
+  "services.industries.text": "Currently we offer our services in the following industries",
+  "services.industries.title": "Industries",
+  "services.industries.bank.title": "Banks",
+  "services.industries.bank.text": "Umsetzung und Design der gesamten B2C-Plattform.",
+  "services.industries.automotive.title": "Automotive",
+  "services.industries.automotive.text": "Support international brands in the expansion of B2B and B2C platforms.",
+  "services.industries.sport.title": "Sport",
+  "services.industries.sport.text": "Design & implementation of the entire B2C platform of global players in the sports industry",
+  "services.industries.you.title": "Your industry",
+  "services.industries.you.text": "We become the industry expert together with your challenge. Contact us.",
+  "services.industries.insurance.title": "Insurances",
+  "services.industries.insurance.text": "Innovative B2B & B2C technical platform for market leaders to keep up with the constant changes in international markets and regulations.",
+  "services.leadbox.title": "Interested?",
+  "services.leadbox.subtitle": "Project Requests",
+  "services.leadbox.text": "Gholam Abdol, Managing Director",
+  "services.leadbox.mail": "info@satellytes.com",
+  "contact.title": "Contact",
+  "contact.address": "Address",
+  "contact.info-link": "<0>Use our contact-form or write an e-mail to <1>beep@satellytes.com</1></0>",
+  "contact.info": "Use our contact-form or write an e-mail to beep@satellytes.com",
+  "contact.name": "Name",
+  "contact.email": "E-mail address",
+  "contact.message": "Your message to us",
+  "contact.mandatory-field": "mandatory field",
+  "contact.error.name": "Your name is missing",
+  "contact.error.message": "Your message is missing",
+  "contact.error.email": "Your e-mail is missing",
+  "contact.error.email-undefined": "Something is wrong with this email",
+  "contact.action.again-text": "An error occurred. Please try again. If it does not work, please send your message to <2>beep@satellytes.com</2>",
+  "contact.action.missing": "Please fill in the missing fields",
+  "contact.action.send": "Send",
+  "contact.action.sent": "Sent",
+  "contact.action.again": "Send again",
+  "imprint.title": "Imprint",
+  "imprint.info": "Mandatory information according to § 5 Telemediengesetz/Impressum",
+  "imprint.updated": "Updated: 16.July 2020, Created: 12.Sep. 2018",
+  "data-privacy.title": "Data Privacy",
+  "data-privacy.info": "Information on the collection of personal data",
+  "navigation.language-aria": "Language Select",
+  "navigation.main-navigation-aria": "Main Navigation",
+  "navigation.en": "English",
+  "navigation.de": "Deutsch",
+  "navigation.menu": "Navigation",
+  "navigation.imprint": "Imprint",
+  "navigation.data-privacy": "Data Privacy",
+  "navigation.services": "Services",
+  "navigation.career": "Career",
+  "navigation.office": "Office",
+  "navigation.blog": "Blog",
+  "navigation.contact": "Contact",
+  "blog.info": "Our developers and designers talk about the latest trends and know-how around tech, especially about our latest learnings and insights on creating good software for the web.",
+  "blog.share": "Share article",
+  "blog.follow": "Follow blog",
+  "blog.pagination": "Page",
+  "blogpost.leadbox.title": "Interested in working with us?",
+  "blogpost.leadbox.link": "Career",
+  "image.attribution": "Photo by ",
   "404": "Oh sorry! Our Satellite took the wrong direction."
 }
