@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Icon, IconSize } from '../../new-components/icon/icon';
-import { resetButton } from '../css-helpers';
+import { Icon, IconSize } from '../icon/icon';
+import { resetButton } from '../../components/css-helpers';
 import { lighten } from 'polished';
-import { TextStyles } from '../typography/typography-v2';
+import { TextStyles } from '../../components/typography/typography-v2';
 
 const StyledButton = styled.button`
   ${resetButton};
@@ -41,18 +41,13 @@ const ButtonText = styled.span`
   padding-right: 16px;
 `;
 
-interface RegularButtonProps {
-  children: React.ReactNode;
-  onClick: React.MouseEventHandler;
-}
+type RegularButtonProps = React.ComponentPropsWithoutRef<'button'>;
 
-const Button = ({ children, onClick }: RegularButtonProps) => {
+export const Button = (props: RegularButtonProps) => {
   return (
-    <StyledButton onClick={(event) => onClick?.(event)}>
-      <ButtonText>{children}</ButtonText>
+    <StyledButton {...props}>
+      <ButtonText>{props.children}</ButtonText>
       <StyledIcon show={'chevron_right'} size={IconSize.NORMAL} />
     </StyledButton>
   );
 };
-
-export default Button;
