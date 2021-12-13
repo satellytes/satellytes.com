@@ -29,31 +29,31 @@ export const Service = () => {
 
       <TeaserGrid>
         <Teaser
-          title={t('services.platform.title')}
+          title={t('main.services.teasers.first.title')}
           linkTo="/services"
           cover={
             <Illustration show="monitor_024" size={IllustrationSize.MEDIUM} />
           }
         >
-          {t('services.platform.text')}
+          {t('main.services.teasers.first.text')}
         </Teaser>
         <Teaser
-          title={t('services.consulting.title')}
+          title={t('main.services.teasers.second.title')}
           linkTo="/services"
           cover={
             <Illustration show="scientist_042" size={IllustrationSize.MEDIUM} />
           }
         >
-          {t('services.consulting.text')}
+          {t('main.services.teasers.second.text')}
         </Teaser>
         <Teaser
-          title={t('services.products_services.title')}
+          title={t('main.services.teasers.third.title')}
           linkTo="/services"
           cover={
             <Illustration show="book_038" size={IllustrationSize.MEDIUM} />
           }
         >
-          {t('services.products_services.text')}
+          {t('main.services.teasers.third.text')}
         </Teaser>
       </TeaserGrid>
 
