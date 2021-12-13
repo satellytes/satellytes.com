@@ -30,10 +30,10 @@ export const Team = ({ team }: TeamProps) => {
   return (
     <div>
       <SectionHeader
-        headline={t('office.team.heading')}
-        kicker={t('office.team.title')}
+        headline={t('about-us.team.heading')}
+        kicker={t('about-us.team.title')}
       >
-        {t('office.team.text')}
+        {t('about-us.team.text')}
       </SectionHeader>
 
       <TeamLayout>

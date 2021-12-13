@@ -10,19 +10,19 @@ import { SyTeamMember } from '../../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { ImageHero } from '../../new-components/heroes';
 
-interface OfficePageProps {
+interface AboutUsPageProps {
   team: SyTeamMember[];
   heroImageData: IGatsbyImageData;
 }
 
-export const OfficePage = (props: OfficePageProps) => {
+export const AboutUsPage = (props: AboutUsPageProps) => {
   const { t } = useTranslation();
 
   const leadbox: LeadboxProps = {
     illustration: 'astronaut_020',
-    title: t('office.leadbox.title'),
+    title: t('about-us.leadbox.title'),
     link: {
-      title: t('office.leadbox.link'),
+      title: t('about-us.leadbox.link'),
       href: '/career',
     },
   };
@@ -36,8 +36,8 @@ export const OfficePage = (props: OfficePageProps) => {
     >
       <ContentBlockContainer>
         <SectionHeader
-          headline={t('office.heading')}
-          kicker={t('office.title')}
+          headline={t('about-us.office.heading')}
+          kicker={t('about-us.office.title')}
         >
           Feel at home with us. A small impression of our office in Sendlinger
           Straße in the heart of Munich.
