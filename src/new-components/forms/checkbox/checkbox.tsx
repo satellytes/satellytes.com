@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { TextStyles } from '../../../components/typography/typography-v2';
+import { Icon } from '../../icon/icon';
 
 export const Checkbox = (props) => {
   const [checked, setChecked] = useState(true);
@@ -52,20 +53,7 @@ export const Checkbox = (props) => {
     <CheckboxLabel>
       <HiddenCheckbox />
       <StyledCheckbox>
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M7.2002 13.6L10.154 16.7999L16.8002 7.19995"
-            stroke="#202840"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-          />
-        </svg>
+        <Icon show="checkmark_bold" />
       </StyledCheckbox>
       {props.label && <CheckboxLabelText>{props.label}</CheckboxLabelText>}
     </CheckboxLabel>
