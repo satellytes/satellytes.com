@@ -11,10 +11,14 @@ import { Icon } from '../icon/icon';
 import { TextStyles } from '../../components/typography/typography-v2';
 
 const TeaserContainer = styled.div<{ hover: boolean }>`
-  cursor: pointer;
   overflow: hidden;
 
-  color: ${(props) => props.hover && theme.palette.text.topline};
+  ${(props) =>
+    props.hover &&
+    css`
+      color: ${theme.palette.text.topline};
+      cursor: pointer;
+    `};
 `;
 
 const StyledIllustration = styled(Illustration)<{ hover: boolean }>`
@@ -31,8 +35,9 @@ const StyledIllustration = styled(Illustration)<{ hover: boolean }>`
 const ImageContainer = styled.div<{ hover: boolean }>`
   overflow: hidden;
   margin-bottom: 16px;
+
   transition: transform 0.2s;
-  transform: ${(props) => props.hover && 'scale(1.05)'};
+  ${(props) => props.hover && 'transform: scale(1.05)'};
 `;
 
 const ToplineContainer = styled.div`
@@ -48,9 +53,10 @@ const Topline = styled.p`
   margin: 0;
 `;
 
-const Timestamp = styled.p`
+const Timestamp = styled.p<{ hover: boolean }>`
   ${TextStyles.timestamp};
-  color: ${theme.palette.text.timestamp};
+  color: ${(props) =>
+    props.hover ? theme.palette.text.topline : theme.palette.text.timestamp};
   margin: 0;
 `;
 
@@ -82,6 +88,7 @@ export interface TeaserProps {
   illustration?: IllustrationType;
   linkTo?: string;
   className?: string;
+  children: React.ReactNode | React.ReactNode[];
 }
 
 /**
@@ -90,15 +97,25 @@ export interface TeaserProps {
  * In addition, an illustration or an image, a formatted date and a topline can be displayed.
  */
 
-const ConditionalLink = ({ to, children }) => {
+const ConditionalLink = ({ to, children, onHover }) => {
   if (to) {
-    return <Link to={to}>{children}</Link>;
+    return (
+      <Link
+        to={to}
+        onMouseOver={() => {
+          onHover(true);
+        }}
+        onMouseLeave={() => onHover(false)}
+      >
+        {children}
+      </Link>
+    );
   }
 
   return children;
 };
 
-export const Teaser: React.FC<TeaserProps> = ({
+export const Teaser = ({
   topline,
   title,
   dateFormatted,
@@ -107,22 +124,16 @@ export const Teaser: React.FC<TeaserProps> = ({
   illustration,
   className,
   children,
-}) => {
+}: TeaserProps): JSX.Element => {
   const [hoverActive, setIsHoverActive] = useState<boolean>(false);
   const hasToplineContainer = Boolean(topline || dateFormatted);
 
   return (
-    <TeaserContainer
-      className={className}
-      hover={hoverActive}
-      onMouseEnter={() => {
-        Boolean(linkTo) && setIsHoverActive(true);
-      }}
-      onMouseLeave={() => {
-        setIsHoverActive(false);
-      }}
-    >
-      <ConditionalLink to={linkTo}>
+    <TeaserContainer className={className} hover={hoverActive}>
+      <ConditionalLink
+        onHover={(hasHover) => setIsHoverActive(hasHover)}
+        to={linkTo}
+      >
         {teaserImage && (
           <ImageContainer hover={hoverActive}>{teaserImage}</ImageContainer>
         )}
@@ -136,7 +147,9 @@ export const Teaser: React.FC<TeaserProps> = ({
         {hasToplineContainer && (
           <ToplineContainer>
             {topline && <Topline>{topline}</Topline>}
-            {dateFormatted && <Timestamp>{dateFormatted}</Timestamp>}
+            {dateFormatted && (
+              <Timestamp hover={hoverActive}>{dateFormatted}</Timestamp>
+            )}
           </ToplineContainer>
         )}
         <StyledTeaserTitle
