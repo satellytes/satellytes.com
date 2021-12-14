@@ -4,6 +4,7 @@ import { up } from '../../components/style-utils/breakpoint';
 import { Teaser } from '../../new-components/teaser/teaser';
 import { IllustrationType } from '../../components/illustration/illustration-set';
 import { SectionHeader } from '../../new-components/section-header/section-header';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 interface CultureAspect {
   illustration: IllustrationType;
@@ -23,45 +24,39 @@ const TeaserGrid = styled.div`
   }
 `;
 
-const ASPECTS: CultureAspect[] = [
+const ASPECTS = (t): CultureAspect[] => [
   {
-    title: 'Cross-Functional',
-    description:
-      'Teams aus Designern, Produktmanagern, Entwicklern, Supportmitarbeitern, Marketingspezialisten usw. bringen die richtige Mischung aus Know-how und Erfahrung mit und sorgen dafür, dass auch mal über den Tellerrand geschaut wird.',
+    title: t('career.culture.teaser.0.title'),
+    description: t('career.culture.teaser.0.description'),
     illustration: 'radar_030',
   },
 
   {
-    title: 'Self-Organisation',
-    description:
-      'Jedes Team bei Satellytes ist für seine eigenen Aufgaben verantwortlich. In den Worten des Agilen Manifests: „Die besten Architekturen, Anforderungen und Entwürfe entstehen durch selbstorganisierte Teams.“',
+    title: t('career.culture.teaser.1.title'),
+    description: t('career.culture.teaser.1.description'),
     illustration: 'rocket_011',
   },
 
   {
-    title: 'Agile',
-    description:
-      'Schnelles Feedback, kurze Entscheidungswege und Offenheit für Veränderung sind uns wichtig – egal, ob man es Scrum, Kanban oder XP nennt.',
+    title: t('career.culture.teaser.2.title'),
+    description: t('career.culture.teaser.2.description'),
     illustration: 'sputnik_045',
   },
 
   {
-    title: 'Erfolgreich scheitern',
-    description:
-      'Wenn wir etwas Neues ausprobieren, riskieren wir immer auch einen Misserfolg. Macht nichts – aus Fehlern lernen, Erkenntnisse mit anderen teilen und im nächsten Projekt in Erfolge ummünzen.',
+    title: t('career.culture.teaser.3.title'),
+    description: t('career.culture.teaser.3.description'),
     illustration: 'planets_005',
   },
 
   {
-    title: 'Feedback',
-    description:
-      'Zusammenarbeit ist bei uns nicht nur ein Wort: Code-Review, Inline-Kommentare, Pair Programming, tägliche Stand-up-Meetings, 360-Grad-Feedback usw.',
+    title: t('career.culture.teaser.4.title'),
+    description: t('career.culture.teaser.4.description'),
     illustration: 'report_031',
   },
   {
-    title: 'Open Work',
-    description:
-      'Offen sein, zuhören, andere Meinungen respektieren und gemeinsam die besten Lösungen finden.',
+    title: t('career.culture.teaser.5.title'),
+    description: t('career.culture.teaser.5.description'),
     illustration: 'book_038',
   },
 ];
@@ -71,15 +66,18 @@ const CultureTeaserGrid = styled(TeaserGrid)`
 `;
 
 export const Culture = () => {
+  const { t } = useTranslation();
   return (
     <>
-      <SectionHeader kicker="Team" headline="Spass an der Arbeit">
-        Wir möchten die Voraussetzung schaffen, damit sich jeder persönlich wie
-        beruflich weiterentwickeln kann.
+      <SectionHeader
+        kicker={t('career.culture.kicker')}
+        headline={t('career.culture.headline')}
+      >
+        {t('career.culture.paragraph')}
       </SectionHeader>
 
       <CultureTeaserGrid>
-        {ASPECTS.map((item, index) => (
+        {ASPECTS(t).map((item, index) => (
           <Teaser
             title={item.title}
             key={index}

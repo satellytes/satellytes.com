@@ -1,8 +1,8 @@
 import React, { ReactNode, useState } from 'react';
 import styled, { css } from 'styled-components';
-import { ReactComponent as ChevronSVG } from './expandable-chevron.svg';
 import { theme } from '../layout/theme';
 import { TextStyles } from '../typography/typography-v2';
+import { Icon } from '../../new-components/icon/icon';
 
 interface ExpandableProps {
   className?: string;
@@ -14,11 +14,6 @@ interface ExpandableProps {
    * The actual text is passed as a child into the component
    * */
   children: ReactNode | ReactNode[];
-}
-
-interface ExpandableChevronProps {
-  open: boolean;
-  className?: string;
 }
 
 const ExpandableContainer = styled.details`
@@ -47,21 +42,12 @@ const SummaryContainer = styled.summary`
 
 const SummaryText = styled.p`
   ${TextStyles.headlineXS}
-  margin: 0 0 0 8px;
+  margin: 0;
+  line-height: 1;
 `;
 
-const AccordionChevron = (props: ExpandableChevronProps) => {
-  return (
-    <div className={props.className}>
-      <ChevronSVG />
-    </div>
-  );
-};
-
-const ExpandableChevronStyled = styled(AccordionChevron)<{ open: boolean }>`
+const ExpandableChevronStyled = styled(Icon)<{ open: boolean }>`
   transition: transform 0.1s ease-out;
-  margin-bottom: 1px;
-
   ${(props) =>
     props.open &&
     css`
@@ -70,7 +56,7 @@ const ExpandableChevronStyled = styled(AccordionChevron)<{ open: boolean }>`
 `;
 
 const ExpandableText = styled.div`
-  margin-left: 14px;
+  margin-left: 24px;
   margin-top: 12px;
 `;
 
@@ -88,7 +74,7 @@ export const Expandable = ({
           setIsOpen(!isOpen);
         }}
       >
-        <ExpandableChevronStyled open={isOpen} />
+        <ExpandableChevronStyled show={'caret_round_right'} open={isOpen} />
         <SummaryText>{summary}</SummaryText>
       </SummaryContainer>
       <ExpandableText>{children}</ExpandableText>

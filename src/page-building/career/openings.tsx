@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { up } from '../../components/style-utils/breakpoint';
 import { TextStyles } from '../../components/typography/typography-v2';
 import { SyPersonioJob } from '../../types';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 const TeaserGrid = styled.div`
   display: grid;
@@ -28,9 +29,10 @@ interface OpeningsProps {
 }
 
 export const Openings = (props: OpeningsProps) => {
+  const { t } = useTranslation();
   return (
     <div>
-      <SectionHeadline>Unsere offenen Stellen</SectionHeadline>
+      <SectionHeadline>{t('career.openings.headline')}</SectionHeadline>
       <TeaserGrid>
         {props.jobs.map((item) => (
           <Teaser title={item.name} linkTo={item.fields?.path} key={item.id}>

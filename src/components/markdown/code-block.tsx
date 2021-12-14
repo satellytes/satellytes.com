@@ -1,5 +1,5 @@
 import React from 'react';
-import { CopyIcon } from '../icons/copy';
+import { CopyIcon } from './icons/copy';
 import copy from 'copy-to-clipboard';
 import styled from 'styled-components';
 import { onlyText } from '../util/only-text';
