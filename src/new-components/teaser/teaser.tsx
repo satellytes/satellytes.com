@@ -81,13 +81,34 @@ const StyledIcon = styled(Icon)`
 `;
 
 export interface TeaserProps {
+  /**
+   * The main title of the teaser
+   */
   title: string;
+  /**
+   * A topline/kicker which can be added
+   */
   topline?: string;
+  /**
+   * An already formatted date string which is mainly used for the blog post overview
+   */
   dateFormatted?: string | null;
+  /**
+   * The image above the title. You can't pass in an image and illustration. If you pass in an image and illustration the illustration will be taken.
+   */
   image?: JSX.Element;
+  /**
+   * An illustration for the teaser
+   */
   illustration?: IllustrationType;
+  /**
+   * Adds a link to another page and makes the whole teaser clickable
+   */
   linkTo?: string;
   className?: string;
+  /**
+   * The main text of the teaser is entered as child
+   * */
   children: React.ReactNode | React.ReactNode[];
 }
 
