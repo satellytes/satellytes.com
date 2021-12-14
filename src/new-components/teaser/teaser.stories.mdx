@@ -7,8 +7,9 @@ import { Regular, WithImage, WithIllustration } from './teaser.stories'
 # Teaser
 
 Teasers are used to link to another page and give the user a brief overview of the content of that page.
-This requires a `headline`, the path to the page (`linkTo`) and a short text, which is entered as a child.
-In addition, an illustration or an image (`cover`), a formatted date (`dateFormatted`) and a `topline` can be displayed.
+This requires a `headline` and a short text, which is entered as a child.
+In addition, an `illustration` or an `image`, a formatted date (`dateFormatted`), a link to another page (`linkTo`) and a `topline` can be displayed.
+You can't pass in an image **and** illustration. If you pass in an image and illustration the illustration will be taken.
 
 ## Teaser Layouts
 A short overview with all variants of the teaser that are currently included in the design.

@@ -84,18 +84,12 @@ export interface TeaserProps {
   title: string;
   topline?: string;
   dateFormatted?: string | null;
-  teaserImage?: JSX.Element;
+  image?: JSX.Element;
   illustration?: IllustrationType;
   linkTo?: string;
   className?: string;
   children: React.ReactNode | React.ReactNode[];
 }
-
-/**
- * Teasers are used to link to another page and give the user a brief overview of the content of that page.
- * This requires a headline, the path to the page (linkTo) and a short text, which is entered as a child.
- * In addition, an illustration or an image, a formatted date and a topline can be displayed.
- */
 
 const ConditionalLink = ({ to, children, onHover }) => {
   if (to) {
@@ -119,7 +113,7 @@ export const Teaser = ({
   topline,
   title,
   dateFormatted,
-  teaserImage,
+  image,
   linkTo,
   illustration,
   className,
@@ -134,8 +128,8 @@ export const Teaser = ({
         onHover={(hasHover) => setIsHoverActive(hasHover)}
         to={linkTo}
       >
-        {teaserImage && (
-          <ImageContainer hover={hoverActive}>{teaserImage}</ImageContainer>
+        {!illustration && image && (
+          <ImageContainer hover={hoverActive}>{image}</ImageContainer>
         )}
         {illustration && (
           <StyledIllustration
@@ -153,7 +147,7 @@ export const Teaser = ({
           </ToplineContainer>
         )}
         <StyledTeaserTitle
-          large={!(teaserImage || illustration)}
+          large={!(image || illustration)}
           hasTopline={hasToplineContainer}
         >
           {title}

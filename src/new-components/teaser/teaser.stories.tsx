@@ -34,7 +34,7 @@ WithIllustration.args = {
   illustration: 'space_shuttle_043',
 };
 WithIllustration.argTypes = {
-  teaserImage: {
+  image: {
     options: ILLUSTRATION_NAMES,
     mapping: icons,
   },
@@ -49,7 +49,7 @@ WithImage.args = {
   ...Regular.args,
   topline: 'Topline',
   dateFormatted: '15th November 2021',
-  teaserImage: <SampleImage src={ExampleImage} alt="" />,
+  image: <SampleImage src={ExampleImage} alt="" />,
 };
 WithImage.parameters = {
   controls: { exclude: ['cover'] },

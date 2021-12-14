@@ -6,5 +6,5 @@ export { ReactComponent as chevron_right } from '../../icons/chevron-right-24.sv
 export { ReactComponent as chevron_up } from '../../icons/chevron-up-24.svg';
 export { ReactComponent as clone } from '../../icons/clone-24.svg';
 export { ReactComponent as burger_nav } from '../../icons/burger-nav-24.svg';
-export { ReactComponent as arrow_right } from '../../icons/arrow-right.svg';
-export { ReactComponent as arrow_left } from '../../icons/arrow-left.svg';
+export { ReactComponent as arrow_right } from '../../icons/arrow-right-24.svg';
+export { ReactComponent as arrow_left } from '../../icons/arrow-left-24.svg';
