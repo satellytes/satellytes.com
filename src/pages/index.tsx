@@ -3,6 +3,14 @@ import React from 'react';
 import SEO from '../components/seo';
 import { Landingpage } from '../page-building/landingpage/landingpage';
 import { BlogPostTeaser, LocalesQuery, SyPersonioJob } from '../types';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
+
+interface OfficeImage {
+  relativePath: string;
+  childImageSharp: {
+    gatsbyImageData: IGatsbyImageData;
+  };
+}
 
 interface IndexPageProps {
   data: {
@@ -14,6 +22,9 @@ interface IndexPageProps {
     allMarkdownRemark: {
       nodes: BlogPostTeaser[];
     };
+    officeImages: {
+      nodes: OfficeImage[];
+    };
   };
   location: Location;
 }
@@ -21,11 +32,19 @@ interface IndexPageProps {
 const IndexPage = (props: IndexPageProps) => {
   const jobPositions = props.data.allSyPersonioJob.nodes;
   const blogPosts = props.data.allMarkdownRemark.nodes;
+  const officeImages = props.data.officeImages.nodes.reduce((memo, image) => {
+    memo[image.relativePath] = image;
+    return memo;
+  }, {});
 
   return (
     <>
       <SEO title="Satellytes" location={props.location} />
-      <Landingpage positions={jobPositions} posts={blogPosts} />
+      <Landingpage
+        officeImages={officeImages}
+        positions={jobPositions}
+        posts={blogPosts}
+      />
     </>
   );
 };
@@ -34,6 +53,15 @@ export default IndexPage;
 
 export const IndexPageQuery = graphql`
   query ($language: String!) {
+    officeImages: allFile(filter: { relativeDirectory: { eq: "office" } }) {
+      nodes {
+        id
+        relativePath
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+      }
+    }
     allSyPersonioJob(filter: { lang: { eq: $language } }) {
       nodes {
         id

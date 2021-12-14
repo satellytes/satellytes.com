@@ -1,8 +1,13 @@
-import React, { ReactNode, useEffect } from 'react';
+import React, { ReactNode } from 'react';
 
 import Header, { HEADER_HEIGHT } from './../header/header';
 import Navigation from './../navigation/navigation';
-import { theme } from './theme';
+import {
+  CONTENT_SPACE_LARGE,
+  CONTENT_SPACE_SMALL,
+  HEADER_HEIGHT_VALUE,
+  theme,
+} from './theme';
 import styled, { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './global-style';
 import { FluidObject } from 'gatsby-image';
@@ -13,6 +18,8 @@ import {
 } from '../../new-components/leadbox/leadbox';
 import { up } from '../style-utils/breakpoint';
 import { Breadcrumb, BreadcrumbEntry } from '../breadcrumb/breadcrumb';
+import { setPolarityBodyClass } from './set-polarity';
+import { useAnchorTagScrolling } from './use-anchor-tag-scrolling';
 
 /**
  * this container is used to push the footer to the bottom
@@ -23,6 +30,11 @@ const FullHeightContainer = styled.div`
   flex-direction: column;
 
   min-height: 100vh;
+
+  padding-top: ${HEADER_HEIGHT_VALUE}px;
+  ${up('md')} {
+    padding-top: ${HEADER_HEIGHT_VALUE}px;
+  }
 `;
 
 const Main = styled.main`
@@ -35,25 +47,20 @@ const Main = styled.main`
    */
   display: grid;
   grid-template-columns:
-    1fr
-    min(821px, calc(100% - 2 * 24px))
-    1fr;
+    [main-start] minmax(24px, 1fr)
+    [content-start] minmax(0, 820px) [content-end]
+    minmax(24px, 1fr) [main-end];
 
   > * {
-    grid-column: 2;
+    grid-column: content;
   }
 
   /** make sure the distance to the footer is always the same */
-  padding-bottom: 121px;
+  padding-bottom: 120px;
 
   ${up('md')} {
     padding-bottom: 160px;
   }
-`;
-
-export const FullWidth = styled.div`
-  width: 100%;
-  grid-column: 1 / 4;
 `;
 
 const HeaderStickyContainer = styled.div`
@@ -63,40 +70,9 @@ const HeaderStickyContainer = styled.div`
   z-index: 100;
 `;
 
-const HeroContainer = styled.div`
-  position: relative;
-  width: 100%;
-  height: 520px;
-
-  ${up('md')} {
-    height: 640px;
-  }
-`;
-
 const BreadcrumbContainer = styled.div<{ hero: boolean }>`
   margin: ${(props) => !props.hero && `calc(${HEADER_HEIGHT} + 16px)`} 24px 16px;
 `;
-const useAnchorTagScrolling = (): void => {
-  useEffect(() => {
-    if (window.location.hash) {
-      const target = document.querySelector(
-        `a[href*='${window.location.hash}']`,
-      );
-      if (target) {
-        const scrollTop =
-          target.getBoundingClientRect().top +
-          window.pageYOffset -
-          // we need to scroll past the header and a little offset
-          (Number.parseInt(HEADER_HEIGHT, 10) + 16);
-
-        window.scrollTo({
-          top: scrollTop,
-          behavior: 'smooth',
-        });
-      }
-    }
-  }, []);
-};
 
 interface LayoutProps {
   transparentHeader?: boolean;
@@ -109,31 +85,6 @@ interface LayoutProps {
   translation?: string;
   leadbox?: LeadboxProps;
   breadcrumb?: BreadcrumbEntry[];
-}
-
-enum POLARITY {
-  DARK = 'dark',
-  LIGHT = 'light',
-}
-
-function setPolarityBodyClass(isLight: boolean) {
-  const POLARITY_PREFIX = `sy-polarity--`;
-  const classNameDark = `${POLARITY_PREFIX}${POLARITY.DARK}`;
-  const classNameLight = `${POLARITY_PREFIX}${POLARITY.LIGHT}`;
-
-  const noBrowser = typeof window === 'undefined';
-
-  if (noBrowser) {
-    return;
-  }
-
-  if (isLight) {
-    document.body.classList.remove(classNameDark);
-    document.body.classList.add(classNameLight);
-  } else {
-    document.body.classList.remove(classNameLight);
-    document.body.classList.add(classNameDark);
-  }
 }
 
 /**
@@ -169,7 +120,6 @@ export const LayoutV2 = ({
   const isLight = light === true && !overrideDarkFromQuery();
 
   useAnchorTagScrolling();
-
   setPolarityBodyClass(isLight);
 
   return (
@@ -185,7 +135,7 @@ export const LayoutV2 = ({
           translation={translation}
         />
       </HeaderStickyContainer>
-      {hero && <HeroContainer>{hero}</HeroContainer>}
+      {hero}
       {breadcrumb && (
         <BreadcrumbContainer hero={Boolean(hero)}>
           <Breadcrumb breadcrumbEntries={breadcrumb} />
