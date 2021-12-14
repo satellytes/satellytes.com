@@ -1,13 +1,7 @@
 import React, { ReactNode } from 'react';
-
 import Header, { HEADER_HEIGHT } from './../header/header';
 import Navigation from './../navigation/navigation';
-import {
-  CONTENT_SPACE_LARGE,
-  CONTENT_SPACE_SMALL,
-  HEADER_HEIGHT_VALUE,
-  theme,
-} from './theme';
+import { HEADER_HEIGHT_VALUE, theme } from './theme';
 import styled, { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './global-style';
 import { FluidObject } from 'gatsby-image';
@@ -107,7 +101,6 @@ function overrideDarkFromQuery() {
 
 export const LayoutV2 = ({
   transparentHeader,
-  heroImage,
   siteTitleUrl,
   light,
   hero,
@@ -130,7 +123,7 @@ export const LayoutV2 = ({
           siteTitle="Satellytes"
           siteTitleUrl={siteTitleUrl}
           $lightTheme={isLight}
-          transparent={transparentHeader || Boolean(heroImage)}
+          transparent={transparentHeader}
           showLanguageSwitch={showLanguageSwitch}
           translation={translation}
         />
