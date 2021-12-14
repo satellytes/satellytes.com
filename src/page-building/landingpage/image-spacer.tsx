@@ -15,7 +15,9 @@ const ImageContainer = styled.div`
     Do not remove easily. The actual order of CSS rules is not stable
     and the two rules (from the layout and this) will have the same specificity. 
    */
-  grid-column: -1/1;
+  && {
+    grid-column: -1/1;
+  }
 
   display: grid;
   height: 210px;
