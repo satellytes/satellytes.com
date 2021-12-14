@@ -1,0 +1,21 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { Address } from './address'; import { ContactSection } from './contact-section';
+
+<Meta title="Pages/Contact" component={{ Image }} />
+
+# Contact
+The contact page consists of two sections that allow the user to write a message to Satellytes or to get the address.
+
+## Address
+<Canvas withSource={'open'}>
+  <Story name="Address">
+    <Address/>
+  </Story>
+</Canvas>
+
+## Contact Section
+<Canvas withSource={'open'}>
+  <Story name="Contact Section">
+    <ContactSection/>
+  </Story>
+</Canvas>
