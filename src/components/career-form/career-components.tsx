@@ -11,10 +11,10 @@ import {
   Sup,
   TextArea,
 } from '../form/controls';
-import { CheckmarkIcon } from '../icons/buttons-icons/checkmark';
+import { CheckmarkIcon } from './icons/checkmark';
 import styled from 'styled-components';
 import { rgba } from 'polished';
-import { RightArrowIcon } from '../icons/buttons-icons/right-arrow';
+import { RightArrowIcon } from './icons/right-arrow';
 import { FieldErrors } from 'react-hook-form';
 import { Headline } from './career-form';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
