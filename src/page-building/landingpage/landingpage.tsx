@@ -1,6 +1,6 @@
+import { AuroraHero } from '../../new-components/heroes';
 import React from 'react';
 import { LayoutV2 } from '../../components/layout/layout-v2';
-import { Aurora } from '../../components/aurora/aurora';
 import { ContentBlockContainer } from '../../components/layout/content-block-container';
 import styled from 'styled-components';
 import { up } from '../../components/style-utils/breakpoint';
@@ -84,15 +84,7 @@ export const Landingpage = ({ positions, posts }: LandingpageProps) => {
       transparentHeader={true}
       light={true}
       hero={
-        <>
-          <Aurora />
-          <HeroContainer>
-            <IndexPageTitle>Satellytes</IndexPageTitle>
-            <IndexPageSubTitle as="h2">
-              {t('main.description')}
-            </IndexPageSubTitle>
-          </HeroContainer>
-        </>
+        <AuroraHero title={'Satellytes'}>{t('main.description')}</AuroraHero>
       }
     >
       <ContentBlockContainer>

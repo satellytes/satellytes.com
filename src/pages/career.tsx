@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { CareerPage } from '../page-building/career/career-page';
 import { LocalesQuery, SyPersonioJob } from '../types';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 interface CareerMarkdownQuery {
   htmlAst: string;
@@ -19,6 +20,7 @@ interface CareerProps {
     allSyPersonioJob: {
       nodes: SyPersonioJob[];
     };
+    hero: IGatsbyImageData;
   };
   location: Location;
 }
@@ -35,7 +37,10 @@ const Career = (props: CareerProps) => {
         description={t('career.seo.description')}
         location={props.location}
       />
-      <CareerPage positions={props.data.allSyPersonioJob.nodes} />
+      <CareerPage
+        heroImageData={props.data.hero}
+        positions={props.data.allSyPersonioJob.nodes}
+      />
     </>
   );
 };
@@ -44,6 +49,12 @@ export default Career;
 
 export const CareerPageQuery = graphql`
   query ($language: String!) {
+    hero: file(relativePath: { eq: "office/sy-office-01.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
+    }
+
     allSyPersonioJob(filter: { lang: { eq: $language } }) {
       nodes {
         id

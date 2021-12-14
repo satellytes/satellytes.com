@@ -1,0 +1,59 @@
+import { Canvas, Meta } from '@storybook/addon-docs';
+import { AuroraHero } from './aurora-hero'; import { AuroraType } from '../../components/aurora/aurora';
+
+<Meta
+  title="Layout/Heroes" />
+
+# Aurora Hero
+
+<Canvas withSource="open">
+  <AuroraHero title="Satellytes" kicker="Great stuff here">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium animi, 
+    culpa deserunt enim explicabo laborum minima, nesciunt nisi nobis non odio 
+    quaerat quia quibusdam quisquam quos rerum sunt tempore unde!
+  </AuroraHero>
+</Canvas>
+
+## Different Aurora type
+<Canvas withSource="open">
+  <AuroraHero title="Satellytes" auroraType={AuroraType.Pink}>
+    Welcome folks!
+  </AuroraHero>
+</Canvas>
+
+# Image Hero
+Due to the gatsby image dependency no preview is available.
+
+1. Query some gatsby image data with layout set to `FULL_WIDTH`
+
+```
+const staticImages = useStaticQuery(graphql`
+   query {
+    hero: file(relativePath: { eq: "office/sy-office-01.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(
+          layout: FULL_WIDTH
+        )
+      }
+    }
+  }
+`)
+```
+
+2. Use that image data with  `ImageHero` to show it as the hero content,
+optionally with headline and text.
+
+```
+<ImageHero image={staticImages.hero}/>
+```
+
+3. Optionally pass in headline, kicker and text (as children).
+
+```
+<ImageHero
+  headline="Satellytes"
+  kicker="Welcome folks!"
+  image={<img src=""/> }>
+This works great
+</ImageHero>
+```

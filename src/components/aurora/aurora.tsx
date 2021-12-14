@@ -52,9 +52,10 @@ const AuroraContainer = styled.div`
 
 export interface AuroraProps {
   type?: AuroraType;
+  className?: string;
 }
 
-export const Aurora = ({ type }: AuroraProps) => {
+export const Aurora = ({ type, className }: AuroraProps) => {
   function getSource(type?: AuroraType) {
     if (type === AuroraType.Pink) {
       return AuroraBlurredBackgroundB;
@@ -67,7 +68,7 @@ export const Aurora = ({ type }: AuroraProps) => {
     return AuroraBlurredBackgroundA;
   }
   return (
-    <AuroraContainer>
+    <AuroraContainer className={className}>
       <AuroraBackground source={getSource(type)} />
       <AuroraForeground>
         <Flare
