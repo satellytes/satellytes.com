@@ -4,10 +4,12 @@ import React from 'react';
 import SEO from '../components/seo';
 import { OfficePage } from '../page-building/office/office-page';
 import { SyTeamMember } from '../types';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 interface OfficeProps {
   location: Location;
   data: {
+    hero: IGatsbyImageData;
     allTeamJson: {
       nodes: SyTeamMember[];
     };
@@ -22,7 +24,10 @@ const Office = (props: OfficeProps) => {
         title={`${t('office.title')} | Satellytes`}
         location={props.location}
       />
-      <OfficePage team={props.data.allTeamJson.nodes} />
+      <OfficePage
+        heroImageData={props.data.hero}
+        team={props.data.allTeamJson.nodes}
+      />
     </>
   );
 };
@@ -31,6 +36,12 @@ export default Office;
 
 export const OfficePageQuery = graphql`
   query ($language: String!) {
+    hero: file(relativePath: { eq: "office/sy-office-02.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
+    }
+
     allTeamJson {
       nodes {
         id
