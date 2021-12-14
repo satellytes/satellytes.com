@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link as GatsbyLink } from 'gatsby-plugin-react-i18next';
-import { RightArrowIcon } from '../icons/buttons-icons/right-arrow';
+import { RightArrowIcon } from '../career-form/icons/right-arrow';
 import { GatsbyLinkProps } from 'gatsby';
 
 interface LinkProps extends GatsbyLinkProps<void> {
