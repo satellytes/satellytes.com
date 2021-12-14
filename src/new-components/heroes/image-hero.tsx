@@ -1,8 +1,7 @@
 import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import React from 'react';
 import { HeroContainer, TextContainer } from './support';
-import { HeroText } from './hero-text';
-import { HeroWithText } from './types';
+import { HeroText, HeroWithText } from './hero-text';
 
 const coverContainerCss = {
   gridArea: '1/1',

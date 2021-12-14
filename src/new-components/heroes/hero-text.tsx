@@ -2,7 +2,13 @@ import styled from 'styled-components';
 import { up } from '../../components/style-utils/breakpoint';
 import { TextStyles } from '../../components/typography/typography-v2';
 import React from 'react';
-import { HeroWithText } from './types';
+import { ReactNode } from 'react';
+
+export interface HeroWithText {
+  title: string;
+  kicker?: string;
+  children?: ReactNode;
+}
 
 export const HeroText = ({ title, children, kicker }: HeroWithText) => {
   return (
