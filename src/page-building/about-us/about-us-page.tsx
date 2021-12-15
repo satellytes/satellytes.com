@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { LayoutV2 } from '../../components/layout/layout-v2';
+import { LayoutV2 } from '../../components/layout/layout';
 import { LeadboxProps } from '../../new-components/leadbox/leadbox';
 import { SectionHeader } from '../../new-components/section-header/section-header';
 import { ContentBlockContainer } from '../../components/layout/content-block-container';

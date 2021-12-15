@@ -2,7 +2,7 @@ import React from 'react';
 import { ApplicationProcess } from './application-process';
 import { Openings } from './openings';
 import { SectionHeader } from '../../new-components/section-header/section-header';
-import { LayoutV2 } from '../../components/layout/layout-v2';
+import { LayoutV2 } from '../../components/layout/layout';
 import { ContentBlockContainer } from '../../components/layout/content-block-container';
 import { Culture } from './culture';
 import { Perks } from './perks';

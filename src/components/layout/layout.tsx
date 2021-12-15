@@ -1,19 +1,19 @@
-import React, { ReactNode, useEffect } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-
+import React, { ReactNode } from 'react';
 import Header, { HEADER_HEIGHT } from './../header/header';
 import Navigation from './../navigation/navigation';
-import { theme } from './theme';
+import { HEADER_HEIGHT_VALUE, theme } from './theme';
 import styled, { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './global-style';
 import { FluidObject } from 'gatsby-image';
-import { HeroImageLegacy } from '../header/hero-image-legacy';
 import {
   Leadbox,
   LeadboxFooterContainer,
   LeadboxProps,
 } from '../../new-components/leadbox/leadbox';
+import { up } from '../style-utils/breakpoint';
 import { Breadcrumb, BreadcrumbEntry } from '../breadcrumb/breadcrumb';
+import { setPolarityBodyClass } from './set-polarity';
+import { useAnchorTagScrolling } from './use-anchor-tag-scrolling';
 
 /**
  * this container is used to push the footer to the bottom
@@ -24,15 +24,42 @@ const FullHeightContainer = styled.div`
   flex-direction: column;
 
   min-height: 100vh;
+
+  padding-top: ${HEADER_HEIGHT_VALUE}px;
+  ${up('md')} {
+    padding-top: ${HEADER_HEIGHT_VALUE}px;
+  }
 `;
 
 const Main = styled.main`
+  /** make the element take up all available space */
   flex-grow: 1;
 
-  padding-bottom: 160px;
-  width: 100%;
-  max-width: ${(props) => props.theme.maxWidth};
-  margin: 0 auto;
+  display: grid;
+
+  /**
+    The best reference for naming things comes from the css queen Rachel Andrew.
+    Read the following if you need a refresher. 
+    https://www.smashingmagazine.com/2017/10/naming-things-css-grid-layout/
+   */
+
+  grid-template-columns: minmax(24px, 1fr) minmax(0, 820px) minmax(24px, 1fr);
+  grid-template-areas: 'margin-start content margin-end';
+
+  /**
+   * This technique comes from here:
+   * https://www.joshwcomeau.com/css/full-bleed/
+   */
+  > * {
+    grid-column: content;
+  }
+
+  /** make sure the distance to the footer is always the same */
+  padding-bottom: 120px;
+
+  ${up('md')} {
+    padding-bottom: 160px;
+  }
 `;
 
 const HeaderStickyContainer = styled.div`
@@ -46,28 +73,6 @@ const BreadcrumbContainer = styled.div<{ hero: boolean }>`
   margin: ${(props) => !props.hero && `calc(${HEADER_HEIGHT} + 16px)`} 24px 16px;
 `;
 
-const useAnchorTagScrolling = (): void => {
-  useEffect(() => {
-    if (window.location.hash) {
-      const target = document.querySelector(
-        `a[href*='${window.location.hash}']`,
-      );
-      if (target) {
-        const scrollTop =
-          target.getBoundingClientRect().top +
-          window.pageYOffset -
-          // we need to scroll past the header and a little offset
-          (Number.parseInt(HEADER_HEIGHT, 10) + 16);
-
-        window.scrollTo({
-          top: scrollTop,
-          behavior: 'smooth',
-        });
-      }
-    }
-  }, []);
-};
-
 interface LayoutProps {
   transparentHeader?: boolean;
   heroImage?: FluidObject | string;
@@ -77,33 +82,8 @@ interface LayoutProps {
   children?: ReactNode;
   showLanguageSwitch?: boolean;
   translation?: string;
-  breadcrumb?: BreadcrumbEntry[];
   leadbox?: LeadboxProps;
-}
-
-enum POLARITY {
-  DARK = 'dark',
-  LIGHT = 'light',
-}
-
-function setPolarityBodyClass(isLight: boolean) {
-  const POLARITY_PREFIX = `sy-polarity--`;
-  const classNameDark = `${POLARITY_PREFIX}${POLARITY.DARK}`;
-  const classNameLight = `${POLARITY_PREFIX}${POLARITY.LIGHT}`;
-
-  const noBrowser = typeof window === 'undefined';
-
-  if (noBrowser) {
-    return;
-  }
-
-  if (isLight) {
-    document.body.classList.remove(classNameDark);
-    document.body.classList.add(classNameLight);
-  } else {
-    document.body.classList.remove(classNameLight);
-    document.body.classList.add(classNameDark);
-  }
+  breadcrumb?: BreadcrumbEntry[];
 }
 
 /**
@@ -112,6 +92,7 @@ function setPolarityBodyClass(isLight: boolean) {
  * and/or store manual overridden value (through a switch)
  * in the local storage.
  */
+
 function overrideDarkFromQuery() {
   const noBrowser = typeof window === 'undefined';
 
@@ -123,32 +104,20 @@ function overrideDarkFromQuery() {
   return params.has('dark');
 }
 
-const Layout = ({
+export const LayoutV2 = ({
   transparentHeader,
-  heroImage,
   siteTitleUrl,
   light,
   hero,
   children,
   showLanguageSwitch = true,
   translation,
-  breadcrumb,
   leadbox,
+  breadcrumb,
 }: LayoutProps): JSX.Element => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
-
   const isLight = light === true && !overrideDarkFromQuery();
 
   useAnchorTagScrolling();
-
   setPolarityBodyClass(isLight);
 
   return (
@@ -156,17 +125,15 @@ const Layout = ({
       <GlobalStyle $lightTheme={isLight} />
       <HeaderStickyContainer>
         <Header
-          siteTitle={data.site.siteMetadata.title}
+          siteTitle="Satellytes"
           siteTitleUrl={siteTitleUrl}
           $lightTheme={isLight}
-          transparent={transparentHeader || Boolean(heroImage)}
+          transparent={transparentHeader}
           showLanguageSwitch={showLanguageSwitch}
           translation={translation}
         />
       </HeaderStickyContainer>
-      {/* pass in a hero node or try to use the hero image url */}
-      {hero ?? <HeroImageLegacy image={heroImage} />}
-
+      {hero}
       {breadcrumb && (
         <BreadcrumbContainer hero={Boolean(hero)}>
           <Breadcrumb breadcrumbEntries={breadcrumb} />
@@ -186,5 +153,3 @@ const Layout = ({
     </ThemeProvider>
   );
 };
-
-export default Layout;

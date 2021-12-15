@@ -1,5 +1,5 @@
 import React from 'react';
-import { LayoutV2 } from '../../components/layout/layout-v2';
+import { LayoutV2 } from '../../components/layout/layout';
 import { CareerForm } from '../../components/career-form/career-form';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { JobDescription } from './job-description';

@@ -5,7 +5,7 @@ import { ButtonText, SendButton } from '../../components/form/controls';
 import { RightArrowIcon } from '../../components/career-form/icons/right-arrow';
 import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { LayoutV2 } from '../../components/layout/layout-v2';
+import { LayoutV2 } from '../../components/layout/layout';
 import { SectionHeader } from '../../new-components/section-header/section-header';
 import { useLocaleFormat } from '../../new-components/i18n-helpers';
 import { Teaser } from '../../new-components/teaser/teaser';

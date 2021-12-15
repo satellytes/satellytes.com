@@ -1,5 +1,5 @@
 import React from 'react';
-import { LayoutV2 } from '../../components/layout/layout-v2';
+import { LayoutV2 } from '../../components/layout/layout';
 import { ContentBlockContainer } from '../../components/layout/content-block-container';
 import { SectionHeader } from '../../new-components/section-header/section-header';
 import { LeadboxProps } from '../../new-components/leadbox/leadbox';

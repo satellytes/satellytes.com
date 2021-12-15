@@ -1,7 +1,7 @@
 import React from 'react';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import SEO from '../components/seo';
-import { LayoutV2 } from '../components/layout/layout-v2';
+import { LayoutV2 } from '../components/layout/layout';
 import { Leaflet } from '../components/leaflet/leaflet';
 import { SectionHeader } from '../new-components/section-header/section-header';
 import { Link } from '../components/links/links';
