@@ -43,11 +43,8 @@ const Main = styled.main`
     https://www.smashingmagazine.com/2017/10/naming-things-css-grid-layout/
    */
 
-  grid-template-columns: minmax(24px, 1fr) minmax(0, 200px) minmax(0, 820px) minmax(
-      0,
-      200px
-    ) minmax(24px, 1fr);
-  grid-template-areas: 'side-a wide-start content wide-end side-b';
+  grid-template-columns: minmax(24px, 1fr) minmax(0, 820px) minmax(24px, 1fr);
+  grid-template-areas: 'margin-start content margin-end';
 
   /**
    * This technique comes from here:

@@ -4,15 +4,11 @@ import styled from 'styled-components';
 import { ButtonText, SendButton } from '../../components/form/controls';
 import { RightArrowIcon } from '../../components/career-form/icons/right-arrow';
 import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
-import { BlogCard } from '../../components/cards/blog-card';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { formatDate } from '../../components/util/format-date';
-import { Grid } from '../../components/grid/grid';
 import { LayoutV2 } from '../../components/layout/layout-v2';
-import { ContentBlockContainer } from '../../components/layout/content-block-container';
 import { SectionHeader } from '../../new-components/section-header/section-header';
-import { Teaser } from '../../components/teasers/teaser';
 import { useLocaleFormat } from '../../new-components/i18n-helpers';
+import { Teaser } from '../../new-components/teaser/teaser';
 
 interface BlogPageProps {
   posts: any[];
@@ -39,7 +35,7 @@ const ExtraWideContainer = styled.div`
     Our layout has multiple tracks and we assign the wide one here.
    */
   && {
-    grid-column: wide-start/wide-end;
+    //grid-column: wide-start/wide-end;
   }
 `;
 
@@ -89,7 +85,7 @@ export const BlogPage = ({ posts }: BlogPageProps) => {
                 title={item.frontmatter.title}
                 linkTo={item.frontmatter.path}
                 dateFormatted={dateFormatter(item.frontmatter.date)}
-                cover={image && <GatsbyImage alt="" image={image} />}
+                image={image && <GatsbyImage alt="" image={image} />}
               >
                 {item.frontmatter.teaserText}
               </Teaser>

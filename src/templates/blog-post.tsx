@@ -1,95 +1,17 @@
-import parseISO from 'date-fns/parseISO';
 import { graphql } from 'gatsby';
 import React from 'react';
-import styled from 'styled-components';
-import { up } from '../components/style-utils/breakpoint';
-import Byline from '../components/byline/byline';
-import { Grid, GridItem } from '../components/grid/grid';
-import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
-import { SectionTitle } from '../components/typography/typography';
-import SharePanel from '../components/social-panel/share-panel';
-import { MarkdownAst } from '../components/markdown/markdown-ast';
-import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
-import { HeroImage } from '../components/hero-image/hero-image';
-import FollowPanel from '../components/social-panel/follow-panel';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { LeadboxProps } from '../new-components/leadbox/leadbox';
-import { LocalesQuery } from '../types';
+import { BlogPostMarkdown, LocalesQuery } from '../types';
+import { BlogPostPage } from '../page-building/blog-post/blog-post';
 
 interface BlogArticleTemplateProps {
   data: {
     locales: LocalesQuery;
-    markdownRemark: {
-      excerpt: string;
-      htmlAst;
-      fields: {
-        socialCard: string;
-        readingTime: {
-          minutes: string;
-        };
-      };
-      frontmatter: {
-        attribution: {
-          creator: string;
-          source: string;
-          license?: string;
-        };
-        date: string;
-        title: string;
-        image?: string;
-        author?: string;
-        authorSummary?: string;
-        seoMetaText?: string;
-        leadboxText?: string;
-        featuredImage: IGatsbyImageData;
-        featuredImageSquared: IGatsbyImageData;
-      };
-      rawMarkdownBody: string;
-    };
+    markdownRemark: BlogPostMarkdown;
   };
   location: Location;
 }
-
-const BlogPostTitle = styled(SectionTitle)`
-  margin-bottom: 40px;
-`;
-
-const BlogHeaderContainer = styled.div`
-  margin-top: 40px;
-  margin-bottom: 40px;
-
-  ${up('md')} {
-    margin-top: 80px;
-    margin-bottom: 32px;
-  }
-`;
-
-const PanelContainer = styled.div`
-  display: block;
-  margin-top: 80px;
-
-  ${up('md')} {
-    display: flex;
-    justify-content: space-between;
-  }
-`;
-
-const BlogHeader = ({ readingTime, frontmatter }) => {
-  const readingTimeFormatted = `${Math.ceil(readingTime)}min read`;
-
-  return (
-    <BlogHeaderContainer>
-      <BlogPostTitle as="h1">{frontmatter.title}</BlogPostTitle>
-      <Byline
-        readingTime={readingTimeFormatted}
-        author={frontmatter.author}
-        date={parseISO(frontmatter.date)}
-        authorSummary={frontmatter.authorSummary}
-      />
-    </BlogHeaderContainer>
-  );
-};
 
 const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
   data,
@@ -97,42 +19,9 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
 }) => {
   const { t } = useTranslation();
   const markdown = data.markdownRemark;
-  const breadcrumb = [
-    { pathname: '/', label: 'Satellytes' },
-    { pathname: '/blog', label: t('navigation.blog') },
-    { pathname: location.pathname, label: markdown.frontmatter.title },
-  ];
-
-  const { featuredImage, featuredImageSquared, attribution, leadboxText } =
-    data.markdownRemark.frontmatter;
-
-  const heroImage = (
-    <HeroImage
-      attribution={attribution}
-      wideImage={getImage(featuredImage)}
-      squareImage={getImage(featuredImageSquared)}
-    />
-  );
-
-  const leadboxProps: LeadboxProps = {
-    title: leadboxText || t('blogpost.leadbox.title'),
-    illustration: 'astronaut_012',
-    link: {
-      title: t('blogpost.leadbox.link'),
-      href: '/career/',
-    },
-  };
 
   return (
-    <Layout
-      transparentHeader
-      siteTitleUrl={'/blog'}
-      light
-      hero={heroImage}
-      leadbox={leadboxProps}
-      showLanguageSwitch={false}
-      breadcrumb={breadcrumb}
-    >
+    <>
       {/*
        * SEO Notes:
        * Recommended meta description length these days is 120 - 158 characters. The lower number is relevant for mobile devices.
@@ -148,21 +37,9 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
         location={location}
         noTranslation={true}
       />
-      <Grid center>
-        <GridItem xs={0} md={2} />
-        <GridItem xs={12} md={8}>
-          <BlogHeader
-            readingTime={markdown.fields.readingTime.minutes}
-            frontmatter={markdown.frontmatter}
-          />
-          <MarkdownAst htmlAst={markdown.htmlAst} />
-          <PanelContainer>
-            <SharePanel title={markdown.frontmatter.title} />
-            <FollowPanel />
-          </PanelContainer>
-        </GridItem>
-      </Grid>
-    </Layout>
+
+      <BlogPostPage markdown={markdown} />
+    </>
   );
 };
 
@@ -202,12 +79,7 @@ export const BlogPostPageQuery = graphql`
 
         featuredImage {
           childImageSharp {
-            gatsbyImageData(
-              aspectRatio: 2.5
-              layout: FULL_WIDTH
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
-            )
+            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
           }
         }
 
@@ -217,7 +89,6 @@ export const BlogPostPageQuery = graphql`
               aspectRatio: 1
               layout: FULL_WIDTH
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
             )
           }
         }

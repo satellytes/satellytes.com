@@ -82,7 +82,6 @@ export const BlogPageQuery = graphql`
                 aspectRatio: 1.77
                 layout: CONSTRAINED
                 placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
               )
             }
           }
