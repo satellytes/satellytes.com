@@ -1,5 +1,5 @@
 import React from 'react';
-import { LayoutV2 } from '../../components/layout/layout';
+import { Layout } from '../../components/layout/layout';
 import { LeadboxProps } from '../../new-components/leadbox/leadbox';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { MarkdownAst } from '../../components/markdown/markdown-ast';
@@ -61,7 +61,7 @@ export const BlogPostPage = ({ markdown }: BlogPostPageProps) => {
   const heroByLine = `${dateInWords} • ${readingTime} • ${byLine}`;
 
   return (
-    <LayoutV2
+    <Layout
       transparentHeader
       siteTitleUrl={'/blog'}
       light
@@ -83,6 +83,6 @@ export const BlogPostPage = ({ markdown }: BlogPostPageProps) => {
         <SharePanel title={fm.title} />
         <FollowPanel />
       </PanelContainer>
-    </LayoutV2>
+    </Layout>
   );
 };

@@ -104,7 +104,7 @@ function overrideDarkFromQuery() {
   return params.has('dark');
 }
 
-export const LayoutV2 = ({
+export const Layout = ({
   transparentHeader,
   siteTitleUrl,
   light,

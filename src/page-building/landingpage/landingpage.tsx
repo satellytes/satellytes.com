@@ -1,6 +1,6 @@
 import { AuroraHero } from '../../new-components/heroes';
 import React from 'react';
-import { LayoutV2 } from '../../components/layout/layout';
+import { Layout } from '../../components/layout/layout';
 import { ContentBlockContainer } from '../../components/layout/content-block-container';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Career } from './career';
@@ -33,7 +33,7 @@ export const Landingpage = ({
   const { t } = useTranslation();
 
   return (
-    <LayoutV2
+    <Layout
       transparentHeader={true}
       light={true}
       hero={
@@ -55,6 +55,6 @@ export const Landingpage = ({
       <ContentBlockContainer>
         <Blog posts={posts} />
       </ContentBlockContainer>
-    </LayoutV2>
+    </Layout>
   );
 };

@@ -3,7 +3,7 @@ import SEO from '../components/seo';
 import { graphql } from 'gatsby';
 import { SectionHeader } from '../new-components/section-header/section-header';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { LayoutV2 } from '../components/layout/layout';
+import { Layout } from '../components/layout/layout';
 import { ContentBlockContainer } from '../components/layout/content-block-container';
 
 interface NotFoundPageProps {
@@ -18,11 +18,11 @@ const NotFoundPage: React.FC<NotFoundPageProps> = ({
   return (
     <>
       <SEO title="404: Not found | Satellytes" location={location} />
-      <LayoutV2 light={true}>
+      <Layout light={true}>
         <ContentBlockContainer>
           <SectionHeader headline={'404'}>{t('404')}</SectionHeader>
         </ContentBlockContainer>
-      </LayoutV2>
+      </Layout>
     </>
   );
 };
