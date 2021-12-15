@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { CheckmarkIcon } from '../icons/buttons-icons/checkmark';
-import { RightArrowIcon } from '../icons/buttons-icons/right-arrow';
+import { CheckmarkIcon } from '../career-form/icons/checkmark';
+import { RightArrowIcon } from '../career-form/icons/right-arrow';
 import {
   ButtonText,
   ErrorMessageSend,

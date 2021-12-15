@@ -1,19 +1,30 @@
 import styled from 'styled-components';
 import { up } from '../style-utils/breakpoint';
-import { HEADER_HEIGHT } from '../header/header';
+import {
+  CONTENT_SPACE_LARGE,
+  CONTENT_SPACE_SMALL,
+  HEADER_HEIGHT_VALUE,
+} from './theme';
 
+/**
+ * Provide a container component that ensure the content is
+ * properly spaced.
+ *
+ * Applies a smaller margin when it's the first child in the layout
+ * to accommodate for the general header padding applied to the layout already.
+ */
 export const ContentBlockContainer = styled.div`
-  margin-top: 80px;
+  margin-top: ${CONTENT_SPACE_SMALL}px;
 
   ${up('md')} {
-    margin-top: 180px;
+    margin-top: ${CONTENT_SPACE_LARGE}px;
   }
-`;
 
-export const ContentBlockContainerWithoutHero = styled.div`
-  margin-top: calc(80px + ${HEADER_HEIGHT});
+  &:first-child {
+    margin-top: ${CONTENT_SPACE_SMALL - HEADER_HEIGHT_VALUE}px;
 
-  ${up('md')} {
-    margin-top: calc(180px + ${HEADER_HEIGHT});
+    ${up('md')} {
+      margin-top: ${CONTENT_SPACE_LARGE - HEADER_HEIGHT_VALUE}px;
+    }
   }
 `;

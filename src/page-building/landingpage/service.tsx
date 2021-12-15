@@ -1,10 +1,6 @@
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { TeaserGrid } from '../../components/teasers/teaser-grid';
-import { Teaser } from '../../components/teasers/teaser';
-import {
-  Illustration,
-  IllustrationSize,
-} from '../../components/illustration/illustration';
+import { TeaserGrid } from '../../new-components/teaser/teaser-grid';
+import { Teaser } from '../../new-components/teaser/teaser';
 import React from 'react';
 import { HomePageHeaderBlock } from './support';
 import { LinkButton } from '../../components/links/links';
@@ -31,27 +27,21 @@ export const Service = () => {
         <Teaser
           title={t('main.services.teasers.first.title')}
           linkTo="/services"
-          cover={
-            <Illustration show="monitor_024" size={IllustrationSize.MEDIUM} />
-          }
+          illustration="monitor_024"
         >
           {t('main.services.teasers.first.text')}
         </Teaser>
         <Teaser
           title={t('main.services.teasers.second.title')}
           linkTo="/services"
-          cover={
-            <Illustration show="scientist_042" size={IllustrationSize.MEDIUM} />
-          }
+          illustration="scientist_042"
         >
           {t('main.services.teasers.second.text')}
         </Teaser>
         <Teaser
           title={t('main.services.teasers.third.title')}
           linkTo="/services"
-          cover={
-            <Illustration show="book_038" size={IllustrationSize.MEDIUM} />
-          }
+          illustration="book_038"
         >
           {t('main.services.teasers.third.text')}
         </Teaser>
