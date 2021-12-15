@@ -35,16 +35,24 @@ const Main = styled.main`
   /** make the element take up all available space */
   flex-grow: 1;
 
-  /** 
-   * put the children into a container to give them a centered max width 
+  display: grid;
+
+  /**
+    The best reference for naming things comes from the css queen Rachel Andrew.
+    Read the following if you need a refresher. 
+    https://www.smashingmagazine.com/2017/10/naming-things-css-grid-layout/
+   */
+
+  grid-template-columns: minmax(24px, 1fr) minmax(0, 200px) minmax(0, 820px) minmax(
+      0,
+      200px
+    ) minmax(24px, 1fr);
+  grid-template-areas: 'side-a wide-start content wide-end side-b';
+
+  /**
+   * This technique comes from here:
    * https://www.joshwcomeau.com/css/full-bleed/
    */
-  display: grid;
-  grid-template-columns:
-    [main-start] minmax(24px, 1fr)
-    [content-start] minmax(0, 820px) [content-end]
-    minmax(24px, 1fr) [main-end];
-
   > * {
     grid-column: content;
   }
