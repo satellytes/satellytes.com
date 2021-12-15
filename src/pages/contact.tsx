@@ -1,7 +1,7 @@
 import React from 'react';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import SEO from '../components/seo';
-import { LayoutV2 } from '../components/layout/layout-v2';
+import { Layout } from '../components/layout/layout';
 import { Leaflet } from '../components/leaflet/leaflet';
 import { SectionHeader } from '../new-components/section-header/section-header';
 import { Link } from '../components/links/links';
@@ -33,7 +33,7 @@ const ContactPage = ({ location }: ContactPageProps) => {
         description={t('contact.info')}
         location={location}
       />
-      <LayoutV2 transparentHeader={true} light={true} hero={<Leaflet />}>
+      <Layout transparentHeader={true} light={true} hero={<Leaflet />}>
         <ContentBlockContainer>
           <SectionHeader
             headline={t('contact.address')}
@@ -67,7 +67,7 @@ const ContactPage = ({ location }: ContactPageProps) => {
         </ContentBlockContainer>
 
         <ContactForm />
-      </LayoutV2>
+      </Layout>
     </>
   );
 };

@@ -52,3 +52,36 @@ export interface SyTeamMember {
   name: string;
   image: IGatsbyImageData;
 }
+
+export interface BlogPostMarkdown {
+  excerpt: string;
+  htmlAst;
+  fields: {
+    socialCard: string;
+    readingTime: {
+      minutes: string;
+    };
+  };
+  frontmatter: {
+    attribution: {
+      creator: string;
+      source: string;
+      license?: string;
+    };
+    date: string;
+    title: string;
+    image?: string;
+    author?: string;
+    authorSummary?: string;
+    seoMetaText?: string;
+    leadboxText?: string;
+    featuredImage: IGatsbyImageData;
+    featuredImageSquared: IGatsbyImageData;
+  };
+  rawMarkdownBody: string;
+}
+
+export interface BreadcrumbEntry {
+  pathname: string;
+  label: string;
+}

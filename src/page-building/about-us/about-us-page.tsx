@@ -1,8 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { LayoutV2 } from '../../components/layout/layout-v2';
+import { Layout } from '../../components/layout/layout';
 import { LeadboxProps } from '../../new-components/leadbox/leadbox';
-import { SectionHeader } from '../../new-components/section-header/section-header';
 import { ContentBlockContainer } from '../../components/layout/content-block-container';
 import { Office } from './office';
 import { Team } from './team';
@@ -28,7 +27,7 @@ export const AboutUsPage = (props: AboutUsPageProps) => {
   };
 
   return (
-    <LayoutV2
+    <Layout
       transparentHeader={true}
       light={true}
       leadbox={leadbox}
@@ -47,6 +46,6 @@ export const AboutUsPage = (props: AboutUsPageProps) => {
       <ContentBlockContainer>
         <Office />
       </ContentBlockContainer>
-    </LayoutV2>
+    </Layout>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { LayoutV2 } from '../../components/layout/layout-v2';
+import { Layout } from '../../components/layout/layout';
 import { CareerForm } from '../../components/career-form/career-form';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { JobDescription } from './job-description';
@@ -35,7 +35,7 @@ export const CareerDetails = ({
   };
 
   return (
-    <LayoutV2
+    <Layout
       siteTitleUrl="/career/"
       light={true}
       transparentHeader={true}
@@ -57,6 +57,6 @@ export const CareerDetails = ({
         job_position_id={position.jobId + ''}
         scrollToStart={scrollToStart}
       />
-    </LayoutV2>
+    </Layout>
   );
 };

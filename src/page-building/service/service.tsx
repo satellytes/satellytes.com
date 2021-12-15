@@ -1,5 +1,5 @@
 import React from 'react';
-import { LayoutV2 } from '../../components/layout/layout-v2';
+import { Layout } from '../../components/layout/layout';
 import { ContentBlockContainer } from '../../components/layout/content-block-container';
 import { SectionHeader } from '../../new-components/section-header/section-header';
 import { LeadboxProps } from '../../new-components/leadbox/leadbox';
@@ -24,7 +24,7 @@ export const Service = () => {
   };
 
   return (
-    <LayoutV2
+    <Layout
       transparentHeader={true}
       light={true}
       leadbox={leadbox}
@@ -44,6 +44,6 @@ export const Service = () => {
       <Consulting />
 
       <Industries />
-    </LayoutV2>
+    </Layout>
   );
 };

@@ -22,7 +22,7 @@ import { AuroraHero } from './aurora-hero'; import { AuroraType } from '../../co
 </Canvas>
 
 # Image Hero
-Due to the gatsby image dependency no preview is available.
+> Due to the gatsby image dependency no preview is available.
 
 1. Query some gatsby image data with layout set to `FULL_WIDTH`
 
@@ -56,4 +56,45 @@ optionally with headline and text.
   image={<img src=""/> }>
 This works great
 </ImageHero>
+```
+
+# Blog Hero
+> Due to the gatsby image dependency no preview is available.
+
+This hero behaves very similar to the `ImageHero` but you can pass in two additional things: `attribution` and a squared image
+that will be used once the website is very narrow (higher than wide) to present a more pleasant part from the feature image.
+
+
+```tsx
+<BlogHero
+  attribution={
+    {
+      creator: "My Source;
+      source: "http://www.example.com;
+    }
+  }
+  image={featuredImage}
+  imageSquare={featuredImageSquared}
+/>
+```
+
+
+You can query for both images in a single graphql query. Pass `aspectRatio: 1` to get a square image.
+
+```graphql
+featuredImage {
+  childImageSharp {
+    gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+  }
+}
+
+featuredImageSquared: featuredImage {
+  childImageSharp {
+    gatsbyImageData(
+      aspectRatio: 1
+      layout: FULL_WIDTH
+      placeholder: BLURRED
+    )
+  }
+}
 ```
