@@ -65,7 +65,7 @@ This hero behaves very similar to the `ImageHero` but you can pass in two additi
 that will be used once the website is very narrow (higher than wide) to present a more pleasant part from the feature image.
 
 
-```
+```tsx
 <BlogHero
   attribution={
     {
@@ -81,7 +81,7 @@ that will be used once the website is very narrow (higher than wide) to present 
 
 You can query for both images in a single graphql query. Pass `aspectRatio: 1` to get a square image.
 
-```
+```graphql
 featuredImage {
   childImageSharp {
     gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
