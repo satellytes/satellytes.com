@@ -6,7 +6,7 @@ import { BurgerMenu } from './icons/burger-menu';
 import { CloseBurgerMenuIcon } from './icons/close-burger-menu';
 import { NavigationFlyout } from './menu-flyout';
 import { Link } from '../links/links';
-import { Swoosh } from '../icons/swoosh';
+import { Swoosh } from './icons/swoosh';
 import { LanguageSwitch } from '../language-switch/language-switch';
 import { HEADER_HEIGHT_VALUE } from '../layout/theme';
 

@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { PrevArrow } from '../icons/buttons-icons/prev-arrow';
-import { NextArrow } from '../icons/buttons-icons/next-arrow';
 import { theme } from '../layout/theme';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { TextStyles } from '../typography/typography-v2';
@@ -33,12 +31,13 @@ const PaginationDropdown = styled(Dropdown)`
 `;
 
 const StyledButton = styled.button`
-  padding: 14px 12px;
+  padding: 8px;
   border: none;
   background: linear-gradient(275.41deg, #543fd7 0%, #2756fd 100%);
   border-radius: 30px;
   cursor: pointer;
   display: flex;
+  color: white;
 
   &:disabled {
     opacity: 50%;
@@ -75,7 +74,7 @@ export const Pagination = ({
   return (
     <PaginationContainer>
       <StyledButton onClick={onPreviousClick} disabled={currentPage === 0}>
-        <PrevArrow />
+        <Icon show={'arrow_left'} />
       </StyledButton>
       <PaginationDropdown
         onChange={handleDropdownChange}
@@ -88,7 +87,7 @@ export const Pagination = ({
         onClick={onNextClick}
         disabled={currentPage + 1 === amountOfPages}
       >
-        <NextArrow />
+        <Icon show={'arrow_right'} />
       </StyledButton>
     </PaginationContainer>
   );
