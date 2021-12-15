@@ -32,23 +32,20 @@ export const AboutUsPage = (props: AboutUsPageProps) => {
       transparentHeader={true}
       light={true}
       leadbox={leadbox}
-      hero={<ImageHero image={props.heroImageData} />}
+      hero={
+        <ImageHero
+          kicker={t('about-us.office.kicker')}
+          title={t('about-us.title')}
+          image={props.heroImageData}
+        />
+      }
     >
       <ContentBlockContainer>
-        <SectionHeader
-          headline={t('about-us.office.heading')}
-          kicker={t('about-us.office.title')}
-        >
-          {t('about-us.office.text')}
-        </SectionHeader>
+        <Team team={props.team} />
       </ContentBlockContainer>
 
       <ContentBlockContainer>
         <Office />
-      </ContentBlockContainer>
-
-      <ContentBlockContainer>
-        <Team team={props.team} />
       </ContentBlockContainer>
     </LayoutV2>
   );

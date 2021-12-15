@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { TextStyles } from '../../components/typography/typography-v2';
 import { up } from '../../components/style-utils/breakpoint';
 
-interface BlogHeaderProps {
+interface SectionHeaderProps {
   /**
    * A short label above the headline
    */
@@ -16,6 +16,7 @@ interface BlogHeaderProps {
    * The actual text content
    */
   children?: React.ReactNode;
+  className?: string;
 }
 
 const KickerStyled = styled.span`
@@ -45,9 +46,9 @@ const ContentStyled = styled.div`
   }
 `;
 
-export const SectionHeader = (props: BlogHeaderProps) => {
+export const SectionHeader = (props: SectionHeaderProps) => {
   return (
-    <div>
+    <div className={props.className}>
       {props.kicker && <KickerStyled>{props.kicker}</KickerStyled>}
       <HeadlineStyled>{props.headline}</HeadlineStyled>
       <ContentStyled>{props.children}</ContentStyled>
