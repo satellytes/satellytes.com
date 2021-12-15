@@ -1,53 +1,16 @@
 import React from 'react';
 
 import styled from 'styled-components';
-import { ButtonText, SendButton } from '../../components/form/controls';
-import { RightArrowIcon } from '../../components/career-form/icons/right-arrow';
 import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Layout } from '../../components/layout/layout';
 import { SectionHeader } from '../../new-components/section-header/section-header';
-import { useLocaleFormat } from '../../new-components/i18n-helpers';
-import { Teaser } from '../../new-components/teaser/teaser';
+import { NotAvailableInGerman } from './not-avilable-in-german';
+import { Posts } from './posts';
+import { ContentBlockContainer } from '../../components/layout/content-block-container';
 
 interface BlogPageProps {
   posts: any[];
 }
-
-const OnlyEnglishNotice = () => {
-  const { changeLanguage } = useI18next();
-  const switchToEnglish = async (event) => {
-    event.preventDefault();
-    await changeLanguage('en');
-  };
-
-  return (
-    <div>
-      <SendButton onClick={switchToEnglish}>
-        <ButtonText>Zum Blog</ButtonText> <RightArrowIcon />
-      </SendButton>
-    </div>
-  );
-};
-
-const ExtraWideContainer = styled.div`
-  /**
-    Our layout has multiple tracks and we assign the wide one here.
-   */
-  && {
-    //grid-column: wide-start/wide-end;
-  }
-`;
-
-const BlogTeaserGrid = styled.div`
-  display: grid;
-  gap: 24px;
-  justify-items: stretch;
-  // we fetch teaser of size 600px
-  // this means we can search for a column size of 300px - 12px (half gap) = 288px
-  // to auto fit our teasers
-  grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
-`;
 
 const BlogHeader = styled(SectionHeader)`
   margin-bottom: 80px;
@@ -56,7 +19,6 @@ const BlogHeader = styled(SectionHeader)`
 export const BlogPage = ({ posts }: BlogPageProps) => {
   const { t } = useTranslation();
   const { language } = useI18next();
-  const dateFormatter = useLocaleFormat('dd. MMMM yyyy');
 
   const BREADCRUMB = [
     { pathname: '/', label: 'Satellytes' },
@@ -65,34 +27,17 @@ export const BlogPage = ({ posts }: BlogPageProps) => {
 
   return (
     <Layout light showLanguageSwitch={false} breadcrumb={BREADCRUMB}>
-      <ExtraWideContainer>
+      <ContentBlockContainer>
         <BlogHeader headline={t('navigation.blog')}>
           {t('blog.info')}
+
+          {language != 'en' && <NotAvailableInGerman />}
         </BlogHeader>
-      </ExtraWideContainer>
+      </ContentBlockContainer>
 
-      <ExtraWideContainer>
-        {language != 'en' && <OnlyEnglishNotice />}
-        {/*{language == 'en' && <BlogPostOverview blogPosts={posts} />}*/}
-
-        <BlogTeaserGrid>
-          {posts.map((item) => {
-            const image = getImage(item.frontmatter.featuredImage)!;
-
-            return (
-              <Teaser
-                key={item.id}
-                title={item.frontmatter.title}
-                linkTo={item.frontmatter.path}
-                dateFormatted={dateFormatter(item.frontmatter.date)}
-                image={image && <GatsbyImage alt="" image={image} />}
-              >
-                {item.frontmatter.teaserText}
-              </Teaser>
-            );
-          })}
-        </BlogTeaserGrid>
-      </ExtraWideContainer>
+      <ContentBlockContainer>
+        {language == 'en' && <Posts posts={posts} />}
+      </ContentBlockContainer>
     </Layout>
   );
 };
