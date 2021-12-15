@@ -289,10 +289,10 @@ const Navigation: React.FC<NavigationProps> = ({
                   </NavigationListItem>
                   <NavigationListItem>
                     <SiteNavigationLink
-                      to="/office"
-                      $isSelected={activePath.includes('/office')}
+                      to="/about-us"
+                      $isSelected={activePath.includes('/about-us')}
                     >
-                      {t('navigation.office')}
+                      {t('navigation.about-us')}
                     </SiteNavigationLink>
                   </NavigationListItem>
                   <NavigationListItem>
