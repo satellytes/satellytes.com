@@ -1,32 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { up } from '../../components/style-utils/breakpoint';
-
 import { LayoutV2 } from '../../components/layout/layout-v2';
 import { LeadboxProps } from '../../new-components/leadbox/leadbox';
 import { SectionHeader } from '../../new-components/section-header/section-header';
 import { ContentBlockContainer } from '../../components/layout/content-block-container';
 import { Office } from './office';
 import { Team } from './team';
-
-import HeroImage from './../../images/office/sy-office-01.jpg';
 import { SyTeamMember } from '../../types';
-
-const Hero = styled.div`
-  height: 520px;
-
-  ${up('md')} {
-    height: 640px;
-  }
-
-  background-image: url(${HeroImage});
-  background-position: center;
-  background-size: cover;
-`;
+import { IGatsbyImageData } from 'gatsby-plugin-image';
+import { ImageHero } from '../../new-components/heroes';
 
 interface OfficePageProps {
   team: SyTeamMember[];
+  heroImageData: IGatsbyImageData;
 }
 
 export const OfficePage = (props: OfficePageProps) => {
@@ -46,7 +32,7 @@ export const OfficePage = (props: OfficePageProps) => {
       transparentHeader={true}
       light={true}
       leadbox={leadbox}
-      hero={<Hero />}
+      hero={<ImageHero image={props.heroImageData} />}
     >
       <ContentBlockContainer>
         <SectionHeader

@@ -1,11 +1,10 @@
 import React from 'react';
 import { LayoutV2 } from '../../components/layout/layout-v2';
-import { Aurora } from '../../components/aurora/aurora';
 import { CareerForm } from '../../components/career-form/career-form';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { JobDescription } from './job-description';
-import { SectionHeader } from '../../new-components/section-header/section-header';
 import { SyPersonioJob } from '../../types';
+import { AuroraHero } from '../../new-components/heroes';
 
 interface CareerDetailsProps {
   originalPath: string;
@@ -41,14 +40,14 @@ export const CareerDetails = ({
       light={true}
       transparentHeader={true}
       translation={complementPath}
-      hero={<Aurora />}
+      hero={
+        <AuroraHero kicker="Stelle" title={position.name}>
+          {position.short}
+        </AuroraHero>
+      }
       breadcrumb={breadcrumb}
       showLanguageSwitch={Boolean(complementPath)}
     >
-      <SectionHeader kicker="Stelle" headline={position.name}>
-        {position.short}
-      </SectionHeader>
-
       <JobDescription sections={position.sections} />
 
       <CareerForm
