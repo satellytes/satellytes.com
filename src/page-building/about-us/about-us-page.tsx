@@ -10,19 +10,19 @@ import { SyTeamMember } from '../../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { ImageHero } from '../../new-components/heroes';
 
-interface OfficePageProps {
+interface AboutUsPageProps {
   team: SyTeamMember[];
   heroImageData: IGatsbyImageData;
 }
 
-export const OfficePage = (props: OfficePageProps) => {
+export const AboutUsPage = (props: AboutUsPageProps) => {
   const { t } = useTranslation();
 
   const leadbox: LeadboxProps = {
     illustration: 'astronaut_020',
-    title: t('office.leadbox.title'),
+    title: t('about-us.leadbox.title'),
     link: {
-      title: t('office.leadbox.link'),
+      title: t('about-us.leadbox.link'),
       href: '/career',
     },
   };
@@ -32,24 +32,20 @@ export const OfficePage = (props: OfficePageProps) => {
       transparentHeader={true}
       light={true}
       leadbox={leadbox}
-      hero={<ImageHero image={props.heroImageData} />}
+      hero={
+        <ImageHero
+          kicker={t('about-us.office.kicker')}
+          title={t('about-us.title')}
+          image={props.heroImageData}
+        />
+      }
     >
       <ContentBlockContainer>
-        <SectionHeader
-          headline={t('office.heading')}
-          kicker={t('office.title')}
-        >
-          Feel at home with us. A small impression of our office in Sendlinger
-          Straße in the heart of Munich.
-        </SectionHeader>
+        <Team team={props.team} />
       </ContentBlockContainer>
 
       <ContentBlockContainer>
         <Office />
-      </ContentBlockContainer>
-
-      <ContentBlockContainer>
-        <Team team={props.team} />
       </ContentBlockContainer>
     </LayoutV2>
   );
