@@ -7,7 +7,7 @@ import SharePanel from '../../components/social-panel/share-panel';
 import FollowPanel from '../../components/social-panel/follow-panel';
 import styled from 'styled-components';
 import { up } from '../../components/style-utils/breakpoint';
-import { BlogPostMarkdown } from '../../types';
+import { BlogPostMarkdown, BreadcrumbEntry } from '../../types';
 import { BlogHero } from '../../new-components/heroes/blog-hero';
 import { BlogHeader } from '../../new-components/blog-header/blog-header';
 import { formatDistanceToNow } from 'date-fns';
@@ -15,6 +15,7 @@ import { enGB } from 'date-fns/locale';
 
 interface BlogPostPageProps {
   markdown: BlogPostMarkdown;
+  breadcrumb: BreadcrumbEntry[];
 }
 
 const PanelContainer = styled.div`
@@ -27,19 +28,12 @@ const PanelContainer = styled.div`
   }
 `;
 
-export const BlogPostPage = ({ markdown }: BlogPostPageProps) => {
+export const BlogPostPage = ({ markdown, breadcrumb }: BlogPostPageProps) => {
   const { t } = useTranslation();
   const fm = markdown.frontmatter;
   const fields = markdown.fields;
 
   const { featuredImage, featuredImageSquared, attribution, leadboxText } = fm;
-
-  const breadcrumb = [
-    { pathname: '/', label: 'Satellytes' },
-    { pathname: '/blog', label: t('navigation.blog') },
-    { pathname: location.pathname, label: fm.title },
-  ];
-
   const leadbox: LeadboxProps = {
     title: leadboxText || t('blogpost.leadbox.title'),
     illustration: 'astronaut_012',

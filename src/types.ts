@@ -80,3 +80,8 @@ export interface BlogPostMarkdown {
   };
   rawMarkdownBody: string;
 }
+
+export interface BreadcrumbEntry {
+  pathname: string;
+  label: string;
+}

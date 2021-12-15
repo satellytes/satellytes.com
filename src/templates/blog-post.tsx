@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import SEO from '../components/seo';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { BlogPostMarkdown, LocalesQuery } from '../types';
+import { BlogPostMarkdown, BreadcrumbEntry, LocalesQuery } from '../types';
 import { BlogPostPage } from '../page-building/blog-post/blog-post';
 
 interface BlogArticleTemplateProps {
@@ -19,6 +19,12 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
 }) => {
   const { t } = useTranslation();
   const markdown = data.markdownRemark;
+
+  const breadcrumb: BreadcrumbEntry[] = [
+    { pathname: '/', label: 'Satellytes' },
+    { pathname: '/blog', label: t('navigation.blog') },
+    { pathname: location.pathname, label: markdown.frontmatter.title },
+  ];
 
   return (
     <>
@@ -38,7 +44,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
         noTranslation={true}
       />
 
-      <BlogPostPage markdown={markdown} />
+      <BlogPostPage markdown={markdown} breadcrumb={breadcrumb} />
     </>
   );
 };
