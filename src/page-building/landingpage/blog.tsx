@@ -1,6 +1,6 @@
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { TeaserGrid } from '../../components/teasers/teaser-grid';
-import { Teaser } from '../../components/teasers/teaser';
+import { TeaserGrid } from '../../new-components/teaser/teaser-grid';
+import { Teaser } from '../../new-components/teaser/teaser';
 import React from 'react';
 import { HomePageHeaderBlock } from './support';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
@@ -41,7 +41,7 @@ export const Blog = ({ posts }: BlogProps) => {
               title={item.frontmatter.title}
               linkTo={item.frontmatter.path}
               dateFormatted={dateFormatter(item.frontmatter.date)}
-              cover={image && <GatsbyImage alt="" image={image} />}
+              image={image && <GatsbyImage alt="" image={image} />}
             >
               {item.frontmatter.teaserText}
             </Teaser>
