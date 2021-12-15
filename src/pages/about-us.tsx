@@ -26,13 +26,13 @@ const AboutUs = (props: AboutUsProps) => {
       />
       <AboutUsPage
         heroImageData={props.data.hero}
-        team={props.data.allTeamJson.nodes} />
+        team={props.data.allTeamJson.nodes}
+      />
     </>
   );
 };
 
 export default AboutUs;
-
 export const AboutUsPageQuery = graphql`
   query ($language: String!) {
     hero: file(relativePath: { eq: "office/sy-office-02.jpg" }) {
