@@ -10,5 +10,7 @@ export { ReactComponent as caret_round_up } from '../../icons/caret-rounded-up-2
 export { ReactComponent as caret_round_down } from '../../icons/caret-rounded-down-24.svg';
 export { ReactComponent as caret_round_left } from '../../icons/caret-rounded-left-24.svg';
 export { ReactComponent as caret_round_right } from '../../icons/caret-rounded-right-24.svg';
-export { ReactComponent as arrow_right } from '../../icons/arrow-right-24.svg';
 export { ReactComponent as arrow_left } from '../../icons/arrow-left-24.svg';
+export { ReactComponent as arrow_right } from '../../icons/arrow-right-24.svg';
+export { ReactComponent as caret_squared_down } from '../../icons/caret-squared-down-24.svg';
+export { ReactComponent as caret_squared_up } from '../../icons/caret-squared-up-24.svg';

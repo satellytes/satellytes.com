@@ -26,4 +26,8 @@ module.exports = {
   moduleNameMapper: {
     '\\.(css|less|woff|woff2|ttf|eot)$': 'identity-obj-proxy',
   },
+  transform: {
+    '^.+\\.tsx?$': 'ts-jest',
+    '^.+\\.svg$': '<rootDir>/svgTransform.js',
+  },
 };

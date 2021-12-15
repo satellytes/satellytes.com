@@ -1,11 +1,11 @@
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import styled, { DefaultTheme } from 'styled-components';
-import { Chevron } from '../icons/chevron';
 import {
   Dropdown,
   DropdownOption,
 } from '../../new-components/dropdown/dropdown';
+import { Icon } from '../../new-components/icon/icon';
 
 interface LanguageSwitchProps {
   translation: any;
@@ -65,13 +65,12 @@ const StyledSelection = styled(Dropdown)`
   font-weight: bold;
   font-size: 14px;
   color: inherit;
-  padding: 0 0 0 10px;
+  padding: 4px 0 0 10px;
 `;
 
-export const StyledChevron = styled(Chevron)`
-  margin-bottom: 2px;
-  /*margin-right: -6px makes the Chevron clickable*/
-  margin-right: -6px;
+const StyledIcon = styled(Icon)`
+  /*margin-right: -15px makes the Caret clickable*/
+  margin-right: -15px;
 `;
 
 export const LanguageSwitch = ({
@@ -88,7 +87,7 @@ export const LanguageSwitch = ({
       $lightTheme={$lightTheme}
       fromNavigation={fromNavigation}
     >
-      <StyledChevron />
+      <StyledIcon show="caret_squared_down" />
       <StyledSelection
         onChange={(selectedOption) => {
           changeLanguage(selectedOption);
