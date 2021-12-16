@@ -2,11 +2,16 @@ import React from 'react';
 import { Layout } from '../../components/layout/layout';
 import { Leaflet } from '../../components/leaflet/leaflet';
 import { Address } from './address';
-import { ContactSection } from './contact-section';
+import { Form } from './form';
+import { ContentBlockContainer } from '../../components/layout/content-block-container';
 
 export const ContactPage = () => (
   <Layout transparentHeader={true} light={true} hero={<Leaflet />}>
-    <Address />
-    <ContactSection />
+    <ContentBlockContainer>
+      <Address />
+    </ContentBlockContainer>
+    <ContentBlockContainer>
+      <Form />
+    </ContentBlockContainer>
   </Layout>
 );

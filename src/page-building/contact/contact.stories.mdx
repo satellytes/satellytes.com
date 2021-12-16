@@ -1,5 +1,6 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
-import { Address } from './address'; import { ContactSection } from './contact-section';
+import { Address } from './address';
+import { Form } from './form';
 
 <Meta title="Pages/Contact" component={{ Image }} />
 
@@ -13,9 +14,9 @@ The contact page consists of two sections that allow the user to write a message
   </Story>
 </Canvas>
 
-## Contact Section
+## Form
 <Canvas withSource={'open'}>
-  <Story name="Contact Section">
-    <ContactSection/>
+  <Story name="Form">
+    <Form/>
   </Story>
 </Canvas>

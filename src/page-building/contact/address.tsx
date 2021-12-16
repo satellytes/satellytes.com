@@ -1,5 +1,4 @@
 import React from 'react';
-import { ContentBlockContainer } from '../../components/layout/content-block-container';
 import { SectionHeader } from '../../new-components/section-header/section-header';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
@@ -18,22 +17,17 @@ export const Address = () => {
   const { t } = useTranslation();
 
   return (
-    <ContentBlockContainer>
-      <SectionHeader
-        headline={t('contact.address')}
-        kicker={t('contact.title')}
-      >
-        Satellytes Digital Consulting GmbH
-        <br />
-        Sendlinger Straße 52
-        <br />
-        80331 München
-        <br />
-        <br />
-        <StyledLink to="https://g.page/satellytes?share">
-          Google Maps &gt;
-        </StyledLink>
-      </SectionHeader>
-    </ContentBlockContainer>
+    <SectionHeader headline={t('contact.address')} kicker={t('contact.title')}>
+      Satellytes Digital Consulting GmbH
+      <br />
+      Sendlinger Straße 52
+      <br />
+      80331 München
+      <br />
+      <br />
+      <StyledLink to="https://g.page/satellytes?share">
+        Google Maps &gt;
+      </StyledLink>
+    </SectionHeader>
   );
 };

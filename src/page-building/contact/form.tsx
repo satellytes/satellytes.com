@@ -1,5 +1,4 @@
 import React from 'react';
-import { ContentBlockContainer } from '../../components/layout/content-block-container';
 import { SectionHeader } from '../../new-components/section-header/section-header';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
@@ -15,21 +14,18 @@ const StyledLink = styled(Link)`
   }
 `;
 
-export const ContactSection = () => (
+export const Form = () => (
   <>
-    <ContentBlockContainer>
-      <SectionHeader headline={'E-Mail'}>
-        <Trans i18nKey="contact.info-link">
-          <p>
-            Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine E-Mail
-            an
-            <StyledLink to="mailto:info@satellytes.com">
-              info@satellytes.com
-            </StyledLink>
-          </p>
-        </Trans>
-      </SectionHeader>
-    </ContentBlockContainer>
+    <SectionHeader headline={'E-Mail'}>
+      <Trans i18nKey="contact.info-link">
+        <p>
+          Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine E-Mail an
+          <StyledLink to="mailto:info@satellytes.com">
+            info@satellytes.com
+          </StyledLink>
+        </p>
+      </Trans>
+    </SectionHeader>
     <ContactForm />
   </>
 );
