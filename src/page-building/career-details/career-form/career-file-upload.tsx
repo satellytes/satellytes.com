@@ -1,7 +1,6 @@
-import {
-  Input,
-  InputContainer,
-} from '../../../legacy-components/form/controls';
+import { InputContainer } from '../../../legacy-components/form/controls';
+import { Input } from '../../../legacy-components/form/input';
+
 import React, { ReactNode, useCallback } from 'react';
 import { DropzoneRootProps, useDropzone } from 'react-dropzone';
 import styled, { css } from 'styled-components';

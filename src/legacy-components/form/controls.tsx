@@ -3,10 +3,7 @@ import { up } from '../../components/support/breakpoint';
 import { Text } from '../typography';
 import React from 'react';
 import { FormError } from '../../page-building/career-details/career-form/career-components';
-
-interface ValidationProps {
-  hasError?: boolean;
-}
+import { Input } from './input';
 
 export const InputContainer = styled.div`
   display: flex;
@@ -46,39 +43,7 @@ export const Sup = styled.sup`
   top: -0.3em;
 `;
 
-export const Input = styled.input<ValidationProps>`
-  width: 100%;
-  padding: 19px 16px;
-
-  font-size: 16px;
-  line-height: 110%;
-
-  border-radius: 4px;
-  border: 0;
-  background: rgba(122, 143, 204, 0.2);
-
-  &:hover {
-    background: rgba(122, 143, 204, 0.5);
-  }
-
-  &:not(:last-of-type) {
-    margin-right: 0;
-
-    ${up('md')} {
-      margin-right: 24px;
-      margin-bottom: 0;
-    }
-  }
-
-  ${({ hasError }) =>
-    hasError &&
-    css`
-      background: #f8cdd5;
-      color: #dc052d;
-    `}
-`;
-
-export const TextArea = styled.textarea<ValidationProps>`
+export const TextArea = styled.textarea<{ hasError?: boolean }>`
   height: 190px;
   width: 100%;
   padding: 19px 16px;
