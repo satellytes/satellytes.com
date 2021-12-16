@@ -1,5 +1,5 @@
 import React from 'react';
-import SEO from '../components/seo';
+import SEO from '../new-components/layout/seo';
 import { graphql } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { CareerDetails } from '../page-building/career-details/career-details';

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import { FluidObject } from 'gatsby-image';
 
-import SEO from '../components/seo';
+import SEO from '../new-components/layout/seo';
 import { PageTitle, Text } from '../components/typography/typography';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { useTranslation } from 'gatsby-plugin-react-i18next';

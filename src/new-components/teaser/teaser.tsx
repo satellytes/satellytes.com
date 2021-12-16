@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
-import { theme } from '../../components/layout/theme';
+import { theme } from '../layout/theme';
 import { Link } from '../../components/links/links';
 import { IllustrationType } from '../../components/illustration/illustration-set';
 import {

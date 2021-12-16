@@ -1,9 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Illustration, IllustrationSize } from '../illustration/illustration';
-import { IllustrationType } from '../illustration/illustration-set';
-import { down } from '../style-utils/breakpoint';
-import { TextStyles } from '../typography/typography-v2';
+import {
+  Illustration,
+  IllustrationSize,
+} from '../../components/illustration/illustration';
+import { IllustrationType } from '../../components/illustration/illustration-set';
+import { down } from '../../components/style-utils/breakpoint';
+import { TextStyles } from '../../components/typography/typography-v2';
 
 interface HeaderBlockProps {
   topline: string;

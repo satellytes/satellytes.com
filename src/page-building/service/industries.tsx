@@ -1,7 +1,7 @@
 import { Teaser } from '../../new-components/teaser/teaser';
 import { Intro } from './support';
 import React from 'react';
-import { ContentBlockContainer } from '../../components/layout/content-block-container';
+import { ContentBlockContainer } from '../../new-components/layout/content-block-container';
 import styled from 'styled-components';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 

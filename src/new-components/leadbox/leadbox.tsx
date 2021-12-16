@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { TextStyles } from '../../components/typography/typography-v2';
-import { theme } from '../../components/layout/theme';
+import { theme } from '../layout/theme';
 import { Link, LinkButton } from '../../components/links/links';
 import { up } from '../../components/style-utils/breakpoint';
 import {

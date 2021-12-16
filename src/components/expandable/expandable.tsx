@@ -1,6 +1,6 @@
 import React, { ReactNode, useState } from 'react';
 import styled, { css } from 'styled-components';
-import { theme } from '../layout/theme';
+import { theme } from '../../new-components/layout/theme';
 import { TextStyles } from '../typography/typography-v2';
 import { Icon } from '../../new-components/icon/icon';
 

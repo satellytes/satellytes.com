@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { TextStyles } from '../typography/typography-v2';
 import { ellipsis } from 'polished';
 import * as ReachAccordion from '@reach/accordion';
-import { theme } from '../layout/theme';
+import { theme } from '../../new-components/layout/theme';
 import { useAccordionItemContext } from '@reach/accordion';
 import React from 'react';
 import { resetButton } from '../css-helpers';

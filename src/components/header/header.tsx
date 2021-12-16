@@ -8,7 +8,7 @@ import { NavigationFlyout } from './menu-flyout';
 import { Link } from '../links/links';
 import { Swoosh } from './icons/swoosh';
 import { LanguageSwitch } from '../language-switch/language-switch';
-import { HEADER_HEIGHT_VALUE } from '../layout/theme';
+import { HEADER_HEIGHT_VALUE } from '../../new-components/layout/theme';
 
 export const HEADER_HEIGHT = `${HEADER_HEIGHT_VALUE}px`;
 

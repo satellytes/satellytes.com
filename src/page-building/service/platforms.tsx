@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContentBlockContainer } from '../../components/layout/content-block-container';
+import { ContentBlockContainer } from '../../new-components/layout/content-block-container';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Intro, UnorderedList } from './support';
 

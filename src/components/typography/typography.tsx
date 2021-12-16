@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { up } from '../style-utils/breakpoint';
-import { theme } from '../layout/theme';
+import { theme } from '../../new-components/layout/theme';
 import { Swoosh } from '../header/icons/swoosh';
 import { HEADER_HEIGHT } from '../header/header';
 import { Link } from '../links/links';

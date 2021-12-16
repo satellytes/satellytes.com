@@ -1,12 +1,12 @@
 import React from 'react';
-import SEO from '../components/seo';
+import SEO from '../new-components/layout/seo';
 import { graphql } from 'gatsby';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { Layout } from '../components/layout/layout';
+import { Layout } from '../new-components/layout/layout';
 import { SectionHeader } from '../new-components/section-header/section-header';
 import { LocalesQuery } from '../types';
-import { ContentBlockContainer } from '../components/layout/content-block-container';
+import { ContentBlockContainer } from '../new-components/layout/content-block-container';
 
 interface DataPrivacyPageProps {
   data: {

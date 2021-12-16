@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout } from '../../components/layout/layout';
+import { Layout } from '../../new-components/layout/layout';
 import { LeadboxProps } from '../../new-components/leadbox/leadbox';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { MarkdownAst } from '../../components/markdown/markdown-ast';

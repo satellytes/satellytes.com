@@ -3,7 +3,7 @@ import React from 'react';
 import Header from './header';
 import { render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
-import { theme } from '../layout/theme';
+import { theme } from '../../new-components/layout/theme';
 
 jest.mock('gatsby-plugin-react-i18next', () => ({
   useTranslation: () => {

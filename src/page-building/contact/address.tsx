@@ -3,7 +3,7 @@ import { SectionHeader } from '../../new-components/section-header/section-heade
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 import { Link } from '../../components/links/links';
-import { theme } from '../../components/layout/theme';
+import { theme } from '../../new-components/layout/theme';
 
 const StyledLink = styled(Link)`
   color: ${theme.palette.text.link.default};

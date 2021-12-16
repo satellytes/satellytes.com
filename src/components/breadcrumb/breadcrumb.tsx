@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from '../links/links';
 import { TextStyles } from '../typography/typography-v2';
-import { theme } from '../layout/theme';
+import { theme } from '../../new-components/layout/theme';
 
 const BreadcrumbContainer = styled.ol`
   list-style: none;

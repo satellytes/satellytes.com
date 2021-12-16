@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { up } from '../style-utils/breakpoint';
-import { Grid, GridItem } from '../grid/grid';
-import { LinkedinWrapper } from '../icons/social/linkedin';
-import { XingWrapper } from '../icons/social/xing';
-import { GithubIconWrapper } from '../icons/social/github';
-import { Link } from '../links/links';
+import { up } from '../../components/style-utils/breakpoint';
+import { Grid, GridItem } from '../../components/grid/grid';
+import { LinkedinWrapper } from '../../components/icons/social/linkedin';
+import { XingWrapper } from '../../components/icons/social/xing';
+import { GithubIconWrapper } from '../../components/icons/social/github';
+import { Link } from '../../components/links/links';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { LanguageSwitch } from '../language-switch/language-switch';
-import { TextStyles } from '../typography/typography-v2';
+import { LanguageSwitch } from '../../components/language-switch/language-switch';
+import { TextStyles } from '../../components/typography/typography-v2';
 
 const NavigationBackground = styled.div`
   background: linear-gradient(289.7deg, #543fd7 2.95%, #2756fd 100.82%);

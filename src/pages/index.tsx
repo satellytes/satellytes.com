@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import SEO from '../components/seo';
+import SEO from '../new-components/layout/seo';
 import { Landingpage } from '../page-building/landingpage/landingpage';
 import { BlogPostTeaser, LocalesQuery, SyPersonioJob } from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';

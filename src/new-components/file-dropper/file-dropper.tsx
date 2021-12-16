@@ -6,7 +6,7 @@ import {
   useDropzone,
 } from 'react-dropzone';
 import styled, { css } from 'styled-components';
-import { theme } from '../../components/layout/theme';
+import { theme } from '../layout/theme';
 import {
   Illustration,
   IllustrationSize,

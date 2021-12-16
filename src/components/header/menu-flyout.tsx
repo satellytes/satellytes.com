@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { HEADER_HEIGHT } from './header';
-import Navigation from '../navigation/navigation';
+import Navigation from '../../new-components/navigation/navigation';
 
 const FullscreenOverlay = styled.div<{ visible: boolean }>`
   position: fixed;

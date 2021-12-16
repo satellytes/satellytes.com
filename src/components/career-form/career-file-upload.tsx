@@ -2,7 +2,7 @@ import { Input, InputContainer } from '../form/controls';
 import React, { ReactNode, useCallback } from 'react';
 import { DropzoneRootProps, useDropzone } from 'react-dropzone';
 import styled, { css } from 'styled-components';
-import { theme } from '../layout/theme';
+import { theme } from '../../new-components/layout/theme';
 import {
   FieldErrors,
   FieldValues,

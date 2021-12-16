@@ -2,12 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { theme } from '../layout/theme';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { TextStyles } from '../typography/typography-v2';
-import {
-  Dropdown,
-  DropdownOption,
-} from '../../new-components/dropdown/dropdown';
-import { Icon } from '../../new-components/icon/icon';
+import { TextStyles } from '../../components/typography/typography-v2';
+import { Dropdown, DropdownOption } from '../dropdown/dropdown';
+import { Icon } from '../icon/icon';
 
 interface PaginationProps {
   onPreviousClick: () => any;

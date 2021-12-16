@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import { rgba } from 'polished';
 import React from 'react';
 import { up } from '../style-utils/breakpoint';
-import { theme } from '../layout/theme';
+import { theme } from '../../new-components/layout/theme';
 import { CodeBlock } from './code-block';
 
 /**

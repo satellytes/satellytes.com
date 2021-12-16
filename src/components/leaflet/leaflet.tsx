@@ -13,7 +13,7 @@ import { up } from '../style-utils/breakpoint';
 
 import { BringMeHome } from './bring-home';
 import { SatellytesMarkerIcon } from './sy-marker';
-import { theme } from '../layout/theme';
+import { theme } from '../../new-components/layout/theme';
 import { Helmet } from 'react-helmet';
 const MAP_VIEW_ZOOM = 20;
 

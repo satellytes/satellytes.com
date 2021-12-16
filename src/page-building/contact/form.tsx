@@ -3,8 +3,8 @@ import { SectionHeader } from '../../new-components/section-header/section-heade
 import { Trans } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 import { Link } from '../../components/links/links';
-import { theme } from '../../components/layout/theme';
 import { ContactForm } from '../../components/form/contact';
+import { theme } from '../../new-components/layout/theme';
 
 const StyledLink = styled(Link)`
   color: ${theme.palette.text.link.default};

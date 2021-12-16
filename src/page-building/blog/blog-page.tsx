@@ -2,11 +2,11 @@ import React from 'react';
 
 import styled from 'styled-components';
 import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
-import { Layout } from '../../components/layout/layout';
+import { Layout } from '../../new-components/layout/layout';
 import { SectionHeader } from '../../new-components/section-header/section-header';
 import { NotAvailableInGerman } from './not-avilable-in-german';
 import { Posts } from './posts';
-import { ContentBlockContainer } from '../../components/layout/content-block-container';
+import { ContentBlockContainer } from '../../new-components/layout/content-block-container';
 
 interface BlogPageProps {
   posts: any[];
