@@ -1,12 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import { FluidObject } from 'gatsby-image';
 
 import SEO from '../components/layout/seo';
-import { PageTitle, Text } from '../components/legacy/typography';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { LocalesQuery } from '../types';
 import { BlogPage } from '../components/pages/blog/blog-page';
 
@@ -39,7 +36,6 @@ interface BlogPageProps {
 }
 
 const Blog = ({ data, location }: BlogPageProps) => {
-  const { t } = useTranslation();
   const blogPosts = data.allMarkdownRemark.nodes;
 
   return (
