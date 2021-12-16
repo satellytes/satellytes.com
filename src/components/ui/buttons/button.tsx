@@ -41,18 +41,21 @@ type RegularButtonProps = React.ComponentPropsWithoutRef<'button'> & {
   to?: string;
 };
 
-export const Button = (props: RegularButtonProps) => (
-  <>
-    {props.to ? (
+export const Button = (props: RegularButtonProps) => {
+  if (props.to) {
+    return (
       <StyledButton to={props.to}>
         <ButtonText>{props.children}</ButtonText>
-        <StyledIcon show={'chevron_right'} size={IconSize.NORMAL} />
+        <StyledIcon show={'chevron_right'} size={IconSize.NORMAL}/>
       </StyledButton>
-    ) : (
+    )
+  } else {
+    return (
       <StyledButton as="button" {...props}>
         <ButtonText>{props.children}</ButtonText>
-        <StyledIcon show={'chevron_right'} size={IconSize.NORMAL} />
+        <StyledIcon show={'chevron_right'} size={IconSize.NORMAL}/>
       </StyledButton>
-    )}
-  </>
-);
+    )
+  }
+};
+
