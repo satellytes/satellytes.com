@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { TextStyles } from '../../../components/typography/typography-v2';
+import { TextStyles } from '../../typography';
 import { Icon } from '../../icon/icon';
 
 export const Checkbox = (props) => {

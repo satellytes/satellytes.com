@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { theme } from '../layout/theme';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { TextStyles } from '../../components/typography/typography-v2';
+import { TextStyles } from '../typography';
 import { Dropdown, DropdownOption } from '../dropdown/dropdown';
 import { Icon } from '../icon/icon';
 

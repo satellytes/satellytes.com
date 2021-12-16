@@ -2,7 +2,7 @@ import React from 'react';
 import { Teaser } from '../../new-components/teaser/teaser';
 import styled from 'styled-components';
 import { up } from '../../components/style-utils/breakpoint';
-import { TextStyles } from '../../components/typography/typography-v2';
+import { TextStyles } from '../../new-components/typography';
 import { SyPersonioJob } from '../../types';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 

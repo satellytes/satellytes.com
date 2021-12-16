@@ -2,13 +2,10 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { theme } from '../layout/theme';
 import { Link } from '../../components/links/links';
-import { IllustrationType } from '../../components/illustration/illustration-set';
-import {
-  Illustration,
-  IllustrationSize,
-} from '../../components/illustration/illustration';
+import { IllustrationType } from '../illustration/illustration-set';
+import { Illustration, IllustrationSize } from '../illustration/illustration';
 import { Icon } from '../icon/icon';
-import { TextStyles } from '../../components/typography/typography-v2';
+import { TextStyles } from '../typography';
 
 const TeaserContainer = styled.div<{ hover: boolean }>`
   overflow: hidden;

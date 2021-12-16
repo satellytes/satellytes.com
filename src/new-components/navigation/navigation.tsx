@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { up } from '../../components/style-utils/breakpoint';
 import { Grid, GridItem } from '../../components/grid/grid';
-import { LinkedinWrapper } from '../../components/icons/social/linkedin';
-import { XingWrapper } from '../../components/icons/social/xing';
-import { GithubIconWrapper } from '../../components/icons/social/github';
+import { LinkedinWrapper } from '../../page-building/blog-post/social-icons/linkedin';
+import { XingWrapper } from '../../page-building/blog-post/social-icons/xing';
+import { GithubIconWrapper } from '../../page-building/blog-post/social-icons/github';
 import { Link } from '../../components/links/links';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { LanguageSwitch } from '../../components/language-switch/language-switch';
-import { TextStyles } from '../../components/typography/typography-v2';
+import { TextStyles } from '../typography';
 
 const NavigationBackground = styled.div`
   background: linear-gradient(289.7deg, #543fd7 2.95%, #2756fd 100.82%);

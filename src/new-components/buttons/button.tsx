@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Icon, IconSize } from '../icon/icon';
 import { resetButton } from '../../components/css-helpers';
 import { lighten } from 'polished';
-import { TextStyles } from '../../components/typography/typography-v2';
+import { TextStyles } from '../typography';
 
 const StyledButton = styled.button`
   ${resetButton};

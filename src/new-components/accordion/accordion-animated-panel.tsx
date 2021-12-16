@@ -11,6 +11,7 @@ const AnimatedPanelContainer = styled.div`
   padding-left: 24px;
   padding-right: 24px;
 `;
+
 /**
  * Animated version of the AccordionPanel.
  * Uses a custom hook `useDivHeight` to measure the height and then

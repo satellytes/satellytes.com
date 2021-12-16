@@ -1,11 +1,11 @@
 import {
   Illustration,
   IllustrationSize,
-} from '../../components/illustration/illustration';
+} from '../../new-components/illustration/illustration';
 import React from 'react';
 import styled from 'styled-components';
-import { Expandable } from '../../components/expandable/expandable';
-import { TextStyles } from '../../components/typography/typography-v2';
+import { Expandable } from '../../new-components/expandable/expandable';
+import { TextStyles } from '../../new-components/typography';
 import { up } from '../../components/style-utils/breakpoint';
 
 const IntroLayout = styled.div`

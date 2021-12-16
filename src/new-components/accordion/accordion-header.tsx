@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components';
-import { TextStyles } from '../typography/typography-v2';
+import { TextStyles } from '../typography';
 import { ellipsis } from 'polished';
 import * as ReachAccordion from '@reach/accordion';
-import { theme } from '../../new-components/layout/theme';
+import { theme } from '../layout/theme';
 import { useAccordionItemContext } from '@reach/accordion';
 import React from 'react';
-import { resetButton } from '../css-helpers';
-import { Icon } from '../../new-components/icon/icon';
+import { resetButton } from '../../components/css-helpers';
+import { Icon } from '../icon/icon';
 
 interface AccordionHeaderProps {
   children: React.ReactNode;

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { up } from '../../components/style-utils/breakpoint';
 import { Teaser } from '../../new-components/teaser/teaser';
-import { IllustrationType } from '../../components/illustration/illustration-set';
+import { IllustrationType } from '../../new-components/illustration/illustration-set';
 import { SectionHeader } from '../../new-components/section-header/section-header';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 

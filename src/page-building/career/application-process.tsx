@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Accordion,
   AccordionSection,
-} from '../../components/accordion/accordion';
+} from '../../new-components/accordion/accordion';
 import styled from 'styled-components';
 import { SectionHeader } from '../../new-components/section-header/section-header';
 import { useTranslation } from 'gatsby-plugin-react-i18next';

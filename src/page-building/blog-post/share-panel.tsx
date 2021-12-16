@@ -8,12 +8,12 @@ import {
 } from 'react-share';
 import styled from 'styled-components';
 import { up } from '../../components/style-utils/breakpoint';
-import { IconEmail } from '../../components/icons/social/email';
-import { IconFacebook } from '../../components/icons/social/facebook';
-import { LinkedinWrapper } from '../../components/icons/social/linkedin';
-import { TwitterWrapper } from '../../components/icons/social/twitter';
-import { IconWhatsapp } from '../../components/icons/social/whatsapp';
-import { XingWrapper } from '../../components/icons/social/xing';
+import { IconEmail } from './social-icons/email';
+import { IconFacebook } from './social-icons/facebook';
+import { LinkedinWrapper } from './social-icons/linkedin';
+import { TwitterWrapper } from './social-icons/twitter';
+import { IconWhatsapp } from './social-icons/whatsapp';
+import { XingWrapper } from './social-icons/xing';
 import { isBrowser } from '../../components/util/is-browser';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 

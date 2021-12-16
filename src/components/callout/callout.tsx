@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { up } from '../style-utils/breakpoint';
-import { Illustration } from '../illustration/illustration';
-import { IllustrationType } from '../illustration/illustration-set';
-import { TextStyles } from '../typography/typography-v2';
+import { Illustration } from '../../new-components/illustration/illustration';
+import { IllustrationType } from '../../new-components/illustration/illustration-set';
+import { TextStyles } from '../../new-components/typography';
 
 interface CalloutProps {
   illustration?: IllustrationType | null;

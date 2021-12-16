@@ -3,7 +3,7 @@ import { Trans } from 'react-i18next';
 import styled, { css } from 'styled-components';
 import { up } from '../../components/style-utils/breakpoint';
 import { theme } from '../layout/theme';
-import { TextStyles } from '../../components/typography/typography-v2';
+import { TextStyles } from '../typography';
 
 const mapTextAlignToFlex = (textAlign: 'right' | 'left' | 'bottom') => {
   if (textAlign === 'right') {

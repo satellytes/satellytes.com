@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { up } from '../../components/style-utils/breakpoint';
-import { TextStyles } from '../../components/typography/typography-v2';
+import { TextStyles } from '../typography';
 import React from 'react';
 import { ReactNode } from 'react';
 

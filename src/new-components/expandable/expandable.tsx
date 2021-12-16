@@ -1,8 +1,8 @@
 import React, { ReactNode, useState } from 'react';
 import styled, { css } from 'styled-components';
-import { theme } from '../../new-components/layout/theme';
-import { TextStyles } from '../typography/typography-v2';
-import { Icon } from '../../new-components/icon/icon';
+import { theme } from '../layout/theme';
+import { TextStyles } from '../typography';
+import { Icon } from '../icon/icon';
 
 interface ExpandableProps {
   className?: string;
