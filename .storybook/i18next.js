@@ -19,7 +19,7 @@ AVAILABLE_LANGUAGES.forEach((lang) => {
   i18n.addResourceBundle(
     lang,
     'translation',
-    require(`../src/locales/${lang}/translations.json`),
+    require(`../src/assets/locales/${lang}/translations.json`),
   );
 });
 export { i18n };

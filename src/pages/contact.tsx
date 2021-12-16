@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import SEO from '../components/seo';
 import { graphql } from 'gatsby';
-import { ContactPage } from '../page-building/contact/contact-page';
+import { ContactPage } from '../components/pages/contact/contact-page';
+import SEO from '../components/layout/seo';
 
 interface ContactPageProps {
   location: Location;

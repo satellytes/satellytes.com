@@ -1,3 +1,3 @@
 import 'modern-normalize';
 import 'what-input';
-import './src/syntax/syntax-highlight-theme.scss';
+import './src/assets/prism-themes/syntax-highlight-theme.scss';

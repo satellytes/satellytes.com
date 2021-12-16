@@ -1,0 +1,23 @@
+/**
+I think that's the easiest way to pull in two different syntax highlight themes.
+Depending on the given body tag which is given by the layout component.
+ */
+body.sy-polarity--dark {
+  @import "src/assets/prism-themes/prism-theme-nord";
+}
+
+// our default is applied if dark is not existing
+body:not(.sy-polarity--dark) {
+  @import "src/assets/prism-themes/default";
+}
+
+/*
+This is missing in all themes I checked
+but it's required to overflow scroll our code blocks.
+
+I wonder what we are doing differently as this doesn't seem to be
+a problem for other people.
+ */
+pre[class*="language-"] {
+  overflow: auto;
+}

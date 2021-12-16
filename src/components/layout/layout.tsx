@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
-import Header, { HEADER_HEIGHT } from './../header/header';
-import Navigation from './../navigation/navigation';
+import Header, { HEADER_HEIGHT } from './header/header';
+import Navigation from './navigation/navigation';
 import { HEADER_HEIGHT_VALUE, theme } from './theme';
 import styled, { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './global-style';
@@ -9,9 +9,9 @@ import {
   Leadbox,
   LeadboxFooterContainer,
   LeadboxProps,
-} from '../../new-components/leadbox/leadbox';
-import { up } from '../style-utils/breakpoint';
-import { Breadcrumb, BreadcrumbEntry } from '../breadcrumb/breadcrumb';
+} from '../content/leadbox/leadbox';
+import { up } from '../support/breakpoint';
+import { Breadcrumb, BreadcrumbEntry } from './breadcrumb/breadcrumb';
 import { setPolarityBodyClass } from './set-polarity';
 import { useAnchorTagScrolling } from './use-anchor-tag-scrolling';
 
