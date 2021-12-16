@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { up } from '../style-utils/breakpoint';
-import { isBrowser } from '../util/is-browser';
+import { up } from '../../components/style-utils/breakpoint';
+import { isBrowser } from '../../components/util/is-browser';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { IconRSS } from '../icons/social/rss';
-import { SimpleLink } from '../markdown/custom-components';
+import { IconRSS } from '../../components/icons/social/rss';
+import { SimpleLink } from '../../components/markdown/custom-components';
 
 const RSS_FEED_URL = '/blog/rss.xml';
 
