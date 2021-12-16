@@ -1,8 +1,8 @@
-import { Input, InputContainer } from '../form/controls';
+import { Input, InputContainer } from '../../../components/form/controls';
 import React, { ReactNode, useCallback } from 'react';
 import { DropzoneRootProps, useDropzone } from 'react-dropzone';
 import styled, { css } from 'styled-components';
-import { theme } from '../../new-components/layout/theme';
+import { theme } from '../../../new-components/layout/theme';
 import {
   FieldErrors,
   FieldValues,
@@ -12,7 +12,7 @@ import {
   UseFormSetValue,
   UseFormWatch,
 } from 'react-hook-form';
-import { GridItem } from '../grid/grid';
+import { GridItem } from '../../../components/grid/grid';
 import { FilePreview } from './career-file-preview';
 import { FormError } from './career-components';
 import { CareerFileUploadType } from './career-file-upload-type';

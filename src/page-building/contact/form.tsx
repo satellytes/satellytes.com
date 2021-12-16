@@ -3,7 +3,7 @@ import { SectionHeader } from '../../new-components/section-header/section-heade
 import { Trans } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 import { Link } from '../../components/links/links';
-import { ContactForm } from '../../components/form/contact';
+import { ContactForm } from './contact-form';
 import { theme } from '../../new-components/layout/theme';
 
 const StyledLink = styled(Link)`

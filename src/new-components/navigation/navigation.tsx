@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { up } from '../support/breakpoint';
 import { Grid, GridItem } from '../../components/grid/grid';
+
 import { LinkedinWrapper } from '../../page-building/blog-post/social-icons/linkedin';
 import { XingWrapper } from '../../page-building/blog-post/social-icons/xing';
 import { GithubIconWrapper } from '../../page-building/blog-post/social-icons/github';

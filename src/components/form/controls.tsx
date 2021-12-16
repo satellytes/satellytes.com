@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components';
 import { up } from '../../new-components/support/breakpoint';
 import { Text } from '../typography/typography';
+import React from 'react';
+import { FormError } from '../../page-building/career-details/career-form/career-components';
 
 interface ValidationProps {
   hasError?: boolean;
@@ -182,3 +184,43 @@ export const ErrorMessageSend = styled(ErrorMessage)`
   display: inline-block;
   margin-left: 24px;
 `;
+
+export interface InputFieldProps {
+  label?: string;
+  name: string;
+  error: any;
+  inputRef: any;
+  required?: boolean;
+  type?: 'text' | 'text-area';
+}
+
+export const InputField = (props: InputFieldProps) => {
+  return (
+    <InputContainer>
+      <InputWrapper>
+        {props.label && (
+          <Label htmlFor={props.name}>
+            {props.label} {props.required && <Sup aria-hidden={true}>*</Sup>}
+          </Label>
+        )}
+        {props.type && props.type === 'text-area' ? (
+          <TextArea
+            {...props.inputRef}
+            hasError={props.error}
+            id={props.name}
+            aria-required={props.required}
+          />
+        ) : (
+          <Input
+            type={'text'}
+            id={props.name}
+            {...props.inputRef}
+            hasError={props.error}
+            aria-required={props.required}
+          />
+        )}
+        <FormError error={props.error} />
+      </InputWrapper>
+    </InputContainer>
+  );
+};

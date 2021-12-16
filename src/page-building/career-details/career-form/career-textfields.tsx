@@ -1,9 +1,9 @@
 import React from 'react';
-import { GridItem } from '../grid/grid';
-import { InputField } from './career-components';
-import { SIMPLE_EMAIL_PATTERN } from './career-form';
+import { GridItem } from '../../../components/grid/grid';
 import { FieldValues, UseFormRegister } from 'react-hook-form';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { SIMPLE_EMAIL_PATTERN } from '../../../components/form/constants';
+import { InputField } from '../../../components/form/controls';
 
 interface CareerTextFieldsProps {
   register: UseFormRegister<FieldValues>;

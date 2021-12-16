@@ -2,66 +2,21 @@ import React from 'react';
 import {
   ButtonText,
   ErrorMessage,
-  Input,
-  InputContainer,
-  InputWrapper,
-  Label,
   SendButton,
   SentButton,
-  Sup,
-  TextArea,
-} from '../form/controls';
-import { CheckmarkIcon } from './icons/checkmark';
+} from '../../../components/form/controls';
+import { CheckmarkIcon } from '../../../components/form/icons/checkmark';
 import styled from 'styled-components';
 import { rgba } from 'polished';
-import { RightArrowIcon } from './icons/right-arrow';
+import { RightArrowIcon } from '../../../components/form/icons/right-arrow';
 import { FieldErrors } from 'react-hook-form';
 import { Headline } from './career-form';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
-
-interface InputFieldProps {
-  label?: string;
-  name: string;
-  error: any;
-  inputRef: any;
-  required?: boolean;
-  type?: 'text' | 'text-area';
-}
 
 export const CareerFormStyled = styled.form`
   margin-top: 32px;
 `;
 
-export const InputField = (props: InputFieldProps) => {
-  return (
-    <InputContainer>
-      <InputWrapper>
-        {props.label && (
-          <Label htmlFor={props.name}>
-            {props.label} {props.required && <Sup aria-hidden={true}>*</Sup>}
-          </Label>
-        )}
-        {props.type && props.type === 'text-area' ? (
-          <TextArea
-            {...props.inputRef}
-            hasError={props.error}
-            id={props.name}
-            aria-required={props.required}
-          />
-        ) : (
-          <Input
-            type={'text'}
-            id={props.name}
-            {...props.inputRef}
-            hasError={props.error}
-            aria-required={props.required}
-          />
-        )}
-        <FormError error={props.error} />
-      </InputWrapper>
-    </InputContainer>
-  );
-};
 interface FormErrorProps {
   marginBottom?: number;
   lineHeight?: number;

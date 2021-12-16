@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Grid, GridItem } from '../grid/grid';
+import { Grid, GridItem } from '../../../components/grid/grid';
 import axios, { AxiosResponse } from 'axios';
+
 import {
   Actions,
   CareerFormStyled,
@@ -11,14 +12,18 @@ import {
   ProgressBar,
   SuccessMessage,
 } from './career-components';
-import { CaptionText, TextLink, TextTitle } from '../typography/typography';
-import { Checkbox, Sup } from '../form/controls';
+import {
+  CaptionText,
+  TextLink,
+  TextTitle,
+} from '../../../components/typography/typography';
+import { Checkbox, Sup } from '../../../components/form/controls';
 import { FileUpload } from './career-file-upload';
 import { CareerTextFields } from './career-textfields';
-import { Upload } from './icons/upload';
+import { Upload } from '../../../components/form/icons/upload';
 import styled from 'styled-components';
-import { CheckboxMark } from './icons/checkbox';
-import { up } from '../../new-components/support/breakpoint';
+import { CheckboxMark } from '../../../components/form/icons/checkbox';
+import { up } from '../../../new-components/support/breakpoint';
 import { rgba } from 'polished';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 
@@ -42,7 +47,6 @@ interface RawFormData {
 
 const API_ENDPOINT = 'https://api.personio.de/recruiting/applicant';
 const PRIVACY_POLICY = 'https://satellytes.jobs.personio.de/privacy-policy';
-export const SIMPLE_EMAIL_PATTERN = /.+@.+\..+/;
 
 const Container = styled.div`
   margin-bottom: 24px;
