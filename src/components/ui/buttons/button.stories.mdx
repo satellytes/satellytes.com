@@ -16,7 +16,21 @@ This is the Regular Button, which should be used in all the standard use cases. 
 <Canvas withSource="open">
   <Story name="Regular">
     <Button onClick={() => console.log('Regular Button clicked')}>
-      Alle Services
+      Submit
+    </Button>
+  </Story>
+</Canvas>
+
+<ArgsTable of={Button}/>
+
+## Button vs. Anchors
+
+This component can be used both as a button and as an anchor. If the `to` prop is provided, the component is rendered as an anchor. Otherwise, the component is rendered as a button. Here you can read why this distinction is useful: https://bitsofco.de/anchors-vs-buttons/
+
+<Canvas withSource="open">
+  <Story name="Button as Link">
+    <Button to={'https://www.example.com/'}>
+      Link
     </Button>
   </Story>
 </Canvas>

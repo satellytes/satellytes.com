@@ -4,8 +4,8 @@ import { Teaser } from '../../content/teaser/teaser';
 import React from 'react';
 import { HomePageHeaderBlock } from './support';
 import { SyPersonioJob } from '../../../types';
-import { LinkButton } from '../../legacy/links/links';
 import styled from 'styled-components';
+import { Button } from '../../ui/buttons/button';
 
 interface CareerProps {
   positions: SyPersonioJob[];
@@ -35,7 +35,7 @@ export const Career = ({ positions }: CareerProps) => {
         ))}
       </TeaserGrid>
       <Spacer />
-      <LinkButton to={'/career'}>Alle offenen Stellen</LinkButton>
+      <Button to={'/career'}>Alle offenen Stellen</Button>
     </>
   );
 };
