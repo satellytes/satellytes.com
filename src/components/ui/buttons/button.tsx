@@ -46,16 +46,15 @@ export const Button = (props: RegularButtonProps) => {
     return (
       <StyledButton to={props.to}>
         <ButtonText>{props.children}</ButtonText>
-        <StyledIcon show={'chevron_right'} size={IconSize.NORMAL}/>
+        <StyledIcon show={'chevron_right'} size={IconSize.NORMAL} />
       </StyledButton>
-    )
+    );
   } else {
     return (
       <StyledButton as="button" {...props}>
         <ButtonText>{props.children}</ButtonText>
-        <StyledIcon show={'chevron_right'} size={IconSize.NORMAL}/>
+        <StyledIcon show={'chevron_right'} size={IconSize.NORMAL} />
       </StyledButton>
-    )
+    );
   }
 };
-
