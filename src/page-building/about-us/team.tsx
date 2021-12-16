@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import { up } from '../../new-components/support/breakpoint';
-import { Image } from '../../new-components/image/image';
-import { SectionHeader } from '../../new-components/section-header/section-header';
+import { up } from '../../components/support/breakpoint';
+import { Image } from '../../components/image/image';
+import { SectionHeader } from '../../components/section-header/section-header';
 import { SyTeamMember } from '../../types';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 

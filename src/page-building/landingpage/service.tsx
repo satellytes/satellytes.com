@@ -1,9 +1,9 @@
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { TeaserGrid } from '../../new-components/teaser/teaser-grid';
-import { Teaser } from '../../new-components/teaser/teaser';
+import { TeaserGrid } from '../../components/teaser/teaser-grid';
+import { Teaser } from '../../components/teaser/teaser';
 import React from 'react';
 import { HomePageHeaderBlock } from './support';
-import { LinkButton } from '../../components/links/links';
+import { LinkButton } from '../../legacy-components/links/links';
 import styled from 'styled-components';
 
 const Spacer = styled.div`

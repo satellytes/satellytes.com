@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { TextTitle } from '../../components/typography';
-import { up } from '../../new-components/support/breakpoint';
+import { TextTitle } from '../../legacy-components/typography';
+import { up } from '../../components/support/breakpoint';
 import { SyPersonioJobSection } from '../../types';
 
 export const SectionHeadline = styled(TextTitle)`

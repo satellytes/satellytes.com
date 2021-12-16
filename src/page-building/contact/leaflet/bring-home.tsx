@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { theme } from '../../../new-components/layout/theme';
+import { theme } from '../../../components/layout/theme';
 import React, { useCallback, useEffect, useState } from 'react';
 
 const BringMeHomeStyled = styled.a`

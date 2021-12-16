@@ -1,6 +1,6 @@
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { ButtonText, SendButton } from '../../components/form/controls';
-import { RightArrowIcon } from '../../components/icons/form-icons/right-arrow';
+import { ButtonText, SendButton } from '../../legacy-components/form/controls';
+import { RightArrowIcon } from '../../legacy-components/icons/form-icons/right-arrow';
 import React from 'react';
 
 /**

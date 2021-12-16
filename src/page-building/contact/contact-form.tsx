@@ -7,15 +7,15 @@ import {
   SendButton,
   SentButton,
   Sup,
-} from '../../components/form/controls';
-import { Grid, GridItem } from '../../components/grid/grid';
-import { Link } from '../../components/links/links';
-import { CaptionText } from '../../components/typography';
+} from '../../legacy-components/form/controls';
+import { Grid, GridItem } from '../../legacy-components/grid/grid';
+import { Link } from '../../legacy-components/links/links';
+import { CaptionText } from '../../legacy-components/typography';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
-import { SIMPLE_EMAIL_PATTERN } from '../../components/form/constants';
-import { CheckmarkIcon } from '../../components/icons/form-icons/checkmark';
-import { RightArrowIcon } from '../../components/icons/form-icons/right-arrow';
+import { SIMPLE_EMAIL_PATTERN } from '../../legacy-components/form/constants';
+import { CheckmarkIcon } from '../../legacy-components/icons/form-icons/checkmark';
+import { RightArrowIcon } from '../../legacy-components/icons/form-icons/right-arrow';
 
 type RequestStatus = 'pending' | 'success' | 'error';
 

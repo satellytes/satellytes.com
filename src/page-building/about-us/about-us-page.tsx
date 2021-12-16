@@ -1,13 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { Layout } from '../../new-components/layout/layout';
-import { LeadboxProps } from '../../new-components/leadbox/leadbox';
-import { ContentBlockContainer } from '../../new-components/layout/content-block-container';
+import { Layout } from '../../components/layout/layout';
+import { LeadboxProps } from '../../components/leadbox/leadbox';
+import { ContentBlockContainer } from '../../components/layout/content-block-container';
 import { Office } from './office';
 import { Team } from './team';
 import { SyTeamMember } from '../../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
-import { ImageHero } from '../../new-components/heroes';
+import { ImageHero } from '../../components/heroes';
 
 interface AboutUsPageProps {
   team: SyTeamMember[];

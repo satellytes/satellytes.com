@@ -2,9 +2,9 @@ import React from 'react';
 import {
   Accordion,
   AccordionSection,
-} from '../../new-components/accordion/accordion';
+} from '../../components/accordion/accordion';
 import styled from 'styled-components';
-import { SectionHeader } from '../../new-components/section-header/section-header';
+import { SectionHeader } from '../../components/section-header/section-header';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 const Spacer = styled.div`

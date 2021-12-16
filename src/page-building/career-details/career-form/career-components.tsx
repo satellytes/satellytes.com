@@ -4,14 +4,14 @@ import {
   ErrorMessage,
   SendButton,
   SentButton,
-} from '../../../components/form/controls';
+} from '../../../legacy-components/form/controls';
 import styled from 'styled-components';
 import { rgba } from 'polished';
 import { FieldErrors } from 'react-hook-form';
 import { Headline } from './career-form';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
-import { CheckmarkIcon } from '../../../components/icons/form-icons/checkmark';
-import { RightArrowIcon } from '../../../components/icons/form-icons/right-arrow';
+import { CheckmarkIcon } from '../../../legacy-components/icons/form-icons/checkmark';
+import { RightArrowIcon } from '../../../legacy-components/icons/form-icons/right-arrow';
 
 export const CareerFormStyled = styled.form`
   margin-top: 32px;

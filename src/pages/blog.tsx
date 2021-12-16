@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import { FluidObject } from 'gatsby-image';
 
-import SEO from '../new-components/layout/seo';
-import { PageTitle, Text } from '../components/typography';
+import SEO from '../components/layout/seo';
+import { PageTitle, Text } from '../legacy-components/typography';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { LocalesQuery } from '../types';

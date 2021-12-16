@@ -1,6 +1,6 @@
-import { useLocaleFormat } from '../../new-components/i18n-helpers';
+import { useLocaleFormat } from '../../components/i18n-helpers';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { Teaser } from '../../new-components/teaser/teaser';
+import { Teaser } from '../../components/teaser/teaser';
 import React from 'react';
 import styled from 'styled-components';
 import { BlogPostTeaser } from '../../types';

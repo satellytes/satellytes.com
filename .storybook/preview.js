@@ -1,7 +1,7 @@
 import { addDecorator } from '@storybook/react';
 import { ThemeProvider } from 'styled-components';
-import { theme } from '../src/new-components/layout/theme';
-import { GlobalStyle } from '../src/new-components/layout/global-style';
+import { theme } from '../src/components/layout/theme';
+import { GlobalStyle } from '../src/components/layout/global-style';
 import { i18n } from './i18next';
 import { DocsContainer } from '@storybook/addon-docs';
 

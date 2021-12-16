@@ -1,10 +1,10 @@
 import React from 'react';
-import { Layout } from '../../new-components/layout/layout';
+import { Layout } from '../../components/layout/layout';
 import { CareerForm } from './career-form/career-form';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { JobDescription } from './job-description';
 import { SyPersonioJob } from '../../types';
-import { AuroraHero } from '../../new-components/heroes';
+import { AuroraHero } from '../../components/heroes';
 
 interface CareerDetailsProps {
   originalPath: string;

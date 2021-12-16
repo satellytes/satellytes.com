@@ -10,8 +10,8 @@ import {
   UseFormWatch,
 } from 'react-hook-form';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { up } from '../../../new-components/support/breakpoint';
-import { SelectArrow } from '../../../components/icons/form-icons/select-arrow';
+import { up } from '../../../components/support/breakpoint';
+import { SelectArrow } from '../../../legacy-components/icons/form-icons/select-arrow';
 
 interface CareerFileUploadTypeProps {
   setValue: UseFormSetValue<FieldValues>;

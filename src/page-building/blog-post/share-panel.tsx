@@ -7,14 +7,14 @@ import {
   WhatsappShareButton,
 } from 'react-share';
 import styled from 'styled-components';
-import { up } from '../../new-components/support/breakpoint';
-import { IconEmail } from '../../components/icons/social-icons/email';
-import { IconFacebook } from '../../components/icons/social-icons/facebook';
-import { LinkedinWrapper } from '../../components/icons/social-icons/linkedin';
-import { TwitterWrapper } from '../../components/icons/social-icons/twitter';
-import { IconWhatsapp } from '../../components/icons/social-icons/whatsapp';
-import { XingWrapper } from '../../components/icons/social-icons/xing';
-import { isBrowser } from '../../new-components/support/is-browser';
+import { up } from '../../components/support/breakpoint';
+import { IconEmail } from '../../legacy-components/icons/social-icons/email';
+import { IconFacebook } from '../../legacy-components/icons/social-icons/facebook';
+import { LinkedinWrapper } from '../../legacy-components/icons/social-icons/linkedin';
+import { TwitterWrapper } from '../../legacy-components/icons/social-icons/twitter';
+import { IconWhatsapp } from '../../legacy-components/icons/social-icons/whatsapp';
+import { XingWrapper } from '../../legacy-components/icons/social-icons/xing';
+import { isBrowser } from '../../components/support/is-browser';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 export interface ShareProps {

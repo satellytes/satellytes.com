@@ -2,8 +2,8 @@ import React from 'react';
 import { Leaflet } from './leaflet/leaflet';
 import { Address } from './address';
 import { Form } from './form';
-import { ContentBlockContainer } from '../../new-components/layout/content-block-container';
-import { Layout } from '../../new-components/layout/layout';
+import { ContentBlockContainer } from '../../components/layout/content-block-container';
+import { Layout } from '../../components/layout/layout';
 
 export const ContactPage = () => (
   <Layout transparentHeader={true} light={true} hero={<Leaflet />}>

@@ -1,15 +1,15 @@
 import React from 'react';
 import { ApplicationProcess } from './application-process';
 import { Openings } from './openings';
-import { SectionHeader } from '../../new-components/section-header/section-header';
-import { Layout } from '../../new-components/layout/layout';
-import { ContentBlockContainer } from '../../new-components/layout/content-block-container';
+import { SectionHeader } from '../../components/section-header/section-header';
+import { Layout } from '../../components/layout/layout';
+import { ContentBlockContainer } from '../../components/layout/content-block-container';
 import { Culture } from './culture';
 import { Perks } from './perks';
-import { LeadboxProps } from '../../new-components/leadbox/leadbox';
+import { LeadboxProps } from '../../components/leadbox/leadbox';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { SyPersonioJob } from '../../types';
-import { ImageHero } from '../../new-components/heroes';
+import { ImageHero } from '../../components/heroes';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 interface CareerPageProps {

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { up } from '../../new-components/support/breakpoint';
+import { up } from '../../components/support/breakpoint';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
 

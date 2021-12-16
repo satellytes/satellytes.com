@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Grid, GridItem } from '../../../components/grid/grid';
+import { Grid, GridItem } from '../../../legacy-components/grid/grid';
 import axios, { AxiosResponse } from 'axios';
 
 import {
@@ -16,16 +16,16 @@ import {
   CaptionText,
   TextLink,
   TextTitle,
-} from '../../../components/typography';
-import { Checkbox, Sup } from '../../../components/form/controls';
+} from '../../../legacy-components/typography';
+import { Checkbox, Sup } from '../../../legacy-components/form/controls';
 import { FileUpload } from './career-file-upload';
 import { CareerTextFields } from './career-textfields';
 import styled from 'styled-components';
-import { up } from '../../../new-components/support/breakpoint';
+import { up } from '../../../components/support/breakpoint';
 import { rgba } from 'polished';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
-import { Upload } from '../../../components/icons/form-icons/upload';
-import { CheckboxMark } from '../../../components/icons/form-icons/checkbox';
+import { Upload } from '../../../legacy-components/icons/form-icons/upload';
+import { CheckboxMark } from '../../../legacy-components/icons/form-icons/checkbox';
 
 interface CareerFormProps {
   recruiting_channel_id: string;
@@ -63,7 +63,7 @@ export const Headline = styled(TextTitle)`
 
 const InfoTextContainer = styled.div`
   display: flex;
-  align-items: left;
+  align-items: flex-start;
   flex-direction: row;
   margin: 24px 0px;
   line-height: 24px;

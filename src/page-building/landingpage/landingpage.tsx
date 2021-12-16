@@ -1,7 +1,7 @@
-import { AuroraHero } from '../../new-components/heroes';
+import { AuroraHero } from '../../components/heroes';
 import React from 'react';
-import { Layout } from '../../new-components/layout/layout';
-import { ContentBlockContainer } from '../../new-components/layout/content-block-container';
+import { Layout } from '../../components/layout/layout';
+import { ContentBlockContainer } from '../../components/layout/content-block-container';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Career } from './career';
 import { Service } from './service';

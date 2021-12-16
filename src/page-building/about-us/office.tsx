@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
 
-import { Image } from '../../new-components/image/image';
-import { SectionHeader } from '../../new-components/section-header/section-header';
+import { Image } from '../../components/image/image';
+import { SectionHeader } from '../../components/section-header/section-header';
 import { useTranslation } from 'react-i18next';
 
 const ImageContentWrapper = styled.div`

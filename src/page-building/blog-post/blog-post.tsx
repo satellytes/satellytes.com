@@ -1,15 +1,15 @@
 import React from 'react';
-import { Layout } from '../../new-components/layout/layout';
-import { LeadboxProps } from '../../new-components/leadbox/leadbox';
+import { Layout } from '../../components/layout/layout';
+import { LeadboxProps } from '../../components/leadbox/leadbox';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { MarkdownAst } from '../../components/markdown/markdown-ast';
+import { MarkdownAst } from '../../legacy-components/markdown/markdown-ast';
 import SharePanel from './share-panel';
 import FollowPanel from './follow-panel';
 import styled from 'styled-components';
-import { up } from '../../new-components/support/breakpoint';
+import { up } from '../../components/support/breakpoint';
 import { BlogPostMarkdown, BreadcrumbEntry } from '../../types';
-import { BlogHero } from '../../new-components/heroes/blog-hero';
-import { BlogHeader } from '../../new-components/blog-header/blog-header';
+import { BlogHero } from '../../components/heroes/blog-hero';
+import { BlogHeader } from '../../components/blog-header/blog-header';
 import { formatDistanceToNow } from 'date-fns';
 import { enGB } from 'date-fns/locale';
 

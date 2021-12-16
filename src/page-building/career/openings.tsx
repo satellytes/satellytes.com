@@ -1,8 +1,8 @@
 import React from 'react';
-import { Teaser } from '../../new-components/teaser/teaser';
+import { Teaser } from '../../components/teaser/teaser';
 import styled from 'styled-components';
-import { up } from '../../new-components/support/breakpoint';
-import { TextStyles } from '../../new-components/typography';
+import { up } from '../../components/support/breakpoint';
+import { TextStyles } from '../../components/typography';
 import { SyPersonioJob } from '../../types';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 

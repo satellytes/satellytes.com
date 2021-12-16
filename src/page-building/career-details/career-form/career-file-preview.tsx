@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import React, { ReactNode } from 'react';
-import { Clear } from '../../../components/icons/form-icons/clear';
-import { up } from '../../../new-components/support/breakpoint';
+import { Clear } from '../../../legacy-components/icons/form-icons/clear';
+import { up } from '../../../components/support/breakpoint';
 import { rgba } from 'polished';
 
 interface FilePreviewProps {
