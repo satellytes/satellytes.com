@@ -13,7 +13,7 @@ const ServicesPage = ({ location }: ServicesPageProps) => {
 
   return (
     <>
-      <SEO title={`${t('services.title')} | Satellytes`} location={location} />
+      <SEO title={`${t('services.hero')} | Satellytes`} location={location} />
       <Service />
     </>
   );
