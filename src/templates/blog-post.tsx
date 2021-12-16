@@ -1,9 +1,9 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import SEO from '../components/seo';
+import SEO from '../components/layout/seo';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { BlogPostMarkdown, BreadcrumbEntry, LocalesQuery } from '../types';
-import { BlogPostPage } from '../page-building/blog-post/blog-post';
+import { BlogPostPage } from '../components/pages/blog-post/blog-post';
 
 interface BlogArticleTemplateProps {
   data: {

@@ -1,8 +1,8 @@
 import React from 'react';
-import SEO from '../components/seo';
+import SEO from '../components/layout/seo';
 import { graphql } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { CareerPage } from '../page-building/career/career-page';
+import { CareerPage } from '../components/pages/career/career-page';
 import { LocalesQuery, SyPersonioJob } from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 

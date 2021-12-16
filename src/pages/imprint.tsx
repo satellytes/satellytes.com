@@ -1,12 +1,12 @@
 import React from 'react';
-import SEO from '../components/seo';
+import SEO from '../components/layout/seo';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
-import { Text } from '../components/typography/typography';
-import { MarkdownAst } from '../components/markdown/markdown-ast';
+import { Text } from '../components/legacy/typography';
+import { MarkdownAst } from '../components/legacy/markdown/markdown-ast';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Layout } from '../components/layout/layout';
-import { SectionHeader } from '../new-components/section-header/section-header';
+import { SectionHeader } from '../components/content/section-header/section-header';
 import { LocalesQuery } from '../types';
 import { ContentBlockContainer } from '../components/layout/content-block-container';
 

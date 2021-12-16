@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import { FluidObject } from 'gatsby-image';
 
-import SEO from '../components/seo';
-import { PageTitle, Text } from '../components/typography/typography';
+import SEO from '../components/layout/seo';
+import { PageTitle, Text } from '../components/legacy/typography';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { LocalesQuery } from '../types';
-import { BlogPage } from '../page-building/blog/blog-page';
+import { BlogPage } from '../components/pages/blog/blog-page';
 
 interface AllBlogPostsQuery {
   nodes: {
