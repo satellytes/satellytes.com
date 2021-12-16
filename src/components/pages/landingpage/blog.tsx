@@ -6,8 +6,8 @@ import { HomePageHeaderBlock } from './support';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { useLocaleFormat } from '../../i18n-helpers';
 import { BlogPostTeaser } from '../../../types';
-import { LinkButton } from '../../legacy/links/links';
 import styled from 'styled-components';
+import { Button } from '../../new-components/buttons/button';
 
 interface BlogProps {
   posts: BlogPostTeaser[];
@@ -50,7 +50,7 @@ export const Blog = ({ posts }: BlogProps) => {
       </TeaserGrid>
 
       <Spacer />
-      <LinkButton to={'/blog'}>Alle Artikel</LinkButton>
+      <Button to={'/blog'}>Alle Artikel</Button>
     </>
   );
 };

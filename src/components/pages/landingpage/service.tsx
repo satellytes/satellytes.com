@@ -3,8 +3,8 @@ import { TeaserGrid } from '../../content/teaser/teaser-grid';
 import { Teaser } from '../../content/teaser/teaser';
 import React from 'react';
 import { HomePageHeaderBlock } from './support';
-import { LinkButton } from '../../legacy/links/links';
 import styled from 'styled-components';
+import { Button } from '../../new-components/buttons/button';
 
 const Spacer = styled.div`
   height: 40px;
@@ -48,7 +48,7 @@ export const Service = () => {
       </TeaserGrid>
 
       <Spacer />
-      <LinkButton to={'/services'}>Learn more</LinkButton>
+      <Button to={'/services'}>Learn more</Button>
     </>
   );
 };

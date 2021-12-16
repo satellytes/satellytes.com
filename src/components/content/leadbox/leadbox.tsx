@@ -2,13 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { TextStyles } from '../../typography';
 import { theme } from '../../layout/theme';
-import { Link, LinkButton } from '../../legacy/links/links';
+import { Link } from '../../legacy/links/links';
 import { up } from '../../support/breakpoint';
 import {
   Illustration,
   IllustrationSize,
 } from '../../ui/illustration/illustration';
 import { IllustrationType } from '../../ui/illustration/illustration-set';
+import { Button } from '../buttons/button';
 
 export interface LeadContact {
   headline: string;
@@ -128,7 +129,7 @@ interface LeadLinkProps {
 }
 
 export const LeadLink = ({ link }: LeadLinkProps) => {
-  return <LinkButton to={link.href}>{link.title}</LinkButton>;
+  return <Button to={link.href}>{link.title}</Button>;
 };
 
 export const Leadbox = (props: LeadboxProps) => {
