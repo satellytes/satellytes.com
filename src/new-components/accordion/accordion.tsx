@@ -3,7 +3,7 @@ import React from 'react';
 import * as ReachAccordion from '@reach/accordion';
 import '@reach/accordion/styles.css';
 import styled from 'styled-components';
-import { up } from '../../components/style-utils/breakpoint';
+import { up } from '../support/breakpoint';
 import { Illustration } from '../illustration/illustration';
 import { AccordionAnimatedPanel } from './accordion-animated-panel';
 import { IllustrationType } from '../illustration/illustration-set';

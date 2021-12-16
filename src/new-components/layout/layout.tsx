@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import Header, { HEADER_HEIGHT } from '../../components/header/header';
+import Header, { HEADER_HEIGHT } from '../header/header';
 import Navigation from '../navigation/navigation';
 import { HEADER_HEIGHT_VALUE, theme } from './theme';
 import styled, { ThemeProvider } from 'styled-components';
@@ -10,7 +10,7 @@ import {
   LeadboxFooterContainer,
   LeadboxProps,
 } from '../leadbox/leadbox';
-import { up } from '../../components/style-utils/breakpoint';
+import { up } from '../support/breakpoint';
 import {
   Breadcrumb,
   BreadcrumbEntry,

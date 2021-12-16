@@ -5,7 +5,7 @@ import * as ReachAccordion from '@reach/accordion';
 import { theme } from '../layout/theme';
 import { useAccordionItemContext } from '@reach/accordion';
 import React from 'react';
-import { resetButton } from '../../components/css-helpers';
+import { resetButton } from '../support/css-helpers';
 import { Icon } from '../icon/icon';
 
 interface AccordionHeaderProps {

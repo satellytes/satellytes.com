@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { TextStyles } from '../typography';
-import { up } from '../../components/style-utils/breakpoint';
+import { up } from '../support/breakpoint';
 
 interface SectionHeaderProps {
   /**

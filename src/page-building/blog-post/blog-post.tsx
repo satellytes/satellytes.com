@@ -6,7 +6,7 @@ import { MarkdownAst } from '../../components/markdown/markdown-ast';
 import SharePanel from './share-panel';
 import FollowPanel from './follow-panel';
 import styled from 'styled-components';
-import { up } from '../../components/style-utils/breakpoint';
+import { up } from '../../new-components/support/breakpoint';
 import { BlogPostMarkdown, BreadcrumbEntry } from '../../types';
 import { BlogHero } from '../../new-components/heroes/blog-hero';
 import { BlogHeader } from '../../new-components/blog-header/blog-header';

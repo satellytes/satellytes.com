@@ -1,5 +1,5 @@
 import { Breakpoints } from '../../@types/styled-components';
-import { theme } from '../../new-components/layout/theme';
+import { theme } from '../layout/theme';
 
 export const up = (breakpoint: keyof Breakpoints): string => `
     @media (min-width: ${theme.breakpoints[breakpoint]})

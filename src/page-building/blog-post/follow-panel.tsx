@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { up } from '../../components/style-utils/breakpoint';
-import { isBrowser } from '../../components/util/is-browser';
+import { up } from '../../new-components/support/breakpoint';
+import { isBrowser } from '../../new-components/support/is-browser';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { IconRSS } from './social-icons/rss';
 import { SimpleLink } from '../../components/markdown/custom-components';

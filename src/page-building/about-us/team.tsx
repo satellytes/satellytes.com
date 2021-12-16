@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import { up } from '../../components/style-utils/breakpoint';
+import { up } from '../../new-components/support/breakpoint';
 import { Image } from '../../new-components/image/image';
 import { SectionHeader } from '../../new-components/section-header/section-header';
 import { SyTeamMember } from '../../types';

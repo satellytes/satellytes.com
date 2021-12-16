@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Illustration, IllustrationSize } from '../illustration/illustration';
 import { IllustrationType } from '../illustration/illustration-set';
-import { down } from '../../components/style-utils/breakpoint';
+import { down } from '../support/breakpoint';
 import { TextStyles } from '../typography';
 
 interface HeaderBlockProps {

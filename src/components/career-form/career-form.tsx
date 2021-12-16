@@ -18,7 +18,7 @@ import { CareerTextFields } from './career-textfields';
 import { Upload } from './icons/upload';
 import styled from 'styled-components';
 import { CheckboxMark } from './icons/checkbox';
-import { up } from '../style-utils/breakpoint';
+import { up } from '../../new-components/support/breakpoint';
 import { rgba } from 'polished';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 

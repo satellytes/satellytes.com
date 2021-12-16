@@ -6,7 +6,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Expandable } from '../../new-components/expandable/expandable';
 import { TextStyles } from '../../new-components/typography';
-import { up } from '../../components/style-utils/breakpoint';
+import { up } from '../../new-components/support/breakpoint';
 
 const IntroLayout = styled.div`
   ${up('md')} {

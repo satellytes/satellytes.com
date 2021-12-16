@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { up } from '../../components/style-utils/breakpoint';
+import { up } from '../../new-components/support/breakpoint';
 import { Teaser } from '../../new-components/teaser/teaser';
 import { IllustrationType } from '../../new-components/illustration/illustration-set';
 import { SectionHeader } from '../../new-components/section-header/section-header';

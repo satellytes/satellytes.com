@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { up } from '../style-utils/breakpoint';
-import { GRID_GAP_DESKTOP, GRID_GAP_MOBILE } from '../grid/grid';
+import { up } from '../support/breakpoint';
+import { GRID_GAP_DESKTOP, GRID_GAP_MOBILE } from '../../components/grid/grid';
 import { BurgerMenu } from './icons/burger-menu';
 import { CloseBurgerMenuIcon } from './icons/close-burger-menu';
 import { NavigationFlyout } from './menu-flyout';
-import { Link } from '../links/links';
+import { Link } from '../../components/links/links';
 import { Swoosh } from './icons/swoosh';
-import { LanguageSwitch } from '../language-switch/language-switch';
-import { HEADER_HEIGHT_VALUE } from '../../new-components/layout/theme';
+import { LanguageSwitch } from '../../components/language-switch/language-switch';
+import { HEADER_HEIGHT_VALUE } from '../layout/theme';
 
 export const HEADER_HEIGHT = `${HEADER_HEIGHT_VALUE}px`;
 

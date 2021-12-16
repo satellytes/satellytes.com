@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { up } from '../style-utils/breakpoint';
+import { up } from '../../new-components/support/breakpoint';
 import { Text } from '../typography/typography';
 
 interface ValidationProps {

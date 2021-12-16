@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { up } from '../../components/style-utils/breakpoint';
+import { up } from '../support/breakpoint';
 import {
   CONTENT_SPACE_LARGE,
   CONTENT_SPACE_SMALL,

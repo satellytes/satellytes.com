@@ -7,14 +7,14 @@ import {
   WhatsappShareButton,
 } from 'react-share';
 import styled from 'styled-components';
-import { up } from '../../components/style-utils/breakpoint';
+import { up } from '../../new-components/support/breakpoint';
 import { IconEmail } from './social-icons/email';
 import { IconFacebook } from './social-icons/facebook';
 import { LinkedinWrapper } from './social-icons/linkedin';
 import { TwitterWrapper } from './social-icons/twitter';
 import { IconWhatsapp } from './social-icons/whatsapp';
 import { XingWrapper } from './social-icons/xing';
-import { isBrowser } from '../../components/util/is-browser';
+import { isBrowser } from '../../new-components/support/is-browser';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 export interface ShareProps {

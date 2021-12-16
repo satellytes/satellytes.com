@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-import { up } from '../style-utils/breakpoint';
+import { up } from '../../new-components/support/breakpoint';
 import { Illustration } from '../../new-components/illustration/illustration';
 import { IllustrationType } from '../../new-components/illustration/illustration-set';
 import { TextStyles } from '../../new-components/typography';
