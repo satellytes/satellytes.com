@@ -9,11 +9,11 @@ import {
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { LatLngExpression } from 'leaflet';
-import { up } from '../../new-components/support/breakpoint';
+import { up } from '../../../new-components/support/breakpoint';
 
 import { BringMeHome } from './bring-home';
 import { SatellytesMarkerIcon } from './sy-marker';
-import { theme } from '../../new-components/layout/theme';
+import { theme } from '../../../new-components/layout/theme';
 import { Helmet } from 'react-helmet';
 const MAP_VIEW_ZOOM = 20;
 

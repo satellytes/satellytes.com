@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { up } from '../../new-components/support/breakpoint';
 import { isBrowser } from '../../new-components/support/is-browser';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { IconRSS } from './social-icons/rss';
+import { IconRSS } from '../../components/icons/social-icons/rss';
 import { SimpleLink } from '../../components/markdown/custom-components';
 
 const RSS_FEED_URL = '/blog/rss.xml';

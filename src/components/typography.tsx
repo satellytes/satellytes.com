@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { up } from '../../new-components/support/breakpoint';
-import { theme } from '../../new-components/layout/theme';
-import { Swoosh } from '../../new-components/header/icons/swoosh';
-import { HEADER_HEIGHT } from '../../new-components/header/header';
-import { Link } from '../links/links';
+import { up } from '../new-components/support/breakpoint';
+import { theme } from '../new-components/layout/theme';
+import { Swoosh } from './icons/header-icons/swoosh';
+import { HEADER_HEIGHT } from '../new-components/header/header';
+import { Link } from './links/links';
 
 const TitleContainer = styled.div`
   margin-top: calc(96px + ${HEADER_HEIGHT});

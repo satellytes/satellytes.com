@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import React, { ReactNode } from 'react';
-import { Clear } from '../../../components/form/icons/clear';
+import { Clear } from '../../../components/icons/form-icons/clear';
 import { up } from '../../../new-components/support/breakpoint';
 import { rgba } from 'polished';
 

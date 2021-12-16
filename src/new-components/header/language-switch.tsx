@@ -1,11 +1,8 @@
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import styled, { DefaultTheme } from 'styled-components';
-import {
-  Dropdown,
-  DropdownOption,
-} from '../../new-components/dropdown/dropdown';
-import { Icon } from '../../new-components/icon/icon';
+import { Dropdown, DropdownOption } from '../dropdown/dropdown';
+import { Icon } from '../icon/icon';
 
 interface LanguageSwitchProps {
   translation: any;

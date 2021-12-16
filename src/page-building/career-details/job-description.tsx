@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { TextTitle } from '../../components/typography/typography';
+import { TextTitle } from '../../components/typography';
 import { up } from '../../new-components/support/breakpoint';
 import { SyPersonioJobSection } from '../../types';
 

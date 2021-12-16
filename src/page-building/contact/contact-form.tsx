@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { CheckmarkIcon } from '../../components/form/icons/checkmark';
-import { RightArrowIcon } from '../../components/form/icons/right-arrow';
 import {
   ButtonText,
   ErrorMessageSend,
@@ -12,10 +10,12 @@ import {
 } from '../../components/form/controls';
 import { Grid, GridItem } from '../../components/grid/grid';
 import { Link } from '../../components/links/links';
-import { CaptionText } from '../../components/typography/typography';
+import { CaptionText } from '../../components/typography';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 import { SIMPLE_EMAIL_PATTERN } from '../../components/form/constants';
+import { CheckmarkIcon } from '../../components/icons/form-icons/checkmark';
+import { RightArrowIcon } from '../../components/icons/form-icons/right-arrow';
 
 type RequestStatus = 'pending' | 'success' | 'error';
 

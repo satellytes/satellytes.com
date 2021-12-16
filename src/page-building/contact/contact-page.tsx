@@ -1,5 +1,5 @@
 import React from 'react';
-import { Leaflet } from '../../components/leaflet/leaflet';
+import { Leaflet } from './leaflet/leaflet';
 import { Address } from './address';
 import { Form } from './form';
 import { ContentBlockContainer } from '../../new-components/layout/content-block-container';

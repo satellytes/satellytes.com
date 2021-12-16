@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { up } from '../../new-components/support/breakpoint';
-import { Text } from '../typography/typography';
+import { Text } from '../typography';
 import React from 'react';
 import { FormError } from '../../page-building/career-details/career-form/career-components';
 

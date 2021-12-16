@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { WanderAnimation } from './aurora-animation';
-import FlareTypeB from '../../images/aurora/flare-type-b.png';
-import FlareTypeA from '../../images/aurora/flare-type-a.png';
+import FlareTypeB from '../../../images/aurora/flare-type-b.png';
+import FlareTypeA from '../../../images/aurora/flare-type-a.png';
 
 const FLARE_ANIMATION_DURATION = 240;
 

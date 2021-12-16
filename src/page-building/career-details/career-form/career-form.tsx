@@ -16,16 +16,16 @@ import {
   CaptionText,
   TextLink,
   TextTitle,
-} from '../../../components/typography/typography';
+} from '../../../components/typography';
 import { Checkbox, Sup } from '../../../components/form/controls';
 import { FileUpload } from './career-file-upload';
 import { CareerTextFields } from './career-textfields';
-import { Upload } from '../../../components/form/icons/upload';
 import styled from 'styled-components';
-import { CheckboxMark } from '../../../components/form/icons/checkbox';
 import { up } from '../../../new-components/support/breakpoint';
 import { rgba } from 'polished';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
+import { Upload } from '../../../components/icons/form-icons/upload';
+import { CheckboxMark } from '../../../components/icons/form-icons/checkbox';
 
 interface CareerFormProps {
   recruiting_channel_id: string;

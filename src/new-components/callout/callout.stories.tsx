@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import Callout from './callout';
-import { ILLUSTRATION_NAMES } from '../../new-components/illustration/illustration-set';
+import { ILLUSTRATION_NAMES } from '../illustration/illustration-set';
 
 const EXAMPLE_ILLUSTRATIONS = [null, ...ILLUSTRATION_NAMES.slice(0, 5)];
 export default {

@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from '../links/links';
-import { TextStyles } from '../../new-components/typography';
-import { theme } from '../../new-components/layout/theme';
+import { Link } from '../../components/links/links';
+import { TextStyles } from '../typography';
+import { theme } from '../layout/theme';
 
 const BreadcrumbContainer = styled.ol`
   list-style: none;
@@ -31,6 +31,7 @@ const BreadcrumbListItem = styled.li`
     text-overflow: ellipsis;
   }
 `;
+
 interface BreadcrumbProps {
   breadcrumbEntries: BreadcrumbEntry[];
 }

@@ -11,7 +11,7 @@ import {
 } from 'react-hook-form';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { up } from '../../../new-components/support/breakpoint';
-import { SelectArrow } from '../../../components/form/icons/select-arrow';
+import { SelectArrow } from '../../../components/icons/form-icons/select-arrow';
 
 interface CareerFileUploadTypeProps {
   setValue: UseFormSetValue<FieldValues>;

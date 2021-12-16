@@ -2,7 +2,7 @@ import React from 'react';
 import SEO from '../new-components/layout/seo';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
-import { Text } from '../components/typography/typography';
+import { Text } from '../components/typography';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Layout } from '../new-components/layout/layout';

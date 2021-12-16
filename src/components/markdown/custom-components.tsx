@@ -1,9 +1,4 @@
-import {
-  SmallTitle,
-  SubTitle,
-  Text,
-  TextTitle,
-} from '../typography/typography';
+import { SmallTitle, SubTitle, Text, TextTitle } from '../typography';
 
 import styled from 'styled-components';
 import { rgba } from 'polished';

@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import { up } from '../support/breakpoint';
 import { Grid, GridItem } from '../../components/grid/grid';
 
-import { LinkedinWrapper } from '../../page-building/blog-post/social-icons/linkedin';
-import { XingWrapper } from '../../page-building/blog-post/social-icons/xing';
-import { GithubIconWrapper } from '../../page-building/blog-post/social-icons/github';
+import { LinkedinWrapper } from '../../components/icons/social-icons/linkedin';
+import { XingWrapper } from '../../components/icons/social-icons/xing';
+import { GithubIconWrapper } from '../../components/icons/social-icons/github';
 import { Link } from '../../components/links/links';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { LanguageSwitch } from '../../components/language-switch/language-switch';
+import { LanguageSwitch } from '../header/language-switch';
 import { TextStyles } from '../typography';
 
 const NavigationBackground = styled.div`

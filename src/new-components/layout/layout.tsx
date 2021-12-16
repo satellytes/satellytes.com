@@ -11,10 +11,7 @@ import {
   LeadboxProps,
 } from '../leadbox/leadbox';
 import { up } from '../support/breakpoint';
-import {
-  Breadcrumb,
-  BreadcrumbEntry,
-} from '../../components/breadcrumb/breadcrumb';
+import { Breadcrumb, BreadcrumbEntry } from '../breadcrumb/breadcrumb';
 import { setPolarityBodyClass } from './set-polarity';
 import { useAnchorTagScrolling } from './use-anchor-tag-scrolling';
 

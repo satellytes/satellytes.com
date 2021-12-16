@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Aurora, AuroraType } from '../../components/aurora/aurora';
+import { Aurora, AuroraType } from './aurora/aurora';
 import { HeroContainer, TextContainer } from './support';
 import { HeroText, HeroWithText } from './hero-text';
 

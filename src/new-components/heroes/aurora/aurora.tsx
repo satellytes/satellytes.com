@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 import React from 'react';
 
-import AuroraBlurredBackgroundA from '../../images/aurora/bg-blur-a.png';
-import AuroraBlurredBackgroundB from '../../images/aurora/bg-blur-b.png';
-import AuroraBlurredBackgroundC from '../../images/aurora/bg-blur-c.png';
+import AuroraBlurredBackgroundA from '../../../images/aurora/bg-blur-a.png';
+import AuroraBlurredBackgroundB from '../../../images/aurora/bg-blur-b.png';
+import AuroraBlurredBackgroundC from '../../../images/aurora/bg-blur-c.png';
 
 import { Flare, FlareType } from './flare';
 
