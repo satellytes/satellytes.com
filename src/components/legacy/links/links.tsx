@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link as GatsbyLink } from 'gatsby-plugin-react-i18next';
-import { RightArrowIcon } from '../icons/form-icons/right-arrow';
 import { GatsbyLinkProps } from 'gatsby';
 
 interface LinkProps extends GatsbyLinkProps<void> {
@@ -73,45 +72,3 @@ const ExternalLink = styled.a`
   text-decoration: none;
   color: inherit;
 `;
-
-const LinkButtonContainer = styled(Link)`
-  display: inline-block;
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff;
-  text-decoration: none;
-  padding: 11px 16px;
-
-  background: linear-gradient(275.41deg, #543fd7 0%, #2756fd 100%);
-  border-radius: 30px;
-
-  /**
-   * todo: needs to be replaced with an svg. this also makes vertical align 
-   * middle possible / simpler   
-   */
-  svg {
-    transition: transform 0.2s ease-in;
-    margin-left: 20px;
-  }
-  :hover {
-    svg {
-      transform: translateX(2px);
-    }
-  }
-`;
-
-export const LinkButton = (props: LinkProps): JSX.Element => {
-  const {
-    children,
-    // ref is not supported by both link components
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    ref,
-    ...rest
-  } = props;
-  return (
-    <LinkButtonContainer {...rest}>
-      {children}
-      <RightArrowIcon />
-    </LinkButtonContainer>
-  );
-};
