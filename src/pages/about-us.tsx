@@ -2,35 +2,45 @@ import { graphql } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import SEO from '../components/seo';
-import { OfficePage } from '../page-building/office/office-page';
+import { AboutUsPage } from '../page-building/about-us/about-us-page';
 import { SyTeamMember } from '../types';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 
-interface OfficeProps {
+interface AboutUsProps {
   location: Location;
   data: {
+    hero: IGatsbyImageData;
     allTeamJson: {
       nodes: SyTeamMember[];
     };
   };
 }
 
-const Office = (props: OfficeProps) => {
+const AboutUs = (props: AboutUsProps) => {
   const { t } = useTranslation();
   return (
     <>
       <SEO
-        title={`${t('office.title')} | Satellytes`}
+        title={`${t('about-us.title')} | Satellytes`}
         location={props.location}
       />
-      <OfficePage team={props.data.allTeamJson.nodes} />
+      <AboutUsPage
+        heroImageData={props.data.hero}
+        team={props.data.allTeamJson.nodes}
+      />
     </>
   );
 };
 
-export default Office;
-
-export const OfficePageQuery = graphql`
+export default AboutUs;
+export const AboutUsPageQuery = graphql`
   query ($language: String!) {
+    hero: file(relativePath: { eq: "office/sy-office-02.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
+    }
+
     allTeamJson {
       nodes {
         id

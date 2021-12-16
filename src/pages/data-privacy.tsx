@@ -3,10 +3,10 @@ import SEO from '../components/seo';
 import { graphql } from 'gatsby';
 import { MarkdownAst } from '../components/markdown/markdown-ast';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { LayoutV2 } from '../components/layout/layout-v2';
-import { ContentBlockContainerWithoutHero } from '../components/layout/content-block-container';
+import { Layout } from '../components/layout/layout';
 import { SectionHeader } from '../new-components/section-header/section-header';
 import { LocalesQuery } from '../types';
+import { ContentBlockContainer } from '../components/layout/content-block-container';
 
 interface DataPrivacyPageProps {
   data: {
@@ -21,18 +21,18 @@ interface DataPrivacyPageProps {
 const DataPrivacyPage = ({ data, location }: DataPrivacyPageProps) => {
   const { t } = useTranslation();
   return (
-    <LayoutV2 light={true}>
+    <Layout light={true}>
       <SEO
         title={`${t('data-privacy.title')} | Satellytes`}
         description={t('data-privacy.info')}
         location={location}
         noIndex={true}
       />
-      <ContentBlockContainerWithoutHero>
+      <ContentBlockContainer>
         <SectionHeader headline={t('navigation.data-privacy')} />
         <MarkdownAst htmlAst={data.markdownRemark.htmlAst} />
-      </ContentBlockContainerWithoutHero>
-    </LayoutV2>
+      </ContentBlockContainer>
+    </Layout>
   );
 };
 

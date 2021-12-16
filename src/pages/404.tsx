@@ -1,18 +1,10 @@
 import React from 'react';
-
-import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
-import { SubTitle } from '../components/typography/typography';
-import { Grid, GridItem } from '../components/grid/grid';
-import styled from 'styled-components';
-import { up } from '../components/style-utils/breakpoint';
 import { graphql } from 'gatsby';
-
-const NotFoundTitle = styled(SubTitle)`
-  ${up('md')} {
-    margin-top: 220px;
-  }
-`;
+import { SectionHeader } from '../new-components/section-header/section-header';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { Layout } from '../components/layout/layout';
+import { ContentBlockContainer } from '../components/layout/content-block-container';
 
 interface NotFoundPageProps {
   location: Location;
@@ -20,19 +12,20 @@ interface NotFoundPageProps {
 
 const NotFoundPage: React.FC<NotFoundPageProps> = ({
   location,
-}: NotFoundPageProps) => (
-  <Layout>
-    <SEO title="404: Not found | Satellytes" location={location} />
-    <Grid center>
-      <GridItem xs={0} md={2} />
-      <GridItem xs={12} md={8}>
-        <NotFoundTitle>
-          Oh sorry! Our Satellite took the wrong direction.
-        </NotFoundTitle>
-      </GridItem>
-    </Grid>
-  </Layout>
-);
+}: NotFoundPageProps) => {
+  const { t } = useTranslation();
+
+  return (
+    <>
+      <SEO title="404: Not found | Satellytes" location={location} />
+      <Layout light={true}>
+        <ContentBlockContainer>
+          <SectionHeader headline={'404'}>{t('404')}</SectionHeader>
+        </ContentBlockContainer>
+      </Layout>
+    </>
+  );
+};
 
 export default NotFoundPage;
 

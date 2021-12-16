@@ -4,18 +4,11 @@ import { graphql } from 'gatsby';
 import { FluidObject } from 'gatsby-image';
 
 import SEO from '../components/seo';
-import Layout from '../components/layout/layout';
-import { Grid, GridItem } from '../components/grid/grid';
 import { PageTitle, Text } from '../components/typography/typography';
-import { BlogCard } from '../components/cards/blog-card';
-import { formatDate } from '../components/util/format-date';
-import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
-import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
-import { ButtonText, SendButton } from '../components/form/controls';
-import { RightArrowIcon } from '../components/career-form/icons/right-arrow';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { LocalesQuery } from '../types';
-
-const TOP_POST_COUNT = 2;
+import { BlogPage } from '../page-building/blog/blog-page';
 
 interface AllBlogPostsQuery {
   nodes: {
@@ -45,73 +38,19 @@ interface BlogPageProps {
   location: Location;
 }
 
-const BlogPageTitle = styled(PageTitle)`
-  margin-bottom: 40px;
-`;
-
-const BlogPageSubTitle = styled(Text)`
-  margin-bottom: 40px;
-  white-space: pre-line;
-`;
-
-const BlogPage = ({ data, location }: BlogPageProps) => {
+const Blog = ({ data, location }: BlogPageProps) => {
   const { t } = useTranslation();
   const blogPosts = data.allMarkdownRemark.nodes;
-  const { language, changeLanguage } = useI18next();
-  const breadcrumb = [
-    { pathname: '/', label: 'Satellytes' },
-    { pathname: '/blog', label: t('navigation.blog') },
-  ];
-
-  const onClick = (event) => {
-    event.preventDefault();
-    changeLanguage('en');
-  };
 
   return (
-    <Layout light showLanguageSwitch={false} breadcrumb={breadcrumb}>
+    <>
       <SEO title="Blog | Satellytes" location={location} />
-      <Grid center>
-        <GridItem>
-          <BlogPageTitle>{t('navigation.blog')}</BlogPageTitle>
-        </GridItem>
-        <GridItem md={8}>
-          <BlogPageSubTitle>{t('blog.info')}</BlogPageSubTitle>
-          {language != 'en' && <OnlyEnglishInfo onClick={onClick} />}
-        </GridItem>
-      </Grid>
-      {language == 'en' && <BlogPostOverview blogPosts={blogPosts} />}
-    </Layout>
+      <BlogPage posts={blogPosts} />
+    </>
   );
 };
 
-export default BlogPage;
-
-const OnlyEnglishInfo = ({ onClick }) => (
-  <SendButton onClick={onClick}>
-    <ButtonText>Zum Blog</ButtonText> <RightArrowIcon />
-  </SendButton>
-);
-
-const BlogPostOverview = ({ blogPosts }) => (
-  <Grid center>
-    {blogPosts.map((post, index) => {
-      const topBlogPost = index < TOP_POST_COUNT;
-
-      return (
-        <BlogCard
-          key={post.id}
-          large={topBlogPost}
-          image={getImage(post.frontmatter.featuredImage)}
-          title={post.frontmatter.title}
-          text={post.frontmatter.teaserText ?? post.excerpt}
-          caption={formatDate(post.frontmatter.date)}
-          link={post.frontmatter.path}
-        />
-      );
-    })}
-  </Grid>
-);
+export default Blog;
 
 export const BlogPageQuery = graphql`
   query ($language: String!) {
@@ -143,7 +82,6 @@ export const BlogPageQuery = graphql`
                 aspectRatio: 1.77
                 layout: CONSTRAINED
                 placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
               )
             }
           }

@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from '../src/components/layout/theme';
 import { GlobalStyle } from '../src/components/layout/global-style';
 import { i18n } from './i18next';
+import { DocsContainer } from '@storybook/addon-docs';
 
 addDecorator((storyFn) => (
   <>
@@ -13,7 +14,25 @@ addDecorator((storyFn) => (
   </>
 ));
 
+/**
+ * We need to provide our theme to evert page in storybook.
+ * Before we used a story decorator only, but that's not enough
+ * as it won't provide any styles to pages without stories.
+ */
+const DocsPageContainer = ({ children, context }) => {
+  return (
+    <DocsContainer context={context}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle $lightTheme={true} />
+        {children}
+      </ThemeProvider>
+    </DocsContainer>
+  );
+};
 export const parameters = {
+  docs: {
+    container: DocsPageContainer,
+  },
   viewMode: 'docs',
   previewTabs: {
     // move the docs tab to the front

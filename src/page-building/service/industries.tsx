@@ -1,4 +1,4 @@
-import { Teaser } from '../../components/teasers/teaser';
+import { Teaser } from '../../new-components/teaser/teaser';
 import { Intro } from './support';
 import React from 'react';
 import { ContentBlockContainer } from '../../components/layout/content-block-container';
