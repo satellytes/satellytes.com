@@ -38,6 +38,9 @@ const ButtonText = styled.span`
 `;
 
 type RegularButtonProps = React.ComponentPropsWithoutRef<'button'> & {
+  /**
+   * If this prop is provided, the button will be rendered as `a`.
+   */
   to?: string;
 };
 
