@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { TextStyles } from '../../typography';
-import { Icon } from '../../icon/icon';
+import { Icon } from '../../ui/icon/icon';
 
 export const Checkbox = (props) => {
   const [checked, setChecked] = useState(true);

@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import SEO from '../components/layout/seo';
-import { AboutUsPage } from '../page-building/about-us/about-us-page';
+import { AboutUsPage } from '../components/pages/about-us/about-us-page';
 import { SyTeamMember } from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 

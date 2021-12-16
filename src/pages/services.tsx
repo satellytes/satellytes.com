@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import SEO from '../components/layout/seo';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { Service } from '../page-building/service/service';
+import { Service } from '../components/pages/service/service';
 
 interface ServicesPageProps {
   location: Location;

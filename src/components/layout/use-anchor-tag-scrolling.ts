@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { HEADER_HEIGHT } from '../header/header';
+import { HEADER_HEIGHT } from './header/header';
 
 export const useAnchorTagScrolling = (): void => {
   useEffect(() => {

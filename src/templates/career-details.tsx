@@ -2,7 +2,7 @@ import React from 'react';
 import SEO from '../components/layout/seo';
 import { graphql } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { CareerDetails } from '../page-building/career-details/career-details';
+import { CareerDetails } from '../components/pages/career-details/career-details';
 import { SyPersonioJob } from '../types';
 
 interface CareerPageProps {
