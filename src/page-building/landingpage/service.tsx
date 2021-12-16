@@ -48,7 +48,7 @@ export const Service = () => {
       </TeaserGrid>
 
       <Spacer />
-      <LinkButton to={'/services'}>Learn more</LinkButton>
+      <LinkButton to={'/services'}>{t('main.services.button')}</LinkButton>
     </>
   );
 };

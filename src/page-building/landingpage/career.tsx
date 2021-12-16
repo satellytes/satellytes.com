@@ -35,7 +35,7 @@ export const Career = ({ positions }: CareerProps) => {
         ))}
       </TeaserGrid>
       <Spacer />
-      <LinkButton to={'/career'}>Alle offenen Stellen</LinkButton>
+      <LinkButton to={'/career'}>{t('main.career.button')}</LinkButton>
     </>
   );
 };
