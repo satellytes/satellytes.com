@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Icon, IconSize } from '../icon/icon';
 import { resetButton } from '../../support/css-helpers';
 import { lighten } from 'polished';
-import { Link } from '../../components/links/links';
+import { Link } from '../../legacy/links/links';
 import { TextStyles } from '../../typography';
 
 const StyledButton = styled(Link)`

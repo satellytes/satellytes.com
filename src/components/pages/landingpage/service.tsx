@@ -4,7 +4,7 @@ import { Teaser } from '../../content/teaser/teaser';
 import React from 'react';
 import { HomePageHeaderBlock } from './support';
 import styled from 'styled-components';
-import { Button } from '../../new-components/buttons/button';
+import { Button } from '../../ui/buttons/button';
 
 const Spacer = styled.div`
   height: 40px;

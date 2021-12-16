@@ -7,7 +7,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { useLocaleFormat } from '../../i18n-helpers';
 import { BlogPostTeaser } from '../../../types';
 import styled from 'styled-components';
-import { Button } from '../../new-components/buttons/button';
+import { Button } from '../../ui/buttons/button';
 
 interface BlogProps {
   posts: BlogPostTeaser[];

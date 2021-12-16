@@ -9,7 +9,7 @@ import {
   IllustrationSize,
 } from '../../ui/illustration/illustration';
 import { IllustrationType } from '../../ui/illustration/illustration-set';
-import { Button } from '../buttons/button';
+import { Button } from '../../ui/buttons/button';
 
 export interface LeadContact {
   headline: string;

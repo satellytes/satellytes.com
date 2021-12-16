@@ -5,7 +5,7 @@ import React from 'react';
 import { HomePageHeaderBlock } from './support';
 import { SyPersonioJob } from '../../../types';
 import styled from 'styled-components';
-import { Button } from '../../new-components/buttons/button';
+import { Button } from '../../ui/buttons/button';
 
 interface CareerProps {
   positions: SyPersonioJob[];
