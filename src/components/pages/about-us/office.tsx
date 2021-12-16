@@ -31,7 +31,7 @@ export const Office = () => {
       <ImageContentWrapper>
         <Image description="" textAlign="right">
           <StaticImage
-            src="../../assets/images/office/sy-office-03.jpg"
+            src="../../../assets/images/office/sy-office-03.jpg"
             alt="kitchen"
             aspectRatio={564 / 295}
             width={564}
@@ -39,7 +39,7 @@ export const Office = () => {
         </Image>
         <Image description="" textAlign="left">
           <StaticImage
-            src="../../assets/images/office/sy-office-02.jpg"
+            src="../../../assets/images/office/sy-office-02.jpg"
             alt="kitchen"
             aspectRatio={564 / 295}
             width={564}
@@ -47,7 +47,7 @@ export const Office = () => {
         </Image>
         <Image description="" textAlign="right">
           <StaticImage
-            src="../../assets/images/office/sy-office-04.jpg"
+            src="../../../assets/images/office/sy-office-04.jpg"
             alt="kitchen"
             aspectRatio={564 / 295}
             width={564}
