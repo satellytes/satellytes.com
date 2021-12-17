@@ -35,7 +35,7 @@ export const Openings = (props: OpeningsProps) => {
       <SectionHeadline>{t('career.openings.headline')}</SectionHeadline>
       <TeaserGrid>
         {props.jobs.map((item) => (
-          <Teaser title={item.name} linkTo={item.fields?.path} key={item.id}>
+          <Teaser title={item.name} linkTo={item.slug} key={item.id}>
             {item.short}
           </Teaser>
         ))}

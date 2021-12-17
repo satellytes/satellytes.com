@@ -71,9 +71,6 @@ export const IndexPageQuery = graphql`
         short
         createdAt
         slug
-        fields {
-          path
-        }
       }
     }
 
