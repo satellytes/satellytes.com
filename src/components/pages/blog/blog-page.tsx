@@ -34,10 +34,7 @@ export const BlogPage = ({ posts }: BlogPageProps) => {
           {language != 'en' && <NotAvailableInGerman />}
         </BlogHeader>
       </ContentBlockContainer>
-
-      <ContentBlockContainer>
-        {language == 'en' && <Posts posts={posts} />}
-      </ContentBlockContainer>
+      {language == 'en' && <Posts posts={posts} />}
     </Layout>
   );
 };
