@@ -5,10 +5,10 @@
 const createCareerPagePathField = ({ node, createNodeField }) => {
   const getPath = ({ slug, lang }) => {
     if (lang !== 'en') {
-      return `/${lang}/career/${slug}`;
+      return `/${lang}/career/${slug}/`;
     }
 
-    return `/career/${slug}`;
+    return `/career/${slug}/`;
   };
 
   const value = getPath(node);
