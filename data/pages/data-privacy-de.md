@@ -8,7 +8,7 @@ language: de
 1. Im Folgenden informieren wir über die Erhebung personenbezogener Daten bei Nutzung unserer Website. Personenbezogene
    Daten sind alle Daten, die auf Sie persönlich beziehbar sind, z. B. Name, Adresse, E-Mail-Adressen, Nutzerverhalten.
 2. Verantwortlicher gem. Art. 4 Abs. 7 EU-Datenschutz-Grundverordnung (DS-GVO) ist Satellytes Digital Consulting GmbH,
-   Carola-Neher-Straße 10, 81379 München, gholam.abdol@satellytes.com (siehe [Impressum](/imprint/)).
+   Carola-Neher-Straße 10, 81379 München, info@satellytes.com (siehe [Impressum](/imprint/)).
 3. Bei Ihrer Kontaktaufnahme mit uns per E-Mail oder über ein Kontaktformular werden die von Ihnen mitgeteilten Daten (
    Ihre E-Mail-Adresse, ggf. Ihr Name und Ihre Telefonnummer) von uns gespeichert, um Ihre Fragen zu beantworten. Die in
    diesem Zusammenhang anfallenden Daten löschen wir, nachdem die Speicherung nicht mehr erforderlich ist, oder
