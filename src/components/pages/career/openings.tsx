@@ -5,18 +5,7 @@ import { up } from '../../support/breakpoint';
 import { TextStyles } from '../../typography';
 import { SyPersonioJob } from '../../../types';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-
-const TeaserGrid = styled.div`
-  display: grid;
-  gap: 24px;
-
-  justify-items: stretch;
-  grid-template-columns: repeat(auto-fit, 250px);
-  ${up('md')} {
-    gap: 70px;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-`;
+import { TeaserGrid } from '../../content/teaser/teaser-grid';
 
 const SectionHeadline = styled.h2`
   ${TextStyles.headlineXL}
