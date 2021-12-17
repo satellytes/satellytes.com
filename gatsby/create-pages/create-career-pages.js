@@ -22,6 +22,17 @@ const createComplementFinder = (positions) => {
   };
 };
 
+/**
+ * Get the full path including the language
+ */
+const getTranslationPath = (slug, lang) => {
+  if (lang !== 'en') {
+    return `/${lang}${slug}`;
+  }
+
+  return `${slug}`;
+};
+
 const createCareerPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
@@ -36,9 +47,6 @@ const createCareerPages = async ({ actions, graphql }) => {
           jobId
           name
           slug
-          fields {
-            path
-          }
         }
       }
     }
@@ -49,14 +57,15 @@ const createCareerPages = async ({ actions, graphql }) => {
 
   positions.forEach((position) => {
     const complementPosition = complementFinder.get(position);
+    const path = getTranslationPath(position.slug, position.lang);
 
     createPage({
-      path: position.fields.path,
+      path: path,
       component: CAREER_DETAILS_TEMPLATE_PATH,
       context: {
         id: position.id, // internal object id which is unique across all jobs
         language: position.lang,
-        translation: complementPosition?.fields.path ?? null,
+        translation: complementPosition?.slug ?? null,
       },
     });
   });

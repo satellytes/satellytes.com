@@ -29,7 +29,7 @@ export const Career = ({ positions }: CareerProps) => {
 
       <TeaserGrid>
         {positions.map((item) => (
-          <Teaser key={item.id} title={item.name} linkTo={item.fields?.path}>
+          <Teaser key={item.id} title={item.name} linkTo={item.slug}>
             {item.short}
           </Teaser>
         ))}

@@ -6,13 +6,7 @@ const { createBlogPosts } = require('./gatsby/create-pages/create-blog-posts');
 const {
   createCareerPages,
 } = require('./gatsby/create-pages/create-career-pages');
-const {
-  createFilePath,
-  createFileNodeFromBuffer,
-} = require('gatsby-source-filesystem');
-const {
-  createCareerPagePathField,
-} = require('./gatsby/create-node/create-career-page-path');
+const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.onCreateNode = (gatsbyCreateNodeArgs) => {
   createPreviewCards(gatsbyCreateNodeArgs);
@@ -30,10 +24,6 @@ exports.onCreateNode = (gatsbyCreateNodeArgs) => {
       node,
       value,
     });
-  }
-
-  if (node.internal.type === `SyPersonioJob`) {
-    createCareerPagePathField({ node, createNodeField });
   }
 };
 

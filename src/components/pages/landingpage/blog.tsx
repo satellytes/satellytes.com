@@ -40,6 +40,7 @@ export const Blog = ({ posts }: BlogProps) => {
               key={item.id}
               title={item.frontmatter.title}
               linkTo={item.frontmatter.path}
+              language={'en'}
               dateFormatted={dateFormatter(item.frontmatter.date)}
               image={image && <GatsbyImage alt="" image={image} />}
             >

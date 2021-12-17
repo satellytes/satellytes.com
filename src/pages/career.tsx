@@ -64,9 +64,6 @@ export const CareerPageQuery = graphql`
         short
         createdAt
         slug
-        fields {
-          path
-        }
       }
     }
 
