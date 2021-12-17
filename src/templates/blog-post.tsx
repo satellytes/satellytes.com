@@ -37,11 +37,12 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
        */}
       <SEO
         title={`${markdown.frontmatter.title} | Satellytes`}
+        author={markdown.frontmatter.author}
+        publishDate={markdown.frontmatter.date}
         imageUrl={markdown.fields?.socialCard}
         siteType="article"
         description={markdown.frontmatter.seoMetaText ?? markdown.excerpt}
         location={location}
-        noTranslation={true}
       />
 
       <BlogPostPage markdown={markdown} breadcrumb={breadcrumb} />

@@ -84,3 +84,11 @@ export interface BreadcrumbEntry {
   pathname: string;
   label: string;
 }
+
+export interface I18nNextData {
+  languages: string[];
+  language: string;
+  path: string;
+  originalPath: string;
+  defaultLanguage: string;
+}
