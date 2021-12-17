@@ -50,7 +50,7 @@ export const Blog = ({ posts }: BlogProps) => {
       </TeaserGrid>
 
       <Spacer />
-      <Button to={'/blog'}>Alle Artikel</Button>
+      <Button to={'/blog'}>{t('main.blog.button')}</Button>
     </>
   );
 };
