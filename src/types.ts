@@ -42,7 +42,6 @@ export interface SyPersonioJob {
 
   // now owned by the source plugin, added via `onCreateNode`
   fields: {
-    path: string;
     socialCard: string;
   };
 }

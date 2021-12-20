@@ -82,6 +82,10 @@ const StyledIcon = styled(Icon)`
 
 export interface TeaserProps {
   /**
+   * allow to force a specific language for the given link
+   */
+  language?: string;
+  /**
    * The main title of the teaser
    */
   title: string;
@@ -112,11 +116,12 @@ export interface TeaserProps {
   children: React.ReactNode | React.ReactNode[];
 }
 
-const ConditionalLink = ({ to, children, onHover }) => {
+const ConditionalLink = ({ to, children, onHover, language }) => {
   if (to) {
     return (
       <Link
         to={to}
+        language={language}
         onMouseOver={() => {
           onHover(true);
         }}
@@ -132,6 +137,7 @@ const ConditionalLink = ({ to, children, onHover }) => {
 
 export const Teaser = ({
   topline,
+  language,
   title,
   dateFormatted,
   image,
@@ -146,6 +152,7 @@ export const Teaser = ({
   return (
     <TeaserContainer className={className} hover={hoverActive}>
       <ConditionalLink
+        language={language}
         onHover={(hasHover) => setIsHoverActive(hasHover)}
         to={linkTo}
       >

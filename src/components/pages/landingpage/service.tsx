@@ -25,30 +25,30 @@ export const Service = () => {
 
       <TeaserGrid>
         <Teaser
-          title={t('main.services.teasers.first.title')}
+          title={t('services.platform.title')}
           linkTo="/services"
           illustration="monitor_024"
         >
-          {t('main.services.teasers.first.text')}
+          {t('services.platform.teaser')}
         </Teaser>
         <Teaser
-          title={t('main.services.teasers.second.title')}
+          title={t('services.consulting.title')}
           linkTo="/services"
           illustration="scientist_042"
         >
-          {t('main.services.teasers.second.text')}
+          {t('services.consulting.teaser')}
         </Teaser>
         <Teaser
-          title={t('main.services.teasers.third.title')}
+          title={t('services.products_services.title')}
           linkTo="/services"
           illustration="book_038"
         >
-          {t('main.services.teasers.third.text')}
+          {t('services.products_services.teaser')}
         </Teaser>
       </TeaserGrid>
 
       <Spacer />
-      <Button to={'/services'}>Learn more</Button>
+      <Button to={'/services'}>{t('main.services.button')}</Button>
     </>
   );
 };
