@@ -7,8 +7,8 @@ language: en
 
 1. In the following we inform about the collection of personal data when using our website. Personal
    data are all data that can be related to you personally, e.g. name, address, e-mail addresses, user behavior. 
-2. The responsible party pursuant to Article 4 (7) of the EU General Data Protection Regulation (DS-GVO) is Satellytes Digital Consulting GmbH,
-   Carola-Neher-Straße 10, 81379 Munich, Germany, gholam.abdol@satellytes.com (see [Imprint](/imprint/)).
+2. The responsible party pursuant to Article 4 (7) of the EU General Data Protection Regulation (GDPR) is Satellytes Digital Consulting GmbH,
+   Carola-Neher-Straße 10, 81379 Munich, Germany, info@satellytes.com (see [Imprint](/imprint/)).
 3. When you contact us by e-mail or via a contact form, the data you provide (
    your e-mail address, if applicable your name and your telephone number) will be stored by us in order to answer your questions. The data
    in this context, we will delete the data after the storage is no longer necessary, or
@@ -35,7 +35,7 @@ language: en
    information, we only collect the personal data that your browser transmits to our server.
    transmitted. If you wish to view our website, we collect the following data, which are technically
    necessary for us to display our website to you and to ensure its stability and security (
-   Legal basis is Art. 6 para. 1 p. 1 lit. f DS-GVO):
+   Legal basis is Art. 6 para. 1 p. 1 lit. f GDPR):
 
    - IP address
    - Date and time of the request
@@ -89,7 +89,7 @@ language: en
    illustrated in the following description of the functions. When exercising such an objection, we ask you to explain the reasons why we do not process your
    why we should not process your personal data as we have done. In the event of your justified objection
    we will review the situation and either discontinue or adjust the data processing or provide you with our
-   compelling reasons worthy of protection, on the basis of which we will continue the processing. 
+   compelling reasons worthy of protection, on the basis of which we will continue the processing.
 3. You can, of course, object to the processing of your personal data for the purposes of advertising and data analysis at any time.
    at any time. You can inform us of your advertising objection using the following contact details:
    [imprint](/imprint/).

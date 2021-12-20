@@ -7,8 +7,8 @@ language: de
 
 1. Im Folgenden informieren wir über die Erhebung personenbezogener Daten bei Nutzung unserer Website. Personenbezogene
    Daten sind alle Daten, die auf Sie persönlich beziehbar sind, z. B. Name, Adresse, E-Mail-Adressen, Nutzerverhalten.
-2. Verantwortlicher gem. Art. 4 Abs. 7 EU-Datenschutz-Grundverordnung (DS-GVO) ist Satellytes Digital Consulting GmbH,
-   Carola-Neher-Straße 10, 81379 München, gholam.abdol@satellytes.com (siehe [Impressum](/imprint/)).
+2. Verantwortlicher gem. Art. 4 Abs. 7 EU-Datenschutz-Grundverordnung (DSGVO) ist Satellytes Digital Consulting GmbH,
+   Carola-Neher-Straße 10, 81379 München, info@satellytes.com (siehe [Impressum](/de/imprint/)).
 3. Bei Ihrer Kontaktaufnahme mit uns per E-Mail oder über ein Kontaktformular werden die von Ihnen mitgeteilten Daten (
    Ihre E-Mail-Adresse, ggf. Ihr Name und Ihre Telefonnummer) von uns gespeichert, um Ihre Fragen zu beantworten. Die in
    diesem Zusammenhang anfallenden Daten löschen wir, nachdem die Speicherung nicht mehr erforderlich ist, oder
@@ -36,7 +36,7 @@ language: de
    Informationen übermitteln, erheben wir nur die personenbezogenen Daten, die Ihr Browser an unseren Server
    übermittelt. Wenn Sie unsere Website betrachten möchten, erheben wir die folgenden Daten, die für uns technisch
    erforderlich sind, um Ihnen unsere Website anzuzeigen und die Stabilität und Sicherheit zu gewährleisten (
-   Rechtsgrundlage ist Art. 6 Abs. 1 S. 1 lit. f DS-GVO):
+   Rechtsgrundlage ist Art. 6 Abs. 1 S. 1 lit. f DSGVO):
 
     - IP-Adresse
     - Datum und Uhrzeit der Anfrage
@@ -93,7 +93,7 @@ language: de
    zwingenden schutzwürdigen Gründe aufzeigen, aufgrund derer wir die Verarbeitung fortführen.
 3. Selbstverständlich können Sie der Verarbeitung Ihrer personenbezogenen Daten für Zwecke der Werbung und Datenanalyse
    jederzeit widersprechen. Über Ihren Werbewiderspruch können Sie uns unter folgenden Kontaktdaten informieren:
-   siehe [Impressum](/imprint/).
+   siehe [Impressum](/de/imprint/).
 
 #### §6 Einsatz von Netlify
 
