@@ -1,34 +1,43 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import {
-  ButtonText,
-  ErrorMessageSend,
-  InputField,
-  SendButton,
-  SentButton,
-  Sup,
-} from '../../legacy/form/controls';
+import { InputField } from '../../legacy/form/controls';
 import { Grid, GridItem } from '../../legacy/grid/grid';
 import { Link } from '../../legacy/links/links';
-import { CaptionText } from '../../legacy/typography';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 import { SIMPLE_EMAIL_PATTERN } from '../../legacy/form/constants';
-import { CheckmarkIcon } from '../../legacy/icons/form-icons/checkmark';
-import { RightArrowIcon } from '../../legacy/icons/form-icons/right-arrow';
+import { TextStyles } from '../../typography';
+import { Button } from '../../ui/buttons/button';
+import { SectionHeader } from '../../content/section-header/section-header';
 
 type RequestStatus = 'pending' | 'success' | 'error';
 
-const StyledCaptionText = styled(CaptionText)`
-  color: inherit;
+const CaptionText = styled.p`
+  ${TextStyles.textXS}
+  margin: 16px 0 48px;
 `;
+
+const ErrorMessageSend = styled.p`
+  ${TextStyles.textXS}
+  font-weight: 700;
+  display: inline-block;
+  margin: 0 16px;
+
+  /*todo add color path*/
+  color: #ff0d35;
+`;
+
 interface FormData {
   name: string;
   email: string;
   message: string;
 }
 
-export const ContactForm: React.FC = () => {
+interface FormDataProps {
+  onSuccess: () => void;
+}
+
+export const ContactForm = ({ onSuccess }: FormDataProps) => {
   const { t } = useTranslation();
   const [requestStatus, setRequestStatus] = useState<RequestStatus>('pending');
   const {
@@ -58,6 +67,7 @@ export const ContactForm: React.FC = () => {
         if (!response.ok) {
           setRequestStatus('error');
         } else {
+          onSuccess();
           setRequestStatus('success');
         }
       })
@@ -67,90 +77,86 @@ export const ContactForm: React.FC = () => {
       });
   };
 
-  return (
-    <form
-      name="contact"
-      method="POST"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
-      onSubmit={handleSubmit(onSubmit)}
-    >
-      <Grid nested>
-        {/*First Name*/}
-        <GridItem xs={12} md={6}>
-          <InputField
-            required={true}
-            inputRef={register('name', {
-              required: t<string>('contact.error.name'),
-            })}
-            error={errors.name}
-            name="name"
-            label={t('contact.name')}
-          />
-        </GridItem>
-        <GridItem xs={12} md={6}>
-          <InputField
-            required={true}
-            inputRef={register('email', {
-              required: t<string>('contact.error.email'),
-              pattern: {
-                value: SIMPLE_EMAIL_PATTERN,
-                message: t<string>('contact.error.email-unknown'),
-              },
-            })}
-            error={errors.email}
-            name="email"
-            label={t<string>('contact.email')}
-          />
-        </GridItem>
-        <GridItem>
-          <InputField
-            required={true}
-            inputRef={register('message', {
-              required: t<string>('contact.error.message'),
-            })}
-            error={errors.message}
-            name="message"
-            label={t('contact.message')}
-            type={'text-area'}
-          />
-        </GridItem>
-        <GridItem>
-          <StyledCaptionText>
-            <Sup>*</Sup> {t('contact.mandatory-field')}
-          </StyledCaptionText>
-        </GridItem>
-        <GridItem>
-          {requestStatus === 'pending' && (
-            <SendButton type="submit">
-              <ButtonText>{t('contact.action.send')}</ButtonText>{' '}
-              <RightArrowIcon />
-            </SendButton>
-          )}
-          {(errors.name || errors.email || errors.message) && (
-            <ErrorMessageSend>{t('contact.action.missing')}</ErrorMessageSend>
-          )}
-          {requestStatus === 'success' && (
-            <SentButton type="button">
-              <ButtonText>{t('contact.action.sent')}</ButtonText>{' '}
-              <CheckmarkIcon />
-            </SentButton>
-          )}
-          {requestStatus === 'error' && (
-            <>
-              <Trans i18nKey="contact.action.again-text">
-                Leider gab es einen Fehler. Bitte versuche es noch einmal.
-                Klappt das nicht, schicke deine Nachricht bitte direkt an
-                <Link to="mailto:beep@satellytes.com">beep@satellytes.com</Link>
-              </Trans>
-              <SendButton type="submit">
-                <ButtonText>{t('contact.action.again')}</ButtonText>{' '}
-                <RightArrowIcon />
-              </SendButton>
-            </>
-          )}
-        </GridItem>
-      </Grid>
-    </form>
-  );
+  if (requestStatus === 'success') {
+    return (
+      <SectionHeader headline={t('contact.action.sent.headline')}>
+        {t('contact.action.sent.text')}
+      </SectionHeader>
+    );
+  } else {
+    return (
+      <form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <Grid nested>
+          {/*Name*/}
+          <GridItem xs={12} md={6}>
+            <InputField
+              required={true}
+              inputRef={register('name', {
+                required: t<string>('contact.error.name'),
+              })}
+              error={errors.name}
+              name="name"
+              label={t('contact.name')}
+            />
+          </GridItem>
+
+          {/*Email*/}
+          <GridItem xs={12} md={6}>
+            <InputField
+              required={true}
+              inputRef={register('email', {
+                required: t<string>('contact.error.email'),
+                pattern: {
+                  value: SIMPLE_EMAIL_PATTERN,
+                  message: t<string>('contact.error.email-unknown'),
+                },
+              })}
+              error={errors.email}
+              name="email"
+              label={t<string>('contact.email')}
+            />
+          </GridItem>
+        </Grid>
+
+        {/*Message*/}
+        <InputField
+          required={true}
+          inputRef={register('message', {
+            required: t<string>('contact.error.message'),
+          })}
+          error={errors.message}
+          name="message"
+          label={t('contact.message')}
+          type={'text-area'}
+        />
+
+        <CaptionText>
+          <span>*</span> {t('contact.mandatory-field')}
+        </CaptionText>
+
+        {requestStatus === 'pending' && (
+          <Button type="submit">{t('contact.action.send')}</Button>
+        )}
+        {(errors.name || errors.email || errors.message) && (
+          <ErrorMessageSend>{t('contact.action.missing')}</ErrorMessageSend>
+        )}
+        {requestStatus === 'error' && (
+          <>
+            <Trans i18nKey="contact.action.again-text">
+              Leider gab es einen Fehler. Bitte versuche es noch einmal. Klappt
+              das nicht, schicke deine Nachricht bitte direkt an
+              <Link to="mailto:beep@satellytes.com">beep@satellytes.com</Link>
+            </Trans>
+            <Button type="submit">{t('contact.action.again')}</Button>
+          </>
+        )}
+      </form>
+    );
+  }
 };
