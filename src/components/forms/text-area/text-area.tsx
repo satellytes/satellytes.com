@@ -37,10 +37,22 @@ const StyledErrorMessage = styled.span`
 `;
 
 export interface TextAreaProps {
-  label?: string;
-  name: string;
-  errorMessage: string;
   inputRef: any;
+  /**
+   * `name` is the id of the text area
+   */
+  name: string;
+  /**
+   * A label which is displayed above the text area
+   */
+  label?: string;
+  /**
+   * The error message is displayed below the text area and changes the style of the textarea
+   */
+  errorMessage?: string;
+  /**
+   * Marks the textarea as a required field of the form
+   */
   required?: boolean;
 }
 
