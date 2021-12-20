@@ -53,7 +53,7 @@ const StyledErrorMessage = styled.span`
   color: ${theme.palette.text.errorMessage};
 `;
 
-export interface TextAreaProps {
+export interface TextInputProps {
   inputRef: any;
   /**
    * `name` is the id of the text input
@@ -84,7 +84,7 @@ export const TextInput = ({
   inputRef,
   required,
   type = 'input',
-}: TextAreaProps) => {
+}: TextInputProps) => {
   return (
     <>
       {label && (
