@@ -5,14 +5,48 @@ import { TextInput } from './textinput';
   title="Components/Forms/TextInput"
   component={{ TextInput }}/>
 
-> ⚠️ API not usable yet, design focused only
-
 # TextInput
+The component is used to get textinput from the user. The `type` prop can be used to choose between `textarea` and `input`.
 
+<ArgsTable of={TextInput}/>
+
+
+## As Input
 <Canvas withSource='open'>
-  <Story name='Regular'>
-    <TextInput label="First Name *"/>
+  <Story name='As Input'>
+    <TextInput
+      label="Message"
+      name="message"
+      errorMessage=""
+      required={true}
+    />
+    <TextInput
+      label="Message"
+      name="message"
+      errorMessage="With Error"
+      required={true}
+    />
   </Story>
 </Canvas>
 
-<ArgsTable of={TextInput}/>
+## As Textarea
+<Canvas withSource='open'>
+  <Story name='Text Area'>
+    <TextInput
+      label="Message"
+      name="message"
+      errorMessage=""
+      required={true}
+      type='textarea'
+    />
+    <TextInput
+      label="Message"
+      name="message"
+      errorMessage="With Error"
+      required={true}
+      type='textarea'
+    />
+  </Story>
+</Canvas>
+
+
