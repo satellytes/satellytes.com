@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { TextStyles } from '../../typography';
 import { theme } from '../../layout/theme';
+import { Label, StyledErrorMessage } from '../textinput/textinput';
 
 const StyledTextArea = styled.textarea<{ hasError?: boolean }>`
   height: 160px;
@@ -17,23 +18,6 @@ const StyledTextArea = styled.textarea<{ hasError?: boolean }>`
       props.hasError
         ? theme.palette.text.errorMessage
         : theme.palette.background.leadbox};
-`;
-
-const Label = styled.label`
-  ${TextStyles.textXS}
-  display: block;
-  margin-bottom: 4px;
-
-  color: ${theme.palette.text.default};
-`;
-
-const StyledErrorMessage = styled.span`
-  ${TextStyles.textXS}
-  font-weight: 700;
-  display: block;
-  margin-top: 4px;
-
-  color: ${theme.palette.text.errorMessage};
 `;
 
 export interface TextAreaProps {

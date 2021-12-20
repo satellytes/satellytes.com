@@ -1,22 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 import { TextStyles } from '../../typography';
+import { theme } from '../../layout/theme';
 
-const StyledLabel = styled.span`
+export const Label = styled.label`
   ${TextStyles.textXS}
   display: block;
   margin-bottom: 4px;
 
-  color: #202840;
+  color: ${theme.palette.text.default};
 `;
 
-const StyledErrorMessage = styled.span`
+export const StyledErrorMessage = styled.span`
   ${TextStyles.textXS}
+  font-weight: 700;
   display: block;
   margin-top: 4px;
 
-  font-weight: 700;
-  color: #ff0d35;
+  color: ${theme.palette.text.errorMessage};
 `;
 
 interface TextInputProps {
@@ -45,7 +46,7 @@ export const TextInput = ({ label, errorMessage }: TextInputProps) => {
 
   return (
     <label>
-      <StyledLabel>{label}</StyledLabel>
+      <Label>{label}</Label>
       <StyledInputText />
       {errorMessage && <StyledErrorMessage>{errorMessage}</StyledErrorMessage>}
     </label>
