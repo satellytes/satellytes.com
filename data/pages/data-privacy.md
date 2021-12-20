@@ -6,8 +6,8 @@ language: en
 #### §1 Information about the collection of personal data
 
 1. In the following we inform about the collection of personal data when using our website. Personal
-   data are all data that can be related to you personally, e.g. name, address, e-mail addresses, user behavior.
-2. The responsible party pursuant to Article 4 (7) of the EU General Data Protection Regulation (DS-GVO) is Satellytes Digital Consulting GmbH,
+   data are all data that can be related to you personally, e.g. name, address, e-mail addresses, user behavior. 
+2. The responsible party pursuant to Article 4 (7) of the EU General Data Protection Regulation (GDPR) is Satellytes Digital Consulting GmbH,
    Carola-Neher-Straße 10, 81379 Munich, Germany, info@satellytes.com (see [Imprint](/imprint/)).
 3. When you contact us by e-mail or via a contact form, the data you provide (
    your e-mail address, if applicable your name and your telephone number) will be stored by us in order to answer your questions. The data
@@ -35,7 +35,7 @@ language: en
    information, we only collect the personal data that your browser transmits to our server.
    transmitted. If you wish to view our website, we collect the following data, which are technically
    necessary for us to display our website to you and to ensure its stability and security (
-   Legal basis is Art. 6 para. 1 p. 1 lit. f DS-GVO):
+   Legal basis is Art. 6 para. 1 p. 1 lit. f GDPR):
 
    - IP address
    - Date and time of the request
