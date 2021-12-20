@@ -17,7 +17,8 @@ export const Consulting = () => {
 
       <UnorderedList>
         <li>{t('services.consulting.list.workshops')}</li>
-        <li>{t('services.consulting.list.analysis')}</li>
+        <li>{t('services.consulting.list.techanalysis')}</li>
+        <li>{t('services.consulting.list.uxanalysis')}</li>
       </UnorderedList>
     </ContentBlockContainer>
   );
