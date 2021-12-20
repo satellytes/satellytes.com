@@ -20,7 +20,7 @@
   },
 
   {
-    "name": "Felix ",
+    "name": "Felix Hofmann",
     "image": "team/felix-_MG_1866.jpg"
   },
 
@@ -52,5 +52,10 @@
   {
     "name": "Pavel",
     "image": "team/pavel-_MG_1860.jpg"
+  },
+
+  {
+    "name": "Felix Hamann",
+    "image": "team/felix_hamann.jpg"
   }
 ]
