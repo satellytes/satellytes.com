@@ -34,22 +34,22 @@ interface SeoProps {
  * that is available for every page.
  */
 const buildAlternateMetaTags = (
-  { languages, language, path, originalPath, defaultLanguage }: I18nNextData,
+  { languages, language, originalPath, defaultLanguage }: I18nNextData,
   host,
   overrideLanguages,
 ) => {
   const otherLanguages =
     overrideLanguages ?? languages.filter((item) => item !== language);
 
-  const getUrl = (path, language) => {
-    if (language === defaultLanguage) {
+  const getUrl = (otherLanguage) => {
+    if (otherLanguage === defaultLanguage) {
       return `${host}${originalPath}`;
     }
-    return `${host}/${language}${originalPath}`;
+    return `${host}/${otherLanguage}${originalPath}`;
   };
 
   const alternateLanguages = otherLanguages.map((language) => {
-    const url = getUrl(originalPath, language);
+    const url = getUrl(language);
     return { url, language };
   });
 
