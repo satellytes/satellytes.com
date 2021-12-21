@@ -1,5 +1,5 @@
 import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { HeroContainer, TextContainer } from './support';
 import { HeroText, HeroWithText } from './hero-text';
 import styled from 'styled-components';

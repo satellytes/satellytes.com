@@ -38,11 +38,10 @@ export const Team = ({ team }: TeamProps) => {
 
       <TeamLayout>
         {team.map((member) => {
+          const imageData = getImage(member.image);
           return (
             <Image description={member.name} textAlign="bottom" key={member.id}>
-              {member.image && (
-                <GatsbyImage alt="" image={getImage(member.image)!} />
-              )}
+              {imageData && <GatsbyImage alt="" image={imageData} />}
             </Image>
           );
         })}

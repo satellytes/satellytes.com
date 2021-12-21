@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import { up } from '../../support/breakpoint';
-import React from 'react';
 import { rgba } from 'polished';
 
 /**

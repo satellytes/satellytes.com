@@ -58,6 +58,10 @@ const createCareerPages = async ({ actions, graphql }) => {
   positions.forEach((position) => {
     const complementPosition = complementFinder.get(position);
     const path = getTranslationPath(position.slug, position.lang);
+    // create an array of available languages, otherwise empty
+    const overrideLanguages = [complementPosition?.lang ?? null].filter(
+      (language) => language !== null,
+    );
 
     createPage({
       path: path,
@@ -66,6 +70,7 @@ const createCareerPages = async ({ actions, graphql }) => {
         id: position.id, // internal object id which is unique across all jobs
         language: position.lang,
         translation: complementPosition?.slug ?? null,
+        overrideLanguages: overrideLanguages,
       },
     });
   });

@@ -9,6 +9,7 @@ interface CareerPageProps {
   pageContext: {
     language: string;
     translation: string;
+    overrideLanguages: string[];
     i18n: {
       originalPath: string;
     };
@@ -34,8 +35,7 @@ const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
         description={t('career.seo.description-detail', {
           name: position.name,
         })}
-        translatedPath={pageContext.translation}
-        noTranslation={!pageContext.translation}
+        overrideLanguages={pageContext.overrideLanguages}
         location={props.location}
       />
 
