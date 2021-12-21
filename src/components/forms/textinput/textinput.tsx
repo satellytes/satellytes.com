@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { TextStyles } from '../../typography';
 import { theme } from '../../layout/theme';
 
@@ -12,11 +12,12 @@ const TextArea = styled.textarea<{ hasError?: boolean }>`
   ${TextStyles.textR}
 
   background: ${theme.palette.background.leadbox};
-  border: 2px solid
-    ${(props) =>
-      props.hasError
-        ? theme.palette.text.errorMessage
-        : theme.palette.background.leadbox};
+  border: 2px solid ${theme.palette.background.leadbox};
+  ${(props) =>
+    props.hasError &&
+    css`
+      border: 2px solid ${theme.palette.text.errorMessage};
+    `};
 `;
 
 const Input = styled.input<{ hasError?: boolean }>`
@@ -29,11 +30,12 @@ const Input = styled.input<{ hasError?: boolean }>`
   ${TextStyles.textR}
 
   background: ${theme.palette.background.leadbox};
-  border: 2px solid
-    ${(props) =>
-      props.hasError
-        ? theme.palette.text.errorMessage
-        : theme.palette.background.leadbox};
+  border: 2px solid ${theme.palette.background.leadbox};
+  ${(props) =>
+    props.hasError &&
+    css`
+      border: 2px solid ${theme.palette.text.errorMessage};
+    `};
 `;
 
 const Label = styled.label`
