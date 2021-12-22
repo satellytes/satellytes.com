@@ -11,7 +11,7 @@
 
 const PRODUCTION_BRANCH = 'main';
 const buildGatsbyCloudPreviewUrl = ({ prefix, branch }) => {
-  if (!branch || branch === PRODUCTION_BRANCH) {
+  if (!prefix | !branch || branch === PRODUCTION_BRANCH) {
     return null;
   }
 

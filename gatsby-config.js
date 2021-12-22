@@ -13,7 +13,7 @@ const BRANCH_PREVIEW_URL = buildGatsbyCloudPreviewUrl({
 const BASE_URL =
   BRANCH_PREVIEW_URL || process.env.GATBSY_BASE_UR || 'http://localhost:8000';
 
-console.info({ GATSBY_SITE_PREFIX, BRANCH_PREVIEW_URL, BASE_URL });
+console.info('BASE_URL', BASE_URL);
 
 const LANGUAGES = ['en', 'de'];
 const DEFAULT_LANGUAGE = 'en';
