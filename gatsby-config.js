@@ -9,6 +9,7 @@ const BASE_URL = buildGatsbyCloudPreviewUrl({
 });
 
 console.info(`Using BASE_URL ${BASE_URL}`);
+console.info(`env`, process.env);
 const LANGUAGES = ['en', 'de'];
 const DEFAULT_LANGUAGE = 'en';
 
