@@ -4,10 +4,10 @@ const {
 const siteMapTransformers = require('./gatsby/gatsby-plugin-sitemap/gatsby-plugin-sitemap');
 
 const GATSBY_SITE_PREFIX = process.env.GATSBY_SITE_PREFIX ?? '';
-const BRANCH_PREVIEW_URL = buildGatsbyCloudPreviewUrl(
-  GATSBY_SITE_PREFIX,
-  process.env.BRANCH,
-);
+const BRANCH_PREVIEW_URL = buildGatsbyCloudPreviewUrl({
+  prefix: GATSBY_SITE_PREFIX,
+  branch: process.env.BRANCH,
+});
 const BASE_URL =
   process.env.GATBSY_BASE_URL || BRANCH_PREVIEW_URL || 'http://localhost:8000';
 
