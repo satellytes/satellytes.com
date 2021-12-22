@@ -8,8 +8,10 @@ const BRANCH_PREVIEW_URL = buildGatsbyCloudPreviewUrl({
   prefix: GATSBY_SITE_PREFIX,
   branch: process.env.BRANCH,
 });
+
+// either use a branch preview url if any
 const BASE_URL =
-  process.env.GATBSY_BASE_URL || BRANCH_PREVIEW_URL || 'http://localhost:8000';
+  BRANCH_PREVIEW_URL || process.env.GATBSY_BASE_UR || 'http://localhost:8000';
 
 console.info({ GATSBY_SITE_PREFIX, BRANCH_PREVIEW_URL, BASE_URL });
 

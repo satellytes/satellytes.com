@@ -8,8 +8,10 @@
  * Only lower case letters and numbers are used, everything else is filtered out.
  *
  */
+
+const PRODUCTION_BRANCH = 'main';
 const buildGatsbyCloudPreviewUrl = ({ prefix, branch }) => {
-  if (!branch) {
+  if (!branch || branch === PRODUCTION_BRANCH) {
     return null;
   }
 
