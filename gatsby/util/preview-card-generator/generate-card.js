@@ -63,13 +63,6 @@ const wrapTextFactory = (context) => (text, x, y, maxWidth, lineHeight) => {
  * by composing a background with a title
  * and an optional author.
  */
-async function generateCard({ title, author }, file) {
-  const buffer = await generateCardToBuffer({ title, author });
-  fs.writeFileSync(file, buffer);
-
-  return file;
-}
-
 async function generateCardToBuffer({ title, author }) {
   const canvas = createCanvas(CARD_WIDTH, CARD_HEIGHT);
 
@@ -106,6 +99,5 @@ async function generateCardToBuffer({ title, author }) {
 }
 
 module.exports = {
-  generateCard,
   generateCardToBuffer,
 };
