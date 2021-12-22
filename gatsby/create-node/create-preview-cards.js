@@ -23,13 +23,13 @@ const createPreviewMarkdown = ({ node, _, actions }) => {
     lower: true,
   })}.jpg`;
   const outputFile = path.join('public', fileName);
-  const publicUrl = `${siteMetadata.siteUrl}/${fileName}`;
+  const imagePath = `/${fileName}`;
 
   generateCard({ title: post.title }, outputFile).then(() => {
     createNodeField({
       node,
       name: `socialCard`,
-      value: publicUrl,
+      value: imagePath,
     });
   });
 };
