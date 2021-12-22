@@ -26,7 +26,7 @@ const createPreviewCard = async (
   if (fileNode) {
     createNodeField({
       node,
-      name: `socialCard___NODE`,
+      name: `socialCard`,
       value: fileNode.id,
     });
   }

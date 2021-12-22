@@ -20,7 +20,6 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
   const { t } = useTranslation();
   const markdown = data.markdownRemark;
 
-  const socialCardPath = markdown.fields.socialCard.childImageSharp.fixed.src;
   const shareImagePath =
     markdown.frontmatter.shareImage.childImageSharp.fixed.src;
 
@@ -69,14 +68,6 @@ export const BlogPostPageQuery = graphql`
       html
       htmlAst
       fields {
-        socialCard {
-          childImageSharp {
-            fixed(width: 1440, height: 760) {
-              src
-            }
-          }
-        }
-
         readingTime {
           minutes
         }

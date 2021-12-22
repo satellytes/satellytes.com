@@ -40,13 +40,11 @@ export interface SyPersonioJob {
   slug: string;
   sections: SyPersonioJobSection[];
 
-  // now owned by the source plugin, added via `onCreateNode`
-  fields: {
-    socialCard: {
-      childImageSharp: {
-        fixed: {
-          src: string;
-        };
+  // added through onCreateNode
+  socialCard: {
+    childImageSharp: {
+      fixed: {
+        src: string;
       };
     };
   };

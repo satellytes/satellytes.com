@@ -27,6 +27,51 @@ exports.onCreateNode = (gatsbyCreateNodeArgs) => {
   }
 };
 
+/**
+ * We create the preview cards within `onCreateNode`
+ * but we have to tell gatsby about the foreign key relationship
+ * of the linked File.
+ */
+exports.createSchemaCustomization = ({ actions, schema }) => {
+  const { createTypes } = actions;
+
+  const typeDefs = [
+    /**
+     * Variant 1: use `@link` and link the given field
+     * You can't replace fields.socialCard hence the creation of the node in the parent
+     */
+    `type MarkdownRemark implements Node { 
+      socialCard: File @link(from: "fields.socialCard")
+    }`,
+    /**
+     * Variant 2: use `buildObjectType` and resolve the
+     * foreign key relation through a resolver. The `@link` above
+     * is basically syntax sugar for this. I want to show both variants
+     * here for education purposes as it was a long bumpy road.
+     *
+     * Before ew used the deprecated fielname___NODE way of adding
+     * the FK relationship which fails for incremental builds in gatsby 4
+     */
+    schema.buildObjectType({
+      name: 'SyPersonioJob',
+      fields: {
+        socialCard: {
+          type: 'File',
+          resolve: (source, args, context, info) => {
+            return context.nodeModel.getNodeById({
+              id: source.fields.socialCard,
+              type: 'File',
+            });
+          },
+        },
+      },
+      interfaces: ['Node'],
+    }),
+  ];
+
+  createTypes(typeDefs);
+};
+
 exports.createPages = async (createPagesArgs) => {
   await createCareerPages(createPagesArgs);
   await createBlogPosts(createPagesArgs);

@@ -8,12 +8,10 @@ import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 interface CareerMarkdownQuery {
   htmlAst: string;
-  fields: {
-    socialCard: {
-      childImageSharp: {
-        fixed: {
-          src: string;
-        };
+  socialCard: {
+    childImageSharp: {
+      fixed: {
+        src: string;
       };
     };
   };
@@ -34,7 +32,7 @@ interface CareerProps {
 const Career = (props: CareerProps) => {
   const { t } = useTranslation();
   const markdown = props.data.markdownRemark;
-  const socialCardPath = markdown.fields.socialCard.childImageSharp.fixed.src;
+  const socialCardPath = markdown.socialCard.childImageSharp.fixed.src;
 
   return (
     <>
@@ -88,12 +86,10 @@ export const CareerPageQuery = graphql`
       fileAbsolutePath: { regex: "/(pages/career)/" }
       frontmatter: { language: { eq: $language } }
     ) {
-      fields {
-        socialCard {
-          childImageSharp {
-            fixed(width: 1440, height: 760) {
-              src
-            }
+      socialCard {
+        childImageSharp {
+          fixed(width: 1440, height: 760) {
+            src
           }
         }
       }
