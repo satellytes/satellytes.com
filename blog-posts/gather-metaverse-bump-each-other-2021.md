@@ -97,7 +97,7 @@ We already do our all-hands meeting in there. Other folks advocate to run pair p
 We don't have a defined [netiquette](https://en.wikipedia.org/wiki/Etiquette_in_technology) for our daily work in Slack and related tools. That's because most people are comfortable and experienced working with the given online chats, videos, and other tools.
 
 That's problematic with Gather though, as the human interaction is much different in the Metaverse. 
-Ideally, we can answer the following questions through a **Metaverse Netiquette**. 
+Ideally, we can answer the following questions through a **Netiquette**. 
 Here are some ideas of questions and answers.
 
 **What are the signs not to approach someone?** <br>
@@ -132,6 +132,6 @@ I hope that document will help people to adapt Gather more easily.
 ## Conclusion
 Satellytes did not start as a remote-only company more than three years ago. People enjoyed going to the office and talking to each other. That's why our folks had an actual pain when we were forced to work remotely. On the other side, everyone feels the power of remote work, that we want to embrace in the future. 
 
-The Metaverse seems to be the glue we have been missing all the time. Gather is an excellent way to dive into the Metaverse. I became a big fan of Gather in the past weeks. I'm happily tinkering around with their [mapmaker](https://github.com/gathertown/mapmaking) and constantly improving our virtual space because I really want our folks to enjoy the Metaverse. Let's see where we are heading with that experiment in 2022. 
+The Metaverse seems to be the glue we have been missing all the time and Gather is an excellent way to dive into it. I became a big fan of Gather in the past weeks. I'm happily tinkering around with their [mapmaker](https://github.com/gathertown/mapmaking) and constantly improving our virtual space because I really want our folks to enjoy the Metaverse. Let's see where we are heading with that experiment in 2022. 
 
 Thank you Gather 💙 
