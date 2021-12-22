@@ -32,7 +32,7 @@ const Career = (props: CareerProps) => {
   return (
     <>
       <SEO
-        imageUrl={socialCard}
+        shareImagePath={socialCard}
         title={`${t('career.title')} | Satellytes`}
         description={t('career.seo.description')}
         location={props.location}

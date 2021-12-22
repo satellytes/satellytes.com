@@ -42,13 +42,13 @@ const createPreviewJob = ({ node, _, actions }) => {
   })}.jpg`;
 
   const outputFile = path.join('public', fileName);
-  const publicUrl = `${siteMetadata.siteUrl}/${fileName}`;
+  const imagePath = `/${fileName}`;
 
   generateCard({ title: node.name }, outputFile).then(() => {
     createNodeField({
       node,
       name: 'socialCard',
-      value: publicUrl,
+      value: imagePath,
     });
   });
 };

@@ -3,10 +3,16 @@ const {
 } = require('./gatsby/util/build-gatsby-cloud-preview-url');
 const siteMapTransformers = require('./gatsby/gatsby-plugin-sitemap/gatsby-plugin-sitemap');
 
-const BASE_URL = buildGatsbyCloudPreviewUrl({
-  branchName: process.env.BRANCH, // https://support.gatsbyjs.com/hc/en-us/articles/360052322954-Environment-Variables-Specific-to-Gatsby-Cloud
-  fallbackUrl: process.env.GATBSY_BASE_URL || 'http://localhost:8000',
+const GATSBY_SITE_PREFIX = process.env.GATSBY_SITE_PREFIX || '';
+const BRANCH_PREVIEW_URL = buildGatsbyCloudPreviewUrl({
+  prefix: GATSBY_SITE_PREFIX,
+  branch: process.env.BRANCH,
 });
+
+// either use a branch preview url if any
+const BASE_URL =
+  BRANCH_PREVIEW_URL || process.env.GATBSY_BASE_UR || 'http://localhost:8000';
+
 const LANGUAGES = ['en', 'de'];
 const DEFAULT_LANGUAGE = 'en';
 

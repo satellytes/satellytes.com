@@ -5,23 +5,32 @@ const {
 describe('build-gatsby-cloud-preview-url', () => {
   test('should return a valid url', () => {
     const url = buildGatsbyCloudPreviewUrl({
-      branchName: 'feature-branch-1',
+      prefix: 'satellytescommain',
+      branch: 'feature-branch-1',
     });
     expect(url).toBe('https://satellytescommain-featurebranch1.gtsb.io');
   });
 
-  test('should return the fallback url for the production branch', () => {
+  test('should return null for the production branch', () => {
     const url = buildGatsbyCloudPreviewUrl({
-      branchName: 'main',
-      fallbackUrl: 'fallback-url',
+      prefix: 'satellytescommain',
+      branch: 'main',
     });
-    expect(url).toBe('fallback-url');
+    expect(url).toBe(null);
   });
 
-  test('should return the fallback url if no branch is given', () => {
+  test('should return null without a branch given', () => {
     const url = buildGatsbyCloudPreviewUrl({
-      fallbackUrl: 'fallback-url',
+      prefix: 'satellytescommain',
     });
-    expect(url).toBe('fallback-url');
+    expect(url).toBe(null);
+  });
+
+  test('should return  null if no prefix is given', () => {
+    const url = buildGatsbyCloudPreviewUrl({
+      prefix: null,
+      branch: 'something',
+    });
+    expect(url).toBe(null);
   });
 });

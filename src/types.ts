@@ -56,12 +56,18 @@ export interface BlogPostMarkdown {
   excerpt: string;
   htmlAst;
   fields: {
-    socialCard: string;
     readingTime: {
       minutes: string;
     };
   };
   frontmatter: {
+    shareImage: {
+      childImageSharp: {
+        fixed: {
+          src: string;
+        };
+      };
+    };
     attribution: {
       creator: string;
       source: string;
