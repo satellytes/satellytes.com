@@ -3,7 +3,7 @@ const {
 } = require('./gatsby/util/build-gatsby-cloud-preview-url');
 const siteMapTransformers = require('./gatsby/gatsby-plugin-sitemap/gatsby-plugin-sitemap');
 
-const GATSBY_SITE_PREFIX = process.env.GATSBY_SITE_PREFIX ?? '';
+const GATSBY_SITE_PREFIX = process.env.GATSBY_SITE_PREFIX || '';
 const BRANCH_PREVIEW_URL = buildGatsbyCloudPreviewUrl({
   prefix: GATSBY_SITE_PREFIX,
   branch: process.env.BRANCH,
@@ -12,8 +12,6 @@ const BRANCH_PREVIEW_URL = buildGatsbyCloudPreviewUrl({
 // either use a branch preview url if any
 const BASE_URL =
   BRANCH_PREVIEW_URL || process.env.GATBSY_BASE_UR || 'http://localhost:8000';
-
-console.info('BASE_URL', BASE_URL);
 
 const LANGUAGES = ['en', 'de'];
 const DEFAULT_LANGUAGE = 'en';

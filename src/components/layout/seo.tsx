@@ -90,7 +90,6 @@ const SEO = ({
   const metaDescription = description || t('main.description');
   const typeOfSite = siteType || 'website';
 
-  console.log('using  site.siteMetadata.siteUrl', site.siteMetadata.siteUrl);
   const metaImageUrl =
     site.siteMetadata.siteUrl + (shareImagePath ?? DEFAULT_META_IMAGE_URL_PATH);
   const alternateLanguagesMetaTags = buildAlternateMetaTags(
