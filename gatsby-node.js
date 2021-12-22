@@ -46,11 +46,18 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     /**
      * Variant 2: use `buildObjectType` and resolve the
      * foreign key relation through a resolver. The `@link` above
-     * is basically syntax sugar for this. I want to show both variants
+     * is basically syntactic sugar for this. I want to show both variants
      * here for education purposes as it was a long bumpy road.
      *
      * Before ew used the deprecated fielname___NODE way of adding
      * the FK relationship which fails for incremental builds in gatsby 4
+     *
+     *
+     * Deprecated Note:
+     * https://www.gatsbyjs.com/docs/reference/release-notes/migrating-from-v3-to-v4/#___node-convention-is-deprecated
+     *
+     * How to "schema additions"
+     * https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/creating-a-source-plugin/#create-foreign-key-relationships-between-data
      */
     schema.buildObjectType({
       name: 'SyPersonioJob',
