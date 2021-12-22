@@ -12,7 +12,7 @@ interface SeoProps {
   author?: string;
   publishDate?: string;
   description?: string;
-  imageUrl?: string;
+  shareImagePath?: string;
   siteType?: string;
   noIndex?: boolean;
   overrideLanguages?: string[] | null;
@@ -65,7 +65,7 @@ const SEO = ({
   title,
   author,
   publishDate,
-  imageUrl,
+  shareImagePath,
   siteType,
   noIndex,
   overrideLanguages,
@@ -89,9 +89,9 @@ const SEO = ({
 
   const metaDescription = description || t('main.description');
   const typeOfSite = siteType || 'website';
-  const defaultImageUrl =
-    site.siteMetadata.siteUrl + DEFAULT_META_IMAGE_URL_PATH;
-  const metaImageUrl = imageUrl ?? defaultImageUrl;
+
+  const metaImageUrl =
+    site.siteMetadata.siteUrl + (shareImagePath ?? DEFAULT_META_IMAGE_URL_PATH);
   const alternateLanguagesMetaTags = buildAlternateMetaTags(
     i18n,
     location.origin,
@@ -124,7 +124,6 @@ const SEO = ({
       {metaImageUrl && (
         <meta property="og:image:secure_url" content={metaImageUrl} />
       )}
-      {metaImageUrl && <meta property="og:image:width" content="400" />}
 
       {/* Define twitters card format */}
       <meta name="twitter:card" content="summary_large_image" />

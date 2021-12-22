@@ -28,7 +28,7 @@ const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
   return (
     <>
       <SEO
-        imageUrl={socialCardImage}
+        shareImagePath={socialCardImage}
         title={t('career.seo.title-detail', {
           name: position.name,
         })}
