@@ -20,6 +20,10 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
   const { t } = useTranslation();
   const markdown = data.markdownRemark;
 
+  const socialCardPath = markdown.fields.socialCard.childImageSharp.fixed.src;
+  const shareImagePath =
+    markdown.frontmatter.shareImage.childImageSharp.fixed.src;
+
   const breadcrumb: BreadcrumbEntry[] = [
     { pathname: '/', label: 'Satellytes' },
     { pathname: '/blog', label: t('navigation.blog') },
@@ -39,7 +43,7 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
         title={`${markdown.frontmatter.title} | Satellytes`}
         author={markdown.frontmatter.author}
         publishDate={markdown.frontmatter.date}
-        imageUrl={markdown.fields?.socialCard}
+        shareImagePath={shareImagePath}
         siteType="article"
         description={markdown.frontmatter.seoMetaText ?? markdown.excerpt}
         location={location}
@@ -65,7 +69,14 @@ export const BlogPostPageQuery = graphql`
       html
       htmlAst
       fields {
-        socialCard
+        socialCard {
+          childImageSharp {
+            fixed(width: 1440, height: 760) {
+              src
+            }
+          }
+        }
+
         readingTime {
           minutes
         }
@@ -97,6 +108,14 @@ export const BlogPostPageQuery = graphql`
               layout: FULL_WIDTH
               placeholder: BLURRED
             )
+          }
+        }
+
+        shareImage: featuredImage {
+          childImageSharp {
+            fixed(width: 1440, height: 760) {
+              src
+            }
           }
         }
       }

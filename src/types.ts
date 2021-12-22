@@ -42,7 +42,13 @@ export interface SyPersonioJob {
 
   // now owned by the source plugin, added via `onCreateNode`
   fields: {
-    socialCard: string;
+    socialCard: {
+      childImageSharp: {
+        fixed: {
+          src: string;
+        };
+      };
+    };
   };
 }
 
@@ -56,7 +62,13 @@ export interface BlogPostMarkdown {
   excerpt: string;
   htmlAst;
   fields: {
-    socialCard: string;
+    socialCard: {
+      childImageSharp: {
+        fixed: {
+          src: string;
+        };
+      };
+    };
     readingTime: {
       minutes: string;
     };
@@ -76,6 +88,13 @@ export interface BlogPostMarkdown {
     leadboxText?: string;
     featuredImage: IGatsbyImageData;
     featuredImageSquared: IGatsbyImageData;
+    shareImage: {
+      childImageSharp: {
+        fixed: {
+          src: string;
+        };
+      };
+    };
   };
   rawMarkdownBody: string;
 }
