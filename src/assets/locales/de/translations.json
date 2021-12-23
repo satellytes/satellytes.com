@@ -168,7 +168,7 @@
   "contact.error.message": "Deine Nachricht fehlt",
   "contact.error.email": "Deine E-Mail fehlt",
   "contact.error.email-undefined": "Irgendwas stimmt an dieser E-Mail nicht",
-  "contact.action.again-text": "Leider gab es einen Fehler. Bitte versuche es noch einmal. Klappt das nicht, schicke deine Nachricht bitte direkt an <2>beep@satellytes.com</2>",
+  "contact.action.again-text": "Leider gab es einen Fehler. Bitte versuche es noch einmal. Klappt das nicht, schicke deine Nachricht bitte direkt an",
   "contact.action.missing": "Bitte fülle alle benötigten Felder aus",
   "contact.action.send": "Senden",
   "contact.action.sent": "Gesendet",

@@ -1,43 +1,68 @@
 import React, { useState } from 'react';
+import { TextInput } from '../../forms/text-field/text-input';
+import { TextArea } from '../../forms/text-field/text-area';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { useForm } from 'react-hook-form';
-import {
-  ButtonText,
-  ErrorMessageSend,
-  InputField,
-  SendButton,
-  SentButton,
-  Sup,
-} from '../../legacy/form/controls';
+import { Button } from '../../ui/buttons/button';
+import { SIMPLE_EMAIL_PATTERN } from '../../forms/constants';
 import { Grid, GridItem } from '../../legacy/grid/grid';
-import { Link } from '../../legacy/links/links';
-import { CaptionText } from '../../legacy/typography';
-import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
+import { TextStyles } from '../../typography';
+import { theme } from '../../layout/theme';
+import { Link } from '../../legacy/links/links';
 import { SIMPLE_EMAIL_PATTERN } from '../../legacy/form/constants';
-import { CheckmarkIcon } from '../../legacy/icons/form-icons/checkmark';
-import { RightArrowIcon } from '../../legacy/icons/form-icons/right-arrow';
+
+const StyledGrid = styled(Grid)`
+  margin-bottom: 24px;
+`;
+
+const Caption = styled.p`
+  ${TextStyles.textS}
+  margin: 16px 0 48px;
+`;
+
 import { HoneypotField } from './honeypot';
 
 type RequestStatus = 'pending' | 'submitting' | 'success' | 'error';
 const API_ENDPOINT = '/api/contact-form';
 
-const StyledCaptionText = styled(CaptionText)`
-  color: inherit;
+const ErrorMessage = styled.p`
+  ${TextStyles.textXS}
+  font-weight: 700;
+  display: inline-block;
+  
+  color: ${theme.palette.text.errorMessage};
 `;
+
+const StyledButton = styled(Button)`
+  margin-right: 16px;
+`;
+
 interface FormData {
   name: string;
   email: string;
   message: string;
 }
 
-export const ContactForm: React.FC = () => {
-  const { t } = useTranslation();
-  const [requestStatus, setRequestStatus] = useState<RequestStatus>('pending');
+export const ContactForm = () => {
   const {
-    register,
     handleSubmit,
-    formState: { errors },
-  } = useForm();
+    control,
+    formState: { isValid, isSubmitted },
+  } = useForm<FormData>({
+    defaultValues: {
+      name: '',
+      email: '',
+      message: '',
+      firstName: '',
+      phone: ''
+    },
+    mode: 'onSubmit',
+  });
+  const { t } = useTranslation();
+  const [requestStatus, setRequestStatus] = useState<
+    'pending' | 'success' | 'error'
+  >('pending');
 
   const onSubmit = (formData: FormData) => {
     setRequestStatus('submitting');
@@ -61,88 +86,52 @@ export const ContactForm: React.FC = () => {
   };
 
   return (
-    <form name="contact" onSubmit={handleSubmit(onSubmit)}>
-      <Grid nested>
-        {/*First Name*/}
-        <GridItem xs={12} md={6}>
-          <InputField
-            required={true}
-            inputRef={register('name', {
-              required: t<string>('contact.error.name'),
-            })}
-            error={errors.name}
-            name="name"
-            label={t('contact.name')}
-          />
-        </GridItem>
-        <GridItem xs={12} md={6}>
-          <InputField
-            required={true}
-            inputRef={register('email', {
-              required: t<string>('contact.error.email'),
-              pattern: {
-                value: SIMPLE_EMAIL_PATTERN,
-                message: t<string>('contact.error.email-unknown'),
-              },
-            })}
-            error={errors.email}
-            name="email"
-            label={t<string>('contact.email')}
-          />
-        </GridItem>
-        <GridItem>
-          <InputField
-            required={true}
-            inputRef={register('message', {
-              required: t<string>('contact.error.message'),
-            })}
-            error={errors.message}
-            name="message"
-            label={t('contact.message')}
-            type={'text-area'}
-          />
-        </GridItem>
-
-        <HoneypotField label="First Name" control={register('firstName')} />
-        <HoneypotField label="Phone" control={register('phone')} />
-
-        <GridItem>
-          <StyledCaptionText>
-            <Sup>*</Sup> {t('contact.mandatory-field')}
-          </StyledCaptionText>
-        </GridItem>
-
-        <GridItem>
-          {requestStatus === 'pending' && (
-            <SendButton type="submit">
-              <ButtonText>{t('contact.action.send')}</ButtonText>{' '}
-              <RightArrowIcon />
-            </SendButton>
-          )}
-          {(errors.name || errors.email || errors.message) && (
-            <ErrorMessageSend>{t('contact.action.missing')}</ErrorMessageSend>
-          )}
-          {requestStatus === 'success' && (
-            <SentButton type="button">
-              <ButtonText>{t('contact.action.sent')}</ButtonText>{' '}
-              <CheckmarkIcon />
-            </SentButton>
-          )}
-          {requestStatus === 'error' && (
-            <>
-              <Trans i18nKey="contact.action.again-text">
-                Leider gab es einen Fehler. Bitte versuche es noch einmal.
-                Klappt das nicht, schicke deine Nachricht bitte direkt an
-                <Link to="mailto:beep@satellytes.com">beep@satellytes.com</Link>
-              </Trans>
-              <SendButton type="submit">
-                <ButtonText>{t('contact.action.again')}</ButtonText>{' '}
-                <RightArrowIcon />
-              </SendButton>
-            </>
-          )}
-        </GridItem>
-      </Grid>
-    </form>
+    <>
+      <form name="contact" onSubmit={handleSubmit(onSubmit)}>
+        <StyledGrid nested>
+          <GridItem xs={12} md={6}>
+            <TextInput
+              name={'name'}
+              label={t('contact.name')}
+              control={control}
+              rules={{ required: t<string>('contact.error.name') }}
+            />
+          </GridItem>
+          <HoneypotField name='firstName' label="First Name" control={control} />
+          <HoneypotField name='phone' label="Phone" control={control} />
+          <GridItem xs={12} md={6}>
+            <TextInput
+              name={'email'}
+              label={t('contact.email')}
+              control={control}
+              rules={{
+                required: t<string>('contact.error.email'),
+                pattern: {
+                  value: SIMPLE_EMAIL_PATTERN,
+                  message: t<string>('contact.error.email-undefined'),
+                },
+              }}
+            />
+          </GridItem>
+        </StyledGrid>
+        <TextArea
+          name={'message'}
+          label={t('contact.message')}
+          control={control}
+          rules={{ required: t<string>('contact.error.message') }}
+        />
+        <Caption>* {t('career.mandatory-field')}</Caption>
+        <StyledButton type={'submit'}>{t('contact.action.send')}</StyledButton>
+        {isSubmitted && !isValid && (
+          <ErrorMessage>{t('contact.action.missing')}</ErrorMessage>
+        )}
+        {requestStatus === 'error' && (
+          <ErrorMessage>
+            {t('contact.action.again-text')}{' '}
+            <Link to="mailto:beep@satellytes.com">beep@satellytes.com</Link>
+          </ErrorMessage>
+        )}
+      </form>
+    </>
   );
 };

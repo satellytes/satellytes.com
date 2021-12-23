@@ -162,7 +162,7 @@
   "contact.error.message": "Your message is missing",
   "contact.error.email": "Your e-mail is missing",
   "contact.error.email-undefined": "Something is wrong with this email",
-  "contact.action.again-text": "An error occurred. Please try again. If it does not work, please send your message to <2>beep@satellytes.com</2>",
+  "contact.action.again-text": "An error occurred. Please try again. If it does not work, please send your message to",
   "contact.action.missing": "Please fill in the missing fields",
   "contact.action.send": "Send",
   "contact.action.sent": "Sent",
