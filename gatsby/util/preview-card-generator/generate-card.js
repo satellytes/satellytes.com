@@ -1,4 +1,3 @@
-const fs = require('fs');
 const path = require('path');
 const { createCanvas, loadImage, registerFont } = require('canvas');
 
@@ -63,7 +62,7 @@ const wrapTextFactory = (context) => (text, x, y, maxWidth, lineHeight) => {
  * by composing a background with a title
  * and an optional author.
  */
-async function generateCard({ title, author }, file) {
+async function generateCardToBuffer({ title, author }) {
   const canvas = createCanvas(CARD_WIDTH, CARD_HEIGHT);
 
   const context = canvas.getContext('2d');
@@ -95,12 +94,9 @@ async function generateCard({ title, author }, file) {
     );
   }
 
-  const buffer = canvas.toBuffer('image/jpeg');
-  fs.writeFileSync(file, buffer);
-
-  return file;
+  return canvas.toBuffer('image/jpeg');
 }
 
 module.exports = {
-  generateCard,
+  generateCardToBuffer,
 };
