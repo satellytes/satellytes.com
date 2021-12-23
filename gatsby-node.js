@@ -47,10 +47,10 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
 
   const typeDefs = [
     `type MarkdownRemark implements Node { 
-      socialCardFile: File @link(from: "fields.socialCard")
+      socialCardFile: File @link(from: "fields.socialCardFileId")
     }`,
     `type SyPersonioJob implements Node { 
-      socialCardFile: File @link(from: "fields.socialCard")
+      socialCardFile: File @link(from: "fields.socialCardFileId")
     }`,
   ];
 

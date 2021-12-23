@@ -20,7 +20,14 @@ const createPreviewCard = async (
   }
 
   const buffer = await generateCardToBuffer({ title });
-
+  /**
+   * The util function `createFileNodeFromBuffer` from the official gatsby source plugin `gatsby-source-filesystem`
+   * creates a file node from a given file buffer. The value of `parentNodeId` creates the necessary relationship
+   * between the original node and the actual file node so it's not garbage collected.
+   *
+   * The actual foreign key relationship is resolved through `createSchemaCustomization`
+   * in gatsby-node.js for all node types the `createPreviewCard` is invoked for.
+   */
   const fileNode = await createFileNodeFromBuffer({
     name: 'social-card',
     buffer,
@@ -33,7 +40,7 @@ const createPreviewCard = async (
   if (fileNode) {
     createNodeField({
       node,
-      name: `socialCard`,
+      name: `socialCardFileId`,
       value: fileNode.id,
     });
   }
