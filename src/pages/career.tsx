@@ -3,14 +3,16 @@ import SEO from '../components/layout/seo';
 import { graphql } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { CareerPage } from '../components/pages/career/career-page';
-import { LocalesQuery, SyPersonioJob } from '../types';
+import {
+  LocalesQuery,
+  PlainFixedImageSharpSource,
+  SyPersonioJob,
+} from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 interface CareerMarkdownQuery {
   htmlAst: string;
-  fields: {
-    socialCard: string;
-  };
+  socialCardFile: PlainFixedImageSharpSource;
 }
 
 interface CareerProps {
@@ -27,12 +29,13 @@ interface CareerProps {
 
 const Career = (props: CareerProps) => {
   const { t } = useTranslation();
-  const socialCard = props.data.markdownRemark?.fields?.socialCard;
+  const socialCardPath =
+    props.data.markdownRemark.socialCardFile.childImageSharp.fixed.src;
 
   return (
     <>
       <SEO
-        shareImagePath={socialCard}
+        shareImagePath={socialCardPath}
         title={`${t('career.title')} | Satellytes`}
         description={t('career.seo.description')}
         location={props.location}
@@ -81,8 +84,12 @@ export const CareerPageQuery = graphql`
       fileAbsolutePath: { regex: "/(pages/career)/" }
       frontmatter: { language: { eq: $language } }
     ) {
-      fields {
-        socialCard
+      socialCardFile {
+        childImageSharp {
+          fixed(width: 1440, height: 760) {
+            src
+          }
+        }
       }
     }
   }

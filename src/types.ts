@@ -40,16 +40,22 @@ export interface SyPersonioJob {
   slug: string;
   sections: SyPersonioJobSection[];
 
-  // now owned by the source plugin, added via `onCreateNode`
-  fields: {
-    socialCard: string;
-  };
+  // added via `onCreateNode`
+  socialCardFile: PlainFixedImageSharpSource;
 }
 
 export interface SyTeamMember {
   id: string;
   name: string;
   image: IGatsbyImageData;
+}
+
+export interface PlainFixedImageSharpSource {
+  childImageSharp: {
+    fixed: {
+      src: string;
+    };
+  };
 }
 
 export interface BlogPostMarkdown {
@@ -61,13 +67,7 @@ export interface BlogPostMarkdown {
     };
   };
   frontmatter: {
-    shareImage: {
-      childImageSharp: {
-        fixed: {
-          src: string;
-        };
-      };
-    };
+    shareImage: PlainFixedImageSharpSource;
     attribution: {
       creator: string;
       source: string;

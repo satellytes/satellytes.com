@@ -22,13 +22,13 @@ interface CareerPageProps {
 const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
   const { pageContext } = props;
   const position = props.data.syPersonioJob;
-  const socialCardImage = position.fields.socialCard;
+  const socialCardPath = position.socialCardFile.childImageSharp.fixed.src;
   const { t } = useTranslation();
 
   return (
     <>
       <SEO
-        shareImagePath={socialCardImage}
+        shareImagePath={socialCardPath}
         title={t('career.seo.title-detail', {
           name: position.name,
         })}
@@ -51,9 +51,6 @@ const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
 export const CareerDetailsPageQuery = graphql`
   query ($language: String!, $id: String!) {
     syPersonioJob(id: { eq: $id }) {
-      fields {
-        socialCard
-      }
       id
       lang
       jobId
@@ -65,6 +62,13 @@ export const CareerDetailsPageQuery = graphql`
         headline
         descriptionHtml
         description
+      }
+      socialCardFile {
+        childImageSharp {
+          fixed(width: 1440, height: 760) {
+            src
+          }
+        }
       }
     }
 

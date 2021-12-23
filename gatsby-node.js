@@ -8,8 +8,8 @@ const {
 } = require('./gatsby/create-pages/create-career-pages');
 const { createFilePath } = require('gatsby-source-filesystem');
 
-exports.onCreateNode = (gatsbyCreateNodeArgs) => {
-  createPreviewCards(gatsbyCreateNodeArgs);
+exports.onCreateNode = async (gatsbyCreateNodeArgs) => {
+  await createPreviewCards(gatsbyCreateNodeArgs);
 
   const { node, actions, getNode } = gatsbyCreateNodeArgs;
   const { createNodeField } = actions;
@@ -25,6 +25,36 @@ exports.onCreateNode = (gatsbyCreateNodeArgs) => {
       value,
     });
   }
+};
+
+/**
+ * We should use `@link` and link the given foreign key field to the actual node.
+ * The before known foreign Key `___NODE` notation is deprecated, that's why we need the custom and explicit schema.
+ *
+ * You can't replace fields.socialCard hence the creation of the node in the parent.
+ * This is syntactic sugar and as as an alternative can use
+ * `schema.buildObjectType` and then resolve the reference manually through `context.nodeModel.getNodeById`
+ *
+ * Deprecation Note:
+ * https://www.gatsbyjs.com/docs/reference/release-notes/migrating-from-v3-to-v4/#___node-convention-is-deprecated
+ *
+ * How to "schema additions"
+ * https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/creating-a-source-plugin/#create-foreign-key-relationships-between-data
+ */
+
+exports.createSchemaCustomization = ({ actions, schema }) => {
+  const { createTypes } = actions;
+
+  const typeDefs = [
+    `type MarkdownRemark implements Node { 
+      socialCardFile: File @link(from: "fields.socialCard")
+    }`,
+    `type SyPersonioJob implements Node { 
+      socialCardFile: File @link(from: "fields.socialCard")
+    }`,
+  ];
+
+  createTypes(typeDefs);
 };
 
 exports.createPages = async (createPagesArgs) => {
