@@ -56,12 +56,13 @@ export const TextInput = (
         type={'text'}
         aria-required={true}
         hasError={Boolean(fieldState?.error?.message)}
+        id={props.name}
         {...field}
         {...props}
       />
 
       {fieldState?.error?.message && (
-        <StyledErrorMessage>{fieldState?.error?.message}</StyledErrorMessage>
+        <StyledErrorMessage>{fieldState.error.message}</StyledErrorMessage>
       )}
     </>
   );

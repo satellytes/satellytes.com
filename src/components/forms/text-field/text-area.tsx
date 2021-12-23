@@ -40,10 +40,11 @@ export const TextArea = (
         hasError={Boolean(fieldState?.error?.message)}
         {...field}
         {...props}
+        id={props.name}
       />
 
       {fieldState?.error?.message && (
-        <StyledErrorMessage>{fieldState?.error?.message}</StyledErrorMessage>
+        <StyledErrorMessage>{fieldState.error.message}</StyledErrorMessage>
       )}
     </>
   );
