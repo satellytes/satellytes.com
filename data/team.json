@@ -57,5 +57,15 @@
   {
     "name": "Felix Hamann",
     "image": "team/felix_hamann.jpg"
+  },
+
+  {
+    "name": "Arthur",
+    "image": "team/arthur.jpg"
+  },
+
+  {
+    "name": "Georgios",
+    "image": "team/georgios.jpg"
   }
 ]
