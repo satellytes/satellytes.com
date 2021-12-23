@@ -44,7 +44,7 @@ interface FormData {
   message: string;
 }
 
-export const ContactForm = () => {
+export const ContactForm = ({ onSuccess }: { onSuccess: () => any }) => {
   const {
     handleSubmit,
     control,
@@ -60,9 +60,7 @@ export const ContactForm = () => {
     mode: 'onSubmit',
   });
   const { t } = useTranslation();
-  const [requestStatus, setRequestStatus] = useState<
-    'pending' | 'success' | 'error'
-  >('pending');
+  const [apiError, setApiError] = useState<boolean>(false);
 
   const onSubmit = (formData: FormData) => {
     setRequestStatus('submitting');
@@ -74,14 +72,14 @@ export const ContactForm = () => {
     })
       .then((response) => {
         if (!response.ok) {
-          setRequestStatus('error');
+          setApiError(true);
         } else {
-          setRequestStatus('success');
+          onSuccess();
         }
       })
       .catch((error) => {
         console.error(error);
-        setRequestStatus('error');
+        setApiError(true);
       });
   };
 
@@ -125,10 +123,10 @@ export const ContactForm = () => {
         {isSubmitted && !isValid && (
           <ErrorMessage>{t('contact.action.missing')}</ErrorMessage>
         )}
-        {requestStatus === 'error' && (
+        {apiError && (
           <ErrorMessage>
             {t('contact.action.again-text')}{' '}
-            <Link to="mailto:beep@satellytes.com">beep@satellytes.com</Link>
+            <Link to="mailto:info@satellytes.com">info@satellytes.com</Link>
           </ErrorMessage>
         )}
       </form>
