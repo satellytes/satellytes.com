@@ -1,19 +1,19 @@
 ---
 path: "/blog/scoped-registry/"
 date: "2021-12-30"
-title: "NPM scoped registry and authorization"
+title: "NPM scoped registry and authentication"
 featuredImage: images/npm-scoped-registry.jpg
 attribution:
     creator: Paul Esch-Laurent
     source: https://unsplash.com/photos/oZMUrWFHOB4
-seoMetaText: how to create scoped packages and scoped registry and configure authorization via npmrc
+seoMetaText: how to create scoped packages and scoped registry and configure authentication via npmrc
 author: Mark Altmann
 authorSummary: Developer @ Satellytes
 
 ---
  
 
-# NPM scoped registry and authorization
+# NPM scoped registry and authentication
 
 ## TL;DR
 
@@ -29,7 +29,7 @@ If you need authentication you can add an additional line below the scoped regis
 
 Nowadays almost every programming language comes with its own package management solution, so developers can easily share packages with other developers around the world. For Python it is pip, for .NET it`s nuget. npm is the package manager solution for Javascript based languages. It is used to create and use node packaged modules and is built into the Javascript platform [Node.js](http://www.nodejs.org/). The central component behind these package managers is a registry. A registry is a database of packages, each comprised of software and metadata. For example the public registry for npm is [registry.npmjs.org](http://registry.npmjs.org).
 
-Beside using public registries, companies can establish their own private registries in their company network. The advantage is that the published packages of that company never leave the company network. Another advantage is that you can setup authentication and authorization to additionally secure your internally published packages.
+Beside using public registries, companies can establish their own private registries in their company network. The advantage is that the published packages of that company never leave the company network. Another advantage is that you can setup authentication to additionally secure your internally published packages.
 
 ## Scopes and scoped registries
 
