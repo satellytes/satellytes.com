@@ -42,7 +42,7 @@ Packages can be grouped together with scopes and for scopes we can set alternati
 
 ## .npmrc
 
-npmrc is a configuration file that npm allows to be used to configure how npm works in your environment. It can be used globally or on a user or project level. [Here](https://docs.npmjs.com/cli/v8/configuring-npm/npmrc) are the docs for npmrc.
+npmrc is a configuration file configures how npm works in your environment. It can be used globally or on a user or project level. [Here](https://docs.npmjs.com/cli/v8/configuring-npm/npmrc) are the docs for npmrc.
 
 Lets suppose we have a company named *Wombat Corp.* and have published our packages under the scope `@wombatcorp`. Our registry can be found under the url `registry.wombatcorp.org`. We could add a scoped registry with the following line:
 
@@ -54,7 +54,7 @@ So to add our example registry we have to add the following line to npmrc:
 
 ## 401 Unauthorized... what 😱?
 
-Even if the registry is hosted internally, it is good practice to add authentication to prevent anonymous access to the packages. This can be in form of username and password or via an access token. For username and password the registries normally use basic authentication ([Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)). To create the authentication string we take the username and password, separated with a colon and then encode it with base64:
+Even if the registry is hosted internally, it is good practice to add authentication to prevent anonymous access to the packages. This can be in form of username and password or via an access token. For username and password normally basic authentication ([Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)) is used. To create the authentication string we take the username and password, separated with a colon and then encode it with base64:
 
 `username:password` ⇒ in our case `sirwombat:thecudd1er!` ⇒ base64 encoded ⇒ `c2lyd29tYmF0OnRoZWN1ZGQxZXIh`
 
@@ -82,16 +82,19 @@ Or if you have an access token:
 
 If you have a project level npmrc file and have added it in your version control then you could do the following:
 
-- Use environment variables
-we could export the authentication string as environment variable.
+**Use environment variables**
+
+we could export the authentication string as environment variable:
+
+e.g. for linux `$ export NPM_TOKEN=<base64-string>`
+
+We can then add the env variable in our npmrc file:
+
+`//registry.wombatcorp.org/:_auth=${NPM_TOKEN}`
+
+The npm cli will replace this value with the contents of the NPM_TOKEN environment variable
     
-    e.g. linux
-    `$ export NPM_TOKEN=<base64-string>`
-    
-    We can then add the env variable in our npmrc file
-    `//registry.wombatcorp.org/:_auth=${NPM_TOKEN}`
-    The npm cli will replace this value with the contents of the NPM_TOKEN environment variable
-    
-- Add scoped registry to user-level instead of project-level
+**Add scoped registry to user-level instead of project-level**
+
 There are different npmrc files as explained here ([npmrc](https://docs.npmjs.com/cli/v8/configuring-npm/npmrc)). 
 Each of these files is loaded, and config options are resolved in priority order. For example, a setting in the userconfig file would override the setting in the globalconfig file. So we could put the scoped registry into the userconfig file instead of the project config file.
