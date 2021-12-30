@@ -55,18 +55,15 @@ So to add our example registry we have to add the following line to npmrc:
 
 ## 401 Unauthorized... what 😱?
 
-Even if the registry is hosted internally, it is good practice to add authentication to prevent anonymous access to the packages. This can be in form of username and password or via an access token. For username and password the registries normally use basic authentication ([https://en.wikipedia.org/wiki/Basic_access_authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)). To create the authentication string we take the username and password separated with a colon and then encode it with base64:
+Even if the registry is hosted internally, it is good practice to add authentication to prevent anonymous access to the packages. This can be in form of username and password or via an access token. For username and password the registries normally use basic authentication ([Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)). To create the authentication string we take the username and password, separated with a colon and then encode it with base64:
 
 `username:password` ⇒ in our case `sirwombat:thecudd1er!` ⇒ base64 encoded ⇒ `c2lyd29tYmF0OnRoZWN1ZGQxZXIh`
 
-For encoding you can use the command line `echo -n 'my-string' | base64` (linux) or an IDE (vscode with plugin) or search for an online base64 encoder.
+For encoding you can use the command line `echo -n 'my-string' | base64` (Linux) or an IDE (vscode with plugin) or search for an online base64 encoder.
 
-<aside>
-💡 Use online encoder only for testing purposes. Never enter a productive username and / or password there
+>💡 Use online encoder only for testing purposes. Never enter a productive username and / or password there.
 
-</aside>
-
-To add basic authorization to our registry, we go back to the npmrc file and add the following line below our registry:
+To add basic authentication to our registry, we go back to the npmrc file and add the following line below the corresponding scoped registry:
 
 `//<your registry>:_auth=<base64-string>`
 
@@ -74,21 +71,15 @@ in our example:
 
 `//registry.wombatcorp.org/:_auth=c2lyd29tYmF0OnRoZWN1ZGQxZXIh`
 
-<aside>
-💡 Note the // without the https: at the beginning
-
-</aside>
+>💡 Note the // without the https: at the beginning
 
 Or if you have an access token:
 
 `//registry.wombatcorp.org/:_authToken=c2lyd29tYmF0OnRoZWN1ZGQxZXIh`
 
-<aside>
-💡 Remember that it is not a good practice to add credentials to version control e.g. if you have versioned your npmrc file.
+>💡 Remember that it is not a good practice to add credentials to version control e.g. if you have versioned your npmrc file.
 
-</aside>
-
-### But what should we do instead?
+## But where should I put the credentials then 🤷‍♂️?
 
 If you have a project level npmrc file and have added it in your version control then you could do the following:
 
@@ -100,8 +91,8 @@ we could export the authentication string as environment variable.
     
     We can then add the env variable in our npmrc file
     `//registry.wombatcorp.org/:_auth=${NPM_TOKEN}`
-    The npm cli will replace this value with the contents of the NPM_TOKEN environment variable
+    The npm cli will replace this value with the contents of the NPM_TOKEN environment variable
     
 - Add scoped registry to user-level instead of project-level
-There are different npmrc files as explained here ([https://docs.npmjs.com/cli/v8/configuring-npm/npmrc](https://docs.npmjs.com/cli/v8/configuring-npm/npmrc)). 
+There are different npmrc files as explained here ([npmrc](https://docs.npmjs.com/cli/v8/configuring-npm/npmrc)). 
 Each of these files is loaded, and config options are resolved in priority order. For example, a setting in the userconfig file would override the setting in the globalconfig file. So we could put the scoped registry into the userconfig file instead of the project config file.
