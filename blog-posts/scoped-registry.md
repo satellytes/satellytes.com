@@ -8,6 +8,8 @@ attribution:
     source: https://unsplash.com/photos/oZMUrWFHOB4
 seoMetaText: how to create scoped packages and scoped registry and configure authorization via npmrc
 author: Mark Altmann
+authorSummary: Developer @ Satellytes
+
 ---
  
 
