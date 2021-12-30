@@ -12,10 +12,6 @@ author: Mark Altmann
 authorSummary: dev@satellytes, ❤️ for Wombats
 
 ---
- 
-
-# NPM scoped registry and authentication
-
 ## TL;DR
 
 Packages in npm can be grouped together with scopes. Scopes are preceded by a `@` followed by the scope name and the package name separated by `/` e.g. `@scope/package`. To set a specific registry for a scope you can use scoped registries. To set a scoped registry open up the .npmrc file and enter the following:
