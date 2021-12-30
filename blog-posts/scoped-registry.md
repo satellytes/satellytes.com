@@ -6,7 +6,8 @@ featuredImage: images/npm-scoped-registry.jpg
 attribution:
     creator: Paul Esch-Laurent
     source: https://unsplash.com/photos/oZMUrWFHOB4
-seoMetaText: how to create scoped packages and scoped registry and configure authentication via npmrc
+seoMetaText: create scoped packages and scoped registry and configure authentication via npmrc
+teaserText: What are scoped packages, scoped registry and configure authentication via npmrc
 author: Mark Altmann
 authorSummary: Developer @ Satellytes
 
