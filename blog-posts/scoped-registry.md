@@ -26,7 +26,7 @@ If you need authentication you can add an additional line below the scoped regis
 
 Nowadays almost every programming language comes with its own package management solution, so developers can easily share packages with other developers around the world. For Python it is pip, for .NET it`s nuget. npm is the package manager solution for Javascript based languages. It is used to create and use node packaged modules and is built into the Javascript platform [Node.js](http://www.nodejs.org/). The central component behind these package managers is a registry. A registry is a database of packages, each comprised of software and metadata. For example the public registry for npm is [registry.npmjs.org](http://registry.npmjs.org).
 
-Beside using public registries, companies can establish their own private registries in their company network. The advantage is that the published packages of that company never leave the company network. Another advantage is that you can setup authentication to additionally secure your internally published packages.
+Beside using public registries, companies can establish their own private registries in their company network. The advantage is that the published packages of that company never leave the company networks. Another advantage is that you can setup authentication to additionally secure your internally published packages.
 
 ## Scopes and scoped registries
 
@@ -37,6 +37,8 @@ If you are a javscripty/typescript developer in a company you certainly stumbled
 
 
 Packages can be grouped together with scopes and for scopes we can set alternative registries named `scoped registries` where npm will lookup the packages instead of the main registry.
+
+> 💡 The usage of scoped packages and scoped registries can also greatly diminish your attack surface for the dependency confusion attack [dependency confusion attack](https://snyk.io/blog/detect-prevent-dependency-confusion-attacks-npm-supply-chain-security/)
 
 ## .npmrc
 
