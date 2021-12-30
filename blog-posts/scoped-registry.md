@@ -16,7 +16,7 @@ authorSummary: dev@satellytes, ❤️ for Wombats
 
 Packages in npm can be grouped together with scopes. Scopes are preceded by a `@` followed by the scope name and the package name separated by `/` e.g. `@scope/package`. To set a specific registry for a scope you can use scoped registries. To set a scoped registry open up the .npmrc file and enter the following:
 
-`@scope:registry=https://<your registry>`
+`@scope:registry=https://<your registry>` where `@scope` is your scope name and `<your registry>` is the registry where your scoped packages are hosted. 
 
 If you need authentication you can add an additional line below the scoped registry with `_auth` and the basic authentication string for username and password (`username:password` ⇒ base64 encoded) or `_authToken` for an access token:
 
