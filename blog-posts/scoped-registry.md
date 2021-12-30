@@ -9,7 +9,7 @@ attribution:
 seoMetaText: create scoped packages and scoped registry and configure authentication via npmrc
 teaserText: What are scoped packages, scoped registry and configure authentication via npmrc
 author: Mark Altmann
-authorSummary: Developer @ Satellytes
+authorSummary: dev@satellytes, ❤️ for Wombats
 
 ---
  
