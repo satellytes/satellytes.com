@@ -25,7 +25,7 @@ const StyledTextArea = styled.textarea<{ hasError?: boolean }>`
 export const TextArea = (
   props: UseControllerProps<any> & { label: string },
 ) => {
-  const { field, fieldState } = useController(props);
+  const { field, fieldState, formState } = useController(props);
 
   return (
     <>
@@ -38,6 +38,7 @@ export const TextArea = (
       <StyledTextArea
         aria-required={true}
         hasError={Boolean(fieldState?.error?.message)}
+        disabled={formState.isSubmitting}
         {...field}
         {...props}
         id={props.name}

@@ -42,7 +42,7 @@ export const StyledErrorMessage = styled.span`
 export const TextInput = (
   props: UseControllerProps<any> & { label: string },
 ) => {
-  const { field, fieldState } = useController(props);
+  const { field, fieldState, formState } = useController(props);
 
   return (
     <>
@@ -56,6 +56,7 @@ export const TextInput = (
         type={'text'}
         aria-required={true}
         hasError={Boolean(fieldState?.error?.message)}
+        disabled={formState.isSubmitting}
         id={props.name}
         {...field}
         {...props}
