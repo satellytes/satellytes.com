@@ -18,6 +18,7 @@ import { CheckmarkIcon } from '../../legacy/icons/form-icons/checkmark';
 import { RightArrowIcon } from '../../legacy/icons/form-icons/right-arrow';
 
 type RequestStatus = 'pending' | 'success' | 'error';
+const API_ENDPOINT = '/api/contact-form';
 
 const StyledCaptionText = styled(CaptionText)`
   color: inherit;
@@ -49,7 +50,7 @@ export const ContactForm: React.FC = () => {
         .join('&');
     };
 
-    fetch('/', {
+    fetch(API_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encodeForNetlify({ 'form-name': 'contact', ...formData }),
@@ -68,13 +69,7 @@ export const ContactForm: React.FC = () => {
   };
 
   return (
-    <form
-      name="contact"
-      method="POST"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
-      onSubmit={handleSubmit(onSubmit)}
-    >
+    <form name="contact" onSubmit={handleSubmit(onSubmit)}>
       <Grid nested>
         {/*First Name*/}
         <GridItem xs={12} md={6}>
