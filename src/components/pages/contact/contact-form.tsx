@@ -18,7 +18,7 @@ import { CheckmarkIcon } from '../../legacy/icons/form-icons/checkmark';
 import { RightArrowIcon } from '../../legacy/icons/form-icons/right-arrow';
 import { hideVisually } from 'polished';
 
-type RequestStatus = 'pending' | 'success' | 'error';
+type RequestStatus = 'pending' | 'submitting' | 'success' | 'error';
 const API_ENDPOINT = '/api/contact-form';
 
 const StyledCaptionText = styled(CaptionText)`
@@ -40,7 +40,6 @@ const MagicFieldContainer = styled.div`
   ${hideVisually()}
 `;
 const MagicField = ({ label, control }) => {
-  console.log({ control });
   return (
     <MagicFieldContainer>
       <label>
@@ -61,6 +60,8 @@ export const ContactForm: React.FC = () => {
   } = useForm();
 
   const onSubmit = (formData: FormData) => {
+    setRequestStatus('submitting');
+
     fetch(API_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
