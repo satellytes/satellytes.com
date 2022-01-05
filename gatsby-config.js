@@ -11,7 +11,7 @@ const BRANCH_PREVIEW_URL = buildGatsbyCloudPreviewUrl({
 
 // either use a branch preview url if any
 const BASE_URL =
-  BRANCH_PREVIEW_URL || process.env.GATBSY_BASE_UR || 'http://localhost:8000';
+  BRANCH_PREVIEW_URL || process.env.GATBSY_BASE_URL || 'http://localhost:8000';
 
 const LANGUAGES = ['en', 'de'];
 const DEFAULT_LANGUAGE = 'en';
