@@ -16,6 +16,7 @@ import styled from 'styled-components';
 import { SIMPLE_EMAIL_PATTERN } from '../../legacy/form/constants';
 import { CheckmarkIcon } from '../../legacy/icons/form-icons/checkmark';
 import { RightArrowIcon } from '../../legacy/icons/form-icons/right-arrow';
+import { hideVisually } from 'polished';
 
 type RequestStatus = 'pending' | 'success' | 'error';
 const API_ENDPOINT = '/api/contact-form';
@@ -29,6 +30,27 @@ interface FormData {
   message: string;
 }
 
+/**
+ * This is a honeypot field but we want to disguise it including the wording
+ * and hope the bots can't filter them by any heuristic
+ * (hopefully ignoring this comment
+ **/
+
+const MagicFieldContainer = styled.div`
+  ${hideVisually()}
+`;
+const MagicField = ({ label, control }) => {
+  console.log({ control });
+  return (
+    <MagicFieldContainer>
+      <label>
+        {label}
+        <input type="text" {...control} tabIndex={-1} autoComplete="false" />
+      </label>
+    </MagicFieldContainer>
+  );
+};
+
 export const ContactForm: React.FC = () => {
   const { t } = useTranslation();
   const [requestStatus, setRequestStatus] = useState<RequestStatus>('pending');
@@ -39,21 +61,10 @@ export const ContactForm: React.FC = () => {
   } = useForm();
 
   const onSubmit = (formData: FormData) => {
-    // partialy taken from the Netlify Blog:
-    // - https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
-    const encodeForNetlify = (data: any): string => {
-      return Object.keys(data)
-        .map(
-          (key) =>
-            encodeURIComponent(key) + '=' + encodeURIComponent(data[key]),
-        )
-        .join('&');
-    };
-
     fetch(API_ENDPOINT, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encodeForNetlify({ 'form-name': 'contact', ...formData }),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
     })
       .then((response) => {
         if (!response.ok) {
@@ -110,11 +121,16 @@ export const ContactForm: React.FC = () => {
             type={'text-area'}
           />
         </GridItem>
+
+        <MagicField label="First Name" control={register('firstName')} />
+        <MagicField label="Phone" control={register('phone')} />
+
         <GridItem>
           <StyledCaptionText>
             <Sup>*</Sup> {t('contact.mandatory-field')}
           </StyledCaptionText>
         </GridItem>
+
         <GridItem>
           {requestStatus === 'pending' && (
             <SendButton type="submit">
