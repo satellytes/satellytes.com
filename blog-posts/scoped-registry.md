@@ -1,15 +1,15 @@
 ---
 path: "/blog/scoped-registry/"
 date: "2021-12-30"
-title: "How to access multiple protected npm registries"
+title: "How to access protected npm registries with scoped packages and scoped registries"
 featuredImage: images/npm-scoped-registry.jpg
 attribution:
     creator: Paul Esch-Laurent
     source: https://unsplash.com/photos/oZMUrWFHOB4
-seoMetaText: Access private protected registries with npm scoped packages and scoped registries
+seoMetaText: Access protected registries with npm scoped packages and scoped registries
 teaserText: If you use multiple registries (public and private) you can use npm and scoped registries to configure access to multiple registries even if they are protected.
 author: Mark Altmann
-authorSummary: dev@satellytes, ❤️ for Wombats
+authorSummary: dev(ops)@satellytes, ❤️ for Wombats
 
 ---
 ## What is this all about?
