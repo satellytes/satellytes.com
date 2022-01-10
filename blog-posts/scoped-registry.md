@@ -1,13 +1,13 @@
 ---
 path: "/blog/scoped-registry/"
 date: "2021-12-30"
-title: "NPM scoped registry and authentication"
+title: "How to access multiple protected npm registries"
 featuredImage: images/npm-scoped-registry.jpg
 attribution:
     creator: Paul Esch-Laurent
     source: https://unsplash.com/photos/oZMUrWFHOB4
-seoMetaText: create scoped packages and scoped registry and configure authentication via npmrc
-teaserText: What are scoped packages, scoped registry and configure authentication via npmrc
+seoMetaText: Access private protected registries with npm scoped packages and scoped registries
+teaserText: If you use multiple registries (public and private) you can use npm and scoped registries to configure access to multiple registries even if they are protected.
 author: Mark Altmann
 authorSummary: dev@satellytes, ❤️ for Wombats
 
@@ -16,15 +16,21 @@ authorSummary: dev@satellytes, ❤️ for Wombats
 
 Packages in npm can be grouped together with scopes. Scopes are preceded by a `@` followed by the scope name and the package name separated by `/` e.g. `@scope/package`. To set a specific registry for a scope you can use scoped registries. To set a scoped registry open up the .npmrc file and enter the following:
 
-`@scope:registry=https://<your registry>` where `@scope` is your scope name and `<your registry>` is the registry where your scoped packages are hosted. 
+```@scope:registry=https://<your registry>```
+
+where `@scope` is your scope name and `<your registry>` is the registry where your scoped packages are hosted. 
 
 If you need authentication you can add an additional line below the scoped registry with `_auth` and the basic authentication string for username and password (`username:password` ⇒ base64 encoded) or `_authToken` for an access token:
 
-`//<your registry>:_auth=<base64-string>`
+```
+@scope:registry=https://<your registry>
+//<your registry>:_auth=<base64-string>
+```
+
 
 ## What is this all about?
 
-Nowadays almost every programming language comes with its own package management solution, so developers can easily share packages with other developers around the world. For Python it is pip, for .NET it`s nuget. npm is the package manager solution for Javascript based languages. It is used to create and use node packaged modules and is built into the Javascript platform [Node.js](http://www.nodejs.org/). The central component behind these package managers is a registry. A registry is a database of packages, each comprised of software and metadata. For example the public registry for npm is [registry.npmjs.org](http://registry.npmjs.org).
+Nowadays almost every programming language comes with its own package management solution, so developers can easily share packages with other developers around the world. For Python it is pip, for .NET it's nuget. npm is the package manager solution for Javascript based languages. It is used to create and use node packaged modules and is built into the Javascript platform [Node.js](http://www.nodejs.org/). The central component behind these package managers is a registry. A registry is a database of packages, each comprised of software and metadata. For example the public registry for npm is [registry.npmjs.org](http://registry.npmjs.org).
 
 Beside using public registries, companies can establish their own private registries in their company network. The advantage is that the published packages of that company never leave the company networks. Another advantage is that you can setup authentication to additionally secure your internally published packages.
 
@@ -46,13 +52,13 @@ npmrc is a configuration file configures how npm works in your environment. It c
 
 Lets suppose we have a company named *Wombat Corp.* and have published our packages under the scope `@wombatcorp`. Our registry can be found under the url `registry.wombatcorp.org`. We could add a scoped registry with the following line:
 
-`@scope:registry=https://<your registry>`
+```@scope:registry=https://<your registry>```
 
 So to add our example registry we have to add the following line to npmrc:
 
-`@wombatcorp:registry=https://registry.wombatcorp.org/`
+```@wombatcorp:registry=https://registry.wombatcorp.org/```
 
-## 401 Unauthorized... what 😱?
+## 401 Unauthorized... what? 😱
 
 Even if the registry is hosted internally, it is good practice to add authentication to prevent anonymous access to the packages. This can be in form of username and password or via an access token. For username and password normally basic authentication ([Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)) is used. To create the authentication string we take the username and password, separated with a colon and then encode it with base64:
 
@@ -64,7 +70,10 @@ For encoding you can use the command line `echo -n 'my-string' | base64` (Linux)
 
 To add basic authentication to our registry, we go back to the npmrc file and add the following line below the corresponding scoped registry:
 
-`//<your registry>:_auth=<base64-string>`
+```
+@scope:registry=https://<your registry>
+//<your registry>:_auth=<base64-string>
+```
 
 in our example: 
 
@@ -74,11 +83,14 @@ in our example:
 
 Or if you have an access token:
 
-`//registry.wombatcorp.org/:_authToken=c2lyd29tYmF0OnRoZWN1ZGQxZXIh`
+```
+@wombatcorp:registry=https://registry.wombatcorp.org/
+//registry.wombatcorp.org/:_authToken=c2lyd29tYmF0OnRoZWN1ZGQxZXIh
+``` 
 
 >💡 Remember that it is not a good practice to add credentials to version control e.g. if you have versioned your npmrc file.
 
-## But where should I put the credentials then 🤷‍♂️?
+## But where should I put the credentials then? 🤷‍♂️
 
 If you have a project level npmrc file and have added it in your version control then you could do the following:
 
