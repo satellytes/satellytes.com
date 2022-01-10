@@ -36,11 +36,15 @@ npmrc is a configuration file configures how npm works in your environment. It c
 
 Lets suppose we have a company named *Wombat Corp.* and have published our packages under the scope `@wombatcorp`. Our registry can be found under the url `registry.wombatcorp.org`. We could add a scoped registry with the following line:
 
-```@scope:registry=https://<your registry>```
+```
+@scope:registry=https://<your registry>
+```
 
 So to add our example registry we have to add the following line to npmrc:
 
-```@wombatcorp:registry=https://registry.wombatcorp.org/```
+```
+@wombatcorp:registry=https://registry.wombatcorp.org/
+```
 
 ## 401 Unauthorized... what? 😱
 
@@ -61,7 +65,9 @@ To add basic authentication to our registry, we go back to the npmrc file and ad
 
 in our example: 
 
-```//registry.wombatcorp.org/:_auth=c2lyd29tYmF0OnRoZWN1ZGQxZXIh```
+```
+//registry.wombatcorp.org/:_auth=c2lyd29tYmF0OnRoZWN1ZGQxZXIh
+```
 
 >💡 Note the // without the https: at the beginning
 
@@ -86,7 +92,9 @@ e.g. for linux `$ export NPM_TOKEN=<base64-string>`
 
 We can then add the env variable in our npmrc file:
 
-```//registry.wombatcorp.org/:_auth=${NPM_TOKEN}```
+```
+//registry.wombatcorp.org/:_auth=${NPM_TOKEN}
+```
 
 The npm cli will replace this value with the contents of the NPM_TOKEN environment variable
     
@@ -99,7 +107,9 @@ Each of these files is loaded, and config options are resolved in priority order
 
 Packages in npm can be grouped together with scopes. Scopes are preceded by a `@` followed by the scope name and the package name separated by `/` e.g. `@scope/package`. To set a specific registry for a scope you can use scoped registries. To set a scoped registry open up the .npmrc file and enter the following:
 
-```@scope:registry=https://<your registry>```
+```
+@scope:registry=https://<your registry>
+```
 
 where `@scope` is your scope name and `<your registry>` is the registry where your scoped packages are hosted. 
 
