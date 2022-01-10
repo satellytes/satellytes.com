@@ -16,7 +16,7 @@ import styled from 'styled-components';
 import { SIMPLE_EMAIL_PATTERN } from '../../legacy/form/constants';
 import { CheckmarkIcon } from '../../legacy/icons/form-icons/checkmark';
 import { RightArrowIcon } from '../../legacy/icons/form-icons/right-arrow';
-import { hideVisually } from 'polished';
+import { HoneypotField } from './honeypot';
 
 type RequestStatus = 'pending' | 'submitting' | 'success' | 'error';
 const API_ENDPOINT = '/api/contact-form';
@@ -29,26 +29,6 @@ interface FormData {
   email: string;
   message: string;
 }
-
-/**
- * This is a honeypot field but we want to disguise it including the wording
- * and hope the bots can't filter them by any heuristic
- * (hopefully ignoring this comment
- **/
-
-const MagicFieldContainer = styled.div`
-  ${hideVisually()}
-`;
-const MagicField = ({ label, control }) => {
-  return (
-    <MagicFieldContainer>
-      <label>
-        {label}
-        <input type="text" {...control} tabIndex={-1} autoComplete="false" />
-      </label>
-    </MagicFieldContainer>
-  );
-};
 
 export const ContactForm: React.FC = () => {
   const { t } = useTranslation();
@@ -123,8 +103,8 @@ export const ContactForm: React.FC = () => {
           />
         </GridItem>
 
-        <MagicField label="First Name" control={register('firstName')} />
-        <MagicField label="Phone" control={register('phone')} />
+        <HoneypotField label="First Name" control={register('firstName')} />
+        <HoneypotField label="Phone" control={register('phone')} />
 
         <GridItem>
           <StyledCaptionText>

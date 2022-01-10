@@ -1,4 +1,5 @@
 import { WebClient, LogLevel } from '@slack/web-api';
+import { GatsbyFunctionRequest, GatsbyFunctionResponse } from 'gatsby';
 
 const TOKEN = process.env.SLACK_BOT_SY_TOKEN;
 
@@ -58,7 +59,10 @@ const createSlackMessage = ({ name, email, message }) => {
   ];
 };
 
-export default async function handler(req, res) {
+export default async function handler(
+  req: GatsbyFunctionRequest,
+  res: GatsbyFunctionResponse,
+) {
   const { name, email, message, ...honey } = req.body;
   console.log('receive form data', { name, email, message }, honey);
 
