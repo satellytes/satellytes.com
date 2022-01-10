@@ -12,22 +12,6 @@ author: Mark Altmann
 authorSummary: dev@satellytes, ❤️ for Wombats
 
 ---
-## TL;DR
-
-Packages in npm can be grouped together with scopes. Scopes are preceded by a `@` followed by the scope name and the package name separated by `/` e.g. `@scope/package`. To set a specific registry for a scope you can use scoped registries. To set a scoped registry open up the .npmrc file and enter the following:
-
-```@scope:registry=https://<your registry>```
-
-where `@scope` is your scope name and `<your registry>` is the registry where your scoped packages are hosted. 
-
-If you need authentication you can add an additional line below the scoped registry with `_auth` and the basic authentication string for username and password (`username:password` ⇒ base64 encoded) or `_authToken` for an access token:
-
-```
-@scope:registry=https://<your registry>
-//<your registry>:_auth=<base64-string>
-```
-
-
 ## What is this all about?
 
 Nowadays almost every programming language comes with its own package management solution, so developers can easily share packages with other developers around the world. For Python it is pip, for .NET it's nuget. npm is the package manager solution for Javascript based languages. It is used to create and use node packaged modules and is built into the Javascript platform [Node.js](http://www.nodejs.org/). The central component behind these package managers is a registry. A registry is a database of packages, each comprised of software and metadata. For example the public registry for npm is [registry.npmjs.org](http://registry.npmjs.org).
@@ -77,7 +61,7 @@ To add basic authentication to our registry, we go back to the npmrc file and ad
 
 in our example: 
 
-`//registry.wombatcorp.org/:_auth=c2lyd29tYmF0OnRoZWN1ZGQxZXIh`
+```//registry.wombatcorp.org/:_auth=c2lyd29tYmF0OnRoZWN1ZGQxZXIh```
 
 >💡 Note the // without the https: at the beginning
 
@@ -102,7 +86,7 @@ e.g. for linux `$ export NPM_TOKEN=<base64-string>`
 
 We can then add the env variable in our npmrc file:
 
-`//registry.wombatcorp.org/:_auth=${NPM_TOKEN}`
+```//registry.wombatcorp.org/:_auth=${NPM_TOKEN}```
 
 The npm cli will replace this value with the contents of the NPM_TOKEN environment variable
     
@@ -110,3 +94,18 @@ The npm cli will replace this value with the contents of the NPM_TOKEN environme
 
 There are different npmrc files as explained here ([npmrc](https://docs.npmjs.com/cli/v8/configuring-npm/npmrc)). 
 Each of these files is loaded, and config options are resolved in priority order. For example, a setting in the userconfig file would override the setting in the globalconfig file. So we could put the scoped registry into the userconfig file instead of the project config file.
+
+## Summary
+
+Packages in npm can be grouped together with scopes. Scopes are preceded by a `@` followed by the scope name and the package name separated by `/` e.g. `@scope/package`. To set a specific registry for a scope you can use scoped registries. To set a scoped registry open up the .npmrc file and enter the following:
+
+```@scope:registry=https://<your registry>```
+
+where `@scope` is your scope name and `<your registry>` is the registry where your scoped packages are hosted. 
+
+If you need authentication you can add an additional line below the scoped registry with `_auth` and the basic authentication string for username and password (`username:password` ⇒ base64 encoded) or `_authToken` for an access token:
+
+```
+@scope:registry=https://<your registry>
+//<your registry>:_auth=<base64-string>
+```
