@@ -12,7 +12,6 @@ import { Link } from '../../legacy/links/links';
 import { up } from '../../support/breakpoint';
 import { HoneypotField } from './honeypot';
 
-type RequestStatus = 'pending' | 'submitting' | 'success' | 'error';
 const API_ENDPOINT = '/api/contact-form';
 
 const Grid = styled.div`
@@ -27,12 +26,11 @@ const Caption = styled.p`
   margin: 16px 0 48px;
 `;
 
-
 const ErrorMessage = styled.p`
   ${TextStyles.textXS}
   font-weight: 700;
   display: inline-block;
-  
+
   color: ${theme.palette.text.errorMessage};
 `;
 
@@ -94,6 +92,10 @@ interface FormData {
   name: string;
   email: string;
   message: string;
+
+  //Honeypot fields
+  firstName: '';
+  phone: '';
 }
 
 export const ContactForm = ({ onSuccess }: { onSuccess: () => any }) => {
@@ -107,7 +109,7 @@ export const ContactForm = ({ onSuccess }: { onSuccess: () => any }) => {
       email: '',
       message: '',
       firstName: '',
-      phone: ''
+      phone: '',
     },
     mode: 'onSubmit',
   });
@@ -115,8 +117,6 @@ export const ContactForm = ({ onSuccess }: { onSuccess: () => any }) => {
   const [apiError, setApiError] = useState<boolean>(false);
 
   const onSubmit = (formData: FormData) => {
-
-
     fetch(API_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -141,8 +141,8 @@ export const ContactForm = ({ onSuccess }: { onSuccess: () => any }) => {
         <GridItem>
           <FirstName control={control} />
         </GridItem>
-        <HoneypotField name='firstName' label="First Name" control={control} />
-        <HoneypotField name='phone' label="Phone" control={control} />
+        <HoneypotField name="firstName" label="First Name" control={control} />
+        <HoneypotField name="phone" label="Phone" control={control} />
         <GridItem>
           <Email control={control} />
         </GridItem>
