@@ -14,6 +14,16 @@ interface CareerProps {
 const Spacer = styled.div`
   height: 40px;
 `;
+
+const textEllipsis = (text, maxLength) => {
+  const truncatedText = text.substring(0, maxLength);
+  if (truncatedText.length < text.length) {
+    return truncatedText + '...';
+  }
+
+  return truncatedText;
+};
+
 export const Career = ({ positions }: CareerProps) => {
   const { t } = useTranslation();
 
@@ -30,7 +40,7 @@ export const Career = ({ positions }: CareerProps) => {
       <TeaserGrid>
         {positions.map((item) => (
           <Teaser key={item.id} title={item.name} linkTo={item.slug}>
-            {item.short}
+            {textEllipsis(item.short, 200)}
           </Teaser>
         ))}
       </TeaserGrid>
