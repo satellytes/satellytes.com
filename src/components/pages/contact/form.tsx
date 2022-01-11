@@ -1,60 +1,103 @@
 import React, { useState } from 'react';
-import { SectionHeader } from '../../content/section-header/section-header';
-import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
-import styled from 'styled-components';
-import { Link } from '../../legacy/links/links';
-import { ContactForm } from './contact-form';
-import { theme } from '../../layout/theme';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { useForm } from 'react-hook-form';
 import { Button } from '../../ui/buttons/button';
+import styled from 'styled-components';
+import { TextStyles } from '../../typography';
+import { theme } from '../../layout/theme';
+import { Link } from '../../legacy/links/links';
+import { HoneypotField } from './honeypot';
+import { Email, FirstName, MessageArea } from './form-fields';
 
-const StyledLink = styled(Link)`
-  color: ${theme.palette.text.link.default};
+const API_ENDPOINT = '/api/contact-form';
 
-  &:hover {
-    border-bottom: 1px solid ${theme.palette.text.link.default};
-  }
+const FormLayout = styled.div`
+  margin-bottom: 24px;
+  gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 `;
 
-const StyledSectionHeader = styled(SectionHeader)`
-  margin-bottom: 48px;
+const MandatoryNotes = styled.p`
+  ${TextStyles.textS}
+  margin: 16px 0 48px;
 `;
 
-export const Form = () => {
-  const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
+const ErrorMessage = styled.p`
+  ${TextStyles.textXS}
+  font-weight: 700;
+  display: inline-block;
+
+  color: ${theme.palette.text.errorMessage};
+`;
+
+const Submit = styled(Button)`
+  margin-right: 16px;
+`;
+
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+
+  //Honeypot fields
+  firstName: string;
+  phone: string;
+}
+
+export const Form = ({ onSuccess }: { onSuccess: () => any }) => {
+  const {
+    handleSubmit,
+    control,
+    formState: { isValid, isSubmitted },
+  } = useForm<FormData>({
+    mode: 'onSubmit',
+  });
   const { t } = useTranslation();
+  const [apiError, setApiError] = useState<boolean>(false);
 
-  if (formSubmitted) {
-    return (
-      <>
-        <StyledSectionHeader
-          kicker={t('contact.action.sent.kicker')}
-          headline={t('contact.action.sent.headline')}
-        >
-          {t('contact.action.sent.info')}
-        </StyledSectionHeader>
-        <Button to={'/'}>{t('contact.action.sent.button')}</Button>
-      </>
-    );
-  } else {
-    return (
-      <>
-        <SectionHeader headline={'E-Mail'}>
-          <Trans i18nKey="contact.info-link">
-            <p>
-              Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine
-              E-Mail an
-              <StyledLink to="mailto:info@satellytes.com">
-                info@satellytes.com
-              </StyledLink>
-            </p>
-          </Trans>
-        </SectionHeader>
-        <ContactForm
-          onSuccess={() => {
-            setFormSubmitted(true);
-          }}
-        />
-      </>
-    );
-  }
+  const onSubmit = (formData: FormData) => {
+    fetch(API_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          setApiError(true);
+        } else {
+          onSuccess();
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        setApiError(true);
+      });
+  };
+
+  return (
+    <form name="contact" onSubmit={handleSubmit(onSubmit)}>
+      <FormLayout>
+        <FirstName control={control} />
+        <Email control={control} />
+        <MessageArea control={control} />
+      </FormLayout>
+
+      <HoneypotField name="firstName" label="First Name" control={control} />
+      <HoneypotField name="phone" label="Phone" control={control} />
+
+      <MandatoryNotes>* {t('career.mandatory-field')}</MandatoryNotes>
+      <Submit type={'submit'}>{t('contact.action.send')}</Submit>
+
+      {isSubmitted && !isValid && (
+        <ErrorMessage>{t('contact.action.missing')}</ErrorMessage>
+      )}
+      {apiError && (
+        <ErrorMessage>
+          {t('contact.action.again-text')}{' '}
+          <Link to="mailto:info@satellytes.com">info@satellytes.com</Link>
+        </ErrorMessage>
+      )}
+    </form>
+  );
 };

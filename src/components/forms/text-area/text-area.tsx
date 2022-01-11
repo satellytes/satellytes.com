@@ -3,13 +3,13 @@ import styled, { css } from 'styled-components';
 import { TextStyles } from '../../typography';
 import { theme } from '../../layout/theme';
 import { useController, UseControllerProps } from 'react-hook-form';
+import { StyledErrorMessage, Label } from '../text-input/text-input';
 
-const Input = styled.input<{ hasError?: boolean }>`
+const StyledTextArea = styled.textarea<{ hasError?: boolean }>`
+  height: 160px;
   width: 100%;
-  height: 48px;
-
-  padding-left: 16px;
-  padding-right: 16px;
+  padding: 19px 16px;
+  resize: vertical;
 
   ${TextStyles.textR}
 
@@ -22,49 +22,31 @@ const Input = styled.input<{ hasError?: boolean }>`
     `};
 `;
 
-export const Label = styled.label`
-  ${TextStyles.textXS}
-  display: block;
-  margin-bottom: 4px;
-
-  color: ${theme.palette.text.default};
-`;
-
-export const StyledErrorMessage = styled.span`
-  ${TextStyles.textXS}
-  font-weight: 700;
-  display: block;
-  margin-top: 4px;
-
-  color: ${theme.palette.text.errorMessage};
-`;
-
-export const TextInput = (
+export const TextArea = (
   props: UseControllerProps<any> & { label: string },
 ) => {
   const { field, fieldState, formState } = useController(props);
+  const errorMessage = fieldState?.error?.message;
 
   return (
-    <>
+    <div>
       {props.label && (
         <Label htmlFor={props.name}>
           {props.label}{' '}
           {props?.rules?.required && <span aria-hidden={true}>*</span>}
         </Label>
       )}
-      <Input
-        type={'text'}
+      <StyledTextArea
         aria-required={true}
-        hasError={Boolean(fieldState?.error?.message)}
+        hasError={Boolean(errorMessage)}
         disabled={formState.isSubmitting}
-        id={props.name}
         {...field}
+        value={field?.value || ''}
         {...props}
+        id={props.name}
       />
 
-      {fieldState?.error?.message && (
-        <StyledErrorMessage>{fieldState.error.message}</StyledErrorMessage>
-      )}
-    </>
+      {errorMessage && <StyledErrorMessage>{errorMessage}</StyledErrorMessage>}
+    </div>
   );
 };
