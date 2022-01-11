@@ -143,6 +143,7 @@
   },
   "resolutions": {
     "cheerio": "1.0.0-rc.10",
-    "webpack": "^5"
+    "webpack": "^5",
+    "colors": "1.4.0"
   }
 }
