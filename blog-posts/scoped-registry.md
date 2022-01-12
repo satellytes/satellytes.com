@@ -72,8 +72,11 @@ Alternatively, if you have an access token you can put the access token after `_
 //registry.working-wombats.org/:_authToken=c2lyd29tYmF0OnRoZWN1ZGQxZXIh
 ```
 
+Jeff tried it again et voilà it worked! He almost commited the new additions of the project-level .npmrc to git but then his old mentor "Sir Wombat" came into his mind:
+
 >💡 Remember that it is not a good practice to add credentials to version control e.g. if you have versioned your npmrc file.
 
+and Jeff was asking himself...
 ## But where should I put the credentials then? 🤷‍♂️
 
 If you have a project level .npmrc file and have added it in your version control then you could do the following:
@@ -97,7 +100,9 @@ The npm cli will replace this value with the contents of the NPM_TOKEN environme
 There are different npmrc files as explained here ([npmrc](https://docs.npmjs.com/cli/v8/configuring-npm/npmrc)). 
 Each of these files is loaded, and config options are resolved in priority order. For example, a setting in the userconfig file would override the setting in the globalconfig file. So we could put the scoped registry into the userconfig file instead of the project config file.
 
-## Summary
+## Conclusion
+
+Finally Jeff could shutdown his computer and leave work. Today he learned how to use scoped registries to access different registries for different scoped packages including how to use authentication. On his way home he quickly recapped what he has learned today:
 
 Packages in npm can be grouped together with scopes. Scopes are preceded by a `@` followed by the scope name and the package name separated by `/` e.g. `@scope/package`. To set a specific registry for a scope you can use scoped registries. To set a scoped registry open up the .npmrc file and enter the following:
 
@@ -105,11 +110,15 @@ Packages in npm can be grouped together with scopes. Scopes are preceded by a `@
 @scope:registry=https://<your registry>
 ```
 
-where `@scope` is your scope name and `<your registry>` is the registry where your scoped packages are hosted. 
+where `@scope` is the scope name and `<your registry>` is the registry where the scoped packages are hosted. 
 
-If you need authentication you can add an additional line below the scoped registry with `_auth` and the basic authentication string for username and password (`username:password` ⇒ base64 encoded) or `_authToken` for an access token:
+If authentication is needed it is possible to add an additional line below the scoped registry with `_auth` and the basic authentication string for username and password (`username:password` ⇒ base64 encoded) or `_authToken` for an access token:
 
 ```
 @scope:registry=https://<your registry>
 //<your registry>:_auth=<base64-string>
 ```
+
+Mhh, thought Jeff, in the end this wasn't too hard. He put on his headphones and started hearing music and enjoyed the rest of the day.
+
+
