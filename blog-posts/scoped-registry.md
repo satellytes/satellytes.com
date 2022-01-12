@@ -18,7 +18,7 @@ Nowadays almost every programming language comes with its own package management
 
 Beside using public registries, companies can establish their own private registries in their company network. [Nexus](https://www.sonatype.com/products/repository-pro), [Artifactory](https://jfrog.com/artifactory/) or [verdaccio](https://github.com/verdaccio/verdaccio) only to name some of the well-known. The advantage is that the published packages of that company never leave the company networks. Another advantage is that you can setup authentication to additionally secure your internally published packages.
 
-Jeff Wombat Jr.[^1] is a javscripty/typescript developer at **"Working Wombats"** and got a letter from his boss that due to security reasons, from now on, the devs have to use the internal company registry for their packages. The internal registry can be accessed via username and password. The problem here arises that Jeff knows that in npm you can only set one main registry where to get the packages from.
+Jeff Wombat Jr.[^1] is a Frontend developer at **"Working Wombats"** and got a letter from his boss that due to security reasons, from now on, the developers have to use the internal company registry for their npm packages. The internal registry can be accessed via username and password. The problem here arises that Jeff knows that in npm you can only set one main registry where to get the packages from.
 
 [^1]: Imaginary person which does not reflect any persons in the real world.
 
