@@ -7,7 +7,7 @@ attribution:
     creator: Paul Esch-Laurent
     source: https://unsplash.com/photos/oZMUrWFHOB4
 seoMetaText: How to set up multiple npm registries with scoped packages and scoped registries even if they are protected
-teaserText: Learn with Jeff the Wombat, how to use npm scoped packages and scoped registries and how to configure access to multiple registries even if they are protected.
+teaserText: Learn with Jeff the Wombat, about npm scoped packages and scoped registries and how to configure access to multiple registries even if they are protected.
 author: Mark Altmann
 authorSummary: dev(ops)@satellytes, ❤️ for Wombats
 
