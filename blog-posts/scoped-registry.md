@@ -120,5 +120,3 @@ If authentication is needed it is possible to add an additional line below the s
 ```
 
 Mhh, thought Jeff, in the end this wasn't too hard. He put on his headphones and started hearing music and enjoyed the rest of the day.
-
-
