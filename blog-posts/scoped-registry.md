@@ -1,13 +1,13 @@
 ---
 path: "/blog/scoped-registry/"
 date: "2021-12-30"
-title: "How to access protected npm registries with scoped packages and scoped registries"
+title: "How to set up multiple npm registries with scoped registries"
 featuredImage: images/npm-scoped-registry.jpg
 attribution:
     creator: Paul Esch-Laurent
     source: https://unsplash.com/photos/oZMUrWFHOB4
-seoMetaText: Access protected registries with npm scoped packages and scoped registries
-teaserText: If you use multiple registries (public and private) you can use npm and scoped registries to configure access to multiple registries even if they are protected.
+seoMetaText: How to set up multiple npm registries with scoped packages and scoped registries even if they are protected
+teaserText: Learn with Jeff the Wombat, how to use npm scoped packages and scoped registries and how to configure access to multiple registries even if they are protected.
 author: Mark Altmann
 authorSummary: dev(ops)@satellytes, ❤️ for Wombats
 
@@ -16,18 +16,22 @@ authorSummary: dev(ops)@satellytes, ❤️ for Wombats
 
 Nowadays almost every programming language comes with its package management solution, so developers can easily share packages with other developers around the world. For Python it is pip, for .NET it's NuGet. npm is the package manager solution for Javascript-based languages. It is used to create and use node packaged modules and is built into the Javascript platform [Node.js](http://www.nodejs.org/). The central component behind these package managers is a registry. A registry is a database of packages, each comprised of software and metadata. For example, the public registry for npm is [registry.npmjs.org](http://registry.npmjs.org).
 
-Beside using public registries, companies can establish their own private registries in their company network. [Nexus](https://www.sonatype.com/products/repository-pro), [Artifactory](https://jfrog.com/artifactory/) or [verdaccio](https://github.com/verdaccio/verdaccio) only to name some of the well-known. The advantage is that the published packages of that company never leave the company networks. Another advantage is that you can setup authentication to additionally secure your internally published packages.
+Besides using public registries, companies can establish their private registries in their company network. [Nexus](https://www.sonatype.com/products/repository-pro), [Artifactory](https://jfrog.com/artifactory/) or [verdaccio](https://github.com/verdaccio/verdaccio) only to name some of the well-known. The advantage is that the published packages of that company never leave the company networks. Another advantage is that you can set up authentication to additionally secure your internally published packages.
 
-Jeff Wombat Jr.[^1] is a Frontend developer at **"Working Wombats"** and got a letter from his boss that due to security reasons, from now on, the developers have to use the internal company registry for their npm packages. The internal registry can be accessed via username and password. The problem here arises that Jeff knows that in npm you can only set one main registry where to get the packages from.
+Jeff the Wombat [^1] is a Frontend developer at **"Working Wombats"** and got a letter from his boss that due to security reasons, from now on, the developers have to use the internal company registry for their npm packages. The internal registry can be accessed via username and password. "This is an easy one" thinks Jeff and starts trying to add the new registry to the configuration. But soon he finds out, that it he can only add one default registry. But how should he then get packages from the public npm registry and another packages from the newly setup interal registry at the same time. Time to google...
 
-[^1]: Imaginary person which does not reflect any persons in the real world.
+[^1]: Imaginary figure which does not reflect any certain person nor animal in the real world.
 
-## Scopes and scoped registries to the rescue
+## Scopes and scoped registries
+
+While searching Jeff stumbles upon the following:
 
 > All npm packages have a name. Some package names also have a scope. A scope follows the usual rules for package names (URL-safe characters, no leading dots or underscores). When used in package names, scopes are preceded by an `@` symbol and followed by a slash, e.g. `@somescope/somepackagename` Scopes are a way of grouping related packages together, and also affect a few things about the way npm treats the package.
 > -- <cite>[npm](https://docs.npmjs.com/cli/v8/using-npm/scope)</cite>
 
 Packages can be grouped with scopes and for scopes, we can set alternative registries named `scoped registries` where npm will lookup the packages instead of the main registry.
+
+"Well, this sounds promising!" Jeff thinks.
 
 > 💡 The usage of scoped packages and scoped registries can also greatly diminish your attack surface for the dependency confusion attack [dependency confusion attack](https://snyk.io/blog/detect-prevent-dependency-confusion-attacks-npm-supply-chain-security/)
 
@@ -42,7 +46,7 @@ Packages can be grouped with scopes and for scopes, we can set alternative regis
 ```
 ## 401 Unauthorized... what? 😱
 
-Jeff, fortunately, found out, that he could easily add scoped registries to the .npmrc file and thought he could knock off work early today and enjoy the rest of the day but then he saw the dreaded 401 error message...
+Jeff added the configuration for the scoped registries to the .npmrc file and thought he could knock off work early today and enjoy the rest of the day but then he saw the dreaded 401 error message...
 
 Even if the registry is hosted internally, it is good practice to add authentication to prevent anonymous access to the packages. This can be in form of a username and password or via an access token. For username and password normally basic authentication ([Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)) is used. To create the authentication string we take the username and password, separate with a colon and then encode it with base64:
 
@@ -120,3 +124,5 @@ If authentication is needed it is possible to add a line below the scoped regist
 ```
 
 "Mhh", thought Jeff, in the end, this wasn't too hard. He put on his headphones and started hearing music and enjoyed the rest of the day.
+
+As a backend developer myself peeking into the world of frontend, I was standing before the same problem as Jeff. I wish I had found this blog post by then... :smiley:
