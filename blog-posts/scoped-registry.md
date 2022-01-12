@@ -125,4 +125,4 @@ If authentication is needed it is possible to add a line below the scoped regist
 
 "Mhh", thought Jeff, in the end, this wasn't too hard.
 
-As a backend developer myself peeking into the world of frontend, I was standing before the same problem as Jeff. I wish I had found this blog post by then... :smiley:
+As a backend developer myself peeking into the world of frontend, I was standing before the same problem as Jeff. I wish I had found this blog post by then... 😌
