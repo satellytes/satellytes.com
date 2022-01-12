@@ -18,9 +18,9 @@ Nowadays almost every programming language comes with its package management sol
 
 Besides using public registries, companies can establish their private registries in their company network. [Nexus](https://www.sonatype.com/products/repository-pro), [Artifactory](https://jfrog.com/artifactory/) or [verdaccio](https://github.com/verdaccio/verdaccio) only to name some of the well-known. The advantage is that the published packages of that company never leave the company networks. Another advantage is that you can set up authentication to additionally secure your internally published packages.
 
-Jeff the Wombat [^1] is a Frontend developer at **"Working Wombats"** and got a letter from his boss that due to security reasons, from now on, the developers have to use the internal company registry for their npm packages. The internal registry can be accessed via username and password. "This is an easy one" thinks Jeff and starts trying to add the new registry to the configuration. But soon he finds out, that it he can only add one default registry. But how should he then get packages from the public npm registry and another packages from the newly setup interal registry at the same time. Time to google...
+Jeff the Wombat [^1] is a Frontend developer at **"Working Wombats"** and got a letter from his boss that due to security reasons, from now on, the developers have to use the internal company registry for their npm packages. The internal registry can be accessed via username and password. "This is an easy one," thinks Jeff and starts trying to add the new registry to the configuration. But soon he finds out, that he can only add one default registry. But how should he then get packages from the public npm registry and other packages from the newly setup internal registry at the same time? Time to google...
 
-[^1]: Imaginary figure which does not reflect any certain person nor animal in the real world.
+[^1]: Imaginary figure which does not reflect any certain person or animal in the real world.
 
 ## Scopes and scoped registries
 
