@@ -62,7 +62,7 @@ export const IndexPageQuery = graphql`
         }
       }
     }
-    allSyPersonioJob(filter: { lang: { eq: $language } }) {
+    allSyPersonioJob(filter: { lang: { eq: $language } }, limit: 3) {
       nodes {
         id
         lang

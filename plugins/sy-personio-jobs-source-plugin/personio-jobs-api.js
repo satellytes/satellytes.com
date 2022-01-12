@@ -7,6 +7,13 @@ const PERSONIO_JOBS_URL = 'https://satellytes.jobs.personio.de/xml';
 
 const PERSONIO_SLUG_FIELD_NAME = 'Slug';
 const PERSONIO_SHORT_DESCRIPTION_NAME = 'Kurzbeschreibung';
+const PERSONIO_SORT_ORDER_FIELD_NAME = 'Sort Order';
+
+const META_DATA_FIELDS = [
+  PERSONIO_SLUG_FIELD_NAME,
+  PERSONIO_SHORT_DESCRIPTION_NAME,
+  PERSONIO_SORT_ORDER_FIELD_NAME,
+];
 
 /**
  * Personio doesn't offer any meta fields
@@ -26,7 +33,7 @@ const extractDescriptionValues = (descriptions, keys) => {
       return memo;
     }
 
-    const value = striptags(description.value).trim();
+    const value = striptags(String(description.value)).trim();
     memo.push(value);
 
     return memo;
@@ -38,13 +45,9 @@ const extractDescriptionValues = (descriptions, keys) => {
    to remove meta data descriptions that we 
    are going to extract in beforehand.
  */
-function dropDescriptions(descriptions) {
+function dropDescriptions(descriptions, fields) {
   return descriptions.reduce((memo, item) => {
-    if (
-      [PERSONIO_SLUG_FIELD_NAME, PERSONIO_SHORT_DESCRIPTION_NAME].includes(
-        item.name,
-      )
-    ) {
+    if (fields.includes(item.name)) {
       return memo;
     }
 
@@ -65,22 +68,23 @@ function dropDescriptions(descriptions) {
  * the Gatsby store.
  */
 function parseDescriptions(jobDescriptions) {
-  const [slug, short] = extractDescriptionValues(jobDescriptions, [
-    PERSONIO_SLUG_FIELD_NAME,
-    PERSONIO_SHORT_DESCRIPTION_NAME,
-  ]);
-  const remainingDescriptions = dropDescriptions(jobDescriptions, [
-    PERSONIO_SLUG_FIELD_NAME,
-    PERSONIO_SHORT_DESCRIPTION_NAME,
-  ]);
+  const [slug, short, sortOrder] = extractDescriptionValues(
+    jobDescriptions,
+    META_DATA_FIELDS,
+  );
+  const remainingDescriptions = dropDescriptions(
+    jobDescriptions,
+    META_DATA_FIELDS,
+  );
 
+  const sortOrderInteger = parseInt(sortOrder, 10) || Number.MAX_SAFE_INTEGER;
   const sections = remainingDescriptions.map((item) => ({
     headline: item.name,
     descriptionHtml: item.value.trim(),
     description: striptags(item.value.trim()),
   }));
 
-  return { sections, slug, short };
+  return { sections, slug, short, sort: sortOrderInteger };
 }
 
 /**
@@ -99,7 +103,7 @@ function normalize(positions, lang) {
       return memo;
     }
 
-    const { sections, slug, short } = parseDescriptions(jobDescription);
+    const { sections, slug, short, sort } = parseDescriptions(jobDescription);
     delete position.jobDescriptions;
 
     memo.push({
@@ -108,6 +112,8 @@ function normalize(positions, lang) {
       short,
       sections,
       lang,
+      createdAt: new Date(position.createdAt),
+      sort,
     });
 
     return memo;
@@ -127,9 +133,19 @@ async function fetch(language) {
   });
 
   const jobsParse = xmlParser.parse(jobsXml);
-  const positions = jobsParse['workzag-jobs'].position;
+  const rawPositions = jobsParse['workzag-jobs'].position;
+  const positions = normalize(rawPositions, language);
 
-  return normalize(positions, language);
+  // sort by our manual sort value and then by the created date
+  positions.sort((positionA, positionB) => {
+    const sortByManualSortASC = positionA.sort - positionB.sort;
+    const sortByCreatedAtDESC =
+      -1 * (positionA.createdAt - positionB.createdAt);
+
+    return sortByManualSortASC || sortByCreatedAtDESC;
+  });
+
+  return positions;
 }
 
 module.exports = {
