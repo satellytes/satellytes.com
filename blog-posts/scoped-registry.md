@@ -94,7 +94,7 @@ We can then add the environment variable in our .npmrc file:
 //registry.wombatcorp.org/:_auth=${NPM_TOKEN}
 ```
 
-The npm CLI will replace this value with the contents of the NPM_TOKEN environment variable
+The npm CLI will replace this value with the contents of the NPM_TOKEN environment variable.
     
 **Add scoped registry to user-level instead of project-level**
 
