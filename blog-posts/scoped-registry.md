@@ -1,7 +1,7 @@
 ---
 path: "/blog/scoped-registry/"
 date: "2021-12-30"
-title: "How to set up multiple npm registries with scoped registries"
+title: "How enterprises benefit from scoped npm registries"
 featuredImage: images/npm-scoped-registry.jpg
 attribution:
     creator: Paul Esch-Laurent
