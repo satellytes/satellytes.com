@@ -19,7 +19,7 @@ Nowadays almost every programming language comes with its package management sol
 Besides using public registries, companies can establish their private registries in their company network. [Nexus](https://www.sonatype.com/products/repository-pro), [Artifactory](https://jfrog.com/artifactory/) or [verdaccio](https://github.com/verdaccio/verdaccio) only to name some of the well-known. The advantage is that the published packages of that company never leave the company network. Another advantage is that you can set up authentication to additionally secure your internally published packages.
 
 ## Real-world challenges for a fictional enterprise
-Jeff the Wombat [^1] is a Frontend developer at **"Working Wombats"** and got a letter from his boss that due to security reasons, from now on, the developers have to use the internal company registry for their npm packages. The internal registry can be accessed via username and password. "This is an easy one," thinks Jeff and starts trying to add the new registry to the configuration. But soon he finds out, that he can only add one default registry. But how should he then get packages from the public npm registry and, on the other side, private packages from the newly setup internal registry at the same time? Time to google...
+Jeff the Wombat [^1] is a Frontend developer at **"Working Wombats ACME"** and got a letter from his boss that due to security reasons, from now on, the developers have to use the internal company registry for their npm packages. The internal registry can be accessed via username and password. "This is an easy one," thinks Jeff and starts trying to add the new registry to the configuration. But soon he finds out, that he can only add one default registry. But how should he then get packages from the public npm registry and, on the other side, private packages from the newly setup internal registry at the same time? Time to google...
 
 [^1]: Imaginary figure which does not reflect any certain person or animal in the real world.
 
@@ -38,7 +38,7 @@ Packages can be grouped with scopes and for scopes, we can set alternative regis
 
 .npmrc is a configuration file that configures how npm works in your environment. It can be used globally or on a user or project level. [Here](https://docs.npmjs.com/cli/v8/configuring-npm/npmrc) are the docs for .npmrc.
 
-**Working wombats** already set up the new registry and moved all packages from the public registry into the private registry. Fortunately for the internal packages, they already used scopes (`@workingwombats`). The registry can be found internally via the URL `registry.working-wombats.rocks`. So Jeff could add a scoped registry with the following line to .npmrc:
+**"Working Wombats ACME"** already set up the new registry and moved all packages from the public registry into the private registry. Fortunately for the internal packages, they already used scopes (`@workingwombats`). The registry can be found internally via the URL `registry.working-wombats.rocks`. So Jeff could add a scoped registry with the following line to .npmrc:
 
 ```
 @workingwombats:registry=https://registry.working-wombats.rocks/
