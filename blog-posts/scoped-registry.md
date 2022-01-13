@@ -18,11 +18,10 @@ Nowadays almost every programming language comes with its package management sol
 
 Besides using public registries, companies can establish their private registries in their company network. [Nexus](https://www.sonatype.com/products/repository-pro), [Artifactory](https://jfrog.com/artifactory/) or [verdaccio](https://github.com/verdaccio/verdaccio) only to name some of the well-known. The advantage is that the published packages of that company never leave the company network. Another advantage is that you can set up authentication to additionally secure your internally published packages.
 
+## Real-world challenges for a fictional enterprise
 Jeff the Wombat [^1] is a Frontend developer at **"Working Wombats"** and got a letter from his boss that due to security reasons, from now on, the developers have to use the internal company registry for their npm packages. The internal registry can be accessed via username and password. "This is an easy one," thinks Jeff and starts trying to add the new registry to the configuration. But soon he finds out, that he can only add one default registry. But how should he then get packages from the public npm registry and, on the other side, private packages from the newly setup internal registry at the same time? Time to google...
 
 [^1]: Imaginary figure which does not reflect any certain person or animal in the real world.
-
-## Scopes and scoped registries
 
 While searching Jeff stumbles upon the following:
 
@@ -106,22 +105,7 @@ Each of these files is loaded, and config options are resolved in priority order
 
 ## Conclusion
 
-Finally, Jeff could shut down his computer and leave work. Today he learned how to use scoped registries to access different scoped packages including how to use authentication. On his way home he quickly recapped what he has learned today:
-
-Packages in npm can be grouped with scopes. Scopes are preceded by a `@` followed by the scope name and the package name separated by `/` e.g. `@scope/package`. To set a specific registry for a scope you can use scoped registries. To set a scoped registry open up the .npmrc file and enter the following:
-
-```
-@scope:registry=https://<your registry>
-```
-
-where `@scope` is the scope name and `<your registry>` is the registry where the scoped packages are hosted. 
-
-If authentication is needed it is possible to add a line below the scoped registry with `_auth` and the basic authentication string for username and password (`username:password` ⇒ base64 encoded) or `_authToken` for an access token:
-
-```
-@scope:registry=https://<your registry>
-//<your registry>:_auth=<base64-string>
-```
+Finally, Jeff could shut down his computer and leave work. Today he learned how to use scoped registries to access different scoped packages. He also learned how to use .npmrc for configuration, what Basic Authentication is and how to use it to access scoped registries.
 
 "In the end...", thought Jeff, "...this wasn't too hard."
 
