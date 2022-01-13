@@ -82,21 +82,19 @@ Jeff tried it again et voilà it worked! He almost committed the new additions o
 and Jeff was asking himself...
 ## But where should I put the credentials then? 🤷‍♂️
 
-If you have a project-level .npmrc file and have added it in your version control then you could do the following:
+Jeff doesn't want to commit the credentials so he decides to put the credentials in an **environment variable** and refer to them in the configuration file. 
 
-**Use environment variables**
-
-we could export the authentication string as an environment variable:
+Start by defining the variable:
 
 e.g. for linux `$ export NPM_TOKEN=<base64-string>`
 
-We can then add the env variable in our .npmrc file:
+We can then add the environment variable in our .npmrc file:
 
 ```
 //registry.wombatcorp.org/:_auth=${NPM_TOKEN}
 ```
 
-The npm CLI will replace this value with the contents of the NPM_TOKEN environment variable
+The npm CLI will replace this value with the contents of the NPM_TOKEN environment variable.
     
 **Add scoped registry to user-level instead of project-level**
 
