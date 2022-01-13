@@ -1,7 +1,7 @@
 ---
 path: "/blog/scoped-registry/"
 date: "2021-12-30"
-title: "How to set up multiple npm registries with scoped registries"
+title: "How enterprises benefit from scoped npm registries"
 featuredImage: images/npm-scoped-registry.jpg
 attribution:
     creator: Paul Esch-Laurent
@@ -34,7 +34,7 @@ Packages can be grouped with scopes and for scopes, we can set alternative regis
 
 > 💡 The usage of scoped packages and scoped registries can also greatly diminish your attack surface for the dependency confusion attack [dependency confusion attack](https://snyk.io/blog/detect-prevent-dependency-confusion-attacks-npm-supply-chain-security/)
 
-## Where to configure scoped registries
+## How to configure scoped registries
 
 .npmrc is a configuration file that configures how npm works in your environment. It can be used globally or on a user or project level. [Here](https://docs.npmjs.com/cli/v8/configuring-npm/npmrc) are the docs for .npmrc.
 
