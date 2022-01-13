@@ -88,7 +88,7 @@ Start by defining the variable:
 
 e.g. for linux `$ export NPM_TOKEN=<base64-string>`
 
-We can then add the env variable in our .npmrc file:
+We can then add the environment variable in our .npmrc file:
 
 ```
 //registry.wombatcorp.org/:_auth=${NPM_TOKEN}
