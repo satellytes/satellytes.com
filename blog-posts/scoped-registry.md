@@ -82,7 +82,7 @@ Jeff tried it again et voilà it worked! He almost committed the new additions o
 and Jeff was asking himself...
 ## But where should I put the credentials then? 🤷‍♂️
 
-Jeff doesn't want to commit the credentials so he decides to put the credentials in an **environment variable** and refer to them in the configuration file. 
+Jeff doesn't want to commit the credentials so he decides to put the credentials in an **environment variable** and refer to them in the configuration file.
 
 Start by defining the variable:
 
@@ -95,11 +95,6 @@ We can then add the environment variable in our .npmrc file:
 ```
 
 The npm CLI will replace this value with the contents of the NPM_TOKEN environment variable.
-    
-**Add scoped registry to user-level instead of project-level**
-
-There are different .npmrc files as explained here ([npmrc](https://docs.npmjs.com/cli/v8/configuring-npm/npmrc)). 
-Each of these files is loaded, and config options are resolved in priority order. For example, a setting in the user config file would override the setting in the global config file. So we could put the scoped registry into the user config file instead of the project config file.
 
 ## Conclusion
 
