@@ -72,5 +72,5 @@ This is a demo post.
 Some text
 
 - some list item
-- some list item B
+- some list item
 ```
