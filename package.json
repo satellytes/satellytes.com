@@ -82,7 +82,7 @@
     "react-dom": "17.0.2",
     "react-dropzone": "^11.5.1",
     "react-helmet": "6.1.0",
-    "react-hook-form": "^7.24.0",
+    "react-hook-form": "7.22.5",
     "react-i18next": "^11.15.3",
     "react-leaflet": "^3.2.5",
     "react-share": "^4.4.0",
