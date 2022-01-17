@@ -33,6 +33,7 @@ const Kicker = styled.span`
   ${TextStyles.toplineR}
   display: block;
   margin-bottom: 16px;
+  text-transform: capitalize;
 `;
 
 const Headline = styled.h1`
