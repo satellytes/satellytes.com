@@ -1,6 +1,6 @@
 ---
 path: "/blog/scoped-registry/"
-date: "2021-12-30"
+date: "2022-01-17"
 title: "How enterprises benefit from scoped npm registries"
 featuredImage: images/npm-scoped-registry.jpg
 attribution:
