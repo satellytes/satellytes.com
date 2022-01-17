@@ -28,6 +28,7 @@
   "career.remove-file": "Remove",
   "career.cv": "CV",
   "career.other": "other",
+  "career.position": "position",
   "career.info-text": "Please upload relevant files e.g. CV, cover letter or references. You can upload 3 pdf-documents with a maximal size of 20 MB each.",
   "career.privacy-policy": "<0>I hereby confirm that i have taken note of the <1>privacy policy</1>.  <4>*</4></0>",
   "career.introduction.headline": "Work with us",
