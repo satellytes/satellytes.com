@@ -10,6 +10,7 @@ import { HoneypotField } from './honeypot';
 import { Email, FirstName, MessageArea } from './form-fields';
 
 const API_ENDPOINT = '/api/contact-form';
+type RequestStatus = 'pending' | 'submitting' | 'success' | 'error';
 
 const FormLayout = styled.div`
   margin-bottom: 24px;
@@ -54,9 +55,11 @@ export const Form = ({ onSuccess }: { onSuccess: () => any }) => {
     mode: 'onSubmit',
   });
   const { t } = useTranslation();
-  const [apiError, setApiError] = useState<boolean>(false);
+  const [requestStatus, setRequestStatus] = useState<RequestStatus>('pending');
 
   const onSubmit = (formData: FormData) => {
+    setRequestStatus('submitting');
+
     fetch(API_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -64,14 +67,15 @@ export const Form = ({ onSuccess }: { onSuccess: () => any }) => {
     })
       .then((response) => {
         if (!response.ok) {
-          setApiError(true);
+          setRequestStatus('error');
         } else {
+          setRequestStatus('success');
           onSuccess();
         }
       })
       .catch((error) => {
         console.error(error);
-        setApiError(true);
+        setRequestStatus('error');
       });
   };
 
@@ -87,12 +91,14 @@ export const Form = ({ onSuccess }: { onSuccess: () => any }) => {
       <HoneypotField name="phone" label="Phone" control={control} />
 
       <MandatoryNotes>* {t('career.mandatory-field')}</MandatoryNotes>
-      <Submit type={'submit'}>{t('contact.action.send')}</Submit>
+      <Submit disabled={requestStatus === 'submitting'} type={'submit'}>
+        {t('contact.action.send')}
+      </Submit>
 
       {isSubmitted && !isValid && (
         <ErrorMessage>{t('contact.action.missing')}</ErrorMessage>
       )}
-      {apiError && (
+      {requestStatus === 'error' && (
         <ErrorMessage>
           {t('contact.action.again-text')}{' '}
           <Link to="mailto:info@satellytes.com">info@satellytes.com</Link>
