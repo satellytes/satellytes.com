@@ -35,6 +35,10 @@ const REDIRECTS = [
     fromPath: '/page/imprint/',
     toPath: '/de/imprint/',
   },
+  {
+    fromPath: '/blog/scoped-registry/',
+    toPath: '/blog/enterprises-benefit-from-scoped-npm-registries/',
+  },
 ];
 
 /**
