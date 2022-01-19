@@ -1,8 +1,8 @@
 ---
-path: "/blog/scoped-registry/"
+path: "/blog/enterprises-benefit-from-scoped-npm-registries/"
 date: "2022-01-17"
 title: "How enterprises benefit from scoped npm registries"
-featuredImage: images/npm-scoped-registry.jpg
+featuredImage: images/enterprises-benefit-from-scoped-npm-registries.jpg
 attribution:
     creator: Paul Esch-Laurent
     source: https://unsplash.com/photos/oZMUrWFHOB4
