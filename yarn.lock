@@ -8587,6 +8587,23 @@ gatsby-core-utils@^3.5.1:
     tmp "^0.2.1"
     xdg-basedir "^4.0.0"
 
+gatsby-core-utils@^3.5.2:
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-3.5.2.tgz#f95e1d9034811029a1db85479a1a2bfd456818db"
+  integrity sha512-sY7BD6VlbWwrV892x9/yJPtXYaGC/GLyhabd9j2xP6zsIOW0XBHXZ4jJ+xEPaRn3CJxYgBd8KdCyoc4h1ZEFzg==
+  dependencies:
+    "@babel/runtime" "^7.15.4"
+    ci-info "2.0.0"
+    configstore "^5.0.1"
+    file-type "^16.5.3"
+    fs-extra "^10.0.0"
+    got "^11.8.3"
+    lock "^1.1.0"
+    node-object-hash "^2.3.10"
+    proper-lockfile "^4.1.2"
+    tmp "^0.2.1"
+    xdg-basedir "^4.0.0"
+
 gatsby-graphiql-explorer@^2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/gatsby-graphiql-explorer/-/gatsby-graphiql-explorer-2.5.0.tgz#0584f31226bd097e27650bd98e387668058a13f9"
@@ -8662,6 +8679,20 @@ gatsby-plugin-feed@^4.5.0:
     lodash.merge "^4.6.2"
     rss "^1.2.2"
 
+gatsby-plugin-gatsby-cloud@^4.5.2:
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-gatsby-cloud/-/gatsby-plugin-gatsby-cloud-4.5.2.tgz#8ec4fa8cdf296e08a0d4999b755b4626c8532984"
+  integrity sha512-aloSM+XVuideA7ZIAO1pOBb8pC+QYq873MMDWGPZt1O61ZbtfgEkigzuSbGZqcmrPnJT37n/iia6Q/PC0/YEkA==
+  dependencies:
+    "@babel/runtime" "^7.15.4"
+    date-fns "^2.28.0"
+    fs-extra "^10.0.0"
+    gatsby-core-utils "^3.5.2"
+    gatsby-telemetry "^3.5.2"
+    kebab-hash "^0.1.2"
+    lodash "^4.17.21"
+    webpack-assets-manifest "^5.0.6"
+
 gatsby-plugin-image@^2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-2.5.1.tgz#6828d0b827f9efc6202a4b53f6802dfe704ffcce"
@@ -8691,17 +8722,6 @@ gatsby-plugin-manifest@4.5.1:
     gatsby-plugin-utils "^2.5.0"
     semver "^7.3.5"
     sharp "^0.29.3"
-
-gatsby-plugin-netlify@^3.14.0:
-  version "3.14.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify/-/gatsby-plugin-netlify-3.14.0.tgz#fa1b2441531d958a26b378c76753c5d24bd428d5"
-  integrity sha512-+lv5i0IhtIHFecP3uL6u/vF0DzDBGlkGzPyPIhgM1krZqlLy2LzKos1nyCMoi7aHm54/B8DENl4J+hMCkC0wjQ==
-  dependencies:
-    "@babel/runtime" "^7.14.8"
-    fs-extra "^10.0.0"
-    kebab-hash "^0.1.2"
-    lodash "^4.17.21"
-    webpack-assets-manifest "^5.0.6"
 
 gatsby-plugin-page-creator@^4.5.1:
   version "4.5.1"
@@ -8927,6 +8947,25 @@ gatsby-telemetry@^3.5.1:
     configstore "^5.0.1"
     fs-extra "^10.0.0"
     gatsby-core-utils "^3.5.1"
+    git-up "^4.0.5"
+    is-docker "^2.2.1"
+    lodash "^4.17.21"
+    node-fetch "^2.6.6"
+
+gatsby-telemetry@^3.5.2:
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/gatsby-telemetry/-/gatsby-telemetry-3.5.2.tgz#e6434a12e1c88a64078c8af4c9042f2df631f49c"
+  integrity sha512-nL33+AxawRqEjuvHAbyyxoDMZ5GXNMEMzCk5WQu7J/lA6od6cUmXpZMcr4AxwnNFJLfmYKlwalN7cuz5nBL6lw==
+  dependencies:
+    "@babel/code-frame" "^7.14.0"
+    "@babel/runtime" "^7.15.4"
+    "@turist/fetch" "^7.1.7"
+    "@turist/time" "^0.0.2"
+    async-retry-ng "^2.0.1"
+    boxen "^4.2.0"
+    configstore "^5.0.1"
+    fs-extra "^10.0.0"
+    gatsby-core-utils "^3.5.2"
     git-up "^4.0.5"
     is-docker "^2.2.1"
     lodash "^4.17.21"

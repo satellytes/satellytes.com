@@ -231,7 +231,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-netlify`,
+      resolve: `gatsby-plugin-gatsby-cloud`,
     },
     {
       resolve: `gatsby-source-filesystem`,
