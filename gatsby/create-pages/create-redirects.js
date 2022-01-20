@@ -54,6 +54,7 @@ const createRedirects = ({ actions }) => {
       fromPath: redirect.fromPath,
       toPath: redirect.toPath,
       isPermanent: true,
+      redirectInBrowser: true,
     });
 
     // the redirect only works for exact matches, that's why we also need to
@@ -67,6 +68,7 @@ const createRedirects = ({ actions }) => {
       fromPath: additionalFromPath,
       toPath: redirect.toPath,
       isPermanent: true,
+      redirectInBrowser: true,
     });
   });
 };
