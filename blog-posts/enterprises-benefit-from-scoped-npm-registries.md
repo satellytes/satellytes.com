@@ -53,7 +53,7 @@ Even if the registry is hosted internally, it is good practice to add authentica
 
 For encoding you could use the command line `echo -n 'my-string' | base64` (bash) or an IDE (e.g. vscode with plugin). Or alternatively you could even use a REPL (e.g. [JS REPL](https://nodejs.dev/learn/how-to-use-the-nodejs-repl) with the following command in JavaScript `Buffer.from('username:password', 'binary').toString('base64')`).
 
->💡 If you use the command-line, the password is saved in plaintext into the command-line history and can be retrieved from there. You should delete the password afterward (e.g. for bash you can delete the complete history with `history -c`)
+>💡 If you use the command-line, the password is saved in plaintext into the command-line history and can be retrieved from there. As a good practice, you should delete the command from the command-line history afterwards.
 
 >💡 There are also base64 encoder websites. You should never enter a productive username and/or password there. Use these only for testing purposes.
 
