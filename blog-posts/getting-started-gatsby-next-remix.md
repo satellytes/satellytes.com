@@ -185,16 +185,16 @@ export default function Post({postData}: { postData: PostData }) {
 ```
 
 
-> 💡 The object returned by `getStaticProps` can include other keys besides `props`, such as `revalidate`. `revalidate` is set to `false` by default, but can also contain the amount in seconds after which a page re-generation can occur. In this way, individual static pages can be changed at a certain interval after being built. This is called [Incremental Static Regeneration (ISR)](https://vercel.com/docs/concepts/next.js/incremental-static-regeneration).
+> 💡 The object returned by `getStaticProps` can include other keys besides `props`, such as `revalidate`. `revalidate` is set to `false` by default, but can also contain the amount in seconds after which a page re-generation can occur. In this way, individual static pages can be changed at a certain interval after being built. This is called [Incremental Static Regeneration (ISR)](https://vercel.com/docs/concepts/next.js/incremental-static-regeneration) and also known as "stale-while-revalidate".
 
 
 #### **Remix**
 
-Remix supports only server side rendering. An example of this can be found in the section below.
+Remix only supports server side rendering, but this need not be a disadvantage. This is because CDN with proper caching headers will always be fast, except for cold requests (e.g. the first request). If the backend is too slow on these cold requests, this is a problem from the backend, which should then be improved. Also, it should be assumed that cold requests are rare. If this is not the case, it is a business problem and not a technical problem.
 
 ## Server Side Rendering (SSR)
 
-With server side rendering (SSR), the HTML is rebuilt for each request. All three frameworks support SSR.
+With server side rendering (SSR), the HTML is built on each request. All three frameworks support SSR. Usually, you use SSR in combination with a CDN to improve performance and responsiveness.
 
 #### **Gatsby**
 
@@ -276,7 +276,7 @@ export default function PostSlug() {
 
 ## Adding Page Metadata
 
-The page header data, such as the html title, meta description and structural data like [open graph](https://ogp.me/) are especially important for SEO. In the following examples, a title should be added to the pages. For this, each framework offers its own solution.
+The page header data, such as the html title, meta description and structural data like [open graph](https://ogp.me/) are especially important for SEO. In the following examples, some meta tags should be added to the pages. For this, each framework offers its own solution.
 
 #### **Gatsby**
 
@@ -300,8 +300,10 @@ const Index = () => {
         <Layout>
             <Helmet>
                 <title>Gatsby Blog</title>
+                <meta name="description" content="A simple Gatsby blog application" />
+                <meta property="og:image" content="https://josiesshakeshack.com/logo.jpg" />
             </Helmet>
-						{/*content goes here*/}
+            {/*content goes here*/}
         </Layout>
     );
 }
@@ -320,8 +322,10 @@ const Home: NextPage = () => {
         <Layout>
             <Head>
                 <title>Next.js Blog</title>
-								{/*content goes here*/}
+                <meta name="description" content="A simple Next.js blog application" />
+                <meta property="og:image" content="https://josiesshakeshack.com/logo.jpg" />
             </Head>
+            {/*content goes here*/}
         </Layout>
     );
 }
@@ -329,7 +333,13 @@ const Home: NextPage = () => {
 
 #### **Remix**
 
-To add metadata to Remix projects you have to add the `<Meta />` component in the `<head>` part of `root.tsx`. After that, a `meta` function can be exported to other pages. This must return an object with all relevant metadata. In our example, this is only the page `title`.
+To add metadata to Remix projects you have to add the `<Meta />` component in the `<head>` part of `root.tsx`. After that, a `meta` function can be exported to other pages. This must return an object with all relevant metadata.
+
+The meta function automatically distinguishes between three different meta data categories:
+
+- `title` renders a `<title>` tag
+- OpenGraph tags (e.g. `"og:image”`) will render `<meta property content>`
+- Everything else renders `<meta name={key} content={value}/>`
 
 ```tsx
 //...
@@ -337,7 +347,14 @@ import {MetaFunction} from "remix";
 
 export const meta: MetaFunction = () => {
     return {
+        // <title>Remix Blog</title>
         title: "Remix Blog",
+
+        // <meta name="description" content="A simple Remix blog application">
+        description: "A simple Remix blog application",
+
+        // <meta property="og:image" content="https://josiesshakeshack.com/logo.jpg">
+        "og:image": "https://josiesshakeshack.com/logo.jpg"
     };
 };
 
@@ -354,8 +371,11 @@ export default function Index() {
 
 Next.js and Gatsby have quite a lot in common as they support both SSR and SSG. The differences are more in detail such as incremental static generation in Next.js or incremental builds in Gatsby. However, it is noticeable that SSR in Gatsby is still a relatively new and not as developed feature as it is in Next.js. 
 
-Remix is the newest of these three frameworks and only supports SSR. However, with the appropriate headers, SSG is approached very closely, which means that it may be possible to completely replace real SSG. The developers of Remix have published an interesting [video](https://www.youtube.com/watch?v=bfLFHp7Sbkg) about this.
+Remix is the newest of these three frameworks and only supports SSR. However, with the appropriate headers, SSG is approached very closely, which means that it may be possible to completely replace real SSG. The developers of Remix have published an interesting [video](https://www.youtube.com/watch?v=bfLFHp7Sbkg)
+and [blog post](https://remix.run/blog/remix-vs-next) about this.
 
-![blog-overview.png](images/gastby-next-remix-screenshot-twitter.png)
+![blog-overview.png](images/gastby-next-remix-screenshot-twitter.png) 
 
-Thanks for reading my article about the different frameworks. I hope you learned something about the basic concepts behind Gatsby, Next.js and Remix. As I mentioned in the introduction, there is no clear answer to the question "Which framework should be used in my next project?" because every project has its individual requirements. Maybe now you know which framework can implement certain requirements well.
+https://twitter.com/remix_run/status/1330962394504339456?s=20
+
+Thanks for reading my article about the different frameworks. I hope you learned something about the basic concepts behind Gatsby, Next.js and Remix. As I mentioned in the introduction, there is no clear answer to the question "Which framework should be used in my next project?" because every project has its individual requirements.
