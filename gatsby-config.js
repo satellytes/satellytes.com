@@ -196,6 +196,7 @@ module.exports = {
             `,
             output: RSS_FEED_URL,
             title: 'Satellytes',
+            image_url: 'https://satellytes.com/sy-share-image.jpg',
             // optional configuration to insert feed reference in pages:
             // if `string` is used, it will be used to create RegExp and then test if pathname of
             // current page satisfied this regular expression;
