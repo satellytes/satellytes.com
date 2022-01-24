@@ -158,7 +158,7 @@ module.exports = {
                         site.siteMetadata.siteUrl + edge.node.frontmatter.path,
                       custom_elements: [
                         {
-                          'content:encoded': `${imageUrl} ${edge.node.html}`,
+                          'content:encoded': `${imageHtml} ${edge.node.html}`,
                         },
                       ],
                     },
