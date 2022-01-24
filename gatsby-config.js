@@ -30,6 +30,14 @@ const SEO_EXCLUDED_URLS = [
 
 const RSS_FEED_URL = '/blog/rss.xml';
 
+const escapeHTML = (html) => {
+  return html
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+};
+
 module.exports = {
   siteMetadata: {
     title: 'Satellytes',
@@ -130,14 +138,31 @@ module.exports = {
               return allMarkdownRemark.edges
                 .filter((edge) => !edge.node.fields.slug.includes('/pages/'))
                 .map((edge) => {
-                  return Object.assign({}, edge.node.frontmatter, {
-                    description: edge.node.excerpt,
-                    date: edge.node.frontmatter.date,
-                    url: site.siteMetadata.siteUrl + edge.node.frontmatter.path,
-                    guid:
-                      site.siteMetadata.siteUrl + edge.node.frontmatter.path,
-                    custom_elements: [{ 'content:encoded': edge.node.html }],
-                  });
+                  const imageUrl =
+                    site.siteMetadata.siteUrl +
+                      edge.node.frontmatter.shareImage.childImageSharp.fixed
+                        .src || '/sy-share-image.jpg';
+                  const imageHtml = escapeHTML(
+                    ` <img src="${imageUrl}" alt=""/>`,
+                  );
+
+                  return Object.assign(
+                    {},
+                    {
+                      title: edge.node.frontmatter.title,
+                      date: edge.node.frontmatter.date,
+                      description: `${edge.node.excerpt} ${imageHtml}`,
+                      url:
+                        site.siteMetadata.siteUrl + edge.node.frontmatter.path,
+                      guid:
+                        site.siteMetadata.siteUrl + edge.node.frontmatter.path,
+                      custom_elements: [
+                        {
+                          'content:encoded': edge.node.html,
+                        },
+                      ],
+                    },
+                  );
                 });
             },
             query: `
@@ -149,11 +174,20 @@ module.exports = {
                     node {
                       excerpt
                       html
-                      fields { slug }
+                      fields {
+                       slug
+                      }
                       frontmatter {
                         title
                         date
                         path
+                        shareImage: featuredImage {
+                          childImageSharp {
+                            fixed(width: 1440, height: 760) {
+                              src
+                            }
+                          }
+                        }
                       }
                     }
                   }
