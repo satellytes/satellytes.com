@@ -151,14 +151,14 @@ module.exports = {
                     {
                       title: edge.node.frontmatter.title,
                       date: edge.node.frontmatter.date,
-                      description: `${edge.node.excerpt} ${imageHtml}`,
+                      description: edge.node.excerpt,
                       url:
                         site.siteMetadata.siteUrl + edge.node.frontmatter.path,
                       guid:
                         site.siteMetadata.siteUrl + edge.node.frontmatter.path,
                       custom_elements: [
                         {
-                          'content:encoded': edge.node.html,
+                          'content:encoded': `${imageUrl} ${edge.node.html}`,
                         },
                       ],
                     },
