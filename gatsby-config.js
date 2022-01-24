@@ -142,9 +142,7 @@ module.exports = {
                     site.siteMetadata.siteUrl +
                       edge.node.frontmatter.shareImage.childImageSharp.fixed
                         .src || '/sy-share-image.jpg';
-                  const imageHtml = escapeHTML(
-                    ` <img src="${imageUrl}" alt=""/>`,
-                  );
+                  const imageHtml = `<img src="${imageUrl}" alt=""/>`;
 
                   return Object.assign(
                     {},
