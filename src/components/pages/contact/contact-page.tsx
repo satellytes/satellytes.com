@@ -1,7 +1,7 @@
 import React from 'react';
 import { Leaflet } from './leaflet/leaflet';
 import { Address } from './address';
-import { Form } from './form';
+import { ContactForm } from './contact-form';
 import { ContentBlockContainer } from '../../layout/content-block-container';
 import { Layout } from '../../layout/layout';
 
@@ -11,7 +11,7 @@ export const ContactPage = () => (
       <Address />
     </ContentBlockContainer>
     <ContentBlockContainer>
-      <Form />
+      <ContactForm />
     </ContentBlockContainer>
   </Layout>
 );

@@ -24,6 +24,11 @@ const StyledButton = styled(Link)`
   &:active {
     background: ${lighten(0.1, '#3e61ee')};
   }
+
+  &:disabled {
+    background: #3e61ee;
+    cursor: default;
+  }
 `;
 
 const StyledIcon = styled(Icon)`
