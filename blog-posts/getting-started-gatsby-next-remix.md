@@ -260,6 +260,8 @@ export default Page
 Remix has an exported `loader` function in which the data (e.g. local markdown file) is loaded (similar to `getStaticProps` in Next.js). This `loader` function can receive a `{params}` object. `{params}` can be used to access the path with `params.slug` and load the corresponding data. If you use the `params` object and want to build the route depending on the data, it is important to name your file with a `$` character and the key of the pathname. So in our example, it is `$slug.tsx`.
 In the page component (here `PostSlug`) the data can then be accessed via the `useLoader` hook.
 
+Other than Next.js and Gatsby, Remix can't just return components from the SSR routes. Remix can also return other data, like images or PDF. This feature is called "Resource routes". You can read more about this in the [official documentation](https://remix.run/docs/en/v1/guides/resource-routes).
+
 ```tsx
 export const loader: LoaderFunction = async ({params}) => {
     invariant(params.slug, "expected params.slug");
@@ -289,7 +291,7 @@ So in our example blog we first had to run `npm install gatsby-plugin-react-helm
 }
 ```
 
-After that, you can access the `React Helemet` within the JSX of a component, like for example in the index page.
+After that, you can access the `React Helmet` within the JSX of a component, like for example in the index page.
 
 ```tsx
 //...
