@@ -49,6 +49,11 @@ const REDIRECTS = [
 const createRedirects = ({ actions }) => {
   const { createRedirect } = actions;
 
+  createRedirect({
+    fromPath: `/orion`,
+    toPath: `/api/redirect-gather-sy-office`,
+  });
+
   REDIRECTS.forEach((redirect) => {
     createRedirect({
       fromPath: redirect.fromPath,
