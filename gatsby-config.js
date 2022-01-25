@@ -29,14 +29,7 @@ const SEO_EXCLUDED_URLS = [
 ];
 
 const RSS_FEED_URL = '/blog/rss.xml';
-
-const escapeHTML = (html) => {
-  return html
-    .replace(/&/g, '&amp;')
-    .replace(/"/g, '&quot;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
-};
+const DEFAULT_META_IMAGE_URL_PATH = '/sy-share-image.jpg';
 
 module.exports = {
   siteMetadata: {
@@ -127,7 +120,6 @@ module.exports = {
                 title
                 description
                 siteUrl
-                site_url: siteUrl
               }
             }
           }
@@ -138,29 +130,25 @@ module.exports = {
               return allMarkdownRemark.edges
                 .filter((edge) => !edge.node.fields.slug.includes('/pages/'))
                 .map((edge) => {
+                  const blogPostMeta = edge.node.frontmatter;
                   const imageUrl =
-                    site.siteMetadata.siteUrl +
-                      edge.node.frontmatter.shareImage.childImageSharp.fixed
-                        .src || '/sy-share-image.jpg';
-                  const imageHtml = `<img src="${imageUrl}" alt=""/>`;
+                    BASE_URL +
+                    (blogPostMeta.shareImage.childImageSharp.fixed.src ||
+                      DEFAULT_META_IMAGE_URL_PATH);
 
-                  return Object.assign(
-                    {},
-                    {
-                      title: edge.node.frontmatter.title,
-                      date: edge.node.frontmatter.date,
-                      description: edge.node.excerpt,
-                      url:
-                        site.siteMetadata.siteUrl + edge.node.frontmatter.path,
-                      guid:
-                        site.siteMetadata.siteUrl + edge.node.frontmatter.path,
-                      custom_elements: [
-                        {
-                          'content:encoded': `${imageHtml} ${edge.node.html}`,
-                        },
-                      ],
-                    },
-                  );
+                  return {
+                    title: blogPostMeta.title,
+                    site_url: site.siteMetadata.siteUrl,
+                    date: blogPostMeta.date,
+                    description: edge.node.excerpt,
+                    url: site.siteMetadata.siteUrl + blogPostMeta.path,
+                    guid: site.siteMetadata.siteUrl + blogPostMeta.path,
+                    custom_elements: [
+                      {
+                        'content:encoded': `<img src='${imageUrl}' alt=''/> ${edge.node.html}`,
+                      },
+                    ],
+                  };
                 });
             },
             query: `
@@ -194,7 +182,7 @@ module.exports = {
             `,
             output: RSS_FEED_URL,
             title: 'Satellytes',
-            image_url: 'https://satellytes.com/sy-share-image.jpg',
+            image_url: BASE_URL + DEFAULT_META_IMAGE_URL_PATH,
             // optional configuration to insert feed reference in pages:
             // if `string` is used, it will be used to create RegExp and then test if pathname of
             // current page satisfied this regular expression;
