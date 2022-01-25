@@ -50,7 +50,7 @@ const createRedirects = ({ actions }) => {
   const { createRedirect } = actions;
 
   createRedirect({
-    fromPath: `/orion`,
+    fromPath: `/orion/`,
     toPath: `/api/redirect-gather-sy-office`,
   });
 
