@@ -22,6 +22,7 @@ declare module 'styled-components' {
         secondary: string;
         topline: string;
         timestamp: string;
+        errorMessage: string;
         header: {
           default: string;
           light: string;
