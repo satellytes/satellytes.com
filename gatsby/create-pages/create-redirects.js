@@ -39,6 +39,11 @@ const REDIRECTS = [
     fromPath: '/blog/scoped-registry/',
     toPath: '/blog/enterprises-benefit-from-scoped-npm-registries/',
   },
+  ,
+  {
+    fromPath: '/orion/',
+    toPath: '/api/redirect-gather-sy-office',
+  },
 ];
 
 /**
@@ -48,11 +53,6 @@ const REDIRECTS = [
  */
 const createRedirects = ({ actions }) => {
   const { createRedirect } = actions;
-
-  createRedirect({
-    fromPath: `/orion/`,
-    toPath: `/api/redirect-gather-sy-office`,
-  });
 
   REDIRECTS.forEach((redirect) => {
     createRedirect({
