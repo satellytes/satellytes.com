@@ -32,18 +32,18 @@ export const Service = () => {
           {t('services.platform.teaser')}
         </Teaser>
         <Teaser
-          title={t('services.consulting.title')}
-          linkTo="/services"
-          illustration="scientist_042"
-        >
-          {t('services.consulting.teaser')}
-        </Teaser>
-        <Teaser
           title={t('services.products_services.title')}
           linkTo="/services"
           illustration="book_038"
         >
           {t('services.products_services.teaser')}
+        </Teaser>
+        <Teaser
+          title={t('services.consulting.title')}
+          linkTo="/services"
+          illustration="scientist_042"
+        >
+          {t('services.consulting.teaser')}
         </Teaser>
       </TeaserGrid>
 
