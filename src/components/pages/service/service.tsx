@@ -28,7 +28,11 @@ export const Service = () => {
       transparentHeader={true}
       light={true}
       leadbox={leadbox}
-      hero={<AuroraHero title={t('services.hero')} />}
+      hero={
+        <AuroraHero title={t('services.hero')}>
+          {t('services.hero.description')}{' '}
+        </AuroraHero>
+      }
     >
       <ContentBlockContainer>
         <SectionHeader
