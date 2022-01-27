@@ -1,10 +1,10 @@
 ---
 path: "/blog/getting-started-gatsby-next-remix/"
-date: "2022-01-13"
+date: "2022-01-27"
 title: "Getting Started: Gatsby vs. Next.js vs. Remix"
 featuredImage: images/gatsby-next-remix-hero.jpg
-author: "Felix Hofmann and Fabian Dietenberger"
-authorSummary: "Working Student and Senior Developer at Satellytes"
+author: "Felix Hofmann"
+authorSummary: "Working Student at Satellytes"
 teaserText: We developed a simple blog application in Gatsby, Next.js and Remix. Learn about the differences in the development process and the technical concepts behind these three frameworks.
 seoMetaText: We developed a simple blog application in Gatsby, Next.js and Remix. Learn about the differences in the development process and the technical concepts behind these three frameworks.
 leadboxText: Have you learned something about Gatsby, Next.js or Remix? Then join us to learn more!
