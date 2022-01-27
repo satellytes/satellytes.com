@@ -62,9 +62,9 @@ In general, there are two ways to create data-dependent pages in Gatsby. In our 
 A static generated page with the file-based API consists of two parts: A GraphQL query and the actual React component (here `BlogPost`), which must be exported as default. In the GraphQL query, the required data is fetched. In this example, the Gatsby plugin [gatsby-transformer-remark](https://www.gatsbyjs.com/plugins/gatsby-transformer-remark/) is used to get the content of the corresponding markdown file.
 In the actual component, the results of the query can then be accessed via `data`.
 
-In our Gatsby blog project, we created a file named `{markdownRemark.frontmatter__path}.tsx` to create a route for each blogpost. It is important that the filename consists of the path with the relevant key from the GraphQL query (here: `path`), which later determines the route of the page. In addition, the filename must be enclosed in curly brackets.
-
 ```tsx
+// pages/blog/{markdownRemark.frontmatter__path}.tsx
+
 const BlogPost = ({data}) => {
     return (
         <div dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
@@ -86,11 +86,17 @@ export const query = graphql`
 export default BlogPost
 ```
 
+In our Gatsby blog project, we created a file named `{markdownRemark.frontmatter__path}.tsx` to create a route for each blogpost. It is important that the filename consists of the **path with the relevant key from the GraphQL query** (here: `path`), which later determines the route of the page. In addition, the filename must be enclosed in curly brackets.
+
+For example, the `path` field in the markdown file of the first blogposts contains "first-blogpost". The file-based API implicitly creates a route (https://gatsby-comparison-blog.vercel.app/blog/first-blogpost) and the remaining data (`html` field in the GaphQL query) is loaded into the page.
+
 **With create-pages API**
 
 To create a page with the create-pages API, a `createPages` function must be defined in `gatsby-node.js`. In this function, the data is then loaded with a GraphQL query and passed into a template page. For each entry from the result of the `query` the `createPage` action is called, in which `path`, template `component`, and `context` are provided. An example from the [Gatsby documentation](https://www.gatsbyjs.com/docs/creating-and-modifying-pages/#creating-pages-in-gatsby-nodejs) is given here:
 
 ```tsx
+// gatsby-node.js
+
 const path = require("path")
 
 // Implement the Gatsby API “createPages”. This is called once the
@@ -141,20 +147,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
 #### **Next.js**
 
-The roots of Next.js are in SSR, but relatively soon they also supported SSG. Thus, this framework supports both approaches well. To create a static generated page in Next.js the `async` function `getStaticPaths` has to be exported. In the code snippet below, this function calls `getAllPostPaths()`, which returns a path for each markdown file. `getStaticPaths` must return an object with the keys:
+The roots of Next.js are in SSR, but relatively soon they also supported SSG. Thus, this framework supports both approaches well. 
 
-- `path`: This key determines which path will be pre-rendered. In the in-code comment below the structure of `path` is given as an example.
-- `fallback`: You can set the value of fallback to `true`, `false` or `blocking`
-    - `false` → Any paths not returned by `getStaticPaths` will end up in a 404 page
-    - `true` → On the first request to a not generated path, Next.js will serve a fallback version of the page, instead of a 404 page. The HTML and JSON of this path is now generated in the background and and then the JSON is sent to the requesting browser. Now the fallback page changes into the full page. Next.js will add this path to the pre-rendered pages in order to be able to provide the already generated page for further requests.
-      This is useful if you have a page with a lot of static pages because then not all pages have to be generated at built time, which makes the built much faster.
-    - `blocking` → Same procedure as for `fallback: true`, except that there is no fallback while the HTML is being generated. There are only very special uses cases in which this makes sense, such as AMP.
-
-Remember to name the file after the relevant key from the `params` object with square brackets, in our case `[path].tsx`. As long as the two names match, you can choose it as you wish.
-To load the data for a blogpost the function `getStaticProps` is needed. This function now receives `{params}`, which can be used to determine the path and the depending data. Finally, in the actual page component, the data can be accessed via props (here via `{postData}`). The following source code shows how we built our comparison blog project using SSG and the methods just described.
+To create a static generated page in Next.js the `async` function `getStaticPaths` has to be exported. In the code snippet below, this function calls `getAllPostPaths()`, which returns a path for each markdown file.
 
 ```tsx
+// pages/blog/[path].tsx
+
 export async function getStaticPaths() {
+    // That's the data format we expect:
     //     paths: [
     //         {params: {path: 'first-blogpost'}},
     //         {params: {path: 'second-blogpost'}},
@@ -184,6 +185,16 @@ export default function Post({postData}: { postData: PostData }) {
 }
 ```
 
+`getStaticPaths` must return an object with the keys:
+- `path`: This key determines which path will be pre-rendered. In the in-code comment above the structure of `path` is given as an example.
+- `fallback`: You can set the value of fallback to `true`, `false` or `blocking`
+    - `false` → Any paths not returned by `getStaticPaths` will end up in a 404 page
+    - `true` → On the first request to a not generated path, Next.js will serve a fallback version of the page, instead of a 404 page. The HTML and JSON of this path is now generated in the background and and then the JSON is sent to the requesting browser. Now the fallback page changes into the full page. Next.js will add this path to the pre-rendered pages in order to be able to provide the already generated page for further requests.
+      This is useful if you have a page with a lot of static pages because then not all pages have to be generated at built time, which makes the built much faster.
+    - `blocking` → Same procedure as for `fallback: true`, except that there is no fallback while the HTML is being generated. There are only very special uses cases in which this makes sense, such as AMP.
+
+Remember to name the file after the relevant key from the `params` object with square brackets, in our case `[path].tsx`. As long as the two names match, you can choose it as you wish.
+To load the data for a blogpost the function `getStaticProps` is needed. This function now receives `{params}`, which can be used to determine the path and the depending data. Finally, in the actual page component, the data can be accessed via props (here via `{postData}`). The source code above shows how we built our comparison blog project using SSG and the methods just described.
 
 > 💡 The object returned by `getStaticProps` can include other keys besides `props`, such as `revalidate`. `revalidate` is set to `false` by default, but can also contain the amount in seconds after which a page re-generation can occur. In this way, individual static pages can be changed at a certain interval after being built. This is called [Incremental Static Regeneration (ISR)](https://vercel.com/docs/concepts/next.js/incremental-static-regeneration) and also known as "stale-while-revalidate".
 
@@ -201,6 +212,8 @@ With server side rendering (SSR), the HTML is built on each request. All three f
 Besides static site generation (SSG) you can also use server side rendering (SSR) for certain use cases in Gatsby since version 4. For this, the function `getServerData` must be built into a page, in which the data is requested from the server. This data can then be accessed in the actual page component with `serverData`. In the following the example from the [Gatsby documentation](https://www.gatsbyjs.com/docs/how-to/rendering-options/using-server-side-rendering/) is considered:
 
 ```tsx
+// pages/ssr.js
+
 import * as React from "react"
 
 const SSRPage = ({ serverData }) => (
@@ -238,6 +251,8 @@ export async function getServerData() {
 To use SSR in Next.js you have to use `getServerSideProps` instead of `getStaticProps` in the SSG variant. This function must load the data and return it, too. The data can then be accessed in the page component (in the example via `data`). The following example shows a simple SSR implementation from the [Next.js documentation](https://nextjs.org/docs/basic-features/pages#server-side-rendering).
 
 ```tsx
+// pages/ssr.js
+
 function Page({ data }) {
   // Render data...
 }
@@ -260,9 +275,9 @@ export default Page
 Remix has an exported `loader` function in which the data (e.g. local markdown file) is loaded (similar to `getStaticProps` in Next.js). This `loader` function can receive a `{params}` object. `{params}` can be used to access the path with `params.slug` and load the corresponding data. If you use the `params` object and want to build the route depending on the data, it is important to name your file with a `$` character and the key of the pathname. So in our example, it is `$slug.tsx`.
 In the page component (here `PostSlug`) the data can then be accessed via the `useLoader` hook.
 
-Other than Next.js and Gatsby, Remix can't just return components from the SSR routes. Remix can also return other data, like images or PDF. This feature is called "Resource routes". You can read more about this in the [official documentation](https://remix.run/docs/en/v1/guides/resource-routes).
-
 ```tsx
+// routes/blog/$slug.tsx
+
 export const loader: LoaderFunction = async ({params}) => {
     invariant(params.slug, "expected params.slug");
     return getPost(params.slug);
@@ -275,6 +290,7 @@ export default function PostSlug() {
     );
 }
 ```
+> 💡 Other than Next.js and Gatsby, Remix can't just return components from the SSR routes. Remix can also return other data, like images or PDF. This feature is called "Resource routes". You can read more about this in the [official documentation](https://remix.run/docs/en/v1/guides/resource-routes).
 
 ## Adding Page Metadata
 
@@ -286,6 +302,7 @@ To add page metadata in Gatsby, the `gatsby-plugin-react-helmet` and `React Helm
 So in our example blog we first had to run `npm install gatsby-plugin-react-helmet react-helmet` and then add the plugin to `gatsby-config.js`:
 
 ```jsx
+// gatsby-config.js
 {
   plugins: [`gatsby-plugin-react-helmet`]
 }
@@ -294,6 +311,8 @@ So in our example blog we first had to run `npm install gatsby-plugin-react-helm
 After that, you can access the `React Helmet` within the JSX of a component, like for example in the index page.
 
 ```tsx
+// pages/blog/index.tsx
+
 //...
 import { Helmet } from "react-helmet"
 
@@ -316,6 +335,8 @@ const Index = () => {
 Next.js provides a `head` component that can be built into any page to add metadata.
 
 ```tsx
+// pages/blog/index.tsx
+
 //...
 import Head from "next/head";
 
@@ -344,6 +365,8 @@ The meta function automatically distinguishes between three different meta data 
 - Everything else renders `<meta name={key} content={value}/>`
 
 ```tsx
+// routes/blog/index.tsx
+
 //...
 import {MetaFunction} from "remix";
 
@@ -375,9 +398,5 @@ Next.js and Gatsby have quite a lot in common as they support both SSR and SSG. 
 
 Remix is the newest of these three frameworks and only supports SSR. However, with the appropriate headers, SSG is approached very closely, which means that it may be possible to completely replace real SSG. The developers of Remix have published an interesting [video](https://www.youtube.com/watch?v=bfLFHp7Sbkg)
 and [blog post](https://remix.run/blog/remix-vs-next) about this.
-
-![blog-overview.png](images/gastby-next-remix-screenshot-twitter.png) 
-
-https://twitter.com/remix_run/status/1330962394504339456?s=20
 
 Thanks for reading my article about the different frameworks. I hope you learned something about the basic concepts behind Gatsby, Next.js and Remix. As I mentioned in the introduction, there is no clear answer to the question "Which framework should be used in my next project?" because every project has its individual requirements.
