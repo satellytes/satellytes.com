@@ -35,6 +35,10 @@ const REDIRECTS = [
     fromPath: '/page/imprint/',
     toPath: '/de/imprint/',
   },
+  {
+    fromPath: '/blog/scoped-registry/',
+    toPath: '/blog/enterprises-benefit-from-scoped-npm-registries/',
+  },
 ];
 
 /**
@@ -44,6 +48,14 @@ const REDIRECTS = [
  */
 const createRedirects = ({ actions }) => {
   const { createRedirect } = actions;
+  /**
+   * Our vanity url to access our gather office through satellytes.com/orion
+   * This should be a temporary redirect and actually SEO should never pick this url up anyway.
+   */
+  createRedirect({
+    fromPath: `/orion/`,
+    toPath: `/api/redirect-gather-sy-office`,
+  });
 
   REDIRECTS.forEach((redirect) => {
     createRedirect({

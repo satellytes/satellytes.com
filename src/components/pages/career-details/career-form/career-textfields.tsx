@@ -2,7 +2,7 @@ import React from 'react';
 import { GridItem } from '../../../legacy/grid/grid';
 import { FieldValues, UseFormRegister } from 'react-hook-form';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { SIMPLE_EMAIL_PATTERN } from '../../../legacy/form/constants';
+import { SIMPLE_EMAIL_PATTERN } from '../../../forms/constants';
 import { InputField } from '../../../legacy/form/controls';
 
 interface CareerTextFieldsProps {

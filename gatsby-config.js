@@ -29,12 +29,13 @@ const SEO_EXCLUDED_URLS = [
 ];
 
 const RSS_FEED_URL = '/blog/rss.xml';
+const DEFAULT_META_IMAGE_URL_PATH = '/sy-share-image.jpg';
 
 module.exports = {
   siteMetadata: {
     title: 'Satellytes',
     description:
-      'Satellytes ist eine Digital-Agentur, die um große Unternehmen kreist und ihnen bei der Transformation und Optimierung digitaler Services und Interfaces hilft.',
+      'Passionate experts that strive to build the best possible and above all right solution for our clients and customers.',
     author: 'Satellytes',
     siteUrl: BASE_URL,
   },
@@ -119,7 +120,6 @@ module.exports = {
                 title
                 description
                 siteUrl
-                site_url: siteUrl
               }
             }
           }
@@ -130,14 +130,25 @@ module.exports = {
               return allMarkdownRemark.edges
                 .filter((edge) => !edge.node.fields.slug.includes('/pages/'))
                 .map((edge) => {
-                  return Object.assign({}, edge.node.frontmatter, {
+                  const blogPostMeta = edge.node.frontmatter;
+                  const imageUrl =
+                    BASE_URL +
+                    (blogPostMeta.shareImage.childImageSharp.fixed.src ||
+                      DEFAULT_META_IMAGE_URL_PATH);
+
+                  return {
+                    title: blogPostMeta.title,
+                    site_url: site.siteMetadata.siteUrl,
+                    date: blogPostMeta.date,
                     description: edge.node.excerpt,
-                    date: edge.node.frontmatter.date,
-                    url: site.siteMetadata.siteUrl + edge.node.frontmatter.path,
-                    guid:
-                      site.siteMetadata.siteUrl + edge.node.frontmatter.path,
-                    custom_elements: [{ 'content:encoded': edge.node.html }],
-                  });
+                    url: site.siteMetadata.siteUrl + blogPostMeta.path,
+                    guid: site.siteMetadata.siteUrl + blogPostMeta.path,
+                    custom_elements: [
+                      {
+                        'content:encoded': `<img src='${imageUrl}' alt=''/> ${edge.node.html}`,
+                      },
+                    ],
+                  };
                 });
             },
             query: `
@@ -149,11 +160,20 @@ module.exports = {
                     node {
                       excerpt
                       html
-                      fields { slug }
+                      fields {
+                       slug
+                      }
                       frontmatter {
                         title
                         date
                         path
+                        shareImage: featuredImage {
+                          childImageSharp {
+                            fixed(width: 1440, height: 760) {
+                              src
+                            }
+                          }
+                        }
                       }
                     }
                   }
@@ -162,6 +182,7 @@ module.exports = {
             `,
             output: RSS_FEED_URL,
             title: 'Satellytes',
+            image_url: BASE_URL + DEFAULT_META_IMAGE_URL_PATH,
             // optional configuration to insert feed reference in pages:
             // if `string` is used, it will be used to create RegExp and then test if pathname of
             // current page satisfied this regular expression;
@@ -231,7 +252,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-netlify`,
+      resolve: `gatsby-plugin-gatsby-cloud`,
     },
     {
       resolve: `gatsby-source-filesystem`,

@@ -1,0 +1,24 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import { TextArea } from './text-area';
+import { getSampleController } from '../text-field-story-helper';
+
+<Meta
+  title="Components/Forms/TextArea"
+  component={{ TextArea }} />
+
+# TextArea
+The component is used to get input from the user. Besides the `label` it receives props of the type `UseControllerProps`. The API of this component is based on the [controlled approach of react-hook-form](https://react-hook-form.com/api/usecontroller).
+
+<Canvas withSource='open'>
+  <Story name='Regular'>
+    <TextArea
+      label="Message"
+      name="message"
+      control={getSampleController()}
+      rules={{ required: "Your message is missing" }}
+      style={{width: 'calc(100% - 30px)'}}
+    />
+  </Story>
+</Canvas>
+
+<ArgsTable of={TextArea} />

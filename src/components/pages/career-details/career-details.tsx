@@ -41,7 +41,7 @@ export const CareerDetails = ({
       transparentHeader={true}
       translation={complementPath}
       hero={
-        <AuroraHero kicker="Stelle" title={position.name}>
+        <AuroraHero kicker={t('career.position')} title={position.name}>
           {position.short}
         </AuroraHero>
       }
