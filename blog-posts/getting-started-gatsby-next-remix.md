@@ -21,12 +21,12 @@ Before starting a React based project, the same question often arises: Which fra
 That's why we decided to develop a simple blog application in Gatsby, Next.js and Remix to compare the frameworks. This application can read data from markdown files, display them and create dynamic routes depending on them. This article will discuss the differences in the development process, as well as the basic technical concepts in the frameworks. The three versions of the comparison blog project were each deployed on Vercel or Netlify and have a public GitHub repository.
 
 
-> 💡 For simplification, style and images are not included in the examples. The detailed versions are available in the GitHub repositories for the comparison blog project.
+> 💡 For simplification, style and images are not included in the examples. The detailed versions are available in the [GitHub repository](https://github.com/satellytes/blog-app-comparison) for the comparison blog project.
 
 
-- **Blog app Gatsby Version:** [Preview](https://gatsby-comparison-blog.vercel.app/) and [Repository](https://github.com/hofmann-felix/gatsby-comparison-blog)
-- **Blog app Next.js Version:** [Preview](https://next-js-comparison-blog.vercel.app/) and [Repository](https://github.com/hofmann-felix/next.js-comparison-blog)
-- **Blog app Remix Version:** [Preview](https://remix-comparison-blog.netlify.app/) and [Repository](https://github.com/hofmann-felix/remix-comparison-blog)
+- **Blog app Gatsby Version:** [Preview](https://gatsby-comparison-blog.vercel.app/) and [Repository](https://github.com/satellytes/blog-app-comparison/tree/main/gatsby-comparison-blog)
+- **Blog app Next.js Version:** [Preview](https://next-js-comparison-blog.vercel.app/) and [Repository](https://github.com/satellytes/blog-app-comparison/tree/main/next-comparison-blog)
+- **Blog app Remix Version:** [Preview](https://remix-comparison-blog.netlify.app/) and [Repository](https://github.com/satellytes/blog-app-comparison/tree/main/remix-comparison-blog)
 
   ![blog-overview.png](images/gastby-next-remix-screenshot-blog-overview.png)
 
