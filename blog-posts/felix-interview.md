@@ -10,7 +10,7 @@ teaserText: Felix Hamann ist der erste Angestellte von Satellytes und immer noch
 
 
 ## Interview mit Felix Hamann
-**This introduction text still to be done**
+Felix Hamann ist seit Tag 1 bei Satellytes, somit also fast vier Jahre. Wir haben ihn zum Interview gebeten. damit er uns mehr darüber erzählt wie er und Satellytes sich seit der Gründung entwickelt haben und wohin die Reise geht.
 
 <br>**Hallo Felix. Schön, dass Du Dir die Zeit nimmst. Stell Dich doch mal kurz vor.**<br>
 Hi! Ich bin Felix. Ich habe noch das Piepsgeräusch der 56k Modems im Ohr, bin also schon eine ganze Weile dabei. Seitdem ich denken kann faszinieren mich Computer und Webentwicklung.
