@@ -135,11 +135,16 @@ module.exports = {
                     BASE_URL +
                     (blogPostMeta.shareImage.childImageSharp.fixed.src ||
                       DEFAULT_META_IMAGE_URL_PATH);
-                  const coverImage = `
+                  const coverImage =
+                    blogPostMeta.attribution && blogPostMeta.attribution.creator
+                      ? `
                     <figure>
                       <img src='${imageUrl}' alt=''>
                       <figcaption>${blogPostMeta.attribution.creator} - ${blogPostMeta.attribution.source}</figcaption>
                     </figure>
+                  `
+                      : `
+                    <img src='${imageUrl}' alt=''>
                   `;
 
                   return {
