@@ -219,7 +219,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
   };
 
   const onError = (event) => {
-    if (selectedFiles?.length === 0) {
+    if (selectedFiles?.length === 0 || !selectedFiles) {
       setError(
         'documents',
         { type: 'manual', message: t<string>('career.error.cv') },
