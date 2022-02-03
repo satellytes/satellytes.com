@@ -82,8 +82,13 @@ export const CareerFileUploadType = ({
   watch,
 }: CareerFileUploadTypeProps) => {
   const { t } = useTranslation();
-  const fileName = file.name.split('.');
-  const name = `category_select.${fileName[0]}`;
+  const fileName = file.name.split('.')[0];
+  /**
+   * Create a sanitized file id by replacing anything that's not a letter which can be safely used as an identifier.
+   * Without this, a valid filename like `a,b.pdf` (osx) will create an identifier to safely use as an internal name.
+   */
+  const fileId = fileName.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+  const name = `category_select.${fileId}`;
   const selectedFileType = watch(name);
 
   const onChange = (event) => {
@@ -114,7 +119,7 @@ export const CareerFileUploadType = ({
         </StyledSelect>
         <SelectArrow />
       </SelectContainer>
-      {errors.category_select?.[fileName[0]] && (
+      {errors.category_select?.[fileId] && (
         <FormErrorWrapper>
           <FormError
             error={{ message: t<string>('career.error.selection') }}
