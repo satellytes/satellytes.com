@@ -114,7 +114,7 @@ export const Actions = ({
           Bewerbung direkt an <strong>career@satellytes.com</strong>
         </Trans>
         <SendButton onClick={() => tryAgainFn()}>
-          <ButtonText>{t('career.again')}</ButtonText>
+          <ButtonText>{t('career.action.again')}</ButtonText>
         </SendButton>
       </>
     );
