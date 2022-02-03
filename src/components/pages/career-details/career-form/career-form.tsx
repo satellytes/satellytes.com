@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Grid, GridItem } from '../../../legacy/grid/grid';
 import axios, { AxiosResponse } from 'axios';
@@ -131,7 +131,22 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
   const selectedFiles = watch('documents');
   const privacyChecked = watch('privacy');
 
+  useEffect(() => {
+    if (selectedFiles?.length > 0) {
+      clearErrors('documents');
+    }
+  }, [selectedFiles]);
+
   const onSubmit = async (formValues: RawFormData): Promise<void> => {
+    if (selectedFiles?.length === 0) {
+      setError(
+        'documents',
+        { type: 'manual', message: t<string>('career.error.cv') },
+        { shouldFocus: true },
+      );
+      return;
+    }
+
     if (!privacyChecked) {
       setError(
         'privacy',
@@ -204,6 +219,13 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
   };
 
   const onError = (event) => {
+    if (selectedFiles?.length === 0) {
+      setError(
+        'documents',
+        { type: 'manual', message: t<string>('career.error.cv') },
+        { shouldFocus: true },
+      );
+    }
     console.log('onError', event);
   };
 
