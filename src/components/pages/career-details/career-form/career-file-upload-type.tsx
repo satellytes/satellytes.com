@@ -84,8 +84,8 @@ export const CareerFileUploadType = ({
   const { t } = useTranslation();
   const fileName = file.name.split('.')[0];
   /**
-   * Create a sanitized file id by replacing anything that's not a letter which can be safely used as an identifier.
-   * Without this, a valid filename like `a,b.pdf` (osx) will create an identifier to safely use as an internal name.
+   * Create a sanitized file id by replacing anything that's not a letter or a digit which can be safely used as an identifier.
+   * Without this, a valid filename like `a,b.pdf` (osx) will cause an error.
    */
   const fileId = fileName.replace(/[^a-z0-9]/gi, '_').toLowerCase();
   const name = `category_select.${fileId}`;
