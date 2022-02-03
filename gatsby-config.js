@@ -140,7 +140,7 @@ module.exports = {
                       ? `
                     <figure>
                       <img src='${imageUrl}' alt=''>
-                      <figcaption><a href='${blogPostMeta.attribution.source}' target='_blank'>Image by ${blogPostMeta.attribution.creator} · </figcaption>
+                      <figcaption><a href='${blogPostMeta.attribution.source}' target='_blank' rel="nofollow noreferrer">Image by ${blogPostMeta.attribution.creator} · </figcaption>
                     </figure>
                   `
                       : `
