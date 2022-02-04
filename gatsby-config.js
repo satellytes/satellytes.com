@@ -135,6 +135,17 @@ module.exports = {
                     BASE_URL +
                     (blogPostMeta.shareImage.childImageSharp.fixed.src ||
                       DEFAULT_META_IMAGE_URL_PATH);
+                  const coverImage =
+                    blogPostMeta.attribution && blogPostMeta.attribution.creator
+                      ? `
+                    <figure>
+                      <img src='${imageUrl}' alt=''>
+                      <figcaption><a href='${blogPostMeta.attribution.source}' target='_blank' rel="nofollow noreferrer">Image by ${blogPostMeta.attribution.creator} · </figcaption>
+                    </figure>
+                  `
+                      : `
+                    <img src='${imageUrl}' alt=''>
+                  `;
 
                   return {
                     title: blogPostMeta.title,
@@ -145,7 +156,7 @@ module.exports = {
                     guid: site.siteMetadata.siteUrl + blogPostMeta.path,
                     custom_elements: [
                       {
-                        'content:encoded': `<img src='${imageUrl}' alt=''/> ${edge.node.html}`,
+                        'content:encoded': `${coverImage} ${edge.node.html}`,
                       },
                     ],
                   };
@@ -167,6 +178,10 @@ module.exports = {
                         title
                         date
                         path
+                        attribution {
+                          creator
+                          source
+                        }
                         shareImage: featuredImage {
                           childImageSharp {
                             fixed(width: 1440, height: 760) {
