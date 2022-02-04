@@ -109,10 +109,12 @@ export const Actions = ({
     return (
       <>
         <FormError error={error} />
+        <br />
         <Trans i18nKey={'career.action.again-text'}>
           Versuch es bitte noch einmal. Klappt es nicht dann schicke deine
           Bewerbung direkt an <strong>career@satellytes.com</strong>
         </Trans>
+        <br />
         <SendButton onClick={() => tryAgainFn()}>
           <ButtonText>{t('career.action.again')}</ButtonText>
         </SendButton>

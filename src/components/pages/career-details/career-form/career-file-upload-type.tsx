@@ -12,6 +12,7 @@ import {
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { up } from '../../../support/breakpoint';
 import { SelectArrow } from '../../../legacy/icons/form-icons/select-arrow';
+import { createFileId } from './utils';
 
 interface CareerFileUploadTypeProps {
   setValue: UseFormSetValue<FieldValues>;
@@ -73,21 +74,6 @@ const FormErrorWrapper = styled.div`
   margin-left: 16px;
 `;
 
-export const getFilenameWithoutFiletype = (filename) => {
-  // usually we get 2 entries, but the filename could also contain dots
-  const nameWithFileType = filename.split('.');
-
-  // for filenames that don't have a filetype
-  if (nameWithFileType.length === 1) {
-    return nameWithFileType[0];
-  }
-
-  // we remove the last element, which is the filetype
-  nameWithFileType.pop();
-
-  return nameWithFileType.join('.');
-};
-
 export const CareerFileUploadType = ({
   errors,
   file,
@@ -97,12 +83,11 @@ export const CareerFileUploadType = ({
   watch,
 }: CareerFileUploadTypeProps) => {
   const { t } = useTranslation();
-  const filename = getFilenameWithoutFiletype(file.name);
   /**
    * Create a sanitized file id by replacing anything that's not a letter or a digit which can be safely used as an identifier.
-   * Without this, a valid filename like `a,b.pdf` (osx) will cause an error.
+   * Without this, a valid filename like `a,b.pdf` will cause an error.
    */
-  const fileId = filename.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+  const fileId = createFileId(file.name);
   const name = `category_select.${fileId}`;
   const selectedFileType = watch(name);
 

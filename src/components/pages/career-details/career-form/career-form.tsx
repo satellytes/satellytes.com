@@ -22,6 +22,7 @@ import { rgba } from 'polished';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Upload } from '../../../legacy/icons/form-icons/upload';
 import { CheckboxMark } from '../../../legacy/icons/form-icons/checkbox';
+import { createFileId } from './utils';
 
 interface CareerFormProps {
   recruiting_channel_id: string;
@@ -174,8 +175,8 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
       if (key === 'documents') {
         for (let i = 0; i < formValues.documents.length; i++) {
           const keyName = `categorised_documents[${i}][file]`;
-          const fileName = formValues.documents[i].name.split('.')[0];
-          const category = formValues.category_select[fileName];
+          const fileId = createFileId(formValues.documents[i].name);
+          const category = formValues.category_select[fileId];
           formData.append(keyName, formValues.documents[i]);
           const nameCategory = `categorised_documents[${i}][category]`;
           formData.append(nameCategory, category);
