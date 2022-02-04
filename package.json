@@ -48,7 +48,7 @@
     "gatsby-background-image": "^1.6.0",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-canonical-urls": "^4.5.0",
-    "gatsby-plugin-catch-links": "^4.5.0",
+    "gatsby-plugin-catch-links": "^4.6.0",
     "gatsby-plugin-feed": "^4.5.0",
     "gatsby-plugin-gatsby-cloud": "^4.5.2",
     "gatsby-plugin-image": "^2.5.2",
