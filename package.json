@@ -57,7 +57,7 @@
     "gatsby-plugin-react-i18next": "^1.2.2",
     "gatsby-plugin-robots-txt": "^1.7.0",
     "gatsby-plugin-sass": "^5.5.0",
-    "gatsby-plugin-sharp": "4.5.2",
+    "gatsby-plugin-sharp": "4.6.0",
     "gatsby-plugin-sitemap": "^5.5.0",
     "gatsby-plugin-smoothscroll": "^1.2.0",
     "gatsby-plugin-styled-components": "^5.5.0",
