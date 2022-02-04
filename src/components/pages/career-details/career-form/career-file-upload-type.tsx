@@ -73,6 +73,21 @@ const FormErrorWrapper = styled.div`
   margin-left: 16px;
 `;
 
+export const getFilenameWithoutFiletype = (filename) => {
+  // usually we get 2 entries, but the filename could also contain dots
+  const nameWithFileType = filename.split('.');
+
+  // for filenames that don't have a filetype
+  if (nameWithFileType.length === 1) {
+    return nameWithFileType[0];
+  }
+
+  // we remove the last element, which is the filetype
+  nameWithFileType.pop();
+
+  return nameWithFileType.join('.');
+};
+
 export const CareerFileUploadType = ({
   errors,
   file,
@@ -82,12 +97,12 @@ export const CareerFileUploadType = ({
   watch,
 }: CareerFileUploadTypeProps) => {
   const { t } = useTranslation();
-  const fileName = file.name.split('.')[0];
+  const filename = getFilenameWithoutFiletype(file.name);
   /**
    * Create a sanitized file id by replacing anything that's not a letter or a digit which can be safely used as an identifier.
    * Without this, a valid filename like `a,b.pdf` (osx) will cause an error.
    */
-  const fileId = fileName.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+  const fileId = filename.replace(/[^a-z0-9]/gi, '_').toLowerCase();
   const name = `category_select.${fileId}`;
   const selectedFileType = watch(name);
 
