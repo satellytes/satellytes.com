@@ -2679,7 +2679,7 @@
     lodash "^4.17.21"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-docs@6.4.18":
+"@storybook/addon-docs@6.4.18", "@storybook/addon-docs@^6.4.18":
   version "6.4.18"
   resolved "https://registry.yarnpkg.com/@storybook/addon-docs/-/addon-docs-6.4.18.tgz#e1f969a63f286649e46a4846b56cc309bccd07c3"
   integrity sha512-NcGcrW+2hrzoyWHEaDmw6wxqyV/FDsdLaOS0XZrIQuBaj1rve0IfA1jqggfNo8owqmXXGp8cQBnFbhRES1a7nQ==
@@ -16129,10 +16129,10 @@ store2@^2.12.0:
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.13.1.tgz#fae7b5bb9d35fc53dc61cd262df3abb2f6e59022"
   integrity sha512-iJtHSGmNgAUx0b/MCS6ASGxb//hGrHHRgzvN+K5bvkBTN7A9RTpPSf1WSp+nPGvWCJ1jRnvY7MKnuqfoi3OEqg==
 
-storybook-addon-gatsby@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/storybook-addon-gatsby/-/storybook-addon-gatsby-0.0.4.tgz#7880722cd4f8641b2f273fa61893a85a692629de"
-  integrity sha512-xwPq5cu3l3Lt6YF6MMUl3ke4rCATva48yVgkpChOTUaPqDehS3YUnVrCXS6wO20MNsktR3vNyqsBdcXkrAuePg==
+storybook-addon-gatsby@0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/storybook-addon-gatsby/-/storybook-addon-gatsby-0.0.3.tgz#943e02eb293b8361b78a6162c16f34851e79c722"
+  integrity sha512-vePIGWxaDVxLT9CqF010CrCOTbxg7bTAGU4uIstDI05AYzB6EmU+sblypBKI4GEtVDDyHSo/hezW4868PTV49g==
 
 storybook-i18n@^1.0.11:
   version "1.0.11"
