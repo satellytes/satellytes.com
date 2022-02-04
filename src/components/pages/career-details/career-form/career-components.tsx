@@ -109,7 +109,7 @@ export const Actions = ({
     return (
       <>
         <FormError error={error} />
-        <Trans i18nKey={'career.again-text'}>
+        <Trans i18nKey={'career.action.again-text'}>
           Versuch es bitte noch einmal. Klappt es nicht dann schicke deine
           Bewerbung direkt an <strong>career@satellytes.com</strong>
         </Trans>
