@@ -10,13 +10,13 @@ export const Clear = () => (
   >
     <path
       d="M1 1L11 11"
-      stroke="#ffffff"
+      stroke="currentColor"
       strokeOpacity="0.5"
       strokeWidth="1.5"
     />
     <path
       d="M11 1L1 11"
-      stroke="#ffffff"
+      stroke="currentColor"
       strokeOpacity="0.5"
       strokeWidth="1.5"
     />

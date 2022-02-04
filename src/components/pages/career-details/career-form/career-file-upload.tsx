@@ -237,7 +237,7 @@ export const FileUpload = ({
               id={name}
               type={'file'}
               {...getInputProps({
-                ...register(name, { required: t<string>('career.error.cv') }),
+                ...register(name),
               })}
               multiple
             />

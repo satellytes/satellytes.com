@@ -95,7 +95,7 @@ export const CareerTextFields = ({
         <InputField
           required={true}
           inputRef={register('message', {
-            required: t<string>('career.error.message'),
+            required: t<string>('career.error.cover-letter'),
           })}
           error={errors.message}
           name="message"

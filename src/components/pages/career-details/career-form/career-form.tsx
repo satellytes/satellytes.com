@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Grid, GridItem } from '../../../legacy/grid/grid';
 import axios, { AxiosResponse } from 'axios';
@@ -22,6 +22,7 @@ import { rgba } from 'polished';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Upload } from '../../../legacy/icons/form-icons/upload';
 import { CheckboxMark } from '../../../legacy/icons/form-icons/checkbox';
+import { createFileId } from './utils';
 
 interface CareerFormProps {
   recruiting_channel_id: string;
@@ -131,7 +132,22 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
   const selectedFiles = watch('documents');
   const privacyChecked = watch('privacy');
 
+  useEffect(() => {
+    if (selectedFiles?.length > 0) {
+      clearErrors('documents');
+    }
+  }, [selectedFiles]);
+
   const onSubmit = async (formValues: RawFormData): Promise<void> => {
+    if (selectedFiles?.length === 0) {
+      setError(
+        'documents',
+        { type: 'manual', message: t<string>('career.error.cv') },
+        { shouldFocus: true },
+      );
+      return;
+    }
+
     if (!privacyChecked) {
       setError(
         'privacy',
@@ -159,8 +175,8 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
       if (key === 'documents') {
         for (let i = 0; i < formValues.documents.length; i++) {
           const keyName = `categorised_documents[${i}][file]`;
-          const fileName = formValues.documents[i].name.split('.')[0];
-          const category = formValues.category_select[fileName];
+          const fileId = createFileId(formValues.documents[i].name);
+          const category = formValues.category_select[fileId];
           formData.append(keyName, formValues.documents[i]);
           const nameCategory = `categorised_documents[${i}][category]`;
           formData.append(nameCategory, category);
@@ -204,6 +220,13 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
   };
 
   const onError = (event) => {
+    if (selectedFiles?.length === 0 || !selectedFiles) {
+      setError(
+        'documents',
+        { type: 'manual', message: t<string>('career.error.cv') },
+        { shouldFocus: true },
+      );
+    }
     console.log('onError', event);
   };
 

@@ -12,6 +12,7 @@ import {
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { up } from '../../../support/breakpoint';
 import { SelectArrow } from '../../../legacy/icons/form-icons/select-arrow';
+import { createFileId } from './utils';
 
 interface CareerFileUploadTypeProps {
   setValue: UseFormSetValue<FieldValues>;
@@ -82,8 +83,12 @@ export const CareerFileUploadType = ({
   watch,
 }: CareerFileUploadTypeProps) => {
   const { t } = useTranslation();
-  const fileName = file.name.split('.');
-  const name = `category_select.${fileName[0]}`;
+  /**
+   * Create a sanitized file id by replacing anything that's not a letter or a digit which can be safely used as an identifier.
+   * Without this, a valid filename like `a,b.pdf` will cause an error.
+   */
+  const fileId = createFileId(file.name);
+  const name = `category_select.${fileId}`;
   const selectedFileType = watch(name);
 
   const onChange = (event) => {
@@ -114,7 +119,7 @@ export const CareerFileUploadType = ({
         </StyledSelect>
         <SelectArrow />
       </SelectContainer>
-      {errors.category_select?.[fileName[0]] && (
+      {errors.category_select?.[fileId] && (
         <FormErrorWrapper>
           <FormError
             error={{ message: t<string>('career.error.selection') }}
