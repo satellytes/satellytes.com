@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c8d8c7d1-444a-4b8c-b31a-9d5531e48c9b/deploy-status)](https://app.netlify.com/sites/satellytes-website/deploys)
 
-This repository contains the new https://satellytes.com website.
+This repository contains the https://satellytes.com website.
 
 ## Run
 
