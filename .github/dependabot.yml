@@ -6,6 +6,12 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-      day: "sunday"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/Berlin"
+    commit-message:
+      # we need to disable netlify as we don't have enough build minutes for all dependency updates
+      # https://docs.netlify.com/site-deploys/manage-deploys/#skip-a-deploy
+      prefix: "[skip netlify]"
     labels:
       - dependencies
