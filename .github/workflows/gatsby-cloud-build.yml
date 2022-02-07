@@ -1,4 +1,4 @@
-name: Scheduled Deployment
+name: Gatsby Cloud Build
 
 on:
   # run this workflow manually from the Actions tab
@@ -14,5 +14,5 @@ jobs:
     env:
       GATSBY_BUILD_WEBHOOK_URL: ${{ secrets.GATSBY_BUILD_WEBHOOK_URL }}
     steps:
-      - name: Trigger deployment
+      - name: Trigger build and deployment
         run: curl -X POST $GATSBY_BUILD_WEBHOOK_URL
