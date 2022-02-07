@@ -1,11 +1,15 @@
 version: 2
 
 updates:
+  # npm should be used for npm and yarn
   - package-ecosystem: npm
     open-pull-requests-limit: 10
     directory: "/"
     schedule:
       interval: "weekly"
       day: "sunday"
+    commit-message:
+      # we need to disable netlify as we don't have enough builds for all dependency updates
+      prefix: "[skip ci]"
     labels:
       - dependencies
