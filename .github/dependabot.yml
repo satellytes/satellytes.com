@@ -1,7 +1,6 @@
 version: 2
 
 updates:
-  # npm should be used for npm and yarn
   - package-ecosystem: npm
     open-pull-requests-limit: 10
     directory: "/"
@@ -11,7 +10,7 @@ updates:
       time: "06:00"
       timezone: "Europe/Berlin"
     commit-message:
-      # we need to disable netlify as we don't have enough builds for all dependency updates
+      # we need to disable netlify as we don't have enough build minutes for all dependency updates
       # https://docs.netlify.com/site-deploys/manage-deploys/#skip-a-deploy
       prefix: "[skip netlify]"
     labels:
