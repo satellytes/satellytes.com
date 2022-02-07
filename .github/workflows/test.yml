@@ -20,7 +20,7 @@ jobs:
           node-version: '16'
 
       - name: Install
-        run: yarn
+        run: yarn install --frozen-lockfile
 
       - name: Unit tests
         run: yarn test
