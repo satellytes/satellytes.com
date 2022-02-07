@@ -10,6 +10,7 @@ updates:
       day: "sunday"
     commit-message:
       # we need to disable netlify as we don't have enough builds for all dependency updates
-      prefix: "[skip ci]"
+      # https://docs.netlify.com/site-deploys/manage-deploys/#skip-a-deploy
+      prefix: "[skip netlify]"
     labels:
       - dependencies
