@@ -8,7 +8,7 @@ jobs:
   build:
     # only run a manual build when the PR comes from Dependabot
     # as gatsby doesn't run on automated pull requests
-    if: contains(github.event.pull_request.labels.*.name, '<label_name>')
+    if: contains(github.event.pull_request.labels.*.name, 'dependencies')
     name: Build
 
     runs-on: ubuntu-latest
