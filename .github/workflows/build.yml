@@ -5,23 +5,36 @@ on:
     types: [ labeled, opened, synchronize, reopened ]
 
 jobs:
-  build:
+  build-website:
     # only run a manual build when the PR comes from Dependabot
     # as gatsby doesn't run on automated pull requests
     if: contains(github.event.pull_request.labels.*.name, 'dependencies')
-    name: Build
-
+    name: Build Website
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: '16'
-
+          cache: 'npm'
       - name: Install
         run: yarn install --frozen-lockfile
-
       - name: Build
         run: yarn build
+
+  build-storybook:
+    if: contains(github.event.pull_request.labels.*.name, 'dependencies')
+    name: Build Storybook
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: 'npm'
+      - name: Install
+        run: yarn install --frozen-lockfile
+      - name: Build
+        run: yarn storybook:build
