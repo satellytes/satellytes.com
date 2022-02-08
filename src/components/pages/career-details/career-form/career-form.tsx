@@ -269,7 +269,7 @@ export const CareerForm = (props: CareerFormProps) => {
 
           {/*File-Upload*/}
           <FileUpload
-            name={'documents'}
+            name="documents"
             setValue={setValue}
             clearErrors={clearErrors}
             register={register}
