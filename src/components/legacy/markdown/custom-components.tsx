@@ -151,6 +151,9 @@ const customSatellytesComponents = {
   p(props) {
     return <Text>{props.children}</Text>;
   },
+  em(props) {
+    return <span>{props.children}</span>;
+  },
   pre(props) {
     return <CodeBlock>{props.children}</CodeBlock>;
   },

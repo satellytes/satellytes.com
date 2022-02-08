@@ -77,7 +77,7 @@ export const DashedListItem = styled.li`
   text-indent: -5px;
 
   &:before {
-    content: '- ';
+    content: '-  ';
     text-indent: -5px;
   }
 `;
