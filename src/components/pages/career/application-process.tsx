@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { SectionHeader } from '../../content/section-header/section-header';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { up } from '../../support/breakpoint';
+import { TextStyles } from '../../typography';
 
 const Spacer = styled.div`
   margin-bottom: 48px;
@@ -15,6 +16,10 @@ const AccordionWrapper = styled.div`
   ${up('sm')} {
     margin: 0;
   }
+`;
+
+const AccordionText = styled.p`
+  ${TextStyles.textR}
 `;
 
 export const ApplicationProcess = () => {
@@ -33,26 +38,34 @@ export const ApplicationProcess = () => {
             title={t('career.application-process.accordion.0.title')}
             illustration={'scientistB_007'}
           >
-            {t('career.application-process.accordion.0.paragraph')}
+            <AccordionText>
+              {t('career.application-process.accordion.0.paragraph')}
+            </AccordionText>
           </AccordionSection>
 
           <AccordionSection
             title={t('career.application-process.accordion.1.title')}
             illustration={'astronaut_015'}
           >
-            {t('career.application-process.accordion.1.paragraph')}
+            <AccordionText>
+              {t('career.application-process.accordion.1.paragraph')}
+            </AccordionText>
           </AccordionSection>
 
           <AccordionSection
             title={t('career.application-process.accordion.2.title')}
           >
-            {t('career.application-process.accordion.2.paragraph')}
+            <AccordionText>
+              {t('career.application-process.accordion.2.paragraph')}
+            </AccordionText>
           </AccordionSection>
 
           <AccordionSection
             title={t('career.application-process.accordion.3.title')}
           >
-            {t('career.application-process.accordion.3.paragraph')}
+            <AccordionText>
+              {t('career.application-process.accordion.3.paragraph')}
+            </AccordionText>
           </AccordionSection>
         </Accordion>
       </AccordionWrapper>
