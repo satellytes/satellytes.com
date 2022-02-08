@@ -12,13 +12,13 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { up } from '../../../support/breakpoint';
 import { SelectArrow } from '../../../legacy/icons/form-icons/select-arrow';
 import { createFileId } from './utils';
-import { CareerFormValues } from './career-form';
+import { CareerFormValue } from './career-form';
 
 interface CareerFileUploadTypeProps {
-  setValue: UseFormSetValue<CareerFormValues>;
-  clearError: UseFormClearErrors<CareerFormValues>;
-  register: UseFormRegister<CareerFormValues>;
-  watch: UseFormWatch<CareerFormValues>;
+  setValue: UseFormSetValue<CareerFormValue>;
+  clearError: UseFormClearErrors<CareerFormValue>;
+  register: UseFormRegister<CareerFormValue>;
+  watch: UseFormWatch<CareerFormValue>;
   errors: FieldErrors;
   file: File;
 }

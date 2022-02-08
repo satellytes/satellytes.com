@@ -19,14 +19,14 @@ import { FormError } from './career-components';
 import { CareerFileUploadType } from './career-file-upload-type';
 import { rgba } from 'polished';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { CareerFormValues } from './career-form';
+import { CareerFormValue } from './career-form';
 
 interface FileUploadProps {
-  setValue: UseFormSetValue<CareerFormValues>;
-  setError: UseFormSetError<CareerFormValues>;
-  clearErrors: UseFormClearErrors<CareerFormValues>;
-  register: UseFormRegister<CareerFormValues>;
-  watch: UseFormWatch<CareerFormValues>;
+  setValue: UseFormSetValue<CareerFormValue>;
+  setError: UseFormSetError<CareerFormValue>;
+  clearErrors: UseFormClearErrors<CareerFormValue>;
+  register: UseFormRegister<CareerFormValue>;
+  watch: UseFormWatch<CareerFormValue>;
   name: 'documents';
   selectedFiles: FileList;
   errors: FieldErrors;

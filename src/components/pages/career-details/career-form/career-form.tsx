@@ -36,7 +36,7 @@ interface CategorySelect {
   [key: string]: string;
 }
 
-export type CareerFormValues = {
+export type CareerFormValue = {
   first_name: string;
   last_name: string;
   email: string;
@@ -136,7 +136,7 @@ export const CareerForm = (props: CareerFormProps) => {
     watch,
     setValue,
     formState: { errors, isSubmitSuccessful, isSubmitting },
-  } = useForm<CareerFormValues & FormErrors>();
+  } = useForm<CareerFormValue & FormErrors>();
 
   const { t } = useTranslation();
   const [uploadProgress, setUploadProgress] = useState(0);
@@ -149,7 +149,7 @@ export const CareerForm = (props: CareerFormProps) => {
     }
   }, [selectedFiles]);
 
-  const onSubmitHandler: SubmitHandler<CareerFormValues> = async (
+  const onSubmitHandler: SubmitHandler<CareerFormValue> = async (
     formValues,
   ): Promise<void> => {
     if (selectedFiles?.length === 0) {
