@@ -15,7 +15,7 @@ import { BringMeHome } from './bring-home';
 import { SatellytesMarkerIcon } from './sy-marker';
 import { theme } from '../../../layout/theme';
 import { Helmet } from 'react-helmet';
-const MAP_VIEW_ZOOM_DESKTOP = 14;
+const MAP_VIEW_ZOOM = 14;
 
 const OFFICE_COORDINATES: LatLngExpression = [48.13479, 11.56839];
 const MAPBOX_ACCESS_TOKEN =
@@ -75,7 +75,7 @@ export const Leaflet = () => {
       whenCreated={setMapInstance as any}
       zoomControl={false}
       center={OFFICE_COORDINATES}
-      zoom={MAP_VIEW_ZOOM_DESKTOP}
+      zoom={MAP_VIEW_ZOOM}
       scrollWheelZoom={true}
     >
       {/*Introduce a LayerControl so we can offer multiple tile layers if people want to explore the city
@@ -127,7 +127,7 @@ export const Leaflet = () => {
       {mapInstance ? (
         <BringMeHome
           center={OFFICE_COORDINATES}
-          zoom={MAP_VIEW_ZOOM_DESKTOP}
+          zoom={MAP_VIEW_ZOOM}
           map={mapInstance}
         >
           Lost?{' '}
