@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { down, up } from '../../support/breakpoint';
+import { up } from '../../support/breakpoint';
 import { Teaser } from '../../content/teaser/teaser';
 import { IllustrationType } from '../../ui/illustration/illustration-set';
 import { SectionHeader } from '../../content/section-header/section-header';
@@ -17,10 +17,10 @@ const TeaserGrid = styled.div`
   gap: 24px;
 
   justify-items: stretch;
-  grid-template-columns: repeat(auto-fit, 250px);
+  grid-template-columns: 1fr;
 
-  ${down('sm')} {
-    grid-template-columns: 1fr;
+  ${up('sm')} {
+    grid-template-columns: repeat(auto-fit, 250px);
   }
 
   ${up('md')} {

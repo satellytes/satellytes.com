@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Teaser } from '../../content/teaser/teaser';
-import { down, up } from '../../support/breakpoint';
+import { up } from '../../support/breakpoint';
 import { IllustrationType } from '../../ui/illustration/illustration-set';
 import { SectionHeader } from '../../content/section-header/section-header';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
@@ -17,10 +17,10 @@ const TeaserGrid = styled.div`
   gap: 24px;
 
   justify-items: stretch;
-  grid-template-columns: repeat(auto-fit, 250px);
+  grid-template-columns: 1fr;
 
-  ${down('sm')} {
-    grid-template-columns: 1fr;
+  ${up('sm')} {
+    grid-template-columns: repeat(auto-fit, 250px);
   }
 
   ${up('md')} {
