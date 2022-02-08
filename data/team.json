@@ -11,12 +11,12 @@
 
   {
     "name": "Fabian",
-    "image": "team/fabian-_MG_1839.jpg"
+    "image": "team/fabian-1U1A0358.jpg"
   },
 
   {
     "name": "Verena",
-    "image": "team/verena.jpg"
+    "image": "team/verena-1U1A0703.jpg"
   },
 
   {
@@ -36,7 +36,7 @@
 
   {
     "name": "Jesus",
-    "image": "team/jesus-_MG_1851.jpg"
+    "image": "team/jesus-1U1A0378.jpg"
   },
 
   {
@@ -51,21 +51,31 @@
 
   {
     "name": "Pavel",
-    "image": "team/pavel-_MG_1860.jpg"
+    "image": "team/pavel-1U1A0408.jpg"
   },
 
   {
     "name": "Felix",
-    "image": "team/felix_hamann.jpg"
+    "image": "team/felixh-1U1A0436.jpg"
   },
 
   {
     "name": "Arthur",
-    "image": "team/arthur.jpg"
+    "image": "team/arthur-1U1A0481.jpg"
   },
 
   {
     "name": "Georgios",
-    "image": "team/georgios.jpg"
+    "image": "team/georgios-1U1A0422.jpg"
+  },
+
+  {
+    "name": "Christian",
+    "image": "team/christian-1U1A0626.jpg"
+  },
+
+  {
+    "name": "Markus",
+    "image": "team/markus-1U1A0726.jpg"
   }
 ]
