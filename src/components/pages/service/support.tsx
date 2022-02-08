@@ -69,5 +69,15 @@ export const ExpandableStyled = styled(Expandable)`
 export const UnorderedList = styled.ul`
   line-height: 150%;
   margin: 0;
-  padding-left: 1em;
+  padding-left: 0;
+  list-style-type: none;
+`;
+
+export const DashedListItem = styled.li`
+  text-indent: -5px;
+
+  &:before {
+    content: '- ';
+    text-indent: -5px;
+  }
 `;
