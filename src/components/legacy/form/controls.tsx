@@ -4,6 +4,9 @@ import { Text } from '../typography';
 import React from 'react';
 import { FormError } from '../../pages/career-details/career-form/career-components';
 import { Input } from './input';
+import { TextStyles } from '../../typography';
+import { Label } from '../../forms/text-input/text-input';
+import { theme } from '../../layout/theme';
 
 export const InputContainer = styled.div`
   display: flex;
@@ -26,16 +29,6 @@ export const InputWrapper = styled.div`
       margin-right: 24px;
     }
   }
-`;
-
-export const Label = styled.label<{ required?: boolean }>`
-  position: relative;
-  display: block;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 12px;
-  line-height: 110%;
-  margin-bottom: 8px;
 `;
 
 export const Sup = styled.sup`
@@ -138,8 +131,11 @@ export const ErrorMessage = styled.p<{
   marginBottom?: number;
   lineHeight?: number;
 }>`
-  color: #f19bab;
-  font-size: 12px;
+  ${TextStyles.textXS}
+  font-size: 13px;
+  font-weight: 700;
+  color: ${theme.palette.text.errorMessage};
+
   margin-top: 8px;
   margin-bottom: ${({ marginBottom }) => marginBottom || 0}px;
   line-height: ${({ lineHeight }) => lineHeight && `${lineHeight}%`};
