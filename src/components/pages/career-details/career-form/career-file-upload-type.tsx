@@ -3,7 +3,6 @@ import { FormError } from './career-components';
 import styled from 'styled-components';
 import {
   FieldErrors,
-  FieldValues,
   UseFormClearErrors,
   UseFormRegister,
   UseFormSetValue,
@@ -13,12 +12,13 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { up } from '../../../support/breakpoint';
 import { SelectArrow } from '../../../legacy/icons/form-icons/select-arrow';
 import { createFileId } from './utils';
+import { CareerFormValues } from './career-form';
 
 interface CareerFileUploadTypeProps {
-  setValue: UseFormSetValue<FieldValues>;
-  clearError: UseFormClearErrors<FieldValues>;
-  register: UseFormRegister<FieldValues>;
-  watch: UseFormWatch<FieldValues>;
+  setValue: UseFormSetValue<CareerFormValues>;
+  clearError: UseFormClearErrors<CareerFormValues>;
+  register: UseFormRegister<CareerFormValues>;
+  watch: UseFormWatch<CareerFormValues>;
   errors: FieldErrors;
   file: File;
 }
@@ -41,7 +41,7 @@ const StyledSelect = styled.select`
     width: unset;
     display: inline-block;
     min-width: 144px;
-    margin-top: 0px;
+    margin-top: 0;
   }
 `;
 
@@ -88,7 +88,8 @@ export const CareerFileUploadType = ({
    * Without this, a valid filename like `a,b.pdf` will cause an error.
    */
   const fileId = createFileId(file.name);
-  const name = `category_select.${fileId}`;
+  // TODO: CareerFormValues contains a list of keys in field `category_select` which we should reflect here
+  const name: any = `category_select.${fileId}`;
   const selectedFileType = watch(name);
 
   const onChange = (event) => {

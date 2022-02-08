@@ -149,8 +149,6 @@ export const CareerForm = (props: CareerFormProps) => {
     }
   }, [selectedFiles]);
 
-  console.log(watch('category_select'));
-
   const onSubmitHandler: SubmitHandler<CareerFormValues> = async (
     formValues,
   ): Promise<void> => {
@@ -271,9 +269,9 @@ export const CareerForm = (props: CareerFormProps) => {
 
           {/*File-Upload*/}
           <FileUpload
+            name={'documents'}
             setValue={setValue}
             clearErrors={clearErrors}
-            name="documents"
             register={register}
             selectedFiles={selectedFiles}
             errors={errors}

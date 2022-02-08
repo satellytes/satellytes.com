@@ -27,7 +27,7 @@ interface FileUploadProps {
   clearErrors: UseFormClearErrors<CareerFormValues>;
   register: UseFormRegister<CareerFormValues>;
   watch: UseFormWatch<CareerFormValues>;
-  name: string;
+  name: 'documents';
   selectedFiles: FileList;
   errors: FieldErrors;
   children: ReactNode | ReactNode[];
