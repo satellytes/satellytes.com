@@ -93,7 +93,7 @@ export const Fieldset = styled.fieldset`
 
 interface ActionsProps {
   tryAgainFn: () => void;
-  error: Error;
+  error?: Error;
   isSubmitting: boolean;
   fieldErrors: FieldErrors;
 }

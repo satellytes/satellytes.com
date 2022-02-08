@@ -21,12 +21,14 @@ import { CareerFileUploadType } from './career-file-upload-type';
 import { rgba } from 'polished';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 
+type FormUploadValues = any;
+
 interface FileUploadProps {
-  setValue: UseFormSetValue<FieldValues>;
-  setError: UseFormSetError<FieldValues>;
-  clearErrors: UseFormClearErrors<FieldValues>;
-  register: UseFormRegister<FieldValues>;
-  watch: UseFormWatch<FieldValues>;
+  setValue: UseFormSetValue<FormUploadValues>;
+  setError: UseFormSetError<FormUploadValues>;
+  clearErrors: UseFormClearErrors<FormUploadValues>;
+  register: UseFormRegister<FormUploadValues>;
+  watch: UseFormWatch<FormUploadValues>;
   name: string;
   selectedFiles: FileList;
   errors: FieldErrors;

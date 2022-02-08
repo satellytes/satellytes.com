@@ -4,9 +4,10 @@ import { FieldValues, UseFormRegister } from 'react-hook-form';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { SIMPLE_EMAIL_PATTERN } from '../../../forms/constants';
 import { InputField } from '../../../legacy/form/controls';
+import { CareerFormValues } from './career-form';
 
 interface CareerTextFieldsProps {
-  register: UseFormRegister<FieldValues>;
+  register: UseFormRegister<CareerFormValues>;
   errors: FieldValues;
 }
 
