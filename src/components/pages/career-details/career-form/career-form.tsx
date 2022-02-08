@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { Grid, GridItem } from '../../../legacy/grid/grid';
 import axios, { AxiosResponse } from 'axios';
 
@@ -32,15 +32,25 @@ interface CareerFormProps {
   scrollToStart?: () => void;
 }
 
-interface RawFormData {
+interface CategorySelect {
+  [key: string]: string;
+}
+
+export type CareerFormValue = {
   first_name: string;
   last_name: string;
   email: string;
   documents: FileList;
   message: string;
   phone?: string;
-  category_select: any;
-}
+  category_select?: CategorySelect;
+  privacy: boolean;
+  location: string;
+  available_from: string;
+  salary_expectations: string;
+};
+
+type FormErrors = { api?: never };
 
 const API_ENDPOINT = 'https://api.personio.de/recruiting/applicant';
 const PRIVACY_POLICY = 'https://satellytes.jobs.personio.de/privacy-policy';
@@ -62,7 +72,7 @@ const InfoTextContainer = styled.div`
   display: flex;
   align-items: flex-start;
   flex-direction: row;
-  margin: 24px 0px;
+  margin: 24px 0;
   line-height: 24px;
 `;
 
@@ -117,7 +127,7 @@ interface PersonioApiResponse {
   success: string;
 }
 
-export const CareerForm: React.FC<CareerFormProps> = (props) => {
+export const CareerForm = (props: CareerFormProps) => {
   const {
     register,
     handleSubmit,
@@ -126,7 +136,8 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
     watch,
     setValue,
     formState: { errors, isSubmitSuccessful, isSubmitting },
-  } = useForm();
+  } = useForm<CareerFormValue & FormErrors>();
+
   const { t } = useTranslation();
   const [uploadProgress, setUploadProgress] = useState(0);
   const selectedFiles = watch('documents');
@@ -138,7 +149,9 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
     }
   }, [selectedFiles]);
 
-  const onSubmit = async (formValues: RawFormData): Promise<void> => {
+  const onSubmitHandler: SubmitHandler<CareerFormValue> = async (
+    formValues,
+  ): Promise<void> => {
     if (selectedFiles?.length === 0) {
       setError(
         'documents',
@@ -147,7 +160,6 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
       );
       return;
     }
-
     if (!privacyChecked) {
       setError(
         'privacy',
@@ -176,16 +188,21 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
         for (let i = 0; i < formValues.documents.length; i++) {
           const keyName = `categorised_documents[${i}][file]`;
           const fileId = createFileId(formValues.documents[i].name);
-          const category = formValues.category_select[fileId];
+          const category = formValues.category_select?.[fileId];
           formData.append(keyName, formValues.documents[i]);
           const nameCategory = `categorised_documents[${i}][category]`;
-          formData.append(nameCategory, category);
+
+          if (category) {
+            formData.append(nameCategory, category);
+          }
         }
       } else {
         formData.append(key, value as any); // formdata doesn't take objects
       }
     }
+
     formData.append('gender', 'diverse');
+
     await axios
       .post<FormData, AxiosResponse<PersonioApiResponse>>(
         API_ENDPOINT,
@@ -212,6 +229,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
           error?.response?.data?.error?.message ??
           error?.response?.data?.error ??
           error.message;
+
         setError('api', {
           type: 'server',
           message: `Irgendetwas ist schief gelaufen (${personioErrorMessage}).`,
@@ -219,7 +237,7 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
       });
   };
 
-  const onError = (event) => {
+  const onErrorHandler = (event) => {
     if (selectedFiles?.length === 0 || !selectedFiles) {
       setError(
         'documents',
@@ -240,9 +258,10 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
   if (isSubmitSuccessful) {
     return <SuccessMessage />;
   }
+  const onSubmit = handleSubmit(onSubmitHandler, onErrorHandler);
 
   return (
-    <CareerFormStyled onSubmit={handleSubmit(onSubmit, onError)}>
+    <CareerFormStyled onSubmit={onSubmit}>
       <Headline>{t('career.headline')}</Headline>
       <Fieldset disabled={isSubmitting}>
         <Grid nested>
@@ -250,9 +269,9 @@ export const CareerForm: React.FC<CareerFormProps> = (props) => {
 
           {/*File-Upload*/}
           <FileUpload
+            name="documents"
             setValue={setValue}
             clearErrors={clearErrors}
-            name="documents"
             register={register}
             selectedFiles={selectedFiles}
             errors={errors}
