@@ -88,7 +88,7 @@ export const CareerFileUploadType = ({
    * Without this, a valid filename like `a,b.pdf` will cause an error.
    */
   const fileId = createFileId(file.name);
-  // TODO: CareerFormValues contains a list of keys in field `category_select` which we should reflect here
+  // TODO: CareerFormValue contains a list of keys in field `category_select` which we should reflect here
   const name: any = `category_select.${fileId}`;
   const selectedFileType = watch(name);
 
