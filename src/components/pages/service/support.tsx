@@ -38,10 +38,6 @@ const HeadlineStyled = styled.h3`
 
 const ContentStyled = styled.div`
   ${TextStyles.textR}
-
-  ${up('md')} {
-    ${TextStyles.textL}
-  }
 `;
 
 export const Intro = ({ illustration, headline, children }: any) => (
