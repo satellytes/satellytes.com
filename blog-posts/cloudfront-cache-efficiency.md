@@ -43,7 +43,7 @@ What do we see here?
 
 What is wrong here?
 
-1. The browser should cache every request for 10 seconds. But it only caches the first requests for the `max-age` and #
+1. The browser should cache every request for 10 seconds. But it only caches the first requests for the `max-age` and
 doesn't cache anything for the rest of the remaining `s-maxage` time.
 2. After 10 seconds the browser requests the same resource again. As there was no change in the response body, 
 CloudFront should only return `304`. Instead, the whole body gets return with a status `200`.
@@ -109,6 +109,9 @@ What do we see here:
 
 This is the behavior we want! Nice!
 
+> CloudFront Functions are $0.10 for 1 million executions, so they are quite cheap. More about the pricing on the
+> official page: https://aws.amazon.com/cloudfront/pricing/#Feature_Pricing
+
 Next, let’s see how we can return `304` if we hit CloudFront and the response hasn't changed since the last request.
 
 ## Return 304 if the object hasn’t changed in CloudFront
@@ -148,7 +151,6 @@ Now it’s perfect!
 CloudFront is a very good CDN, but you should always test if your requests are cached correctly.
 
 - If you have a different `s-maxage` and `maxage` you need to overwrite the `Date` and `Age` header in CloudFront.
-- If you want to return `304` if the response hasn't changed since the last request, you need to set the `ETag` header in
-your origin.
+- If you want to return `304` if the response hasn't changed since the last request, you need to set the `ETag` header in your origin.
 
 > Checkout the full CloudFormation template on Github: [https://github.com/feedm3/learning-caching-headers/blob/main/serverless.yml#L19-L88](https://github.com/feedm3/learning-caching-headers/blob/main/serverless.yml#L19-L88)
