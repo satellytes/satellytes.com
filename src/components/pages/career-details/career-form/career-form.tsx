@@ -32,6 +32,10 @@ interface CareerFormProps {
   scrollToStart?: () => void;
 }
 
+interface CategorySelect {
+  [key: string]: string;
+}
+
 export type CareerFormValues = {
   first_name: string;
   last_name: string;
@@ -39,10 +43,8 @@ export type CareerFormValues = {
   documents: FileList;
   message: string;
   phone?: string;
-  category_select: any;
-
-  privacy: any;
-
+  category_select?: CategorySelect;
+  privacy: boolean;
   location: string;
   available_from: string;
   salary_expectations: string;
@@ -70,7 +72,7 @@ const InfoTextContainer = styled.div`
   display: flex;
   align-items: flex-start;
   flex-direction: row;
-  margin: 24px 0px;
+  margin: 24px 0;
   line-height: 24px;
 `;
 
@@ -147,6 +149,8 @@ export const CareerForm = (props: CareerFormProps) => {
     }
   }, [selectedFiles]);
 
+  console.log(watch('category_select'));
+
   const onSubmitHandler: SubmitHandler<CareerFormValues> = async (
     formValues,
   ): Promise<void> => {
@@ -158,7 +162,6 @@ export const CareerForm = (props: CareerFormProps) => {
       );
       return;
     }
-
     if (!privacyChecked) {
       setError(
         'privacy',
@@ -187,10 +190,13 @@ export const CareerForm = (props: CareerFormProps) => {
         for (let i = 0; i < formValues.documents.length; i++) {
           const keyName = `categorised_documents[${i}][file]`;
           const fileId = createFileId(formValues.documents[i].name);
-          const category = formValues.category_select[fileId];
+          const category = formValues.category_select?.[fileId];
           formData.append(keyName, formValues.documents[i]);
           const nameCategory = `categorised_documents[${i}][category]`;
-          formData.append(nameCategory, category);
+
+          if (category) {
+            formData.append(nameCategory, category);
+          }
         }
       } else {
         formData.append(key, value as any); // formdata doesn't take objects

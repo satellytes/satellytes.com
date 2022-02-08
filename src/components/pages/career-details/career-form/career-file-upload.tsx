@@ -7,7 +7,6 @@ import styled, { css } from 'styled-components';
 import { theme } from '../../../layout/theme';
 import {
   FieldErrors,
-  FieldValues,
   UseFormClearErrors,
   UseFormRegister,
   UseFormSetError,
@@ -20,15 +19,14 @@ import { FormError } from './career-components';
 import { CareerFileUploadType } from './career-file-upload-type';
 import { rgba } from 'polished';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-
-type FormUploadValues = any;
+import { CareerFormValues } from './career-form';
 
 interface FileUploadProps {
-  setValue: UseFormSetValue<FormUploadValues>;
-  setError: UseFormSetError<FormUploadValues>;
-  clearErrors: UseFormClearErrors<FormUploadValues>;
-  register: UseFormRegister<FormUploadValues>;
-  watch: UseFormWatch<FormUploadValues>;
+  setValue: UseFormSetValue<CareerFormValues>;
+  setError: UseFormSetError<CareerFormValues>;
+  clearErrors: UseFormClearErrors<CareerFormValues>;
+  register: UseFormRegister<CareerFormValues>;
+  watch: UseFormWatch<CareerFormValues>;
   name: string;
   selectedFiles: FileList;
   errors: FieldErrors;
