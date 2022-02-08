@@ -27,8 +27,7 @@
     "precommit": "lint-staged",
     "storybook": "start-storybook --port 6006",
     "storybook:build": "build-storybook",
-    "storybook:serve": "serve storybook-static",
-    "build-storybook": "yarn storybook:build"
+    "storybook:serve": "serve storybook-static"
   },
   "dependencies": {
     "@reach/accordion": "^0.16.1",
@@ -141,7 +140,6 @@
     ]
   },
   "resolutions": {
-    "webpack": "^5",
-    "colors": "1.4.0"
+    "webpack": "^5"
   }
 }
