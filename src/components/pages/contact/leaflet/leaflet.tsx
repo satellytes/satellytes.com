@@ -15,7 +15,7 @@ import { BringMeHome } from './bring-home';
 import { SatellytesMarkerIcon } from './sy-marker';
 import { theme } from '../../../layout/theme';
 import { Helmet } from 'react-helmet';
-const MAP_VIEW_ZOOM = 20;
+const MAP_VIEW_ZOOM = 14;
 
 const OFFICE_COORDINATES: LatLngExpression = [48.13479, 11.56839];
 const MAPBOX_ACCESS_TOKEN =
@@ -60,6 +60,7 @@ const MapWrapper = styled.div`
 export const Leaflet = () => {
   const [mapInstance, setMapInstance] = useState(null);
   const [isBrowser, setIsBrowser] = useState(false);
+
   useEffect(() => {
     setIsBrowser(true);
   });
