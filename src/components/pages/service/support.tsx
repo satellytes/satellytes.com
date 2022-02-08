@@ -8,12 +8,12 @@ import { Expandable } from '../../ui/expandable/expandable';
 import { TextStyles } from '../../typography';
 import { up } from '../../support/breakpoint';
 
-const IntroLayout = styled.div`
+export const IntroLayout = styled.div`
   ${up('md')} {
     display: flex;
   }
 `;
-const IllustrationStyled = styled(Illustration)`
+export const IllustrationStyled = styled(Illustration)`
   margin-left: auto;
 
   ${up('md')} {
