@@ -52,16 +52,6 @@ export const PageTitle = (props) => {
   );
 };
 
-export const SectionTitle = styled.h2`
-  font-size: 48px;
-  line-height: 110%;
-  font-weight: bold;
-
-  ${up('md')} {
-    font-size: 72px;
-  }
-`;
-
 export const SubTitle = styled.h3`
   font-size: 32px;
   line-height: 110%;
@@ -109,33 +99,12 @@ export const Text = styled.p`
   margin-bottom: 16px;
 `;
 
-export const LargeText = styled.p`
-  font-size: 24px;
-  font-weight: normal;
-  line-height: 110%;
-
-  margin-top: 0;
-  margin-bottom: 40px;
-
-  ${up('md')} {
-    font-size: 32px;
-  }
-`;
-
 export const CaptionText = styled.p`
   font-size: 12px;
   line-height: 110%;
   font-weight: bold;
 
   color: #668cff;
-`;
-
-export const BreadcrumbText = styled.li`
-  font-size: 12px;
-  line-height: 150%;
-  /* identical to box height, or 18px */
-
-  letter-spacing: -0.01em;
 `;
 
 export const Topline = styled.p`
@@ -145,42 +114,6 @@ export const Topline = styled.p`
   margin: 0;
 
   color: ${theme.palette.text.topline};
-`;
-
-export const Timestamp = styled.p`
-  font-size: 14px;
-  line-height: 150%;
-  letter-spacing: -0.01em;
-  margin: 0 0 0 auto;
-  text-align: right;
-  color: ${theme.palette.text.timestamp};
-`;
-
-/**
- * Teaser
- */
-export const TeaserTitle = styled.p`
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 110%;
-  margin-bottom: 8px;
-`;
-
-/**
- *
- * Image Card
- *
- */
-export const ImageCardTitleLarge = styled.p`
-  font-size: 20px;
-  line-height: 110%;
-  font-weight: bold;
-`;
-
-export const ImageCardTitle = styled.p`
-  font-size: 14px;
-  line-height: 150%;
-  font-weight: bold;
 `;
 
 export const ImageCardSubtitle = styled.p`
