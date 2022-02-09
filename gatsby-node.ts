@@ -1,12 +1,8 @@
-const { createRedirects } = require('./gatsby/create-pages/create-redirects');
-const {
-  createPreviewCards,
-} = require('./gatsby/create-node/create-preview-cards');
-const { createBlogPosts } = require('./gatsby/create-pages/create-blog-posts');
-const {
-  createCareerPages,
-} = require('./gatsby/create-pages/create-career-pages');
-const { createFilePath } = require('gatsby-source-filesystem');
+import { createRedirects } from './gatsby/create-pages/create-redirects';
+import { createPreviewCards } from './gatsby/create-node/create-preview-cards';
+import { createBlogPosts } from './gatsby/create-pages/create-blog-posts';
+import { createCareerPages } from './gatsby/create-pages/create-career-pages';
+import { createFilePath } from 'gatsby-source-filesystem';
 
 exports.onCreateNode = async (gatsbyCreateNodeArgs) => {
   await createPreviewCards(gatsbyCreateNodeArgs);

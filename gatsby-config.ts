@@ -1,7 +1,5 @@
-const {
-  buildGatsbyCloudPreviewUrl,
-} = require('./gatsby/util/build-gatsby-cloud-preview-url');
-const siteMapTransformers = require('./gatsby/gatsby-plugin-sitemap/gatsby-plugin-sitemap');
+import { buildGatsbyCloudPreviewUrl } from './gatsby/util/build-gatsby-cloud-preview-url';
+import * as siteMapTransformers from './gatsby/gatsby-plugin-sitemap/gatsby-plugin-sitemap';
 
 const GATSBY_SITE_PREFIX = process.env.GATSBY_SITE_PREFIX || '';
 const BRANCH_PREVIEW_URL = buildGatsbyCloudPreviewUrl({
@@ -55,25 +53,25 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: `${__dirname}/src/assets/images`,
+        path: `./src/assets/images`,
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/blog-posts`,
+        path: `./blog-posts`,
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/blog-posts/images`,
+        path: `./blog-posts/images`,
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/data`,
+        path: `./data`,
       },
     },
     {
@@ -221,7 +219,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-styled-components',
-    'gatsby-plugin-typescript',
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
@@ -274,7 +271,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/assets/locales`,
+        path: `./src/assets/locales`,
         name: `locale`,
       },
     },

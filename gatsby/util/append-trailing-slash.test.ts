@@ -1,4 +1,4 @@
-const { appendTrailingSlash } = require('./append-trailing-slash');
+import { appendTrailingSlash } from './append-trailing-slash';
 
 describe('appendTrailingSlash', () => {
   test('should add a trailing slash if its missing', () => {

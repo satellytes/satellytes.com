@@ -1,9 +1,9 @@
-const { appendTrailingSlash } = require('../util/append-trailing-slash');
-const path = require('path');
+import { appendTrailingSlash } from '../util/append-trailing-slash';
+import path from 'path';
 
 const BLOG_POST_TEMPLATE_PATH = path.resolve('src/templates/blog-post.tsx');
 
-const createBlogPosts = async ({ actions, reporter, graphql }) => {
+export const createBlogPosts = async ({ actions, reporter, graphql }) => {
   const { createPage } = actions;
 
   const markdownBlogPages = await graphql(`
@@ -38,8 +38,4 @@ const createBlogPosts = async ({ actions, reporter, graphql }) => {
       },
     });
   });
-};
-
-module.exports = {
-  createBlogPosts,
 };
