@@ -1,12 +1,15 @@
 # satellytes.com
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/c8d8c7d1-444a-4b8c-b31a-9d5531e48c9b/deploy-status)](https://app.netlify.com/sites/satellytes-website/deploys)
+This repository contains the https://satellytes.com website.
 
-This repository contains the new https://satellytes.com website.
+## Project setup
 
-## Run
+To run the project all you need is:
 
-To run the project:
+- Yarn
+- Node >= 16
+
+Then you can use the following commands to start development:
 
 ```sh
 # install dependencies
@@ -15,24 +18,34 @@ yarn
 # start local dev server
 yarn start
 
-# create production bundle
+# create a production build
 yarn build
+
+# serve the production build
+yarn serve
 ```
+
+A production build of the website gets created for every pull request. You will get the link as pull request comment.
 
 ## Component development with Storybook
 
-This repository comes with [storybook](https://storybook.js.org/). Storybook helps to develop and understand the single components of the website by showing them in isolation.
+This repository comes with [Storybook](https://storybook.js.org/). Storybook helps to develop and understand the single components of the website by showing them in isolation.
+
+Use the following commands to start working with Storybook:
 
 ```sh
 # start storybook
 yarn storybook
 
-# build storybook
-yarn build-storybook
+# create a production build
+yarn storybook:build
+
+# serve the production buiöd
+yarn storybook:serve
 ```
 
-The storybook for the `main` branch automatically gets deployed to https://satellytes-website-storybook.netlify.app. Pull Requests on 
-Github will also be updated with a separate deployment URL.
+A production build of Storybook gets be created for every pull request. You will get the link as pull request comment. 
+For the `main` branch, the build can be found here: https://satellytes-website-storybook.netlify.app
 
 ## Writing a blog post
 
