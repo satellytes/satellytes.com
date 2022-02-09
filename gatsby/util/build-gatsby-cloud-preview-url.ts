@@ -10,8 +10,8 @@
  */
 
 const PRODUCTION_BRANCH = 'main';
-const buildGatsbyCloudPreviewUrl = ({ prefix, branch }) => {
-  if (!prefix | !branch || branch === PRODUCTION_BRANCH) {
+export const buildGatsbyCloudPreviewUrl = ({ prefix, branch }) => {
+  if (!prefix || !branch || branch === PRODUCTION_BRANCH) {
     return null;
   }
 
@@ -20,8 +20,4 @@ const buildGatsbyCloudPreviewUrl = ({ prefix, branch }) => {
     .replace(/[^a-zA-Z0-9]/gi, '');
 
   return `https://${prefix}-${formattedBranchName}.gtsb.io`;
-};
-
-module.exports = {
-  buildGatsbyCloudPreviewUrl: buildGatsbyCloudPreviewUrl,
 };

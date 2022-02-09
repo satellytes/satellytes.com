@@ -1,4 +1,4 @@
-const path = require('path');
+import path from 'path';
 
 const CAREER_DETAILS_TEMPLATE_PATH = path.resolve(
   'src/templates/career-details.tsx',
@@ -33,7 +33,7 @@ const getTranslationPath = (slug, lang) => {
   return `${slug}`;
 };
 
-const createCareerPages = async ({ actions, graphql }) => {
+export const createCareerPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
   const {
@@ -74,8 +74,4 @@ const createCareerPages = async ({ actions, graphql }) => {
       },
     });
   });
-};
-
-module.exports = {
-  createCareerPages,
 };

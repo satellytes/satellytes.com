@@ -58,7 +58,7 @@ const REDIRECTS = [
  * some other external links still link to the old URL they will only get the 404
  * page. That is why we need to redirect the old links to the new ones.
  */
-const createRedirects = ({ actions }) => {
+export const createRedirects = ({ actions }) => {
   const { createRedirect } = actions;
   /**
    * Our vanity url to access our gather office through satellytes.com/orion
@@ -91,8 +91,4 @@ const createRedirects = ({ actions }) => {
       redirectInBrowser: true,
     });
   });
-};
-
-module.exports = {
-  createRedirects,
 };

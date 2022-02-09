@@ -69,10 +69,10 @@ const createTranslatedUrl = (normalizedPath, language) => {
  *  }
  * ```
  */
-const createPageTranslationLookup = (paths) => {
+const createPageTranslationLookup = (paths: string[]) => {
   const map = new Map();
 
-  for (path of paths) {
+  for (const path of paths) {
     const normalizedPageId = normalizePath(path);
 
     if (!map.has(normalizedPageId)) {
@@ -92,7 +92,7 @@ const createPageTranslationLookup = (paths) => {
  * to the translation
  */
 const createTranslationLinks = (normalizedPath, languages) => {
-  let result = [];
+  let result: { lang: string; path: string }[] = [];
   for (const lang of languages.values()) {
     result.push({
       lang,
@@ -114,7 +114,7 @@ const createTranslationLinks = (normalizedPath, languages) => {
  * const sitemapResult = filteredPages.map(page => serialize(page));
  * ```
  */
-function gatsbyPluginSitemap({ allSitePage: { nodes: allPages } }) {
+export const resolvePages = ({ allSitePage: { nodes: allPages } }) => {
   const paths = allPages.map(({ path }) => path);
   const translationLookup = createPageTranslationLookup(paths);
 
@@ -132,15 +132,14 @@ function gatsbyPluginSitemap({ allSitePage: { nodes: allPages } }) {
       publicationDate: pageContext?.publicationDate,
     };
   });
-}
+};
 
-function serialize(sitemapItem) {
+export const serialize = (sitemapItem) => {
   const FREQUENTLY_UPDATED =
     sitemapItem.path.includes('/blog') ||
     sitemapItem.path.includes('/career') ||
     sitemapItem.path === '/' ||
     sitemapItem.path === '/de';
-
   // remap our links from {lang, path} to {lang, url}
   const alternateLinks = sitemapItem.links.map((item) => {
     return {
@@ -161,9 +160,9 @@ function serialize(sitemapItem) {
     lastmod: sitemapItem.publicationDate,
     links: alternateLinks,
   };
-}
+};
 
-function filterPages({ path }, excludes) {
+export const filterPages = ({ path }, excludes) => {
   const [EXCLUDE, KEEP] = [true, false];
 
   if (excludes === path) {
@@ -177,10 +176,4 @@ function filterPages({ path }, excludes) {
   }
 
   return KEEP;
-}
-
-module.exports = {
-  resolvePages: gatsbyPluginSitemap,
-  serialize,
-  filterPages,
 };
