@@ -34,6 +34,9 @@ This repository comes with [Storybook](https://storybook.js.org/). Storybook hel
 Use the following commands to start working with Storybook:
 
 ```sh
+# install dependencies
+yarn
+
 # start storybook
 yarn storybook
 
