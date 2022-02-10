@@ -70,10 +70,7 @@ export const UnorderedList = styled.ul`
 `;
 
 export const DashedListItem = styled.li`
-  text-indent: -5px;
-
   &:before {
     content: '-  ';
-    text-indent: -5px;
   }
 `;
