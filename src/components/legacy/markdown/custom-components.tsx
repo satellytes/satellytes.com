@@ -35,6 +35,11 @@ const UnorderedList = styled.ul`
 
 const OrderedList = styled.ol`
   line-height: 150%;
+  padding-left: 16px;
+
+  > li {
+    margin-bottom: 12px;
+  }
 `;
 
 /*
