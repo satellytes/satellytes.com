@@ -70,7 +70,14 @@ export const UnorderedList = styled.ul`
 `;
 
 export const DashedListItem = styled.li`
+  position: relative;
+  padding-left: 16px;
+
   &:before {
-    content: '-  ';
+    content: '-';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
   }
 `;

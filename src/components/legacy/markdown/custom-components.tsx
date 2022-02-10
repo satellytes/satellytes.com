@@ -15,6 +15,22 @@ import { CodeBlock } from './code-block';
 
 const UnorderedList = styled.ul`
   line-height: 150%;
+  list-style-type: none;
+  padding-left: 0;
+
+  > li:before {
+    content: '-';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  > li {
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 12px;
+  }
 `;
 
 const OrderedList = styled.ol`
@@ -84,6 +100,7 @@ const TableStyled = styled.table`
     color: #fff;
     background-color: #4d79ff;
   }
+
   tbody td {
     border: solid 1px #ddeeee;
     padding: 10px;
