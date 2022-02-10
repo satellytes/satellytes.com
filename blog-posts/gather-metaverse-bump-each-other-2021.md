@@ -23,7 +23,6 @@ First, we invited a few colleagues just to try out the mechanics together but pr
 
 
 ![Official gather screenshot with people hanging around](images/gather/gather-example-official.png)
-_Official gather screenshot with people hanging around_
 
 
 ## Metaverse
@@ -38,16 +37,14 @@ This sounds a lot like [Second Life](https://en.wikipedia.org/wiki/Second_Life).
 ## How we use Gather
 We started using Gather exactly six weeks ago. Your first task is to create your own space. Luckily, they offer plenty of pre-made spaces to pick from. I created a virtual office space, where we could sit at desks or meet at the bar in a kitchen.
 
-![](images/gather/gather-templates.png)
-_Pick an existing gather space from plenty of templates_
+![Pick an existing gather space from plenty of templates](images/gather/gather-templates.png)
 
 From the beginning, I forced myself to keep Gather running every day to act as a role model. Occasionally, I would invite someone from the team to try out Gather with me. 
 
 ### All-hands meetings
 Once we reached a "critical mass" of people using Gather, I decided to switch our all-hands meeting on Mondays from Zoom to Gather. We would run our meeting on a small, sunny island. That was also the first time I had to use the [mapmaker](https://support.gather.town/help/mapmaker). Because everything is possible in the Metaverse I decided to build a suburban station to connect the island with our office.
 
-![](images/gather/gather-smm.jpg)
-_Our Satellytes folks gathering for our all-hands meeting on a Monday_
+![Our Satellytes folks gathering for our all-hands meeting on a Monday](images/gather/gather-smm.jpg)
 
 The actual meeting is held in a specially prepared meeting room (here the island). Everyone who enters a room can talk to each other and see all people's videos. We start talking and provide the latest company news and people can ask questions and share their thoughts. When the meeting is over people leave the room and start bumping into each other, create random groups, and tell their stories from the weekend — just like in the real world. Compare this with the Zoom dystopia, where everyone usually joins into a single video chat and leave directly after the meeting back into isolation (I exaggerated a little).
 
@@ -56,12 +53,13 @@ The meeting room behavior of Gather is fundamentally different to the rest of th
 ### Random bumps
 When you walk to someone, while approaching, the video and audio slowly fade in. That technique is called "spatial audio technology" and mimics the way we bump into other people in real life, where someone's voice is louder while you are near them, and softer as you walk away. This is wonderful because it feels so familiar and natural.
 
-<video preload autoplay loop width="100%">
-  <source src="images/gather/video.mp4" type="video/mp4" />
-  <source src="images/gather/video.mp4" type="video/mp4" />
-</video>
-
-_People bumping into each other (via [gather.town](http://www.gather.town))_
+<figure>
+    <video preload autoplay loop width="100%">
+      <source src="images/gather/video.mp4" type="video/mp4" />
+      <source src="images/gather/video.mp4" type="video/mp4" />
+    </video>
+    <figcaption>People bumping into each other (via <a href='http://www.gather.town'> gather.town</a>)</figcaption>
+</figure>
 
 
 ### Pair programming
@@ -69,16 +67,12 @@ A similar effect happens when you sit in the virtual office and suddenly two fol
 
 This feeling is the promise of the Metaverse. It brings back the informal human interactions and spontaneity. You don't have to create a video meeting upfront or send some specific invitation. Who would do that in real life? Instead, you just walk over to the desk of your colleague and start talking.  
 
-![](images/gather/gather-pair.gif)
-
-_Our colleagues Jesús & Felix having a pair programming session_
+![Our colleagues Jesús & Felix having a pair programming session](images/gather/gather-pair.gif)
 
 ### Hanging around
 While we can gather everyone for some all-hands easily, we have the biggest struggle to motivate people to stay online throughout the day. A few colleagues and I are online most of the day. The other ones are online occasionally or just for the invited events. Sadly, this means our world looks very empty, very often.
 
-![](images/gather/gather-sy-current-world.png)
-
-_Our Satellytes space often looks that empty_
+![Our Satellytes space often looks that empty](images/gather/gather-sy-current-world.png)
 
 What can we do about that? When I ask people, I get various feedback:
 
