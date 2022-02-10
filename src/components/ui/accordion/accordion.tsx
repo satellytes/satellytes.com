@@ -37,6 +37,7 @@ export interface AccordionSectionProps {
 }
 
 const AccordionItem = styled(ReachAccordion.AccordionItem)`
+  padding: 20px 0;
   border-top: 1px solid #eeeeee;
 
   &:last-of-type {
@@ -51,14 +52,16 @@ const PanelContainer = styled.div`
 `;
 
 const PanelIllustration = styled(Illustration)`
-  padding-right: 1em;
+  margin-top: 16px;
+  margin-bottom: 4px;
   box-sizing: content-box;
-  float: left;
 
   ${up('sm')} {
     margin-left: auto;
-    padding-right: 0;
     padding-left: 36px;
+    margin-top: 12px;
+    margin-bottom: 0;
+
     /**
     Prevent the illustration from changing it's size due to shrinking and growing being a flex child here
     **/

@@ -4,12 +4,17 @@ import styled from 'styled-components';
 import { useAccordionItemContext } from '@reach/accordion';
 import { useDivHeight } from './use-div-height';
 import React from 'react';
+import { up } from '../../support/breakpoint';
 
 const AnimatedAccordionPanel = animated(ReachAccordion.AccordionPanel);
 const AnimatedPanelContainer = styled.div`
   padding-bottom: 16px;
   padding-left: 24px;
   padding-right: 24px;
+
+  ${up('sm')} {
+    padding-bottom: 0;
+  }
 `;
 
 /**

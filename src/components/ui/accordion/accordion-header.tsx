@@ -37,7 +37,7 @@ const AccordionButton = styled(ReachAccordion.AccordionButton)`
 
   display: flex;
   align-items: center;
-  padding: 24px 20px;
+  padding: 0 24px;
 `;
 
 const StyledIcon = styled(Icon)<StyledIconProps>`
