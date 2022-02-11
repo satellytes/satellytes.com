@@ -3,13 +3,11 @@ import styled from 'styled-components';
 import { up } from '../../support/breakpoint';
 import { Grid, GridItem } from '../../legacy/grid/grid';
 
-import { LinkedinWrapper } from '../../legacy/icons/social-icons/linkedin';
-import { XingWrapper } from '../../legacy/icons/social-icons/xing';
-import { GithubIconWrapper } from '../../legacy/icons/social-icons/github';
 import { Link } from '../../legacy/links/links';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { LanguageSwitch } from '../header/language-switch';
 import { TextStyles } from '../../typography';
+import { Icon } from '../../ui/icon/icon';
 
 const NavigationBackground = styled.div`
   background: linear-gradient(289.7deg, #543fd7 2.95%, #2756fd 100.82%);
@@ -191,6 +189,16 @@ const SiteNavigationLink = styled(Link)<{ $isSelected: boolean }>`
   }
 `;
 
+const IconWrapper = styled.div`
+  color: white;
+  transition: all 0.2s ease-in;
+  opacity: 0.3;
+
+  &:hover {
+    opacity: 1;
+  }
+`;
+
 interface NavigationProps {
   showLanguageSwitch?: boolean;
   translation?: string;
@@ -221,7 +229,9 @@ const Navigation: React.FC<NavigationProps> = ({
                     href="https://www.linkedin.com/company/satellytes"
                     title="Go to the Satellytes LinkedIn profile"
                   >
-                    <LinkedinWrapper opacity={'0.3'} />
+                    <IconWrapper>
+                      <Icon show="linked_in" />
+                    </IconWrapper>
                   </SocialLink>
                 </SocialLinkItem>
                 <SocialLinkItem>
@@ -231,7 +241,9 @@ const Navigation: React.FC<NavigationProps> = ({
                     rel="noopener noreferrer"
                     href="https://www.xing.com/companies/satellytesgmbh"
                   >
-                    <XingWrapper opacity={'0.3'} />
+                    <IconWrapper>
+                      <Icon show="xing" />
+                    </IconWrapper>
                   </SocialLink>
                 </SocialLinkItem>
                 <SocialLinkItem>
@@ -241,7 +253,9 @@ const Navigation: React.FC<NavigationProps> = ({
                     rel="noopener noreferrer"
                     href="https://github.com/satellytes"
                   >
-                    <GithubIconWrapper opacity={'0.3'} />
+                    <IconWrapper>
+                      <Icon show="github" />
+                    </IconWrapper>
                   </SocialLink>
                 </SocialLinkItem>
               </SocialLinks>
