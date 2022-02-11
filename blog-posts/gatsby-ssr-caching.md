@@ -24,10 +24,10 @@ If you host your Gatsby page with Gatsby Cloud, you have a CDN out of the box. T
 just an implementation detail. Caching for your static (SSG) or deferred (DSG) pages is done automatically, so no need 
 to configure anything here. But if you want to do SSR, you need to take care of the correct caching behavior by yourself.
 
-> 💡 This post was highly inspired by the excellent video from Remix: [https://www.youtube.com/watch?v=bfLFHp7Sbkg](https://www.youtube.com/watch?v=bfLFHp7Sbkg) 
-If you want to learn more about CDN caching with SSG and SSR, you should definitely watch it! 
+> This post was inspired by the excellent video from Remix: [https://www.youtube.com/watch?v=bfLFHp7Sbkg](https://www.youtube.com/watch?v=bfLFHp7Sbkg) 
+> If you want to learn more about CDN caching with SSG and SSR, you should definitely watch it! 
 
-# The Cache Control Header
+## The Cache Control Header
 
 Caching in Gatsby Cloud can be controlled via the HTTP caching header `Cache-Control`. This header has multiple 
 [directives](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#directives), the most important are:
@@ -39,7 +39,7 @@ Caching in Gatsby Cloud can be controlled via the HTTP caching header `Cache-Con
 With those 3 directives, you can make your page as fast as with SSG or DSG. If the values are set correctly, only the 
 very first user after a deployment will have to wait for the rendering. Everyone else will see a lightning fast page.
 
-# Enable Caching
+## Enable Caching
 
 Now let’s dive into the code and set the `Cache-Control` header:
 
@@ -76,7 +76,7 @@ page more obvious). All other requests were served from CDN within 30ms. That’
 was served, the page was re-rendered in the background and replaced. The request after the stale one was super fast 
 again but served the new page.
 
-# Conclusion
+## Conclusion
 
 SSR with proper CDN caching is very powerful and can be used for a lot of scenarios, especially where you hit the 
 limits of SSG and DSG. The integration within Gatsby and Gatsby Cloud is seamless, you can introduce in on a per-page basis.
@@ -85,7 +85,7 @@ Some things to keep in mind:
 
 - SSR functionality is quite new in Gatsby and may not be as mature as in other frameworks.
 - Same is for Gatsby Cloud, it’s quite new and my not be as mature as other hosting services.
-- SSR officially only works with Gatsby Cloud for now. You cannot host it somewhere else. There are third-party plugins though for [Fastify](https://www.npmjs.com/package/gatsby-plugin-fastify) (self-hosting) or [Netlify](https://github.com/netlify/netlify-plugin-gatsby) (SAAS).
+- SSR officially only works with Gatsby Cloud for now. You cannot host it somewhere else. There are third-party plugins though for [Fastify](https://github.com/gatsby-uc/plugins/tree/main/packages/gatsby-plugin-fastify) (self-hosting) or [Netlify](https://github.com/netlify/netlify-plugin-gatsby) (SAAS).
 - `gatsby-plugin-image` doesn’t work with SSR.
 
 Other than that: Have fun working with Gatsby SSR! Thanks for reading.
