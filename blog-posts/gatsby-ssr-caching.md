@@ -39,7 +39,7 @@ Caching in Gatsby Cloud can be controlled via the HTTP caching header `Cache-Con
 With those 3 directives, you can make your page as fast as with SSG or DSG. If the values are set correctly, only the 
 very first user after a deployment will have to wait for the rendering. Everyone else will see a lightning fast page.
 
-> This header can also be used on any other SSR framework. It's not limited to Gatsby or Gatsby Cloud.
+> This header can also be used on any other SSR framework and CDN. It's not limited to Gatsby or Gatsby Cloud.
 
 ## Enable Caching
 
