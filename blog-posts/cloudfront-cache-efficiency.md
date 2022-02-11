@@ -119,7 +119,7 @@ This is the behavior we want! Nice!
 
 Next, let’s see how we can return `304` if we hit CloudFront and the response hasn't changed since the last request.
 
-## Return 304 if the object hasn’t changed in CloudFront
+## Return 304 if the object hasn't changed in CloudFront
 
 CloudFront always returns `200` with the full response body. This results in a lot of unnecessary data send between the
 browser and CloudFront. To fix this, we need to set the `ETag` header in our Lambda function.
@@ -128,8 +128,8 @@ The `ETag` is a hash for the response body. The browser will send this hash with
 the same resource. The server can then decide if the resource has changed and either return `200` with a new resource
 or `304` .
 
-Luckily, when the `ETag` header is set, CloudFront will handle `200` and `304` automatically. The `ETag` need to be
-created in our lambda function. This is how it could look like:
+Luckily, when the `ETag` header is set, CloudFront will handle `200` and `304` automatically. We don't have to configure
+anything. The `ETag` needs to be created in our Lambda function. This is how the generation could look like:
 
 ```js
 const createEtag = (body: string) => {
@@ -138,7 +138,7 @@ const createEtag = (body: string) => {
 }
 ```
 
-Depending on your usage, you may want to use different hashing algorithms that are more performat.
+Depending on your usage, you may want to use different hashing algorithms that are more performant.
 
 Now let’s check again our browser console:
 
@@ -153,9 +153,14 @@ Now it’s perfect!
 
 ## Conclusion
 
-CloudFront is a very good CDN, but you should always test if your requests are cached correctly.
+CloudFront is a very good CDN, but you need to know what to do. As CDNs are the most relevant when there is high traffic,
+mistakes can increase your bill a lot or even lead to downtimes of your api/website/product. That's why it's important 
+to have a close look to the details. It gives you the confidence to scale.
 
-- If you have a different `s-maxage` and `maxage` you need to overwrite the `Date` and `Age` header in CloudFront.
-- If you want to return `304` if the response hasn't changed since the last request, you need to set the `ETag` header in your origin.
+If you want to add CloudFront to your API make sure that:
+- when you have a different `s-maxage` and `maxage` you need to overwrite the `Date` and `Age` header in CloudFront.
+- when you want to return `304` if the response hasn't changed since the last request, you need to set the `ETag` header in your origin.
 
-Checkout the full CloudFormation template on Github: [https://github.com/feedm3/learning-caching-headers/blob/main/serverless.yml#L19-L88](https://github.com/feedm3/learning-caching-headers/blob/main/serverless.yml#L19-L88)
+I hope you learned something with this blog post. Thanks for reading :)
+
+Check out the full project - including the CloudFormation template - on Github: [https://github.com/satellytes/learning-caching-headers](https://github.com/satellytes/learning-caching-headers)
