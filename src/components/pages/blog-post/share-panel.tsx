@@ -16,13 +16,14 @@ import { IconWhatsapp } from '../../legacy/icons/social-icons/whatsapp';
 import { XingWrapper } from '../../legacy/icons/social-icons/xing';
 import { isBrowser } from '../../support/is-browser';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { theme } from '../../layout/theme';
 
 export interface ShareProps {
   title: string;
 }
 
 const SharePanelContainer = styled.div`
-  color: #668cff;
+  color: ${theme.palette.text.header.light};
   font-weight: bold;
   font-size: 16px;
 `;
@@ -30,6 +31,7 @@ const SharePanelContainer = styled.div`
 const SharePanelText = styled.p`
   font-weight: bold;
   font-size: 16px;
+  color: ${theme.palette.text.default};
 `;
 
 const SocialLinks = styled.ul`
@@ -87,12 +89,12 @@ export const SharePanel: React.FC<ShareProps> = ({ title }) => {
         </SocialLinkItem>
         <SocialLinkItem data-testid="twitter">
           <TwitterShareButton url={shareUrl} title={title} hashtags={hashtags}>
-            <TwitterWrapper color="#668cff" />
+            <TwitterWrapper color={theme.palette.text.header.light} />
           </TwitterShareButton>
         </SocialLinkItem>
         <SocialLinkItem data-testid="linkedin">
           <LinkedinShareButton title={title} url={shareUrl}>
-            <LinkedinWrapper color="#668cff" />
+            <LinkedinWrapper color={theme.palette.text.header.light} />
           </LinkedinShareButton>
         </SocialLinkItem>
         <SocialLinkItem data-testid="xing">
@@ -101,7 +103,7 @@ export const SharePanel: React.FC<ShareProps> = ({ title }) => {
             title={title}
             target="_blank"
           >
-            <XingWrapper color="#668cff" />
+            <XingWrapper color={theme.palette.text.header.light} />
           </XingShareButton>
         </SocialLinkItem>
       </SocialLinks>
