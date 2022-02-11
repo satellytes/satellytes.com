@@ -24,8 +24,8 @@ If you host your Gatsby page with Gatsby Cloud, you have a CDN out of the box. T
 just an implementation detail. Caching for your static (SSG) or deferred (DSG) pages is done automatically, so no need 
 to configure anything here. But if you want to do SSR, you need to take care of the correct caching behavior by yourself.
 
-> This post was inspired by the excellent video from Remix: [https://www.youtube.com/watch?v=bfLFHp7Sbkg](https://www.youtube.com/watch?v=bfLFHp7Sbkg) 
-> If you want to learn more about CDN caching with SSG and SSR, you should definitely watch it! 
+> This post was inspired by the excellent video from [Remix on Youtube](https://www.youtube.com/watch?v=bfLFHp7Sbkg) 
+> If you want to deep dive to CDN caching with SSG and SSR, you should have a look! 
 
 ## The Cache Control Header
 
@@ -38,6 +38,8 @@ Caching in Gatsby Cloud can be controlled via the HTTP caching header `Cache-Con
 
 With those 3 directives, you can make your page as fast as with SSG or DSG. If the values are set correctly, only the 
 very first user after a deployment will have to wait for the rendering. Everyone else will see a lightning fast page.
+
+> This header can also be used on any other framework to speed up SSR. It's not limited to Gatsby or Gatsby Cloud.
 
 ## Enable Caching
 
