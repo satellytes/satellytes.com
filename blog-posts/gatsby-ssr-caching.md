@@ -92,4 +92,4 @@ Some things to keep in mind:
 
 Other than that: Have fun working with Gatsby SSR! Thanks for reading.
 
-Checkout the repository with a full example here [https://github.com/feedm3/learning-gatsby-cloud-ssr-caching](https://github.com/feedm3/learning-gatsby-cloud-ssr-caching)
+Checkout the repository with a full example on [Github](https://github.com/feedm3/learning-gatsby-cloud-ssr-caching)
