@@ -21,7 +21,7 @@ const getTextColor = ({
   theme: DefaultTheme;
 }) => {
   if (fromNavigation || $lightTheme) {
-    return theme.palette.text.default;
+    return theme.palette.text.header.light;
   } else {
     return theme.palette.text.header.default;
   }
@@ -36,10 +36,10 @@ const getTextHoverColor = ({
   $lightTheme?: boolean;
   theme: DefaultTheme;
 }) => {
-  if (fromNavigation) {
-    return theme.palette.text.header.default;
-  } else if (!$lightTheme) {
+  if (fromNavigation || $lightTheme) {
     return theme.palette.text.header.hover;
+  } else if (!$lightTheme) {
+    return theme.palette.text.header.default;
   }
 };
 
