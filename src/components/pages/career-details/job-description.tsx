@@ -27,7 +27,7 @@ const PersonioHtml = styled.div`
     padding-left: 0;
 
     > li:before {
-      content: '·';
+      content: '-';
       position: absolute;
       top: 0;
       bottom: 0;
