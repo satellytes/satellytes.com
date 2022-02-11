@@ -9,7 +9,7 @@ teaserText: Learn how to cache Gatsby SSR page on Gatsby Cloud
 seoMetaText: Lean how to cache Gatsby SSR pages on Gatsby Cloud to boost page speed. Your users won't see a difference to SSG or DSG pages anymore.
 leadboxText: Want to learn more about creating blazing fast pages? Then join us to learn more!
 attribution:
-    creator: @shirohatori
+    creator: Shiro Hatori
     source: https://unsplash.com/photos/WR-ifjFy4CI
 ---
 
