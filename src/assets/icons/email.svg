@@ -1,17 +1,7 @@
-import React from 'react';
-
-interface EmailProps {
-  color?: string;
-}
-
-export const IconEmail: React.FC<EmailProps> = (props) => (
-  <svg
-    width="24"
-    height="19"
+<svg
     viewBox="0 0 24 19"
-    fill="currentColor"
+    fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    {...props}
   >
     <path
       d="M0 5.00006L12 11.0001L24 5.00006V16.0001C24 17.6569 22.6569 19.0001 21 19.0001H3C1.34315 19.0001 0 17.6569 0 16.0001V5.00006Z"
@@ -22,4 +12,3 @@ export const IconEmail: React.FC<EmailProps> = (props) => (
       fill="currentColor"
     />
   </svg>
-);
