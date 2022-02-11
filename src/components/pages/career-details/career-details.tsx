@@ -39,7 +39,6 @@ export const CareerDetails = ({
     <Layout
       siteTitleUrl="/career/"
       light={true}
-      transparentHeader={true}
       translation={complementPath}
       breadcrumb={breadcrumb}
       showLanguageSwitch={Boolean(complementPath)}
