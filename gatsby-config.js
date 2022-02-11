@@ -214,7 +214,7 @@ module.exports = {
         short_name: 'Satellytes',
         start_url: '/',
         background_color: '#FFFFFF',
-        theme_color: '#668CFF',
+        theme_color: '#3E61EE',
         display: 'minimal-ui',
         icon: 'data/favicon.png', // This path is relative to the root of the site.
       },
