@@ -69,7 +69,7 @@ server stale content for a maximum of 4 additional minutes. If there is one requ
 new page will be rendered in background while the old page gets served. After the new page is rendered, it will replace 
 the old one and the caching time starts again. Let’s check the network tab to see if it works:
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a59d8aa3-1bad-44ff-b6b4-1bf2a0469d92/Untitled.png)
+![Chrome network tab with proper caching header. Everything works as expected.](gatsby-ssr-caching-network-tab.png)
 
 You can see: The very first pages took 5 seconds (there is an artificial delay of 5 seconds to make the server rendered 
 page more obvious). All other requests were served from CDN within 30ms. That’s super fast! Also, after the stale page 
