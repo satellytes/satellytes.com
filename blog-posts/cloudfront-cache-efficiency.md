@@ -8,8 +8,8 @@ attribution:
     source: https://unsplash.com/photos/d30sszrW7Vw
 author: Fabian Dietenberger 
 authorSummary: "Senior Developer at Satellytes"
-seoMetaText: Learn how to improve Caching Headers in CloudFront to reduce traffic and increase page speed.
-teaserText: Learn how to improve Caching Headers in CloudFront to reduce traffic and increase page speed.
+seoMetaText: Learn how to improve Caching Headers in CloudFront to reduce traffic costs and increase page speed.
+teaserText: Learn how to improve Caching Headers in CloudFront to reduce traffic costs and increase page speed.
 ---
 
 Lately we were trying out CloudFront to improve our API response and caching times. We wanted to cache the response
