@@ -3,7 +3,7 @@ path: "/blog/thoughts-on-collaborative-work/"
 date: "2022-02-24"
 title: "Thoughts on collaborative work"
 author: Jesús Real
-authorSummary: Senior Frontend Engineer and Engineering Manager @ Satellytes
+authorSummary: Senior Frontend Engineer @ Satellytes
 featuredImage: images/thoughs-on-collaborative-work/group-table.jpg
 attribution:
     creator: Marvin Meyer
@@ -15,7 +15,7 @@ leadboxText: Are you excited about getting the most out your team work? Would yo
 
 ---
 
-Most of us developers, despite being more or less aware of the benefits of doing more work together, work on our own most of the time. Why? What can we do about that? Let's dive into it!
+Most of us developers, despite being more or less aware of the benefits of doing more work together, work on our own most of the time. Why? What can we do about it? Let's dive into it!
 
 ## Is it just about programming?
 
