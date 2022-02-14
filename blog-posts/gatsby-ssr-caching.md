@@ -30,11 +30,11 @@ to configure anything here. But if you want to do SSR, you need to take care of 
 ## The Cache Control Header
 
 Caching in Gatsby Cloud can be controlled via the HTTP caching header `Cache-Control`. This header has multiple 
-[directives](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#directives), the most important are:
+[directives](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#directives), the most importantly:
 
 - `max-age`: The time in seconds for how long the page should be cached by the browser. Use this to determine how long the page should be cached  in the browser after the user fetched it. This cache is per user.
-- `s-maxage`: The time in seconds for how long the page should be cached by the CDN. If not set, the CDN will use `max-age`. Use this to determine how long a page can be cached globally. You may want to set the time lower for new and often changing content and higher for old or less frequently changed content.
-- `stale-while-revalidate` : The time in seconds for how long the page should be stored by the CDN and a new page should be requests in the background when a visitor hits it. Once the new page is requests, the stale page will be replaced by it. Use this to serve an old version of a page before the new page has been rendered. This is very powerful to keep your page fast while updating it in the background. If the content is not crucial, you can make this time very high.
+- `s-maxage`: The time in seconds for how long the page should be cached by the CDN. If not set, the CDN will use `max-age`. Use this to determine how long a page can be cached globally. You may want to set the time lower for new and frequently changing content and higher for old or less frequently changing content.
+- `stale-while-revalidate` : The time in seconds for how long the page should be stored by the CDN and a new page should be requested in the background when a visitor hits it. Once the new page is requests, the stale page will be replaced by it. Use this to serve an old version of a page before the new page has been rendered. This is very powerful to keep your page fast while updating it in the background. If the content is not crucial, you can set this to a very high value.
 
 With those 3 directives, you can make your page as fast as with SSG or DSG. If the values are set correctly, only the 
 very first user after a deployment will have to wait for the rendering. Everyone else will see a lightning fast page.
@@ -66,14 +66,14 @@ Gatsby SSR pages export the `getServerData()`  function, which you can use to do
 fetching external data). Besides the props that can be injected into the page itself, this function returns a `headers` 
 object. This object is used to set the `Cache-Control` header.
 
-In our case, we set the browser cache to 10 seconds and the CDN cache for 1 minute. After 1 minute, the CDN will 
-server stale content for a maximum of 4 additional minutes. If there is one request within these 4 minutes, a 
-new page will be rendered in background while the old page gets served. After the new page is rendered, it will replace 
-the old one and the caching time starts again. Let’s check the network tab to see if it works:
+In our case, we set the browser cache to 10 seconds and the CDN cache to 1 minute. After 1 minute, the CDN will 
+serve stale content for a maximum of 4 additional minutes. If there is one request within these 4 minutes, a 
+new page will be rendered in the background while the old page gets served. After the new page is rendered, it will replace 
+the old one on the CDN and the caching time starts again. Let’s check the network tab to see if it works:
 
 ![Chrome network tab with proper caching header. Everything works as expected.](images/gatsby-ssr-caching-network-tab.png)
 
-You can see: The very first pages took 5 seconds (there is an artificial delay of 5 seconds to make the server rendered 
+You can see: The very first page took 5 seconds to load (for this example, I added an artificial delay of 5 seconds to make the server rendered 
 page more obvious). All other requests were served from CDN within 30ms. That’s super fast! Also, after the stale page 
 was served, the page was re-rendered in the background and replaced. The request after the stale one was super fast 
 again but served the new page.
@@ -81,12 +81,12 @@ again but served the new page.
 ## Conclusion
 
 SSR with proper CDN caching is very powerful and can be used for a lot of scenarios, especially where you hit the 
-limits of SSG and DSG. The integration within Gatsby and Gatsby Cloud is seamless, you can introduce in on a per-page basis.
+limits of SSG and DSG. The integration within Gatsby and Gatsby Cloud is seamless, you can introduce it on a per-page basis.
 
 Some things to keep in mind:
 
 - SSR functionality is quite new in Gatsby and may not be as mature as in other frameworks.
-- Same is for Gatsby Cloud, it’s quite new and my not be as mature as other hosting services.
+- Same goes for Gatsby Cloud, it’s quite new and may not be as mature as other hosting services.
 - SSR officially only works with Gatsby Cloud for now. You cannot host it somewhere else. There are third-party plugins though for [Fastify](https://github.com/gatsby-uc/plugins/tree/main/packages/gatsby-plugin-fastify) (self-hosting) or [Netlify](https://github.com/netlify/netlify-plugin-gatsby) (SAAS).
 - `gatsby-plugin-image` doesn’t work with SSR.
 
