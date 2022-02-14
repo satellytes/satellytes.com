@@ -12,6 +12,7 @@ import { BlogHero } from '../../content/heroes/blog-hero';
 import { BlogHeader } from '../../content/blog-header/blog-header';
 import { formatDistanceToNow } from 'date-fns';
 import { enGB } from 'date-fns/locale';
+import { useLocaleDateFormatter } from '../../i18n-helpers';
 
 interface BlogPostPageProps {
   markdown: BlogPostMarkdown;
@@ -30,6 +31,8 @@ const PanelContainer = styled.div`
 
 export const BlogPostPage = ({ markdown, breadcrumb }: BlogPostPageProps) => {
   const { t } = useTranslation();
+  const dateFormatter = useLocaleDateFormatter();
+
   const fm = markdown.frontmatter;
   const fields = markdown.fields;
 
@@ -43,10 +46,7 @@ export const BlogPostPage = ({ markdown, breadcrumb }: BlogPostPageProps) => {
     },
   };
 
-  const dateInWords = formatDistanceToNow(new Date(fm.date), {
-    locale: enGB,
-    addSuffix: true,
-  });
+  const dateInWords = dateFormatter(fm.date);
 
   const readingTime = `${Math.ceil(
     parseInt(fields.readingTime.minutes),
