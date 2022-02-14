@@ -91,8 +91,8 @@ Some things to keep in mind when you do SSR with Gatsby:
 
 SSR with proper CDN caching is very powerful and can be used for a lot of scenarios, especially where you hit the 
 limits of SSG and DSG. The integration within Gatsby and Gatsby Cloud is seamless, as you can introduce it on a per-page basis.
-If you don't rely on `gatsby-plugin-image` too much, you should definitely give it a try!
+If you don't rely on `gatsby-plugin-image` too much, you should definitely give it a try.
 
-Have fun working with Gatsby SSR! Thanks for reading.
+Thanks for reading and have fun working with Gatsby SSR!
 
 Checkout the repository with a full example on [Github](https://github.com/feedm3/learning-gatsby-cloud-ssr-caching)
