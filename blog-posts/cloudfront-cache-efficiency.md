@@ -1,6 +1,6 @@
 ---
 path: "/blog/cloudfront-cache-efficiency/"
-date: "2022-02-02"
+date: "2022-02-14"
 title: "Improve cache efficiency between CloudFront and the browser"
 featuredImage: images/cloudfront-cache-efficiency/cover.jpg 
 attribution:
