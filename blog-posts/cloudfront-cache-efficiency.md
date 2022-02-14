@@ -48,16 +48,13 @@ What do we see here?
 
 What is wrong here?
 
-1. The browser should cache every request for 10 seconds. But it only caches the first requests for the `max-age` and
-doesn't cache anything for the rest of the remaining `s-maxage` time.
-2. After 10 seconds the browser requests the same resource again. As there was no change in the response body, 
-CloudFront should only return `304`. Instead, the whole body gets returned with a status `200`.
+1. The browser should cache every request for 10 seconds. But it only caches the first requests for the `max-age` and doesn't cache anything for the rest of the remaining `s-maxage` time.
+2. After 10 seconds the browser requests the same resource again. As there was no change in the response body, CloudFront should only return `304`. Instead, the whole body gets returned with a status `200`.
 
 Those 2 problems will result in
 
 - Additional **traffic you have to pay** between the browser and your CDN.
-- A **slower website**, as the browser has to wait for the request to complete. This problem increases if your response
-body gets larger or the network speed of your customer decreases (a.e. on mobile plans).
+- A **slower website**, as the browser has to wait for the request to complete. This problem increases if your response body gets larger or the network speed of your customer decreases (a.e. on mobile plans).
 - Additional **traffic your customer has to pay** if the data is not free (a.e. on mobile plans).
 
 ## Fixing the browsers cache behavior
@@ -108,8 +105,7 @@ After deploying the CloudFront function, let’s check the browser console:
 What do we see here:
 
 1. The first request hits Lambda, so it takes around 700ms.
-2. The requests within 10 seconds are cached. After that, one request is done to CloudFront. This request takes around 30ms
-   and is cached again for 10 seconds by the browser. CloudFront returns the full response.
+2. The requests within 10 seconds are cached. After that, one request is done to CloudFront. This request takes around 30ms and is cached again for 10 seconds by the browser. CloudFront returns the full response.
 3. Only after 1 minute, the requests hits Lambda again and gets then cached again by CloudFront.
 
 This is the behavior we want! Nice!
