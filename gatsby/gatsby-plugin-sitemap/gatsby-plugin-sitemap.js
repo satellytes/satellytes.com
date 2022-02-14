@@ -129,7 +129,7 @@ function gatsbyPluginSitemap({ allSitePage: { nodes: allPages } }) {
       lang: languageKey,
       path,
       links,
-      publicationDate: pageContext.publicationDate,
+      publicationDate: pageContext?.publicationDate,
     };
   });
 }
