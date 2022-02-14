@@ -10,8 +10,6 @@ import { up } from '../../support/breakpoint';
 import { BlogPostMarkdown, BreadcrumbEntry } from '../../../types';
 import { BlogHero } from '../../content/heroes/blog-hero';
 import { BlogHeader } from '../../content/blog-header/blog-header';
-import { formatDistanceToNow } from 'date-fns';
-import { enGB } from 'date-fns/locale';
 import { useLocaleDateFormatter } from '../../i18n-helpers';
 
 interface BlogPostPageProps {
