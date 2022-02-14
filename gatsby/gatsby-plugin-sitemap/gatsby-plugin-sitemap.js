@@ -135,7 +135,7 @@ function gatsbyPluginSitemap({ allSitePage: { nodes: allPages } }) {
 }
 
 function serialize(sitemapItem) {
-  const HIGH_PRIO =
+  const FREQUENTLY_UPDATED =
     sitemapItem.path.includes('/blog') ||
     sitemapItem.path.includes('/career') ||
     sitemapItem.path === '/' ||
@@ -155,7 +155,7 @@ function serialize(sitemapItem) {
     // there is a lot of fuzz about changefreq and priority, some even say it
     // doesn't have any effect at all. so let's use a very simple definition
     changefreq: 'daily',
-    priority: HIGH_PRIO ? 1 : 0.8,
+    priority: FREQUENTLY_UPDATED ? 1 : 0.8,
 
     // publicationDate is optional and won't be rendered if not present
     lastmod: sitemapItem.publicationDate,

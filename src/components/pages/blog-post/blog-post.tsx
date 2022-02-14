@@ -10,7 +10,7 @@ import { up } from '../../support/breakpoint';
 import { BlogPostMarkdown, BreadcrumbEntry } from '../../../types';
 import { BlogHero } from '../../content/heroes/blog-hero';
 import { BlogHeader } from '../../content/blog-header/blog-header';
-import { useLocaleDateFormatter } from '../../i18n-helpers';
+import { LONG_DATE_FORMAT, useLocaleFormat } from '../../i18n-helpers';
 
 interface BlogPostPageProps {
   markdown: BlogPostMarkdown;
@@ -29,7 +29,7 @@ const PanelContainer = styled.div`
 
 export const BlogPostPage = ({ markdown, breadcrumb }: BlogPostPageProps) => {
   const { t } = useTranslation();
-  const dateFormatter = useLocaleDateFormatter();
+  const dateFormatter = useLocaleFormat(LONG_DATE_FORMAT);
 
   const fm = markdown.frontmatter;
   const fields = markdown.fields;
@@ -44,13 +44,13 @@ export const BlogPostPage = ({ markdown, breadcrumb }: BlogPostPageProps) => {
     },
   };
 
-  const dateInWords = dateFormatter(fm.date);
+  const formattedDate = dateFormatter(fm.date);
 
   const readingTime = `${Math.ceil(
     parseInt(fields.readingTime.minutes),
   )}min read`;
   const byLine = `${fm.author} (${fm.authorSummary})`;
-  const heroByLine = `${dateInWords} • ${readingTime} • ${byLine}`;
+  const heroByLine = `${formattedDate} • ${readingTime} • ${byLine}`;
 
   return (
     <Layout
