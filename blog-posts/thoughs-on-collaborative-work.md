@@ -8,12 +8,15 @@ featuredImage: images/thoughs-on-collaborative-work/group-table.jpg
 attribution:
     creator: Marvin Meyer
     source: https://unsplash.com/photos/SYTO3xs06fU
-seoMetaText: This article aims to offer an overview about the common beliefs around collaborative work, highlight the (many) (surprising) positive sides of it, and depicts some on-field examples that will either suit you or inspire you to find your own ways on approaching collaborative work.
-teaserText: Most of us developers, despite being more or less aware of the benefits of doing more work together, work on our own most of the time. Why? This article aims to offer an overview about the common beliefs around collaborative work, highlight the (many) (surprising) positive sides of it, and depicts some on-field examples that will either suit you or inspire you to find your own ways on approaching collaborative work. Let's start!
+seoMetaText: This article aims to offer an overview about the common beliefs around collaborative work, highlight the (many) (surprising) positive sides of it, and depicts some on-field examples that will either suit you or inspire you to find your own ways on approaching collaborative work. 
+teaserText: This article aims to offer an overview about the common beliefs around collaborative work, highlight the (many) (surprising) positive sides of it, and depicts some on-field examples that will either suit you or inspire you to find your own ways on approaching collaborative work.
 leadboxText: Are you excited about getting the most out your team work? Would you like to work with great professionals? Then join us!
 
 
 ---
+
+Most of us developers, despite being more or less aware of the benefits of doing more work together, work on our own most of the time. Why? What can we do about that? Let's dive into it!
+
 ## Is it just about programming?
 
 Short answer, no, it’s not. As software developers we don’t just write code, we also play a crucial role in actively shaping, challenging and clarifying requirements. And this happens in many different flavours: emails, issue tracking systems, chat tools, team meetings, inter-team meetings... Every area of our work can benefit if we approach it in a more collaborative way.
