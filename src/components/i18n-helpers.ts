@@ -2,6 +2,8 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { format, parseISO } from 'date-fns';
 import { enGB, de } from 'date-fns/locale';
 
+export const LONG_DATE_FORMAT = 'dd. MMMM yyyy';
+
 /**
  * A custom  hook to read the current language
  * and return a formatter (date-fns) with the correct locale set
@@ -27,8 +29,4 @@ export const useLocaleFormat = (dateFormat) => {
       return null;
     }
   };
-};
-
-export const useLocaleDateFormatter = () => {
-  return useLocaleFormat('dd. MMMM yyyy');
 };

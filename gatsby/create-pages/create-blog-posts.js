@@ -33,6 +33,7 @@ const createBlogPosts = async ({ actions, reporter, graphql }) => {
       path: appendTrailingSlash(node.frontmatter.path),
       component: BLOG_POST_TEMPLATE_PATH,
       context: {
+        // used for the sitemap
         publicationDate: node.frontmatter.date,
       },
     });
