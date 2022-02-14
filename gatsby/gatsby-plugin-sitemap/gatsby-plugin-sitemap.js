@@ -118,7 +118,7 @@ function gatsbyPluginSitemap({ allSitePage: { nodes: allPages } }) {
   const paths = allPages.map(({ path }) => path);
   const translationLookup = createPageTranslationLookup(paths);
 
-  return paths.map((path) => {
+  return allPages.map(({ path, pageContext }) => {
     const normalizedPath = normalizePath(path);
     const languageKey = extractLangKey(path);
 
@@ -129,13 +129,20 @@ function gatsbyPluginSitemap({ allSitePage: { nodes: allPages } }) {
       lang: languageKey,
       path,
       links,
+      publicationDate: pageContext.publicationDate,
     };
   });
 }
 
 function serialize(sitemapItem) {
+  const HIGH_PRIO =
+    sitemapItem.path.includes('/blog') ||
+    sitemapItem.path.includes('/career') ||
+    sitemapItem.path === '/' ||
+    sitemapItem.path === '/de';
+
   // remap our links from {lang, path} to {lang, url}
-  const links = sitemapItem.links.map((item) => {
+  const alternateLinks = sitemapItem.links.map((item) => {
     return {
       lang: item.lang,
       url: item.path, // the plugin will prefix the siteUrl after the serialization
@@ -144,7 +151,15 @@ function serialize(sitemapItem) {
 
   return {
     url: sitemapItem.path,
-    links,
+
+    // there is a lot of fuzz about changefreq and priority, some even say it
+    // doesn't have any effect at all. so let's use a very simple definition
+    changefreq: 'daily',
+    priority: HIGH_PRIO ? 1 : 0.8,
+
+    // publicationDate is optional and won't be rendered if not present
+    lastmod: sitemapItem.publicationDate,
+    links: alternateLinks,
   };
 }
 
