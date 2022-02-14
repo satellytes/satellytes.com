@@ -5,8 +5,8 @@ title: "Cache Gatsby SSR pages on Gatsby Cloud"
 featuredImage: images/gatsby-ssr-caching.jpg
 author: "Fabian Dietenberger"
 authorSummary: "Senior Developer at Satellytes"
-teaserText: Learn how to cache Gatsby SSR page on Gatsby Cloud
-seoMetaText: Lean how to cache Gatsby SSR pages on Gatsby Cloud to boost page speed. Your users won't see a difference to SSG or DSG pages anymore.
+teaserText: Learn how to cache Gatsby SSR pages on Gatsby Cloud
+seoMetaText: Learn how to cache Gatsby SSR pages on Gatsby Cloud to boost page speed. Your users won't see a difference to SSG or DSG pages anymore.
 leadboxText: Want to learn more about creating blazing fast pages? Then join us to learn more!
 attribution:
     creator: Shiro Hatori
