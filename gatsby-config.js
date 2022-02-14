@@ -257,6 +257,7 @@ module.exports = {
           allSitePage {
             nodes {
               path
+              pageContext
             }
           }
         }`,
