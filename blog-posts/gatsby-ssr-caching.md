@@ -1,6 +1,6 @@
 ---
-path: "/blog/cache-gatsby-ssr-page-on-gatsby-cloud/"
-date: "2022-02-11"
+path: "/blog/cache-gatsby-ssr-pages-on-gatsby-cloud/"
+date: "2022-02-15"
 title: "Cache Gatsby SSR pages on Gatsby Cloud"
 featuredImage: images/gatsby-ssr-caching.jpg
 author: "Fabian Dietenberger"
@@ -16,11 +16,11 @@ attribution:
 Since Gatsby 4 you can do [server side rendering](https://www.gatsbyjs.com/docs/how-to/rendering-options/using-server-side-rendering/) 
 of pages. This means, the page gets rendered at runtime, and not at buildtime.
 
-When serving a page via SSR, efficient caching becomes crucial as the browser won’t show anything until the whole page 
+When serving a page via SSR, efficient caching becomes crucial as the browser won't show anything until the whole page 
 is rendered on the server and delivered to the browser. Caching can be done on multiple levels in your architecture, in 
 this article we will focus on caching at the edge with a CDN.
 
-If you host your Gatsby page with Gatsby Cloud, you have a CDN out of the box. The CDN is powered by Fastly, but that’s 
+If you host your Gatsby page with Gatsby Cloud, you have a CDN out of the box. The CDN is powered by Fastly, but that's 
 just an implementation detail. Caching for your static (SSG) or deferred (DSG) pages is done automatically, so no need 
 to configure anything here. But if you want to do SSR, you need to take care of the correct caching behavior by yourself.
 
@@ -43,7 +43,7 @@ very first user after a deployment will have to wait for the rendering. Everyone
 
 ## Enable Caching
 
-Now let’s dive into the code and set the `Cache-Control` header:
+Now let's dive into the code and set the `Cache-Control` header:
 
 ```jsx
 // pages/ssr.jsx
@@ -62,34 +62,37 @@ export async function getServerData() {
 }
 ```
 
-Gatsby SSR pages export the `getServerData()`  function, which you can use to do all kinds of stuff with it (like 
+Gatsby SSR pages export the `getServerData()` function, which you can use to do all kinds of stuff with it (like 
 fetching external data). Besides the props that can be injected into the page itself, this function returns a `headers` 
 object. This object is used to set the `Cache-Control` header.
 
-In our case, we set the browser cache to 10 seconds and the CDN cache to 1 minute. After 1 minute, the CDN will 
-serve stale content for a maximum of 4 additional minutes. If there is one request within these 4 minutes, a 
+In our case, we set the browser cache (`max-age`) to 10 seconds and the CDN cache (`s-max-age`) to 1 minute. After 1 minute, the CDN will 
+serve stale content (`stale-while-revalidate`) for a maximum of 4 additional minutes. If there is one request within these 4 minutes, a 
 new page will be rendered in the background while the old page gets served. After the new page is rendered, it will replace 
-the old one on the CDN and the caching time starts again. Let’s check the network tab to see if it works:
+the old one on the CDN and the caching time starts again. Let's check the network tab to see if it works:
 
-![Chrome network tab with proper caching header. Everything works as expected.](images/gatsby-ssr-caching-network-tab.png)
+![Chrome network tab shows that with proper caching headers only the very first request is slow](images/gatsby-ssr-caching-network-tab.png)
 
 You can see: The very first page took 5 seconds to load (for this example, I added an artificial delay of 5 seconds to make the server rendered 
-page more obvious). All other requests were served from CDN within 30ms. That’s super fast! Also, after the stale page 
+page more obvious). All other requests were served from CDN within 30ms. That's super fast! Also, after the stale page 
 was served, the page was re-rendered in the background and replaced. The request after the stale one was super fast 
 again but served the new page.
+
+## Gatsby SSR caveats
+
+Some things to keep in mind when you do SSR with Gatsby:
+
+- SSR functionality is quite new in Gatsby and may not be as mature as in other frameworks.
+- Same goes for Gatsby Cloud, it's quite new and may not be as mature as other hosting services.
+- SSR officially only works with Gatsby Cloud for now. You cannot host it somewhere else. There are third-party plugins though for [Fastify](https://github.com/gatsby-uc/plugins/tree/main/packages/gatsby-plugin-fastify) (self-hosting) or [Netlify](https://github.com/netlify/netlify-plugin-gatsby) (SAAS).
+- `gatsby-plugin-image` doesn't work with SSR.
 
 ## Conclusion
 
 SSR with proper CDN caching is very powerful and can be used for a lot of scenarios, especially where you hit the 
-limits of SSG and DSG. The integration within Gatsby and Gatsby Cloud is seamless, you can introduce it on a per-page basis.
+limits of SSG and DSG. The integration within Gatsby and Gatsby Cloud is seamless, as you can introduce it on a per-page basis.
+If you don't rely on `gatsby-plugin-image` too much, you should definitely give it a try!
 
-Some things to keep in mind:
-
-- SSR functionality is quite new in Gatsby and may not be as mature as in other frameworks.
-- Same goes for Gatsby Cloud, it’s quite new and may not be as mature as other hosting services.
-- SSR officially only works with Gatsby Cloud for now. You cannot host it somewhere else. There are third-party plugins though for [Fastify](https://github.com/gatsby-uc/plugins/tree/main/packages/gatsby-plugin-fastify) (self-hosting) or [Netlify](https://github.com/netlify/netlify-plugin-gatsby) (SAAS).
-- `gatsby-plugin-image` doesn’t work with SSR.
-
-Other than that: Have fun working with Gatsby SSR! Thanks for reading.
+Have fun working with Gatsby SSR! Thanks for reading.
 
 Checkout the repository with a full example on [Github](https://github.com/feedm3/learning-gatsby-cloud-ssr-caching)
