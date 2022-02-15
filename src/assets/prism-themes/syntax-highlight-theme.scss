@@ -21,3 +21,13 @@ a problem for other people.
 pre[class*="language-"] {
   overflow: auto;
 }
+
+.gatsby-highlight-code-line {
+  background-color: rgba(255, 153, 153, 0.34);
+  display: block;
+  margin-right: -1em;
+  margin-left: -1em;
+  padding-right: 1em;
+  padding-left: 0.75em;
+  border-left: 0.25em solid #f99;
+}

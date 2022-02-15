@@ -62,7 +62,7 @@ In general, there are two ways to create data-dependent pages in Gatsby. In our 
 A static generated page with the file-based API consists of two parts: A GraphQL query and the actual React component (here `BlogPost`), which must be exported as default. In the GraphQL query, the required data is fetched. In this example, the Gatsby plugin [gatsby-transformer-remark](https://www.gatsbyjs.com/plugins/gatsby-transformer-remark/) is used to get the content of the corresponding markdown file.
 In the actual component, the results of the query can then be accessed via `data`.
 
-```tsx
+```tsx{3,9-18}
 // pages/blog/{markdownRemark.frontmatter__path}.tsx
 
 const BlogPost = ({data}) => {
