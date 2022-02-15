@@ -131,9 +131,8 @@ export const ErrorMessage = styled.p<{
   marginBottom?: number;
   lineHeight?: number;
 }>`
-  ${TextStyles.textXS}
-  font-size: 13px;
-  font-weight: 700;
+  ${TextStyles.errorMessage}
+
   color: ${theme.palette.text.errorMessage};
 
   margin-top: 8px;

@@ -113,4 +113,18 @@ export const TextStyles = {
     font-size: 14px;
     line-height: 110%;
   `,
+  label: css`
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 150%;
+
+    letter-spacing: -0.01em;
+  `,
+  errorMessage: css`
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 150%;
+
+    letter-spacing: -0.01em;
+  `,
 };
