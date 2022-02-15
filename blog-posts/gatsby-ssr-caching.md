@@ -24,6 +24,8 @@ Luckily the recent v4 update has added a couple of interesting new tools to the 
 SSR, pages are created at the moment the user visits the page and not before. This allows for greater scaling and also 
 some additional features like per-user generated pages, but this is another blog post.
 
+## Why is caching important?
+
 When serving a page via SSR, efficient caching becomes crucial as the user won't see anything until the whole page 
 is rendered on the server and delivered to the browser. If rendering also includes fetching some external data or 
 doing some compute heavy calculations, it can also become problematic for scaling and stability. That's where caching 
@@ -38,7 +40,7 @@ yourself.
 > This post was inspired by the excellent video from [Remix on Youtube](https://www.youtube.com/watch?v=bfLFHp7Sbkg) 
 > If you want to deep dive to CDN caching with SSG and SSR, you should have a look! 
 
-## The Cache Control Header
+## The Cache-Control header
 
 Caching in Gatsby Cloud can be controlled via the HTTP caching header `Cache-Control`. This header has multiple 
 [directives](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#directives) that can control caching. 
@@ -60,7 +62,7 @@ very first user after a deployment will have to wait for the rendering. Everyone
 
 > This header can also be used on any other SSR framework and CDN. It's not limited to Gatsby or Gatsby Cloud.
 
-## Enable Caching
+## Implement caching with Gatsby
 
 Now let's dive into the code and see how the `Cache-Control` header can be set with Gatsby.
 
@@ -97,7 +99,7 @@ page more obvious). All other requests were served from CDN within 30ms. That's 
 was served, the page was re-rendered in the background and replaced. The request after the stale one was super fast
 again and served the updated content.
 
-## General Gatsby SSR caveats
+## General things to keep in mind with Gatsby SSR
 
 Before you jump into cached SSR pages on your production environment, keep in mind:
 
