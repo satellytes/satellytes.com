@@ -13,7 +13,7 @@ attribution:
     source: https://unsplash.com/photos/WR-ifjFy4CI
 ---
 
-Ever since it's introduction [Gatsby](https://gatsbyjs.com) has established itself as the standard solution for 
+Ever since its introduction [Gatsby](https://gatsbyjs.com) has established itself as the standard solution for 
 React-based [Jamstack](https://jamstack.org/what-is-jamstack/) architectures. But where this approach has proven to 
 be quite powerful for smaller sites, the restriction to pre-build all pages using Static Site Generation has proven 
 to be a bottleneck [for larger websites](https://www.gatsbyjs.com/docs/how-to/performance/improving-build-performance/)
@@ -32,7 +32,7 @@ user-specific data.
 
 When serving a page via SSR, efficient caching becomes crucial as the user won't see anything until the whole page 
 is rendered on the server and delivered to the browser. If rendering also includes fetching some external data or 
-doing some compute heavy calculations, this can take multiple seconds. Despite this being generally bad UX, it can 
+doing some compute-heavy calculations, this can take multiple seconds. Despite this being generally bad UX, it can 
 also become problematic for scaling and stability. That's where caching comes in place. Caching can be done on 
 multiple levels, like only heavy computations. But the most impact on speed and scalability has caching at the edge, 
 which means caching the whole rendered page on a CDN, right in front of the user.
@@ -52,16 +52,16 @@ For our purposes the most important ones are:
   long the page should be cached  in the browser after the user fetched it. There won't be any network requests 
   during this time except the initial fetch.
 - `s-maxage`: The time in seconds for how long the page should be cached by the CDN. For content that changes 
-  fequently, you may want to set smaller value. If content isn't expected to change it is safe to set a longer 
-  time-period. If not set, the CDN will default to `max-age`.
-- `stale-while-revalidate` : Similar to `s-maxage` header, for the given time-period all user-requests are served 
+  frequently, you may want to set a smaller value. If content isn't expected to change it is safe to set a longer 
+  time period. If not set, the CDN will default to `max-age`.
+- `stale-while-revalidate` : Similar to `s-maxage` header, for the given time period all user-requests are served 
   instantly. But on top, the page is also refreshed in the background. If the requested page has been updated, the 
   cached version will be replaced and all subsequent requests will serve the most up-to-date version of the content.
   If the content is not crucial, you can set this to a very high value.
 
 With those 3 directives, you can make your page as fast as with SSG or DSG pages. If the values are set correctly, 
-only the very first user after a deployment will have to wait for the rendering. Everyone else will see a lightning 
-fast page.
+only the very first user after a deployment will have to wait for the rendering. Everyone else will see a 
+lightning-fast page.
 
 > This post was inspired by the excellent video from [Remix on Youtube](https://www.youtube.com/watch?v=bfLFHp7Sbkg).
 > If you want to deep dive into CDN caching, Cache-Control header and SSG/SSR, you should have a look!
@@ -93,7 +93,7 @@ into the page for rendering. But more importantly for our purposes, this functio
 object is used to set the `Cache-Control` header.
 
 In our case, we set the browser cache (`max-age`) to 10 seconds and the CDN cache (`s-max-age`) to 1 minute. After 1 
-minute, the CDN will serve stale content. By adding the `stale-while-revalidate`-header we ensure , if there is 
+minute, the CDN will serve stale content. By adding the `stale-while-revalidate`-header we ensure, if there is 
 any request within these 4 minutes, a new page will be rendered in the background while the old page gets served. 
 After the new page is rendered, it will replace the old one on the CDN and the caching time starts again. Let's 
 check the network tab to see if it works:
@@ -110,9 +110,9 @@ after the stale one was super fast again and served the updated content.
 Before you jump into cached SSR pages on your production environment, keep in mind:
 
 - SSR functionality is quite new in Gatsby and may not be as mature as in other frameworks.
-- Same goes for Gatsby Cloud. I's quite new and doesn't feel fully ready for production just yet. E.g. during 
+- The same goes for Gatsby Cloud. It's quite new and doesn't feel fully ready for production just yet. E.g. during 
   testing - even with this simplified setup - we encountered a general server error with no feedback for the cause 
-  (like server logs). The support of Gatsby is very helpful though. In doubt you should contact them.
+  (like server logs). The support of Gatsby is very helpful though. In doubt, you should contact them.
 - SSR officially only works with Gatsby Cloud for now. You cannot host it somewhere else. There are third-party 
   plugins  though for [Fastify](https://github.com/gatsby-uc/plugins/tree/main/packages/gatsby-plugin-fastify) 
   (self-hosting) or [Netlify](https://github.com/netlify/netlify-plugin-gatsby) (SAAS).
@@ -126,4 +126,4 @@ If you don't rely on `gatsby-plugin-image` too much, you should definitely give 
 
 Thanks for reading and have fun working with Gatsby SSR!
 
-Checkout the repository with a full example on [Github](https://github.com/feedm3/learning-gatsby-cloud-ssr-caching)
+Check out the repository with a full example on [Github](https://github.com/feedm3/learning-gatsby-cloud-ssr-caching)
