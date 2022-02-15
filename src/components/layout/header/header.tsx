@@ -7,7 +7,6 @@ import { CloseBurgerMenuIcon } from '../../legacy/icons/header-icons/close-burge
 import { NavigationFlyout } from './menu-flyout';
 import { Link } from '../../legacy/links/links';
 import { Swoosh } from '../../legacy/icons/header-icons/swoosh';
-import { LanguageSwitch } from './language-switch';
 import { HEADER_HEIGHT_VALUE } from '../theme';
 
 export const HEADER_HEIGHT = `${HEADER_HEIGHT_VALUE}px`;
@@ -171,12 +170,6 @@ const Header: React.FC<HeaderProps> = (props) => {
         {props.siteTitle}
       </SiteTitle>
       <Wrapper>
-        {(props.translation || props.showLanguageSwitch) && (
-          <LanguageSwitch
-            translation={props.translation}
-            $lightTheme={Boolean(!isHeaderTransparent && props.$lightTheme)}
-          />
-        )}
         <SiteMenu
           aria-label="Open menu"
           $lightTheme={Boolean(!isHeaderTransparent && props.$lightTheme)}

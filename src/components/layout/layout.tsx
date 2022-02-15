@@ -147,7 +147,7 @@ export const Layout = ({
           </LeadboxFooterContainer>
         )}
         <footer>
-          <Navigation />
+          <Navigation showLanguageSwitch={showLanguageSwitch} />
         </footer>
       </FullHeightContainer>
     </ThemeProvider>
