@@ -53,13 +53,13 @@ The meeting room behavior of Gather is fundamentally different to the rest of th
 ### Random bumps
 When you walk to someone, while approaching, the video and audio slowly fade in. That technique is called "spatial audio technology" and mimics the way we bump into other people in real life, where someone's voice is louder while you are near them, and softer as you walk away. This is wonderful because it feels so familiar and natural.
 
-<figure>
+<p>
     <video preload autoplay loop width="100%">
-      <source src="images/gather/video.mp4" type="video/mp4" />
-      <source src="images/gather/video.mp4" type="video/mp4" />
+        <source src="images/gather/video.mp4" type="video/mp4" />
+        <source src="images/gather/video.mp4" type="video/mp4" />
     </video>
-    <figcaption>People bumping into each other (via <a href='http://www.gather.town'> gather.town</a>)</figcaption>
-</figure>
+</p>
+<figcaption>People bumping into each other (via <a href='http://www.gather.town'> gather.town</a>)</figcaption>
 
 
 ### Pair programming
@@ -68,6 +68,7 @@ A similar effect happens when you sit in the virtual office and suddenly two fol
 This feeling is the promise of the Metaverse. It brings back the informal human interactions and spontaneity. You don't have to create a video meeting upfront or send some specific invitation. Who would do that in real life? Instead, you just walk over to the desk of your colleague and start talking.  
 
 ![Our colleagues Jesús & Felix having a pair programming session](images/gather/gather-pair.gif)
+<figcaption>Our colleagues Jesús & Felix having a pair programming session</figcaption>
 
 ### Hanging around
 While we can gather everyone for some all-hands easily, we have the biggest struggle to motivate people to stay online throughout the day. A few colleagues and I are online most of the day. The other ones are online occasionally or just for the invited events. Sadly, this means our world looks very empty, very often.
