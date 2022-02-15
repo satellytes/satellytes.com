@@ -6,6 +6,7 @@ featuredImage: images/georgios-kaleadis-aBTfTMsOCOI-unsplash.jpg
 author: Georgios Kaleadis
 authorSummary: "CTO at Satellytes"
 seoMetaText: A coding pattern to prevent breaking changes when dealing with injections in base classes used in distributed libraries
+teaserText: A coding pattern to prevent breaking changes when dealing with injections in base classes used in distributed libraries
 attribution:
     creator: Georgios Kaleadis
     source: https://unsplash.com/photos/aBTfTMsOCOI
