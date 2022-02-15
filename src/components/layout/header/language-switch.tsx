@@ -22,10 +22,9 @@ const StyledSelection = styled.select`
   ${TextStyles.menuMeta};
   background: none;
   border: none;
-  text-align: right;
 
   color: inherit;
-  padding-left: 14px;
+  padding-left: 18px;
 
   appearance: none;
   cursor: pointer;
