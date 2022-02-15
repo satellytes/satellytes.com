@@ -48,9 +48,8 @@ Caching in Gatsby Cloud can be controlled via the HTTP caching header `Cache-Con
 [directives](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#directives) that can control caching. 
 For our purposes the most important ones are:
 
-- `max-age`: The time in seconds for how long the page should be cached by the browser. Use this to determine how 
-  long the page should be cached  in the browser after the user fetched it. There won't be any network requests 
-  during this time except the initial fetch.
+- `max-age`: The time in seconds for how long the page should be cached by the browser. There won't be any network 
+  requests during this time except the initial fetch.
 - `s-maxage`: The time in seconds for how long the page should be cached by the CDN. For content that changes 
   frequently, you may want to set a smaller value. If content isn't expected to change it is safe to set a longer 
   time period. If not set, the CDN will default to `max-age`.
