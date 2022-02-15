@@ -8,12 +8,12 @@ import { Expandable } from '../../ui/expandable/expandable';
 import { TextStyles } from '../../typography';
 import { up } from '../../support/breakpoint';
 
-const IntroLayout = styled.div`
+export const IntroLayout = styled.div`
   ${up('md')} {
     display: flex;
   }
 `;
-const IllustrationStyled = styled(Illustration)`
+export const IllustrationStyled = styled(Illustration)`
   margin-left: auto;
 
   ${up('md')} {
@@ -38,10 +38,6 @@ const HeadlineStyled = styled.h3`
 
 const ContentStyled = styled.div`
   ${TextStyles.textR}
-
-  ${up('md')} {
-    ${TextStyles.textL}
-  }
 `;
 
 export const Intro = ({ illustration, headline, children }: any) => (
@@ -69,5 +65,19 @@ export const ExpandableStyled = styled(Expandable)`
 export const UnorderedList = styled.ul`
   line-height: 150%;
   margin: 0;
-  padding-left: 1em;
+  padding-left: 0;
+  list-style-type: none;
+
+  > li:before {
+    content: '-';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  > li {
+    position: relative;
+    padding-left: 16px;
+  }
 `;
