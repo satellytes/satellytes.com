@@ -67,7 +67,7 @@ const SiteTitle = styled(Link)<{ $lightTheme: boolean }>`
 
   &:hover {
     color: ${(props) =>
-      !props.$lightTheme && props.theme.palette.text.header.hover};
+      props.$lightTheme && props.theme.palette.text.header.hover};
   }
 `;
 
@@ -76,7 +76,7 @@ const SiteMenu = styled.button<{ $lightTheme: boolean }>`
   cursor: pointer;
 
   /**
-   * to make it simpler to click (especially on mobile), 
+   * to make it simpler to click (especially on mobile),
    * we make the button extra large
    */
   height: 16px;
@@ -93,7 +93,7 @@ const SiteMenu = styled.button<{ $lightTheme: boolean }>`
   .bar {
     background-color: ${(props) =>
       props.$lightTheme
-        ? props.theme.palette.text.default
+        ? props.theme.palette.text.header.light
         : props.theme.palette.text.header.default};
   }
 
@@ -107,7 +107,7 @@ const SiteMenu = styled.button<{ $lightTheme: boolean }>`
   &:hover {
     .bar {
       background-color: ${(props) =>
-        !props.$lightTheme && props.theme.palette.text.header.hover};
+        props.$lightTheme && props.theme.palette.text.header.hover};
     }
   }
 `;
@@ -165,7 +165,7 @@ const Header: React.FC<HeaderProps> = (props) => {
     >
       <SiteTitle
         to={props.siteTitleUrl || '/'}
-        $lightTheme={Boolean(!isHeaderTransparent && props.$lightTheme)}
+        $lightTheme={Boolean(props.$lightTheme && !isHeaderTransparent)}
       >
         <HeaderSwoosh />
         {props.siteTitle}

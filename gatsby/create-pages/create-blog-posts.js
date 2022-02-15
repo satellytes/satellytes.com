@@ -15,6 +15,7 @@ const createBlogPosts = async ({ actions, reporter, graphql }) => {
         nodes {
           frontmatter {
             path
+            date
           }
         }
       }
@@ -31,7 +32,10 @@ const createBlogPosts = async ({ actions, reporter, graphql }) => {
     createPage({
       path: appendTrailingSlash(node.frontmatter.path),
       component: BLOG_POST_TEMPLATE_PATH,
-      context: {},
+      context: {
+        // used for the sitemap
+        publicationDate: node.frontmatter.date,
+      },
     });
   });
 };

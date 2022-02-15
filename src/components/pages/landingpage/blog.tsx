@@ -4,7 +4,7 @@ import { Teaser } from '../../content/teaser/teaser';
 import React from 'react';
 import { HomePageHeaderBlock } from './support';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { useLocaleFormat } from '../../i18n-helpers';
+import { LONG_DATE_FORMAT, useLocaleFormat } from '../../i18n-helpers';
 import { BlogPostTeaser } from '../../../types';
 import styled from 'styled-components';
 import { Button } from '../../ui/buttons/button';
@@ -19,7 +19,7 @@ const Spacer = styled.div`
 
 export const Blog = ({ posts }: BlogProps) => {
   const { t } = useTranslation();
-  const dateFormatter = useLocaleFormat('dd. MMMM yyyy');
+  const dateFormatter = useLocaleFormat(LONG_DATE_FORMAT);
 
   return (
     <>

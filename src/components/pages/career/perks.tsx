@@ -17,7 +17,12 @@ const TeaserGrid = styled.div`
   gap: 24px;
 
   justify-items: stretch;
-  grid-template-columns: repeat(auto-fit, 250px);
+  grid-template-columns: 1fr;
+
+  ${up('sm')} {
+    grid-template-columns: repeat(auto-fit, 250px);
+  }
+
   ${up('md')} {
     gap: 70px;
     grid-template-columns: 1fr 1fr 1fr;
