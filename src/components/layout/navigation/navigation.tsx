@@ -93,6 +93,7 @@ const SocialLinks = styled.ul`
 
   ${up('md')} {
     order: 1;
+    margin-left: 1px;
     margin-bottom: 24px;
   }
 `;
