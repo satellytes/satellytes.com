@@ -1,12 +1,12 @@
 ---
 path: "/blog/cache-gatsby-ssr-pages-on-gatsby-cloud/"
 date: "2022-02-15"
-title: "Cache Gatsby SSR pages on Gatsby Cloud"
+title: "Make Gatsby SSR blazing fast with caching on Gatsby Cloud"
 featuredImage: images/gatsby-ssr-caching.jpg
 author: "Fabian Dietenberger"
 authorSummary: "Senior Developer at Satellytes"
 teaserText: Learn how to cache Gatsby SSR pages on Gatsby Cloud
-seoMetaText: Learn how to cache Gatsby SSR pages on Gatsby Cloud to boost page speed. Your users won't see a difference to SSG or DSG pages anymore.
+seoMetaText: Learn how to cache Gatsby SSR pages on Gatsby Cloud to boost page speed and scalability. Your users won't see a difference to SSG or DSG pages anymore.
 leadboxText: Want to learn more about creating blazing fast pages? Then join us to learn more!
 attribution:
     creator: Shiro Hatori
@@ -99,14 +99,16 @@ page more obvious). All other requests were served from CDN within 30ms. That's 
 was served, the page was re-rendered in the background and replaced. The request after the stale one was super fast
 again and served the updated content.
 
-## General things to keep in mind with Gatsby SSR
+## Lessons learned with Gatsby SSR
 
 Before you jump into cached SSR pages on your production environment, keep in mind:
 
 - SSR functionality is quite new in Gatsby and may not be as mature as in other frameworks.
-- Same goes for Gatsby Cloud, it's quite new and may not be as mature as other hosting services.
+- Same goes for Gatsby Cloud. I's quite new and doesn't feel fully ready for production just yet. E.g. during 
+  testing - even with this simplified setup - we encountered a general server error with no feedback for the cause 
+  (like server logs). The support of Gatsby is very helpful though. In doubt you should contact them.
 - SSR officially only works with Gatsby Cloud for now. You cannot host it somewhere else. There are third-party 
-  plugins  though for [Fastify](https://github.com/gatsby-uc/plugins/tree/main/packages/gatsby-plugin-fastify)  
+  plugins  though for [Fastify](https://github.com/gatsby-uc/plugins/tree/main/packages/gatsby-plugin-fastify) 
   (self-hosting) or [Netlify](https://github.com/netlify/netlify-plugin-gatsby) (SAAS).
 - `gatsby-plugin-image` doesn't work with SSR.
 
