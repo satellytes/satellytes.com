@@ -25,9 +25,8 @@ SSR, pages are rendered on the server at the moment the user visits the page. Th
 as not all content pages need to be pre-rendered. Plus: this allows for additional features, like live-content or 
 user-specific data.
 
-> This post was inspired by the excellent video from [Remix on Youtube](https://www.youtube.com/watch?v=bfLFHp7Sbkg).
-> If you want to deep dive to CDN caching with SSG and SSR, you should have a look! The technique described in this
-> blog post is not limited to Gatsby or Gatsby Cloud.
+> While this blog post focuses on Gatsby and Gatbsy Cloud it is applicable to any other SSR framework and hosting 
+> solution that  supports the use of the caching headers mentioned in this article.
 
 ## Why is caching important?
 
@@ -63,6 +62,9 @@ For our purposes the most important ones are:
 With those 3 directives, you can make your page as fast as with SSG or DSG pages. If the values are set correctly, 
 only the very first user after a deployment will have to wait for the rendering. Everyone else will see a lightning 
 fast page.
+
+> This post was inspired by the excellent video from [Remix on Youtube](https://www.youtube.com/watch?v=bfLFHp7Sbkg).
+> If you want to deep dive into CDN caching, Cache-Control header and SSG/SSR, you should have a look!
 
 ## Implement caching with Gatsby
 
