@@ -67,17 +67,17 @@ export const UnorderedList = styled.ul`
   margin: 0;
   padding-left: 0;
   list-style-type: none;
-`;
 
-export const DashedListItem = styled.li`
-  position: relative;
-  padding-left: 16px;
-
-  &:before {
+  > li:before {
     content: '-';
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
+  }
+
+  > li {
+    position: relative;
+    padding-left: 16px;
   }
 `;

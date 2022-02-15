@@ -1,7 +1,7 @@
 import React from 'react';
 import { ContentBlockContainer } from '../../layout/content-block-container';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { DashedListItem, Intro, UnorderedList } from './support';
+import { Intro, UnorderedList } from './support';
 
 export const Consulting = () => {
   const { t } = useTranslation();
@@ -16,15 +16,9 @@ export const Consulting = () => {
       </Intro>
 
       <UnorderedList>
-        <DashedListItem>
-          {t('services.consulting.list.workshops')}
-        </DashedListItem>
-        <DashedListItem>
-          {t('services.consulting.list.techanalysis')}
-        </DashedListItem>
-        <DashedListItem>
-          {t('services.consulting.list.uxanalysis')}
-        </DashedListItem>
+        <li>{t('services.consulting.list.workshops')}</li>
+        <li>{t('services.consulting.list.techanalysis')}</li>
+        <li>{t('services.consulting.list.uxanalysis')}</li>
       </UnorderedList>
     </ContentBlockContainer>
   );
