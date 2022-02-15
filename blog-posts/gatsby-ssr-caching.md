@@ -126,4 +126,4 @@ If you don't rely on `gatsby-plugin-image` too much, you should definitely give 
 
 Thanks for reading and have fun working with Gatsby SSR!
 
-Check out the repository with a full example on [Github](https://github.com/feedm3/learning-gatsby-cloud-ssr-caching)
+Check out the repository with a full example on [Github](https://github.com/feedm3/learning-gatsby-cloud-ssr-caching).
