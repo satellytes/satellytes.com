@@ -100,6 +100,9 @@ describe('Gatsby Plugin Sitemap', () => {
 
       expect(result).toEqual({
         url: '/some-page/',
+        priority: 0.8,
+        lastmod: undefined,
+        changefreq: 'daily',
         links: [
           {
             lang: 'en',

@@ -6,6 +6,8 @@ featuredImage: images/how-to-optimize-gatsby-url-hero.jpeg
 author: "Fabian Dietenberger"
 authorSummary: "Senior Developer at Satellytes"
 leadboxText: Have you learned something about Gatsby? Then join us to learn more!
+teaserText: We did a deep dive into how to work with URLs in Gatsby to improve UX and search engine ranking.
+seoMetaText: We did a deep dive into how to work with URLs in Gatsby to improve UX and search engine ranking.
 attribution:
     creator: Jonny Clow 
     source: https://unsplash.com/photos/FwMBtl6IQQA

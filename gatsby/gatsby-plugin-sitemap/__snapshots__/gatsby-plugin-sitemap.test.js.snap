@@ -3,6 +3,8 @@
 exports[`Gatsby Plugin Sitemap works 1`] = `
 Array [
   Object {
+    "changefreq": "daily",
+    "lastmod": undefined,
     "links": Array [
       Object {
         "lang": "en",
@@ -13,9 +15,12 @@ Array [
         "url": "/de/some-page/",
       },
     ],
+    "priority": 0.8,
     "url": "/some-page/",
   },
   Object {
+    "changefreq": "daily",
+    "lastmod": undefined,
     "links": Array [
       Object {
         "lang": "en",
@@ -26,24 +31,31 @@ Array [
         "url": "/de/some-page/",
       },
     ],
+    "priority": 0.8,
     "url": "/de/some-page/",
   },
   Object {
+    "changefreq": "daily",
+    "lastmod": undefined,
     "links": Array [
       Object {
         "lang": "de",
         "url": "/de/only-german/",
       },
     ],
+    "priority": 0.8,
     "url": "/de/only-german/",
   },
   Object {
+    "changefreq": "daily",
+    "lastmod": undefined,
     "links": Array [
       Object {
         "lang": "en",
         "url": "/only-default/",
       },
     ],
+    "priority": 0.8,
     "url": "/only-default/",
   },
 ]

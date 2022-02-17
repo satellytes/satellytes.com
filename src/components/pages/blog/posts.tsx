@@ -1,4 +1,4 @@
-import { useLocaleFormat } from '../../i18n-helpers';
+import { LONG_DATE_FORMAT, useLocaleFormat } from '../../i18n-helpers';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Teaser } from '../../content/teaser/teaser';
 import React from 'react';
@@ -20,7 +20,7 @@ interface PostsProps {
 }
 
 export const Posts = ({ posts }: PostsProps) => {
-  const dateFormatter = useLocaleFormat('dd. MMMM yyyy');
+  const dateFormatter = useLocaleFormat(LONG_DATE_FORMAT);
 
   return (
     <BlogTeaserGrid>

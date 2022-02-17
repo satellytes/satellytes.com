@@ -20,7 +20,7 @@ export const theme: DefaultTheme = {
       header: {
         default: '#FFFFFF',
         light: '#3E61EE',
-        hover: '#3E61EE',
+        hover: '#202840',
       },
       breadcrumb: 'rgba(0, 0, 0, 0.5)',
       link: {

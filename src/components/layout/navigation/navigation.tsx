@@ -93,6 +93,7 @@ const SocialLinks = styled.ul`
 
   ${up('md')} {
     order: 1;
+    margin-left: 1px;
     margin-bottom: 24px;
   }
 `;
@@ -124,6 +125,7 @@ const LegalLink = styled(Link)<{ $isSelected: boolean }>`
   /**
    * necessary for Safari
    */
+
   &:link {
     color: ${(props) => (props.$isSelected ? '#ffffff' : '#202840')};
   }
@@ -267,7 +269,6 @@ const Navigation: React.FC<NavigationProps> = ({
                 <LanguageSwitchWrapper
                   translation={translation}
                   className={'language-switch'}
-                  fromNavigation
                 />
               )}
               <nav>
