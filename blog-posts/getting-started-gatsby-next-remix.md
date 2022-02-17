@@ -94,7 +94,7 @@ For example, the `path` field in the markdown file of the first blogposts contai
 
 To create a page with the create-pages API, a `createPages` function must be defined in `gatsby-node.js`. In this function, the data is then loaded with a GraphQL query and passed into a template page. For each entry from the result of the `query` the `createPage` action is called, in which `path`, template `component`, and `context` are provided. An example from the [Gatsby documentation](https://www.gatsbyjs.com/docs/creating-and-modifying-pages/#creating-pages-in-gatsby-nodejs) is given here:
 
-```tsx
+```tsx{7,8,11,37-45}
 // gatsby-node.js
 
 const path = require("path")
@@ -151,7 +151,7 @@ The roots of Next.js are in SSR, but relatively soon they also supported SSG. Th
 
 To create a static generated page in Next.js the `async` function `getStaticPaths` has to be exported. In the code snippet below, this function calls `getAllPostPaths()`, which returns a path for each markdown file.
 
-```tsx
+```tsx{3,13-16,18,21-23, 27}
 // pages/blog/[path].tsx
 
 export async function getStaticPaths() {
@@ -211,7 +211,7 @@ With server side rendering (SSR), the HTML is built on each request. All three f
 
 Besides static site generation (SSG) you can also use server side rendering (SSR) for certain use cases in Gatsby since version 4. For this, the function `getServerData` must be built into a page, in which the data is requested from the server. This data can then be accessed in the actual page component with `serverData`. In the following the example from the [Gatsby documentation](https://www.gatsbyjs.com/docs/how-to/rendering-options/using-server-side-rendering/) is considered:
 
-```tsx
+```tsx{5,14}
 // pages/ssr.js
 
 import * as React from "react"
@@ -250,7 +250,7 @@ export async function getServerData() {
 
 To use SSR in Next.js you have to use `getServerSideProps` instead of `getStaticProps` in the SSG variant. This function must load the data and return it, too. The data can then be accessed in the page component (in the example via `data`). The following example shows a simple SSR implementation from the [Next.js documentation](https://nextjs.org/docs/basic-features/pages#server-side-rendering).
 
-```tsx
+```tsx{3,8}
 // pages/ssr.js
 
 function Page({ data }) {
@@ -275,7 +275,7 @@ export default Page
 Remix has an exported `loader` function in which the data (e.g. local markdown file) is loaded (similar to `getStaticProps` in Next.js). This `loader` function can receive a `{params}` object. `{params}` can be used to access the path with `params.slug` and load the corresponding data. If you use the `params` object and want to build the route depending on the data, it is important to name your file with a `$` character and the key of the pathname. So in our example, it is `$slug.tsx`.
 In the page component (here `PostSlug`) the data can then be accessed via the `useLoader` hook.
 
-```tsx
+```tsx{3,9}
 // routes/blog/$slug.tsx
 
 export const loader: LoaderFunction = async ({params}) => {
@@ -310,7 +310,7 @@ So in our example blog we first had to run `npm install gatsby-plugin-react-helm
 
 After that, you can access the `React Helmet` within the JSX of a component, like for example in the index page.
 
-```tsx
+```tsx{9-13}
 // pages/blog/index.tsx
 
 //...
@@ -334,7 +334,7 @@ const Index = () => {
 
 Next.js provides a `head` component that can be built into any page to add metadata.
 
-```tsx
+```tsx{9-13}
 // pages/blog/index.tsx
 
 //...
@@ -364,7 +364,7 @@ The meta function automatically distinguishes between three different meta data 
 - OpenGraph tags (e.g. `"og:image”`) will render `<meta property content>`
 - Everything else renders `<meta name={key} content={value}/>`
 
-```tsx
+```tsx{6-17}
 // routes/blog/index.tsx
 
 //...
