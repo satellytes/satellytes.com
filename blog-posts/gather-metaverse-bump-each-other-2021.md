@@ -54,7 +54,7 @@ The meeting room behavior of Gather is fundamentally different to the rest of th
 When you walk to someone, while approaching, the video and audio slowly fade in. That technique is called "spatial audio technology" and mimics the way we bump into other people in real life, where someone's voice is louder while you are near them, and softer as you walk away. This is wonderful because it feels so familiar and natural.
 
 <figure>
-    <video preload autoplay loop width="100%">
+    <video preload autoplay loop muted width="100%">
         <source src="images/gather/video.mp4" type="video/mp4" />
         <source src="images/gather/video.mp4" type="video/mp4" />
     </video>
