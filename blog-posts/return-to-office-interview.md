@@ -121,7 +121,7 @@ Ich glaube aber auch, dass es einfach Bequemlichkeit ist bzw. “Convenience”,
 <br />
 
 **Eric:** Nein, aber mal ehrlich ... Ich kann morgens direkt den Rechner aufklappen und bin voll im Fokus und kann dann Pause und meine Morgenroutine machen, wenn die Konzentration das erste Mal nachlässt. Wenn ich vom Büro aus arbeite, ist mein Morgen weniger flexibel planbar.
-Allgemeiner gefasst, kann man sagen: Die Remote-Arbeit erlaubt Jedem die eigene Routine zu finden, die am besten geeignet ist um gut und effizient arbeiten zu können.
+Allgemeiner gefasst, kann man sagen: Die Remote-Arbeit erlaubt jedem, die eigene Routine zu finden, die am besten geeignet ist um gut und effizient arbeiten zu können.
 
 **Gholam:** Darüber hinaus glaube ich, dass vor allem die freie Ortswahl ein Grund ist, dass die Leute Gefallen an der Remote-Arbeit gefunden haben. Arthur z.B. hatte vor der Pandemie jeden Tag 70 Kilometer zur Arbeit gehabt. Das sind bis zu zwei Stunden, die täglich verloren gehen. Nach zwei Jahren funktionierendem Home-Office, stellt sich dann natürlich die Frage: Ist das wirklich jeden Tag nötig? \
 Damit einher geht die bessere Vereinbarkeit von Familie und Beruf. Ich kann mich noch an Projekte erinnern, wo es Pflicht war spätestens um 9:00 Uhr vor Ort zu sein und in die Tasten zu hauen.
