@@ -138,5 +138,5 @@ Aber ich glaube, das pendelt sich ohne Vorgaben unsererseits schon richtig ein, 
 **Plant ihr auch Stellen Vollzeit Remote zu besetzen?**
 
 **Gholam:** Ja, das ist auf jeden Fall etwas was wir in Betracht ziehen. Du bist da bereits der erste Mitarbeiter, bei dem bei der Einstellung schon feststand, dass du Vollzeit Remote von Fulda aus arbeiten wirst. Und weil das so gut geklappt hat, ziehen wir bei der Besetzung von offenen Stellen auch jetzt schon Leute in Betracht, die nicht in München leben und auch nicht für die Arbeit dorthin umziehen wollen.
-Im Detail ist das aber noch etwas, was wir für uns erarbeiten müssen … Welche Voraussetzungen zum Beispiel geschaffen werden müssen, um einen Kollegen aus Brasilien im Team begrüßen zu dürfen, das wissen wir noch nicht. Deswegen suchen wir im ersten Schritt auch erstmal Mitarbeiter im deutschen Raum.
+Im Detail ist das aber noch etwas, was wir für uns erarbeiten müssen… Welche Voraussetzungen zum Beispiel geschaffen werden müssen, um einen Kollegen aus Brasilien im Team begrüßen zu dürfen, das wissen wir noch nicht. Deswegen suchen wir im ersten Schritt auch erstmal Mitarbeiter im deutschen Raum.
 
