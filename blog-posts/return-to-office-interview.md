@@ -106,7 +106,7 @@ Deswegen hören wir auch auf ihre Ideen und Bedürfnisse. Wenn Pavel zum Beispie
 **Gholam:** Ganz generell schreiben wir den Community-Gedanken ganz groß. Deswegen wird es auch in Zukunft gemeinsame Events geben. Zum Beispiel koche ich Montags für alle und Georgios organisiert alle paar Wochen gemeinsame Brettspielabende mit neuen, spannenden Spielen. So können die Leute, die das möchten, das Office auch mehr als nur als Arbeitsort erfahren. Das ist natürlich alles freiwillig, aber das Feedback dazu war bisher sehr gut.
 Darüber hinaus planen wir zukünftig regelmäßig sogenannte “Company Space Days”. Das werden Tage sein, wo man sich gemeinsam mit einem Thema beschäftigt, das einmal nichts mit der Arbeit zu tun hat. Das kann z.B. sein, dass man gemeinsam einen Todesstern baut (beide lachen). Wichtig ist, dass es eine Idee ist, die man vorbereitet und die Abwechslung in den Büroalltag bringt. Das soll gezielt nichts mit den Themen und Technologien zu tun haben, mit denen man tagtäglich zu tun hat.
 
-**Welche Gründe glaubt ihr haben eure Mitarbeiter trotzdem weiter von Remote arbeiten wollen?**
+**Welche Gründe glaubt ihr haben eure Mitarbeiter, trotzdem weiter von Remote arbeiten wollen?**
 
 **Eric:** Ruhe. Zu Hause fällt es vielen einfacher, in den Tunnel zu kommen, den es braucht um konzentriert an komplexen Themen arbeiten zu können.
 Ich glaube aber auch, dass es einfach Bequemlichkeit ist bzw. “Convenience”, hört sich schöner an (lacht). Ich muss mich nicht erst morgens duschen, waschen, anziehen, fertig machen und in die Arbeit commuten.
