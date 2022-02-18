@@ -2,7 +2,7 @@
 path: "/blog/we-work-remotely/"
 date: "2022-02-17"
 title: We work remotely?!
-featuredImage: images/gatsby-ssr-caching.jpg
+featuredImage: images/return-to-office-interview-header.jpg
 author: "Satellytes"
 authorSummary: "We work remotely?! - Interview mit den Satellytes CEOs zur Return to Office Policy"
 teaserText: Mit dem Rückgang der Corona-Inzidenzzahlen stellt sich die Frage, wie stehts Return to Office Policy bei Satellytes. Wir fragen die CEOs
