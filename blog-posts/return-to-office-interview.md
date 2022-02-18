@@ -10,7 +10,7 @@ teaserText: Mit dem Rückgang der Corona-Inzidenzzahlen stellt sich die Frage, w
 
 **[TODO: Header-Bild: CEOs chilled @ Office]**
 
-Mit dem Rückgang der Corona-Inzidenzzahlen ist absehbar, dass auch das [Home-Office-Gebot der Bundesregierung bald fallen wird](https://www.tagesschau.de/wirtschaft/unternehmen/homoffice-pflicht-buero-pflicht-dgb-101.html). Damit freuen wir uns auch bei der Satellytes Digital Consulting GmbH unser neues Büro endlich ohne Auflagen wieder öffnen zu können.
+Mit dem Rückgang der Corona-Inzidenzzahlen ist absehbar, dass auch das [Home-Office-Gebot der Bundesregierung bald fallen wird](https://www.tagesschau.de/wirtschaft/unternehmen/homoffice-pflicht-buero-pflicht-dgb-101.html). Damit freuen wir uns auch bei der Satellytes Digital Consulting GmbH, unser neues Büro endlich ohne Auflagen wieder öffnen zu können.
 
 Trotzdem haben die letzten beiden Jahre bei vielen Angestellten ein Umdenken in der Einstellung zum Verhältnis von Büroarbeit vs. Home-Office bewirkt. Viele stellen sich daher die Frage: Muss ich bald wieder regelmäßig ins Büro oder kann ich auch weiter von Remote arbeiten?
 
