@@ -108,7 +108,7 @@ Darüber hinaus planen wir zukünftig regelmäßig sogenannte “Company Space D
 
 **Welche Gründe glaubt ihr haben eure Mitarbeiter trotzdem weiter von Remote arbeiten wollen?**
 
-**Eric:** Ruhe. Zu Hause fällt es vielen einfacher in den Tunnel zu kommen, den es braucht um konzentriert an komplexen Themen arbeiten zu können.
+**Eric:** Ruhe. Zu Hause fällt es vielen einfacher, in den Tunnel zu kommen, den es braucht um konzentriert an komplexen Themen arbeiten zu können.
 Ich glaube aber auch, dass es einfach Bequemlichkeit ist bzw. “Convenience”, hört sich schöner an (lacht). Ich muss mich nicht erst morgens duschen, waschen, anziehen, fertig machen und in die Arbeit commuten.
 
 **Gholam:** (lacht) Jetzt überträgst du von dir auf andere!
