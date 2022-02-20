@@ -21,7 +21,7 @@ Even though it’s called "GitHub Actions", the main thing that you will deal wi
 Workflows are what other automation platforms most often refer to as "pipelines". They are the biggest logical chunk in this architecture and they themselves are made up of 1 or more "jobs". Each job is itself made up of 1 or more "steps". These steps can be either arbitrary CLI commands like `yarn install` or they can use an "Action".
 
 #### Action
-Actions can be either pure JavaScript or Docker-based and you can mix them however you like in a single job. So you can easily have a job that runs a CLI command as a first step, then uses a JavaScript action followed by a Docker action.
+Actions can be either pure JavaScript, ran using NodeJS or they can be Docker-based. You can mix these types of actions however you like in a single job. So you can easily have a job that runs a CLI command (e.g. `npm install`) as a first step, then uses a JavaScript action followed by a Docker action.
 
 #### Event
 What we also need is a way to trigger workflows. These are called events and there are different types of them:
@@ -35,10 +35,10 @@ GitHub.com provides a lot of these Runners that you can use right away. With a f
 
 In case you need a very special environment or would like to have more control over the runner you can also host them yourself. With custom runners you can very specialized environments to run your Windows 95 jobs or that integrate particularly well with your existing infrastructure.
 
-Runners can have different labels so they can be targeted in a workflow. All publicly available runners have labels like `ubuntu-latest` or `windows-latest` to reveal the underlying operating system. There can also be other labels like `x64` or `gpu` to reveal information about the architecture.
+Runners can have different labels so they can be easily targeted in a workflow. All publicly available runners have labels like `ubuntu-latest` or `windows-latest` to reveal the underlying operating system. There can also be other labels like `x64` or `gpu` to reveal information about the architecture.
 
 ## Workflows
-With all that terminology out of the way, let's talk about workflows. Where are they stored, what do they look like from the inside and the outside?
+With all that terminology out of the way, let's talk about workflows in more detail. Where are they stored, what do they look like from the inside and the outside?
 
 ### Location of a GitHub Workflow
 Workflows are stored in your repository in a folder called `.github/workflows/` in the form of YAML files. Here you can see a schema of this:
@@ -55,7 +55,7 @@ Workflows are stored in your repository in a folder called `.github/workflows/` 
 ...
 ```
 
-When you add a `*.yml` file in that folder it will be picked up by GitHub automatically and added to the workflows in your repository. There is no additional configuration required.
+When you add a `*.yml` file in that folder it will be picked up by GitHub automatically and will be added to the list of workflows in your repository. There is no additional configuration required.
 
 ### Anatomy of a Workflow
 As already mentioned, Workflows are written in the YAML format. Let's look at a workflow that runs checks on Pull Requests:
@@ -85,15 +85,15 @@ jobs: (6)
 ```
 First we add a human-readable name to the workflow (1). In this case this Workflow is called "Pull Request checks". Next we define a list of events that trigger this workflow with the "on" property (2). In this case we want this workflow to be triggered whenever there is something happening that is related to a Pull Request (3). We want this particular workflow to be run for a specific set of types of pull_request events (4). To do this we specify a list of types: "opened", "reopened", "synchronize", and "edited". We also want to only run this workflow when the target branch of the PR is `main` so we add another filter for that (5).
 
-With that set up we now define the jobs that make up this workflow (6). This workflow consists of only a single job that is called `commitlint-pr-title`, or, to make it more human-readable we can give it a "name" property, like "Ensure proper PR title" (7). This job demands to be run on a runner that is labeled `ubuntu-latest` (8). The job is made up of a list of steps (9). The first step `uses` an action called `actions/checkout` (10). This action will do a lightweight clone the repository on the runner. Judging by the name of this action you can infer that it can be found at https://github.com/actions/checkout. All actions that start with `actions/` are part of the "official" actions and are maintained by GitHub. The next step also uses one of the official Actions called `actions/setup-node` and provides an "input" for this action using the `with` property (12) to pass the specific `node-version` that we want installed on this runner (13).
+With that set up we now define the jobs that make up this workflow (6). This workflow consists of only a single job that is called `commitlint-pr-title`, or, to make it more human-readable we can give it a "name" property, like "Ensure proper PR title" (7). This job demands to be run on a runner that is labeled `ubuntu-latest` (8). The job is made up of a list of steps (9). The first step `uses` an action called `actions/checkout` (10). This action will do a lightweight clone of the repository on the runner. Judging by the name of this action you can infer that it can be found at https://github.com/actions/checkout. All actions that start with `actions/` are part of the "official" actions and are maintained by GitHub. The next step also uses one of the official Actions called `actions/setup-node` and provides an "input" for this action using the `with` property (12) to pass the specific `node-version` that we want installed on this runner (13).
 
-While the previous two steps were using Actions, the next step runs a CLI command to install a dependency using the `run` property instead of `uses` (14). We will need this dependency in the final step of this job. To improve the readability of the workflow output we explicitly give this step a name (15). For he steps that don't receive a `name` property, the name in the output will simply be the name of the action or the raw CLI command that was run.
+While the previous two steps were using Actions, the next step runs a CLI command to install a dependency using the `run` property instead of `uses` that we've used in the steps before (14). We will need this dependency in the final step of this job. To improve the readability of the workflow output we explicitly give this step a name (15). For the steps that don't receive a `name` property, the name in the workflow output will simply be the name of the action or the raw CLI command that was run.
 
 The final step in this job is using another action, called `satellytes/commitlint-pr-title` (16).
 
-You might have noticed that whenever we use an action as a step we also specified some kind of version identifier alongside the name of the action: `actions/checkout@v2`. The name of the action is `actions/checkout` and the `@v2` in this case points to the tag `v2` in the repository of that action. These version identifiers can be any [Git Reference](https://git-scm.com/book/en/v2/Git-Internals-Git-References) that you want. It can be a branch name, a commit hash or a tag. The recommendation is to keep these as precise as possible, so avoid having a "version" of `@main`.
+You might have noticed that whenever we use an action as a step we also specified some kind of version identifier alongside the name of the action: `actions/checkout@v2`. The name of the action is `actions/checkout` and the `@v2` in this case points to the tag `v2` in the repository of that action. These version identifiers can be any [Git Reference](https://git-scm.com/book/en/v2/Git-Internals-Git-References) that you want. It can be a branch name, a commit hash or a tag. The recommendation is to keep these as precise as possible, so ideally you would avoid having a very imprecise "version" like `@main`.
 
-This workflow will produce output like this:
+This workflow will produce an output like this:
 ![The output of the workflow](./images/github-actions/workflow-output.jpg)
 
 ### Workflows in a GitHub repository
@@ -102,21 +102,21 @@ All the workflows in your repository can be found in a special tab called "Actio
 
 In this tab you can take a look at any of the past or ongoing workflow runs and their outputs and results.
 
-Workflows that are run as part of a PR will in addition appear in the "Checks" tab in a Pull Request:
+Workflows that are run as part of a PR will additionally appear in the "Checks" tab in a Pull Request:
 ![The Checks tab in a Pull Request](./images/github-actions/checks-tab.jpg)
 
 ## Actions
 So now that we've talked about where workflows are located and what they look like, let's go into more detail about the things that make up these workflows: Actions.
 
 ### Location of a GitHub Action
-Most of the time a single action corresponds to a single repository. The name of an action is simply its GitHub path. It’s made up of an owner and the name of the repository. Throughout the rest of this blog post we will be looking at an action called `satellytes/commitlint-pr-title`. It can be found at https://github.com/satellytes/commitlint-pr-title, note that the path in the URL matches the name of the action. You can also have multiple actions in a single repository, in which case you would add the subfolder to the name of the repository, like "satellytes/actions/my-action".
+Most of the time a single action corresponds to a single repository. The name of an action is simply its GitHub path. It’s made up of an owner and the name of the repository. Throughout the remainder of this section we will take a more detailed look at an action called `satellytes/commitlint-pr-title`. It can be found at https://github.com/satellytes/commitlint-pr-title, note that the path in the URL matches the name of the action. You can also have multiple actions in a single repository, in which case you would add the subfolder to the name of the repository, like "satellytes/actions/my-action".
 
-To browse available there is the [GitHub Marketplace](https://github.com/marketplace?type=actions) that has more than ten thousand publicly available Actions that are free for you to use. There are quite a lot of "official" actions like "actions/checkout" but there are far more community actions that basically cover everything that you could possibly want to do inside a workflow. That means that most of the time when you want to have a specific workflow it’s just a matter of putting together the right combination of public Actions in the right order.
+To browse available actions you can visit the [GitHub Marketplace](https://github.com/marketplace?type=actions) that has more than ten thousand publicly available Actions that are free for you to use. There are quite a lot of "official" actions like "actions/checkout" but there are far more actions provided by the community. They basically cover everything that you could possibly want to do inside a workflow. That means that most of the time when you want to have a specific workflow, it’s just a matter of putting together the right combination of public Actions in the right order.
 
-> You can very well use actions that are not in the marketplace. Adding them to the marketplace is a voluntary step but it’s a mere button click away and it makes it easier for others to find your action.
+> You can very well use actions that are not in the marketplace. Adding them to the marketplace is a voluntary step, but it’s a mere button click away and it makes it easier for others to find your action.
 
 ### Anatomy of an Action
-Actions are (usually) stored in a separate repository per action. Each action needs to provide a file called `action.yml` in its root folder that provides some metadata for the GitHub Actions Runner.
+Each action needs to provide a file called `action.yml` in its root folder that provides some metadata for the GitHub Actions Runner.
 
 #### The `action.yml` file
 Let's take a look at the `action.yml` file of the `satellytes/commitlint-pr-title` action:
@@ -144,12 +144,11 @@ This file also explains what is required to run this action. This is done using 
 
 As mentioned, there are two main categories of actions. There are JavaScript actions and Docker-based actions. This specific action is a JavaScript action which is executed using the NodeJs runtime. A Docker based Action would specify a value of "docker" as the `using` property here and instead of an entry file it would point to a Dockerfile. [Here](https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action) you can find more information about docker-based actions.
 
-Other things that this file also states are inputs that this action might accept (7) or outputs that it provides (not shown). In this case we have two inputs: `commitlintConfigFile` (8) and `helpUrl` (12). For each input we can specify a description (9), a default value (10) and whether or not this input is required (11).
+Other things that this file also states are inputs that this action might accept (7) or outputs that it provides (does not apply for this action). In this case we have two inputs: `commitlintConfigFile` (8) and `helpUrl` (12). For each input we can specify a description (9), a default value (10) and whether or not this input is required (11).
 
 #### The `main` entry file
-This is where we can finally talk about some actual code. In the case of the `satellytes/commitlint-pr-title` action the entry file `dist/index.js` is compiled and minified TypeScript so it wouldn't be a lot of fun to look at.
+This is where we can finally talk about some actual code. In the case of the `satellytes/commitlint-pr-title` action the entry file `dist/index.js` is compiled and minified from TypeScript sources so it wouldn't be a lot of fun to look at. So instead of looking at that `main` file directly, let's take a look at [the actual TypeScript source](https://github.com/satellytes/commitlint-pr-title/blob/main/src/main.ts):
 
-Let's take a look at the actual TypeScript [source](https://github.com/satellytes/commitlint-pr-title/blob/main/src/main.ts):
 ```ts
 import * as core from '@actions/core';
 import * as github from '@actions/github';
@@ -174,32 +173,32 @@ import { lint, formatResult } from './lint';
 })();
 ```
 
-We won't go into a lot of detail about what this code does. I'll leave this for you to explore.
+We won't go into a lot of detail about what this code does. I'll leave this as homework for you to explore.
 
-The main takeaway should be, that there are two important libraries that we are using: `@actions/core` and `@actions/github`. These two libraries provide a lot of utilities to interact with the process that is running on the GitHub runner. They allow you to fetch information about the event that triggered this workflow as well as make it easy to report the result of your action. You can get up close and personal with this code and explore the inner workings in [the repository](https://github.com/satellytes/commitlint-pr-title).
+The main takeaway should be, that there are two important libraries that we are using: `@actions/core` and `@actions/github`. These two libraries provide a lot of utilities to interact with the process that is running on the GitHub runner. They allow you to fetch information about the event that triggered this workflow as well as make it easy to report the result of your action. You can get up close and personal with this code and explore the inner workings in [the action's repository](https://github.com/satellytes/commitlint-pr-title).
 
-### Bundling an Action
-As we've seen in the previous subsection we can have pretty much any code we want, as long as we provide a main entry point for the GitHub runner to execute. There are thousands of ways to turn TypeScript into JavaScript. The one way that I found most comfortable was to use [`@vercel/ncc`](https://github.com/vercel/ncc) to transpile, compile and bundle this action. `ncc` is a CLI tool that supports TypeScript out of the box and is meant to ship a single file that contains everything needed, from your handwritten source code to anything from inside the depths of your `node_modules` that is required by your action.
+### Compiling and bundling an Action
+As we've seen in the previous subsection we can have pretty much any code we want, as long as we provide a main entry point for the GitHub runner to execute. There are thousands of ways to turn TypeScript into JavaScript. The one way that I found most comfortable was to use [`@vercel/ncc`](https://github.com/vercel/ncc) to transpile, compile and bundle this action. `ncc` is a CLI tool that supports TypeScript out of the box and is meant to ship a single file that contains everything that is needed, from your actual source code to everything from inside the depths of your `node_modules` folder that is required by your action.
 
-The file shown above is called `src/main.ts`. The bundling is done by calling `ncc build src/main.ts`. This will produce a file `dist/index.js` that we then point to in the `action.yml` file, as shown above.
+The TypeScript file shown above is called `src/main.ts`. The bundling is done by calling `ncc build src/main.ts`. This will produce a file `dist/index.js` that we then point to in the `action.yml` file, as shown above.
 
 There are a few pitfalls here:
-- If your action involves a build step, you need to remember to include the bundle in your repository, in this case the `dist` folder. For regular projects this is most often not the case. Generally we don't want to include generated code in our repository. In this case you need to resist your urge to add `dist` to your `.gitignore` file.
-- You need to remember to run your build/bundle step whenever you change your source code and commit this artifact with your code changes. This is important for the compiled code in your repository to not get outdated.
+- If your action involves a build step (like compiling TypeScript to JavaScript), you need to remember to include the generated bundle in your repository, in this case the `dist` folder. For regular projects this is not the case most of the time. Generally we don't want to include generated code in our repository. In this case you need to resist your urge to add `dist` to your `.gitignore` file.
+- You need to remember to run your build/bundle step whenever you change your source code and commit this artifact alongside your code changes. This is important for the compiled code in your repository to not get outdated. I've spent more time than I'm comfortable to admit, trying to figure out why a certain change didn't affect my action until I realized that I didn't recompile the code before committing.
 
-> 💡 Having a `pre-commit` hook that runs your build and bundle step is a great way to automate this.
+> 💡 Having a `pre-commit` hook that runs your build/bundle step is a great way to automate this.
 
 ## Inspiration: example workflows
-Now that you know what workflows and actions look up close, let's take a look at some of the workflows that we are using to make our daily lives more comfortable. We are after all developers and we are known to be lazy, aren't we?
+Now that you know what workflows and actions look up close, let's take a look at some of the workflows that we are using in one of our client's project to make our daily lives more comfortable. We are after all developers and we are known to be lazy, aren't we?
 
 #### "Pull Request checks"
-The workflow and the action that we've talked about so far in this blog post are of course one of these examples. Let me describe the problem that we are solving with this workflow.
+The workflow and the action that we've talked about so far in this blog post are of course one of these examples.
 
 **What problem does it solve?**
 In a lot of our projects we are using the `squash` method to merge Pull Requests. That means that the title of a Pull Request will end up being the commit message of a commit in our `main` branch. For local development we've set up a tool called `commitlint` to make sure our developers adhere to the rules for commit messages that we agreed on. This is enforced using a git hook, which checks each commit and ensures that the developer provides a valid commit message. However, when creating a Pull Request in GitHub there is no straightforward way to enforce these same rules.
 
 **How does it solve the problem?**
-The configuration for `commitlint` is stored alongside our code, in the same repository. The action that we are using is using that same configuration that we are using in the git hooks on the developers' machines to lint the titles of our Pull Requests. In GitHub we've set up ["branch protection rules"](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule) that requires the workflow to pass successfully before a Pull Request is allowed to be merged. This way we ensure that any squashed commit that arrives in `main` will follow the same guidelines that we use during out local development.
+The configuration for `commitlint` is stored alongside our code, in the same repository. The `commitlint-pr-title` action is used to lint the titles of Pull Request and most importantly it is using the same configuration that we use locally to lint commit messages. This means these configurations will never get out of sync and we only need to maintain them in a single place. In GitHub we've set up ["branch protection rules"](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule) that requires the workflow to pass successfully before a Pull Request is allowed to be merged. This way we ensure that any squashed commit that arrives in `main` will follow the same guidelines that we use during out local development.
 
 ![A check on a Pull Request to verify that the title passes our commit linting](./images/github-actions/pr-checks.jpg)
 
@@ -207,7 +206,7 @@ The configuration for `commitlint` is stored alongside our code, in the same rep
 This workflow is run for all new issues that are being opened in our repository.
 
 **What problem does it solve?**
-We are using a "Project" in GitHub, which is like a Kanban board to organize issues. We only have a single project that we use to organize all our issues. To make this work we need to add new issues to this project so that they appear on the project board. During our meetings we mostly look at this project board to triage new issues. Because we forgot to add some of the new issues from time to time, we forgot to talk about them during our refinements and so we never addressed some of them.
+We are using a "Project" in GitHub, which is like a Kanban board to organize issues. We only have a single project that we use to organize all our issues. To make this work, we need to add any new issue to this project so that it appears on the project board. During our meetings we mostly look at this project board to triage new issues. Because we forgot to add some of the new issues from time to time, we forgot to talk about them during our refinements and so we never addressed some of them.
 
 **How does it solve the problem?**
 This workflow consists entirely of already available actions so it was pretty much a plug & play experience. All it does is, whenever there is a new issue, it adds it to our project. In every meeting in which we look at our project board we can now be sure that all new issues are listed in our backlog. This is especially relieving for issues that got created by some external party that is not aware of our GitHub project.
