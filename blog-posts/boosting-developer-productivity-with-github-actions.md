@@ -18,13 +18,7 @@ Let’s start with everyone’s favorite when it comes to new technology: termin
 Even though it’s called "GitHub Actions", the main thing that you will deal with are going to be "Workflows".
 
 #### Workflow
-Workflows are what other automation platforms most often refer to as "pipelines". They are the biggest logical chunk in this architecture and they themselves are made up of 1 or more "jobs".
-
-#### Job
-Each job is itself made up of 1 or more "steps".
-
-#### Step
-These steps can be either arbitrary CLI commands like `yarn install` or they can use an "Action".
+Workflows are what other automation platforms most often refer to as "pipelines". They are the biggest logical chunk in this architecture and they themselves are made up of 1 or more "jobs". Each job is itself made up of 1 or more "steps". These steps can be either arbitrary CLI commands like `yarn install` or they can use an "Action".
 
 #### Action
 Actions can be either pure JavaScript or Docker-based and you can mix them however you like in a single job. So you can easily have a job that runs a CLI command as a first step, then uses a JavaScript action followed by a Docker action.
@@ -207,6 +201,7 @@ In a lot of our projects we are using the `squash` method to merge Pull Requests
 **How does it solve the problem?**
 The configuration for `commitlint` is stored alongside our code, in the same repository. The action that we are using is using that same configuration that we are using in the git hooks on the developers' machines to lint the titles of our Pull Requests. In GitHub we've set up ["branch protection rules"](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule) that requires the workflow to pass successfully before a Pull Request is allowed to be merged. This way we ensure that any squashed commit that arrives in `main` will follow the same guidelines that we use during out local development.
 
+![A check on a Pull Request to verify that the title passes our commit linting](./images/github-actions/pr-checks.jpg)
 
 #### "New issues"
 This workflow is run for all new issues that are being opened in our repository.
@@ -217,6 +212,8 @@ We are using a "Project" in GitHub, which is like a Kanban board to organize iss
 **How does it solve the problem?**
 This workflow consists entirely of already available actions so it was pretty much a plug & play experience. All it does is, whenever there is a new issue, it adds it to our project. In every meeting in which we look at our project board we can now be sure that all new issues are listed in our backlog. This is especially relieving for issues that got created by some external party that is not aware of our GitHub project.
 
+![New issue was added to the backlog](./images/github-actions/new-issues.jpg)
+
 #### "Create release"
 We are also making use of Releases in GitHub. These are meant to keep a neat history of released versions of our libraries. This is particularly nice because GitHub users can "subscribe" to our repository and choose to be notified if there is a new release.
 
@@ -226,8 +223,32 @@ Creating releases, so far, has been a manual process. So every time our Jenkins 
 **How does it solve the problem?**
 The workflow that we are using to do this is a mixture of publicly available actions and a shell script to extract the change in the `CHANGELOG.md` file. It get's triggered whenever the repository receives a new `tag` and it automatically creates the release in GitHub. This is just one more thing off our minds, one less thing to worry about when the release panic hits.
 
+![A release created by github-actions](./images/github-actions/release.jpg)
+
+#### "Stale issues"
+As part of the issue management we need to keep track of old issues.
+
+**What problem does it solve?**
+As our repository grows and evolves so does the number of issues that accumulate. Over time some of these issues become obsolete.
+
+**How does it solve the problem?**
+Using a scheduled GitHub Workflow that runs once every night we mark "old" issues (90 days without interaction) as stale. This workflow uses the official `actions/stale` action. If a stale issue is not being interacted with within 5 days it will get closed automatically. If an issue gets marked as stale and the team agrees that it's still relevant during the next refinement meeting, we remove the `stale` label.
+
+![github-actions marking an issue as stale](./images/github-actions/stale-issue.jpg)
+
+#### "Release comments"
+We use keywords in Pull Requests like `closes`, `fixes`, or `resolves` to automatically close issues that are done from a development point of view.
+
+**What problem does it solve?**
+With issues being closed when a corresponding Pull Request got closed it's sometimes hard to keep track of the release that a certain fix or feature got published with.
+
+**How does it solve the problem?**
+This GitHub Workflow leaves a comment on released issues that informs any subscriber about the specific release that shipped the changes necessary to close the issue. This is done using a custom bash script that reads the CHANGELOG and extracts all issues that got published as part of the latest release. This list of released issues is then being passed to a custom action that uses GitHub GraphQL API to leave comments on these issues.
+
+![A comment by github-actions that points to the corresponding release](./images/github-actions/release-comment.jpg)
+
 #### "Housekeeping"
-Housekeeping is an important aspect of the fast-paced frontend world. We used to have an issue to remind us to update our dependencies every once in a while. As with a lot of manual processes we forgot to do this from time to time. Especially when it comes to important vulnerability fixes it’s important to keep up to date. We now have a workflow to take care of that once a week using a scheduled event. With integrated tools like "Dependabot" this workflow might be obsolete soon, but so far we enjoy the fact that we are in full control of the workflow and can tweak and configure to our hearts content.
+Housekeeping is an important aspect of the fast-paced frontend world. We used to have an issue to remind us to update our dependencies every once in a while. As with a lot of manual processes we forgot to do this from time to time. Especially when it comes to important vulnerability fixes it’s important to keep up to date. We now have a workflow to take care of that once a week using a scheduled event. With integrated tools like "Dependabot" this workflow might be obsolete soon, but so far we enjoy the fact that we are in full control of the workflow and can tweak and configure it to our hearts content.
 
 ## Driven by laziness
 Most of these examples are driven by laziness or the very human forgetfulness. It's the laziness to not assign a certain project to a new issue or the laziness to not run `yarn upgrade` once in a while. Basically the point of this blog post is to inspire you with the inherent laziness that I discovered in myself over the past few years. 
