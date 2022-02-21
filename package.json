@@ -84,7 +84,7 @@
     "react-i18next": "^11.15.4",
     "react-leaflet": "^3.2.5",
     "react-share": "^4.4.0",
-    "react-spring": "^9.4.2",
+    "react-spring": "^9.4.3",
     "react-use": "^17.3.2",
     "rehype-react": "^7.0.4",
     "sass": "^1.49.0",
