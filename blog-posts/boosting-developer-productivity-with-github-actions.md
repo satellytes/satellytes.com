@@ -37,7 +37,7 @@ In case you need a very special environment or would like to have more control o
 
 Runners can have different labels so they can be easily targeted in a workflow. All publicly available runners have labels like `ubuntu-latest` or `windows-latest` to reveal the underlying operating system. There can also be other labels like `x64` or `gpu` to reveal information about the architecture.
 
-## Workflows
+## Workflows in detail
 With all that terminology out of the way, let's talk about workflows in more detail. Where are they stored, what do they look like from the inside and the outside?
 
 ### Location of a GitHub Workflow
@@ -109,7 +109,7 @@ In this tab you can take a look at any of the past or ongoing workflow runs and 
 Workflows that are run as part of a PR will additionally appear in the "Checks" tab in a Pull Request:
 ![The Checks tab in a Pull Request](./images/github-actions/checks-tab.jpg)
 
-## Actions
+## Actions in detail
 So now that we've talked about where workflows are located and what they look like, let's go into more detail about the things that make up these workflows: Actions.
 
 ### Location of a GitHub Action
