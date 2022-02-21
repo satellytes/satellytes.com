@@ -7,6 +7,8 @@ import { up } from '../../support/breakpoint';
 import { theme } from '../../layout/theme';
 import { CodeBlock } from './code-block';
 import { TextStyles } from '../../typography';
+import { Stat } from '../../content/markdown/stats';
+import { SectionHeader } from '../../content/section-header/section-header';
 
 /**
  * Override markdown generated html content with custom React components (for us mostly to pass in custom styling)
@@ -204,6 +206,16 @@ const customSatellytesComponents = {
   },
   figcaption(props) {
     return <Figcaption>{props.children}</Figcaption>;
+  },
+  stat(props) {
+    return <Stat title={props.title} content={props.content}></Stat>;
+  },
+  sectionheader(props) {
+    return (
+      <SectionHeader headline={props.headline} kicker={props.kicker}>
+        {props.children}
+      </SectionHeader>
+    );
   },
 };
 
