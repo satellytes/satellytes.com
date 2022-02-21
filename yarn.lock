@@ -15103,10 +15103,10 @@ react-draggable@^4.4.3:
     clsx "^1.1.1"
     prop-types "^15.6.0"
 
-react-dropzone@^12.0.1:
-  version "12.0.1"
-  resolved "https://registry.yarnpkg.com/react-dropzone/-/react-dropzone-12.0.1.tgz#926d8537405845fa058869e70d7829938eca5552"
-  integrity sha512-E//nFCJfb8eDZ0zI9bOZ/v+8DOwK+7IY76Fv8u8ogfqX/d/K+32EWkFQ2+O9kF8XfUAyGtSA4cKvCjW4o78Qgg==
+react-dropzone@^12.0.4:
+  version "12.0.4"
+  resolved "https://registry.yarnpkg.com/react-dropzone/-/react-dropzone-12.0.4.tgz#b88eeaa2c7118f7fd042404682b17a1d466f2fcf"
+  integrity sha512-fcqHEYe1MzAghU6/Hz86lHDlBNsA+lO48nAcm7/wA+kIzwS6uuJbUG33tBZjksj7GAZ1iUQ6NHwjUURPmSGang==
   dependencies:
     attr-accept "^2.2.2"
     file-selector "^0.4.0"
