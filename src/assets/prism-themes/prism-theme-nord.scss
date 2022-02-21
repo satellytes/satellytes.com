@@ -36,6 +36,17 @@ pre[class*="language-"] {
     background: #2E3440;
 }
 
+pre[class*="language-"].line-numbers {
+    padding-left: 4em;
+}
+
+pre[class*="language-"].line-numbers .line-numbers-rows {
+    top: 1em;
+    // .line-numbers-rows has an inline style of "left: 0px"
+    // so unfortunately we need the !important here
+    left: 1em !important;
+}
+
 /* Inline code */
 :not(pre) > code[class*="language-"] {
     padding: .1em;
@@ -120,5 +131,3 @@ pre[class*="language-"] {
 .token.entity {
     cursor: help;
 }
-
-

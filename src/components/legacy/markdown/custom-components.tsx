@@ -190,7 +190,7 @@ const customSatellytesComponents = {
     return <span>{props.children}</span>;
   },
   pre(props) {
-    return <CodeBlock>{props.children}</CodeBlock>;
+    return <CodeBlock {...props}>{props.children}</CodeBlock>;
   },
   table(props) {
     return (
