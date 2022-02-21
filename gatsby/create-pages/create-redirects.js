@@ -36,8 +36,16 @@ const REDIRECTS = [
     toPath: '/de/imprint/',
   },
   {
+    fromPath: '/office/',
+    toPath: '/about-us/',
+  },
+  {
     fromPath: '/blog/scoped-registry/',
     toPath: '/blog/enterprises-benefit-from-scoped-npm-registries/',
+  },
+  {
+    fromPath: '/de/blog/monorepo-codeowner-github-enterprise/',
+    toPath: '/blog/monorepo-codeowner-github-enterprise/',
   },
 ];
 
