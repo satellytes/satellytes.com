@@ -79,7 +79,7 @@ Man sieht auch, dass nicht bei allen der Platz oder das Umfeld gegeben ist um en
 <small>Ja, es gab sie wirklich!</small>
 <br />
 
-**Eric:** Ja, die Lasagne war Bombe! Dafür habe ich sogar den Schnitt im Daumen in Kauf genommen (lacht). Das war eine tolle Sache.
+**Eric:** Ja, die Lasagne war genial! Dafür habe ich sogar den Schnitt im Daumen in Kauf genommen (lacht). Das war eine tolle Sache.
 Aber im Ernst: Ich glaube, dass das komplett vom Typ abhängig ist. Manche Leute _wollen_ auch wieder mehr vom Büro arbeiten, weil sie wieder regelmäßig den Austausch mit den Kolleg:innen haben wollen. Ich glaube tatsächlich, dass die Social Benefits für die Kolleg:innen schon am wichtigsten sind, wenn sie überlegen, ob sie wieder mehr oder sogar regelmäßig vom Büro aus arbeiten wollen.
 
 **Gholam:** Ich stimme da voll mit Eric überein. Ich glaube tatsächlich, dass der Spaß bei der gemeinsamen Zusammenarbeit eine wichtige Voraussetzung dafür war, dass es auch remote so gut geklappt hat. Deswegen sehe ich das als Elementar wichtig an, dass man sich auch zukünftig wieder trifft und persönlich kennenlernt. Dann habe ich auch keine Sorgen, dass die Zusammenarbeit anschließend unabhängig vom Ort gut funktioniert.
