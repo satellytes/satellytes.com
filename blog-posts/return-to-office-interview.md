@@ -67,7 +67,7 @@ Vor Corona ist es schon regelmäßig passiert, dass man sich mal an der Kaffeema
 **Die Fallzahlen sinken ja wieder. Es ist absehbar, dass die Home-Office-Pflicht bald ausläuft. Trotzdem überlegen viele, wie sie zukünftig arbeiten wollen. Welche Gründe seht ihr, warum die Leute vom Büro aus arbeiten wollen?**
 
 **Gholam:** Die Motivation dazu ist meiner Meinung nach sehr von den individuellen Vorlieben und Voraussetzungen jedes Einzelnen abhängig. Wir spüren zum Beispiel, dass viele auch einfach Lust darauf haben, ihre Kollegen wieder häufiger zu sehen um unmittelbarer zusammenarbeiten oder auch mal nur gemeinsam Mittag essen gehen zu können.
-Man sieht aber auch, dass nicht bei allen der Platz oder das Umfeld gegeben ist um entspannt von zu Hause aus arbeiten zu können. Wenn ich in meiner Wohnung wenig Platz habe und jeden Mittag um 12 Uhr die Kinder von der Schule kommen und beschäftigt werden wollen, bin ich wahrscheinlich auch einfach froh darüber einen ruhigen Ort – in dem Fall das Büro – zu haben, von dem ich konzentriert aus arbeiten kann.
+Man sieht auch, dass nicht bei allen der Platz oder das Umfeld gegeben ist um entspannt von zu Hause aus arbeiten zu können. Wenn ich in meiner Wohnung wenig Platz habe und jeden Mittag um 12 Uhr die Kinder von der Schule kommen und beschäftigt werden wollen, bin ich wahrscheinlich auch einfach froh darüber einen ruhigen Ort – in dem Fall das Büro – zu haben, von dem ich konzentriert aus arbeiten kann.
 
 **Welche konkreten Vorteile seht ihr darin, wenn wieder mehr Mitarbeiter häufiger gemeinsam vom Büro aus zu arbeiten?**
 
