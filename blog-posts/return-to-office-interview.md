@@ -20,7 +20,7 @@ Wir dachten uns, dass ist genau der richtige Zeitpunkt unsere CEOs zu fragen: Wi
 
 **Gholam:** Ich plane wieder relativ häufig, wenn nicht sogar täglich, vom Office aus zu arbeiten.
 Ich habe festgestellt, dass meine Effektivität abnimmt, je länger ich gezwungen bin im Home-Office zu arbeiten. Mir hilft der regelmäßige Wechsel ins Office enorm, mich auf die Arbeit einzustellen.
-Es wird aber kein typischer Arbeitstag mit regulären Zeiten werden. Das war es ja vor der Pandemie auch nicht. Mir war es schon immer wichtig, meine Arbeitszeiten im Einklang mit meiner Familie zu gestalten. Wenn ich z.B. meinen Sohn zuerst in die Schule gebracht habe, hat mein Bürotag auch einmal erst um 10 Uhr angefangen. Das war dann halt so. Und das war dann auch gut so.
+Es wird aber kein typischer Arbeitstag mit regulären Zeiten werden, das war es ja vor der Pandemie auch nicht. Mir war es schon immer wichtig, meine Arbeitszeiten im Einklang mit meiner Familie zu gestalten. Wenn ich z.B. meinen Sohn zuerst in die Schule gebracht habe, hat mein Bürotag auch einmal erst um 10 Uhr angefangen. Das war dann halt so. Und das war dann auch gut so.
 
 **Eric:** Ich sehe das ganz ähnlich. Auch ich werde wieder größtenteils vom Büro aus arbeiten. Es wird aber auch immer wieder Ausnahmen geben: Wenn ich mich auf ein komplexes, operatives Thema konzentrieren will, werde ich auch in Zukunft vom Home-Office aus arbeiten. Die letzten beiden Jahre haben mir gezeigt, dass es super effektiv sein kann, Slack und Telefon einmal für ein paar Stunden auszuschalten, damit ich mich voll und ganz auf ein Thema fokussieren kann. Dieses von der Außenwelt abschotten ist im Büro natürlich nicht ganz möglich.
 Aber ich freue mich trotzdem sehr, wieder enger mit den Kollegen im Büro zusammenarbeiten zu können.
@@ -36,7 +36,7 @@ Ich will auch sicherstellen, dass ich für alle unsere Mitarbeiter bestmöglich 
 Aber dennoch hat uns die Zeit gut getan. Wir konnten unsere Projekte und Kundenbeziehungen konsolidieren und haben uns auf persönlicher Ebene, aber auch als Firma, weiterentwickelt.
 Vielleicht wären wir ohne Corona schneller gewachsen, aber das ist sekundär. Wichtiger war meines Erachtens, dass wir es geschafft haben uns an die neuen Bedingungen anzupassen um damit den Kunden zu beweisen, dass wir auch unter diesen neuen Voraussetzungen sehr gute Ergebnisse liefern können.
 
-**Gholam:** Ich empfand die letzten beiden Jahre als überragend. Wir haben als Firma und in den Teams sehr gut funktioniert. Wir haben alle unserer Projekte gestemmt und auch die Phasen, in denen in der Industrie große Unsicherheit bestanden hat, gut überstanden. Auch in der Phase Anfang 2019 wo das Auftragsvolumen erst einmal deutlich eingebrochen ist, konnten wir relativ schnell wieder zu 100% Auslastung zurückkehren. Das lag vor allem auch an unseren Mitarbeitern, die auf die Situation gut reagiert haben.Top! \
+**Gholam:** Ich empfand die letzten beiden Jahre als überragend. Wir haben als Firma und in den Teams sehr gut funktioniert. Wir haben alle unserer Projekte gestemmt und auch die Phasen, in denen in der Industrie große Unsicherheit bestanden hat, gut überstanden. Auch in der Phase Anfang 2020 wo das Auftragsvolumen erst einmal deutlich eingebrochen ist, konnten wir relativ schnell wieder zu 100% Auslastung zurückkehren. Das lag vor allem auch an unseren Mitarbeitern, die auf die Situation gut reagiert haben.Top!
 Unser Konzept bei der Einstellung von Mitarbeitern hat sich gerade in der Situation als absolut richtig erwiesen. Gerade weil wir durchweg Leute in der Firma haben, die eigenverantwortlich arbeiten, die über den Tellerrand hinaus schauen können, die mitdenken und aus eigenem Antrieb anderen helfen, haben wir die herausfordernde Situation der letzten beiden Jahr so gut bewältigen können.
 
 **Wie produktiv war die Arbeit vom Home-Office aus? War das für euch befriedigend?**
@@ -55,8 +55,8 @@ Nur mal als Beispiel: Fabian hat sich bereit erklärt die Weihnachtsfeier zu pla
 
 <br />
 
-![Virtuelle Weihnachtsfeier @ Satellytes. 🙏 Georgios and Fabian für die Organisation!](images/return-to-office-interview-christmas-party.png)
-<small>Virtuelle Weihnachtsfeier @ Satellytes. 🙏 Georgios and Fabian für die Organisation!</small>
+![Virtuelle Weihnachtsfeier @ Satellytes. Danke an Georgios and Fabian für die Organisation!](images/return-to-office-interview-christmas-party.png)
+<small>Virtuelle Weihnachtsfeier @ Satellytes. Danke and Georgios and Fabian für die Organisation!</small>
 
 <br />
 
@@ -75,8 +75,8 @@ Man sieht aber auch, dass nicht bei allen der Platz oder das Umfeld gegeben ist 
 
 <br />
 
-![Ja, es gab sie wirklich! Der Nachwweis für Gholam's Kochkünste!](images/return-to-office-interview-lasagna.jpg)
-<small>Ja, es gab sie wirklich! Der Nachwweis für Gholam's Kochkünste!</small>
+![Ja, es gab sie wirklich!](images/return-to-office-interview-lasagna.jpg)
+<small>Ja, es gab sie wirklich!</small>
 <br />
 
 **Eric:** Ja, die Lasagne war Bombe! Dafür habe ich sogar den Schnitt im Daumen in Kauf genommen (lacht). Das war eine tolle Sache.
@@ -85,7 +85,7 @@ Aber im Ernst: Ich glaube, dass das komplett vom Typ abhängig ist. Manche Leute
 **Gholam:** Ich stimme da voll mit Eric überein. Ich glaube tatsächlich, dass der Spaß bei der gemeinsamen Zusammenarbeit eine wichtige Voraussetzung dafür war, dass es auch remote so gut geklappt hat. Deswegen sehe ich das als Elementar wichtig an, dass man sich auch zukünftig wieder trifft und persönlich kennenlernt. Dann habe ich auch keine Sorgen, dass die Zusammenarbeit anschließend unabhängig vom Ort gut funktioniert.
 Klar, kann das auch bedeuten, dass vom Büro aus nicht so effizient gearbeitet wird, als dies im Home-Office der Fall wäre. Aber ich bin bereit diesen Effizienzverlust in Kauf zu nehmen, wenn es bedeutet, dass wir als Team enger zusammen rücken und langfristig besser und zufriedener zusammen arbeiten können. Das halte ich für sehr wichtig.
 
-**Eric:** Darüber hinaus hilft natürlich die räumliche Nähe bei der Zusammenarbeit zwischen den Disziplinen. Wenn ich z.B. Felix auf dem Weg in die Küche sehe, fällt es mir wahrscheinlich eher mal ein zu fragen “Hey, brauchst du eigentlich noch eine Design Review? Kann ich dir irgendwie helfen?” \
+**Eric:** Darüber hinaus hilft natürlich die räumliche Nähe bei der Zusammenarbeit zwischen den Disziplinen. Wenn ich z.B. Felix auf dem Weg in die Küche sehe, fällt es mir wahrscheinlich eher mal ein zu fragen “Hey, brauchst du eigentlich noch eine Design Review? Kann ich dir irgendwie helfen?”
 Und diese ganzen bilateralen Kleinigkeiten abseits von Terminen lassen so ein schönes Gefühl von Fürsorge entstehen, die nicht nur beruflich, sondern auch privat ein schöneres Gemeinsamkeitsgefühl und eine Zusammengehörigkeit entstehen lassen. Davon profitiert jeder einzelne Mitarbeiter.
 Und wenn man zusammen im Office arbeitet, hat man auch mehr das Gefühl, dass um einen herum was passiert – wie in einem Bienenstock, da hört und sieht und spürt man dieses motivierende Summen.
 
@@ -116,14 +116,14 @@ Ich glaube aber auch, dass es einfach Bequemlichkeit ist bzw. “Convenience”,
 <br />
 
 ![Felix im virtuellen Office](images/return-to-office-interview-felix.png)
-<small>Auch virtuell wurde bei Satellytes auf ein ordentliches Erscheiungsbild geachtet!</small>
+<small>Auch virtuell wurde bei Satellytes stets auf ein professionelles Erscheiungsbild geachtet!</small>
 
 <br />
 
 **Eric:** Nein, aber mal ehrlich ... Ich kann morgens direkt den Rechner aufklappen und bin voll im Fokus und kann dann Pause und meine Morgenroutine machen, wenn die Konzentration das erste Mal nachlässt. Wenn ich vom Büro aus arbeite, ist mein Morgen weniger flexibel planbar.
 Allgemeiner gefasst, kann man sagen: Die Remote-Arbeit erlaubt jedem, die eigene Routine zu finden, die am besten geeignet ist um gut und effizient arbeiten zu können.
 
-**Gholam:** Darüber hinaus glaube ich, dass vor allem die freie Ortswahl ein Grund ist, dass die Leute Gefallen an der Remote-Arbeit gefunden haben. Arthur z.B. hatte vor der Pandemie jeden Tag 70 Kilometer zur Arbeit gehabt. Das sind bis zu zwei Stunden, die täglich verloren gehen. Nach zwei Jahren funktionierendem Home-Office, stellt sich dann natürlich die Frage: Ist das wirklich jeden Tag nötig? \
+**Gholam:** Darüber hinaus glaube ich, dass vor allem die freie Ortswahl ein Grund ist, dass die Leute Gefallen an der Remote-Arbeit gefunden haben. Arthur z.B. hatte vor der Pandemie jeden Tag 70 Kilometer zur Arbeit gehabt. Das sind bis zu zwei Stunden, die täglich verloren gehen. Nach zwei Jahren funktionierendem Home-Office, stellt sich dann natürlich die Frage: Ist das wirklich jeden Tag nötig?
 Damit einher geht die bessere Vereinbarkeit von Familie und Beruf. Ich kann mich noch an Projekte erinnern, wo es Pflicht war spätestens um 9:00 Uhr vor Ort zu sein und in die Tasten zu hauen.
 In der Zeit, musste ich davor aber auch jeden Morgen meinen Sohn zur Kita bringen. Das hieß dann morgens mit S-Bahn, Bus und Fussweg von Milbertshofen im Norden nach Untermenzingen in die Kita. Danach dann mit Bus und S-Bahn zur Arbeit. Das war schon ein brutaler Stress, den ich jeden Morgen hatte. Praktisch hieß das, dass ich spätestens um 7:00 Uhr das Haus verlassen musste, damit ich auch garantiert um 9:00 Uhr pünktlich im Büro sein konnte.
 Wenn so ein Zwang wegfällt, ist man ganz automatisch auch entspannter und kann mehr Energie in die Arbeit investieren.
