@@ -3,6 +3,7 @@ path: "/blog/typescript-ast-type-checker/"
 date: "2021-06-18"
 title: "Going beyond the Abstract Syntax Tree (AST) with the TypeScript Type Checker"
 seoMetaText: How to analyze a typescript file beyond the Abstract Syntax Tree (AST) with the TS type checking utility "checker.ts"
+teaserText: How to analyze a typescript file beyond the Abstract Syntax Tree (AST) with the TS type checking utility "checker.ts"
 author: Georgios Kaleadis
 authorSummary: "CTO at Satellytes"
 featuredImage: images/johann-siemens-EPy0gBJzzZU-unsplash.jpg

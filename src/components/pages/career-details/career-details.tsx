@@ -4,7 +4,8 @@ import { CareerForm } from './career-form/career-form';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { JobDescription } from './job-description';
 import { SyPersonioJob } from '../../../types';
-import { AuroraHero } from '../../content/heroes';
+import { SectionHeader } from '../../content/section-header/section-header';
+import { ContentBlockContainer } from '../../layout/content-block-container';
 
 interface CareerDetailsProps {
   originalPath: string;
@@ -38,16 +39,16 @@ export const CareerDetails = ({
     <Layout
       siteTitleUrl="/career/"
       light={true}
-      transparentHeader={true}
       translation={complementPath}
-      hero={
-        <AuroraHero kicker={t('career.position')} title={position.name}>
-          {position.short}
-        </AuroraHero>
-      }
       breadcrumb={breadcrumb}
       showLanguageSwitch={Boolean(complementPath)}
     >
+      <ContentBlockContainer>
+        <SectionHeader headline={position.name} kicker={t('career.position')}>
+          {position.short}
+        </SectionHeader>
+      </ContentBlockContainer>
+
       <JobDescription sections={position.sections} />
 
       <CareerForm

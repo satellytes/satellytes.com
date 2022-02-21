@@ -28,7 +28,8 @@ const Input = styled.input<{ hasError?: boolean }>`
 `;
 
 export const Label = styled.label`
-  ${TextStyles.textXS}
+  ${TextStyles.label}
+
   display: block;
   margin-bottom: 4px;
 
@@ -36,8 +37,8 @@ export const Label = styled.label`
 `;
 
 export const StyledErrorMessage = styled.span`
-  ${TextStyles.textXS}
-  font-weight: 700;
+  ${TextStyles.errorMessage}
+
   display: block;
   margin-top: 4px;
 
