@@ -61,7 +61,7 @@ Nur mal als Beispiel: Fabian hat sich bereit erklärt die Weihnachtsfeier zu pla
 <br />
 
 **Eric:** Klar auf der zwischenmenschlichen Ebene oder innerhalb der Teams hat das weiter sehr gut funktioniert. Die Teams haben schnell gemerkt, dass sie sich die Zeit nehmen müssen und auch dürfen, auch mal über Dinge außerhalb der Arbeit zu plaudern.
-Aber trotzdem habe ich persönlich vieles Vermisst, was vor Corona selbstverständlich war. Man trifft sich zwar immer noch häufig in Zoom-Meetings, aber da hat man immer eine Agenda. Der kurze Small-Talk am Anfang und am Ende ist für mich persönlich kein Ersatz für die längeren Zusammentreffen, die im Büroalltag ständig zustande kommen.
+Aber trotzdem habe ich persönlich vieles vermisst, was vor Corona selbstverständlich war. Man trifft sich zwar immer noch häufig in Zoom-Meetings, aber da hat man immer eine Agenda. Der kurze Small-Talk am Anfang und am Ende ist für mich persönlich kein Ersatz für die längeren Zusammentreffen, die im Büroalltag ständig zustande kommen.
 Vor Corona ist es schon regelmäßig passiert, dass man sich mal an der Kaffeemaschine über den Weg gelaufen ist und sich dann auch mal länger über irgendein Casual-Thema unterhalten hat. Außerdem sind wir auch ständig gemeinsam zum Mittagessen gegangen. Dabei hat man mehr Zeit gefunden über Dinge zu reden, die über die aktuellen Projektthemen hinausgehen. Und genau diese Feinheiten und Hintergründe braucht es meiner Meinung nach, damit ich auf unsere Kolleg:innen richtig eingehen und bei Bedarf helfen kann.
 
 **Die Fallzahlen sinken ja wieder. Es ist absehbar, dass die Home-Office-Pflicht bald ausläuft. Trotzdem überlegen viele, wie sie zukünftig arbeiten wollen. Welche Gründe seht ihr, warum die Leute vom Büro aus arbeiten wollen?**
