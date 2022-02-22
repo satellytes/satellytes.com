@@ -141,3 +141,8 @@ Insgesamt vertrauen wir, was die Frage angeht, ganz auf unsere Mitarbeiter. Wir 
 
 **Gholam:** Ja, das ist auf jeden Fall etwas was wir in Betracht ziehen. Du bist da bereits der erste Angestellte, bei dem bei der Einstellung schon feststand, dass du Vollzeit Remote von Fulda aus arbeiten wirst. Und weil das so gut geklappt hat, ziehen wir bei der Besetzung von offenen Stellen auch jetzt schon Leute in Betracht, die nicht in München leben und auch nicht für die Arbeit dorthin umziehen wollen.
 Im Detail ist das aber noch etwas, was wir für uns erarbeiten müssen... Welche Voraussetzungen zum Beispiel geschaffen werden müssen, um einen Kollegen aus Brasilien im Team begrüßen zu dürfen, das wissen wir noch nicht. Deswegen suchen wir im ersten Schritt auch erstmal Kolleg:innen im deutschen Raum.
+
+**Danke Eric, danke Gholam für den Einblick in eure Erfahrungen und Erwartungen zur Corona- und Return-to-Office Situation.**
+**Ich persönlich freue mich schon sehr darauf euch alle bald wieder persönlich im neue Office sehen zu können!**
+**Mit etwas Glück darf ich dann ja vielleicht auch schon die neuen Kolleg:innen kennenlernen.**
+**Dafür fahre ich natürlich auch gerne wieder nach München!**
