@@ -132,8 +132,10 @@ Wenn so ein Zwang wegfällt, ist man ganz automatisch auch entspannter und kann 
 
 **Gholam:** Das werden wir unseren Kolleg:innen komplett frei stellen. Wir wollen da keine festen Vorgaben machen. Von Vollzeit Remote, Vollzeit Büro und allem was dazwischen denkbar ist, werden wir den Kolleg:innen die Freiheit geben, ihren Arbeitsrhythmus so zu planen, dass sie gut arbeiten können.
 
-**Eric:** Als einzige Ausnahme sehen wir hier Senior- bzw. Manager-Aufgaben. Ein Beispiel: Zum Mentoring gehört ja nicht nur das Weitergeben von Hard Skills, sondern auch von Soft Skills und das funktioniert in persona einfach erfahrungsgemäß besser als remote.
-Aber ich glaube, das pendelt sich ohne Vorgaben unsererseits schon richtig ein, denn es ist immer wahnsinnig schön, den Lerneffekt und die Freude bei einem Apprentice (so nennen wir unsere Junioren) zu erleben und das geht ja nur gemeinsam. Das Verhältnis zu unseren Kolleg:innen ist geprägt von Vertrauen und der Übergabe von Verantwortung und damit sind wir bisher immer sehr gut gefahren. Unser Vertrauen muss man sich nicht verdienen, man kann es nur verlieren.
+**Eric:** Genau. Als einzige Ausnahme sehe ich persönlich Senior- bzw Manager-Pflichten. Sobald juniorige Mitarbeiter betreut werden müssen, muss sichergestellt werden, dass das bestmöglich klappt.
+Wenn das rein remote funktioniert: super. Falls nicht, hoffen wir, dass man einen gemeinsamen Ort findet, an dem zumindest zeitweise Seite an Seite gearbeitet werden kann. Gerade Junioren profitieren einfach enorm davon, wenn sie neben erfahrenen Kollegen arbeiten können. Sie können so schneller Fragen stellen und Hilfe bekommen. Davon kann ihre Entwicklung sehr profitieren! Wenn du Verantwortung für deine Kollegen hast musst du sicherstellen, dass das für sie bestmöglich funktioniert.
+Aber ich glaube, dass kommt schon von ganz alleine. Es ist doch wahnsinnig befriedigend, wenn man den Lerneffekt beim Mitarbeiter unmittelbar wahrnimmt und sieht wie der sich weiterentwickelt. Da mache ich mir keine Sorgen!
+Insgesamt vertrauen wir, was die Frage angeht, ganz auf unsere Mitarbeiter. Wir helfen gerne mit Rat, aber geben nichts vor. Wichtig ist nur, dass es funktioniert!
 
 **Plant ihr auch Stellen Vollzeit Remote zu besetzen?**
 
