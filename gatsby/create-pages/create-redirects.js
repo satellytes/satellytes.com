@@ -40,6 +40,10 @@ const REDIRECTS = [
     toPath: '/about-us/',
   },
   {
+    fromPath: '/de/office/',
+    toPath: '/about-us/',
+  },
+  {
     fromPath: '/blog/scoped-registry/',
     toPath: '/blog/enterprises-benefit-from-scoped-npm-registries/',
   },
