@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { TextStyles } from '../../typography';
 import { up } from '../../support/breakpoint';
+import { theme } from '../../layout/theme';
 
 interface BlogHeaderProps {
   /**
@@ -38,7 +39,7 @@ const HeadlineStyled = styled.h1`
 
 const BylineStyled = styled.span`
   ${TextStyles.timestamp}
-  color: #808080;
+  color: ${theme.palette.text.timestamp};
 `;
 
 const LeadStyled = styled.div`
