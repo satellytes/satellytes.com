@@ -33,7 +33,7 @@ What we also need is a way to trigger workflows. These are called events and the
 There is one more thing missing to make this whole thing work and that is the actual "Runner" that runs your workflows. The runners are mere applications, running somewhere on a server, listening for your jobs to execute them.
 GitHub.com provides a lot of these runners that you can use right away. With a free GitHub account you can use up to 2000 minutes of runner time per month in private projects and there is no limit on public projects, so you can start experimenting with them right away, no strings attached. Have a look at [their pricing model](https://github.com/pricing#compare-features) for further details.
 
-In case you need a very special environment or would like to have more control over the runner you can also host them yourself. With custom runners you can very specialized environments to run your Windows 95 jobs or that integrate particularly well with your existing infrastructure.
+In case you need a very special environment or would like to have more control over the runner you can also host them yourself. With custom runners you can provide specialized environments to run your nostalgic Windows 95 jobs or to have them integrate particularly well with your existing infrastructure.
 
 Runners can have different labels so they can be easily targeted in a workflow. All publicly available runners have labels like `ubuntu-latest` or `windows-latest` to reveal the underlying operating system. There can also be other labels like `x64` or `gpu` to reveal information about the architecture.
 
@@ -188,9 +188,7 @@ As we've seen in the previous subsection we can have pretty much any code we wan
 
 The TypeScript file shown above is called `src/main.ts`. The bundling is done by calling `ncc build src/main.ts`. This will produce a file `dist/index.js` that we then point to in the `action.yml` file, as shown above.
 
-There are a few pitfalls here:
-- If your action involves a build step (like compiling TypeScript to JavaScript), you need to remember to commit that generated artifact.
-- You need to remember to run your build/bundle step whenever you change your source code and commit the new bundle alongside your changes. This is important for the compiled code in your repository to not get outdated. I've spent more time than I'm comfortable to admit, trying to figure out why a certain change didn't affect my action until I realized that I didn't recompile the code before committing.
+Pitfall: You need to remember to run your build/bundle step whenever you change your source code and commit the new generated artifact alongside your changes. This is important for the compiled code in your repository to not get outdated. I've spent more time than I'm comfortable to admit, trying to figure out why a certain change didn't affect my action until I realized that I didn't recompile the code before committing.
 
 > 💡 Having a `pre-commit` hook that runs your build/bundle step is a great way to automate this.
 
