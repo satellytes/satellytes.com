@@ -1,11 +1,13 @@
 import React from 'react';
 import { CopyIcon } from '../icons/markdown-icons/copy';
 import copy from 'copy-to-clipboard';
-import styled from 'styled-components';
+import styled, { CSSProperties } from 'styled-components';
 import { onlyText } from '../../support/only-text';
 
 interface CodeBlockProps {
   children: React.ReactNode;
+  style?: CSSProperties;
+  className?: string;
 }
 
 const StyledCodeBlock = styled.pre`
@@ -49,7 +51,9 @@ export const CodeBlock = (props: CodeBlockProps) => {
   return (
     <CodeBlockWrapper>
       <CopyIcon onClick={copyCodeBlock} />
-      <StyledCodeBlock>{props.children}</StyledCodeBlock>
+      <StyledCodeBlock className={props.className} style={props.style ?? {}}>
+        {props.children}
+      </StyledCodeBlock>
     </CodeBlockWrapper>
   );
 };
