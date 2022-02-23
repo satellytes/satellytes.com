@@ -3,7 +3,8 @@ path: "/blog/angular-workshop-kaiserx-allianz-2018/"
 date: "2018-12-01"
 title: Angular Advanced Workshop (2018)
 featuredImage: images/angular.png
-seoMetaText: Our Open Source 3-day Angular Advanced Workshop we conducted for KaiserX (Allianz). 
+seoMetaText: Our Open Source 3-day Angular Advanced Workshop we conducted for KaiserX (Allianz).
+teaserText: Our Open Source 3-day Angular Advanced Workshop we conducted for KaiserX (Allianz).
 author: Georgios Kaleadis
 authorSummary: CTO at Satellytes
 ---

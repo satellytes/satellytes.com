@@ -102,6 +102,7 @@ module.exports = {
               maxWidth: 1200,
               linkImagesToOriginal: true,
               withWebp: true,
+              showCaptions: true,
             },
           },
         ],
@@ -257,6 +258,7 @@ module.exports = {
           allSitePage {
             nodes {
               path
+              pageContext
             }
           }
         }`,

@@ -1,3 +1,5 @@
+@import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
+
 /**
 I think that's the easiest way to pull in two different syntax highlight themes.
 Depending on the given body tag which is given by the layout component.
@@ -20,4 +22,14 @@ a problem for other people.
  */
 pre[class*="language-"] {
   overflow: auto;
+}
+
+.gatsby-highlight-code-line {
+  background-color: #e4e8f3;
+  display: block;
+  margin-right: -1em;
+  margin-left: -1em;
+  padding-right: 1em;
+  padding-left: 0.75em;
+  border-left: 0.25em solid #3E61EE;
 }
