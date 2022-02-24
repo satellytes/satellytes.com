@@ -162,6 +162,7 @@ const Header: React.FC<HeaderProps> = (props) => {
     <StyledHeader
       $lightTheme={Boolean(props.$lightTheme)}
       $transparent={isHeaderTransparent}
+      onKeyDown={(e) => e.keyCode === 27 && setIsNavigationVisible(false)}
     >
       <SiteTitle
         to={props.siteTitleUrl || '/'}
