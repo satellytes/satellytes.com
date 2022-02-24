@@ -10,7 +10,7 @@ interface QuoteProps {
 const QuoteText = styled.blockquote`
   ${TextStyles.quote}
   padding-left: 20px;
-  margin: 48px 0;
+  margin: 0;
   border-left: 2px solid ${theme.palette.text.topline};
 
   > p {

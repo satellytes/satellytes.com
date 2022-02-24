@@ -77,6 +77,10 @@ export const SimpleLink = styled.a`
   }
 `;
 
+const QuoterWrapper = styled.div`
+  margin: 48px 0;
+`;
+
 const TableWrapper = styled.div`
   overflow-x: auto;
   max-width: 100%;
@@ -171,7 +175,11 @@ const customSatellytesComponents = {
   },
   // now some general text formatting stuff
   blockquote(props) {
-    return <Quote>{props.children}</Quote>;
+    return (
+      <QuoterWrapper>
+        <Quote>{props.children}</Quote>
+      </QuoterWrapper>
+    );
   },
   p(props) {
     return <Text>{props.children}</Text>;
