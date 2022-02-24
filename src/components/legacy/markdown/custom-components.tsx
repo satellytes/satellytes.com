@@ -1,12 +1,12 @@
 import { SmallTitle, SubTitle, Text, TextTitle } from '../typography';
 
 import styled from 'styled-components';
-import { rgba } from 'polished';
 import React from 'react';
 import { up } from '../../support/breakpoint';
 import { theme } from '../../layout/theme';
 import { CodeBlock } from './code-block';
 import { TextStyles } from '../../typography';
+import { Quote } from '../../ui/quote/quote';
 
 /**
  * Override markdown generated html content with custom React components (for us mostly to pass in custom styling)
@@ -77,15 +77,8 @@ export const SimpleLink = styled.a`
   }
 `;
 
-const Blockquote = styled.blockquote`
-  border-left: 0.25em solid ${theme.palette.text.link.default};
-  margin: 0 0 16px 0;
-  background-color: ${rgba(theme.palette.background.bodyLight, 0.2)};
-  padding: 1em;
-
-  > p {
-    margin: 0;
-  }
+const QuoterWrapper = styled.div`
+  margin: 48px 0;
 `;
 
 const TableWrapper = styled.div`
@@ -182,7 +175,11 @@ const customSatellytesComponents = {
   },
   // now some general text formatting stuff
   blockquote(props) {
-    return <Blockquote>{props.children}</Blockquote>;
+    return (
+      <QuoterWrapper>
+        <Quote>{props.children}</Quote>
+      </QuoterWrapper>
+    );
   },
   p(props) {
     return <Text>{props.children}</Text>;

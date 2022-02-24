@@ -81,7 +81,7 @@ export const TextStyles = {
     letter-spacing: -0.01em;
   `,
   quote: css`
-    font-style: italic;
+    font-style: normal;
     font-weight: normal;
     font-size: 20px;
     line-height: 150%;
