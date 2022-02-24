@@ -3,6 +3,9 @@ path: "/blog/boosting-developer-productivity-with-github-actions/"
 date: "2022-02-25"
 title: Boosting developer productivity with GitHub Actions
 featuredImage: images/github-actions/hero.jpg
+attribution:
+    creator: SpaceX
+    source: https://unsplash.com/photos/OHOU-5UVIYQ
 author: "Felix Hamann"
 authorSummary: "Senior Developer at Satellytes"
 teaserText: How to integrate GitHub Actions for some serious productivity boost
