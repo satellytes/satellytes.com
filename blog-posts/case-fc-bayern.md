@@ -3,22 +3,26 @@ path: "/blog/case-fc-bayern/"
 date: "2022-02-21"
 title: "Relaunch FC Bayern Website"
 featuredImage: images/fcb/hero.png
-author: Fabian Dietenberger
-authorSummary: "Frontend Engineer, Satellytes"
+author: Satellytes
 seoMetaText: Our Approach to relaunch the Frontend of the Fc Bayern Website.
 teaserText: Our Approach to relaunch the Frontend of the Fc Bayern Website.
 ---
-<sectionheader>
+<large>
  Our task was the frontend relaunch of the FC Bayern website. We took a holistic approach and created a design system with a solid set of components and guidelines to unify the look and feel of forthcoming digital experiences and introduced a headless architecture as a modern foundation on top of the existing CMS to be prepared for everything to come.
-</sectionheader>
-
-#### [www.fcbayern.com](www.fcbayern.com)
+</large>
 
 <br><br>
 
-<stat title="Team Size" content="6 people"></stat>
-<stat title="Start" content="December 2018"></stat>
-<stat title="End" content="Ongoing"></stat>
+[www.fcbayern.com](www.fcbayern.com)
+
+
+<br><br>
+
+<stats>
+    <statitem title="Team Size" content="6 people"></statitem>
+    <statitem title="Start" content="December 2018"></statitem>
+    <statitem title="End" content="Ongoing"></statitem>
+</stats>
 
 
 ![](images/fcb/overview.png)
@@ -26,8 +30,11 @@ teaserText: Our Approach to relaunch the Frontend of the Fc Bayern Website.
 ### Approach
 
 We started with an inventory of all applications and platforms in the FC Bayern München ecosystem and a thorough benchmarking of other sports clubs with the goal to create the best soccer club page out there and also a solid fundament to build and expand on after the initial launch with many more exciting features to come.
+
 We analyzed all features and funnels on the then current FC Bayern München website, extended the style guide with new patterns and guidelines that can serve all use cases and created a design system as a single source of truth – also for other agencies and future products.
+
 We created a new architecture for the website that can serve all common and special use cases of an international soccer club like FC Bayern, e.g. live-features, special announcements, a comprehensive match center with detailed stats that satisfy even the biggest fans and formats that enable FC Bayern to interact with their diverse audience.
+
 We created a powerful theming system with light/dark support that makes it easy to adapt the implementation to changing designs required by the different teams and companies within the FC Bayern universe.
 
 <br>
@@ -37,12 +44,14 @@ We created a powerful theming system with light/dark support that makes it easy 
 ### Our Responsibilities
 
 We enforced coding and quality standards through automation to ensure the integrity of the website platform in terms of design, functionality & accessibility.
+
 We coordinated and aligned our efforts with the existing backend service provider to shape the headless API. We integrated existing libraries and components from inside and outside the FCB domain (like the FCB shop) to give users access to business critical content outside the scope of the relaunch project. We also worked together with other departments and teams inside FC Bayern to align all streams and their technical approaches.
+
 Active contributions, requirements engineering and technical guidance in the context of a well-running Scrum progress were also an important part of our work to enable productivity in an interdisciplinary team with experts from FCB and the API development team.
 
 <br>
 
-![](images/fcb/desktop.png)
+![](images/fcb/desktop-mobile.png)
 
 ### Our Technical Contributions
 

@@ -49,7 +49,9 @@ export const BlogPostPage = ({ markdown, breadcrumb }: BlogPostPageProps) => {
   const readingTime = `${Math.ceil(
     parseInt(fields.readingTime.minutes),
   )}min read`;
-  const byLine = `${fm.author} (${fm.authorSummary})`;
+
+  const authorSummary = fm.authorSummary ? `(${fm.authorSummary})` : '';
+  const byLine = `${fm.author} ${authorSummary}`;
   const heroByLine = `${formattedDate} • ${readingTime} • ${byLine}`;
 
   return (

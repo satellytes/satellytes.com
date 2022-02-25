@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { theme } from '../../layout/theme';
+import { up } from '../../support/breakpoint';
 import { TextStyles } from '../../typography';
 
 interface StatProps {
@@ -8,10 +9,8 @@ interface StatProps {
   content: string;
 }
 
-const Wrapper = styled.span`
+const Wrapper = styled.div`
   display: inline-block;
-  margin-bottom: 80px;
-  margin-right: 48px;
 `;
 
 const Title = styled.div`
@@ -26,11 +25,27 @@ const Content = styled.div`
   ${TextStyles.headlineM}
 `;
 
-export const Stat = ({ title, content }: StatProps) => {
+const StatsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  margin-bottom: 80px;
+
+  ${up('sm')} {
+    flex-direction: row;
+  }
+`;
+
+export const StatItem = ({ title, content }: StatProps) => {
   return (
     <Wrapper>
       <Title>{title}</Title>
       <Content>{content}</Content>
     </Wrapper>
   );
+};
+
+export const Stats = ({ children }) => {
+  return <StatsWrapper>{children}</StatsWrapper>;
 };
