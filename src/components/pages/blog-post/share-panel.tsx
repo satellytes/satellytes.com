@@ -8,21 +8,17 @@ import {
 } from 'react-share';
 import styled from 'styled-components';
 import { up } from '../../support/breakpoint';
-import { IconEmail } from '../../legacy/icons/social-icons/email';
-import { IconFacebook } from '../../legacy/icons/social-icons/facebook';
-import { LinkedinWrapper } from '../../legacy/icons/social-icons/linkedin';
-import { TwitterWrapper } from '../../legacy/icons/social-icons/twitter';
-import { IconWhatsapp } from '../../legacy/icons/social-icons/whatsapp';
-import { XingWrapper } from '../../legacy/icons/social-icons/xing';
 import { isBrowser } from '../../support/is-browser';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { theme } from '../../layout/theme';
+import { Icon } from '../../ui/icon/icon';
 
 export interface ShareProps {
   title: string;
 }
 
 const SharePanelContainer = styled.div`
-  color: #668cff;
+  color: ${theme.palette.text.header.light};
   font-weight: bold;
   font-size: 16px;
 `;
@@ -30,6 +26,7 @@ const SharePanelContainer = styled.div`
 const SharePanelText = styled.p`
   font-weight: bold;
   font-size: 16px;
+  color: ${theme.palette.text.default};
 `;
 
 const SocialLinks = styled.ul`
@@ -53,6 +50,8 @@ const SocialLinkItem = styled.li`
 
 const XingShareButton = styled.a`
   margin: 0;
+
+  color: ${theme.palette.text.header.light};
 `;
 
 export const SharePanel: React.FC<ShareProps> = ({ title }) => {
@@ -72,27 +71,27 @@ export const SharePanel: React.FC<ShareProps> = ({ title }) => {
       <SocialLinks>
         <SocialLinkItem data-testid="facebook">
           <FacebookShareButton url={shareUrl} quote={title}>
-            <IconFacebook />
+            <Icon show="facebook" />
           </FacebookShareButton>
         </SocialLinkItem>
         <SocialLinkItem data-testid="whatsapp">
           <WhatsappShareButton url={shareUrl} title={title}>
-            <IconWhatsapp />
+            <Icon show="whatsapp" />
           </WhatsappShareButton>
         </SocialLinkItem>
         <SocialLinkItem data-testid="email">
           <EmailShareButton url={shareUrl} subject={title} body="body">
-            <IconEmail />
+            <Icon show="email" />
           </EmailShareButton>
         </SocialLinkItem>
         <SocialLinkItem data-testid="twitter">
           <TwitterShareButton url={shareUrl} title={title} hashtags={hashtags}>
-            <TwitterWrapper color="#668cff" />
+            <Icon show="twitter" />
           </TwitterShareButton>
         </SocialLinkItem>
         <SocialLinkItem data-testid="linkedin">
           <LinkedinShareButton title={title} url={shareUrl}>
-            <LinkedinWrapper color="#668cff" />
+            <Icon show="linked_in" />
           </LinkedinShareButton>
         </SocialLinkItem>
         <SocialLinkItem data-testid="xing">
@@ -101,7 +100,7 @@ export const SharePanel: React.FC<ShareProps> = ({ title }) => {
             title={title}
             target="_blank"
           >
-            <XingWrapper color="#668cff" />
+            <Icon show="xing" />
           </XingShareButton>
         </SocialLinkItem>
       </SocialLinks>

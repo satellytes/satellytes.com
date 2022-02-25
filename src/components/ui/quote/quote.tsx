@@ -9,10 +9,14 @@ interface QuoteProps {
 
 const QuoteText = styled.blockquote`
   ${TextStyles.quote}
-  color: ${theme.palette.text.topline};
   padding-left: 20px;
   margin: 0;
   border-left: 2px solid ${theme.palette.text.topline};
+
+  > p {
+    ${TextStyles.quote}
+    margin: 0;
+  }
 `;
 
 export const Quote = ({ children }: QuoteProps) => {
