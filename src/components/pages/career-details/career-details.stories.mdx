@@ -1,35 +1,38 @@
-import {
-  ArgsTable,
-  Canvas,
-  Meta,
-  Story
-} from '@storybook/addon-docs';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import { JobDescription } from './job-description';
 import { CareerForm } from './career-form/career-form';
+import { Form } from './new-career-form/career-form';
 
 <Meta title="Components/Pages/Career Details" component={{ Image }} />
 
 # Career Details
+
 Here the parts to build the career details page.
 
 ## Job Description
+
 We will receive multiple sections from the Personio API. Pass them to this
 component to render the job description.
 
 <Canvas withSource={'open'}>
   <Story name="Job Description">
-    <JobDescription sections={[
-      {headline: "First", descriptionHtml: 'some <em>normal</em> html'},
-      {headline: "Second", descriptionHtml: `some <strong>other</strong> html`},
-      {headline: "Third", descriptionHtml: 'some <u>better</u> html'}
-    ]}/>
+    <JobDescription
+      sections={[
+        { headline: 'First', descriptionHtml: 'some <em>normal</em> html' },
+        {
+          headline: 'Second',
+          descriptionHtml: `some <strong>other</strong> html`,
+        },
+        { headline: 'Third', descriptionHtml: 'some <u>better</u> html' },
+      ]}
+    />
   </Story>
 </Canvas>
 
-<ArgsTable of={JobDescription}/>
-
+<ArgsTable of={JobDescription} />
 
 ## Career Form
+
 Pass in the required personio parameters to allow the form to submit
 applications to the personio application endpoint.
 
@@ -44,4 +47,14 @@ applications to the personio application endpoint.
   </Story>
 </Canvas>
 
-<ArgsTable of={CareerForm}/>
+## New Career Form
+
+Refactored Career Form with the new Design and an controlled Approach with the React Hook Form.
+
+<Canvas>
+  <Story name="New Career Form">
+    <Form />
+  </Story>
+</Canvas>
+
+<ArgsTable of={CareerForm} />

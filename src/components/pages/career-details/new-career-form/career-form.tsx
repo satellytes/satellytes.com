@@ -90,7 +90,6 @@ export const Form = () => {
           label="I hereby confirm that I have read and understood the privacy policy."
           control={control}
           rules={{ required: 'Mandatory field!' }}
-          defaultValue={true}
         />
         <br />
         <Button type="submit">Submit</Button>
