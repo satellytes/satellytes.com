@@ -12,7 +12,7 @@ import { Email, FirstName, MessageArea } from './form-fields';
 const API_ENDPOINT = '/api/contact-form';
 type RequestStatus = 'pending' | 'submitting' | 'success' | 'error';
 
-const FormLayout = styled.div`
+export const FormLayout = styled.div`
   margin-bottom: 24px;
   gap: 24px;
   display: grid;
