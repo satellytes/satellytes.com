@@ -10,6 +10,7 @@ import { Swoosh } from '../../legacy/icons/header-icons/swoosh';
 import { HEADER_HEIGHT_VALUE } from '../theme';
 
 export const HEADER_HEIGHT = `${HEADER_HEIGHT_VALUE}px`;
+const ESC_KEY_CODE = 27;
 
 const StyledHeader = styled.header<{
   $lightTheme: boolean;
@@ -162,7 +163,9 @@ const Header: React.FC<HeaderProps> = (props) => {
     <StyledHeader
       $lightTheme={Boolean(props.$lightTheme)}
       $transparent={isHeaderTransparent}
-      onKeyDown={(e) => e.keyCode === 27 && setIsNavigationVisible(false)}
+      onKeyDown={(e) =>
+        e.keyCode === ESC_KEY_CODE && setIsNavigationVisible(false)
+      }
     >
       <SiteTitle
         to={props.siteTitleUrl || '/'}

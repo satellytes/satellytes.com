@@ -3,6 +3,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 import Navigation from '../navigation/navigation';
 
 export const FLYOUT_Z_INDEX = 999;
+const BACKGROUND_Z_INDEX = 900;
 
 const FullscreenOverlay = styled.div<{ visible: boolean }>`
   position: fixed;
@@ -22,7 +23,7 @@ const FullscreenOverlay = styled.div<{ visible: boolean }>`
 
 const BackgroundOverlay = styled.div<{ visible: boolean }>`
   position: fixed;
-  z-index: 900;
+  z-index: ${BACKGROUND_Z_INDEX};
   top: 0;
   left: 0;
   background-color: ${(props) =>
