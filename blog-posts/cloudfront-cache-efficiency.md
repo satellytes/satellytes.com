@@ -12,7 +12,7 @@ seoMetaText: Learn how to improve Caching Headers in CloudFront to reduce traffi
 teaserText: Learn how to improve Caching Headers in CloudFront to reduce traffic costs and increase page speed.
 ---
 
-Lately we were trying out CloudFront to improve our API response and caching times. We wanted to cache the response
+Lately, we were trying out CloudFront to improve our API response and caching times. We wanted to cache the response
 in the browser for 10 seconds, and on CloudFront for 60 seconds. What sounds like a simple requirement turned out to be
 more complicated than we thought. What is often said and often right: The devil is in the details.
 
@@ -22,14 +22,14 @@ We want our origin server to control the caching behavior of CloudFront. As with
 the [`Cache-Control`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) header. So we configured 
 our origin to return `Cache-Control: max-age=10, s-maxage=60` with every response.
 
-This `Cache-Control` header has 2 directives: `max-age` and `s-maxage`. `max-age` tells the client for how long the 
+This `Cache-Control` header has 2 directives: `max-age` and `s-maxage`. `max-age` tells the client how long the 
 response should be cached in seconds. `s-maxage` does the same, but for the CDN in between our origin and the client.
 So we can define a different caching time for the CDN and for the client. This is cool, as we can now cache our response on 
 the CDN for a longer time (and update it when we need to or after the defined time), but still cache it on the clients for 
 a shorter time and make sure they are always up-to-date.
 
-In our case the browser should cache the resource for 10 seconds, and the CloudFront for 60 seconds. To test this header
-, we created a small sample application within AWS Lambda and CloudFront as CDN. The Lambda returns the given caching 
+In our case the browser should cache the resource for 10 seconds, and the CloudFront for 60 seconds. To test this 
+header, we created a small sample application within AWS Lambda and CloudFront as CDN. The Lambda returns the given caching 
 header and a small JSON body. Let’s check within the browsers network console what happens when we do multiple requests 
 within 70 seconds:
 
@@ -37,14 +37,14 @@ within 70 seconds:
 
 What do we see here?
 
-1. The first request hit’s the Lambda function. This is takes around 1 second, as the function is cold and uncached by
+1. The first request hit’s the Lambda function. This takes around 1 second, as the function is cold and uncached by
    CloudFront. The response gets now cached by the browser and CloudFront.
-2. The next 3 requests are not send by the browser, as they are within 10 seconds, which is the `max-age`. The browser 
+2. The next 3 requests are not sent by the browser, as they are within 10 seconds, which is the `max-age`. The browser 
    just returns the cache. The request time is therefore 0 seconds.
-3. The next 7 requests are all done the next 50 seconds. They hit the CloudFront cache, the response time is therefore
-   around 20ms.
-4. 60 seconds after the first requests, CloudFront clears the cache. The request hits the lambda
-   function, so it takes around 700ms. After that requests, the same procedure starts again.
+3. The next 7 requests are all done in the next 50 seconds. They hit the CloudFront cache, the response time is 
+   therefore around 20ms.
+4. 60 seconds after the first request, CloudFront clears the cache. The request hits the lambda function, so it 
+   takes around 700ms. After that requests, the same procedure starts again.
 
 What is wrong here?
 
@@ -59,7 +59,7 @@ Those 2 problems will result in
 
 ## Fixing the browsers cache behavior
 
-We spend hours and hours figuring out why the browser only caches the response for the `max-age` time, and then ignores 
+We spend hours and hours figuring out why the browser only caches the response for the `max-age` time and then ignores 
 the cache for the rest of the `s-maxage` time. As it turns out, we were not the first ones who stumbled upon this problem:
 
 - [Browser cachability issues with CloudFront (CDN Planet)](https://www.cdnplanet.com/blog/cloudfront-cachability-date-header/)
@@ -68,15 +68,14 @@ the cache for the rest of the `s-maxage` time. As it turns out, we were not the 
 
 The root of the problem is the `date` header returned by CloudFront. It doesn’t change on upcoming
 requests. As caching times in the `Cache-Control` header are relative to the response `date` header, only the first 
-request by the browser get's cached for the `max-age` time. 
+request by the browser gets cached for the `max-age` time. 
 
 > CDNs usually don't cache the `date` header, it's only CloudFront that does it.
 
 There is no easy way to fix this within some CloudFront settings. Only recently it is possible to solve this problem at
 all: With a custom CloudFront Function. CloudFront Functions are small Javascript functions that are executed with every
 request. You can use them to do simple changes to the request or response object. Read more about the possibilities and
-limit in the official AWS docs
-here: [https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/functions-javascript-runtime-features.html](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/functions-javascript-runtime-features.html)
+limitations in the official AWS docs here: [https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/functions-javascript-runtime-features.html](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/functions-javascript-runtime-features.html)
 
 We can use those functions to update the `date` header with every request.
 
@@ -117,12 +116,12 @@ Next, let’s see how we can return `304` if we hit CloudFront and the response 
 
 ## Return 304 if the object hasn't changed in CloudFront
 
-CloudFront always returns `200` with the full response body. This results in a lot of unnecessary data send between the
+CloudFront always returns `200` with the full response body. This results in a lot of unnecessary data sent between the
 browser and CloudFront. To fix this, we need to set the `ETag` header in our Lambda function.
 
-The `ETag` is a hash for the response body. The browser will send this hash with alongside with all upcoming requests to
+The `ETag` is a hash for the response body. The browser will send this hash alongside all upcoming requests to
 the same resource. The server can then decide if the resource has changed and either return `200` with a new resource
-or `304` .
+or `304`.
 
 Luckily, when the `ETag` header is set, CloudFront will handle `200` and `304` automatically. We don't have to configure
 anything. The `ETag` needs to be created in our Lambda function. This is how the generation could look like:
@@ -143,20 +142,20 @@ Now let’s check again our browser console:
 Now it’s perfect!
 
 1. The first request hits Lambda. The response gets cached by the browser for 10 seconds and 60 seconds by CloudFront.
-2. The next 3 requests are within 10 seconds, so they are not send over the network.
-3. After 10 seconds, the request get’s send to CloudFront. CloudFront return `304` with an empty response body.
-4. After 60 seconds the requests hits Lambda again.
+2. The next 3 requests are within 10 seconds, so they are not sent over the network.
+3. After 10 seconds, the request get’s sent to CloudFront. CloudFront return `304` with an empty response body.
+4. After 60 seconds the request hits Lambda again.
 
 ## Conclusion
 
 CloudFront is a very good CDN, but you need to know what to do. As CDNs are the most relevant when there is high traffic,
-mistakes can increase your bill a lot or even lead to downtimes of your api/website/product. That's why it's important 
-to have a close look to the details. It gives you the confidence to scale.
+mistakes can increase your bill a lot or even lead to downtimes of your API/website/product. That's why it's important 
+to have a close look at the details. It gives you the confidence to scale.
 
 If you want to add CloudFront to your API make sure that:
 - when you have a different `s-maxage` and `maxage` you need to overwrite the `Date` and `Age` header in CloudFront.
 - when you want to return `304` if the response hasn't changed since the last request, you need to set the `ETag` header in your origin.
 
-I hope you learned something with this blog post. Thanks for reading :)
+I hope you learned something from this blog post. Thanks for reading :)
 
 Check out the full project - including the CloudFormation template - on Github: [https://github.com/satellytes/learning-caching-headers](https://github.com/satellytes/learning-caching-headers)
