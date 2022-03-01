@@ -25,14 +25,14 @@ export const IllustrationStyled = styled(Illustration)`
 `;
 
 const HeadlineStyled = styled.h3`
-  ${TextStyles.headlineM}
+  ${TextStyles.headlineL}
   margin: 0;
   color: #202840;
   margin-bottom: 24px;
 
   ${up('md')} {
     margin-bottom: 32px;
-    ${TextStyles.headlineL}
+    ${TextStyles.headlineXL}
   }
 `;
 
