@@ -53,7 +53,7 @@ export const PageTitle = (props) => {
 };
 
 export const SubTitle = styled.h3`
-  font-size: 32px;
+  font-size: 36px;
   line-height: 110%;
 
   margin-top: 80px;
