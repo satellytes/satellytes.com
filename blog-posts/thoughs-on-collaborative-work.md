@@ -1,6 +1,6 @@
 ---
 path: "/blog/thoughts-on-collaborative-work/"
-date: "2022-02-28"
+date: "2022-03-02"
 title: "Four ways to improve collaboration in your team"
 author: Jesús Real
 authorSummary: Senior Frontend Engineer @ Satellytes
