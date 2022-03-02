@@ -4,8 +4,8 @@ date: "2022-02-25"
 title: Boosting developer productivity with GitHub Actions
 featuredImage: images/github-actions/hero.jpg
 attribution:
-    creator: SpaceX
-    source: https://unsplash.com/photos/OHOU-5UVIYQ
+    creator: fabio
+    source: https://unsplash.com/photos/oyXis2kALVg
 author: "Felix Hamann"
 authorSummary: "Senior Developer at Satellytes"
 teaserText: How to integrate GitHub Actions for some serious productivity boost
@@ -45,7 +45,7 @@ With all that terminology out of the way, let's talk about workflows in more det
 
 ### Location of a GitHub Workflow
 Workflows are stored in your repository in a folder called `.github/workflows/` in the form of YAML files. Here you can see a schema of this:
-```sh
+```shell
 .github
 ├── ...
 └── workflows
