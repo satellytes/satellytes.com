@@ -25,7 +25,7 @@ export const IllustrationStyled = styled(Illustration)`
 `;
 
 const HeadlineStyled = styled.h3`
-  ${TextStyles.headlineL}
+  ${TextStyles.headlineM}
   margin: 0;
   color: #202840;
   margin-bottom: 24px;
