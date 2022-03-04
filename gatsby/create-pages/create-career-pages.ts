@@ -1,5 +1,5 @@
 import path from 'path';
-import { GatsbyNode } from 'gatsby';
+import { CreatePagesArgs } from 'gatsby';
 
 const CAREER_DETAILS_TEMPLATE_PATH = path.resolve(
   'src/templates/career-details.tsx',
@@ -34,11 +34,11 @@ const getTranslationPath = (slug, lang) => {
   return `${slug}`;
 };
 
-export const createCareerPages: GatsbyNode['createPages'] = async ({
+export const createCareerPages = async ({
   actions,
   graphql,
   reporter,
-}) => {
+}: CreatePagesArgs) => {
   const { createPage } = actions;
 
   const personioJobsResponse = await graphql<{
