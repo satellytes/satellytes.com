@@ -1,5 +1,5 @@
 ---
-path: "/blog/thoughts-on-collaborative-work/"
+path: "/blog/four-ways-to-improve-collaboration-in-your-team/"
 date: "2022-03-02"
 title: "Four ways to improve collaboration in your team"
 author: Jesús Real
