@@ -29,11 +29,6 @@ const HeadlineStyled = styled.h3`
   margin: 0;
   color: #202840;
   margin-bottom: 24px;
-
-  ${up('md')} {
-    margin-bottom: 32px;
-    ${TextStyles.headlineL}
-  }
 `;
 
 const ContentStyled = styled.div`

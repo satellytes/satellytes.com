@@ -57,10 +57,6 @@ export const TextTitleCondensed = styled(TextTitle)`
 export const SubTitleCondensed = styled(SubTitle)`
   margin-top: 40px;
   margin-bottom: 20px;
-
-  ${up('md')} {
-    font-size: 36px;
-  }
 `;
 
 export const SimpleLink = styled.a`

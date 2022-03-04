@@ -31,10 +31,14 @@ const KickerStyled = styled.span`
 `;
 
 const HeadlineStyled = styled.h1`
-  ${TextStyles.headlineXL}
+  ${TextStyles.headlineL}
   margin: 0;
   color: #202840;
   margin-bottom: 16px;
+
+  ${up('md')} {
+    ${TextStyles.headlineXL}
+  }
 `;
 
 const BylineStyled = styled.span`
