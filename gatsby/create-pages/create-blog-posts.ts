@@ -1,14 +1,14 @@
 import { appendTrailingSlash } from '../util/append-trailing-slash';
 import path from 'path';
-import { GatsbyNode } from 'gatsby';
+import { CreatePagesArgs } from 'gatsby';
 
 const BLOG_POST_TEMPLATE_PATH = path.resolve('src/templates/blog-post.tsx');
 
-export const createBlogPosts: GatsbyNode['createPages'] = async ({
+export const createBlogPosts = async ({
   actions,
   reporter,
   graphql,
-}) => {
+}: CreatePagesArgs) => {
   const { createPage } = actions;
 
   const markdownBlogPages = await graphql<{
