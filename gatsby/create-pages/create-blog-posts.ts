@@ -1,12 +1,26 @@
 import { appendTrailingSlash } from '../util/append-trailing-slash';
 import path from 'path';
+import { GatsbyNode } from 'gatsby';
 
 const BLOG_POST_TEMPLATE_PATH = path.resolve('src/templates/blog-post.tsx');
 
-export const createBlogPosts = async ({ actions, reporter, graphql }) => {
+export const createBlogPosts: GatsbyNode['createPages'] = async ({
+  actions,
+  reporter,
+  graphql,
+}) => {
   const { createPage } = actions;
 
-  const markdownBlogPages = await graphql(`
+  const markdownBlogPages = await graphql<{
+    allMarkdownRemark: {
+      nodes: {
+        frontmatter: {
+          path: string;
+          date: string;
+        };
+      }[];
+    };
+  }>(`
     {
       allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] }
@@ -22,7 +36,7 @@ export const createBlogPosts = async ({ actions, reporter, graphql }) => {
     }
   `);
 
-  if (markdownBlogPages.errors) {
+  if (markdownBlogPages.errors || !markdownBlogPages.data) {
     reporter.panicOnBuild(`Error while running GraphQL query for blog pages.`);
     return;
   }

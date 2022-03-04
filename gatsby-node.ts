@@ -1,10 +1,14 @@
+import type { GatsbyNode } from 'gatsby';
+
 import { createRedirects } from './gatsby/create-pages/create-redirects';
 import { createPreviewCards } from './gatsby/create-node/create-preview-cards';
 import { createBlogPosts } from './gatsby/create-pages/create-blog-posts';
 import { createCareerPages } from './gatsby/create-pages/create-career-pages';
 import { createFilePath } from 'gatsby-source-filesystem';
 
-exports.onCreateNode = async (gatsbyCreateNodeArgs) => {
+export const onCreateNode: GatsbyNode['onCreateNode'] = async (
+  gatsbyCreateNodeArgs,
+) => {
   await createPreviewCards(gatsbyCreateNodeArgs);
 
   const { node, actions, getNode } = gatsbyCreateNodeArgs;
@@ -38,22 +42,25 @@ exports.onCreateNode = async (gatsbyCreateNodeArgs) => {
  * https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/creating-a-source-plugin/#create-foreign-key-relationships-between-data
  */
 
-exports.createSchemaCustomization = ({ actions, schema }) => {
-  const { createTypes } = actions;
+export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] =
+  async ({ actions }) => {
+    const { createTypes } = actions;
 
-  const typeDefs = [
-    `type MarkdownRemark implements Node { 
+    const typeDefs = [
+      `type MarkdownRemark implements Node { 
       socialCardFile: File @link(from: "fields.socialCardFileId")
     }`,
-    `type SyPersonioJob implements Node { 
+      `type SyPersonioJob implements Node { 
       socialCardFile: File @link(from: "fields.socialCardFileId")
     }`,
-  ];
+    ];
 
-  createTypes(typeDefs);
-};
+    createTypes(typeDefs);
+  };
 
-exports.createPages = async (createPagesArgs) => {
+export const createPages: GatsbyNode['createPages'] = async (
+  createPagesArgs,
+) => {
   await createCareerPages(createPagesArgs);
   await createBlogPosts(createPagesArgs);
 
@@ -62,21 +69,22 @@ exports.createPages = async (createPagesArgs) => {
 
 // for leaflet to prevent window errors
 // cherry picked from https://github.com/dweirich/gatsby-plugin-react-leaflet/blob/a2bb72eab0d26b22ae0ee2e04bfda0114a147132/gatsby-node.js
-exports.onCreateWebpackConfig = function (_ref) {
-  const stage = _ref.stage;
-  const actions = _ref.actions;
-  const regex = [/node_modules\/leaflet/, /node_modules\\leaflet/];
+export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] =
+  async (_ref) => {
+    const stage = _ref.stage;
+    const actions = _ref.actions;
+    const regex = [/node_modules\/leaflet/, /node_modules\\leaflet/];
 
-  if (stage === 'build-html' || stage === 'develop-html') {
-    actions.setWebpackConfig({
-      module: {
-        rules: [
-          {
-            test: regex,
-            use: 'null-loader',
-          },
-        ],
-      },
-    });
-  }
-};
+    if (stage === 'build-html' || stage === 'develop-html') {
+      actions.setWebpackConfig({
+        module: {
+          rules: [
+            {
+              test: regex,
+              use: 'null-loader',
+            },
+          ],
+        },
+      });
+    }
+  };

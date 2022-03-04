@@ -1,13 +1,12 @@
 import React from 'react';
 import SEO from '../components/layout/seo';
-import { graphql } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import styled from 'styled-components';
 import { Text } from '../components/legacy/typography';
 import { MarkdownAst } from '../components/legacy/markdown/markdown-ast';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Layout } from '../components/layout/layout';
 import { SectionHeader } from '../components/content/section-header/section-header';
-import { LocalesQuery } from '../types';
 import { ContentBlockContainer } from '../components/layout/content-block-container';
 
 const BottomNote = styled(Text)`
@@ -15,17 +14,13 @@ const BottomNote = styled(Text)`
   opacity: 0.8;
 `;
 
-interface ImprintPageProps {
-  data: {
-    locales: LocalesQuery;
-    markdownRemark: {
-      htmlAst: string;
-    };
+interface ImprintPageQueryProps {
+  markdownRemark: {
+    htmlAst: string;
   };
-  location: Location;
 }
 
-const ImprintPage = ({ data, location }: ImprintPageProps) => {
+const ImprintPage = ({ data, location }: PageProps<ImprintPageQueryProps>) => {
   const { t } = useTranslation();
   return (
     <Layout light={true}>
@@ -48,6 +43,13 @@ export default ImprintPage;
 
 export const ImprintPageQuery = graphql`
   query ($language: String!) {
+    markdownRemark(
+      fileAbsolutePath: { regex: "/(pages/imprint)/" }
+      frontmatter: { language: { eq: $language } }
+    ) {
+      htmlAst
+    }
+
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {
         node {
@@ -56,12 +58,6 @@ export const ImprintPageQuery = graphql`
           language
         }
       }
-    }
-    markdownRemark(
-      fileAbsolutePath: { regex: "/(pages/imprint)/" }
-      frontmatter: { language: { eq: $language } }
-    ) {
-      htmlAst
     }
   }
 `;

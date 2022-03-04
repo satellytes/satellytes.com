@@ -19,7 +19,8 @@ interface CareerPageProps {
     syPersonioJob: SyPersonioJob;
   };
 }
-const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
+
+const CareerPage = (props: CareerPageProps): JSX.Element => {
   const { pageContext } = props;
   const position = props.data.syPersonioJob;
   const socialCardPath = position.socialCardFile.childImageSharp.fixed.src;
@@ -49,7 +50,7 @@ const CareerPage: React.FC<CareerPageProps> = (props): JSX.Element => {
 };
 
 export const CareerDetailsPageQuery = graphql`
-  query ($language: String!, $id: String!) {
+  query ($id: String!, $language: String!) {
     syPersonioJob(id: { eq: $id }) {
       id
       lang
