@@ -5,7 +5,7 @@ import {
   IllustrationSize,
 } from '../../ui/illustration/illustration';
 import { IllustrationType } from '../../ui/illustration/illustration-set';
-import { down } from '../../support/breakpoint';
+import { down, up } from '../../support/breakpoint';
 import { TextStyles } from '../../typography';
 
 interface HeaderBlockProps {
@@ -47,11 +47,14 @@ const Topline = styled.p`
 `;
 
 const Headline = styled.p<LargeProps>`
-  ${TextStyles.headlineXL}
+  ${TextStyles.headlineL}
   letter-spacing: -0.01em;
   color: #202840;
   margin-top: 16px;
   margin-bottom: ${({ large }) => (large ? '32px' : '16px')};
+  ${up('md')} {
+    ${TextStyles.headlineXL}
+  }
 `;
 
 const Metaline = styled.p<LargeProps>`

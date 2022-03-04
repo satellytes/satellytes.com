@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import { up } from '../../support/breakpoint';
 import { isBrowser } from '../../support/is-browser';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { IconRSS } from '../../legacy/icons/social-icons/rss';
 import { SimpleLink } from '../../legacy/markdown/custom-components';
+import { theme } from '../../layout/theme';
+import { Icon } from '../../ui/icon/icon';
 
 const RSS_FEED_URL = '/blog/rss.xml';
 
@@ -13,7 +14,7 @@ export interface ShareProps {
 }
 
 const FollowPanelContainer = styled.div`
-  color: #668cff;
+  color: ${theme.palette.text.header.light};
   margin-top: 48px;
   font-weight: bold;
   font-size: 16px;
@@ -27,6 +28,8 @@ const FollowPanelContainer = styled.div`
 export const PanelText = styled.p`
   font-weight: bold;
   font-size: 16px;
+
+  color: ${theme.palette.text.default};
 `;
 
 const SocialLinks = styled.ul`
@@ -65,7 +68,7 @@ export const FollowPanel: React.FC = () => {
       <SocialLinks>
         <SocialLinkItem data-testid="rss-feed">
           <SimpleLink href={rssUrl}>
-            <IconRSS />
+            <Icon show="rss" />
           </SimpleLink>
         </SocialLinkItem>
       </SocialLinks>

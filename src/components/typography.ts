@@ -26,7 +26,7 @@ export const TextStyles = {
   `,
   headlineL: css`
     font-weight: bold;
-    font-size: 32px;
+    font-size: 36px;
     line-height: 110%;
 
     letter-spacing: -0.01em;
