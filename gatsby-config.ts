@@ -1,3 +1,4 @@
+import type { GatsbyConfig } from 'gatsby';
 import { buildGatsbyCloudPreviewUrl } from './gatsby/util/build-gatsby-cloud-preview-url';
 import * as siteMapTransformers from './gatsby/gatsby-plugin-sitemap/gatsby-plugin-sitemap';
 
@@ -29,7 +30,7 @@ const SEO_EXCLUDED_URLS = [
 const RSS_FEED_URL = '/blog/rss.xml';
 const DEFAULT_META_IMAGE_URL_PATH = '/sy-share-image.jpg';
 
-module.exports = {
+const gatsbyConfig: GatsbyConfig = {
   siteMetadata: {
     title: 'Satellytes',
     description:
@@ -307,3 +308,5 @@ module.exports = {
     'gatsby-plugin-svgr',
   ],
 };
+
+export default gatsbyConfig;

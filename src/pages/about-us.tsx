@@ -1,4 +1,4 @@
-import { graphql } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import SEO from '../components/layout/seo';
@@ -6,17 +6,14 @@ import { AboutUsPage } from '../components/pages/about-us/about-us-page';
 import { SyTeamMember } from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 
-interface AboutUsProps {
-  location: Location;
-  data: {
-    hero: IGatsbyImageData;
-    allTeamJson: {
-      nodes: SyTeamMember[];
-    };
+interface AboutUsQueryProps {
+  hero: IGatsbyImageData;
+  allTeamJson: {
+    nodes: SyTeamMember[];
   };
 }
 
-const AboutUs = (props: AboutUsProps) => {
+const AboutUs = (props: PageProps<AboutUsQueryProps>) => {
   const { t } = useTranslation();
   return (
     <>

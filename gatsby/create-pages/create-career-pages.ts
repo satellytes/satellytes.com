@@ -1,4 +1,5 @@
 import path from 'path';
+import { GatsbyNode } from 'gatsby';
 
 const CAREER_DETAILS_TEMPLATE_PATH = path.resolve(
   'src/templates/career-details.tsx',
@@ -33,12 +34,24 @@ const getTranslationPath = (slug, lang) => {
   return `${slug}`;
 };
 
-export const createCareerPages = async ({ actions, graphql }) => {
+export const createCareerPages: GatsbyNode['createPages'] = async ({
+  actions,
+  graphql,
+  reporter,
+}) => {
   const { createPage } = actions;
 
-  const {
-    data: { allSyPersonioJob },
-  } = await graphql(`
+  const personioJobsResponse = await graphql<{
+    allSyPersonioJob: {
+      nodes: {
+        id: string;
+        lang: string;
+        jobId: string;
+        name: string;
+        slug: string;
+      }[];
+    };
+  }>(`
     {
       allSyPersonioJob {
         nodes {
@@ -52,7 +65,14 @@ export const createCareerPages = async ({ actions, graphql }) => {
     }
   `);
 
-  const positions = allSyPersonioJob.nodes;
+  if (personioJobsResponse.errors || !personioJobsResponse.data) {
+    reporter.panicOnBuild(
+      `Error while running GraphQL query for career pages.`,
+    );
+    return;
+  }
+
+  const positions = personioJobsResponse.data.allSyPersonioJob.nodes;
   const complementFinder = createComplementFinder(positions);
 
   positions.forEach((position) => {

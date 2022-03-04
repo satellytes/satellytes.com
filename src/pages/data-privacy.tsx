@@ -1,24 +1,22 @@
 import React from 'react';
 import SEO from '../components/layout/seo';
-import { graphql } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import { MarkdownAst } from '../components/legacy/markdown/markdown-ast';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Layout } from '../components/layout/layout';
 import { SectionHeader } from '../components/content/section-header/section-header';
-import { LocalesQuery } from '../types';
 import { ContentBlockContainer } from '../components/layout/content-block-container';
 
-interface DataPrivacyPageProps {
-  data: {
-    locales: LocalesQuery;
-    markdownRemark: {
-      htmlAst: string;
-    };
+interface DataPrivacyPageQueryProps {
+  markdownRemark: {
+    htmlAst: string;
   };
-  location: Location;
 }
 
-const DataPrivacyPage = ({ data, location }: DataPrivacyPageProps) => {
+const DataPrivacyPage = ({
+  data,
+  location,
+}: PageProps<DataPrivacyPageQueryProps>): JSX.Element => {
   const { t } = useTranslation();
   return (
     <Layout light={true}>
@@ -40,6 +38,13 @@ export default DataPrivacyPage;
 
 export const DataPrivacyPageQuery = graphql`
   query ($language: String!) {
+    markdownRemark(
+      fileAbsolutePath: { regex: "/(pages/data-privacy)/" }
+      frontmatter: { language: { eq: $language } }
+    ) {
+      htmlAst
+    }
+
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {
         node {
@@ -48,12 +53,6 @@ export const DataPrivacyPageQuery = graphql`
           language
         }
       }
-    }
-    markdownRemark(
-      fileAbsolutePath: { regex: "/(pages/data-privacy)/" }
-      frontmatter: { language: { eq: $language } }
-    ) {
-      htmlAst
     }
   }
 `;
