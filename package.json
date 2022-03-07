@@ -69,7 +69,7 @@
     "gatsby-source-filesystem": "^4.5.2",
     "gatsby-transformer-json": "^4.8.0",
     "gatsby-transformer-remark": "^5.5.2",
-    "gatsby-transformer-sharp": "^4.7.0",
+    "gatsby-transformer-sharp": "^4.9.0",
     "html-entities": "^2.3.2",
     "i18next": "^21.6.6",
     "leaflet": "^1.7.1",
