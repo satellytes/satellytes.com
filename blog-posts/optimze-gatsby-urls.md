@@ -18,6 +18,9 @@ learned and how you can improve your Gatsby site too.
 
 <!-- stop excerpt -->
 
+> Update February 2022: With Gatsby 4.7 an integrated handling of trailing slashes is now supported. Make sure to
+> check the [release notes](https://www.gatsbyjs.com/docs/reference/release-notes/v4.7/#trailingslash-option) for more information.
+
 ## The problem
 
 If you create a page in Gatsby, the page will be created as `index.html` in a folder that has the same structure as the
