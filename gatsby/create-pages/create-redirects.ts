@@ -53,6 +53,10 @@ const REDIRECTS = [
     fromPath: '/de/blog/monorepo-codeowner-github-enterprise/',
     toPath: '/blog/monorepo-codeowner-github-enterprise/',
   },
+  {
+    fromPath: '/blog/thoughts-on-collaborative-work/',
+    toPath: '/blog/four-ways-to-improve-collaboration-in-your-team/',
+  },
 ];
 
 /**
