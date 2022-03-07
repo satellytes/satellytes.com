@@ -82,7 +82,6 @@ const gatsbyConfig: GatsbyConfig = {
         gfm: true,
         plugins: [
           'gatsby-remark-external-links',
-          'gatsby-remark-reading-time',
           {
             resolve: 'gatsby-remark-copy-linked-files',
           },
@@ -110,6 +109,14 @@ const gatsbyConfig: GatsbyConfig = {
     'gatsby-transformer-json',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    {
+      resolve: `gatsby-plugin-readingtime`,
+      options: {
+        types: {
+          MarkdownRemark: (source) => source.rawMarkdownBody,
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
