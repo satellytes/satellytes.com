@@ -31,6 +31,7 @@ const RSS_FEED_URL = '/blog/rss.xml';
 const DEFAULT_META_IMAGE_URL_PATH = '/sy-share-image.jpg';
 
 const gatsbyConfig: GatsbyConfig = {
+  trailingSlash: 'always',
   siteMetadata: {
     title: 'Satellytes',
     description:
@@ -250,9 +251,7 @@ const gatsbyConfig: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        // to read more: https://www.gatsbyjs.com/plugins/gatsby-plugin-sitemap/#options
         excludes: SEO_EXCLUDED_URLS,
-        // TODO: We want to include a modified time for a given page. File tiem won't work (CI not present). What else?
         query: `
         {
           site {
