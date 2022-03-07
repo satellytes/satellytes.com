@@ -2,7 +2,7 @@ import path from 'path';
 import { CreatePagesArgs } from 'gatsby';
 
 const CAREER_DETAILS_TEMPLATE_PATH = path.resolve(
-  'src/templates/career-details.tsx',
+  `${process.cwd()}/src/templates/career-details.tsx`,
 );
 
 /**

@@ -6,7 +6,13 @@ import { createBlogPosts } from './gatsby/create-pages/create-blog-posts';
 import { createCareerPages } from './gatsby/create-pages/create-career-pages';
 import { createFilePath } from 'gatsby-source-filesystem';
 
-export const onCreateNode: GatsbyNode['onCreateNode'] = async (
+export type SatellytesNode = {
+  frontmatter: {
+    title: string;
+  };
+};
+
+export const onCreateNode: GatsbyNode<SatellytesNode>['onCreateNode'] = async (
   gatsbyCreateNodeArgs,
 ) => {
   await createPreviewCards(gatsbyCreateNodeArgs);

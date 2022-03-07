@@ -2,7 +2,9 @@ import { appendTrailingSlash } from '../util/append-trailing-slash';
 import path from 'path';
 import { CreatePagesArgs } from 'gatsby';
 
-const BLOG_POST_TEMPLATE_PATH = path.resolve('src/templates/blog-post.tsx');
+const BLOG_POST_TEMPLATE_PATH = path.resolve(
+  `${process.cwd()}/src/templates/blog-post.tsx`,
+);
 
 export const createBlogPosts = async ({
   actions,

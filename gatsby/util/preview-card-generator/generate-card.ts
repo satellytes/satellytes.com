@@ -2,13 +2,17 @@ import path from 'path';
 import { createCanvas, loadImage, registerFont } from 'canvas';
 
 registerFont(
-  path.resolve('./gatsby/util/preview-card-generator/assets/coco-regular.ttf'),
+  path.resolve(
+    `${process.cwd()}/gatsby/util/preview-card-generator/assets/coco-regular.ttf`,
+  ),
   {
     family: 'Coco Gothic',
   },
 );
 registerFont(
-  path.resolve('./gatsby/util/preview-card-generator/assets/coco-bold.ttf'),
+  path.resolve(
+    `${process.cwd()}/gatsby/util/preview-card-generator/assets/coco-bold.ttf`,
+  ),
   {
     family: 'Coco Gothic',
     weight: 'bold',
@@ -16,7 +20,7 @@ registerFont(
 );
 
 const DEFAULT_BACKGROUND = path.resolve(
-  './gatsby/util/preview-card-generator/assets/background.png',
+  `${process.cwd()}/gatsby/util/preview-card-generator/assets/background.png`,
 );
 const CARD_WIDTH = 1440;
 const CARD_HEIGHT = 760;
