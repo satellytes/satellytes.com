@@ -1,8 +1,8 @@
-import { graphql } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import SEO from '../components/layout/seo';
 import { Landingpage } from '../components/pages/landingpage/landingpage';
-import { BlogPostTeaser, LocalesQuery, SyPersonioJob } from '../types';
+import { BlogPostTeaser, SyPersonioJob } from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 interface OfficeImage {
@@ -12,24 +12,19 @@ interface OfficeImage {
   };
 }
 
-interface IndexPageProps {
-  data: {
-    locales: LocalesQuery;
-
-    allSyPersonioJob: {
-      nodes: SyPersonioJob[];
-    };
-    allMarkdownRemark: {
-      nodes: BlogPostTeaser[];
-    };
-    officeImages: {
-      nodes: OfficeImage[];
-    };
+interface IndexPageQueryProps {
+  allSyPersonioJob: {
+    nodes: SyPersonioJob[];
   };
-  location: Location;
+  allMarkdownRemark: {
+    nodes: BlogPostTeaser[];
+  };
+  officeImages: {
+    nodes: OfficeImage[];
+  };
 }
 
-const IndexPage = (props: IndexPageProps) => {
+const IndexPage = (props: PageProps<IndexPageQueryProps>) => {
   const jobPositions = props.data.allSyPersonioJob.nodes;
   const blogPosts = props.data.allMarkdownRemark.nodes;
   const officeImages = props.data.officeImages.nodes.reduce((memo, image) => {
@@ -74,16 +69,6 @@ export const IndexPageQuery = graphql`
       }
     }
 
-    locales: allLocale(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
-    }
-
     allMarkdownRemark(
       sort: { fields: frontmatter___date, order: DESC }
       filter: { fileAbsolutePath: { regex: "/(blog-posts)/" } }
@@ -107,6 +92,16 @@ export const IndexPageQuery = graphql`
               )
             }
           }
+        }
+      }
+    }
+
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
         }
       }
     }

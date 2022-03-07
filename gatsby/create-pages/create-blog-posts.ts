@@ -1,12 +1,28 @@
-const { appendTrailingSlash } = require('../util/append-trailing-slash');
-const path = require('path');
+import { appendTrailingSlash } from '../util/append-trailing-slash';
+import path from 'path';
+import { CreatePagesArgs } from 'gatsby';
 
-const BLOG_POST_TEMPLATE_PATH = path.resolve('src/templates/blog-post.tsx');
+const BLOG_POST_TEMPLATE_PATH = path.resolve(
+  `${process.cwd()}/src/templates/blog-post.tsx`,
+);
 
-const createBlogPosts = async ({ actions, reporter, graphql }) => {
+export const createBlogPosts = async ({
+  actions,
+  reporter,
+  graphql,
+}: CreatePagesArgs) => {
   const { createPage } = actions;
 
-  const markdownBlogPages = await graphql(`
+  const markdownBlogPages = await graphql<{
+    allMarkdownRemark: {
+      nodes: {
+        frontmatter: {
+          path: string;
+          date: string;
+        };
+      }[];
+    };
+  }>(`
     {
       allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] }
@@ -22,7 +38,7 @@ const createBlogPosts = async ({ actions, reporter, graphql }) => {
     }
   `);
 
-  if (markdownBlogPages.errors) {
+  if (markdownBlogPages.errors || !markdownBlogPages.data) {
     reporter.panicOnBuild(`Error while running GraphQL query for blog pages.`);
     return;
   }
@@ -38,8 +54,4 @@ const createBlogPosts = async ({ actions, reporter, graphql }) => {
       },
     });
   });
-};
-
-module.exports = {
-  createBlogPosts,
 };

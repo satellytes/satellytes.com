@@ -1,14 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { graphql } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import { ContactPage } from '../components/pages/contact/contact-page';
 import SEO from '../components/layout/seo';
 
-interface ContactPageProps {
-  location: Location;
-}
-
-const Contact = ({ location }: ContactPageProps) => {
+const Contact = ({ location }: PageProps) => {
   const { t } = useTranslation();
 
   return (
