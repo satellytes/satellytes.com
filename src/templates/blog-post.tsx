@@ -54,10 +54,8 @@ export const BlogPostPageQuery = graphql`
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       htmlAst
-      fields {
-        readingTime {
-          minutes
-        }
+      readingTime {
+        minutes
       }
       excerpt(pruneLength: 158)
       frontmatter {

@@ -32,7 +32,6 @@ export const BlogPostPage = ({ markdown, breadcrumb }: BlogPostPageProps) => {
   const dateFormatter = useLocaleFormat(LONG_DATE_FORMAT);
 
   const fm = markdown.frontmatter;
-  const fields = markdown.fields;
 
   const { featuredImage, featuredImageSquared, attribution, leadboxText } = fm;
   const leadbox: LeadboxProps = {
@@ -47,7 +46,7 @@ export const BlogPostPage = ({ markdown, breadcrumb }: BlogPostPageProps) => {
   const formattedDate = dateFormatter(fm.date);
 
   const readingTime = `${Math.ceil(
-    parseInt(fields.readingTime.minutes),
+    parseInt(markdown.readingTime.minutes),
   )}min read`;
   const byLine = `${fm.author} (${fm.authorSummary})`;
   const heroByLine = `${formattedDate} • ${readingTime} • ${byLine}`;

@@ -51,10 +51,8 @@ export interface PlainFixedImageSharpSource {
 export interface BlogPostMarkdown {
   excerpt: string;
   htmlAst;
-  fields: {
-    readingTime: {
-      minutes: string;
-    };
+  readingTime: {
+    minutes: string;
   };
   frontmatter: {
     shareImage: PlainFixedImageSharpSource;
