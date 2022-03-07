@@ -272,7 +272,7 @@ const gatsbyConfig: GatsbyConfig = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `./src/assets/locales`,
+        path: `${process.cwd()}/src/assets/locales`,
         name: `locale`,
       },
     },

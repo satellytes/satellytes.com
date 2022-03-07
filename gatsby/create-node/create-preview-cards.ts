@@ -1,5 +1,7 @@
 import { generateCardToBuffer } from '../util/preview-card-generator/generate-card';
 import { createFileNodeFromBuffer } from 'gatsby-source-filesystem';
+import { CreateNodeArgs } from 'gatsby';
+import { SatellytesNode } from '../../gatsby-node';
 
 /**
  * Create a preview card file and put the url to the Gatsby store to be able
@@ -7,7 +9,7 @@ import { createFileNodeFromBuffer } from 'gatsby-source-filesystem';
  */
 const createPreviewCard = async (
   title,
-  { node, _, actions, cache, store, createNodeId },
+  { node, _, actions, cache, store, createNodeId }: CreateNodeArgs,
 ) => {
   const { createNode, createNodeField } = actions;
 
@@ -45,12 +47,15 @@ const createPreviewCard = async (
   }
 };
 
-export const createPreviewCards = async ({ node, ...rest }) => {
+export const createPreviewCards = async ({
+  node,
+  ...rest
+}: CreateNodeArgs<SatellytesNode>) => {
   if (node.internal.type === 'SyPersonioJob') {
-    await createPreviewCard(node.name, { node, ...rest } as any);
+    await createPreviewCard(node.name, { node, ...rest });
   }
 
   if (node.internal.type === 'MarkdownRemark') {
-    await createPreviewCard(node.frontmatter.title, { node, ...rest } as any);
+    await createPreviewCard(node.frontmatter.title, { node, ...rest });
   }
 };
