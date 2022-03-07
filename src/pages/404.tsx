@@ -1,18 +1,12 @@
 import React from 'react';
 import SEO from '../components/layout/seo';
-import { graphql } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import { SectionHeader } from '../components/content/section-header/section-header';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Layout } from '../components/layout/layout';
 import { ContentBlockContainer } from '../components/layout/content-block-container';
 
-interface NotFoundPageProps {
-  location: Location;
-}
-
-const NotFoundPage: React.FC<NotFoundPageProps> = ({
-  location,
-}: NotFoundPageProps) => {
+const NotFoundPage = ({ location }: PageProps): JSX.Element => {
   const { t } = useTranslation();
 
   return (

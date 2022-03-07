@@ -1,3 +1,5 @@
+import { CreatePagesArgs } from 'gatsby';
+
 const REDIRECTS = [
   {
     fromPath: '/career/325433-senior-backend-engineer-m-w-x/',
@@ -62,7 +64,7 @@ const REDIRECTS = [
  * some other external links still link to the old URL they will only get the 404
  * page. That is why we need to redirect the old links to the new ones.
  */
-const createRedirects = ({ actions }) => {
+export const createRedirects = ({ actions }: CreatePagesArgs) => {
   const { createRedirect } = actions;
   /**
    * Our vanity url to access our gather office through satellytes.com/orion
@@ -95,8 +97,4 @@ const createRedirects = ({ actions }) => {
       redirectInBrowser: true,
     });
   });
-};
-
-module.exports = {
-  createRedirects,
 };

@@ -1,10 +1,9 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import { FluidObject } from 'gatsby-image';
 
 import SEO from '../components/layout/seo';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
-import { LocalesQuery } from '../types';
 import { BlogPage } from '../components/pages/blog/blog-page';
 
 interface AllBlogPostsQuery {
@@ -27,15 +26,11 @@ interface AllBlogPostsQuery {
   };
 }
 
-interface BlogPageProps {
-  data: {
-    locales: LocalesQuery;
-    allMarkdownRemark: AllBlogPostsQuery;
-  };
-  location: Location;
+interface BlogPageQueryProps {
+  allMarkdownRemark: AllBlogPostsQuery;
 }
 
-const Blog = ({ data, location }: BlogPageProps) => {
+const Blog = ({ data, location }: PageProps<BlogPageQueryProps>) => {
   const blogPosts = data.allMarkdownRemark.nodes;
 
   return (
@@ -50,15 +45,6 @@ export default Blog;
 
 export const BlogPageQuery = graphql`
   query ($language: String!) {
-    locales: allLocale(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
-    }
     allMarkdownRemark(
       sort: { fields: frontmatter___date, order: DESC }
       filter: { fileAbsolutePath: { regex: "/(blog-posts)/" } }
@@ -83,6 +69,16 @@ export const BlogPageQuery = graphql`
           }
         }
         rawMarkdownBody
+      }
+    }
+
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
       }
     }
   }

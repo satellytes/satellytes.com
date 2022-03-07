@@ -1,8 +1,7 @@
-const {
-  generateCardToBuffer,
-} = require('../util/preview-card-generator/generate-card');
-
-const { createFileNodeFromBuffer } = require('gatsby-source-filesystem');
+import { generateCardToBuffer } from '../util/preview-card-generator/generate-card';
+import { createFileNodeFromBuffer } from 'gatsby-source-filesystem';
+import { CreateNodeArgs } from 'gatsby';
+import { SatellytesNode } from '../../gatsby-node';
 
 /**
  * Create a preview card file and put the url to the Gatsby store to be able
@@ -10,7 +9,7 @@ const { createFileNodeFromBuffer } = require('gatsby-source-filesystem');
  */
 const createPreviewCard = async (
   title,
-  { node, _, actions, getCache, createNodeId },
+  { node, _, actions, cache, store, createNodeId }: CreateNodeArgs,
 ) => {
   const { createNode, createNodeField } = actions;
 
@@ -19,7 +18,8 @@ const createPreviewCard = async (
     return;
   }
 
-  const buffer = await generateCardToBuffer({ title });
+  const buffer = await generateCardToBuffer({ title, author: null });
+
   /**
    * The util function `createFileNodeFromBuffer` from the official gatsby source plugin `gatsby-source-filesystem`
    * creates a file node from a given file buffer. The value of `parentNodeId` creates the necessary relationship
@@ -31,7 +31,8 @@ const createPreviewCard = async (
   const fileNode = await createFileNodeFromBuffer({
     name: 'social-card',
     buffer,
-    getCache,
+    cache,
+    store,
     createNode,
     createNodeId,
     parentNodeId: node.id,
@@ -46,7 +47,10 @@ const createPreviewCard = async (
   }
 };
 
-const createPreviewCards = async ({ node, ...rest }) => {
+export const createPreviewCards = async ({
+  node,
+  ...rest
+}: CreateNodeArgs<SatellytesNode>) => {
   if (node.internal.type === 'SyPersonioJob') {
     await createPreviewCard(node.name, { node, ...rest });
   }
@@ -54,8 +58,4 @@ const createPreviewCards = async ({ node, ...rest }) => {
   if (node.internal.type === 'MarkdownRemark') {
     await createPreviewCard(node.frontmatter.title, { node, ...rest });
   }
-};
-
-module.exports = {
-  createPreviewCards,
 };
