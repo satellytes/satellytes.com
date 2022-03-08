@@ -26,6 +26,8 @@ const StyledSelection = styled.select`
   color: inherit;
   padding-left: 18px;
   text-align: right;
+  /*"direction: rlt" aligns the text right in Safari*/
+  direction: rtl;
 
   appearance: none;
   cursor: pointer;
