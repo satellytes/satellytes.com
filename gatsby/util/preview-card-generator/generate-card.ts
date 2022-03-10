@@ -1,15 +1,27 @@
-const path = require('path');
-const { createCanvas, loadImage, registerFont } = require('canvas');
+import path from 'path';
+import { createCanvas, loadImage, registerFont } from 'canvas';
 
-registerFont(path.join(__dirname, 'assets', 'coco-regular.ttf'), {
-  family: 'Coco Gothic',
-});
-registerFont(path.join(__dirname, 'assets', 'coco-bold.ttf'), {
-  family: 'Coco Gothic',
-  weight: 'bold',
-});
+registerFont(
+  path.resolve(
+    `${process.cwd()}/gatsby/util/preview-card-generator/assets/coco-regular.ttf`,
+  ),
+  {
+    family: 'Coco Gothic',
+  },
+);
+registerFont(
+  path.resolve(
+    `${process.cwd()}/gatsby/util/preview-card-generator/assets/coco-bold.ttf`,
+  ),
+  {
+    family: 'Coco Gothic',
+    weight: 'bold',
+  },
+);
 
-const DEFAULT_BACKGROUND = path.join(__dirname, 'assets', 'background.png');
+const DEFAULT_BACKGROUND = path.resolve(
+  `${process.cwd()}/gatsby/util/preview-card-generator/assets/background.png`,
+);
 const CARD_WIDTH = 1440;
 const CARD_HEIGHT = 760;
 const PADDING_Y = 126;
@@ -62,7 +74,7 @@ const wrapTextFactory = (context) => (text, x, y, maxWidth, lineHeight) => {
  * by composing a background with a title
  * and an optional author.
  */
-async function generateCardToBuffer({ title, author }) {
+export const generateCardToBuffer = async ({ title, author }) => {
   const canvas = createCanvas(CARD_WIDTH, CARD_HEIGHT);
 
   const context = canvas.getContext('2d');
@@ -95,8 +107,4 @@ async function generateCardToBuffer({ title, author }) {
   }
 
   return canvas.toBuffer('image/jpeg');
-}
-
-module.exports = {
-  generateCardToBuffer,
 };

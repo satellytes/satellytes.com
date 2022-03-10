@@ -35,9 +35,9 @@ const UnorderedList = styled.ul`
   }
 `;
 
-const OrderedList = styled.ol`
+const OrderedList = styled.ol<{ doubleDigit: boolean }>`
   line-height: 150%;
-  padding-left: 16px;
+  padding-left: ${(props) => (props.doubleDigit ? '26px' : '18px')};
 
   > li {
     margin-bottom: 12px;
@@ -146,7 +146,11 @@ const customSatellytesComponents = {
     return <SmallTitle as={'h6'}>{props.children}</SmallTitle>;
   },
   ol(props) {
-    return <OrderedList>{props.children}</OrderedList>;
+    return (
+      <OrderedList doubleDigit={props.children.length > 9}>
+        {props.children}
+      </OrderedList>
+    );
   },
   ul(props) {
     return <UnorderedList>{props.children}</UnorderedList>;

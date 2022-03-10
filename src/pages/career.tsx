@@ -1,33 +1,23 @@
 import React from 'react';
 import SEO from '../components/layout/seo';
-import { graphql } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { CareerPage } from '../components/pages/career/career-page';
-import {
-  LocalesQuery,
-  PlainFixedImageSharpSource,
-  SyPersonioJob,
-} from '../types';
+import { PlainFixedImageSharpSource, SyPersonioJob } from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 
-interface CareerMarkdownQuery {
-  htmlAst: string;
-  socialCardFile: PlainFixedImageSharpSource;
-}
-
-interface CareerProps {
-  data: {
-    locales: LocalesQuery;
-    markdownRemark: CareerMarkdownQuery;
-    allSyPersonioJob: {
-      nodes: SyPersonioJob[];
-    };
-    hero: IGatsbyImageData;
+interface CareerPageQueryProps {
+  markdownRemark: {
+    htmlAst: string;
+    socialCardFile: PlainFixedImageSharpSource;
   };
-  location: Location;
+  allSyPersonioJob: {
+    nodes: SyPersonioJob[];
+  };
+  hero: IGatsbyImageData;
 }
 
-const Career = (props: CareerProps) => {
+const Career = (props: PageProps<CareerPageQueryProps>) => {
   const { t } = useTranslation();
   const socialCardPath =
     props.data.markdownRemark.socialCardFile.childImageSharp.fixed.src;
@@ -70,16 +60,6 @@ export const CareerPageQuery = graphql`
       }
     }
 
-    locales: allLocale(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
-    }
-
     markdownRemark(
       fileAbsolutePath: { regex: "/(pages/career)/" }
       frontmatter: { language: { eq: $language } }
@@ -89,6 +69,16 @@ export const CareerPageQuery = graphql`
           fixed(width: 1440, height: 760) {
             src
           }
+        }
+      }
+    }
+
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
         }
       }
     }

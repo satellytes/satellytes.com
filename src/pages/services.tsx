@@ -1,14 +1,10 @@
-import { graphql } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import SEO from '../components/layout/seo';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Service } from '../components/pages/service/service';
 
-interface ServicesPageProps {
-  location: Location;
-}
-
-const ServicesPage = ({ location }: ServicesPageProps) => {
+const ServicesPage = ({ location }: PageProps) => {
   const { t } = useTranslation();
 
   return (

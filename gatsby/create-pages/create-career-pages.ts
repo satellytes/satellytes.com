@@ -1,7 +1,8 @@
-const path = require('path');
+import path from 'path';
+import { CreatePagesArgs } from 'gatsby';
 
 const CAREER_DETAILS_TEMPLATE_PATH = path.resolve(
-  'src/templates/career-details.tsx',
+  `${process.cwd()}/src/templates/career-details.tsx`,
 );
 
 /**
@@ -33,12 +34,24 @@ const getTranslationPath = (slug, lang) => {
   return `${slug}`;
 };
 
-const createCareerPages = async ({ actions, graphql }) => {
+export const createCareerPages = async ({
+  actions,
+  graphql,
+  reporter,
+}: CreatePagesArgs) => {
   const { createPage } = actions;
 
-  const {
-    data: { allSyPersonioJob },
-  } = await graphql(`
+  const personioJobsResponse = await graphql<{
+    allSyPersonioJob: {
+      nodes: {
+        id: string;
+        lang: string;
+        jobId: string;
+        name: string;
+        slug: string;
+      }[];
+    };
+  }>(`
     {
       allSyPersonioJob {
         nodes {
@@ -52,7 +65,14 @@ const createCareerPages = async ({ actions, graphql }) => {
     }
   `);
 
-  const positions = allSyPersonioJob.nodes;
+  if (personioJobsResponse.errors || !personioJobsResponse.data) {
+    reporter.panicOnBuild(
+      `Error while running GraphQL query for career pages.`,
+    );
+    return;
+  }
+
+  const positions = personioJobsResponse.data.allSyPersonioJob.nodes;
   const complementFinder = createComplementFinder(positions);
 
   positions.forEach((position) => {
@@ -74,8 +94,4 @@ const createCareerPages = async ({ actions, graphql }) => {
       },
     });
   });
-};
-
-module.exports = {
-  createCareerPages,
 };
