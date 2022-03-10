@@ -5,7 +5,6 @@ import axios, { AxiosResponse } from 'axios';
 
 import {
   Actions,
-  CareerFormStyled,
   Fieldset,
   FileContainer,
   FormError,
@@ -261,7 +260,7 @@ export const CareerForm = (props: CareerFormProps) => {
   const onSubmit = handleSubmit(onSubmitHandler, onErrorHandler);
 
   return (
-    <CareerFormStyled onSubmit={onSubmit}>
+    <form onSubmit={onSubmit}>
       <Headline>{t('career.headline')}</Headline>
       <Fieldset disabled={isSubmitting}>
         <Grid nested>
@@ -345,6 +344,6 @@ export const CareerForm = (props: CareerFormProps) => {
           </GridItem>
         </Grid>
       </Fieldset>
-    </CareerFormStyled>
+    </form>
   );
 };
