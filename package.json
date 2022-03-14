@@ -41,7 +41,7 @@
     "canvas": "^2.9.0",
     "copy-to-clipboard": "^3.3.1",
     "date-fns": "^2.28.0",
-    "fast-xml-parser": "^4.0.5",
+    "fast-xml-parser": "^4.0.6",
     "gatsby": "4.9.1",
     "gatsby-background-image": "^1.6.0",
     "gatsby-image": "^3.11.0",
