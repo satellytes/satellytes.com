@@ -36,7 +36,7 @@
     "@slack/web-api": "^6.5.1",
     "@svgr/webpack": "^6.2.0",
     "@types/leaflet": "^1.7.8",
-    "axios": "^0.26.0",
+    "axios": "^0.26.1",
     "babel-plugin-styled-components": "^2.0.2",
     "canvas": "^2.9.0",
     "copy-to-clipboard": "^3.3.1",
