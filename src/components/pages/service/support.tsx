@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { Expandable } from '../../ui/expandable/expandable';
 import { TextStyles } from '../../typography';
 import { up } from '../../support/breakpoint';
+import { WithAnchorHOC } from '../../layout/with-anchor-hoc';
 
 export const IntroLayout = styled.div`
   ${up('md')} {
@@ -35,15 +36,18 @@ const ContentStyled = styled.div`
   ${TextStyles.textR}
 `;
 
-export const Intro = ({ illustration, headline, children }: any) => (
-  <IntroLayout>
-    <IllustrationStyled size={IllustrationSize.LARGE} show={illustration} />
-    <div>
-      <HeadlineStyled>{headline}</HeadlineStyled>
-      <ContentStyled>{children}</ContentStyled>
-    </div>
-  </IntroLayout>
-);
+export const Intro = ({ illustration, headline, children }: any) => {
+  const HeadlineStyledWithAnchor = WithAnchorHOC(HeadlineStyled);
+  return (
+    <IntroLayout>
+      <IllustrationStyled size={IllustrationSize.LARGE} show={illustration} />
+      <div>
+        <HeadlineStyledWithAnchor>{headline}</HeadlineStyledWithAnchor>
+        <ContentStyled>{children}</ContentStyled>
+      </div>
+    </IntroLayout>
+  );
+};
 
 export const ExpandableStyled = styled(Expandable)`
   line-height: 150%;
