@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import React from 'react';
 import { HEADER_HEIGHT } from './header/header';
 
-const oldGenerateAnchorId = (children) => {
+const generateAnchorId = (children) => {
   /*https://stackoverflow.com/questions/34204975/react-is-there-something-similar-to-node-textcontent*/
   const getNodeText = (node) => {
     if (['string', 'number'].includes(typeof node)) return node;
@@ -24,15 +24,15 @@ const ShareSymbol = styled.a`
   scroll-margin-top: ${HEADER_HEIGHT};
 `;
 
-// eslint-disable-next-line react/display-name
 export const WithAnchorHOC =
   (TitleComponent) =>
+  // eslint-disable-next-line react/display-name
   ({ ...props }) => {
     return (
       <div>
         <ShareSymbol
-          href={'#' + oldGenerateAnchorId(props.children)}
-          id={oldGenerateAnchorId(props.children)}
+          href={'#' + generateAnchorId(props.children)}
+          id={generateAnchorId(props.children)}
         >
           #
         </ShareSymbol>
