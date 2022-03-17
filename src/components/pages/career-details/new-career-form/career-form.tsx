@@ -1,3 +1,4 @@
+import axios, { AxiosResponse } from 'axios';
 import React, { useEffect } from 'react';
 import { ErrorCode, FileError } from 'react-dropzone';
 import { useForm } from 'react-hook-form';
@@ -17,7 +18,15 @@ import { Button } from '../../../ui/buttons/button';
 import { FormLayout } from '../../contact/form';
 import { SectionHeadline } from '../job-description';
 
-export type FormData = {
+interface CareerFormProps {
+  company_id: string;
+  access_token: string;
+  job_position_id: string;
+  recruiting_channel_id: string;
+  scrollToStart: () => void;
+}
+
+export type FormDataProps = {
   firstName: string;
   lastName: string;
   email: string;
@@ -30,6 +39,13 @@ export type FormData = {
   privacyPolicy: boolean;
 };
 
+type FormErrors = { api?: never };
+
+interface PersonioApiResponse {
+  success: string;
+}
+
+const API_ENDPOINT = 'https://api.personio.de/recruiting/applicant';
 const PRIVACY_POLICY = 'https://satellytes.jobs.personio.de/privacy-policy';
 const MAX_SIZE = 20 * 1024 * 1024;
 
@@ -39,7 +55,7 @@ const TextWrapper = styled.div`
   ${TextStyles.textR}
 `;
 
-export const Form = () => {
+export const Form = (props: CareerFormProps) => {
   const {
     setValue,
     setError,
@@ -49,7 +65,7 @@ export const Form = () => {
     control,
     watch,
     formState: { errors, isValid, isSubmitted },
-  } = useForm<FormData>({
+  } = useForm<FormDataProps & FormErrors>({
     mode: 'onSubmit',
   });
 
@@ -73,6 +89,72 @@ export const Form = () => {
       );
       return;
     }
+
+    const apiData = {
+      company_id: props.company_id,
+      access_token: props.access_token,
+      job_position_id: props.job_position_id, // dev test position
+      recruiting_channel_id: props.recruiting_channel_id, //satellytes.com
+    };
+
+    const payload = {
+      ...apiData,
+      ...formValues,
+    };
+
+    const formData = new FormData();
+
+    for (const [key, value] of Object.entries(payload)) {
+      if (key === 'documents') {
+        for (let i = 0; i < formValues.documents.length; i++) {
+          const keyName = `categorised_documents[${i}][file]`;
+          const category = formValues.documents[i].fileCategory;
+          formData.append(keyName, formValues.documents[i].file);
+          const nameCategory = `categorised_documents[${i}][category]`;
+
+          if (category) {
+            formData.append(nameCategory, category);
+          }
+        }
+      } else {
+        formData.append(key, value as any); // formdata doesn't take objects
+      }
+    }
+
+    formData.append('gender', 'diverse');
+
+    await axios
+      .post<FormDataProps, AxiosResponse<PersonioApiResponse>>(
+        API_ENDPOINT,
+        formData,
+        {
+          onUploadProgress: console.log /*(progressEvent) => (
+            setUploadProgress(progressEvent.loaded / progressEvent.total)*/,
+        },
+      )
+      .then((response) => response.data)
+      .then((data) => {
+        // will contain 'Applicant successfully applied to the job position!'
+        // from the Personio API.
+        if (data.success) {
+          // all good
+          props.scrollToStart?.();
+        } else {
+          console.error('Something was wrong with the received response', data);
+        }
+      })
+      .catch((error) => {
+        // personio seems to deliver a different so the message can be inside the error object or the error object itself
+        const personioErrorMessage =
+          error?.response?.data?.error?.message ??
+          error?.response?.data?.error ??
+          error.message;
+
+        setError('api', {
+          type: 'server',
+          message: `Irgendetwas ist schief gelaufen (${personioErrorMessage}).`,
+        });
+      });
   };
 
   const validator = (file: File): FileError | null => {

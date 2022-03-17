@@ -17,7 +17,7 @@ import {
   UseFormSetError,
   UseFormSetValue,
 } from 'react-hook-form';
-import { FormData } from '../../pages/career-details/new-career-form/career-form';
+import { FormDataProps } from '../../pages/career-details/new-career-form/career-form';
 import { Label, StyledErrorMessage } from '../text-input/text-input';
 
 export interface FileDropperType {
@@ -53,10 +53,10 @@ interface FileDropperProps extends React.ComponentPropsWithRef<'input'> {
   /**
    * Use Controller Props, to get the form to work
    */
-  setValue: UseFormSetValue<FormData>;
-  setError: UseFormSetError<FormData>;
-  clearErrors: UseFormClearErrors<FormData>;
-  register: UseFormRegister<FormData>;
+  setValue: UseFormSetValue<FormDataProps>;
+  setError: UseFormSetError<FormDataProps>;
+  clearErrors: UseFormClearErrors<FormDataProps>;
+  register: UseFormRegister<FormDataProps>;
   name: 'documents';
   errors?: FieldErrors;
 }
