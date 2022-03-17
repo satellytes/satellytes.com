@@ -104,7 +104,7 @@ export const Form = () => {
           />
           <TextInput
             name="residence"
-            label={t<string>('career.error.location')}
+            label={t<string>('career.location')}
             control={control}
           />
           <TextInput
