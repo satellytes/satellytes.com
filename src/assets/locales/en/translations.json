@@ -29,7 +29,7 @@
   "career.cover-letter": "Cover letter",
   "career.file-category": "Document category",
   "career.remove-file": "Remove",
-  "career.cv": "CV",
+  "career.cv": "CV *",
   "career.other": "other",
   "career.info-text": "Please upload your relevant documents here, e.g. curriculum vitae (CV), letter of motivation or references. Only 3 PDF files are allowed, the maximum size per file is 20MB.",
   "career.privacy-policy": "<0>I hereby confirm that I have read and understood the <1>privacy policy</1>.</0>",

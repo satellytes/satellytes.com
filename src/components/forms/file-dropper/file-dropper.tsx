@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FileError, FileRejection, useDropzone } from 'react-dropzone';
+import { FileError, useDropzone } from 'react-dropzone';
 import styled, { css } from 'styled-components';
 import { theme } from '../../layout/theme';
 import {
@@ -16,10 +16,9 @@ import {
   UseFormRegister,
   UseFormSetError,
   UseFormSetValue,
-  UseFormWatch,
 } from 'react-hook-form';
 import { FormData } from '../../pages/career-details/new-career-form/career-form';
-import { StyledErrorMessage } from '../text-input/text-input';
+import { Label, StyledErrorMessage } from '../text-input/text-input';
 
 export interface FileDropperType {
   file: File;
@@ -47,7 +46,10 @@ interface FileDropperProps extends React.ComponentPropsWithRef<'input'> {
    * (Optional) Pass in a valid illustration keyword to show the according illustration.
    */
   illustration?: IllustrationType;
-
+  /**
+   * (Optional) label, which is displayed above
+   */
+  label?: string;
   /**
    * Use Controller Props, to get the form to work
    */
@@ -110,6 +112,7 @@ const Description = styled.p`
 `;
 
 export const FileDropper = ({
+  label,
   illustration,
   acceptedFileTypes,
   validator,
@@ -182,6 +185,7 @@ export const FileDropper = ({
 
   return (
     <>
+      {label && <Label>{label}</Label>}
       <FileDropperContainer
         {...getRootProps()}
         isDragActive={isDragActive}

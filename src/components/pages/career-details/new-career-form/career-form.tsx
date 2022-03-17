@@ -85,12 +85,25 @@ export const Form = () => {
     return null;
   };
 
+  const onErrorHandler = (event) => {
+    if (selectedFiles?.length === 0 || !selectedFiles) {
+      setError(
+        'documents',
+        { type: 'manual', message: t<string>('career.error.cv') },
+        { shouldFocus: true },
+      );
+    }
+  };
+
   return (
     <>
       <SectionHeadline>
         <Trans i18nKey={'career.headline'} />
       </SectionHeadline>
-      <form name="career" onSubmit={handleSubmit(onSubmitHandler)}>
+      <form
+        name="career"
+        onSubmit={handleSubmit(onSubmitHandler, onErrorHandler)}
+      >
         <FormLayout>
           <TextInput
             name="firstName"
@@ -162,6 +175,7 @@ export const Form = () => {
           setError={setError}
           clearErrors={clearErrors}
           errors={errors}
+          label={t<string>('career.cv')}
           name="documents"
           fileCategories={['CV', 'Letter']}
           acceptedFileTypes={'.pdf'}
