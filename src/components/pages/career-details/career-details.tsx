@@ -6,6 +6,7 @@ import { JobDescription } from './job-description';
 import { SyPersonioJob } from '../../../types';
 import { SectionHeader } from '../../content/section-header/section-header';
 import { ContentBlockContainer } from '../../layout/content-block-container';
+import { Form } from './new-career-form/career-form';
 
 interface CareerDetailsProps {
   originalPath: string;
@@ -51,13 +52,7 @@ export const CareerDetails = ({
 
       <JobDescription sections={position.sections} />
 
-      <CareerForm
-        company_id="41230"
-        recruiting_channel_id="329206"
-        access_token="89b2acfa3a239b75c7d6"
-        job_position_id={position.jobId + ''}
-        scrollToStart={scrollToStart}
-      />
+      <Form />
     </Layout>
   );
 };

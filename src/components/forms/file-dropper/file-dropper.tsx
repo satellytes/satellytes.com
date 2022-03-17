@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-import {
-  ErrorCode,
-  FileError,
-  FileRejection,
-  useDropzone,
-} from 'react-dropzone';
+import { FileError, FileRejection, useDropzone } from 'react-dropzone';
 import styled, { css } from 'styled-components';
 import { theme } from '../../layout/theme';
 import {
@@ -15,21 +10,23 @@ import { IllustrationType } from '../../ui/illustration/illustration-set';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { TextStyles } from '../../typography';
 import { FileListItem } from './file-list-item';
+import {
+  FieldErrors,
+  UseFormClearErrors,
+  UseFormRegister,
+  UseFormSetError,
+  UseFormSetValue,
+  UseFormWatch,
+} from 'react-hook-form';
+import { FormData } from '../../pages/career-details/new-career-form/career-form';
+import { StyledErrorMessage } from '../text-input/text-input';
 
-interface FileDropperType {
+export interface FileDropperType {
   file: File;
   fileCategory: string | null;
 }
 
-interface FileDropperProps {
-  /**
-   * Called when files are uploaded and all conditions (e.g. `acceptedFileTypes` or `maxFiles`) are fulfilled or when a file changes (e.g. files gets removed or a fileCategory is added to a file). `acceptedFiles` always contains all valid files.
-   */
-  onFileChange: (acceptedFiles: FileDropperType[]) => any;
-  /**
-   * (Optional) Called when files are uploaded and a condition (e.g. wrong file type) is not fulfilled.
-   */
-  onDropRejected?: (rejectedData: FileRejection[]) => any;
+interface FileDropperProps extends React.ComponentPropsWithRef<'input'> {
   /**
    * (Optional) Allows custom validation of uploaded files. If the file is accepted, the `validator()` function must return null. Otherwise the function returns a FileError object. See also: [react-dropzone: custom validation](https://react-dropzone.js.org/#section-custom-validation)
    */
@@ -50,6 +47,16 @@ interface FileDropperProps {
    * (Optional) Pass in a valid illustration keyword to show the according illustration.
    */
   illustration?: IllustrationType;
+
+  /**
+   * Use Controller Props, to get the form to work
+   */
+  setValue: UseFormSetValue<FormData>;
+  setError: UseFormSetError<FormData>;
+  clearErrors: UseFormClearErrors<FormData>;
+  register: UseFormRegister<FormData>;
+  name: 'documents';
+  errors?: FieldErrors;
 }
 
 const Highlight = styled.span`
@@ -59,6 +66,7 @@ const Highlight = styled.span`
 const FileDropperContainer = styled.div<{
   isDragActive: boolean;
   hasFiles: boolean;
+  hasErrors: boolean;
 }>`
   display: flex;
   gap: 16px;
@@ -72,6 +80,12 @@ const FileDropperContainer = styled.div<{
       props.isDragActive
         ? theme.palette.text.link.default
         : theme.palette.background.leadbox};
+
+  ${(props) =>
+    props.hasErrors &&
+    css`
+      border-color: ${theme.palette.text.errorMessage};
+    `}
 
   ${(props) =>
     props.hasFiles &&
@@ -95,28 +109,24 @@ export const FileDropper = ({
   illustration,
   acceptedFileTypes,
   validator,
-  onDropRejected,
-  onFileChange,
   maxFiles,
   fileCategories,
+  setValue,
+  setError,
+  clearErrors,
+  name,
+  register,
+  errors,
 }: FileDropperProps): JSX.Element => {
   const [currentFiles, setCurrenFiles] = useState<FileDropperType[]>([]);
   const { t } = useTranslation();
 
   const onDrop = (acceptedFiles: File[]) => {
     if (maxFiles && currentFiles.length + acceptedFiles.length > maxFiles) {
-      if (onDropRejected) {
-        const rejectFiles = acceptedFiles.map((acceptedFile) => ({
-          file: acceptedFile,
-          errors: [
-            {
-              message: t('career.error.max-number'),
-              code: ErrorCode.TooManyFiles,
-            },
-          ],
-        }));
-        onDropRejected(rejectFiles);
-      }
+      setError(name, {
+        type: 'manual',
+        message: t<string>('career.error.max-number'),
+      });
       return;
     }
 
@@ -125,23 +135,35 @@ export const FileDropper = ({
       fileCategory: null,
     }));
     setCurrenFiles([...currentFiles, ...newFiles]);
-    onFileChange(newFiles);
+    setValue(name, [...currentFiles, ...newFiles], { shouldDirty: true });
+    clearErrors(name);
   };
 
   const onRemoveFile = (fileIndex) => {
     const newFiles = [...currentFiles];
     newFiles.splice(fileIndex, 1);
     setCurrenFiles(newFiles);
-    onFileChange(newFiles);
+    setValue(name, [...currentFiles, ...newFiles], { shouldDirty: true });
+    clearErrors(name);
   };
 
   const onFileCategorySelect = (fileIndex, selectedCategory) => {
+    console.log(fileIndex, selectedCategory);
     const newFiles = [...currentFiles];
     newFiles[fileIndex] = {
       ...currentFiles[fileIndex],
       fileCategory: selectedCategory,
     };
-    onFileChange(newFiles);
+    setCurrenFiles(newFiles);
+    setValue(name, newFiles);
+  };
+
+  const onDropRejected = (file) => {
+    setError(
+      name,
+      { type: 'manual', message: file[0].errors[0].message },
+      { shouldFocus: true },
+    );
   };
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -160,8 +182,9 @@ export const FileDropper = ({
         {...getRootProps()}
         isDragActive={isDragActive}
         hasFiles={hasFiles}
+        hasErrors={errors?.documents}
       >
-        <input {...getInputProps()} />
+        <input {...getInputProps({ ...register(name) })} />
         {!hasFiles && illustration && (
           <Illustration show={illustration} size={IllustrationSize.NORMAL} />
         )}
@@ -182,6 +205,10 @@ export const FileDropper = ({
           onFileCategorySelect={onFileCategorySelect}
         />
       ))}
+
+      {errors?.documents && (
+        <StyledErrorMessage>{errors.documents.message}</StyledErrorMessage>
+      )}
     </>
   );
 };
