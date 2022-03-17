@@ -31,7 +31,7 @@ const FileName = styled.p`
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
-  text-wrap: none;
+  white-space: nowrap;
 `;
 
 const Actions = styled.div`
@@ -48,6 +48,7 @@ const FileCategoryDropdown = styled(Dropdown)`
   margin-right: 24px;
   padding: 0;
 
+  border: none;
   border-bottom: rgba(0, 0, 0, 0) 1px solid;
   &:hover {
     border-bottom: ${theme.palette.text.topline} 1px solid;
