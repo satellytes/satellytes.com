@@ -75,7 +75,7 @@ const FileDropperContainer = styled.div<{
   padding: 28px 0;
   background-color: ${theme.palette.background.leadbox};
   cursor: pointer;
-  border: 3px solid
+  border: 1px solid
     ${(props) =>
       props.isDragActive
         ? theme.palette.text.link.default
@@ -96,6 +96,10 @@ const FileDropperContainer = styled.div<{
 
   &:hover ${Highlight} {
     border-bottom: 1px solid ${theme.palette.text.link.default};
+  }
+
+  &:hover {
+    border: 1px solid ${theme.palette.text.default};
   }
 `;
 

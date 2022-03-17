@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
+import styled from 'styled-components';
 import { Checkbox } from '../../../forms/checkbox/checkbox';
 import { SIMPLE_EMAIL_PATTERN } from '../../../forms/constants';
 import {
@@ -9,6 +10,7 @@ import {
 } from '../../../forms/file-dropper/file-dropper';
 import { TextArea } from '../../../forms/text-area/text-area';
 import { TextInput } from '../../../forms/text-input/text-input';
+import { SimpleLink } from '../../../legacy/markdown/custom-components';
 import { Button } from '../../../ui/buttons/button';
 import { FormLayout } from '../../contact/form';
 import { SectionHeadline } from '../job-description';
@@ -25,6 +27,12 @@ export type FormData = {
 
   privacyPolicy: boolean;
 };
+
+const PRIVACY_POLICY = 'https://satellytes.jobs.personio.de/privacy-policy';
+
+const TextWrapper = styled.div`
+  margin: 24px 0;
+`;
 
 export const Form = () => {
   const {
@@ -64,25 +72,27 @@ export const Form = () => {
 
   return (
     <>
-      <SectionHeadline>Apply</SectionHeadline>
+      <SectionHeadline>
+        <Trans i18nKey={'career.headline'} />
+      </SectionHeadline>
       <form name="career" onSubmit={handleSubmit(onSubmitHandler)}>
         <FormLayout>
           <TextInput
             name="firstName"
-            label="First Name"
+            label={t<string>('career.error.first-name')}
             control={control}
             rules={{ required: t<string>('career.error.first-name') }}
           />
           <TextInput
             name="lastName"
-            label="Last Name"
+            label={t<string>('career.error.last-name')}
             control={control}
             rules={{ required: t<string>('career.error.last-name') }}
           />
 
           <TextInput
             name="email"
-            label="Email"
+            label={t<string>('career.error.email')}
             control={control}
             rules={{
               required: t<string>('career.error.email'),
@@ -94,25 +104,39 @@ export const Form = () => {
           />
           <TextInput
             name="residence"
-            label="Place of Residence"
+            label={t<string>('career.error.location')}
             control={control}
           />
           <TextInput
             name="available"
-            label="Available From"
+            label={t<string>('career.available-from')}
             control={control}
           />
           <TextInput
             name="salaryExpectation"
-            label="Salary Expectation"
+            label={t<string>('career.salary-expectations')}
             control={control}
           />
         </FormLayout>
-        <TextArea name="coverLetter" label="Cover letter" control={control} />
+        <TextArea
+          name="coverLetter"
+          label={t<string>('career.cover-letter')}
+          control={control}
+        />
         <br />
         <Checkbox
           name="privacyPolicy"
-          label="I hereby confirm that I have read and understood the privacy policy."
+          label={
+            <Trans i18nKey={'career.privacy-policy'}>
+              <span>
+                Hiermit bestätige ich, dass ich die
+                <SimpleLink href={PRIVACY_POLICY}>
+                  Datenschutzerklärung
+                </SimpleLink>
+                zur Kenntnis genommen habe
+              </span>
+            </Trans>
+          }
           control={control}
           rules={{ required: t<string>('career.error.approval') }}
         />
@@ -128,8 +152,14 @@ export const Form = () => {
           acceptedFileTypes={'.pdf'}
           illustration="monitor_024"
         ></FileDropper>
+        <TextWrapper>
+          <Trans i18nKey={'career.info-text'} />
+        </TextWrapper>
         <br />
         <Button type="submit">Submit</Button>
+        <TextWrapper>
+          <Trans i18nKey={'career.mandatory-field'} />
+        </TextWrapper>
       </form>
     </>
   );

@@ -47,7 +47,7 @@ const HiddenCheckbox = styled.input.attrs({
 `;
 
 export const Checkbox = (
-  props: UseControllerProps<any> & { label: string },
+  props: UseControllerProps<any> & { label: string | JSX.Element },
 ) => {
   const { field, fieldState, formState } = useController(props);
   const errorMessage = fieldState?.error?.message;
