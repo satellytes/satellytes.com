@@ -8,6 +8,7 @@ import { theme } from '../../layout/theme';
 import { Link } from '../../legacy/links/links';
 import { HoneypotField } from './honeypot';
 import { Email, FirstName, MessageArea } from './form-fields';
+import { up } from '../../support/breakpoint';
 
 const API_ENDPOINT = '/api/contact-form';
 type RequestStatus = 'pending' | 'submitting' | 'success' | 'error';
@@ -16,7 +17,11 @@ export const FormLayout = styled.div`
   margin-bottom: 24px;
   gap: 24px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 2fr);
+
+  ${up('sm')} {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 const MandatoryNotes = styled.p`

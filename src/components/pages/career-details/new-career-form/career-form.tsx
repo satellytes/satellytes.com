@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { ErrorCode, FileError } from 'react-dropzone';
 import { useForm } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 import styled from 'styled-components';
@@ -11,6 +12,7 @@ import {
 import { TextArea } from '../../../forms/text-area/text-area';
 import { TextInput } from '../../../forms/text-input/text-input';
 import { SimpleLink } from '../../../legacy/markdown/custom-components';
+import { TextStyles } from '../../../typography';
 import { Button } from '../../../ui/buttons/button';
 import { FormLayout } from '../../contact/form';
 import { SectionHeadline } from '../job-description';
@@ -29,9 +31,12 @@ export type FormData = {
 };
 
 const PRIVACY_POLICY = 'https://satellytes.jobs.personio.de/privacy-policy';
+const MAX_SIZE = 20 * 1024 * 1024;
 
 const TextWrapper = styled.div`
   margin: 24px 0;
+
+  ${TextStyles.textR}
 `;
 
 export const Form = () => {
@@ -70,6 +75,16 @@ export const Form = () => {
     }
   };
 
+  const validator = (file: File): FileError | null => {
+    if (file.size > MAX_SIZE)
+      return {
+        message: t<string>('career.error.max-size'),
+        code: ErrorCode.FileTooLarge,
+      };
+
+    return null;
+  };
+
   return (
     <>
       <SectionHeadline>
@@ -79,20 +94,20 @@ export const Form = () => {
         <FormLayout>
           <TextInput
             name="firstName"
-            label={t<string>('career.error.first-name')}
+            label={t<string>('career.first-name')}
             control={control}
             rules={{ required: t<string>('career.error.first-name') }}
           />
           <TextInput
             name="lastName"
-            label={t<string>('career.error.last-name')}
+            label={t<string>('career.last-name')}
             control={control}
             rules={{ required: t<string>('career.error.last-name') }}
           />
 
           <TextInput
             name="email"
-            label={t<string>('career.error.email')}
+            label={t<string>('career.email')}
             control={control}
             rules={{
               required: t<string>('career.error.email'),
@@ -151,12 +166,14 @@ export const Form = () => {
           fileCategories={['CV', 'Letter']}
           acceptedFileTypes={'.pdf'}
           illustration="monitor_024"
+          maxFiles={3}
+          validator={validator}
         ></FileDropper>
         <TextWrapper>
           <Trans i18nKey={'career.info-text'} />
         </TextWrapper>
         <br />
-        <Button type="submit">Submit</Button>
+        <Button type="submit">{t<string>('career.action.send')}</Button>
         <TextWrapper>
           <Trans i18nKey={'career.mandatory-field'} />
         </TextWrapper>
