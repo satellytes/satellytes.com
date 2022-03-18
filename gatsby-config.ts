@@ -1,6 +1,22 @@
-import type { GatsbyConfig } from 'gatsby';
-import { buildGatsbyCloudPreviewUrl } from './gatsby/util/build-gatsby-cloud-preview-url';
+import dotenv from 'dotenv';
+import type { GatsbyConfig, IPluginRefOptions } from 'gatsby';
 import * as siteMapTransformers from './gatsby/gatsby-plugin-sitemap/gatsby-plugin-sitemap';
+import { buildGatsbyCloudPreviewUrl } from './gatsby/util/build-gatsby-cloud-preview-url';
+
+dotenv.config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
+const contentfulConfig: IPluginRefOptions = {
+  spaceId: process.env.CONTENTFUL_SPACE_ID,
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+};
+
+// host is only set in local & preview environments
+if (process.env.CONTENTFUL_HOST) {
+  contentfulConfig.host = process.env.CONTENTFUL_HOST;
+  contentfulConfig.accessToken = process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN;
+}
 
 const GATSBY_SITE_PREFIX = process.env.GATSBY_SITE_PREFIX || '';
 const BRANCH_PREVIEW_URL = buildGatsbyCloudPreviewUrl({
@@ -312,6 +328,10 @@ const gatsbyConfig: GatsbyConfig = {
       },
     },
     'gatsby-plugin-svgr',
+    {
+      resolve: 'gatsby-source-contentful',
+      options: contentfulConfig,
+    },
   ],
 };
 
