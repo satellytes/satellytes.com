@@ -7,7 +7,7 @@ import { Dropdown, DropdownOption } from '../dropdown/dropdown';
 
 interface FileListItemProps {
   fileName: string;
-  fileCategories?: string[];
+  fileCategories?: { label: string; value: string }[];
   index: number;
   onRemove: (index: number) => any;
   onFileCategorySelect: (index: number, category: string) => any;
@@ -93,8 +93,8 @@ export const FileListItem = ({
               {t('career.file-category')}
             </DropdownOption>
             {fileCategories.map((category) => (
-              <DropdownOption value={category} key={category}>
-                {category}
+              <DropdownOption value={category.value} key={category.value}>
+                {category.label}
               </DropdownOption>
             ))}
           </FileCategoryDropdown>

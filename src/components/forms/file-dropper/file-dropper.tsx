@@ -22,7 +22,7 @@ import { Label, StyledErrorMessage } from '../text-input/text-input';
 
 export interface FileDropperType {
   file: File;
-  fileCategory: string | null;
+  fileCategory?: { value: string; label: string };
 }
 
 interface FileDropperProps extends React.ComponentPropsWithRef<'input'> {
@@ -41,7 +41,7 @@ interface FileDropperProps extends React.ComponentPropsWithRef<'input'> {
   /**
    * (Optional) Categories that the user can add to each uploaded file (e.g. 'CV' or 'Cover Letter')
    * */
-  fileCategories?: string[];
+  fileCategories?: { value: string; label: string }[];
   /**
    * (Optional) Pass in a valid illustration keyword to show the according illustration.
    */
@@ -139,7 +139,7 @@ export const FileDropper = ({
 
     const newFiles = acceptedFiles.map((acceptedFile) => ({
       file: acceptedFile,
-      fileCategory: null,
+      fileCategory: undefined,
     }));
     setCurrenFiles([...currentFiles, ...newFiles]);
     setValue(name, [...currentFiles, ...newFiles], { shouldDirty: true });
@@ -155,7 +155,6 @@ export const FileDropper = ({
   };
 
   const onFileCategorySelect = (fileIndex, selectedCategory) => {
-    console.log(fileIndex, selectedCategory);
     const newFiles = [...currentFiles];
     newFiles[fileIndex] = {
       ...currentFiles[fileIndex],

@@ -42,7 +42,7 @@ export type FormDataProps = {
   available_from: string;
   salary_expectations: string;
 
-  privacyPolicy: boolean;
+  privacy: boolean;
 };
 
 type FormErrors = { api?: never };
@@ -70,7 +70,7 @@ export const Form = (props: CareerFormProps) => {
     handleSubmit,
     control,
     watch,
-    formState: { errors, isValid, isSubmitted, isSubmitSuccessful },
+    formState: { errors, isSubmitSuccessful },
   } = useForm<FormDataProps & FormErrors>({
     mode: 'onSubmit',
   });
@@ -84,9 +84,22 @@ export const Form = (props: CareerFormProps) => {
     }
   }, [selectedFiles]);
 
-  const onSubmitHandler = async (formValues) => {
-    console.log(formValues);
+  const fileCategories = [
+    {
+      value: 'cv',
+      label: t<string>('career.cv'),
+    },
+    {
+      value: 'cover-letter',
+      label: t<string>('career.cover-letter'),
+    },
+    {
+      value: 'other',
+      label: t<string>('career.other'),
+    },
+  ];
 
+  const onSubmitHandler = async (formValues) => {
     if (selectedFiles?.length === 0) {
       setError(
         'documents',
@@ -122,14 +135,13 @@ export const Form = (props: CareerFormProps) => {
             formData.append(nameCategory, category);
           }
         }
-      } else if (key !== 'privacyPolicy') {
+      } else {
         formData.append(key, value as any); // formdata doesn't take objects
       }
     }
 
     formData.append('gender', 'diverse');
 
-    formData.forEach(console.log);
     await axios
       .post<FormDataProps, AxiosResponse<PersonioApiResponse>>(
         API_ENDPOINT,
@@ -174,8 +186,6 @@ export const Form = (props: CareerFormProps) => {
     return null;
   };
 
-  if (isSubmitSuccessful) return <Success />;
-
   const onErrorHandler = (event) => {
     if (selectedFiles?.length === 0 || !selectedFiles) {
       setError(
@@ -184,7 +194,17 @@ export const Form = (props: CareerFormProps) => {
         { shouldFocus: true },
       );
     }
+
+    for (let i = 0; i < selectedFiles?.length; i++) {
+      if (!selectedFiles[i].fileCategory)
+        setError('documents', {
+          type: 'manual',
+          message: t<string>('career.error.category'),
+        });
+    }
   };
+
+  if (isSubmitSuccessful) return <Success />;
 
   return (
     <>
@@ -251,7 +271,7 @@ export const Form = (props: CareerFormProps) => {
           clearErrors={clearErrors}
           errors={errors}
           name="documents"
-          fileCategories={['CV', 'Letter']}
+          fileCategories={fileCategories}
           acceptedFileTypes={'.pdf'}
           illustration="monitor_024"
           maxFiles={3}
@@ -263,7 +283,7 @@ export const Form = (props: CareerFormProps) => {
         </TextWrapper>
         <br />
         <Checkbox
-          name="privacyPolicy"
+          name="privacy"
           label={
             <Trans i18nKey={'career.privacy-policy'}>
               <span>
