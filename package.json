@@ -64,6 +64,7 @@
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^6.10.1",
     "gatsby-remark-prismjs": "^6.10.0",
+    "gatsby-source-contentful": "^7.8.0",
     "gatsby-source-filesystem": "^4.10.1",
     "gatsby-transformer-json": "^4.9.0",
     "gatsby-transformer-remark": "^5.10.1",
