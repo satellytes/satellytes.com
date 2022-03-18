@@ -32,14 +32,15 @@ interface CareerFormProps {
 }
 
 export type FormDataProps = {
-  firstName: string;
-  lastName: string;
+  first_name: string;
+  last_name: string;
   email: string;
-  residence: string;
-  availableFrom: string;
-  salary: string;
-  letter: string;
   documents: FileDropperType[];
+  message: string;
+  phone?: string;
+  location: string;
+  available_from: string;
+  salary_expectations: string;
 
   privacyPolicy: boolean;
 };
@@ -121,13 +122,14 @@ export const Form = (props: CareerFormProps) => {
             formData.append(nameCategory, category);
           }
         }
-      } else {
+      } else if (key !== 'privacyPolicy') {
         formData.append(key, value as any); // formdata doesn't take objects
       }
     }
 
     formData.append('gender', 'diverse');
 
+    formData.forEach(console.log);
     await axios
       .post<FormDataProps, AxiosResponse<PersonioApiResponse>>(
         API_ENDPOINT,
@@ -195,13 +197,13 @@ export const Form = (props: CareerFormProps) => {
       >
         <FormLayout>
           <TextInput
-            name="firstName"
+            name="first_name"
             label={t<string>('career.first-name')}
             control={control}
             rules={{ required: t<string>('career.error.first-name') }}
           />
           <TextInput
-            name="lastName"
+            name="last_name"
             label={t<string>('career.last-name')}
             control={control}
             rules={{ required: t<string>('career.error.last-name') }}
@@ -220,23 +222,23 @@ export const Form = (props: CareerFormProps) => {
             }}
           />
           <TextInput
-            name="residence"
+            name="location"
             label={t<string>('career.location')}
             control={control}
           />
           <TextInput
-            name="available"
+            name="available_from"
             label={t<string>('career.available-from')}
             control={control}
           />
           <TextInput
-            name="salaryExpectation"
+            name="salary_expectations"
             label={t<string>('career.salary-expectations')}
             control={control}
           />
         </FormLayout>
         <TextArea
-          name="coverLetter"
+          name="message"
           label={t<string>('career.cover-letter')}
           control={control}
         />
