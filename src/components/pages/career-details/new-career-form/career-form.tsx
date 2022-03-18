@@ -15,7 +15,6 @@ import {
   StyledErrorMessage,
   TextInput,
 } from '../../../forms/text-input/text-input';
-import { SimpleLink } from '../../../legacy/markdown/custom-components';
 import { TextStyles } from '../../../typography';
 import { Button } from '../../../ui/buttons/button';
 import { StyledLink } from '../../contact/contact-form';
@@ -288,9 +287,9 @@ export const Form = (props: CareerFormProps) => {
             <Trans i18nKey={'career.privacy-policy'}>
               <span>
                 Hiermit bestätige ich, dass ich die
-                <SimpleLink href={PRIVACY_POLICY}>
+                <StyledLink to={PRIVACY_POLICY}>
                   Datenschutzerklärung
-                </SimpleLink>
+                </StyledLink>
                 zur Kenntnis genommen habe
               </span>
             </Trans>
