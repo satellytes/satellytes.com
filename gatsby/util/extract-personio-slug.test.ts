@@ -1,7 +1,7 @@
-const {
+import {
   PERSONIO_SLUG_FIELD_NAME,
   extractPersonioSlug,
-} = require('./extract-personio-slug');
+} from './extract-personio-slug';
 
 describe('extractPersonioSlug', () => {
   test('should find and return the given slug', () => {

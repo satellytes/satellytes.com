@@ -1,6 +1,4 @@
-const {
-  buildGatsbyCloudPreviewUrl,
-} = require('./build-gatsby-cloud-preview-url');
+import { buildGatsbyCloudPreviewUrl } from './build-gatsby-cloud-preview-url';
 
 describe('build-gatsby-cloud-preview-url', () => {
   test('should return a valid url', () => {
@@ -22,6 +20,7 @@ describe('build-gatsby-cloud-preview-url', () => {
   test('should return null without a branch given', () => {
     const url = buildGatsbyCloudPreviewUrl({
       prefix: 'satellytescommain',
+      branch: null,
     });
     expect(url).toBe(null);
   });

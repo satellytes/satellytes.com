@@ -1,6 +1,10 @@
 import React from 'react';
+import type { GatsbySSR } from 'gatsby';
 
-export const onRenderBody = ({ setPostBodyComponents, setHeadComponents }) => {
+export const onRenderBody: GatsbySSR['onRenderBody'] = ({
+  setPostBodyComponents,
+  setHeadComponents,
+}) => {
   setHeadComponents(
     [
       /**

@@ -18,6 +18,7 @@ const UnorderedList = styled.ul`
   line-height: 150%;
   list-style-type: none;
   padding-left: 0;
+  margin: 16px 0;
 
   > li:before {
     content: '-';
@@ -34,32 +35,12 @@ const UnorderedList = styled.ul`
   }
 `;
 
-const OrderedList = styled.ol`
+const OrderedList = styled.ol<{ doubleDigit: boolean }>`
   line-height: 150%;
-  padding-left: 16px;
+  padding-left: ${(props) => (props.doubleDigit ? '26px' : '18px')};
 
   > li {
     margin-bottom: 12px;
-  }
-`;
-
-/*
-the 160px margin is ridiculous and might fit single pages
-but they are not suited for blog posts as the content gets stretched too most
-and the information density is too much reduced for an article format.
- */
-export const TextTitleCondensed = styled(TextTitle)`
-  ${up('md')} {
-    margin-top: 40px;
-  }
-`;
-
-export const SubTitleCondensed = styled(SubTitle)`
-  margin-top: 40px;
-  margin-bottom: 20px;
-
-  ${up('md')} {
-    font-size: 36px;
   }
 `;
 
@@ -123,7 +104,7 @@ const Image = styled.img`
 `;
 
 const Figure = styled.figure`
-  margin: 0;
+  margin: 48px 0;
 
   figcaption {
     margin-top: 12px;
@@ -147,13 +128,13 @@ const customSatellytesComponents = {
   },
   // define our lovely headlines from h1 to h6
   h1(props) {
-    return <SubTitleCondensed as={'h1'}>{props.children}</SubTitleCondensed>;
+    return <SubTitle as={'h1'}>{props.children}</SubTitle>;
   },
   h2(props) {
-    return <SubTitleCondensed as={'h2'}>{props.children}</SubTitleCondensed>;
+    return <SubTitle as={'h2'}>{props.children}</SubTitle>;
   },
   h3(props) {
-    return <TextTitleCondensed as={'h3'}>{props.children}</TextTitleCondensed>;
+    return <TextTitle as={'h3'}>{props.children}</TextTitle>;
   },
   h4(props) {
     return <SmallTitle as={'h4'}>{props.children}</SmallTitle>;
@@ -165,7 +146,11 @@ const customSatellytesComponents = {
     return <SmallTitle as={'h6'}>{props.children}</SmallTitle>;
   },
   ol(props) {
-    return <OrderedList>{props.children}</OrderedList>;
+    return (
+      <OrderedList doubleDigit={props.children.length > 9}>
+        {props.children}
+      </OrderedList>
+    );
   },
   ul(props) {
     return <UnorderedList>{props.children}</UnorderedList>;

@@ -11,16 +11,6 @@ export interface BlogPostTeaser {
   };
 }
 
-export interface LocalesQuery {
-  edges: {
-    node: {
-      ns: string;
-      language: string;
-      data: string;
-    };
-  }[];
-}
-
 /**
  * the normalized jobs content coming from the API
  */
@@ -61,10 +51,8 @@ export interface PlainFixedImageSharpSource {
 export interface BlogPostMarkdown {
   excerpt: string;
   htmlAst;
-  fields: {
-    readingTime: {
-      minutes: string;
-    };
+  readingTime: {
+    minutes: string;
   };
   frontmatter: {
     shareImage: PlainFixedImageSharpSource;

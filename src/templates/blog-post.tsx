@@ -1,22 +1,18 @@
-import { graphql } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import SEO from '../components/layout/seo';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { BlogPostMarkdown, BreadcrumbEntry, LocalesQuery } from '../types';
+import { BlogPostMarkdown, BreadcrumbEntry } from '../types';
 import { BlogPostPage } from '../components/pages/blog-post/blog-post';
 
-interface BlogArticleTemplateProps {
-  data: {
-    locales: LocalesQuery;
-    markdownRemark: BlogPostMarkdown;
-  };
-  location: Location;
+interface BlogArticleTemplateQueryProps {
+  markdownRemark: BlogPostMarkdown;
 }
 
-const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
+const BlogArticleTemplate = ({
   data,
   location,
-}) => {
+}: PageProps<BlogArticleTemplateQueryProps>): JSX.Element => {
   const { t } = useTranslation();
   const markdown = data.markdownRemark;
 
@@ -55,22 +51,11 @@ const BlogArticleTemplate: React.FC<BlogArticleTemplateProps> = ({
 
 export const BlogPostPageQuery = graphql`
   query ($path: String!, $language: String!) {
-    locales: allLocale(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
-    }
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       htmlAst
-      fields {
-        readingTime {
-          minutes
-        }
+      readingTime {
+        minutes
       }
       excerpt(pruneLength: 158)
       frontmatter {
@@ -111,6 +96,16 @@ export const BlogPostPageQuery = graphql`
         }
       }
       rawMarkdownBody
+    }
+
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
     }
   }
 `;

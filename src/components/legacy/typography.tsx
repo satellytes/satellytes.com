@@ -53,28 +53,19 @@ export const PageTitle = (props) => {
 };
 
 export const SubTitle = styled.h3`
-  font-size: 32px;
+  font-size: 36px;
   line-height: 110%;
 
   margin-top: 80px;
-  margin-bottom: 40px;
-
-  ${up('md')} {
-    font-size: 48px;
-  }
+  margin-bottom: 16px;
 `;
 
 export const TextTitle = styled.h4`
-  font-size: 24px;
+  font-size: 28px;
   line-height: 110%;
 
   margin-top: 80px;
-  margin-bottom: 24px;
-
-  ${up('md')} {
-    font-size: 32px;
-    margin-top: 160px;
-  }
+  margin-bottom: 16px;
 `;
 
 export const SmallTitle = styled.h5`
@@ -83,7 +74,7 @@ export const SmallTitle = styled.h5`
   font-size: 20px;
   line-height: 110%;
 
-  margin: 32px 0 8px 0;
+  margin: 80px 0 16px;
 `;
 
 /**

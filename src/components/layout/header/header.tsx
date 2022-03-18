@@ -4,12 +4,13 @@ import { up } from '../../support/breakpoint';
 import { GRID_GAP_DESKTOP, GRID_GAP_MOBILE } from '../../legacy/grid/grid';
 import { BurgerMenu } from '../../legacy/icons/header-icons/burger-menu';
 import { CloseBurgerMenuIcon } from '../../legacy/icons/header-icons/close-burger-menu';
-import { NavigationFlyout } from './menu-flyout';
+import { FLYOUT_Z_INDEX, NavigationFlyout } from './menu-flyout';
 import { Link } from '../../legacy/links/links';
 import { Swoosh } from '../../legacy/icons/header-icons/swoosh';
 import { HEADER_HEIGHT_VALUE } from '../theme';
 
 export const HEADER_HEIGHT = `${HEADER_HEIGHT_VALUE}px`;
+const ESC_KEY_CODE = 27;
 
 const StyledHeader = styled.header<{
   $lightTheme: boolean;
@@ -73,6 +74,7 @@ const SiteTitle = styled(Link)<{ $lightTheme: boolean }>`
 const SiteMenu = styled.button<{ $lightTheme: boolean }>`
   all: unset;
   cursor: pointer;
+  z-index: ${FLYOUT_Z_INDEX};
 
   /**
    * to make it simpler to click (especially on mobile),
@@ -161,6 +163,9 @@ const Header: React.FC<HeaderProps> = (props) => {
     <StyledHeader
       $lightTheme={Boolean(props.$lightTheme)}
       $transparent={isHeaderTransparent}
+      onKeyDown={(e) =>
+        e.keyCode === ESC_KEY_CODE && setIsNavigationVisible(false)
+      }
     >
       <SiteTitle
         to={props.siteTitleUrl || '/'}
@@ -194,6 +199,7 @@ const Header: React.FC<HeaderProps> = (props) => {
           props.translation || props.showLanguageSwitch,
         )}
         translation={props.translation}
+        setIsNavigationVisible={setIsNavigationVisible}
       />
     </StyledHeader>
   );

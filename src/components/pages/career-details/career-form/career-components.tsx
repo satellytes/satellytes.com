@@ -13,10 +13,6 @@ import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { CheckmarkIcon } from '../../../legacy/icons/form-icons/checkmark';
 import { RightArrowIcon } from '../../../legacy/icons/form-icons/right-arrow';
 
-export const CareerFormStyled = styled.form`
-  margin-top: 32px;
-`;
-
 interface FormErrorProps {
   marginBottom?: number;
   lineHeight?: number;

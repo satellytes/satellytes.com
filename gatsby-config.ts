@@ -1,7 +1,6 @@
-const {
-  buildGatsbyCloudPreviewUrl,
-} = require('./gatsby/util/build-gatsby-cloud-preview-url');
-const siteMapTransformers = require('./gatsby/gatsby-plugin-sitemap/gatsby-plugin-sitemap');
+import type { GatsbyConfig } from 'gatsby';
+import { buildGatsbyCloudPreviewUrl } from './gatsby/util/build-gatsby-cloud-preview-url';
+import * as siteMapTransformers from './gatsby/gatsby-plugin-sitemap/gatsby-plugin-sitemap';
 
 const GATSBY_SITE_PREFIX = process.env.GATSBY_SITE_PREFIX || '';
 const BRANCH_PREVIEW_URL = buildGatsbyCloudPreviewUrl({
@@ -31,7 +30,7 @@ const SEO_EXCLUDED_URLS = [
 const RSS_FEED_URL = '/blog/rss.xml';
 const DEFAULT_META_IMAGE_URL_PATH = '/sy-share-image.jpg';
 
-module.exports = {
+const gatsbyConfig: GatsbyConfig = {
   siteMetadata: {
     title: 'Satellytes',
     description:
@@ -55,25 +54,25 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: `${__dirname}/src/assets/images`,
+        path: `./src/assets/images`,
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/blog-posts`,
+        path: `./blog-posts`,
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/blog-posts/images`,
+        path: `./blog-posts/images`,
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/data`,
+        path: `./data`,
       },
     },
     {
@@ -83,7 +82,6 @@ module.exports = {
         gfm: true,
         plugins: [
           'gatsby-remark-external-links',
-          'gatsby-remark-reading-time',
           {
             resolve: 'gatsby-remark-copy-linked-files',
           },
@@ -111,6 +109,14 @@ module.exports = {
     'gatsby-transformer-json',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    {
+      resolve: `gatsby-plugin-readingtime`,
+      options: {
+        types: {
+          MarkdownRemark: (source) => source.rawMarkdownBody,
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -221,7 +227,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-styled-components',
-    'gatsby-plugin-typescript',
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
@@ -274,7 +279,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/assets/locales`,
+        path: `${process.cwd()}/src/assets/locales`,
         name: `locale`,
       },
     },
@@ -310,3 +315,5 @@ module.exports = {
     'gatsby-plugin-svgr',
   ],
 };
+
+export default gatsbyConfig;
