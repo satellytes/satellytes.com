@@ -16,7 +16,7 @@ interface IndexPageQueryProps {
   allSyPersonioJob: {
     nodes: SyPersonioJob[];
   };
-  allMarkdownRemark: {
+  allContentfulBlogPost: {
     nodes: BlogPostTeaser[];
   };
   officeImages: {
@@ -26,7 +26,7 @@ interface IndexPageQueryProps {
 
 const IndexPage = (props: PageProps<IndexPageQueryProps>) => {
   const jobPositions = props.data.allSyPersonioJob.nodes;
-  const blogPosts = props.data.allMarkdownRemark.nodes;
+  const blogPosts = props.data.allContentfulBlogPost.nodes;
   const officeImages = props.data.officeImages.nodes.reduce((memo, image) => {
     memo[image.relativePath] = image;
     return memo;
@@ -69,28 +69,25 @@ export const IndexPageQuery = graphql`
       }
     }
 
-    allMarkdownRemark(
-      sort: { fields: frontmatter___date, order: DESC }
-      filter: { fileAbsolutePath: { regex: "/(blog-posts)/" } }
+    allContentfulBlogPost(
+      sort: { fields: publicationDate, order: DESC }
       limit: 3
     ) {
       nodes {
         id
-        frontmatter {
-          date
-          path
-          title
-          teaserText
-          featuredImage {
-            childImageSharp {
-              gatsbyImageData(
-                width: 400
-                aspectRatio: 1.77
-                layout: CONSTRAINED
-                placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
-              )
-            }
+        title
+        teaserText
+        slug
+        publicationDate
+        heroImage {
+          image {
+            gatsbyImageData(
+              width: 400
+              aspectRatio: 1.77
+              layout: CONSTRAINED
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
           }
         }
       }

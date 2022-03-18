@@ -1,14 +1,14 @@
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 export interface BlogPostTeaser {
-  id: string;
-  frontmatter: {
-    title: string;
-    featuredImage: any;
-    date: string;
-    path: string;
-    teaserText: string;
+  heroImage: {
+    image: any;
   };
+  id: string;
+  publicationDate: string;
+  slug: string;
+  teaserText: string;
+  title: string;
 }
 
 /**

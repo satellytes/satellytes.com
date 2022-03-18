@@ -33,18 +33,18 @@ export const Blog = ({ posts }: BlogProps) => {
 
       <TeaserGrid>
         {posts.map((item) => {
-          const imageData = getImage(item.frontmatter.featuredImage);
+          const imageData = getImage(item.heroImage.image);
 
           return (
             <Teaser
               key={item.id}
-              title={item.frontmatter.title}
-              linkTo={item.frontmatter.path}
+              title={item.title}
+              linkTo={`blog/${item.slug}`}
               language={'en'}
-              dateFormatted={dateFormatter(item.frontmatter.date)}
+              dateFormatted={dateFormatter(item.publicationDate)}
               image={imageData && <GatsbyImage alt="" image={imageData} />}
             >
-              {item.frontmatter.teaserText}
+              {item.teaserText}
             </Teaser>
           );
         })}

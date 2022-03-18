@@ -1,9 +1,9 @@
-import { LONG_DATE_FORMAT, useLocaleFormat } from '../../i18n-helpers';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { Teaser } from '../../content/teaser/teaser';
 import React from 'react';
 import styled from 'styled-components';
 import { BlogPostTeaser } from '../../../types';
+import { Teaser } from '../../content/teaser/teaser';
+import { LONG_DATE_FORMAT, useLocaleFormat } from '../../i18n-helpers';
 
 const BlogTeaserGrid = styled.div`
   display: grid;
@@ -25,17 +25,17 @@ export const Posts = ({ posts }: PostsProps) => {
   return (
     <BlogTeaserGrid>
       {posts.map((item) => {
-        const imageData = getImage(item.frontmatter.featuredImage);
+        const imageData = getImage(item.heroImage.image);
 
         return (
           <Teaser
             key={item.id}
-            title={item.frontmatter.title}
-            linkTo={item.frontmatter.path}
-            dateFormatted={dateFormatter(item.frontmatter.date)}
+            title={item.title}
+            linkTo={item.slug}
+            dateFormatted={dateFormatter(item.publicationDate)}
             image={imageData && <GatsbyImage alt="" image={imageData} />}
           >
-            {item.frontmatter.teaserText}
+            {item.teaserText}
           </Teaser>
         );
       })}
