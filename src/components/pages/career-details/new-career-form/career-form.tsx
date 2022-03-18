@@ -240,6 +240,25 @@ export const Form = (props: CareerFormProps) => {
           label={t<string>('career.cover-letter')}
           control={control}
         />
+
+        <br />
+        <FileDropper
+          register={register}
+          setValue={setValue}
+          setError={setError}
+          clearErrors={clearErrors}
+          errors={errors}
+          name="documents"
+          fileCategories={['CV', 'Letter']}
+          acceptedFileTypes={'.pdf'}
+          illustration="monitor_024"
+          maxFiles={3}
+          validator={validator}
+        />
+
+        <TextWrapper>
+          <Trans i18nKey={'career.info-text'} />
+        </TextWrapper>
         <br />
         <Checkbox
           name="privacyPolicy"
@@ -257,24 +276,6 @@ export const Form = (props: CareerFormProps) => {
           control={control}
           rules={{ required: t<string>('career.error.approval') }}
         />
-        <br />
-        <FileDropper
-          register={register}
-          setValue={setValue}
-          setError={setError}
-          clearErrors={clearErrors}
-          errors={errors}
-          label={t<string>('career.cv')}
-          name="documents"
-          fileCategories={['CV', 'Letter']}
-          acceptedFileTypes={'.pdf'}
-          illustration="monitor_024"
-          maxFiles={3}
-          validator={validator}
-        ></FileDropper>
-        <TextWrapper>
-          <Trans i18nKey={'career.info-text'} />
-        </TextWrapper>
         <br />
         <Button type="submit">
           {!errors?.api
