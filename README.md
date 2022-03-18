@@ -9,6 +9,27 @@ To run the project all you need is:
 - Yarn
 - Node >= 16
 
+### Additional setup on Apple Silicon
+
+If you are using a machine with Apple Silicon, the `canvas` dependency might not have prebuild binaries, therefore the installation fails.
+
+To fix that, you need to [install the dependencies needed to compile](https://github.com/Automattic/node-canvas#compiling) the binaries first (using [Homebrew](https://brew.sh)):
+
+```bash
+brew install pkg-config cairo pango libpng jpeg giflib librsvg
+```
+
+### Environment Variables
+
+It is necessary to create a dotenv (`.env.development`) to develop locally.
+
+| Variable Name                     | Decription                              |
+|-----------------------------------|-----------------------------------------|
+| `CONTENTFUL_SPACE_ID`             | your Contentful space ID                |
+| `CONTENTFUL_ACCESS_TOKEN`         | your  content delivery API access token |
+| `CONTENTFUL_PREVIEW_ACCESS_TOKEN` | your  content preview API access token  |
+| `CONTENTFUL_HOST`                 | preview.contentful.com                  |
+
 Then you can use the following commands to start development:
 
 ```sh
@@ -70,4 +91,3 @@ The metadata contains:
   - `source`: Link to the hero image source
 
 > If a component is missing (like a table), get in touch with the developers.
-
