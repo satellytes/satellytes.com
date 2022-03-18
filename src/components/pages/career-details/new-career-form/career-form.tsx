@@ -17,6 +17,7 @@ import { TextStyles } from '../../../typography';
 import { Button } from '../../../ui/buttons/button';
 import { FormLayout } from '../../contact/form';
 import { SectionHeadline } from '../job-description';
+import { Success } from './career-form-success';
 
 interface CareerFormProps {
   company_id: string;
@@ -64,7 +65,7 @@ export const Form = (props: CareerFormProps) => {
     handleSubmit,
     control,
     watch,
-    formState: { errors, isValid, isSubmitted },
+    formState: { errors, isValid, isSubmitted, isSubmitSuccessful },
   } = useForm<FormDataProps & FormErrors>({
     mode: 'onSubmit',
   });
@@ -166,6 +167,8 @@ export const Form = (props: CareerFormProps) => {
 
     return null;
   };
+
+  if (isSubmitSuccessful) return <Success />;
 
   const onErrorHandler = (event) => {
     if (selectedFiles?.length === 0 || !selectedFiles) {

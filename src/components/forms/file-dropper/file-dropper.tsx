@@ -80,7 +80,7 @@ const FileDropperContainer = styled.div<{
   border: 1px solid
     ${(props) =>
       props.isDragActive
-        ? theme.palette.text.link.default
+        ? theme.palette.text.default
         : theme.palette.background.leadbox};
 
   ${(props) =>

@@ -16,6 +16,7 @@ const StyledButton = styled(Link)`
   border-radius: 30px;
   cursor: pointer;
   background: linear-gradient(275.41deg, #543fd7 0%, #2756fd 100%);
+  width: fit-content;
 
   &:hover {
     background: #3e61ee;
@@ -43,6 +44,7 @@ const ButtonText = styled.span`
 `;
 
 type RegularButtonProps = React.ComponentPropsWithoutRef<'button'> & {
+  className?: string;
   /**
    * If this prop is provided, the button will be rendered as `a`.
    */
@@ -52,7 +54,7 @@ type RegularButtonProps = React.ComponentPropsWithoutRef<'button'> & {
 export const Button = (props: RegularButtonProps) => {
   if (props.to) {
     return (
-      <StyledButton to={props.to}>
+      <StyledButton to={props.to} className={props.className}>
         <ButtonText>{props.children}</ButtonText>
         <StyledIcon show={'chevron_right'} size={IconSize.NORMAL} />
       </StyledButton>
