@@ -11,10 +11,14 @@ import {
   FileDropperType,
 } from '../../../forms/file-dropper/file-dropper';
 import { TextArea } from '../../../forms/text-area/text-area';
-import { TextInput } from '../../../forms/text-input/text-input';
+import {
+  StyledErrorMessage,
+  TextInput,
+} from '../../../forms/text-input/text-input';
 import { SimpleLink } from '../../../legacy/markdown/custom-components';
 import { TextStyles } from '../../../typography';
 import { Button } from '../../../ui/buttons/button';
+import { StyledLink } from '../../contact/contact-form';
 import { FormLayout } from '../../contact/form';
 import { SectionHeadline } from '../job-description';
 import { Success } from './career-form-success';
@@ -272,7 +276,24 @@ export const Form = (props: CareerFormProps) => {
           <Trans i18nKey={'career.info-text'} />
         </TextWrapper>
         <br />
-        <Button type="submit">{t<string>('career.action.send')}</Button>
+        <Button type="submit">
+          {!errors?.api
+            ? t<string>('career.action.send')
+            : t<string>('career.action.again')}
+        </Button>
+        {errors?.api && (
+          <StyledErrorMessage>
+            <Trans id="career.action.again-text">
+              <span>
+                Versuch es bitte noch einmal. Klappt es nicht dann schicke deine
+                Bewerbung direkt an{' '}
+                <StyledLink to="mailto:career@satellytes.com">
+                  career@satellytes.com
+                </StyledLink>
+              </span>
+            </Trans>
+          </StyledErrorMessage>
+        )}
         <TextWrapper>
           <Trans i18nKey={'career.mandatory-field'} />
         </TextWrapper>

@@ -86,7 +86,7 @@ const FileDropperContainer = styled.div<{
   ${(props) =>
     props.hasErrors &&
     css`
-      border-color: ${theme.palette.text.errorMessage};
+      border: 2px solid ${theme.palette.text.errorMessage};
     `}
 
   ${(props) =>
@@ -150,7 +150,7 @@ export const FileDropper = ({
     const newFiles = [...currentFiles];
     newFiles.splice(fileIndex, 1);
     setCurrenFiles(newFiles);
-    setValue(name, [...currentFiles, ...newFiles], { shouldDirty: true });
+    setValue(name, newFiles, { shouldDirty: true });
     clearErrors(name);
   };
 
