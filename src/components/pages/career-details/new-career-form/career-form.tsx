@@ -69,7 +69,7 @@ export const Form = (props: CareerFormProps) => {
     handleSubmit,
     control,
     watch,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors, isSubmitSuccessful, isSubmitting },
   } = useForm<FormDataProps & FormErrors>({
     mode: 'onSubmit',
   });
@@ -177,6 +177,12 @@ export const Form = (props: CareerFormProps) => {
   };
 
   const onErrorHandler = () => {
+    // to allow re send after api error
+    // there should not be an old api error when pressing submit
+    if (errors.api) {
+      clearErrors('api');
+    }
+
     if (selectedFiles?.length === 0 || !selectedFiles) {
       setError(
         'documents',
@@ -289,7 +295,7 @@ export const Form = (props: CareerFormProps) => {
           rules={{ required: t<string>('career.error.approval') }}
         />
         <br />
-        <Button type="submit">
+        <Button type="submit" disabled={isSubmitting}>
           {!errors?.api
             ? t<string>('career.action.send')
             : t<string>('career.action.again')}
