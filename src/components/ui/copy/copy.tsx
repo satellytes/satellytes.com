@@ -62,19 +62,17 @@ export const Copy = ({ clickedDuration, text, className }: CopyProps) => {
   };
 
   return (
-    <div className={className}>
-      <CopyWrapper id="copy-container" clicked={clicked}>
-        {clicked ? (
-          <>
-            <span>{t('blog.copied')}</span>
-            <CheckmarkContainer>
-              <Icon show="checkmark_bold" />
-            </CheckmarkContainer>
-          </>
-        ) : (
-          <IconButton icon={'clone'} onClick={handleClick}></IconButton>
-        )}
-      </CopyWrapper>
-    </div>
+    <CopyWrapper id="copy-container" clicked={clicked} className={className}>
+      {clicked ? (
+        <>
+          <span>{t('blog.copied')}</span>
+          <CheckmarkContainer>
+            <Icon show="checkmark_bold" />
+          </CheckmarkContainer>
+        </>
+      ) : (
+        <IconButton icon={'clone'} onClick={handleClick}></IconButton>
+      )}
+    </CopyWrapper>
   );
 };
