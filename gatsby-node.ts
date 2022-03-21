@@ -1,10 +1,9 @@
 import type { GatsbyNode } from 'gatsby';
-
-import { createRedirects } from './gatsby/create-pages/create-redirects';
+import { createFilePath } from 'gatsby-source-filesystem';
 import { createPreviewCards } from './gatsby/create-node/create-preview-cards';
 import { createBlogPosts } from './gatsby/create-pages/create-blog-posts';
 import { createCareerPages } from './gatsby/create-pages/create-career-pages';
-import { createFilePath } from 'gatsby-source-filesystem';
+import { createRedirects } from './gatsby/create-pages/create-redirects';
 
 export type SatellytesNode = {
   frontmatter: {
@@ -23,7 +22,10 @@ export const onCreateNode: GatsbyNode<SatellytesNode>['onCreateNode'] = async (
    * Provide a slug for any markdown page (which is not given by default)
    * to build our pages based on this markdown file.
    */
-  if (node.internal.type === `MarkdownRemark`) {
+  if (
+    node.internal.type === `MarkdownRemark` &&
+    Object.keys(node).includes('fileAbsolutePath')
+  ) {
     const value = createFilePath({ node, getNode });
     createNodeField({
       name: `slug`,
