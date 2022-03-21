@@ -9257,16 +9257,16 @@ gatsby-plugin-feed@^4.9.0:
     lodash.merge "^4.6.2"
     rss "^1.2.2"
 
-gatsby-plugin-gatsby-cloud@^4.9.0:
-  version "4.9.1"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-gatsby-cloud/-/gatsby-plugin-gatsby-cloud-4.9.1.tgz#608393f6af820c3bef3f89e42deb8536d2d09af7"
-  integrity sha512-SQEK1JlhSQHKtFRyVonDoGvejVsiRz9EEwntvb/eDBla2Ljh4HuwFHdAfoic9QkF8OfEWa7DKkFins+vBGuAuQ==
+gatsby-plugin-gatsby-cloud@^4.10.0:
+  version "4.10.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-gatsby-cloud/-/gatsby-plugin-gatsby-cloud-4.10.0.tgz#092e21bc92057a1fe2f680623e2fa15b0412a3ea"
+  integrity sha512-d5dkxNGVFdiXHp+KkP1iH3F9QOYLrOp2rgpS/F+J/AURicwKgMkTfzWliQ3c7OEUE9udRX2XUdA9f0V1ifoHgQ==
   dependencies:
     "@babel/runtime" "^7.15.4"
     date-fns "^2.28.0"
     fs-extra "^10.0.0"
-    gatsby-core-utils "^3.9.1"
-    gatsby-telemetry "^3.9.1"
+    gatsby-core-utils "^3.10.0"
+    gatsby-telemetry "^3.10.0"
     js-cookie "^3.0.1"
     kebab-hash "^0.1.2"
     lodash "^4.17.21"
@@ -9521,10 +9521,10 @@ gatsby-source-filesystem@^4.9.0:
     valid-url "^1.0.9"
     xstate "^4.26.1"
 
-gatsby-telemetry@^3.9.0, gatsby-telemetry@^3.9.1:
-  version "3.9.1"
-  resolved "https://registry.yarnpkg.com/gatsby-telemetry/-/gatsby-telemetry-3.9.1.tgz#3c20c7e0cb363ccaae41fb581ab289330b5d7f69"
-  integrity sha512-ChXTshfvo5njd/u6kSZErDUvc/uSmtOEuo7wrt/68Xjz2JVG6nsLlRxaZpx0DxnDAInouItMVX0VF40RAU7qKg==
+gatsby-telemetry@^3.10.0, gatsby-telemetry@^3.9.0, gatsby-telemetry@^3.9.1:
+  version "3.10.0"
+  resolved "https://registry.yarnpkg.com/gatsby-telemetry/-/gatsby-telemetry-3.10.0.tgz#917a4914e531d401ecf98ac87d29128b30bfab13"
+  integrity sha512-Oe2OShJbylKr5C4FTl2P/JUX/xRkpYb6IMfEoAd5inG7HNQ1fikON4NdwvJjOp++My4kWo+LLCu92TZBkyTtZw==
   dependencies:
     "@babel/code-frame" "^7.14.0"
     "@babel/runtime" "^7.15.4"
@@ -9534,7 +9534,7 @@ gatsby-telemetry@^3.9.0, gatsby-telemetry@^3.9.1:
     boxen "^4.2.0"
     configstore "^5.0.1"
     fs-extra "^10.0.0"
-    gatsby-core-utils "^3.9.1"
+    gatsby-core-utils "^3.10.0"
     git-up "^4.0.5"
     is-docker "^2.2.1"
     lodash "^4.17.21"
