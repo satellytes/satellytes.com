@@ -1,6 +1,5 @@
 import React from 'react';
 import { Layout } from '../../layout/layout';
-import { CareerForm } from './career-form/career-form';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { JobDescription } from './job-description';
 import { SyPersonioJob } from '../../../types';

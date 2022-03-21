@@ -99,15 +99,6 @@ export const Form = (props: CareerFormProps) => {
   ];
 
   const onSubmitHandler = async (formValues) => {
-    if (selectedFiles?.length === 0) {
-      setError(
-        'documents',
-        { type: 'manual', message: t<string>('career.error.cv') },
-        { shouldFocus: true },
-      );
-      return;
-    }
-
     const apiData = {
       company_id: props.company_id,
       access_token: props.access_token,
@@ -185,7 +176,7 @@ export const Form = (props: CareerFormProps) => {
     return null;
   };
 
-  const onErrorHandler = (event) => {
+  const onErrorHandler = () => {
     if (selectedFiles?.length === 0 || !selectedFiles) {
       setError(
         'documents',

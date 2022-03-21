@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useController, UseControllerProps } from 'react-hook-form';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { theme } from '../../layout/theme';
 import { TextStyles } from '../../typography';
 import { Icon } from '../../ui/icon/icon';
@@ -18,13 +18,19 @@ const CheckboxLabelText = styled.span`
   margin-left: 12px;
 `;
 
-const StyledCheckbox = styled.div<{ checked: boolean }>`
+const StyledCheckbox = styled.div<{ checked: boolean; hasError: boolean }>`
   display: inline-block;
   width: 24px;
   height: 24px;
 
   background: #f7f8fa;
   border-radius: 4px;
+
+  ${({ hasError }) =>
+    hasError &&
+    css`
+      border: 2px solid ${theme.palette.text.errorMessage};
+    `}
 
   &:hover {
     border: 1px solid ${theme.palette.text.default};
@@ -71,7 +77,7 @@ export const Checkbox = (
           id={props.name}
           onChange={handleChange}
         />
-        <StyledCheckbox checked={checked}>
+        <StyledCheckbox checked={checked} hasError={Boolean(fieldState?.error)}>
           <Icon show="checkmark_bold" />
         </StyledCheckbox>
         {props.label && (
