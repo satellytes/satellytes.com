@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Layout } from '../../layout/layout';
 import { CareerForm } from './career-form/career-form';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
