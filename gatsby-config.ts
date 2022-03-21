@@ -77,18 +77,6 @@ const gatsbyConfig: GatsbyConfig = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `./blog-posts`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `./blog-posts/images`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
         path: `./data`,
       },
     },
