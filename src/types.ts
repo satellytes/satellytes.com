@@ -1,4 +1,8 @@
 import { IGatsbyImageData } from 'gatsby-plugin-image';
+import {
+  ContentfulRichTextGatsbyReference,
+  RenderRichTextData,
+} from 'gatsby-source-contentful/rich-text';
 
 export interface BlogPostTeaser {
   heroImage: {
@@ -73,6 +77,35 @@ export interface BlogPostMarkdown {
     featuredImageSquared: IGatsbyImageData;
   };
   rawMarkdownBody: string;
+}
+
+export interface ContentFulBlogPostAuthor {
+  fullName: string;
+  summary: string;
+}
+
+export interface ContentfulBlogPostHero {
+  image: any;
+  creator: string;
+  source: string;
+}
+
+export interface ContentfulCodeBlock {
+  description: string;
+  language: string;
+  code: string;
+}
+
+export interface ContentfulBlogPost {
+  author: ContentFulBlogPostAuthor;
+  content: RenderRichTextData<ContentfulRichTextGatsbyReference>;
+  heroImage: ContentfulBlogPostHero;
+  id: string;
+  publicationDate: string;
+  seoMetaText: string;
+  slug: string;
+  teaserText: string;
+  title: string;
 }
 
 export interface BreadcrumbEntry {
