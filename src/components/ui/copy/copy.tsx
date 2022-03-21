@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import styled, { css } from 'styled-components';
 import { IconButton } from '../buttons/icon-button';
 import { Icon } from '../icon/icon';
