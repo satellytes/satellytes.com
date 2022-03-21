@@ -1,8 +1,7 @@
 import React from 'react';
-import { CopyIcon } from '../icons/markdown-icons/copy';
-import copy from 'copy-to-clipboard';
 import styled, { CSSProperties } from 'styled-components';
 import { onlyText } from '../../support/only-text';
+import { Copy } from '../../ui/copy/copy';
 
 interface CodeBlockProps {
   children: React.ReactNode;
@@ -26,32 +25,19 @@ const CodeBlockWrapper = styled.div`
   &:hover {
     background: #e4e8f3;
   }
+`;
 
-  > svg {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    cursor: pointer;
-    z-index: 2;
-    &:active {
-      border: 2px solid #f5f2f0;
-    }
-    &:hover {
-      > circle {
-        fill: #668cff;
-      }
-    }
-  }
+const StyledCopy = styled(Copy)`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
 `;
 
 export const CodeBlock = (props: CodeBlockProps) => {
-  const copyCodeBlock = () => {
-    copy(onlyText(props.children));
-  };
-
   return (
     <CodeBlockWrapper>
-      <CopyIcon onClick={copyCodeBlock} />
+      <StyledCopy text={onlyText(props.children)}></StyledCopy>
       <StyledCodeBlock className={props.className} style={props.style ?? {}}>
         {props.children}
       </StyledCodeBlock>
