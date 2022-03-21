@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Layout } from '../../layout/layout';
 import { CareerForm } from './career-form/career-form';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
@@ -35,6 +35,9 @@ export const CareerDetails = ({
     ref?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
+  const searchParams = new URLSearchParams(window.location.search);
+  const personioChannel = searchParams.get('_pc');
+
   return (
     <Layout
       siteTitleUrl="/career/"
@@ -53,7 +56,7 @@ export const CareerDetails = ({
 
       <CareerForm
         company_id="41230"
-        recruiting_channel_id="329206"
+        recruiting_channel_id={personioChannel ?? '329206'}
         access_token="89b2acfa3a239b75c7d6"
         job_position_id={position.jobId + ''}
         scrollToStart={scrollToStart}
