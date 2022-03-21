@@ -57,7 +57,7 @@ export const SubTitle = styled.h3`
   line-height: 110%;
 
   margin-top: 80px;
-  margin-bottom: 40px;
+  margin-bottom: 16px;
 `;
 
 export const TextTitle = styled.h4`
@@ -65,11 +65,7 @@ export const TextTitle = styled.h4`
   line-height: 110%;
 
   margin-top: 80px;
-  margin-bottom: 24px;
-
-  ${up('md')} {
-    margin-top: 160px;
-  }
+  margin-bottom: 16px;
 `;
 
 export const SmallTitle = styled.h5`
@@ -78,7 +74,7 @@ export const SmallTitle = styled.h5`
   font-size: 20px;
   line-height: 110%;
 
-  margin: 32px 0 8px 0;
+  margin: 80px 0 16px;
 `;
 
 /**
