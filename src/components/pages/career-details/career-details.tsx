@@ -6,6 +6,7 @@ import { JobDescription } from './job-description';
 import { SyPersonioJob } from '../../../types';
 import { SectionHeader } from '../../content/section-header/section-header';
 import { ContentBlockContainer } from '../../layout/content-block-container';
+import { useLocation } from 'react-use';
 
 interface CareerDetailsProps {
   originalPath: string;
@@ -35,7 +36,8 @@ export const CareerDetails = ({
     ref?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
-  const searchParams = new URLSearchParams(window.location.search);
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
   const personioChannel = searchParams.get('_pc');
 
   return (
