@@ -136,10 +136,12 @@ export const Form = (props: CareerFormProps) => {
       .post<FormDataProps, AxiosResponse<PersonioApiResponse>>(
         API_ENDPOINT,
         formData,
+        /*
+        if we would like to add a progress State this would be needed again
         {
-          onUploadProgress: console.log /*(progressEvent) => (
-            setUploadProgress(progressEvent.loaded / progressEvent.total)*/,
-        },
+          onUploadProgress: (progressEvent) => (
+            setUploadProgress(progressEvent.loaded / progressEvent.total),
+        },*/
       )
       .then((response) => response.data)
       .then((data) => {
