@@ -119,6 +119,10 @@ const gatsbyConfig: GatsbyConfig = {
       options: {
         types: {
           MarkdownRemark: (source) => source.rawMarkdownBody,
+          ContentfulBlogPost: (blogPost) => {
+            console.log('TODO: Improve reading time calculation');
+            return blogPost.content.raw;
+          },
         },
       },
     },
