@@ -95,7 +95,7 @@ Und wenn man zusammen im Office arbeitet, hat man auch mehr das Gefühl, dass um
 
 <br />
 
-![Der Blick ins (noch leere und unfertige) neue Office](images/return-to-office-interview-office.jpeg)
+![Der Blick ins (noch leere und unfertige) neue Office](images/return-to-office-interview-office.jpg)
 <small>Der Blick ins (noch leere) neue Office</small>
 
 <br />
