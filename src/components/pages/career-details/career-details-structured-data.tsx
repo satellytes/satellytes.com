@@ -13,10 +13,10 @@ const convertScheduleToEmploymentType = (schedule: string): string => {
 const concatDescription = (position: SyPersonioJob): string => {
   return (
     position.short +
-    '<br>' +
+    '<br><br>' +
     position.sections
       .map((section) => `${section.headline} <br> ${section.descriptionHtml}`)
-      .join('<br>')
+      .join('<br><br>')
   );
 };
 
