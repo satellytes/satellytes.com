@@ -37,7 +37,13 @@ const contentfulRenderOptions: Options = {
     [MARKS.CODE]: (text) => <code className="language-text">{text}</code>,
   },
   renderNode: {
-    [INLINES.HYPERLINK]: (props, children) => cSC.a({ children }),
+    [INLINES.HYPERLINK]: (props, children) =>
+      cSC.a({
+        children,
+        href: props.data.uri,
+        target: '_blank',
+        rel: 'nofollow noopener noreferrer',
+      }),
     [BLOCKS.HEADING_1]: (props, children) => cSC.h1({ children }),
     [BLOCKS.HEADING_2]: (props, children) => cSC.h2({ children }),
     [BLOCKS.HEADING_3]: (props, children) => cSC.h3({ children }),
