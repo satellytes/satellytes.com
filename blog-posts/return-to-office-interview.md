@@ -5,7 +5,7 @@ title: We work remotely!?
 featuredImage: images/return-to-office-interview-header.jpg
 author: "Satellytes"
 authorSummary: "We work remotely!? – Interview mit den Satellytes-Geschäftsführern zur Return to Office Policy"
-teaserText: Mit dem Rückgang der Corona-Inzidenzen stellt sich die Frage: Wie steht’s mit der Return to Office Policy bei Satellytes? Wir haben die CEOs gefragt.
+teaserText: Mit dem Rückgang der Corona-Inzidenzen stellt sich die Frage. Wie steht’s mit der Return to Office Policy bei Satellytes? Wir haben die CEOs gefragt.
 ---
 
 Mit dem Rückgang der Corona-Inzidenzen ist absehbar, dass auch das [Home-Office-Gebot der Bundesregierung](https://www.tagesschau.de/wirtschaft/unternehmen/homoffice-pflicht-buero-pflicht-dgb-101.html) bald fallen wird. So freuen wir uns auch bei Satellytes das neue Büro endlich ohne Auflagen wieder öffnen zu können.
@@ -141,5 +141,3 @@ Im Detail ist das aber noch etwas, was wir für uns erarbeiten müssen ... Welch
 **Danke, Eric und Gholam für den Einblick in eure Erfahrungen und Erwartungen zur Corona- und Return-to-Office-Situation.**
 **Ich persönlich freue mich schon sehr darauf euch alle bald wieder persönlich im neue Office sehen zu können!**
 **Dafür fahre ich auch gerne mal wieder nach München!**
-
-
