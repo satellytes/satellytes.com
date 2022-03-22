@@ -14,6 +14,8 @@ interface CareerDetailsProps {
   complementPath: string;
 }
 
+const DEFAULT_CHANNEL_ID = '329206';
+
 export const CareerDetails = ({
   position,
   complementPath,
@@ -58,7 +60,7 @@ export const CareerDetails = ({
 
       <CareerForm
         company_id="41230"
-        recruiting_channel_id={personioChannel ?? '329206'}
+        recruiting_channel_id={personioChannel ?? DEFAULT_CHANNEL_ID}
         access_token="89b2acfa3a239b75c7d6"
         job_position_id={position.jobId + ''}
         scrollToStart={scrollToStart}
