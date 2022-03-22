@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { SyPersonioJob } from '../../../types';
 
-interface CareerDetailsStructuredData {
+interface CareerDetailsStructuredDataProps {
   position: SyPersonioJob;
 }
 
@@ -22,7 +22,7 @@ const concatDescription = (position: SyPersonioJob): string => {
 
 export const CareerDetailsStructuredData = ({
   position,
-}: CareerDetailsStructuredData) => {
+}: CareerDetailsStructuredDataProps) => {
   const employmentType = convertScheduleToEmploymentType(position.schedule);
 
   const data = {
