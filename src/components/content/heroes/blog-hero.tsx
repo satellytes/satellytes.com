@@ -62,17 +62,11 @@ export const BlogHero = ({
           style={coverContainerCss}
           alt=""
           image={gatsbyImageDataSquare}
-          objectPosition="top center"
         />
       )}
 
       {!isSquare && gatsbyImageData && (
-        <GatsbyImage
-          style={coverContainerCss}
-          alt=""
-          image={gatsbyImageData}
-          objectPosition="top center"
-        />
+        <GatsbyImage style={coverContainerCss} alt="" image={gatsbyImageData} />
       )}
 
       {title && (
