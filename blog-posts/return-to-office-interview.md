@@ -10,25 +10,25 @@ teaserText: Mit dem Rückgang der Corona-Inzidenzzahlen stellt sich die Frage, w
 
 **[TODO: Header-Bild: CEOs chilled @ Office]**
 
-Mit dem Rückgang der Corona-Inzidenzzahlen ist absehbar, dass auch das [Home-Office-Gebot der Bundesregierung bald fallen wird](https://www.tagesschau.de/wirtschaft/unternehmen/homoffice-pflicht-buero-pflicht-dgb-101.html). Damit freuen wir uns auch bei der Satellytes, unser neues Büro endlich ohne Auflagen wieder öffnen zu können.
+Mit dem Rückgang der Corona-Inzidenzzahlen ist absehbar, dass auch das [Home-Office-Gebot der Bundesregierung bald fallen wird](https://www.tagesschau.de/wirtschaft/unternehmen/homoffice-pflicht-buero-pflicht-dgb-101.html). Damit freuen wir uns auch bei Satellytes unser neues Büro endlich ohne Auflagen wieder öffnen zu können.
 
 Trotzdem haben die letzten beiden Jahre bei vielen Angestellten ein Umdenken in der Einstellung zum Verhältnis von Büroarbeit vs. Home-Office bewirkt. Viele stellen sich daher die Frage: Muss ich bald wieder regelmäßig ins Büro oder kann ich auch weiter von Remote arbeiten?
 
-Wir dachten uns, dass ist genau der richtige Zeitpunkt unsere Geschäftsführer zu fragen: Wie steht ihr dazu? Do we work remotely? Wie wird sich die Zusammenarbeit nach Ende der Corona-Einschränkungen bei Satellytes darstellen?
+Wir dachten uns, dass das genau der richtige Zeitpunkt ist unsere Geschäftsführer zu fragen: Wie steht ihr dazu? Do we work remotely? Wie wird die Zusammenarbeit nach Ende der Corona-Einschränkungen bei Satellytes aussehen?
 
-**Frage: Fangen wir mal mit euch persönlich an. Wie plant ihr zukünftig euren eigenen Arbeitsalltag zu gestalten? Werdet ihr wieder täglich vom Büro aus arbeiten? Wird es Remote-Anteile geben?**
+**Frage: Fangen wir mal mit euch persönlich an: Wie plant ihr zukünftig euren eigenen Arbeitsalltag zu gestalten? Werdet ihr wieder täglich vom Büro aus arbeiten? Wird es Remote-Anteile geben?**
 
 **Gholam:** Ich plane wieder relativ häufig, wenn nicht sogar täglich, vom Office aus zu arbeiten.
 Ich habe festgestellt, dass meine Effektivität abnimmt, je länger ich gezwungen bin im Home-Office zu arbeiten. Mir hilft der regelmäßige Wechsel ins Office enorm, mich auf die Arbeit einzustellen.
 Es wird aber kein typischer Arbeitstag mit regulären Zeiten werden, das war es ja vor der Pandemie auch nicht. Mir war es schon immer wichtig, meine Arbeitszeiten im Einklang mit meiner Familie zu gestalten. Wenn ich z.B. meinen Sohn zuerst in die Schule gebracht habe, hat mein Bürotag auch einmal erst um 10 Uhr angefangen. Das war dann halt so. Und das war dann auch gut so.
 
-**Eric:** Ich sehe das ganz ähnlich. Auch ich werde wieder größtenteils vom Büro aus arbeiten. Es wird aber auch immer wieder Ausnahmen geben: Wenn ich mich auf ein komplexes, operatives Thema konzentrieren will, werde ich auch in Zukunft vom Home-Office aus arbeiten. Die letzten beiden Jahre haben mir gezeigt, dass es super effektiv sein kann, Slack und Telefon einmal für ein paar Stunden auszuschalten, damit ich mich voll und ganz auf ein Thema fokussieren kann. Dieses von der Außenwelt abschotten ist im Büro natürlich nicht ganz möglich.
-Aber ich freue mich trotzdem sehr, wieder enger mit den Kolleg:innen im Büro zusammenarbeiten zu können.
+**Eric:** Ich sehe das ganz ähnlich. Auch ich werde wieder größtenteils vom Büro aus arbeiten. Es wird aber auch immer wieder Ausnahmen geben: Wenn ich mich auf ein komplexes, operatives Thema konzentrieren will, werde ich auch in Zukunft vom Home-Office aus arbeiten. Die letzten beiden Jahre haben mir gezeigt, dass es super effektiv sein kann Slack und Telefon einmal für ein paar Stunden auszuschalten, damit ich mich voll und ganz auf ein Thema fokussieren kann. Dieses "von der Außenwelt abschotten" ist im Büro natürlich nicht ganz möglich.
+Ich freue mich aber trotzdem sehr, wieder enger mit den Kolleg:innen im Büro zusammenarbeiten zu können.
 
 **Welche Vorteile seht ihr für euch, wenn ihr aus dem Büro arbeitet?**
 
-**Gholam:** Das Office bietet viele Kommunikationsformen an, die ich nur sehr schwer remote nachbilden kann. Wenn ich z.B. einen Kolleg:innen, mit dem ich in letzter Zeit eher wenig Kontakt hatte, an der Kaffeetheke treffe, frage ich direkt mal nach. “Wie geht’s dir? Wo kann ich dir helfen?” So bekomme ich ein besseres Gefühl, wie es unseren Kolleg:innen geht. Das ist etwas, das mir schwer gefallen ist remote in derselben Qualität abzubilden.
-Ich will auch sicherstellen, dass ich für alle unsere Kolleg:innen bestmöglich erreichbar bin. Es gibt Kolleg:innen, die es aktuell vorziehen ganz oder teilweise vom Büro aus zu arbeiten. Da sehe ich es auch als meine Pflicht an, dass ich für diese Kolleg:innen auf ihrem bevorzugten Kanal erreichbar bin.
+**Gholam:** Das Office bietet viele Kommunikationsformen an, die ich nur sehr schwer remote nachbilden kann. Wenn ich z.B. jemanden, mit dem ich in letzter Zeit eher wenig Kontakt hatte, an der Kaffeetheke treffe, frage ich direkt mal nach. “Wie geht’s dir? Wo kann ich dir helfen?” So bekomme ich ein besseres Gefühl, wie es unseren Kolleg:innen geht. Das ist etwas, das mir schwer gefallen ist remote in derselben Qualität abzubilden.
+Ich will auch sicherstellen, dass ich für alle unsere Kolleg:innen bestmöglich erreichbar bin. Es gibt Kolleg:innen, die es aktuell vorziehen ganz oder teilweise vom Büro aus zu arbeiten. Da sehe ich es auch als meine Pflicht an, dass ich für sie auf ihrem bevorzugten Kanal erreichbar bin.
 
 **Die letzten beiden Jahre waren ja sehr herausfordernd. Auch unsere Kunden haben unter den Einschränkungen gelitten, die sich dann natürlich auch auf uns ausgewirkt haben. Trotzdem haben wir das als Mitarbeiter:innen kaum gespürt. Wie seht ihr das selbst? Wie hat sich Satellytes in der Zeit entwickelt?**
 
@@ -37,16 +37,16 @@ Aber dennoch hat uns die Zeit gut getan. Wir konnten unsere Projekte und Kundenb
 Noch wichtiger war aber, dass wir es geschafft haben uns an die neuen Bedingungen anzupassen um damit den Kunden zu beweisen, dass wir auch unter diesen neuen Voraussetzungen sehr gute Ergebnisse liefern können.
 
 **Gholam:** Ich empfand die letzten beiden Jahre als überragend. Wir haben als Firma und in den Teams sehr gut funktioniert. Wir haben alle unserer Projekte gestemmt und auch die Phasen, in denen in der Industrie große Unsicherheit bestanden hat, gut überstanden. Auch in der Phase Anfang 2020 wo das Auftragsvolumen erst einmal deutlich eingebrochen ist, konnten wir relativ schnell wieder zu 100% Auslastung zurückkehren. Das lag vor allem auch an unseren Kolleg:innen, die auf die Situation gut reagiert haben. Top!
-Unser Konzept bei der Einstellung von Kolleg:innen hat sich gerade in der Situation als absolut richtig erwiesen. Gerade weil wir durchweg Leute in der Firma haben, die eigenverantwortlich arbeiten, die über den Tellerrand hinaus schauen können, die mitdenken und aus eigenem Antrieb anderen helfen, haben wir die herausfordernde Situation der letzten beiden Jahr so gut bewältigen können.
+Unser Konzept bei der Einstellung von Kolleg:innen hat sich gerade in der Situation als absolut richtig erwiesen. Gerade weil wir durchweg Leute in der Firma haben, die eigenverantwortlich arbeiten, die über den Tellerrand hinaus schauen können, die mitdenken und aus eigenem Antrieb Anderen helfen, haben wir die herausfordernde Situation der letzten beiden Jahr so gut bewältigen können.
 
 **Wie produktiv war die Arbeit vom Home-Office aus? War das für euch befriedigend?**
 
-**Eric:** Die Produktivität in Bezug auf die Arbeit war sicher sehr gut. Aber befriedigend? Für mich persönlich war das teilweise total unbefriedigend. Weil man bei all den Erfolgen, die wir als Firma feiern konnten nie die Gelegenheit hatten, den Kolleg:innen mal einen echten High-Five zu geben und gebührend zu feiern (lacht).
+**Eric:** Die Produktivität in Bezug auf die Arbeit war sicher sehr gut. Aber befriedigend? Für mich persönlich war das teilweise total unbefriedigend. Weil man bei all den Erfolgen, die wir als Firma feiern konnten, nie die Gelegenheit hatten, den Kolleg:innen mal einen echten High-Five zu geben und gebührend zu feiern (lacht).
 
-**Gholam:** Ich empfand die beiden Jahre auch erstmal sehr produktiv. Das liegt natürlich daran, dass der Anteil am produktiven Output im Verhältnis zur Arbeitszeit gestiegen ist. Einfach weil der Coffee-Talk häufiger weggefallen ist und man sich voll auf die Arbeit konzentrieren konnte.
+**Gholam:** Ich empfand die beiden Jahre auch sehr produktiv. Das liegt natürlich daran, dass der Anteil am produktiven Output im Verhältnis zur Arbeitszeit gestiegen ist. Einfach weil der Coffee-Talk häufiger weggefallen ist und man sich voll auf die Arbeit konzentrieren konnte.
 Ob das für den Einzelnen befriedigend war, kann man so eindeutig glaube ich nicht beantworten. Auf der einen Seite war die Gesamtsituation natürlich sehr belastend. Auf der anderen Seite hat sich auch die Perspektive auf die Arbeit, auf Work-Life-Balance, auf Remote-Arbeit zum Besseren geändert.
 
-**Eric:** Insgesamt würde ich die Frage ob “befriedigend” so auch nicht beantworten können. Die Jahre waren eben einfach herausfordernd. Man konnte sich nicht mehr auf die bewährten Prozesse verlassen, sondern musste neue definieren. Das ist uns aber recht gut gelungen.
+**Eric:** Insgesamt würde ich die Frage ob “befriedigend” so auch nicht beantworten können. Die Jahre waren eben einfach herausfordernd. Man konnte sich nicht mehr auf bewährte Prozesse verlassen, sondern musste neue definieren. Das ist uns aber recht gut gelungen.
 
 **Neben der Frage, wie produktiv wir arbeiten, gibt es ja auch andere Faktoren, die ausmachen, ob und wie wir als Team gut funktionieren. Wie habt ihr die Entwicklung der Firmenkultur unter diesen Voraussetzungen empfunden? Das war doch sicher auch eine ganz spezielle Herausforderung?**
 
@@ -67,9 +67,9 @@ Vor Corona ist es schon regelmäßig passiert, dass man sich mal an der Kaffeema
 **Die Fallzahlen sinken ja wieder. Es ist absehbar, dass die Home-Office-Pflicht bald ausläuft. Trotzdem überlegen viele, wie sie zukünftig arbeiten wollen. Welche Gründe seht ihr, warum die Leute vom Büro aus arbeiten wollen?**
 
 **Gholam:** Die Motivation dazu ist meiner Meinung nach sehr von den individuellen Vorlieben und Voraussetzungen jedes Einzelnen abhängig. Wir spüren zum Beispiel, dass viele auch einfach Lust darauf haben, ihre Kolleg:innen wieder häufiger zu sehen um unmittelbarer zusammenarbeiten oder auch mal nur gemeinsam Mittag essen gehen zu können.
-Man sieht auch, dass nicht bei allen der Platz oder das Umfeld gegeben ist um entspannt von zu Hause aus arbeiten zu können. Wenn ich in meiner Wohnung wenig Platz habe und jeden Mittag um 12 Uhr die Kinder von der Schule kommen und beschäftigt werden wollen, bin ich wahrscheinlich auch einfach froh darüber einen ruhigen Ort – in dem Fall das Büro – zu haben, von dem ich konzentriert aus arbeiten kann.
+Man sieht auch, dass nicht bei allen der Platz oder das Umfeld gegeben ist um entspannt von zu Hause aus arbeiten zu können. Wenn ich in meiner Wohnung wenig Platz habe und jeden Mittag um 12 Uhr die Kinder von der Schule kommen und beschäftigt werden wollen, bin ich wahrscheinlich auch einfach froh darüber einen ruhigen Ort – in dem Fall das Büro – zu haben, von dem ich aus konzentriert arbeiten kann.
 
-**Welche konkreten Vorteile seht ihr darin, wenn wieder mehr Kolleg:innen häufiger gemeinsam vom Büro aus zu arbeiten?**
+**Welche konkreten Vorteile seht ihr darin, wenn wieder mehr Kolleg:innen häufiger gemeinsam vom Büro aus arbeiten?**
 
 **Gholam:** Mein Essen am Montag! Das ist ein klarer Vorteil für jeden Kolleg:innen, wenn ich Montags für alle Essen koche (lacht). In Zeiten von Corona musste das leider immer wieder pausieren. Aber das plane ich auf jeden Fall wieder aufzunehmen. sobald das sicher möglich ist.
 
@@ -80,13 +80,13 @@ Man sieht auch, dass nicht bei allen der Platz oder das Umfeld gegeben ist um en
 <br />
 
 **Eric:** Ja, die Lasagne war genial! Dafür habe ich sogar den Schnitt im Daumen in Kauf genommen (lacht). Das war eine tolle Sache.
-Aber im Ernst: Ich glaube, dass das komplett vom Typ abhängig ist. Manche Leute _wollen_ auch wieder mehr vom Büro arbeiten, weil sie wieder regelmäßig den Austausch mit den Kolleg:innen haben wollen. Ich glaube tatsächlich, dass die Social Benefits für die Kolleg:innen schon am wichtigsten sind, wenn sie überlegen, ob sie wieder mehr oder sogar regelmäßig vom Büro aus arbeiten wollen.
+Aber im Ernst: Ich glaube, dass das komplett vom Typ abhängig ist. Manche Leute _wollen_ auch wieder mehr vom Büro aus arbeiten, weil sie wieder regelmäßig den Austausch mit den Kolleg:innen haben wollen. Ich glaube tatsächlich, dass die Social Benefits für die Kolleg:innen schon am wichtigsten sind.
 
 **Gholam:** Ich stimme da voll mit Eric überein. Ich glaube tatsächlich, dass der Spaß bei der gemeinsamen Zusammenarbeit eine wichtige Voraussetzung dafür war, dass es auch remote so gut geklappt hat. Deswegen sehe ich das als Elementar wichtig an, dass man sich auch zukünftig wieder trifft und persönlich kennenlernt. Dann habe ich auch keine Sorgen, dass die Zusammenarbeit anschließend unabhängig vom Ort gut funktioniert.
 Klar, kann das auch bedeuten, dass vom Büro aus nicht so effizient gearbeitet wird, als dies im Home-Office der Fall wäre. Aber ich bin bereit diesen Effizienzverlust in Kauf zu nehmen, wenn es bedeutet, dass wir als Team enger zusammen rücken und langfristig besser und zufriedener zusammen arbeiten können. Das halte ich für sehr wichtig.
 
 **Eric:** Darüber hinaus hilft natürlich die räumliche Nähe bei der Zusammenarbeit zwischen den Disziplinen. Wenn ich z.B. Felix auf dem Weg in die Küche sehe, fällt es mir wahrscheinlich eher mal ein zu fragen “Hey, brauchst du eigentlich noch eine Design Review? Kann ich dir irgendwie helfen?”
-Und diese ganzen bilateralen Kleinigkeiten abseits von Terminen lassen so ein schönes Gefühl von Fürsorge entstehen, die nicht nur beruflich, sondern auch privat ein schöneres Gemeinsamkeitsgefühl und eine Zusammengehörigkeit entstehen lassen. Davon profitiert jeder einzelne Kolleg:innen.
+Und diese ganzen bilateralen Kleinigkeiten abseits von Terminen lassen so ein schönes Gefühl von Fürsorge entstehen, die nicht nur beruflich, sondern auch privat ein Gemeinsamkeitsgefühl und eine Zusammengehörigkeit entstehen lassen. Davon profitiert jeder.
 Und wenn man zusammen im Office arbeitet, hat man auch mehr das Gefühl, dass um einen herum was passiert – wie in einem Bienenstock, da hört und sieht und spürt man dieses motivierende Summen.
 
 **Habt ihr konkrete Ideen, was ihr tun wollt um die Leute davon zu überzeugen das Home-Office gegen das Büro auszutauschen?**
@@ -96,7 +96,7 @@ Und wenn man zusammen im Office arbeitet, hat man auch mehr das Gefühl, dass um
 <br />
 
 ![Der Blick ins (noch leere und unfertige) neue Office](images/return-to-office-interview-office.jpg)
-<small>Der Blick ins (noch leere) neue Office</small>
+<small>Endlich fertig! Der Blick ins neue Office</small>
 
 <br />
 
