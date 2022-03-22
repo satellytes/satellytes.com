@@ -1,6 +1,6 @@
 ---
 path: "/blog/we-work-remotely/"
-date: "2022-02-17"
+date: "2022-03-24"
 title: We work remotely!?
 featuredImage: images/return-to-office-interview-header.jpg
 author: "Satellytes"
@@ -50,12 +50,7 @@ Ob das für den Einzelnen befriedigend war, kann man so eindeutig nicht beantwor
 **Gholam:** In der aktuellen Teamzusammensetzung war unsere Vorstellung von Kultur schon so weit verinnerlicht, dass diese beim Wechsel ins Home-Office einfach erhalten und weitergelebt werden konnte. Dabei geht es mir vor allem darum wie wir im Team miteinander umgegangen sind. Das hat auch remote sehr gut geklappt.
 Nur mal als Beispiel: Fabian hat sich bereit erklärt die Weihnachtsfeier zu planen und Jesús hat sich die Onboarding-Prozesse vorgenommen und optimiert. Das musste nicht von uns vorgegeben werden, sondern ist von den Kolleg:innen eigenverantwortlich vorangetrieben worden.
 
-<br />
-
 ![Virtuelle Weihnachtsfeier bei Satellytes. Danke an Georgios and Fabian für die Organisation!](images/return-to-office-interview-christmas-party.png)
-<small>Virtuelle Weihnachtsfeier bei Satellytes. Danke and Georgios and Fabian für die Organisation!</small>
-
-<br />
 
 **Eric:** Klar auf der zwischenmenschlichen Ebene oder innerhalb der Teams hat das weiterhin sehr gut funktioniert. Die Teams haben schnell gemerkt, dass sie sich die Zeit nehmen müssen und auch dürfen, auch mal über Dinge außerhalb der Arbeit zu plaudern.
 Aber trotzdem habe ich persönlich vieles vermisst, was vor Corona selbstverständlich war. Man trifft sich zwar immer noch häufig in Zoom-Meetings, aber da hat man immer eine Agenda. Der kurze Small-Talk am Anfang und am Ende ist für mich kein Ersatz für die längeren Zusammentreffen, die im Büroalltag ständig zustande kommen.
@@ -73,11 +68,7 @@ Man sieht auch, dass nicht bei allen der Platz oder das Umfeld gegeben ist um en
 **Eric:** Ja, die Lasagne war genial! Dafür habe ich sogar den Schnitt im Daumen in Kauf genommen (lacht). Das war eine tolle Sache.
 Aber im Ernst: Ich glaube, dass das komplett vom Typ abhängig ist. Manche Leute _wollen_ auch wieder mehr vom Büro aus arbeiten, weil sie wieder regelmäßig den Austausch mit ihren Kolleg:innen haben wollen. Ich glaube tatsächlich, dass die Social Benefits von zentraler Bedeutung sind.
 
-<br />
-
 ![Ja, es gab sie wirklich, die Lasagne!](images/return-to-office-interview-lasagna.jpg)
-<small>Ja, es gab sie wirklich, die Lasagne!</small>
-<br />
 
 **Gholam:** Ich stimme da voll mit Eric überein. Ich glaube tatsächlich, dass der Spaß bei der gemeinsamen Zusammenarbeit eine wichtige Voraussetzung dafür war, dass es auch remote so gut geklappt hat. Deswegen sehe ich es als elementar wichtig an, dass man sich auch zukünftig wieder trifft. Dann habe ich auch keine Sorgen, dass die Zusammenarbeit anschließend unabhängig vom Ort gut funktioniert.
 Klar, kann das auch bedeuten, dass vom Büro aus nicht so effizient gearbeitet wird, als dies im Home-Office der Fall wäre. Aber ich bin bereit diesen Effizienzverlust in Kauf zu nehmen, wenn es bedeutet, dass wir als Team enger zusammen rücken und langfristig besser und zufriedener zusammen arbeiten können.
@@ -90,12 +81,7 @@ Und wenn man zusammen im Office arbeitet, hat man auch mehr das Gefühl, dass um
 
 **Eric:** Wir haben in den letzten Monaten viel Energie in unser Office investiert. Schallschutz, gutes Licht, neue Räume mit Rückzugsmöglichkeiten, damit man in jeder Situation und Konstellation gut arbeiten kann. Und neben den regulären Arbeitsplätzen gibt es jetzt auch mehr coole Bereiche mit Sesseln und Poufs und ein paar Konsolen und Spiele, wo man auch mal entspannen und einen guten Kaffee genießen kann.
 
-<br />
-
-![Der Blick ins neue Office](images/return-to-office-interview-office.jpg)
-<small>Endlich fertig! Der Blick ins neue Office</small>
-
-<br />
+![Endlich fertig! Der Blick ins neue Office](images/return-to-office-interview-office.jpg)
 
 Unsere Kolleg:innen sollen sich da einfach wohlfühlen, sie verbringen ja schließlich fast die Hälfte ihrer wachen Zeit im Office.
 Deswegen hören wir auch auf ihre Ideen und Bedürfnisse. Wenn Pavel zum Beispiel ein neuer Pizzaschneider hilft eine noch bessere Zeit beim Mittagessen im Büro zu haben, wird einer gekauft (lacht).
@@ -109,12 +95,7 @@ Darüber hinaus planen wir zukünftig regelmäßig sogenannte “Company Space D
 
 **Gholam:** (lacht) Jetzt überträgst du von dir auf andere!
 
-<br />
-
-![Felix im virtuellen Office](images/return-to-office-interview-felix.png)
-<small>Auch virtuell wurde bei Satellytes stets auf ein professionelles Erscheiungsbild geachtet!</small>
-
-<br />
+![Auch virtuell wurde bei Satellytes stets auf ein professionelles Erscheiungsbild geachtet!](images/return-to-office-interview-felix.png)
 
 **Eric:** Nein, aber mal ehrlich ... Ich kann morgens direkt den Rechner aufklappen und bin voll im Fokus und kann dann Pause und meine Morgenroutine machen, wenn die Konzentration das erste Mal nachlässt. Wenn ich vom Büro aus arbeite, ist mein Morgen weniger flexibel planbar.
 Allgemeiner gefasst, kann man sagen: Die Remote-Arbeit erlaubt jedem, die eigene Routine zu finden, die am besten geeignet ist um gut und effizient arbeiten zu können.
