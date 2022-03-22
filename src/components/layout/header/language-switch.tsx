@@ -25,15 +25,18 @@ const StyledSelection = styled.select`
 
   color: inherit;
   padding-left: 18px;
+  text-align: right;
+  /*"direction: rlt" aligns the text right in Safari*/
+  direction: rtl;
 
   appearance: none;
   cursor: pointer;
 `;
 
-export const StyledChevron = styled(Icon)`
+export const StyledChevron = styled(Icon)<{ isEnglish: boolean }>`
   cursor: pointer;
-  /*margin-right: -22px makes the Chevron clickable*/
-  margin-right: -22px;
+  /*margin-right: negative margin makes the Chevron clickable*/
+  margin-right: ${(props) => (props.isEnglish ? '-26px' : '-22px')};
 `;
 
 export const LanguageSwitch = ({
@@ -43,7 +46,7 @@ export const LanguageSwitch = ({
 
   return (
     <StyledNav aria-label={t('navigation.language-aria')} className={className}>
-      <StyledChevron show="caret_squared_down" />
+      <StyledChevron isEnglish={language === 'en'} show="caret_squared_down" />
       <StyledSelection
         onChange={(event) => {
           changeLanguage(event.target.value);

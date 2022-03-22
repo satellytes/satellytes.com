@@ -8,6 +8,7 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { LanguageSwitch } from '../header/language-switch';
 import { TextStyles } from '../../typography';
 import { Icon } from '../../ui/icon/icon';
+import { theme } from '../theme';
 
 const NavigationBackground = styled.div`
   background: linear-gradient(289.7deg, #543fd7 2.95%, #2756fd 100.82%);
@@ -118,20 +119,26 @@ const LegalLink = styled(Link)<{ $isSelected: boolean }>`
   ${TextStyles.menuMeta}
 
   text-decoration: none;
-  color: ${(props) => (props.$isSelected ? '#ffffff' : '#202840')};
+  color: ${(props) =>
+    props.$isSelected
+      ? theme.palette.text.defaultLight
+      : theme.palette.text.default};
 
   /**
    * necessary for Safari
    */
 
   &:link {
-    color: ${(props) => (props.$isSelected ? '#ffffff' : '#202840')};
+    color: ${(props) =>
+      props.$isSelected
+        ? theme.palette.text.defaultLight
+        : theme.palette.text.default};
   }
 
   transition: color 0.2s;
 
   &:hover {
-    color: #ffffff;
+    color: ${theme.palette.text.defaultLight};
   }
 `;
 
@@ -168,14 +175,20 @@ const SiteNavigationLink = styled(Link)<{ $isSelected: boolean }>`
   ${TextStyles.menuItemS}
 
   text-decoration: none;
-  color: ${(props) => (props.$isSelected ? '#ffffff' : '#202840')};
+  color: ${(props) =>
+    props.$isSelected
+      ? theme.palette.text.defaultLight
+      : theme.palette.text.default};
 
   /**
    * necessary for Safari
    */
 
   &:link {
-    color: ${(props) => (props.$isSelected ? '#ffffff' : '#202840')};
+    color: ${(props) =>
+      props.$isSelected
+        ? theme.palette.text.defaultLight
+        : theme.palette.text.default};
   }
 
   ${up('md')} {
@@ -185,17 +198,16 @@ const SiteNavigationLink = styled(Link)<{ $isSelected: boolean }>`
   transition: color 0.2s;
 
   &:hover {
-    color: #ffffff;
+    color: ${theme.palette.text.defaultLight};
   }
 `;
 
 const IconWrapper = styled.div`
-  color: white;
-  transition: all 0.2s ease-in;
-  opacity: 0.3;
+  color: ${theme.palette.text.default};
+  transition: color 0.2s;
 
   &:hover {
-    opacity: 1;
+    color: ${theme.palette.text.defaultLight};
   }
 `;
 
