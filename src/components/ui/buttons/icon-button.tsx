@@ -6,7 +6,7 @@ import { IconType } from '../icon/icon-set';
 
 const StyledButton = styled.button`
   border: none;
-  border-radius: 30px;
+  border-radius: 24px;
   cursor: pointer;
 
   height: 24px;
