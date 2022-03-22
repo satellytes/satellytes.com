@@ -1,28 +1,29 @@
 import { graphql, PageProps } from 'gatsby';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import SEO from '../components/layout/seo';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { BlogPostMarkdown, BreadcrumbEntry } from '../types';
 import { BlogPostPage } from '../components/pages/blog-post/blog-post';
+import { BreadcrumbEntry, ContentfulBlogPost } from '../types';
 
 interface BlogArticleTemplateQueryProps {
-  markdownRemark: BlogPostMarkdown;
+  contentfulBlogPost: BlogArticleQueryData;
 }
 
 const BlogArticleTemplate = ({
   data,
   location,
 }: PageProps<BlogArticleTemplateQueryProps>): JSX.Element => {
+  const { author, seoMetaText, title, publicationDate, heroImage } =
+    data.contentfulBlogPost;
   const { t } = useTranslation();
-  const markdown = data.markdownRemark;
 
-  const shareImagePath =
-    markdown.frontmatter.shareImage.childImageSharp.fixed.src;
+  const shareImagePath = heroImage.shareImage.resize.src;
 
   const breadcrumb: BreadcrumbEntry[] = [
     { pathname: '/', label: 'Satellytes' },
     { pathname: '/blog', label: t('navigation.blog') },
-    { pathname: location.pathname, label: markdown.frontmatter.title },
+    { pathname: location.pathname, label: title },
   ];
 
   return (
@@ -35,57 +36,76 @@ const BlogArticleTemplate = ({
        * less condense in terms of content.
        */}
       <SEO
-        title={`${markdown.frontmatter.title} | Satellytes`}
-        author={markdown.frontmatter.author}
-        publishDate={markdown.frontmatter.date}
+        title={`${title} | Satellytes`}
+        author={author.fullName}
+        publishDate={publicationDate}
         shareImagePath={shareImagePath}
         siteType="article"
-        description={markdown.frontmatter.seoMetaText ?? markdown.excerpt}
+        description={seoMetaText}
         location={location}
       />
 
-      <BlogPostPage markdown={markdown} breadcrumb={breadcrumb} />
+      <BlogPostPage
+        blogPost={data.contentfulBlogPost}
+        breadcrumb={breadcrumb}
+      />
     </>
   );
 };
 
 export const BlogPostPageQuery = graphql`
-  query ($path: String!, $language: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
-      htmlAst
-      readingTime {
-        minutes
+  query ($language: String!, $id: String!) {
+    contentfulBlogPost(id: { eq: $id }) {
+      author {
+        fullName
+        summary
       }
-      excerpt(pruneLength: 158)
-      frontmatter {
-        attribution {
-          creator
-          source
+      id
+      title
+      heroImage {
+        creator
+        source
+        fullImage: image {
+          gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
         }
-        date
-        path
-        title
-        author
-        authorSummary
-        seoMetaText
-        leadboxText
-
-        featuredImage {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+        squaredImage: image {
+          gatsbyImageData(
+            aspectRatio: 1
+            layout: FULL_WIDTH
+            placeholder: BLURRED
+          )
+        }
+        shareImage: image {
+          resize(width: 1440, height: 760) {
+            src
           }
         }
-
-        shareImage: featuredImage {
-          childImageSharp {
-            fixed(width: 1440, height: 760) {
-              src
+      }
+      content {
+        raw
+        references {
+          ... on ContentfulCodeBlock {
+            contentful_id
+            __typename
+            description
+            language
+            code {
+              code
+              childMarkdownRemark {
+                htmlAst
+              }
             }
           }
         }
       }
-      rawMarkdownBody
+      publicationDate
+      readingTime {
+        minutes
+      }
+      slug
+      seoMetaText
+      teaserText
+      leadBoxText
     }
 
     locales: allLocale(filter: { language: { eq: $language } }) {
@@ -99,5 +119,25 @@ export const BlogPostPageQuery = graphql`
     }
   }
 `;
+
+export type BlogArticleQueryData = ContentfulBlogPost & {
+  code: {
+    childMarkdownRemark: {
+      htmlAst: any;
+    };
+  };
+  readingTime: {
+    minutes: number;
+  };
+  heroImage: {
+    fullImage: IGatsbyImageData;
+    squaredImage: IGatsbyImageData;
+    shareImage: {
+      resize: {
+        src: string;
+      };
+    };
+  };
+};
 
 export default BlogArticleTemplate;

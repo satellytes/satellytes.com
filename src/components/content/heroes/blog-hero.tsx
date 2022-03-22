@@ -1,9 +1,10 @@
 import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import React from 'react';
-import { HeroContainer, TextContainer } from './support';
-import { HeroText, HeroWithText } from './hero-text';
-import styled from 'styled-components';
 import { useMedia } from 'react-use';
+import styled from 'styled-components';
+import { ContentfulBlogPostHero } from '../../../types';
+import { HeroText, HeroWithText } from './hero-text';
+import { HeroContainer, TextContainer } from './support';
 
 const coverContainerCss = {
   gridArea: '1/1',
@@ -16,7 +17,7 @@ const coverContainerCss = {
 
 type ImageHeroProps = Partial<HeroWithText> & {
   image: IGatsbyImageData;
-  attribution?: any;
+  attribution?: Omit<ContentfulBlogPostHero, 'image'>;
 };
 
 const AttributionContainer = styled.div`
@@ -29,7 +30,11 @@ const AttributionContainer = styled.div`
   font-size: 0.8em;
 `;
 
-const Attribution = ({ attribution }) => (
+const Attribution = ({
+  attribution,
+}: {
+  attribution: Omit<ContentfulBlogPostHero, 'image'>;
+}) => (
   <AttributionContainer>
     Photo by{' '}
     <a rel="nofollow noreferrer" target="_blank" href={attribution.source}>

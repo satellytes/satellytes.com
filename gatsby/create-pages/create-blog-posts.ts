@@ -1,6 +1,5 @@
-import { appendTrailingSlash } from '../util/append-trailing-slash';
-import path from 'path';
 import { CreatePagesArgs } from 'gatsby';
+import path from 'path';
 
 const BLOG_POST_TEMPLATE_PATH = path.resolve(
   `${process.cwd()}/src/templates/blog-post.tsx`,
@@ -13,44 +12,41 @@ export const createBlogPosts = async ({
 }: CreatePagesArgs) => {
   const { createPage } = actions;
 
-  const markdownBlogPages = await graphql<{
-    allMarkdownRemark: {
+  const contentfulBlogPages = await graphql<{
+    allContentfulBlogPost: {
       nodes: {
-        frontmatter: {
-          path: string;
-          date: string;
-        };
+        id: string;
+        publicationDate: string;
+        slug: string;
       }[];
     };
   }>(`
     {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        filter: { fileAbsolutePath: { regex: "/(blog-posts)/" } }
-      ) {
+      allContentfulBlogPost(sort: { fields: publicationDate, order: DESC }) {
         nodes {
-          frontmatter {
-            path
-            date
-          }
+          id
+          publicationDate
+          slug
         }
       }
     }
   `);
 
-  if (markdownBlogPages.errors || !markdownBlogPages.data) {
+  if (contentfulBlogPages.errors || !contentfulBlogPages.data) {
     reporter.panicOnBuild(`Error while running GraphQL query for blog pages.`);
     return;
   }
 
   // create a page for each markdown file
-  markdownBlogPages.data.allMarkdownRemark.nodes.forEach((node) => {
+  contentfulBlogPages.data.allContentfulBlogPost.nodes.forEach((node) => {
     createPage({
-      path: appendTrailingSlash(node.frontmatter.path),
+      path: `/blog/${node.slug}/`,
       component: BLOG_POST_TEMPLATE_PATH,
       context: {
         // used for the sitemap
-        publicationDate: node.frontmatter.date,
+        publicationDate: node.publicationDate,
+        // used for graphql query in template
+        id: node.id,
       },
     });
   });
