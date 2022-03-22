@@ -6,12 +6,15 @@ import { SyPersonioJob } from '../../../types';
 import { SectionHeader } from '../../content/section-header/section-header';
 import { ContentBlockContainer } from '../../layout/content-block-container';
 import { Form } from './new-career-form/career-form';
+import { useLocation } from 'react-use';
 
 interface CareerDetailsProps {
   originalPath: string;
   position: SyPersonioJob;
   complementPath: string;
 }
+
+const DEFAULT_CHANNEL_ID = '329206';
 
 export const CareerDetails = ({
   position,
@@ -35,6 +38,10 @@ export const CareerDetails = ({
     ref?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const personioChannel = searchParams.get('_pc');
+
   return (
     <Layout
       siteTitleUrl="/career/"
@@ -53,7 +60,7 @@ export const CareerDetails = ({
 
       <Form
         company_id="41230"
-        recruiting_channel_id="329206"
+        recruiting_channel_id={personioChannel ?? DEFAULT_CHANNEL_ID}
         access_token="89b2acfa3a239b75c7d6"
         job_position_id={position.jobId + ''}
         scrollToStart={scrollToStart}
