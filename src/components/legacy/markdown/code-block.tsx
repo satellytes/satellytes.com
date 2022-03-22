@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { CSSProperties } from 'styled-components';
 import { onlyText } from '../../support/only-text';
-import { Copy } from '../../ui/copy/copy';
+import { Copy } from '../../ui/copy-button/copy-button';
 
 interface CodeBlockProps {
   children: React.ReactNode;

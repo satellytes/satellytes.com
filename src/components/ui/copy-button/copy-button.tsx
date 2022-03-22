@@ -4,14 +4,13 @@ import styled, { css } from 'styled-components';
 import { IconButton } from '../buttons/icon-button';
 import { Icon } from '../icon/icon';
 
-const Default_Clicked_Duration = 3000;
+const DEFAULT_SHOW_SUCCESS_NOTIFICATION_MS = 3000;
 
 interface CopyProps {
   /**
    * Duration, that the Checkmark will be shown once the button is clicked
-   * @default 3000ms
    */
-  clickedDuration?: number;
+  showSuccessNotificationMS?: number;
 
   /**
    * Text that will be copied
@@ -46,7 +45,11 @@ const CopyWrapper = styled.div<{ clicked: boolean }>`
     `}
 `;
 
-export const Copy = ({ clickedDuration, text, className }: CopyProps) => {
+export const Copy = ({
+  showSuccessNotificationMS,
+  text,
+  className,
+}: CopyProps) => {
   const [clicked, setClicked] = useState(false);
   const { t } = useTranslation();
 
@@ -57,12 +60,12 @@ export const Copy = ({ clickedDuration, text, className }: CopyProps) => {
 
     setTimeout(
       () => setClicked(false),
-      clickedDuration ?? Default_Clicked_Duration,
+      showSuccessNotificationMS ?? DEFAULT_SHOW_SUCCESS_NOTIFICATION_MS,
     );
   };
 
   return (
-    <CopyWrapper id="copy-container" clicked={clicked} className={className}>
+    <CopyWrapper clicked={clicked} className={className}>
       {clicked ? (
         <>
           <span>{t('blog.copied')}</span>
