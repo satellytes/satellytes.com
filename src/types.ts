@@ -101,6 +101,7 @@ export interface ContentfulBlogPost {
   content: RenderRichTextData<ContentfulRichTextGatsbyReference>;
   heroImage: ContentfulBlogPostHero;
   id: string;
+  leadBoxText: string;
   publicationDate: string;
   seoMetaText: string;
   slug: string;
