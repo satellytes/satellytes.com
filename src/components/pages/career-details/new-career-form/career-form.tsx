@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { ErrorCode, FileError } from 'react-dropzone';
 import { useForm } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
-import styled from 'styled-components';
 import { Checkbox } from '../../../forms/checkbox/checkbox';
 import { SIMPLE_EMAIL_PATTERN } from '../../../forms/constants';
 import {
@@ -11,13 +10,13 @@ import {
 } from '../../../forms/file-dropper/file-dropper';
 import { TextArea } from '../../../forms/text-area/text-area';
 import { TextInput } from '../../../forms/text-input/text-input';
-import { TextStyles } from '../../../typography';
 import { Button } from '../../../ui/buttons/button';
 import { FormLayout } from '../../contact/form';
 import { SectionHeadline } from '../job-description';
 import {
   CareerDetailsCheckboxLabel,
   CareerDetailsError,
+  CareerDetailsFileText,
   CareerDetailsSuccess,
 } from './career-form-fields';
 import { uploadToPersonio } from './upload';
@@ -47,12 +46,6 @@ export type FormDataProps = {
 export type FormErrors = { api?: never };
 
 const MAX_SIZE = 20 * 1024 * 1024;
-
-const TextWrapper = styled.div`
-  margin: 24px 0;
-
-  ${TextStyles.textR}
-`;
 
 export const Form = (props: CareerFormProps) => {
   const {
@@ -202,10 +195,7 @@ export const Form = (props: CareerFormProps) => {
           maxFiles={3}
           validator={fileValidator}
         />
-
-        <TextWrapper>
-          <Trans i18nKey={'career.info-text'} />
-        </TextWrapper>
+        <CareerDetailsFileText />
         <br />
         <Checkbox
           name="privacy"
@@ -220,9 +210,6 @@ export const Form = (props: CareerFormProps) => {
             : t<string>('career.action.again')}
         </Button>
         {errors?.api && <CareerDetailsError />}
-        <TextWrapper>
-          <Trans i18nKey={'career.mandatory-field'} />
-        </TextWrapper>
       </form>
     </>
   );
