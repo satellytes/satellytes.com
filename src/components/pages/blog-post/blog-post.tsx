@@ -1,5 +1,6 @@
 import { Options } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import React from 'react';
@@ -69,6 +70,20 @@ const contentfulRenderOptions: Options = {
           return null;
       }
     },
+    [BLOCKS.EMBEDDED_ASSET]: (node) =>
+      cSC.figure({
+        children: [
+          <GatsbyImage
+            key="image"
+            image={node.data.target.gatsbyImageData}
+            alt={node.data.target.description}
+          />,
+          cSC.figcaption({
+            key: 'figcaption',
+            children: node.data.target.description,
+          }),
+        ],
+      }),
   },
 };
 
