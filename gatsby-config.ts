@@ -1,3 +1,4 @@
+import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 import dotenv from 'dotenv';
 import type { GatsbyConfig, IPluginRefOptions } from 'gatsby';
 import * as siteMapTransformers from './gatsby/gatsby-plugin-sitemap/gatsby-plugin-sitemap';
@@ -119,10 +120,8 @@ const gatsbyConfig: GatsbyConfig = {
       options: {
         types: {
           MarkdownRemark: (source) => source.rawMarkdownBody,
-          ContentfulBlogPost: (blogPost) => {
-            console.log('TODO: Improve reading time calculation');
-            return blogPost.content.raw;
-          },
+          ContentfulBlogPost: (blogPost) =>
+            documentToPlainTextString(JSON.parse(blogPost.content.raw)),
         },
       },
     },
