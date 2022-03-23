@@ -39,7 +39,7 @@ export const Blog = ({ posts }: BlogProps) => {
             <Teaser
               key={item.id}
               title={item.title}
-              linkTo={`blog/${item.slug}`}
+              linkTo={item.fields.path}
               language={'en'}
               dateFormatted={dateFormatter(item.publicationDate)}
               image={imageData && <GatsbyImage alt="" image={imageData} />}

@@ -74,10 +74,12 @@ export const IndexPageQuery = graphql`
       limit: 3
     ) {
       nodes {
+        fields {
+          path
+        }
         id
         title
         teaserText
-        slug
         publicationDate
         heroImage {
           image {

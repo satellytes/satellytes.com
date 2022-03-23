@@ -5,12 +5,14 @@ import {
 } from 'gatsby-source-contentful/rich-text';
 
 export interface BlogPostTeaser {
+  fields: {
+    path: string;
+  };
   heroImage: {
     image: any;
   };
   id: string;
   publicationDate: string;
-  slug: string;
   teaserText: string;
   title: string;
 }
