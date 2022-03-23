@@ -1,12 +1,8 @@
 import React from 'react';
-import { ErrorCode, FileError } from 'react-dropzone';
 import { useForm } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 import { SIMPLE_EMAIL_PATTERN } from '../../../forms/constants';
-import {
-  FileDropper,
-  FileDropperType,
-} from '../../../forms/file-dropper/file-dropper';
+import { FileDropperType } from '../../../forms/file-dropper/file-dropper';
 import { TextArea } from '../../../forms/text-area/text-area';
 import { TextInput } from '../../../forms/text-input/text-input';
 import { FormLayout } from '../../contact/form';
@@ -15,6 +11,7 @@ import {
   CareerDetailsCheckbox,
   CareerDetailsError,
   CareerDetailsFileText,
+  CareerDetailsFileUpload,
   CareerDetailsSubmitButton,
   CareerDetailsSuccess,
 } from './career-form-fields';
@@ -44,8 +41,6 @@ export type FormDataProps = {
 
 export type FormErrors = { api?: never };
 
-const MAX_SIZE = 20 * 1024 * 1024;
-
 export const Form = (props: CareerFormProps) => {
   const {
     setValue,
@@ -62,31 +57,6 @@ export const Form = (props: CareerFormProps) => {
 
   const { t } = useTranslation();
   const selectedFiles = watch('documents');
-
-  const fileCategories = [
-    {
-      value: 'cv',
-      label: t<string>('career.cv'),
-    },
-    {
-      value: 'cover-letter',
-      label: t<string>('career.cover-letter'),
-    },
-    {
-      value: 'other',
-      label: t<string>('career.other'),
-    },
-  ];
-
-  const fileValidator = (file: File): FileError | null => {
-    if (file.size > MAX_SIZE)
-      return {
-        message: t<string>('career.error.max-size'),
-        code: ErrorCode.FileTooLarge,
-      };
-
-    return null;
-  };
 
   const onValidateForm = () => {
     // to allow re send after api error
@@ -176,18 +146,12 @@ export const Form = (props: CareerFormProps) => {
         />
 
         <br />
-        <FileDropper
+        <CareerDetailsFileUpload
           register={register}
           setValue={setValue}
           setError={setError}
           clearErrors={clearErrors}
           errors={errors}
-          name="documents"
-          fileCategories={fileCategories}
-          acceptedFileTypes={'.pdf'}
-          illustration="monitor_024"
-          maxFiles={3}
-          validator={fileValidator}
         />
         <CareerDetailsFileText />
         <br />
