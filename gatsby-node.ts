@@ -33,6 +33,17 @@ export const onCreateNode: GatsbyNode<SatellytesNode>['onCreateNode'] = async (
       value,
     });
   }
+
+  /**
+   * Provide a path for all contentful blog posts
+   */
+  if (node.internal.type === 'ContentfulBlogPost') {
+    createNodeField({
+      name: 'path',
+      node,
+      value: `/blog/${node.slug}/`,
+    });
+  }
 };
 
 /**
