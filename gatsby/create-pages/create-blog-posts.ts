@@ -15,18 +15,22 @@ export const createBlogPosts = async ({
   const contentfulBlogPages = await graphql<{
     allContentfulBlogPost: {
       nodes: {
+        fields: {
+          path: string;
+        };
         id: string;
         publicationDate: string;
-        slug: string;
       }[];
     };
   }>(`
     {
       allContentfulBlogPost(sort: { fields: publicationDate, order: DESC }) {
         nodes {
+          fields {
+            path
+          }
           id
           publicationDate
-          slug
         }
       }
     }
@@ -40,7 +44,7 @@ export const createBlogPosts = async ({
   // create a page for each markdown file
   contentfulBlogPages.data.allContentfulBlogPost.nodes.forEach((node) => {
     createPage({
-      path: `/blog/${node.slug}/`,
+      path: node.fields.path,
       component: BLOG_POST_TEMPLATE_PATH,
       context: {
         // used for the sitemap
