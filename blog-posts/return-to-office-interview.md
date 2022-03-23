@@ -10,7 +10,7 @@ teaserText: "Mit dem Ausklingen der Corona-Maßnahmen endet in vielen Unternehme
 
 Mit dem Ausklingen der verpflichtenden Corona-Maßnahmen endet in vielen Unternehmen die Home-Office-Pflicht – auch bei Satellytes. Und so freuen wir uns das neue Büro wieder für alle Mitarbeiter:innen öffnen zu können.
 
-Jedoch haben die letzten beiden Jahre bei vielen Angestellten ein Umdenken in der Einstellung zum Verhältnis von Büroarbeit vs. Home-Office bewirkt. Viele stellen sich die Frage: Muss ich bald wieder regelmäßig ins Büro oder kann ich weiter remote arbeiten?
+Jedoch haben die letzten beiden Jahre bei vielen Angestellten ein Umdenken in der Einstellung zum Verhältnis von Büroarbeit zu Home-Office bewirkt. Viele stellen sich die Frage: Muss ich bald wieder regelmäßig ins Büro oder kann ich weiter remote arbeiten?
 
 Wir dachten, das ist genau der richtige Zeitpunkt unsere Geschäftsführer mal zu fragen: Wie steht ihr dazu? Do we work remotely? Wie wird die Zusammenarbeit nach Ende der Corona-Einschränkungen bei Satellytes aussehen?
 
@@ -20,7 +20,7 @@ Wir dachten, das ist genau der richtige Zeitpunkt unsere Geschäftsführer mal z
 Ich habe festgestellt, dass meine Effektivität abnimmt, je länger ich gezwungen bin im Home-Office zu arbeiten. Mir hilft der regelmäßige Wechsel ins Office enorm, mich auf die Arbeit einzustellen.
 Es wird aber kein typischer Arbeitstag mit regulären Zeiten werden – das war es ja vor der Pandemie auch nicht. Mir war es schon immer wichtig, meine Arbeitszeiten im Einklang mit meiner Familie zu gestalten. Wenn ich z.B. meinen Sohn früh morgens in die Schule gebracht habe, hat mein Bürotag auch erst mal um 10 Uhr angefangen. Das war dann halt so. Und das war auch gut so.
 
-**Eric:** Ich sehe das ganz ähnlich: Auch ich werde wieder größtenteils vom Büro aus arbeiten. Es wird aber auch Ausnahmen geben: Wenn ich mich bspw. auf ein komplexes, operatives Thema konzentrieren muss, werde ich auch in Zukunft von zu Hause aus arbeiten. Die letzten beiden Jahre haben mir gezeigt, dass es sehr effektiv sein kann Slack und Telefon für ein paar Stunden abzuschalten. Dieses "von der Außenwelt abschotten" ist im Büro natürlich nicht möglich, aber ich freue mich trotzdem sehr wieder enger mit den Kolleg:innen im Büro arbeiten zu können.
+**Eric:** Ich sehe das ganz ähnlich: Auch ich werde wieder größtenteils vom Büro aus arbeiten. Es wird aber auch Ausnahmen geben: Wenn ich mich bspw. auf ein komplexes, operatives Thema konzentrieren muss, werde ich auch in Zukunft von zu Hause aus arbeiten. Die letzten beiden Jahre haben mir gezeigt, dass es sehr effektiv sein kann Slack und Telefon für ein paar Stunden abzuschalten. Dieses "von der Außenwelt abschotten" ist im Büro natürlich nicht möglich, aber ich freue mich trotzdem sehr, wieder enger mit den Kolleg:innen im Büro arbeiten zu können.
 
 **Welche Vorteile seht ihr für euch, wenn ihr aus dem Büro arbeitet?**
 
