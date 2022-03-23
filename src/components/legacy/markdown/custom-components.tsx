@@ -184,8 +184,8 @@ const customSatellytesComponents = {
   figure(props) {
     return <Figure>{props.children}</Figure>;
   },
-  figcaption(props) {
-    return <Figcaption>{props.children}</Figcaption>;
+  figcaption({ children, ...rest }) {
+    return <Figcaption {...rest}>{children}</Figcaption>;
   },
 };
 
