@@ -1,4 +1,3 @@
-import axios, { AxiosResponse } from 'axios';
 import React, { useEffect } from 'react';
 import { ErrorCode, FileError } from 'react-dropzone';
 import { useForm } from 'react-hook-form';
@@ -11,16 +10,17 @@ import {
   FileDropperType,
 } from '../../../forms/file-dropper/file-dropper';
 import { TextArea } from '../../../forms/text-area/text-area';
-import {
-  StyledErrorMessage,
-  TextInput,
-} from '../../../forms/text-input/text-input';
+import { TextInput } from '../../../forms/text-input/text-input';
 import { TextStyles } from '../../../typography';
 import { Button } from '../../../ui/buttons/button';
-import { StyledLink } from '../../contact/contact-form';
 import { FormLayout } from '../../contact/form';
 import { SectionHeadline } from '../job-description';
-import { Success } from './career-form-success';
+import {
+  CareerDetailsCheckboxLabel,
+  CareerDetailsError,
+  CareerDetailsSuccess,
+} from './career-form-fields';
+import { uploadToPersonio } from './upload';
 
 interface CareerFormProps {
   company_id: string;
@@ -44,14 +44,8 @@ export type FormDataProps = {
   privacy: boolean;
 };
 
-type FormErrors = { api?: never };
+export type FormErrors = { api?: never };
 
-interface PersonioApiResponse {
-  success: string;
-}
-
-const API_ENDPOINT = 'https://api.personio.de/recruiting/applicant';
-const PRIVACY_POLICY = 'https://satellytes.jobs.personio.de/privacy-policy';
 const MAX_SIZE = 20 * 1024 * 1024;
 
 const TextWrapper = styled.div`
@@ -98,77 +92,7 @@ export const Form = (props: CareerFormProps) => {
     },
   ];
 
-  const onSubmitHandler = async (formValues) => {
-    const apiData = {
-      company_id: props.company_id,
-      access_token: props.access_token,
-      job_position_id: props.job_position_id, // dev test position
-      recruiting_channel_id: props.recruiting_channel_id, //satellytes.com
-    };
-
-    const payload = {
-      ...apiData,
-      ...formValues,
-    };
-
-    const formData = new FormData();
-
-    for (const [key, value] of Object.entries(payload)) {
-      if (key === 'documents') {
-        for (let i = 0; i < formValues.documents.length; i++) {
-          const keyName = `categorised_documents[${i}][file]`;
-          const category = formValues.documents[i].fileCategory;
-          formData.append(keyName, formValues.documents[i].file);
-          const nameCategory = `categorised_documents[${i}][category]`;
-
-          if (category) {
-            formData.append(nameCategory, category);
-          }
-        }
-      } else {
-        formData.append(key, value as any); // formdata doesn't take objects
-      }
-    }
-
-    formData.append('gender', 'diverse');
-
-    await axios
-      .post<FormDataProps, AxiosResponse<PersonioApiResponse>>(
-        API_ENDPOINT,
-        formData,
-        /*
-        if we would like to add a progress State this would be needed again
-        {
-          onUploadProgress: (progressEvent) => (
-            setUploadProgress(progressEvent.loaded / progressEvent.total),
-        },*/
-      )
-      .then((response) => response.data)
-      .then((data) => {
-        // will contain 'Applicant successfully applied to the job position!'
-        // from the Personio API.
-        if (data.success) {
-          // all good
-          props.scrollToStart?.();
-        } else {
-          console.error('Something was wrong with the received response', data);
-        }
-      })
-      .catch((error) => {
-        // personio seems to deliver a different so the message can be inside the error object or the error object itself
-        const personioErrorMessage =
-          error?.response?.data?.error?.message ??
-          error?.response?.data?.error ??
-          error.message;
-
-        setError('api', {
-          type: 'server',
-          message: `Irgendetwas ist schief gelaufen (${personioErrorMessage}).`,
-        });
-      });
-  };
-
-  const validator = (file: File): FileError | null => {
+  const fileValidator = (file: File): FileError | null => {
     if (file.size > MAX_SIZE)
       return {
         message: t<string>('career.error.max-size'),
@@ -178,7 +102,7 @@ export const Form = (props: CareerFormProps) => {
     return null;
   };
 
-  const onErrorHandler = () => {
+  const onValidateForm = () => {
     // to allow re send after api error
     // there should not be an old api error when pressing submit
     if (errors.api) {
@@ -202,7 +126,7 @@ export const Form = (props: CareerFormProps) => {
     }
   };
 
-  if (isSubmitSuccessful) return <Success />;
+  if (isSubmitSuccessful) return <CareerDetailsSuccess />;
 
   return (
     <>
@@ -211,7 +135,10 @@ export const Form = (props: CareerFormProps) => {
       </SectionHeadline>
       <form
         name="career"
-        onSubmit={handleSubmit(onSubmitHandler, onErrorHandler)}
+        onSubmit={handleSubmit(
+          (formValues) => uploadToPersonio(props, formValues, setError),
+          onValidateForm,
+        )}
       >
         <FormLayout>
           <TextInput
@@ -273,7 +200,7 @@ export const Form = (props: CareerFormProps) => {
           acceptedFileTypes={'.pdf'}
           illustration="monitor_024"
           maxFiles={3}
-          validator={validator}
+          validator={fileValidator}
         />
 
         <TextWrapper>
@@ -282,17 +209,7 @@ export const Form = (props: CareerFormProps) => {
         <br />
         <Checkbox
           name="privacy"
-          label={
-            <Trans i18nKey={'career.privacy-policy'}>
-              <span>
-                Hiermit bestätige ich, dass ich die
-                <StyledLink to={PRIVACY_POLICY}>
-                  Datenschutzerklärung
-                </StyledLink>
-                zur Kenntnis genommen habe
-              </span>
-            </Trans>
-          }
+          label={<CareerDetailsCheckboxLabel />}
           control={control}
           rules={{ required: t<string>('career.error.approval') }}
         />
@@ -302,19 +219,7 @@ export const Form = (props: CareerFormProps) => {
             ? t<string>('career.action.send')
             : t<string>('career.action.again')}
         </Button>
-        {errors?.api && (
-          <StyledErrorMessage>
-            <Trans id="career.action.again-text">
-              <span>
-                Versuch es bitte noch einmal. Klappt es nicht dann schicke deine
-                Bewerbung direkt an{' '}
-                <StyledLink to="mailto:career@satellytes.com">
-                  career@satellytes.com
-                </StyledLink>
-              </span>
-            </Trans>
-          </StyledErrorMessage>
-        )}
+        {errors?.api && <CareerDetailsError />}
         <TextWrapper>
           <Trans i18nKey={'career.mandatory-field'} />
         </TextWrapper>
