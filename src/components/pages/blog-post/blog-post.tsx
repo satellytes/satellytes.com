@@ -12,7 +12,7 @@ import { BlogHero } from '../../content/heroes/blog-hero';
 import { LeadboxProps } from '../../content/leadbox/leadbox';
 import { LONG_DATE_FORMAT, useLocaleFormat } from '../../i18n-helpers';
 import { Layout } from '../../layout/layout';
-import cSC from '../../legacy/markdown/custom-components';
+import customComponents from '../../legacy/markdown/custom-components';
 import { MarkdownAst } from '../../legacy/markdown/markdown-ast';
 import { up } from '../../support/breakpoint';
 import FollowPanel from './follow-panel';
@@ -39,23 +39,24 @@ const contentfulRenderOptions: Options = {
   },
   renderNode: {
     [INLINES.HYPERLINK]: (props, children) =>
-      cSC.a({
+      customComponents.a({
         children,
         href: props.data.uri,
         target: '_blank',
         rel: 'nofollow noopener noreferrer',
       }),
-    [BLOCKS.HEADING_1]: (props, children) => cSC.h1({ children }),
-    [BLOCKS.HEADING_2]: (props, children) => cSC.h2({ children }),
-    [BLOCKS.HEADING_3]: (props, children) => cSC.h3({ children }),
-    [BLOCKS.HEADING_4]: (props, children) => cSC.h4({ children }),
-    [BLOCKS.HEADING_5]: (props, children) => cSC.h5({ children }),
-    [BLOCKS.HEADING_6]: (props, children) => cSC.h6({ children }),
-    [BLOCKS.HEADING_6]: (props, children) => cSC.h6({ children }),
-    [BLOCKS.OL_LIST]: (props, children) => cSC.ol({ children }),
-    [BLOCKS.UL_LIST]: (props, children) => cSC.ul({ children }),
-    [BLOCKS.QUOTE]: (props, children) => cSC.blockquote({ children }),
-    [BLOCKS.PARAGRAPH]: (props, children) => cSC.p({ children }),
+    [BLOCKS.HEADING_1]: (props, children) => customComponents.h1({ children }),
+    [BLOCKS.HEADING_2]: (props, children) => customComponents.h2({ children }),
+    [BLOCKS.HEADING_3]: (props, children) => customComponents.h3({ children }),
+    [BLOCKS.HEADING_4]: (props, children) => customComponents.h4({ children }),
+    [BLOCKS.HEADING_5]: (props, children) => customComponents.h5({ children }),
+    [BLOCKS.HEADING_6]: (props, children) => customComponents.h6({ children }),
+    [BLOCKS.HEADING_6]: (props, children) => customComponents.h6({ children }),
+    [BLOCKS.OL_LIST]: (props, children) => customComponents.ol({ children }),
+    [BLOCKS.UL_LIST]: (props, children) => customComponents.ul({ children }),
+    [BLOCKS.QUOTE]: (props, children) =>
+      customComponents.blockquote({ children }),
+    [BLOCKS.PARAGRAPH]: (props, children) => customComponents.p({ children }),
     [BLOCKS.EMBEDDED_ENTRY]: (node) => {
       const { __typename } = node.data.target;
       switch (__typename) {
@@ -71,14 +72,14 @@ const contentfulRenderOptions: Options = {
       }
     },
     [BLOCKS.EMBEDDED_ASSET]: (node) =>
-      cSC.figure({
+      customComponents.figure({
         children: [
           <GatsbyImage
             key="image"
             image={node.data.target.gatsbyImageData}
             alt={node.data.target.description}
           />,
-          cSC.figcaption({
+          customComponents.figcaption({
             key: 'figcaption',
             children: node.data.target.description,
           }),
