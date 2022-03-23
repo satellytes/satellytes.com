@@ -141,70 +141,60 @@ const gatsbyConfig: GatsbyConfig = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges
-                .filter((edge) => !edge.node.fields.slug.includes('/pages/'))
-                .map((edge) => {
-                  const blogPostMeta = edge.node.frontmatter;
-                  const imageUrl =
-                    BASE_URL +
-                    (blogPostMeta.shareImage.childImageSharp.fixed.src ||
-                      DEFAULT_META_IMAGE_URL_PATH);
-                  const coverImage =
-                    blogPostMeta.attribution && blogPostMeta.attribution.creator
-                      ? `
+            serialize: ({ query: { site, allContentfulBlogPost } }) => {
+              return allContentfulBlogPost.nodes.map((node) => {
+                const imageUrl = `${BASE_URL}${
+                  node.heroImage.image?.resize?.src ??
+                  DEFAULT_META_IMAGE_URL_PATH
+                }`;
+                const coverImage =
+                  node.heroImage && node.heroImage.creator
+                    ? `
                     <figure>
                       <img src='${imageUrl}' alt=''>
-                      <figcaption><a href='${blogPostMeta.attribution.source}' target='_blank' rel="nofollow noreferrer">Image by ${blogPostMeta.attribution.creator} · </figcaption>
+                      <figcaption><a href='${node.heroImage.source}' target='_blank' rel="nofollow noreferrer">Image by ${node.heroImage.creator}</figcaption>
                     </figure>
                   `
-                      : `
+                    : `
                     <img src='${imageUrl}' alt=''>
                   `;
 
-                  return {
-                    title: blogPostMeta.title,
-                    site_url: site.siteMetadata.siteUrl,
-                    date: blogPostMeta.date,
-                    description: edge.node.excerpt,
-                    url: site.siteMetadata.siteUrl + blogPostMeta.path,
-                    guid: site.siteMetadata.siteUrl + blogPostMeta.path,
-                    custom_elements: [
-                      {
-                        'content:encoded': `${coverImage} ${edge.node.html}`,
-                      },
-                    ],
-                  };
-                });
+                return {
+                  title: node.title,
+                  site_url: site.siteMetadata.siteUrl,
+                  date: node.publicationDate,
+                  description: node.excerpt,
+                  url: site.siteMetadata.siteUrl + node.fields.path,
+                  guid: site.siteMetadata.siteUrl + node.fields.path,
+                  custom_elements: [
+                    {
+                      'content:encoded': `${coverImage} ${node.rssHtml}`,
+                    },
+                  ],
+                };
+              });
             },
             query: `
               {
-                allMarkdownRemark(
-                  sort: { order: DESC, fields: [frontmatter___date] },
-                ) {
-                  edges {
-                    node {
-                      excerpt
-                      html
-                      fields {
-                       slug
-                      }
-                      frontmatter {
-                        title
-                        date
-                        path
-                        attribution {
-                          creator
-                          source
-                        }
-                        shareImage: featuredImage {
-                          childImageSharp {
-                            fixed(width: 1440, height: 760) {
-                              src
-                            }
-                          }
+                allContentfulBlogPost(sort: { order: DESC, fields: [publicationDate] }) {
+                  nodes {
+                    excerpt
+                    fields {
+                      path
+                    }
+                    rssHtml
+                    slug
+                    title
+                    publicationDate
+                    heroImage {
+                      image {
+                        url
+                        resize(width: 1440, height: 760) {
+                          src
                         }
                       }
+                      creator
+                      source
                     }
                   }
                 }
