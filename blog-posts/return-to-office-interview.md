@@ -5,16 +5,16 @@ title: We work remotely!?
 featuredImage: images/return-to-office-interview-header.jpg
 author: "Satellytes"
 authorSummary: "We work remotely!? – Interview mit den Satellytes-Geschäftsführern zur Return to Office Policy"
-teaserText: Mit dem Rückgang der Corona-Inzidenzen stellt sich die Frage. Wie steht’s mit der Return to Office Policy bei Satellytes? Wir haben die CEOs gefragt.
+teaserText: "Mit dem Ausklingen der Corona-Maßnahmen endet in vielen Unternehmen die Home-Office-Pflicht – auch bei Satellytes. Da drängt sich uns die Frage auf: Wie und wo arbeiten wir in Zukunft? Wir haben die Geschäftsführer gefragt."
 ---
 
-Mit dem Rückgang der Corona-Inzidenzen ist absehbar, dass auch das [Home-Office-Gebot der Bundesregierung](https://www.tagesschau.de/wirtschaft/unternehmen/homoffice-pflicht-buero-pflicht-dgb-101.html) bald fallen wird. So freuen wir uns auch bei Satellytes das neue Büro endlich ohne Auflagen wieder öffnen zu können.
+Mit dem Ausklingen der verpflichtenden Corona-Maßnahmen endet in vielen Unternehmen die Home-Office-Pflicht – auch bei Satellytes. Und so freuen wir uns das neue Büro wieder für alle Mitarbeiter:innen öffnen zu können.
 
-Trotzdem haben die letzten beiden Jahre bei vielen Angestellten ein Umdenken in der Einstellung zurgi Büroarbeit bewirkt. Viele stellen sich daher die Frage: Muss ich bald wieder regelmäßig ins Büro oder kann ich auch weiter remote arbeiten?
+Jedoch haben die letzten beiden Jahre bei vielen Angestellten ein Umdenken in der Einstellung zum Verhältnis von Büroarbeit vs. Home-Office bewirkt. Viele stellen sich die Frage: Muss ich bald wieder regelmäßig ins Büro oder kann ich weiter remote arbeiten?
 
-Wir dachten, dass das genau der richtige Zeitpunkt ist unsere Geschäftsführer zu fragen: Wie steht ihr dazu? Do we work remotely? Wie wird die Zusammenarbeit nach Ende der Corona-Einschränkungen bei Satellytes aussehen?
+Wir dachten, das ist genau der richtige Zeitpunkt unsere Geschäftsführer mal zu fragen: Wie steht ihr dazu? Do we work remotely? Wie wird die Zusammenarbeit nach Ende der Corona-Einschränkungen bei Satellytes aussehen?
 
-**Frage: Fangen wir mal mit euch persönlich an: Wie plant ihr zukünftig euren eigenen Arbeitsalltag zu gestalten? Werdet ihr wieder täglich vom Büro aus arbeiten? Wird es Remote-Anteile geben?**
+**Fangen wir mal mit euch persönlich an: Wie plant ihr zukünftig euren eigenen Arbeitsalltag zu gestalten? Werdet ihr wieder täglich vom Büro aus arbeiten? Wird es Remote-Anteile geben?**
 
 **Gholam:** Ich plane wieder relativ häufig, wenn nicht sogar täglich, vom Office aus zu arbeiten.
 Ich habe festgestellt, dass meine Effektivität abnimmt, je länger ich gezwungen bin im Home-Office zu arbeiten. Mir hilft der regelmäßige Wechsel ins Office enorm, mich auf die Arbeit einzustellen.
@@ -56,7 +56,7 @@ Nur mal als Beispiel: Fabian hat sich bereit erklärt die Weihnachtsfeier zu pla
 Aber trotzdem habe ich persönlich vieles vermisst, was vor Corona selbstverständlich war. Man trifft sich zwar immer noch häufig in Zoom-Meetings, aber da hat man immer eine Agenda. Der kurze Small-Talk am Anfang und am Ende ist für mich kein Ersatz für die längeren Zusammentreffen, die im Büroalltag ständig zustande kommen.
 Vor Corona ist es schon regelmäßig passiert, dass man sich mal in der Küche über den Weg gelaufen ist und sich dann auch mal länger über irgendein Casual-Thema unterhalten hat. Außerdem sind wir auch ständig gemeinsam zum Mittagessen gegangen. Dabei hat man mehr Zeit gefunden über Dinge zu reden, die über die aktuellen Projektthemen hinausgehen. Und genau diese Feinheiten und Hintergründe braucht es, damit wir auf unsere Kolleg:innen richtig eingehen und bei Bedarf helfen können.
 
-**Die Fallzahlen sinken ja wieder. Es ist absehbar, dass die Home-Office-Pflicht bald ausläuft. Trotzdem überlegen viele, wie sie zukünftig arbeiten wollen. Welche Gründe seht ihr, warum die Leute vom Büro aus arbeiten wollen?**
+**Die Home-Office-Pflicht ist ja vor kurzem ausgelaufen. Trotzdem überlegen viele, wie sie zukünftig arbeiten wollen. Welche Gründe seht ihr, warum die Leute vom Büro aus arbeiten wollen?**
 
 **Gholam:** Die Motivation dazu ist meiner Meinung nach sehr von den individuellen Vorlieben und Voraussetzungen eines jedes Einzelnen abhängig. Wir spüren zum Beispiel, dass viele auch einfach Lust darauf haben, ihre Kolleg:innen wieder häufiger zu sehen um unmittelbarer zusammenarbeiten oder auch mal nur gemeinsam Mittag essen gehen zu können.
 Man sieht auch, dass nicht bei allen der Platz oder das Umfeld gegeben ist um entspannt von zu Hause aus arbeiten zu können. Wenn ich in meiner Wohnung wenig Platz habe und jeden Mittag die Kinder von der Schule kommen und beschäftigt werden wollen, bin ich wahrscheinlich auch einfach froh darüber einen ruhigen Ort – in dem Fall das Büro – zu haben, von dem aus ich konzentriert arbeiten kann.
@@ -81,7 +81,7 @@ Und wenn man zusammen im Office arbeitet, hat man auch mehr das Gefühl, dass um
 
 **Eric:** Wir haben in den letzten Monaten viel Energie in unser Office investiert. Schallschutz, gutes Licht, neue Räume mit Rückzugsmöglichkeiten, damit man in jeder Situation und Konstellation gut arbeiten kann. Und neben den regulären Arbeitsplätzen gibt es jetzt auch mehr coole Bereiche mit Sesseln und Poufs und ein paar Konsolen und Spiele, wo man auch mal entspannen und einen guten Kaffee genießen kann.
 
-![Endlich fertig! Der Blick ins neue Office](images/return-to-office-interview-office.jpg)
+![Eric Singhartinger (links) und Gholam Abdol (rechts)](images/return-to-office-interview-office.jpg)
 
 Unsere Kolleg:innen sollen sich da einfach wohlfühlen, sie verbringen ja schließlich fast die Hälfte ihrer wachen Zeit im Office.
 Deswegen hören wir auch auf ihre Ideen und Bedürfnisse. Wenn Pavel zum Beispiel ein neuer Pizzaschneider hilft eine noch bessere Zeit beim Mittagessen im Büro zu haben, wird einer gekauft (lacht).
@@ -110,13 +110,13 @@ Wenn so ein Zwang wegfällt, ist man automatisch entspannter und kann mehr Energ
 **Gholam:** Das werden wir unseren Kolleg:innen komplett frei stellen. Wir wollen da keine festen Vorgaben machen. Von Vollzeit-Remote, Vollzeit-Büro und allem was dazwischen denkbar ist, werden wir allen die Freiheit geben, ihren Arbeitsrhythmus so zu planen, dass sie gut arbeiten können.
 
 **Eric:** Genau. Als Ausnahme sehe ich persönlich Senior- und Manager-Pflichten. Sobald juniorige Mitarbeiter betreut werden, muss sichergestellt sein, dass das bestmöglich klappt.
-Wenn das rein remote funktioniert – super. Falls nicht, hoffen wir, dass sie einen gemeinsamen Ort finden, an dem zumindest zeitweise Seite an Seite gearbeitet werden kann. Gerade Junior:innen profitieren enorm davon, wenn sie neben erfahrenen Kolleg:innen arbeiten. Sie können so schneller Fragen stellen und Hilfe bekommen. Davon kann ihre Entwicklung sehr profitieren. Wenn du Verantwortung für deine Kollegen hast, musst du sicherstellen, dass das für sie bestmöglich funktioniert.
+Wenn das rein remote funktioniert – super. Falls nicht, hoffen wir, dass sie einen gemeinsamen Ort finden, an dem zumindest zeitweise Seite an Seite gearbeitet werden kann. Gerade Berufseinsteiger profitieren enorm davon, wenn sie neben erfahrenen Kolleg:innen arbeiten. Sie können so schneller Fragen stellen und Hilfe bekommen. Davon kann ihre Entwicklung sehr profitieren. Wenn du Verantwortung für deine Kolleg:innen hast, musst du sicherstellen, dass das für sie bestmöglich funktioniert.
 Aber ich glaube, das kommt von ganz alleine. Es ist doch wahnsinnig befriedigend, wenn man den Lerneffekt beim jemandem unmittelbar mitbekommt und sieht wie sie/er sich weiterentwickelt.
 Insgesamt vertrauen wir, was die Frage angeht, ganz auf unsere Mitarbeiter. Wir helfen gerne mit Rat, aber geben nichts vor. Wichtig ist nur, dass es funktioniert.
 
 **Plant ihr auch Stellen Vollzeit-Remote zu besetzen?**
 
-**Gholam:** Definitiv, ja. Du bist ja der erste Angestellte, bei dem bei der Einstellung schon feststand, dass du Vollzeit-Remote von Fulda aus arbeiten wirst. Und weil das so gut funktioniert, ziehen wir bei der Besetzung von offenen Stellen jetzt auch Leute in Betracht, die nicht in München leben und auch nicht für die Arbeit dorthin umziehen wollen.
+**Gholam:** Definitiv, ja. Du bist ja der erste Angestellte, bei dem bei der Einstellung schon feststand, dass du Vollzeit-Remote von Fulda aus arbeiten wirst. Und weil das so gut funktioniert, ziehen wir bei der Besetzung von offenen Stellen jetzt auch Personen in Betracht, die nicht in München leben und auch nicht für die Arbeit dorthin umziehen wollen.
 Im Detail ist das aber noch etwas, was wir für uns erarbeiten müssen ... Welche Voraussetzungen zum Beispiel geschaffen werden müssen, um jemanden aus Brasilien im Team begrüßen zu dürfen, das wissen wir noch nicht. Deswegen suchen wir im ersten Schritt erstmal nur im deutschen Raum.
 
 **Danke, Eric und Gholam für den Einblick in eure Erfahrungen und Erwartungen zur Corona- und Return-to-Office-Situation.**
