@@ -2,6 +2,7 @@ import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { SectionHeader } from '../../../content/section-header/section-header';
+import { Checkbox } from '../../../forms/checkbox/checkbox';
 import { StyledErrorMessage } from '../../../forms/text-input/text-input';
 import { ContentBlockContainer } from '../../../layout/content-block-container';
 import { TextStyles } from '../../../typography';
@@ -20,6 +21,17 @@ const TextWrapper = styled.div`
   ${TextStyles.textR}
 `;
 
+export const CareerDetailsSubmitButton = ({ isSubmitting, errors }) => {
+  const { t } = useTranslation();
+  return (
+    <Button type="submit" disabled={isSubmitting}>
+      {!errors?.api
+        ? t<string>('career.action.send')
+        : t<string>('career.action.again')}
+    </Button>
+  );
+};
+
 export const MandatoryFieldText = () => {
   return (
     <TextWrapper>
@@ -36,15 +48,24 @@ export const CareerDetailsFileText = () => {
   );
 };
 
-export const CareerDetailsCheckboxLabel = () => {
+export const CareerDetailsCheckbox = ({ control }) => {
+  const { t } = useTranslation();
+
   return (
-    <Trans i18nKey={'career.privacy-policy'}>
-      <span>
-        Hiermit bestätige ich, dass ich die
-        <StyledLink to={PRIVACY_POLICY}>Datenschutzerklärung</StyledLink>
-        zur Kenntnis genommen habe
-      </span>
-    </Trans>
+    <Checkbox
+      name="privacy"
+      label={
+        <Trans i18nKey={'career.privacy-policy'}>
+          <span>
+            Hiermit bestätige ich, dass ich die
+            <StyledLink to={PRIVACY_POLICY}>Datenschutzerklärung</StyledLink>
+            zur Kenntnis genommen habe
+          </span>
+        </Trans>
+      }
+      control={control}
+      rules={{ required: t<string>('career.error.approval') }}
+    />
   );
 };
 

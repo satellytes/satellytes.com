@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { ErrorCode, FileError } from 'react-dropzone';
 import { useForm } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
-import { Checkbox } from '../../../forms/checkbox/checkbox';
 import { SIMPLE_EMAIL_PATTERN } from '../../../forms/constants';
 import {
   FileDropper,
@@ -10,13 +9,13 @@ import {
 } from '../../../forms/file-dropper/file-dropper';
 import { TextArea } from '../../../forms/text-area/text-area';
 import { TextInput } from '../../../forms/text-input/text-input';
-import { Button } from '../../../ui/buttons/button';
 import { FormLayout } from '../../contact/form';
 import { SectionHeadline } from '../job-description';
 import {
-  CareerDetailsCheckboxLabel,
+  CareerDetailsCheckbox,
   CareerDetailsError,
   CareerDetailsFileText,
+  CareerDetailsSubmitButton,
   CareerDetailsSuccess,
 } from './career-form-fields';
 import { uploadToPersonio } from './upload';
@@ -64,12 +63,6 @@ export const Form = (props: CareerFormProps) => {
   const { t } = useTranslation();
   const selectedFiles = watch('documents');
 
-  useEffect(() => {
-    if (selectedFiles?.length > 0) {
-      clearErrors('documents');
-    }
-  }, [selectedFiles]);
-
   const fileCategories = [
     {
       value: 'cv',
@@ -102,6 +95,7 @@ export const Form = (props: CareerFormProps) => {
       clearErrors('api');
     }
 
+    // since documents is not controlled, it has to be validated manually
     if (selectedFiles?.length === 0 || !selectedFiles) {
       setError(
         'documents',
@@ -197,18 +191,12 @@ export const Form = (props: CareerFormProps) => {
         />
         <CareerDetailsFileText />
         <br />
-        <Checkbox
-          name="privacy"
-          label={<CareerDetailsCheckboxLabel />}
-          control={control}
-          rules={{ required: t<string>('career.error.approval') }}
-        />
+        <CareerDetailsCheckbox control={control} />
         <br />
-        <Button type="submit" disabled={isSubmitting}>
-          {!errors?.api
-            ? t<string>('career.action.send')
-            : t<string>('career.action.again')}
-        </Button>
+        <CareerDetailsSubmitButton
+          errors={errors}
+          isSubmitting={isSubmitting}
+        />
         {errors?.api && <CareerDetailsError />}
       </form>
     </>
