@@ -114,10 +114,9 @@ Wenn das rein remote funktioniert – super. Falls nicht, hoffen wir, dass sie e
 Aber ich glaube, das kommt von ganz alleine. Es ist doch wahnsinnig befriedigend, wenn man den Lerneffekt beim jemandem unmittelbar mitbekommt und sieht wie sie/er sich weiterentwickelt.
 Insgesamt vertrauen wir, was die Frage angeht, ganz auf unsere Mitarbeiter. Wir helfen gerne mit Rat, aber geben nichts vor. Wichtig ist nur, dass es funktioniert.
 
-**Plant ihr auch Stellen Vollzeit-Remote zu besetzen?**
+**Klingt gut. Wie wirkt sich das zukünftig auf die Besetzung offener Stellen aus? Von Vollzeit-Office bis Vollzeit-Remote alles möglich?**
 
-**Gholam:** Definitiv, ja. Du bist ja der erste Angestellte, bei dem bei der Einstellung schon feststand, dass du Vollzeit-Remote von Fulda aus arbeiten wirst. Und weil das so gut funktioniert, ziehen wir bei der Besetzung von offenen Stellen jetzt auch Personen in Betracht, die nicht in München leben und auch nicht für die Arbeit dorthin umziehen wollen.
-Im Detail ist das aber noch etwas, was wir für uns erarbeiten müssen ... Welche Voraussetzungen zum Beispiel geschaffen werden müssen, um jemanden aus Brasilien im Team begrüßen zu dürfen, das wissen wir noch nicht. Deswegen suchen wir im ersten Schritt erstmal nur im deutschen Raum.
+**Gholam:** Definitiv, ja. Du warst ja der erste Angestellte, bei dem bei der Einstellung schon feststand, dass du Vollzeit-Remote von Fulda aus arbeiten wirst. Diesen Monat konnten wir Julian als zweiten Vollzeit-Remote für uns gewinnen. Das funktioniert bisher bestens. Deswegen suchen wir jetzt deutschlandweit nach Mitarbeiter:innen, die nicht in München leben und auch nicht für die Arbeit dorthin umziehen wollen.
 
 **Danke, Eric und Gholam für den Einblick in eure Erfahrungen und Erwartungen zur Corona- und Return-to-Office-Situation.**
 **Ich persönlich freue mich schon sehr darauf euch alle bald wieder persönlich im neue Office sehen zu können!**
