@@ -96,6 +96,13 @@ export const BlogPostPageQuery = graphql`
               }
             }
           }
+          ... on ContentfulAsset {
+            contentful_id
+            title
+            description
+            gatsbyImageData(width: 1440)
+            __typename
+          }
         }
       }
       publicationDate
