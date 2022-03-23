@@ -83,7 +83,6 @@ export const BlogPostPageQuery = graphql`
               aspectRatio: 1
               layout: FULL_WIDTH
               placeholder: BLURRED
-              transformOptions: { fit: COVER, cropFocus: CENTER }
             )
           }
         }
