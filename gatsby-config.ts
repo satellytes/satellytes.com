@@ -163,7 +163,7 @@ const gatsbyConfig: GatsbyConfig = {
                   title: node.title,
                   site_url: site.siteMetadata.siteUrl,
                   date: node.publicationDate,
-                  description: node.excerpt,
+                  description: node.seoMetaText,
                   url: site.siteMetadata.siteUrl + node.fields.path,
                   guid: site.siteMetadata.siteUrl + node.fields.path,
                   custom_elements: [
@@ -178,7 +178,7 @@ const gatsbyConfig: GatsbyConfig = {
               {
                 allContentfulBlogPost(sort: { order: DESC, fields: [publicationDate] }) {
                   nodes {
-                    excerpt
+                    seoMetaText
                     fields {
                       path
                     }
