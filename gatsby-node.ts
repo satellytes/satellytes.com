@@ -1,3 +1,5 @@
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 import type { GatsbyNode } from 'gatsby';
 import { createFilePath } from 'gatsby-source-filesystem';
 import { createPreviewCards } from './gatsby/create-node/create-preview-cards';
@@ -107,3 +109,20 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] =
       });
     }
   };
+
+export const createResolvers = ({ createResolvers }) => {
+  createResolvers({
+    ContentfulBlogPost: {
+      plainText: {
+        type: 'String',
+        resolve: (source) =>
+          documentToPlainTextString(JSON.parse(source.content.raw)),
+      },
+      rssHtml: {
+        type: 'String',
+        resolve: (source) =>
+          documentToHtmlString(JSON.parse(source.content.raw)),
+      },
+    },
+  });
+};
