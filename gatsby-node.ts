@@ -123,17 +123,6 @@ export const createResolvers = ({ createResolvers }) => {
         resolve: (source) =>
           documentToHtmlString(JSON.parse(source.content.raw)),
       },
-      excerpt: {
-        type: 'String',
-        resolve: (source) => {
-          const plainText = documentToPlainTextString(
-            JSON.parse(source.content.raw),
-          );
-          const excerpt = plainText.substring(0, 160);
-
-          return `${excerpt}...`;
-        },
-      },
     },
   });
 };
