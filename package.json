@@ -30,6 +30,8 @@
     "storybook:serve": "serve storybook-static"
   },
   "dependencies": {
+    "@contentful/rich-text-html-renderer": "^15.11.1",
+    "@contentful/rich-text-plain-text-renderer": "^15.11.1",
     "@reach/accordion": "^0.16.1",
     "@reach/listbox": "^0.16.2",
     "@reach/tabs": "^0.16.4",
