@@ -10,11 +10,11 @@ import { rgba } from 'polished';
  * to spread the content over the full available width.
  * That way we don't need any position absolute & friends.
  * */
-export const HeroContainer = styled.div<{ isBlog?: boolean }>`
+export const HeroContainer = styled.div<{ naturalHeight?: boolean }>`
   display: grid;
 
-  ${({ isBlog }) =>
-    !isBlog &&
+  ${({ naturalHeight }) =>
+    !naturalHeight &&
     css`
       height: 520px;
     `}

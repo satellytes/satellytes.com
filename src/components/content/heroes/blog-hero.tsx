@@ -51,7 +51,7 @@ export const BlogHero = ({
   const gatsbyImageData = getImage(image);
 
   return (
-    <HeroContainer isBlog>
+    <HeroContainer naturalHeight>
       {gatsbyImageData && (
         <GatsbyImage style={coverContainerCss} alt="" image={gatsbyImageData} />
       )}
