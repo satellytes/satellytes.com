@@ -50,7 +50,7 @@ Ob das für den Einzelnen befriedigend war, kann man so eindeutig nicht beantwor
 **Gholam:** In der aktuellen Teamzusammensetzung war unsere Vorstellung von Kultur schon so weit verinnerlicht, dass diese beim Wechsel ins Home-Office einfach erhalten und weitergelebt werden konnte. Dabei geht es mir vor allem darum wie wir im Team miteinander umgegangen sind. Das hat auch remote sehr gut geklappt.
 Nur mal als Beispiel: Fabian hat sich bereit erklärt die Weihnachtsfeier zu planen und Jesús hat sich die Onboarding-Prozesse vorgenommen und optimiert. Das musste nicht von uns vorgegeben werden, sondern ist von den Kolleg:innen eigenverantwortlich vorangetrieben worden.
 
-![Virtuelle Weihnachtsfeier bei Satellytes. Danke an Georgios and Fabian für die Organisation!](images/return-to-office-interview-christmas-party.png)
+![Virtuelle Weihnachtsfeier bei Satellytes. Danke an Georgios und Fabian für die Organisation!](images/return-to-office-interview-christmas-party.png)
 
 **Eric:** Klar auf der zwischenmenschlichen Ebene oder innerhalb der Teams hat das weiterhin sehr gut funktioniert. Die Teams haben schnell gemerkt, dass sie sich die Zeit nehmen müssen und auch dürfen, auch mal über Dinge außerhalb der Arbeit zu plaudern.
 Aber trotzdem habe ich persönlich vieles vermisst, was vor Corona selbstverständlich war. Man trifft sich zwar immer noch häufig in Zoom-Meetings, aber da hat man immer eine Agenda. Der kurze Small-Talk am Anfang und am Ende ist für mich kein Ersatz für die längeren Zusammentreffen, die im Büroalltag ständig zustande kommen.
