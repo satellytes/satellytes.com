@@ -71,20 +71,50 @@ const contentfulRenderOptions: Options = {
           return null;
       }
     },
-    [BLOCKS.EMBEDDED_ASSET]: (node) =>
-      customComponents.figure({
-        children: [
-          <GatsbyImage
-            key="image"
-            image={node.data.target.gatsbyImageData}
-            alt={node.data.target.description}
-          />,
-          customComponents.figcaption({
-            key: 'figcaption',
-            children: node.data.target.description,
-          }),
-        ],
-      }),
+    [BLOCKS.EMBEDDED_ASSET]: (node) => {
+      const { contentType, url } = node.data.target.file;
+      switch (contentType.split('/')[0]) {
+        case 'image': {
+          return customComponents.figure({
+            children: [
+              <GatsbyImage
+                key="image"
+                image={node.data.target.gatsbyImageData}
+                alt={node.data.target.description}
+              />,
+              customComponents.figcaption({
+                key: 'figcaption',
+                children: node.data.target.description,
+              }),
+            ],
+          });
+        }
+        case 'video': {
+          return customComponents.figure({
+            children: [
+              <video
+                key="video"
+                preload="auto"
+                autoPlay
+                loop
+                muted
+                width="100%"
+              >
+                <source src={url} type={contentType} />
+              </video>,
+              customComponents.figcaption({
+                key: 'figcaption',
+                children: node.data.target.description,
+              }),
+            ],
+          });
+        }
+        default: {
+          console.error(`Content type is not implemented: ${contentType}`);
+          return null;
+        }
+      }
+    },
   },
 };
 

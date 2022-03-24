@@ -98,9 +98,13 @@ export const BlogPostPageQuery = graphql`
           }
           ... on ContentfulAsset {
             contentful_id
-            title
             description
+            file {
+              contentType
+              url
+            }
             gatsbyImageData(width: 1440)
+            title
             __typename
           }
         }
