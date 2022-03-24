@@ -107,6 +107,40 @@ export const BlogPostPageQuery = graphql`
             title
             __typename
           }
+
+          ... on ContentfulBlogPostCollapsible {
+            contentful_id
+            __typename
+            summary
+            content {
+              raw
+              references {
+                ... on ContentfulCodeBlock {
+                  contentful_id
+                  __typename
+                  description
+                  language
+                  code {
+                    code
+                    childMarkdownRemark {
+                      htmlAst
+                    }
+                  }
+                }
+                ... on ContentfulAsset {
+                  contentful_id
+                  description
+                  file {
+                    contentType
+                    url
+                  }
+                  gatsbyImageData(width: 1440)
+                  title
+                  __typename
+                }
+              }
+            }
+          }
         }
       }
       publicationDate

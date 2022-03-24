@@ -60,10 +60,28 @@ const contentfulRenderOptions: Options = {
     [BLOCKS.EMBEDDED_ENTRY]: (node) => {
       const { __typename } = node.data.target;
       switch (__typename) {
+        /**
+         * Code Blocks
+         */
         case 'ContentfulCodeBlock': {
           const { code } = node.data.target;
           return <MarkdownAst htmlAst={code.childMarkdownRemark.htmlAst} />;
         }
+        /**
+         * Blog Post Collapsible
+         */
+        case 'ContentfulBlogPostCollapsible': {
+          const { content, summary } = node.data.target;
+          return customComponents.details({
+            children: [
+              <summary key="summary">{summary}</summary>,
+              renderRichText(content, contentfulRenderOptions),
+            ],
+          });
+        }
+        /**
+         * Log error to console if type is not yet implemented
+         */
         default:
           console.error(
             `Embedded entry type is not implemented: ${__typename}`,
