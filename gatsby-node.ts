@@ -23,6 +23,10 @@ export const onCreateNode: GatsbyNode<SatellytesNode>['onCreateNode'] = async (
   /**
    * Provide a slug for any markdown page (which is not given by default)
    * to build our pages based on this markdown file.
+   *
+   * Note:
+   * Some nodes don't have a fileAbsolutePath property, since they are not read from the filesystem.
+   * This is the case for long text fields from Contentful that include any markdown (i.e. our ContentfulCodeBlock).
    */
   if (
     node.internal.type === `MarkdownRemark` &&
