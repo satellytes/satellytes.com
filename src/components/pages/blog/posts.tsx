@@ -31,7 +31,7 @@ export const Posts = ({ posts }: PostsProps) => {
           <Teaser
             key={item.id}
             title={item.title}
-            linkTo={item.slug}
+            linkTo={item.fields.path}
             dateFormatted={dateFormatter(item.publicationDate)}
             image={imageData && <GatsbyImage alt="" image={imageData} />}
           >

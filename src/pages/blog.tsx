@@ -5,6 +5,9 @@ import { BlogPage } from '../components/pages/blog/blog-page';
 
 interface AllBlogPostsQuery {
   nodes: {
+    fields: {
+      path: string;
+    };
     heroImage: {
       image: {
         publicUrl: string;
@@ -12,7 +15,6 @@ interface AllBlogPostsQuery {
     };
     id: string;
     publicationDate: string;
-    slug: string;
     teaserText: string;
     title: string;
   }[];
@@ -39,6 +41,9 @@ export const BlogPageQuery = graphql`
   query ($language: String!) {
     allContentfulBlogPost(sort: { fields: publicationDate, order: DESC }) {
       nodes {
+        fields {
+          path
+        }
         id
         title
         teaserText
