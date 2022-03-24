@@ -4,8 +4,9 @@ date: "2022-03-24"
 title: We work remotely!?
 featuredImage: images/return-to-office-interview-header.jpg
 author: "Satellytes"
-authorSummary: "We work remotely!? – Interview mit den Satellytes-Geschäftsführern zur Return to Office Policy"
-teaserText: "Mit dem Ausklingen der Corona-Maßnahmen endet in vielen Unternehmen die Home-Office-Pflicht – auch bei Satellytes. Da drängt sich uns die Frage auf: Wie und wo arbeiten wir in Zukunft? Wir haben die Geschäftsführer gefragt."
+authorSummary: "Interview"
+teaserText: Vollzeit im Office? Nur noch Remote? Oder ein bisschen von beidem? Wir haben die Geschäftsführer von Satellytes gefragt.
+seoMetaText: Vollzeit im Office? Nur noch Remote? Oder ein bisschen von beidem? Wir haben die Geschäftsführer von Satellytes gefragt.
 ---
 
 Mit dem Ausklingen der verpflichtenden Corona-Maßnahmen endet in vielen Unternehmen die Home-Office-Pflicht – auch bei Satellytes. Und so freuen wir uns das neue Büro wieder für alle Mitarbeiter:innen öffnen zu können.
