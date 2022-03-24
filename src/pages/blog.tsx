@@ -64,6 +64,7 @@ export const BlogPageQuery = graphql`
                 aspectRatio: 1.77
                 layout: CONSTRAINED
                 placeholder: BLURRED
+                transformOptions: { cropFocus: CENTER }
               )
             }
           }
