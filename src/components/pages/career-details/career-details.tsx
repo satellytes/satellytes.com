@@ -42,8 +42,6 @@ export const CareerDetails = ({
   const searchParams = new URLSearchParams(location.search);
   const personioChannel = searchParams.get('_pc');
 
-  console.log(position);
-
   return (
     <Layout
       siteTitleUrl="/career/"

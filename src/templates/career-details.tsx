@@ -41,13 +41,13 @@ const CareerPage = (props: CareerPageProps): JSX.Element => {
         location={props.location}
       />
 
+      <CareerDetailsStructuredData position={position} />
+
       <CareerDetails
         originalPath={pageContext.i18n.originalPath}
         position={position}
         complementPath={pageContext.translation}
       />
-
-      <CareerDetailsStructuredData position={position} />
     </>
   );
 };

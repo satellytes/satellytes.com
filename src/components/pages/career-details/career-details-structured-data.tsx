@@ -1,12 +1,17 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { SyPersonioJob } from '../../../types';
+import { JobPosting, WithContext } from 'schema-dts';
 
 interface CareerDetailsStructuredDataProps {
   position: SyPersonioJob;
 }
 
-const convertScheduleToEmploymentType = (schedule: string): string => {
+/**
+ * Convert the kebab-case, lowercase Personio values like `full-time`
+ * to the expected snake_case, uppercase format `FULL_TIME`.
+ */
+const normalizeJobScheduleFormat = (schedule: string): string => {
   return schedule.toUpperCase().replace('-', '_');
 };
 
@@ -20,13 +25,17 @@ const concatDescription = (position: SyPersonioJob): string => {
   );
 };
 
+/**
+ * Create and write structured data for our given job posting based on https://schema.org/JobPosting
+ *
+ * See the Google guide for additional insights:
+ * https://developers.google.com/search/docs/advanced/structured-data/job-posting#structured-data-type-definitions
+ */
 export const CareerDetailsStructuredData = ({
   position,
 }: CareerDetailsStructuredDataProps) => {
-  const employmentType = convertScheduleToEmploymentType(position.schedule);
-
-  const data = {
-    '@context': 'https://schema.org/',
+  const structuredData: WithContext<JobPosting> = {
+    '@context': 'https://schema.org',
     '@type': 'JobPosting',
     title: position.name,
     datePosted: position.createdAt,
@@ -34,34 +43,39 @@ export const CareerDetailsStructuredData = ({
     identifier: {
       '@type': 'PropertyValue',
       name: 'Satellytes Digital Consulting GmbH',
-      value: '338504-41230',
+      value: position.jobId,
     },
     hiringOrganization: {
       '@type': 'Organization',
       name: 'Satellytes Digital Consulting GmbH',
       sameAs: 'http://www.satellytes.com',
-      logo: 'https://we-are-hiring.cdn.personio.de/logos/41230/social/6ca8f29950517ac39fcae0d6545a1fe6.png',
     },
-
     jobLocation: {
       '@type': 'Place',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Sendlinger Stra\u00dfe 52',
-        addressLocality: 'M\u00fcnchen',
+        streetAddress: 'Sendlinger Straße 52',
+        addressLocality: 'München',
         addressRegion: 'Bayern',
         postalCode: '80331',
         addressCountry: 'DE',
       },
     },
     jobLocationType: 'TELECOMMUTE',
-    employmentType: employmentType,
+    applicantLocationRequirements: {
+      '@type': 'AdministrativeArea',
+      sameAs: 'http://www.wikidata.org/entity/Q458',
+      name: 'European Union',
+    },
+    employmentType: normalizeJobScheduleFormat(position.schedule),
     directApply: true,
   };
 
   return (
     <Helmet>
-      <script type="application/ld+json">{JSON.stringify(data)}</script>
+      <script type="application/ld+json">
+        {JSON.stringify(structuredData)}
+      </script>
     </Helmet>
   );
 };
