@@ -6,6 +6,8 @@ import { ContentfulBlogPostHero } from '../../../types';
 import { HeroText, HeroWithText } from './hero-text';
 import { HeroContainer, TextContainer } from './support';
 
+type BlogAttribution = Pick<ContentfulBlogPostHero, 'creator' | 'source'>;
+
 const coverContainerCss = {
   gridArea: '1/1',
   /**
