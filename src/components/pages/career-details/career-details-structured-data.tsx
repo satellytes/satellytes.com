@@ -15,14 +15,24 @@ const normalizeJobScheduleFormat = (schedule: string): string => {
   return schedule.toUpperCase().replace('-', '_');
 };
 
-const concatDescription = (position: SyPersonioJob): string => {
-  return (
-    position.short +
-    '<br><br>' +
-    position.sections
-      .map((section) => `${section.headline} <br> ${section.descriptionHtml}`)
-      .join('<br><br>')
-  );
+/**
+ * Create a full description of the job in HTML format to suite the requirements of the structured data format.
+ *
+ * Additional guidelines (from Google)
+ *     You must format the description in HTML.
+ *     At minimum, add paragraph breaks using <br>, <p>, or \n.
+ *     The feature recognizes the following HTML tags: <p>, <ul>, and <li>.
+ *     The feature doesn't recognize header and character-level tags, such as <h1>, <strong>, and <em>. While the tags won't affect the formatting in the feature, you can safely include them on the page.
+ *
+ * Reference:
+ * https://developers.google.com/search/docs/advanced/structured-data/job-posting#rdescription
+ */
+const generateHtmlDescription = (position: SyPersonioJob): string => {
+  const htmlIntro = `${position.short} <br><br>`;
+  const htmlSections = position.sections
+    .map((section) => `${section.headline} <br> ${section.descriptionHtml}`)
+    .join('<br><br>');
+  return htmlIntro + htmlSections;
 };
 
 /**
@@ -39,7 +49,7 @@ export const CareerDetailsStructuredData = ({
     '@type': 'JobPosting',
     title: position.name,
     datePosted: position.createdAt,
-    description: concatDescription(position),
+    description: generateHtmlDescription(position),
     identifier: {
       '@type': 'PropertyValue',
       name: 'Satellytes Digital Consulting GmbH',
