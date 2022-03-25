@@ -171,7 +171,7 @@ export const BlogPostPage = ({ blogPost, breadcrumb }: BlogPostPageProps) => {
       breadcrumb={breadcrumb}
     >
       <BlogHeader headline={blogPost.title} byline={heroByLine} />
-      {renderRichText(blogPost.content, contentfulRenderOptions)}
+      <div>{renderRichText(blogPost.content, contentfulRenderOptions)}</div>
 
       <PanelContainer>
         <SharePanel title={blogPost.title} />
