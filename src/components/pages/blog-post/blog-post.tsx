@@ -33,7 +33,7 @@ export const BlogPostPage = ({ markdown, breadcrumb }: BlogPostPageProps) => {
 
   const fm = markdown.frontmatter;
 
-  const { featuredImage, featuredImageSquared, attribution, leadboxText } = fm;
+  const { featuredImage, attribution, leadboxText } = fm;
   const leadbox: LeadboxProps = {
     title: leadboxText || t('blogpost.leadbox.title'),
     illustration: 'astronaut_012',
@@ -56,13 +56,7 @@ export const BlogPostPage = ({ markdown, breadcrumb }: BlogPostPageProps) => {
       transparentHeader
       siteTitleUrl={'/blog'}
       light
-      hero={
-        <BlogHero
-          attribution={attribution}
-          image={featuredImage}
-          imageSquare={featuredImageSquared}
-        />
-      }
+      hero={<BlogHero attribution={attribution} image={featuredImage} />}
       leadbox={leadbox}
       showLanguageSwitch={false}
       breadcrumb={breadcrumb}

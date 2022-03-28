@@ -2,7 +2,6 @@ import { SmallTitle, SubTitle, Text, TextTitle } from '../typography';
 
 import styled from 'styled-components';
 import React from 'react';
-import { up } from '../../support/breakpoint';
 import { theme } from '../../layout/theme';
 import { CodeBlock } from './code-block';
 import { TextStyles } from '../../typography';
