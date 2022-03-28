@@ -68,13 +68,6 @@ export const BlogPostPageQuery = graphql`
         fullImage: image {
           gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
         }
-        squaredImage: image {
-          gatsbyImageData(
-            aspectRatio: 1
-            layout: FULL_WIDTH
-            placeholder: BLURRED
-          )
-        }
         shareImage: image {
           resize(width: 1440, height: 760) {
             src
@@ -176,7 +169,6 @@ export type BlogArticleQueryData = ContentfulBlogPost & {
   };
   heroImage: {
     fullImage: IGatsbyImageData;
-    squaredImage: IGatsbyImageData;
     shareImage: {
       resize: {
         src: string;
