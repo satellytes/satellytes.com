@@ -73,21 +73,4 @@ For the `main` branch, the build can be found here: https://satellytes-website-s
 
 ## Writing a blog post
 
-You can add a blog post by adding a single markdown file. The markdown file contains the blog post itself and 
-metadata in the frontmatter header. The blog post files live in [`blog-posts`](/blog-posts) folder.
-
-The metadata contains:
-- `path`: The URL Path to the blog post. It should start with `/blog/`
-- `date`: The date of the blog post, like `2022-01-27`
-- `title`: The title of the blog post
-- `featuredImage`: path to the image that should be used as preview, for example when you share the link or in the RSS reader
-- `author`: The author of the blog post
-- `authorSummary`: Job description of the author
-- `teaserText`: Used on teasers on the website 
-- `seoMetaText`: Used as meta description in the HTML header. The meta description gets shown when you share the link.
-- `leadboxText`: Used at the end of your blog post above the link to our career page
-- `attribution`: Hero image attribution object
-  - `creator`: Name of the hero image author
-  - `source`: Link to the hero image source
-
-> If a component is missing (like a table), get in touch with the developers.
+You can add a blog post by creating a new one in our [Satellytes.com Space on Contentful](https://app.contentful.com/).
