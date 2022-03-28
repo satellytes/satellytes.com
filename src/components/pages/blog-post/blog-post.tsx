@@ -95,11 +95,18 @@ const contentfulRenderOptions: Options = {
         case 'image': {
           return customComponents.figure({
             children: [
-              <GatsbyImage
-                key="image"
-                image={node.data.target.gatsbyImageData}
-                alt={node.data.target.description}
-              />,
+              customComponents.a({
+                key: 'link',
+                children: (
+                  <GatsbyImage
+                    image={node.data.target.gatsbyImageData}
+                    alt={node.data.target.description}
+                  />
+                ),
+                href: node.data.target.file.url,
+                target: '_blank',
+                rel: 'nofollow noopener noreferrer',
+              }),
               customComponents.figcaption({
                 key: 'figcaption',
                 children: node.data.target.description,
