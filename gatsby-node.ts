@@ -54,11 +54,11 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
 
     const typeDefs = [
       `type MarkdownRemark implements Node { 
-      socialCardFile: File @link(from: "fields.socialCardFileId")
-    }`,
+        socialCardFile: File @link(from: "fields.socialCardFileId")
+      }`,
       `type SyPersonioJob implements Node { 
-      socialCardFile: File @link(from: "fields.socialCardFileId")
-    }`,
+        socialCardFile: File @link(from: "fields.socialCardFileId")
+      }`,
     ];
 
     createTypes(typeDefs);
