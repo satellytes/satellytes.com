@@ -17,15 +17,9 @@ import {
   UseFormSetError,
   UseFormSetValue,
 } from 'react-hook-form';
+import { FormDataProps } from '../../pages/career-details/new-career-form/career-form';
 import { Label, StyledErrorMessage } from '../text-input/text-input';
 
-/**
- * This Interface is needed, since the Props are declared in the new Career-fomr.tsx
- * I will remove it once the new career form replaces the old one.
- */
-interface FormDataProps {
-  documents: FileDropperType[];
-}
 export interface FileDropperType {
   file: File;
   fileCategory?: { value: string; label: string };

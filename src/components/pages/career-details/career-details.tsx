@@ -1,11 +1,11 @@
 import React from 'react';
 import { Layout } from '../../layout/layout';
-import { CareerForm } from './career-form/career-form';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { JobDescription } from './job-description';
 import { SyPersonioJob } from '../../../types';
 import { SectionHeader } from '../../content/section-header/section-header';
 import { ContentBlockContainer } from '../../layout/content-block-container';
+import { Form } from './new-career-form/career-form';
 import { useLocation } from 'react-use';
 
 interface CareerDetailsProps {
@@ -58,7 +58,7 @@ export const CareerDetails = ({
 
       <JobDescription sections={position.sections} />
 
-      <CareerForm
+      <Form
         company_id="41230"
         recruiting_channel_id={personioChannel ?? DEFAULT_CHANNEL_ID}
         access_token="89b2acfa3a239b75c7d6"

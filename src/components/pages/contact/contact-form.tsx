@@ -7,7 +7,7 @@ import { Form } from './form';
 import { theme } from '../../layout/theme';
 import { Button } from '../../ui/buttons/button';
 
-const StyledLink = styled(Link)`
+export const StyledLink = styled(Link)`
   color: ${theme.palette.text.link.default};
 
   &:hover {
