@@ -7,10 +7,15 @@ import { Dropdown, DropdownOption } from '../dropdown/dropdown';
 
 interface FileListItemProps {
   fileName: string;
-  fileCategories?: string[];
+  fileCategories?: FileCategory[];
   index: number;
   onRemove: (index: number) => any;
   onFileCategorySelect: (index: number, category: string) => any;
+}
+
+export interface FileCategory {
+  label: string;
+  value: string;
 }
 
 const FileListItemContainer = styled.div`
@@ -31,7 +36,7 @@ const FileName = styled.p`
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
-  text-wrap: none;
+  white-space: nowrap;
 `;
 
 const Actions = styled.div`
@@ -48,6 +53,7 @@ const FileCategoryDropdown = styled(Dropdown)`
   margin-right: 24px;
   padding: 0;
 
+  border: none;
   border-bottom: rgba(0, 0, 0, 0) 1px solid;
   &:hover {
     border-bottom: ${theme.palette.text.topline} 1px solid;
@@ -92,8 +98,8 @@ export const FileListItem = ({
               {t('career.file-category')}
             </DropdownOption>
             {fileCategories.map((category) => (
-              <DropdownOption value={category} key={category}>
-                {category}
+              <DropdownOption value={category.value} key={category.value}>
+                {category.label}
               </DropdownOption>
             ))}
           </FileCategoryDropdown>

@@ -8,8 +8,8 @@ import { SatellytesNode } from '../../gatsby-node';
  * to link it in the page header.
  */
 const createPreviewCard = async (
-  title,
-  { node, _, actions, cache, store, createNodeId }: CreateNodeArgs,
+  { title },
+  { node, _, actions, cache, store, createNodeId, getNode }: CreateNodeArgs,
 ) => {
   const { createNode, createNodeField } = actions;
 
@@ -47,15 +47,15 @@ const createPreviewCard = async (
   }
 };
 
-export const createPreviewCards = async ({
-  node,
-  ...rest
-}: CreateNodeArgs<SatellytesNode>) => {
+export const createPreviewCards = async (
+  createNodeArgs: CreateNodeArgs<SatellytesNode>,
+) => {
+  const { node } = createNodeArgs;
   if (node.internal.type === 'SyPersonioJob') {
-    await createPreviewCard(node.name, { node, ...rest });
+    await createPreviewCard({ title: node.name }, createNodeArgs);
   }
 
   if (node.internal.type === 'MarkdownRemark') {
-    await createPreviewCard(node.frontmatter.title, { node, ...rest });
+    await createPreviewCard({ title: node.frontmatter.title }, createNodeArgs);
   }
 };

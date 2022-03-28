@@ -162,17 +162,14 @@ export const serialize = (sitemapItem) => {
   };
 };
 
-export const filterPages = ({ path }, excludes) => {
+/**
+ * Gets called for every excluded path on every page.
+ */
+export const filterPages = ({ path }, excludedPath) => {
   const [EXCLUDE, KEEP] = [true, false];
 
-  if (excludes === path) {
+  if (excludedPath === path) {
     return EXCLUDE;
-  }
-
-  if (!path.endsWith('/')) {
-    console.warn(
-      `Path '${path}' does not end with a slash! For SEO reasons all paths should end with a slash`,
-    );
   }
 
   return KEEP;

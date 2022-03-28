@@ -16,7 +16,6 @@ const coverContainerCss = {
 
 type ImageHeroProps = Partial<HeroWithText> & {
   image: IGatsbyImageData;
-  imageSquare: IGatsbyImageData;
   attribution?: any;
 };
 
@@ -44,28 +43,16 @@ const Attribution = ({ attribution }) => (
  */
 export const BlogHero = ({
   image,
-  imageSquare,
   attribution,
   title,
   children,
   kicker,
 }: ImageHeroProps) => {
   const gatsbyImageData = getImage(image);
-  const gatsbyImageDataSquare = getImage(imageSquare);
-
-  const isSquare = useMedia('(max-aspect-ratio: 3/4)');
 
   return (
-    <HeroContainer>
-      {isSquare && gatsbyImageDataSquare && (
-        <GatsbyImage
-          style={coverContainerCss}
-          alt=""
-          image={gatsbyImageDataSquare}
-        />
-      )}
-
-      {!isSquare && gatsbyImageData && (
+    <HeroContainer naturalHeight>
+      {gatsbyImageData && (
         <GatsbyImage style={coverContainerCss} alt="" image={gatsbyImageData} />
       )}
 
