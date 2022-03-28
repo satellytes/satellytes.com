@@ -11,12 +11,23 @@ Regular.args = {
   illustration: 'monitor_024',
   maxFiles: 1,
   acceptedFileTypes: '.pdf',
-  onFileChange: (acceptedFiles) => console.log(acceptedFiles),
-  onDropRejected: (rejectedData) => console.log(rejectedData),
-  fileCategories: ['CV', 'Cover letter'],
+  fileCategories: [
+    {
+      value: 'CV',
+      label: 'Lebenslauf',
+    },
+    {
+      value: 'cover-letter',
+      label: 'Anschreiben',
+    },
+    {
+      value: 'other',
+      label: 'Sonstiges',
+    },
+  ],
 };
 Regular.parameters = {
   controls: {
-    exclude: ['onDropRejected', 'onFileChange', 'validator'],
+    exclude: ['validator'],
   },
 };
