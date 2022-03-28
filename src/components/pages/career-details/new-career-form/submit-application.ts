@@ -7,7 +7,7 @@ interface PersonioApiResponse {
 
 const API_ENDPOINT = 'https://api.personio.de/recruiting/applicant';
 
-export const uploadToPersonio = async (props, formValues, setError) => {
+export const submitApplication = async (props, formValues, setError) => {
   const apiData = {
     company_id: props.company_id,
     access_token: props.access_token,

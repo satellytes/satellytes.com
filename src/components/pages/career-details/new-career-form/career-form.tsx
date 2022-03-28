@@ -15,7 +15,7 @@ import {
   CareerDetailsSubmitButton,
   CareerDetailsSuccess,
 } from './career-form-fields';
-import { uploadToPersonio } from './upload';
+import { submitApplication } from './submit-application';
 
 interface CareerFormProps {
   company_id: string;
@@ -93,7 +93,7 @@ export const Form = (props: CareerFormProps) => {
       <form
         name="career"
         onSubmit={handleSubmit(
-          (formValues) => uploadToPersonio(props, formValues, setError),
+          (formValues) => submitApplication(props, formValues, setError),
           onValidateForm,
         )}
       >
