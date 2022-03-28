@@ -152,7 +152,9 @@ export const BlogPostPage = ({ blogPost, breadcrumb }: BlogPostPageProps) => {
   const formattedDate = dateFormatter(blogPost.publicationDate);
 
   const readingTime = `${Math.ceil(blogPost.readingTime.minutes)}min read`;
-  const byLine = `${blogPost.author.fullName} (${blogPost.author.summary})`;
+  const byLine = `${blogPost.author.fullName} ${
+    blogPost.author.summary ? `(${blogPost.author.summary})` : ''
+  }`;
   const heroByLine = `${formattedDate} • ${readingTime} • ${byLine}`;
 
   return (
