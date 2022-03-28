@@ -52,6 +52,14 @@ const HiddenCheckbox = styled.input.attrs({
   visibility: hidden;
 `;
 
+const CheckboxLabelTextWrapper = ({ label, required }) => {
+  return (
+    <CheckboxLabelText>
+      {label} {required && <span aria-hidden={true}>*</span>}
+    </CheckboxLabelText>
+  );
+};
+
 export const Checkbox = (
   props: UseControllerProps<any> & { label: string | JSX.Element },
 ) => {
@@ -81,10 +89,10 @@ export const Checkbox = (
           <Icon show="checkmark_bold" />
         </StyledCheckbox>
         {props.label && (
-          <CheckboxLabelText>
-            {props.label}{' '}
-            {props?.rules?.required && <span aria-hidden={true}>*</span>}
-          </CheckboxLabelText>
+          <CheckboxLabelTextWrapper
+            label={props.label}
+            required={props.rules?.required}
+          />
         )}
       </CheckboxLabel>
       {errorMessage && <StyledErrorMessage>{errorMessage}</StyledErrorMessage>}
