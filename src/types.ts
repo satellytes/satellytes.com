@@ -28,6 +28,7 @@ export interface SyPersonioJob {
   short: string;
   createdAt: string;
   slug: string;
+  schedule: string;
   sections: SyPersonioJobSection[];
 
   // added via `onCreateNode`
