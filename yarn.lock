@@ -9158,6 +9158,27 @@ gatsby-core-utils@^3.10.0, gatsby-core-utils@^3.8.2, gatsby-core-utils@^3.9.0, g
     tmp "^0.2.1"
     xdg-basedir "^4.0.0"
 
+gatsby-core-utils@^3.10.1:
+  version "3.10.1"
+  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-3.10.1.tgz#0f5e6aeda5ef4b86218b27480a9766fe30af4393"
+  integrity sha512-WqNMm0u1CAZm6Q+UQ4dDHwIAt3l32NeIaPuSXmDX7QcMGR3FUUk8cl2Ym6gx1hfILm1aCexqfaSCLUXtaWKkbQ==
+  dependencies:
+    "@babel/runtime" "^7.15.4"
+    ci-info "2.0.0"
+    configstore "^5.0.1"
+    fastq "^1.13.0"
+    file-type "^16.5.3"
+    fs-extra "^10.0.0"
+    got "^11.8.3"
+    import-from "^4.0.0"
+    lmdb "^2.2.4"
+    lock "^1.1.0"
+    node-object-hash "^2.3.10"
+    proper-lockfile "^4.1.2"
+    resolve-from "^5.0.0"
+    tmp "^0.2.1"
+    xdg-basedir "^4.0.0"
+
 gatsby-graphiql-explorer@^2.9.0:
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/gatsby-graphiql-explorer/-/gatsby-graphiql-explorer-2.9.0.tgz#ae462eaee48a0d224d4b0a7a72801ad80fe790d0"
@@ -9244,16 +9265,16 @@ gatsby-plugin-catch-links@^4.9.0:
     "@babel/runtime" "^7.15.4"
     escape-string-regexp "^1.0.5"
 
-gatsby-plugin-feed@^4.9.0:
-  version "4.9.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-feed/-/gatsby-plugin-feed-4.9.0.tgz#76f01943bf318f15173ef3ea07a94841fb8461be"
-  integrity sha512-dP97uKKYTp7sJfcv+fNh6VbEc+mIob1ZSMRGKMwtodIpYLm9oI6j2w/0nfibVB2ojYgiISg9gg+lPOHN9WK/xQ==
+gatsby-plugin-feed@^4.10.2:
+  version "4.10.2"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-feed/-/gatsby-plugin-feed-4.10.2.tgz#a0a2bf87e9cd197a75f217fa768edf9c1684ba5d"
+  integrity sha512-t0f0ZVhQyk4YIg3nOemRD5V6yR0YlGmFcZW25adQE0GGZwVM1JxCE3RXes75zWFZjvZmTmm43/r5FfCyH3JIXg==
   dependencies:
     "@babel/runtime" "^7.15.4"
     "@hapi/joi" "^15.1.1"
     common-tags "^1.8.2"
     fs-extra "^10.0.0"
-    gatsby-plugin-utils "^3.3.0"
+    gatsby-plugin-utils "^3.4.2"
     lodash.merge "^4.6.2"
     rss "^1.2.2"
 
@@ -9429,13 +9450,19 @@ gatsby-plugin-typescript@^4.9.0:
     "@babel/runtime" "^7.15.4"
     babel-plugin-remove-graphql-queries "^4.9.1"
 
-gatsby-plugin-utils@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-utils/-/gatsby-plugin-utils-3.3.0.tgz#f37dac15f381acf876eaef94636d41f7671b0604"
-  integrity sha512-wmwSQ/IMVQ8lII015IRToeXzu4LsRayKhlrBpuCbzJJgzBEgTH5ezHkGnxAGKvMn7xP9Oekz6DX/XYwUnAe4ug==
+gatsby-plugin-utils@^3.3.0, gatsby-plugin-utils@^3.4.2:
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-utils/-/gatsby-plugin-utils-3.4.2.tgz#bdc66fd52c052c91af443981e1facbc097429dc7"
+  integrity sha512-HkVR8BnEdc915pmY2L9wPwFgjq303ThMH9UtT+frDOPzn+GFjPlBF5+YGJ3tZaxH0ouwpnGTn3Pu37tcRZcctA==
   dependencies:
     "@babel/runtime" "^7.15.4"
+    fs-extra "^10.0.0"
+    gatsby-core-utils "^3.10.1"
+    gatsby-sharp "^0.4.0"
+    graphql-compose "^9.0.7"
+    import-from "^4.0.0"
     joi "^17.4.2"
+    mime "^3.0.0"
 
 gatsby-react-router-scroll@^5.9.0:
   version "5.9.0"
@@ -9499,6 +9526,14 @@ gatsby-sharp@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/gatsby-sharp/-/gatsby-sharp-0.3.0.tgz#9c101a25a6c568dc6f39f9e752441366e71bd4f0"
   integrity sha512-lMrmtoJjpCGoxnZbaQjfcF6vARPWgONw9r8fqGkHag0iSfcGpj3IM+LRdXT/i1mhNPDeB6pKBm5CvY8sYIgD0A==
+  dependencies:
+    "@types/sharp" "^0.29.5"
+    sharp "^0.30.1"
+
+gatsby-sharp@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/gatsby-sharp/-/gatsby-sharp-0.4.0.tgz#9e26c004935750bd334fb041da1b0ad5a5a6955c"
+  integrity sha512-Q2iP6HEs1MRdcMRj7NwZ4l6/1U61vx2DrWNgGwqEEhIFAAgUMlWscaeCpEgahC3t4D66LmuDQkbzBvBcH0Dwxw==
   dependencies:
     "@types/sharp" "^0.29.5"
     sharp "^0.30.1"
@@ -13130,6 +13165,11 @@ mime@^2.4.4, mime@^2.5.2:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/mime/-/mime-2.6.0.tgz#a2a682a95cd4d0cb1d6257e28f83da7e35800367"
   integrity sha512-USPkMeET31rOMiarsBNIHZKLGgvKc/LrjofAnBlOttf5ajRvqiRA8QsenbcooctK6d6Ts6aqZXBA+XbkKthiQg==
+
+mime@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/mime/-/mime-3.0.0.tgz#b374550dca3a0c18443b0c950a6a58f1931cf7a7"
+  integrity sha512-jSCU7/VB1loIWBZe14aEYHU/+1UMEHoaO7qxCOVJOw9GgH72VAWppxNcjU+x9a2k3GSIBXNKxXQFqRvvZ7vr3A==
 
 mimic-fn@^2.1.0:
   version "2.1.0"
