@@ -7,10 +7,15 @@ import { Dropdown, DropdownOption } from '../dropdown/dropdown';
 
 interface FileListItemProps {
   fileName: string;
-  fileCategories?: { label: string; value: string }[];
+  fileCategories?: FileCategory[];
   index: number;
   onRemove: (index: number) => any;
   onFileCategorySelect: (index: number, category: string) => any;
+}
+
+export interface FileCategory {
+  label: string;
+  value: string;
 }
 
 const FileListItemContainer = styled.div`

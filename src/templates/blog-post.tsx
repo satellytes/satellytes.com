@@ -77,16 +77,6 @@ export const BlogPostPageQuery = graphql`
           }
         }
 
-        featuredImageSquared: featuredImage {
-          childImageSharp {
-            gatsbyImageData(
-              aspectRatio: 1
-              layout: FULL_WIDTH
-              placeholder: BLURRED
-            )
-          }
-        }
-
         shareImage: featuredImage {
           childImageSharp {
             fixed(width: 1440, height: 760) {

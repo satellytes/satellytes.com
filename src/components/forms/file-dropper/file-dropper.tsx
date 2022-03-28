@@ -9,7 +9,7 @@ import {
 import { IllustrationType } from '../../ui/illustration/illustration-set';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { TextStyles } from '../../typography';
-import { FileListItem } from './file-list-item';
+import { FileCategory, FileListItem } from './file-list-item';
 import {
   FieldErrors,
   UseFormClearErrors,
@@ -27,29 +27,35 @@ export interface FileDropperType {
 
 interface FileDropperProps extends React.ComponentPropsWithRef<'input'> {
   /**
-   * (Optional) Allows custom validation of uploaded files. If the file is accepted, the `validator()` function must return null. Otherwise the function returns a FileError object. See also: [react-dropzone: custom validation](https://react-dropzone.js.org/#section-custom-validation)
+   * Allows custom validation of uploaded files. If the file is accepted, the `validator()` function must return null. Otherwise the function returns a FileError object. See also: [react-dropzone: custom validation](https://react-dropzone.js.org/#section-custom-validation)
    */
   validator?: (file: File) => FileError | FileError[] | null;
+
   /**
-   * (Optional) comma-separated list of unique content type specifiers (e.g. `'image/jpeg, image/png, .pdf'`) or `undefined` to allow all files. See also: [react-dropzone: accepting specific file types](https://react-dropzone.js.org/#section-accepting-specific-file-types)
+   * comma-separated list of unique content type specifiers (e.g. `'image/jpeg, image/png, .pdf'`) or `undefined` to allow all files. See also: [react-dropzone: accepting specific file types](https://react-dropzone.js.org/#section-accepting-specific-file-types)
    */
   acceptedFileTypes?: string;
+
   /**
-   * (Optional) Set a maximum number of files that can be uploaded. If this number is exceeded, `onDropRejected()` is called with all uploaded files.
+   * Set a maximum number of files that can be uploaded. If this number is exceeded, `onDropRejected()` is called with all uploaded files.
    */
   maxFiles?: number;
+
   /**
-   * (Optional) Categories that the user can add to each uploaded file (e.g. 'CV' or 'Cover Letter')
+   * Categories that the user can add to each uploaded file (e.g. 'CV' or 'Cover Letter')
    * */
-  fileCategories?: { value: string; label: string }[];
+  fileCategories?: FileCategory[];
+
   /**
-   * (Optional) Pass in a valid illustration keyword to show the according illustration.
+   * Pass in a valid illustration keyword to show the according illustration.
    */
   illustration?: IllustrationType;
+
   /**
-   * (Optional) label, which is displayed above
+   * label, which is displayed above
    */
   label?: string;
+
   /**
    * Use Controller Props, to get the form to work
    */
