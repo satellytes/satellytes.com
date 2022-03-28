@@ -72,11 +72,6 @@ export const CareerDetailsStructuredData = ({
       },
     },
     jobLocationType: 'TELECOMMUTE',
-    applicantLocationRequirements: {
-      '@type': 'AdministrativeArea',
-      sameAs: 'http://www.wikidata.org/entity/Q458',
-      name: 'European Union',
-    },
     employmentType: normalizeJobScheduleFormat(position.schedule),
     directApply: true,
   };
