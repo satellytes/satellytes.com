@@ -1,10 +1,11 @@
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 import type { GatsbyNode } from 'gatsby';
-
-import { createRedirects } from './gatsby/create-pages/create-redirects';
+import { createFilePath } from 'gatsby-source-filesystem';
 import { createPreviewCards } from './gatsby/create-node/create-preview-cards';
 import { createBlogPosts } from './gatsby/create-pages/create-blog-posts';
 import { createCareerPages } from './gatsby/create-pages/create-career-pages';
-import { createFilePath } from 'gatsby-source-filesystem';
+import { createRedirects } from './gatsby/create-pages/create-redirects';
 
 export type SatellytesNode = {
   frontmatter: {
@@ -22,13 +23,31 @@ export const onCreateNode: GatsbyNode<SatellytesNode>['onCreateNode'] = async (
   /**
    * Provide a slug for any markdown page (which is not given by default)
    * to build our pages based on this markdown file.
+   *
+   * Note:
+   * Some nodes don't have a fileAbsolutePath property, since they are not read from the filesystem.
+   * This is the case for long text fields from Contentful that include any markdown (i.e. our ContentfulCodeBlock).
    */
-  if (node.internal.type === `MarkdownRemark`) {
+  if (
+    node.internal.type === `MarkdownRemark` &&
+    Object.keys(node).includes('fileAbsolutePath')
+  ) {
     const value = createFilePath({ node, getNode });
     createNodeField({
       name: `slug`,
       node,
       value,
+    });
+  }
+
+  /**
+   * Provide a path for all contentful blog posts
+   */
+  if (node.internal.type === 'ContentfulBlogPost') {
+    createNodeField({
+      name: 'path',
+      node,
+      value: `/blog/${node.slug}/`,
     });
   }
 };
@@ -94,3 +113,20 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] =
       });
     }
   };
+
+export const createResolvers = ({ createResolvers }) => {
+  createResolvers({
+    ContentfulBlogPost: {
+      plainText: {
+        type: 'String',
+        resolve: (source) =>
+          documentToPlainTextString(JSON.parse(source.content.raw)),
+      },
+      rssHtml: {
+        type: 'String',
+        resolve: (source) =>
+          documentToHtmlString(JSON.parse(source.content.raw)),
+      },
+    },
+  });
+};

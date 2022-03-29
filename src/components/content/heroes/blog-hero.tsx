@@ -1,9 +1,11 @@
 import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import React from 'react';
-import { HeroContainer, TextContainer } from './support';
-import { HeroText, HeroWithText } from './hero-text';
 import styled from 'styled-components';
-import { useMedia } from 'react-use';
+import { ContentfulBlogPostHero } from '../../../types';
+import { HeroText, HeroWithText } from './hero-text';
+import { HeroContainer, TextContainer } from './support';
+
+type BlogAttribution = Pick<ContentfulBlogPostHero, 'creator' | 'source'>;
 
 const coverContainerCss = {
   gridArea: '1/1',
@@ -16,7 +18,7 @@ const coverContainerCss = {
 
 type ImageHeroProps = Partial<HeroWithText> & {
   image: IGatsbyImageData;
-  attribution?: any;
+  attribution?: BlogAttribution;
 };
 
 const AttributionContainer = styled.div`
@@ -29,14 +31,20 @@ const AttributionContainer = styled.div`
   font-size: 0.8em;
 `;
 
-const Attribution = ({ attribution }) => (
-  <AttributionContainer>
-    Photo by{' '}
-    <a rel="nofollow noreferrer" target="_blank" href={attribution.source}>
-      {attribution.creator}
-    </a>
-  </AttributionContainer>
-);
+const Attribution = ({ attribution }: { attribution?: BlogAttribution }) => {
+  if (!attribution || !attribution.creator || !attribution.source) {
+    return null;
+  }
+
+  return (
+    <AttributionContainer>
+      Photo by{' '}
+      <a rel="nofollow noreferrer" target="_blank" href={attribution.source}>
+        {attribution.creator}
+      </a>
+    </AttributionContainer>
+  );
+};
 
 /**
  * Display any given gatsby image as a hero image.
@@ -64,7 +72,7 @@ export const BlogHero = ({
         </TextContainer>
       )}
 
-      {attribution && <Attribution attribution={attribution} />}
+      <Attribution attribution={attribution} />
     </HeroContainer>
   );
 };
