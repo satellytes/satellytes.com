@@ -84,6 +84,7 @@
     "react-hook-form": "7.28.1",
     "react-i18next": "^11.16.1",
     "react-leaflet": "^3.2.5",
+    "react-medium-image-zoom": "^4.3.5",
     "react-share": "^4.4.0",
     "react-spring": "^9.4.4",
     "react-use": "^17.3.2",
