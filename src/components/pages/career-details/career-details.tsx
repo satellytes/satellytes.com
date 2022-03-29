@@ -47,6 +47,8 @@ export const CareerDetails = ({
   const personioChannel = searchParams.get('_pc');
   const utmChannel = UTM_CHANNEL_MAP.get(searchParams.get('utm_source'));
 
+  const recruitingChannel = utmChannel ?? personioChannel ?? DEFAULT_CHANNEL_ID;
+
   return (
     <Layout
       siteTitleUrl="/career/"
@@ -65,9 +67,7 @@ export const CareerDetails = ({
 
       <Form
         company_id="41230"
-        recruiting_channel_id={
-          utmChannel ?? personioChannel ?? DEFAULT_CHANNEL_ID
-        }
+        recruiting_channel_id={recruitingChannel}
         access_token="89b2acfa3a239b75c7d6"
         job_position_id={position.jobId + ''}
         scrollToStart={scrollToStart}
