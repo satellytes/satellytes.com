@@ -284,7 +284,12 @@ const customContentfulRenderer = (
   return (
     <div>
       {renderRichText(data, contentfulRenderOptions)}
-      {footNoteElements}
+      {footnotes.length > 0 && (
+        <>
+          <hr />
+          {footNoteElements}
+        </>
+      )}
     </div>
   );
 };
