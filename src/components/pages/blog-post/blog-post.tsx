@@ -120,7 +120,7 @@ const customContentfulRenderer = (
 
             return (
               <>
-                <mark>{content.content}</mark>
+                {content?.content && <mark>{content.content}</mark>}
                 {customComponents.a({
                   id: reference.referenceAnchor,
                   children: <sup>{reference?.index}</sup>,
