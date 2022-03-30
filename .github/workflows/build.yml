@@ -24,7 +24,9 @@ jobs:
         run: yarn build
 
   build-storybook:
-    if: contains(github.event.pull_request.labels.*.name, 'dependencies')
+    if: |
+      contains(github.event.pull_request.labels.*.name, 'dependencies') 
+      || contains(github.event.pull_request.labels.*.name, 'deploy-storybook')
     name: Build Storybook
     runs-on: ubuntu-latest
     steps:
