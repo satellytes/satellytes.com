@@ -73,12 +73,10 @@ const customContentfulRenderer = (
   /**
    * Filter out footnotes from content references
    */
-  const footnotes: ContentfulFootnoteReference[] = data.references
-    .filter(
-      (reference) =>
-        reference.__typename === ContentfulCustomModel.CONTENTFUL_FOOTNOTE,
-    )
-    .map((reference) => reference as ContentfulFootnoteReference);
+  const footnotes: ContentfulFootnoteReference[] = data.references.filter(
+    (reference) =>
+      reference.__typename === ContentfulCustomModel.CONTENTFUL_FOOTNOTE,
+  ) as ContentfulFootnoteReference[];
 
   /**
    * Create an object that contains information we'll use later
