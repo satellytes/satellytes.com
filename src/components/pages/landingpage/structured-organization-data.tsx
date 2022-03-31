@@ -21,8 +21,8 @@ export const StructuredOrganizationData = () => {
       addressCountry: 'DE',
     },
     email: 'info@satellytes.com',
-    url: 'https://www.satellytes.com',
-    logo: 'https://www.satellytes.com/sy-logo.png',
+    url: 'https://satellytes.com',
+    logo: 'https://satellytes.com/sy-logo.png',
     sameAs: [
       'https://www.linkedin.com/company/satellytes',
       'https://www.xing.com/companies/satellytesgmbh',
