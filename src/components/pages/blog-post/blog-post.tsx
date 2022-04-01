@@ -35,6 +35,11 @@ enum ContentfulCustomModel {
   CONTENTFUL_CODE_BLOCK = 'ContentfulCodeBlock',
   CONTENTFUL_BLOG_POST_COLLAPSIBLE = 'ContentfulBlogPostCollapsible',
 }
+
+enum EmbeddedAssetType {
+  IMAGE = 'image',
+  VIDEO = 'video',
+}
 interface FootnoteReference {
   [key: string]: {
     index: number;
@@ -194,7 +199,10 @@ const customContentfulRenderer = (
       [BLOCKS.EMBEDDED_ASSET]: (node) => {
         const { contentType, url } = node.data.target.file;
         switch (contentType.split('/')[0]) {
-          case 'image': {
+          /**
+           * Embedded images
+           */
+          case EmbeddedAssetType.IMAGE: {
             return customComponents.figure({
               children: [
                 <Zoom key={node.data.target.file.url}>
@@ -210,7 +218,10 @@ const customContentfulRenderer = (
               ],
             });
           }
-          case 'video': {
+          /**
+           * Embedded videos
+           */
+          case EmbeddedAssetType.VIDEO: {
             return customComponents.figure({
               children: [
                 <video
