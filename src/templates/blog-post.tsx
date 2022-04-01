@@ -101,6 +101,16 @@ export const BlogPostPageQuery = graphql`
             __typename
           }
 
+          ... on ContentfulFootnote {
+            contentful_id
+            __typename
+            note {
+              childMarkdownRemark {
+                htmlAst
+              }
+            }
+          }
+
           ... on ContentfulBlogPostCollapsible {
             contentful_id
             __typename
