@@ -64,8 +64,20 @@ const contentfulRenderOptions: Options = {
          * Code Blocks
          */
         case 'ContentfulCodeBlock': {
-          const { code } = node.data.target;
-          return <MarkdownAst htmlAst={code.childMarkdownRemark.htmlAst} />;
+          const { contentful_id, code, description } = node.data.target;
+          return customComponents.figure({
+            children: [
+              <MarkdownAst
+                key="code-block"
+                htmlAst={code.childMarkdownRemark.htmlAst}
+              />,
+              description &&
+                customComponents.figcaption({
+                  children: description,
+                  key: 'caption',
+                }),
+            ],
+          });
         }
         /**
          * Blog Post Collapsible
