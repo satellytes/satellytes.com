@@ -113,27 +113,22 @@ const customContentfulRenderer = (
            * Footnote
            */
           case ContentfulCustomModel.CONTENTFUL_FOOTNOTE: {
-            const { contentful_id, content } = node.data.target;
+            const { contentful_id } = node.data.target;
             const reference = footnoteReferences[contentful_id];
 
-            return (
-              <>
-                {content?.content && <mark>{content.content}</mark>}
-                {customComponents.a({
-                  id: reference.referenceAnchor,
-                  children: <sup>{reference?.index}</sup>,
-                  href: `#${reference?.anchor}`,
-                  onClick: (e: MouseEvent) => {
-                    e.preventDefault();
-                    const target = document.querySelector(
-                      `[id='${reference?.anchor}']`,
-                    );
-                    history.pushState({}, '', `#${reference?.anchor}`);
-                    scrollToTarget(target);
-                  },
-                })}
-              </>
-            );
+            return customComponents.a({
+              id: reference.referenceAnchor,
+              children: <sup>{reference?.index}</sup>,
+              href: `#${reference?.anchor}`,
+              onClick: (e: MouseEvent) => {
+                e.preventDefault();
+                const target = document.querySelector(
+                  `[id='${reference?.anchor}']`,
+                );
+                history.pushState({}, '', `#${reference?.anchor}`);
+                scrollToTarget(target);
+              },
+            });
           }
           /**
            * Log error to console if type is not yet implemented

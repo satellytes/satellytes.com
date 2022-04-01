@@ -104,9 +104,6 @@ export const BlogPostPageQuery = graphql`
           ... on ContentfulFootnote {
             contentful_id
             __typename
-            content {
-              content
-            }
             note {
               childMarkdownRemark {
                 htmlAst
