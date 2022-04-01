@@ -17,6 +17,8 @@ import { MarkdownAst } from '../../legacy/markdown/markdown-ast';
 import { up } from '../../support/breakpoint';
 import FollowPanel from './follow-panel';
 import SharePanel from './share-panel';
+import Zoom from 'react-medium-image-zoom';
+import 'react-medium-image-zoom/dist/styles.css';
 
 interface BlogPostPageProps {
   blogPost: BlogArticleQueryData;
@@ -95,18 +97,12 @@ const contentfulRenderOptions: Options = {
         case 'image': {
           return customComponents.figure({
             children: [
-              customComponents.a({
-                key: 'link',
-                children: (
-                  <GatsbyImage
-                    image={node.data.target.gatsbyImageData}
-                    alt={node.data.target.description}
-                  />
-                ),
-                href: node.data.target.file.url,
-                target: '_blank',
-                rel: 'nofollow noopener noreferrer',
-              }),
+              <Zoom key={node.data.target.file.url}>
+                <GatsbyImage
+                  image={node.data.target.gatsbyImageData}
+                  alt={node.data.target.description}
+                />
+              </Zoom>,
               customComponents.figcaption({
                 key: 'figcaption',
                 children: node.data.target.description,
