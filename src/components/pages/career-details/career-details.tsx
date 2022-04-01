@@ -16,9 +16,9 @@ interface CareerDetailsProps {
 
 const DEFAULT_CHANNEL_ID = '329206';
 
-const UTM_CHANNEL_MAP = new Map<string | null, string | null>([
-  ['google_jobs_apply', '713571'],
-]);
+const UTM_CHANNEL_MAP = {
+  google_jobs_apply: '713571',
+};
 
 export const CareerDetails = ({
   position,
@@ -45,7 +45,7 @@ export const CareerDetails = ({
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const personioChannel = searchParams.get('_pc');
-  const utmChannel = UTM_CHANNEL_MAP.get(searchParams.get('utm_source'));
+  const utmChannel = UTM_CHANNEL_MAP[searchParams.get('utm_source')!];
 
   const recruitingChannel = utmChannel ?? personioChannel ?? DEFAULT_CHANNEL_ID;
 
