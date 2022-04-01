@@ -4,8 +4,6 @@ import styled, { css } from 'styled-components';
 import { up } from '../../support/breakpoint';
 import { theme } from '../../layout/theme';
 import { TextStyles } from '../../typography';
-import Zoom from 'react-medium-image-zoom';
-import 'react-medium-image-zoom/dist/styles.css';
 
 const mapTextAlignToFlex = (textAlign: 'right' | 'left' | 'bottom') => {
   if (textAlign === 'right') {
@@ -98,7 +96,7 @@ export const Image = ({
   return (
     <BlockWrapper textPlacement={textAlign}>
       <ImageWrapper>
-        <Zoom>{children}</Zoom>
+        {children}
         {attribution && (
           <AttributionContainer>
             <Trans i18nKey="image.attribution">Photo by </Trans>
