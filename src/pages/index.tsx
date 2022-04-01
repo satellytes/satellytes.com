@@ -4,6 +4,7 @@ import SEO from '../components/layout/seo';
 import { Landingpage } from '../components/pages/landingpage/landingpage';
 import { BlogPostTeaser, SyPersonioJob } from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
+import { StructuredOrganizationData } from '../components/pages/landingpage/structured-organization-data';
 
 interface OfficeImage {
   relativePath: string;
@@ -35,6 +36,9 @@ const IndexPage = (props: PageProps<IndexPageQueryProps>) => {
   return (
     <>
       <SEO title="Satellytes" location={props.location} />
+
+      <StructuredOrganizationData />
+
       <Landingpage
         officeImages={officeImages}
         positions={jobPositions}
