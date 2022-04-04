@@ -86,6 +86,8 @@
   "career.error.max-number": "Maximale Anzahl Dokumente ist erreicht.",
   "career.error.max-size": "Maximale Dokumentgröße (20MB) wurde überschritten",
   "career.error.category": "Eine Kategorie fehlt",
+  "career.error.cover-letter": "Dein Anschreiben fehlt",
+  "career.error.cover-letter-length": "Dein Anschreiben muss mindestens 100 Zeichen lang sein",
   "career.action.upload": "<0>Ziehe die Dokumente auf das Feld oder <1>wähle</1> sie aus</0>",
   "career.action.send": "Senden",
   "career.action.again": "Nochmal senden",

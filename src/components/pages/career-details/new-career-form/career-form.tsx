@@ -6,6 +6,7 @@ import { FileDropperType } from '../../../forms/file-dropper/file-dropper';
 import { TextArea } from '../../../forms/text-area/text-area';
 import { TextInput } from '../../../forms/text-input/text-input';
 import { FormLayout } from '../../contact/form';
+import { HoneypotField } from '../../contact/honeypot';
 import { SectionHeadline } from '../job-description';
 import {
   CareerDetailsCheckbox,
@@ -56,15 +57,14 @@ export const Form = (props: CareerFormProps) => {
   });
 
   const { t } = useTranslation();
+  const submitErrorMessages = {
+    cv: t<string>('career.error.cv'),
+    category: t<string>('career.error.category'),
+  };
+
   const selectedFiles = watch('documents');
 
-  const onValidateForm = () => {
-    // to allow re send after api error
-    // there should not be an old api error when pressing submit
-    if (errors.api) {
-      clearErrors('api');
-    }
-
+  const onErrorHandler = () => {
     // since documents is not controlled, it has to be validated manually
     if (selectedFiles?.length === 0 || !selectedFiles) {
       setError(
@@ -93,8 +93,16 @@ export const Form = (props: CareerFormProps) => {
       <form
         name="career"
         onSubmit={handleSubmit(
-          (formValues) => submitApplication(props, formValues, setError),
-          onValidateForm,
+          (formValues) =>
+            submitApplication(
+              props,
+              formValues,
+              setError,
+              errors,
+              clearErrors,
+              submitErrorMessages,
+            ),
+          onErrorHandler,
         )}
       >
         <FormLayout>
@@ -139,10 +147,18 @@ export const Form = (props: CareerFormProps) => {
             control={control}
           />
         </FormLayout>
+        <HoneypotField name="phone" label="Phone" control={control} />
         <TextArea
           name="message"
           label={t<string>('career.cover-letter')}
           control={control}
+          rules={{
+            required: t<string>('career.error.cover-letter'),
+            minLength: {
+              value: 100,
+              message: t<string>('career.error.cover-letter-length'),
+            },
+          }}
         />
 
         <br />

@@ -45,7 +45,7 @@ export const CareerDetails = ({
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const personioChannel = searchParams.get('_pc');
-  const utmChannel = UTM_CHANNEL_MAP[searchParams.get('utm_source')!];
+  const utmChannel = UTM_CHANNEL_MAP[searchParams.get('utm_source') ?? ''];
 
   const recruitingChannel = utmChannel ?? personioChannel ?? DEFAULT_CHANNEL_ID;
 
