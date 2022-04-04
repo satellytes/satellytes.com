@@ -52,7 +52,6 @@ export const CareerDetailsStructuredData = ({
     description: generateHtmlDescription(position),
     identifier: {
       '@type': 'PropertyValue',
-      name: 'Satellytes Digital Consulting GmbH',
       value: position.jobId,
     },
     hiringOrganization: {
