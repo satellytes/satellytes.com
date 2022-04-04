@@ -35,7 +35,7 @@
     "@reach/accordion": "^0.16.1",
     "@reach/listbox": "^0.16.2",
     "@reach/tabs": "^0.16.4",
-    "@slack/web-api": "^6.5.1",
+    "@slack/web-api": "^6.7.1",
     "@svgr/webpack": "^6.2.0",
     "@types/leaflet": "^1.7.8",
     "axios": "^0.26.1",
