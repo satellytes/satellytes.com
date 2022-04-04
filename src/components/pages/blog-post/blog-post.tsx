@@ -143,7 +143,6 @@ const customContentfulRenderer = (
               `Embedded entry type is not implemented: ${__typename}`,
             );
             return null;
-
         }
       },
       [BLOCKS.HEADING_1]: (props, children) =>
@@ -174,18 +173,18 @@ const customContentfulRenderer = (
           case ContentfulCustomModel.CONTENTFUL_CODE_BLOCK: {
             const { code, description } = node.data.target;
             return customComponents.figure({
-            children: [
-              <MarkdownAst
-                key="code-block"
-                htmlAst={code.childMarkdownRemark.htmlAst}
-              />,
-              description &&
-                customComponents.figcaption({
-                  children: description,
-                  key: 'caption',
-                }),
-            ],
-          });
+              children: [
+                <MarkdownAst
+                  key="code-block"
+                  htmlAst={code.childMarkdownRemark.htmlAst}
+                />,
+                description &&
+                  customComponents.figcaption({
+                    children: description,
+                    key: 'caption',
+                  }),
+              ],
+            });
           }
           /**
            * Blog Post Collapsible
