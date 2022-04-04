@@ -9244,49 +9244,7 @@ gatsby-cli@^4.10.2:
     yoga-layout-prebuilt "^1.10.0"
     yurnalist "^2.1.0"
 
-gatsby-core-utils@^3.10.0:
-  version "3.10.0"
-  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-3.10.0.tgz#52be8a9a891d95686a7ee0c1cfef44f8e362232b"
-  integrity sha512-yaRI/uUsbIggPRfh0y6CH+fy2AqbFFLxCYndw5nrVByEY40+KaKs0wOF4yIgPRBZZUHOyfBJ+1AGo2JLHdY5lA==
-  dependencies:
-    "@babel/runtime" "^7.15.4"
-    ci-info "2.0.0"
-    configstore "^5.0.1"
-    fastq "^1.13.0"
-    file-type "^16.5.3"
-    fs-extra "^10.0.0"
-    got "^11.8.3"
-    import-from "^4.0.0"
-    lmdb "^2.2.4"
-    lock "^1.1.0"
-    node-object-hash "^2.3.10"
-    proper-lockfile "^4.1.2"
-    resolve-from "^5.0.0"
-    tmp "^0.2.1"
-    xdg-basedir "^4.0.0"
-
-gatsby-core-utils@^3.10.1:
-  version "3.10.1"
-  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-3.10.1.tgz#0f5e6aeda5ef4b86218b27480a9766fe30af4393"
-  integrity sha512-WqNMm0u1CAZm6Q+UQ4dDHwIAt3l32NeIaPuSXmDX7QcMGR3FUUk8cl2Ym6gx1hfILm1aCexqfaSCLUXtaWKkbQ==
-  dependencies:
-    "@babel/runtime" "^7.15.4"
-    ci-info "2.0.0"
-    configstore "^5.0.1"
-    fastq "^1.13.0"
-    file-type "^16.5.3"
-    fs-extra "^10.0.0"
-    got "^11.8.3"
-    import-from "^4.0.0"
-    lmdb "^2.2.4"
-    lock "^1.1.0"
-    node-object-hash "^2.3.10"
-    proper-lockfile "^4.1.2"
-    resolve-from "^5.0.0"
-    tmp "^0.2.1"
-    xdg-basedir "^4.0.0"
-
-gatsby-core-utils@^3.11.1:
+gatsby-core-utils@^3.10.0, gatsby-core-utils@^3.10.1, gatsby-core-utils@^3.11.1, gatsby-core-utils@^3.8.2:
   version "3.11.1"
   resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-3.11.1.tgz#ea87c1d3aa45c26c9ea32b8e8b029afe6a56f8c7"
   integrity sha512-Op9/uihtcsDLlZDfRsGJ1ya2mFx2YH9Zmx93bawElZ0YpIzKjCkNTp+I5i5UANxvs5I+Fljl0WHQRudMWg+fWA==
@@ -9300,27 +9258,6 @@ gatsby-core-utils@^3.11.1:
     got "^11.8.3"
     import-from "^4.0.0"
     lmdb "^2.2.4"
-    lock "^1.1.0"
-    node-object-hash "^2.3.10"
-    proper-lockfile "^4.1.2"
-    resolve-from "^5.0.0"
-    tmp "^0.2.1"
-    xdg-basedir "^4.0.0"
-
-gatsby-core-utils@^3.8.2:
-  version "3.9.1"
-  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-3.9.1.tgz#a4c1bb2021a7e7c06b4aad8d71c9c76ca9cdc21f"
-  integrity sha512-DNf7NhhH0WrFuoBvyURjsw4w+eKbp1GlRA0cchYHJwVTaDPvLvX1o7zxN76xIBx+m0kttpnO3KuJ9LDOSli3ag==
-  dependencies:
-    "@babel/runtime" "^7.15.4"
-    ci-info "2.0.0"
-    configstore "^5.0.1"
-    fastq "^1.13.0"
-    file-type "^16.5.3"
-    fs-extra "^10.0.0"
-    got "^11.8.3"
-    import-from "^4.0.0"
-    lmdb "^2.1.7"
     lock "^1.1.0"
     node-object-hash "^2.3.10"
     proper-lockfile "^4.1.2"
@@ -9461,14 +9398,14 @@ gatsby-plugin-image@^2.9.1:
     objectFitPolyfill "^2.3.5"
     prop-types "^15.7.2"
 
-gatsby-plugin-manifest@^4.9.0:
-  version "4.10.2"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-4.10.2.tgz#117b44e0e219fa85d6b710d2ed985268d82a1e25"
-  integrity sha512-2QGrG3qFkUnp0IcxQ+uQS4/jPL4NMHShOEs/7JPsuIJSIdumnG7QYJ9xHbIBb8U5mIFLpeonADYJVbdTsnGtrg==
+gatsby-plugin-manifest@^4.11.1:
+  version "4.11.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-4.11.1.tgz#fb3061c2e989acb2634719c1e8645fd1388f4b3b"
+  integrity sha512-m5cdi6KBc8+zmnlIfEh92sXpFEUfjuCrjM5BKc8e6v0jxJS0CqVrZOyT12mT2yq9H12UrkzFx1qaI8e2/IJiGA==
   dependencies:
     "@babel/runtime" "^7.15.4"
-    gatsby-core-utils "^3.10.1"
-    gatsby-plugin-utils "^3.4.2"
+    gatsby-core-utils "^3.11.1"
+    gatsby-plugin-utils "^3.5.1"
     semver "^7.3.5"
     sharp "^0.30.1"
 
@@ -9768,10 +9705,10 @@ gatsby-telemetry@^3.10.1:
     lodash "^4.17.21"
     node-fetch "^2.6.7"
 
-gatsby-transformer-json@^4.9.0:
-  version "4.10.0"
-  resolved "https://registry.yarnpkg.com/gatsby-transformer-json/-/gatsby-transformer-json-4.10.0.tgz#d0d67179e2f4a419fd8b5db573a1acccb5ebe237"
-  integrity sha512-Ufxm5c53wRd+ugQZS7NBTFCpzy+8LD3UYKjMpBs7Ys0hn69uXXho7QtIrx361rrD7HPM9xkN+MKyNgirtXAKwA==
+gatsby-transformer-json@^4.11.0:
+  version "4.11.0"
+  resolved "https://registry.yarnpkg.com/gatsby-transformer-json/-/gatsby-transformer-json-4.11.0.tgz#8c761b09c76ca236b96a615be380594b59e3058a"
+  integrity sha512-/JYHP6lCsU1Bm9c0xZVm0KBsQCk11CqU5mnrx5rd1CJdaNlYWa2+1JapIUeeoZbEDktK4ws58vKunyhq5Njp8w==
   dependencies:
     "@babel/runtime" "^7.15.4"
     bluebird "^3.7.2"
@@ -12582,7 +12519,7 @@ lmdb@2.2.4:
     ordered-binary "^1.2.4"
     weak-lru-cache "^1.2.2"
 
-lmdb@^2.0.2, lmdb@^2.1.7, lmdb@^2.2.3, lmdb@^2.2.4:
+lmdb@^2.0.2, lmdb@^2.2.3, lmdb@^2.2.4:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/lmdb/-/lmdb-2.2.6.tgz#a52ef533812b8abcbe0033fc9d74d215e7dfc0a0"
   integrity sha512-UmQV0oZZcV3EN6rjcAjIiuWcc3MYZGWQ0GUYz46Ron5fuTa/dUow7WSQa6leFkvZIKVUdECBWVw96tckfEzUFQ==
