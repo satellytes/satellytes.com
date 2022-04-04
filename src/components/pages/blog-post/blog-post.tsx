@@ -171,8 +171,20 @@ const customContentfulRenderer = (
            * Code Blocks
            */
           case ContentfulCustomModel.CONTENTFUL_CODE_BLOCK: {
-            const { code } = node.data.target;
-            return <MarkdownAst htmlAst={code.childMarkdownRemark.htmlAst} />;
+            const { code, description } = node.data.target;
+            return customComponents.figure({
+              children: [
+                <MarkdownAst
+                  key="code-block"
+                  htmlAst={code.childMarkdownRemark.htmlAst}
+                />,
+                description &&
+                  customComponents.figcaption({
+                    children: description,
+                    key: 'caption',
+                  }),
+              ],
+            });
           }
           /**
            * Blog Post Collapsible

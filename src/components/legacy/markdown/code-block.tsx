@@ -20,7 +20,7 @@ const CodeBlockWrapper = styled.div`
   background: #f5f2f0;
   position: relative;
   cursor: default;
-  margin: 48px 0;
+  margin: 0;
 
   &:hover {
     background: #e4e8f3;

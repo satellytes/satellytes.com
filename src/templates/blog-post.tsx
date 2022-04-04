@@ -81,7 +81,6 @@ export const BlogPostPageQuery = graphql`
             contentful_id
             __typename
             description
-            language
             code {
               code
               childMarkdownRemark {
@@ -122,7 +121,6 @@ export const BlogPostPageQuery = graphql`
                   contentful_id
                   __typename
                   description
-                  language
                   code {
                     code
                     childMarkdownRemark {

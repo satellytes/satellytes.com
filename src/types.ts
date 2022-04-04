@@ -94,7 +94,6 @@ export interface ContentfulBlogPostHero {
 
 export interface ContentfulCodeBlock {
   description: string;
-  language: string;
   code: string;
 }
 
