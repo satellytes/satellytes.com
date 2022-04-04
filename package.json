@@ -68,7 +68,7 @@
     "gatsby-remark-prismjs": "^6.10.0",
     "gatsby-source-contentful": "^7.8.0",
     "gatsby-source-filesystem": "^4.10.1",
-    "gatsby-transformer-json": "^4.9.0",
+    "gatsby-transformer-json": "^4.11.0",
     "gatsby-transformer-remark": "^5.10.1",
     "gatsby-transformer-sharp": "^4.10.0",
     "html-entities": "^2.3.2",
