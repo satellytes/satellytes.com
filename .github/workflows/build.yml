@@ -22,9 +22,14 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Build
         run: yarn build
+        env:
+          CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+          CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
 
   build-storybook:
-    if: contains(github.event.pull_request.labels.*.name, 'dependencies')
+    if: |
+      contains(github.event.pull_request.labels.*.name, 'dependencies') 
+      || contains(github.event.pull_request.labels.*.name, 'deploy-storybook')
     name: Build Storybook
     runs-on: ubuntu-latest
     steps:
@@ -38,3 +43,32 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Build
         run: yarn storybook:build
+  
+  publish-storybook:
+    if: contains(github.event.pull_request.labels.*.name, 'deploy-storybook')
+    name: Publish Storybook on Netlify
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'yarn' 
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      
+      - name: Build
+        run: yarn storybook:build 
+
+      - name: Deploy draft to Netlify
+        uses: South-Paw/action-netlify-deploy@v1.2.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
+          build-dir: './storybook-static'
+          draft: true
+          comment-on-pull-request: true
