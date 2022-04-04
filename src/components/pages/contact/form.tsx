@@ -95,7 +95,7 @@ export const Form = ({ onSuccess }: { onSuccess: () => any }) => {
       <HoneypotField name="firstName" label="First Name" control={control} />
       <HoneypotField name="phone" label="Phone" control={control} />
 
-      <MandatoryNotes>* {t('career.mandatory-field')}</MandatoryNotes>
+      <MandatoryNotes>* {t('contact.mandatory-field')}</MandatoryNotes>
       <Submit disabled={requestStatus === 'submitting'} type={'submit'}>
         {t('contact.action.send')}
       </Submit>
