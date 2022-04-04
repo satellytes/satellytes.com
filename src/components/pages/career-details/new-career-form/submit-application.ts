@@ -21,13 +21,6 @@ export const submitApplication = async (
     clearErrors('api');
   }
 
-  if (formValues.phone) {
-    // Mhh honey...
-    // Field is visually hidden and filters bots
-    setError('api', { type: 'manual', message: 'This field should be empty' });
-    return;
-  }
-
   // since documents is not controlled, it has to be validated manually
   if (formValues?.documents?.length === 0 || !formValues?.documents) {
     setError(

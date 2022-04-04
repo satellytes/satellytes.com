@@ -6,7 +6,6 @@ import { FileDropperType } from '../../../forms/file-dropper/file-dropper';
 import { TextArea } from '../../../forms/text-area/text-area';
 import { TextInput } from '../../../forms/text-input/text-input';
 import { FormLayout } from '../../contact/form';
-import { HoneypotField } from '../../contact/honeypot';
 import { SectionHeadline } from '../job-description';
 import {
   CareerDetailsCheckbox,
@@ -147,7 +146,6 @@ export const Form = (props: CareerFormProps) => {
             control={control}
           />
         </FormLayout>
-        <HoneypotField name="phone" label="Phone" control={control} />
         <TextArea
           name="message"
           label={t<string>('career.cover-letter')}
