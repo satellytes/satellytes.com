@@ -55,32 +55,6 @@ export interface PlainFixedImageSharpSource {
   };
 }
 
-export interface BlogPostMarkdown {
-  excerpt: string;
-  htmlAst;
-  readingTime: {
-    minutes: string;
-  };
-  frontmatter: {
-    shareImage: PlainFixedImageSharpSource;
-    attribution: {
-      creator: string;
-      source: string;
-      license?: string;
-    };
-    date: string;
-    title: string;
-    image?: string;
-    author?: string;
-    authorSummary?: string;
-    seoMetaText?: string;
-    leadboxText?: string;
-    featuredImage: IGatsbyImageData;
-    featuredImageSquared: IGatsbyImageData;
-  };
-  rawMarkdownBody: string;
-}
-
 export interface ContentFulBlogPostAuthor {
   fullName: string;
   summary: string;
