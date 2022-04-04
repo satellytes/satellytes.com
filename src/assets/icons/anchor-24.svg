@@ -1,7 +1,6 @@
 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g opacity="0.3">
-        <path d="M12 15.5L12 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M16 10.5V6C16 3.79086 14.2091 2 12 2V2C9.79086 2 8 3.79086 8 6V10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M8 13.5V18C8 20.2091 9.79086 22 12 22V22C14.2091 22 16 20.2091 16 18V13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </g>
+    <rect width="24" height="24" fill="white"/>
+    <path d="M12 16L12 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M8 10V7C8 4.79086 9.79086 3 12 3V3C14.2091 3 16 4.79086 16 7V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M16 14L16 17C16 19.2091 14.2091 21 12 21V21C9.79086 21 8 19.2091 8 17L8 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

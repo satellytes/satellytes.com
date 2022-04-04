@@ -4,9 +4,11 @@ import { HEADER_HEIGHT } from './header/header';
 import { onlyText } from '../support/only-text';
 import { Icon } from '../ui/icon/icon';
 import { up } from '../support/breakpoint';
+import { theme } from './theme';
 
 const Wrapper = styled.div`
   margin-left: -24px;
+  display: flex;
 `;
 
 const generateAnchorId = (children) => {
@@ -19,11 +21,16 @@ const generateAnchorId = (children) => {
 
 const ShareSymbol = styled.a<{ visible }>`
   scroll-margin-top: ${HEADER_HEIGHT};
-  color: #000;
-  display: inline-block;
+  color: ${theme.palette.text.default};
+  opacity: 0.3;
+  margin-top: 86px;
 
   ${up('md')} {
     visibility: ${(props) => (props.visible ? 'visible' : 'hidden')};
+  }
+
+  &:hover {
+    opacity: 1;
   }
 `;
 
@@ -32,7 +39,7 @@ export const WithAnchorHOC =
   // eslint-disable-next-line react/display-name
   ({ ...props }) => {
     const [hoverActive, setHoverActive] = useState(false);
-    console.log(props);
+
     return (
       <Wrapper
         onMouseEnter={() => setHoverActive(true)}
