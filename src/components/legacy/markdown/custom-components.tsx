@@ -67,6 +67,11 @@ const TableWrapper = styled.div`
   max-width: 100%;
 `;
 
+const TitleWrapper = styled.div`
+  margin-top: 80px;
+  margin-bottom: 16px;
+`;
+
 const TableStyled = styled.table`
   border: solid 1px #ddeeee;
   border-collapse: collapse;
@@ -133,29 +138,45 @@ const customSatellytesComponents = {
   },
   // define our lovely headlines from h1 to h6
   h1(props) {
-    return <SubTitle as={'h1'}>{props.children}</SubTitle>;
+    return (
+      <TitleWrapper>
+        <SubTitleWithAnchor as={'h1'}>{props.children}</SubTitleWithAnchor>
+      </TitleWrapper>
+    );
   },
   h2(props) {
-    return <SubTitleWithAnchor as={'h2'}>{props.children}</SubTitleWithAnchor>;
+    return (
+      <TitleWrapper>
+        <SubTitleWithAnchor as={'h2'}>{props.children}</SubTitleWithAnchor>
+      </TitleWrapper>
+    );
   },
   h3(props) {
     return (
-      <TextTitleWithAnchor as={'h3'}>{props.children}</TextTitleWithAnchor>
+      <TitleWrapper>
+        <TextTitleWithAnchor as={'h3'}>{props.children}</TextTitleWithAnchor>
+      </TitleWrapper>
     );
   },
   h4(props) {
     return (
-      <SmallTitleWithAnchor as={'h4'}>{props.children}</SmallTitleWithAnchor>
+      <TitleWrapper>
+        <SmallTitleWithAnchor as={'h4'}>{props.children}</SmallTitleWithAnchor>
+      </TitleWrapper>
     );
   },
   h5(props) {
     return (
-      <SmallTitleWithAnchor as={'h5'}>{props.children}</SmallTitleWithAnchor>
+      <TitleWrapper>
+        <SmallTitleWithAnchor as={'h5'}>{props.children}</SmallTitleWithAnchor>
+      </TitleWrapper>
     );
   },
   h6(props) {
     return (
-      <SmallTitleWithAnchor as={'h6'}>{props.children}</SmallTitleWithAnchor>
+      <TitleWrapper>
+        <SmallTitleWithAnchor as={'h6'}>{props.children}</SmallTitleWithAnchor>
+      </TitleWrapper>
     );
   },
   ol(props) {

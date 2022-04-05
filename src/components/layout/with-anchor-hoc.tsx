@@ -9,6 +9,7 @@ import { theme } from './theme';
 const Wrapper = styled.div`
   margin-left: -24px;
   display: flex;
+  align-items: center;
 `;
 
 const generateAnchorId = (children) => {
@@ -23,7 +24,6 @@ const ShareSymbol = styled.a<{ visible }>`
   scroll-margin-top: ${HEADER_HEIGHT};
   color: ${theme.palette.text.default};
   opacity: 0.3;
-  margin-top: 86px;
 
   ${up('md')} {
     visibility: ${(props) => (props.visible ? 'visible' : 'hidden')};
