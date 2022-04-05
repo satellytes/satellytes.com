@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 import React, { useState } from 'react';
-import { HEADER_HEIGHT } from './header/header';
 import { onlyText } from '../support/only-text';
 import { Icon } from '../ui/icon/icon';
 import { up } from '../support/breakpoint';
-import { theme } from './theme';
+import { HEADER_HEIGHT_VALUE, theme } from './theme';
 
 const Wrapper = styled.div`
   margin-left: -24px;
@@ -21,7 +20,7 @@ const generateAnchorId = (children) => {
 };
 
 const ShareSymbol = styled.a<{ visible }>`
-  scroll-margin-top: ${HEADER_HEIGHT};
+  scroll-margin-top: ${HEADER_HEIGHT_VALUE + 20}px;
   color: ${theme.palette.text.default};
   opacity: 0.3;
 
