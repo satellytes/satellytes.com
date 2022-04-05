@@ -5,6 +5,7 @@ import { isBrowser } from '../../support/is-browser';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { theme } from '../../layout/theme';
 import { Icon } from '../../ui/icon/icon';
+import { Link } from '../../legacy/links/links';
 
 const RSS_FEED_URL = '/blog/rss.xml';
 
@@ -34,6 +35,7 @@ export const PanelText = styled.p`
 const SocialLinks = styled.ul`
   all: unset;
   order: 2;
+  color: ${theme.palette.text.link.default};
 
   ${up('md')} {
     order: 1;
@@ -48,11 +50,6 @@ const SocialLinkItem = styled.li`
   &:last-of-type {
     margin-right: 0;
   }
-`;
-
-const SimpleLink = styled.a`
-  margin: 0;
-  color: ${theme.palette.text.link.default};
 `;
 
 export const FollowPanel: React.FC = () => {
@@ -71,9 +68,9 @@ export const FollowPanel: React.FC = () => {
       <PanelText>{t('blog.follow')}</PanelText>
       <SocialLinks>
         <SocialLinkItem data-testid="rss-feed">
-          <SimpleLink href={rssUrl}>
+          <Link to={rssUrl}>
             <Icon show="rss" />
-          </SimpleLink>
+          </Link>
         </SocialLinkItem>
       </SocialLinks>
     </FollowPanelContainer>
