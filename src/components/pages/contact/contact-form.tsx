@@ -38,7 +38,7 @@ export const ContactForm = () => {
   } else {
     return (
       <>
-        <SectionHeader headline={'E-Mail'}>
+        <SectionHeader headline={t('contact.info.headline')}>
           <Trans i18nKey="contact.info-link">
             <p>
               Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine
