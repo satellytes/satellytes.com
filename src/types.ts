@@ -1,14 +1,20 @@
 import { IGatsbyImageData } from 'gatsby-plugin-image';
+import {
+  ContentfulRichTextGatsbyReference,
+  RenderRichTextData,
+} from 'gatsby-source-contentful/rich-text';
 
 export interface BlogPostTeaser {
-  id: string;
-  frontmatter: {
-    title: string;
-    featuredImage: any;
-    date: string;
+  fields: {
     path: string;
-    teaserText: string;
   };
+  heroImage: {
+    image: any;
+  };
+  id: string;
+  publicationDate: string;
+  teaserText: string;
+  title: string;
 }
 
 /**
@@ -28,6 +34,7 @@ export interface SyPersonioJob {
   short: string;
   createdAt: string;
   slug: string;
+  schedule: string;
   sections: SyPersonioJobSection[];
 
   // added via `onCreateNode`
@@ -48,30 +55,33 @@ export interface PlainFixedImageSharpSource {
   };
 }
 
-export interface BlogPostMarkdown {
-  excerpt: string;
-  htmlAst;
-  readingTime: {
-    minutes: string;
-  };
-  frontmatter: {
-    shareImage: PlainFixedImageSharpSource;
-    attribution: {
-      creator: string;
-      source: string;
-      license?: string;
-    };
-    date: string;
-    title: string;
-    image?: string;
-    author?: string;
-    authorSummary?: string;
-    seoMetaText?: string;
-    leadboxText?: string;
-    featuredImage: IGatsbyImageData;
-    featuredImageSquared: IGatsbyImageData;
-  };
-  rawMarkdownBody: string;
+export interface ContentFulBlogPostAuthor {
+  fullName: string;
+  summary: string;
+}
+
+export interface ContentfulBlogPostHero {
+  image: any;
+  creator: string;
+  source: string;
+}
+
+export interface ContentfulCodeBlock {
+  description: string;
+  code: string;
+}
+
+export interface ContentfulBlogPost {
+  author: ContentFulBlogPostAuthor;
+  content: RenderRichTextData<ContentfulRichTextGatsbyReference>;
+  heroImage: ContentfulBlogPostHero;
+  id: string;
+  leadBoxText: string;
+  publicationDate: string;
+  seoMetaText: string;
+  slug: string;
+  teaserText: string;
+  title: string;
 }
 
 export interface BreadcrumbEntry {

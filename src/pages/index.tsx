@@ -4,6 +4,7 @@ import SEO from '../components/layout/seo';
 import { Landingpage } from '../components/pages/landingpage/landingpage';
 import { BlogPostTeaser, SyPersonioJob } from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
+import { StructuredOrganizationData } from '../components/pages/landingpage/structured-organization-data';
 
 interface OfficeImage {
   relativePath: string;
@@ -16,7 +17,7 @@ interface IndexPageQueryProps {
   allSyPersonioJob: {
     nodes: SyPersonioJob[];
   };
-  allMarkdownRemark: {
+  allContentfulBlogPost: {
     nodes: BlogPostTeaser[];
   };
   officeImages: {
@@ -26,7 +27,7 @@ interface IndexPageQueryProps {
 
 const IndexPage = (props: PageProps<IndexPageQueryProps>) => {
   const jobPositions = props.data.allSyPersonioJob.nodes;
-  const blogPosts = props.data.allMarkdownRemark.nodes;
+  const blogPosts = props.data.allContentfulBlogPost.nodes;
   const officeImages = props.data.officeImages.nodes.reduce((memo, image) => {
     memo[image.relativePath] = image;
     return memo;
@@ -35,6 +36,9 @@ const IndexPage = (props: PageProps<IndexPageQueryProps>) => {
   return (
     <>
       <SEO title="Satellytes" location={props.location} />
+
+      <StructuredOrganizationData />
+
       <Landingpage
         officeImages={officeImages}
         positions={jobPositions}
@@ -69,28 +73,27 @@ export const IndexPageQuery = graphql`
       }
     }
 
-    allMarkdownRemark(
-      sort: { fields: frontmatter___date, order: DESC }
-      filter: { fileAbsolutePath: { regex: "/(blog-posts)/" } }
+    allContentfulBlogPost(
+      sort: { fields: publicationDate, order: DESC }
       limit: 3
     ) {
       nodes {
-        id
-        frontmatter {
-          date
+        fields {
           path
-          title
-          teaserText
-          featuredImage {
-            childImageSharp {
-              gatsbyImageData(
-                width: 400
-                aspectRatio: 1.77
-                layout: CONSTRAINED
-                placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
-              )
-            }
+        }
+        id
+        title
+        teaserText
+        publicationDate
+        heroImage {
+          image {
+            gatsbyImageData(
+              width: 400
+              aspectRatio: 1.77
+              layout: CONSTRAINED
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
           }
         }
       }

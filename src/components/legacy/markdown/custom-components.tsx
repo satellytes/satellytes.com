@@ -220,7 +220,8 @@ const customSatellytesComponents = {
     return <Figure>{props.children}</Figure>;
   },
   figcaption(props) {
-    return <Figcaption>{props.children}</Figcaption>;
+    const { children, ...rest } = props;
+    return <Figcaption {...rest}>{children}</Figcaption>;
   },
 };
 

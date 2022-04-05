@@ -1,15 +1,15 @@
-import React from 'react';
-
-import styled from 'styled-components';
 import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
-import { Layout } from '../../layout/layout';
+import React from 'react';
+import styled from 'styled-components';
+import { BlogPostTeaser } from '../../../types';
 import { SectionHeader } from '../../content/section-header/section-header';
+import { ContentBlockContainer } from '../../layout/content-block-container';
+import { Layout } from '../../layout/layout';
 import { NotAvailableInGerman } from './not-avilable-in-german';
 import { Posts } from './posts';
-import { ContentBlockContainer } from '../../layout/content-block-container';
 
 interface BlogPageProps {
-  posts: any[];
+  posts: BlogPostTeaser[];
 }
 
 const BlogHeader = styled(SectionHeader)`

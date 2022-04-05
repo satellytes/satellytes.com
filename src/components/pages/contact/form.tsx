@@ -8,15 +8,20 @@ import { theme } from '../../layout/theme';
 import { Link } from '../../legacy/links/links';
 import { HoneypotField } from './honeypot';
 import { Email, FirstName, MessageArea } from './form-fields';
+import { up } from '../../support/breakpoint';
 
 const API_ENDPOINT = '/api/contact-form';
 type RequestStatus = 'pending' | 'submitting' | 'success' | 'error';
 
-const FormLayout = styled.div`
+export const FormLayout = styled.div`
   margin-bottom: 24px;
   gap: 24px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 2fr);
+
+  ${up('sm')} {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 const MandatoryNotes = styled.p`
@@ -90,7 +95,7 @@ export const Form = ({ onSuccess }: { onSuccess: () => any }) => {
       <HoneypotField name="firstName" label="First Name" control={control} />
       <HoneypotField name="phone" label="Phone" control={control} />
 
-      <MandatoryNotes>* {t('career.mandatory-field')}</MandatoryNotes>
+      <MandatoryNotes>* {t('contact.mandatory-field')}</MandatoryNotes>
       <Submit disabled={requestStatus === 'submitting'} type={'submit'}>
         {t('contact.action.send')}
       </Submit>
