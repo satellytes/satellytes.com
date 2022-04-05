@@ -51,7 +51,7 @@ const SocialLinkItem = styled.li`
   }
 `;
 
-export const FollowPanel: React.FC<FollowProps> = ({ className }) => {
+export const FollowPanel = ({ className }: FollowProps) => {
   const [rssUrl, setRssUrl] = useState('');
   const { t } = useTranslation();
 

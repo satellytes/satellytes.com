@@ -24,19 +24,12 @@ interface BlogPageQueryProps {
   allContentfulBlogPost: AllBlogPostsQuery;
 }
 
-const RSS_URL = 'https://satellytes.com/blog/rss.xml';
-
 const Blog = ({ data, location }: PageProps<BlogPageQueryProps>) => {
   const blogPosts = data.allContentfulBlogPost.nodes;
 
   return (
     <>
-      <SEO
-        title="Blog | Satellytes"
-        location={location}
-        rssUrl={RSS_URL}
-        rssTitle={'Satellytes Blog - RSS Feed'}
-      />
+      <SEO title="Blog | Satellytes" location={location} rssLink />
       <BlogPage posts={blogPosts} />
     </>
   );

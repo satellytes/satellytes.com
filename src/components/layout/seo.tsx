@@ -6,6 +6,8 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { I18nNextData } from '../../types';
 
 const DEFAULT_META_IMAGE_URL_PATH = '/sy-share-image.jpg';
+const RSS_URL = 'https://satellytes.com/blog/rss.xml';
+const RSS_TITLE = 'Satellytes Blog - RSS Feed';
 
 interface SeoProps {
   title: string;
@@ -17,8 +19,7 @@ interface SeoProps {
   noIndex?: boolean;
   overrideLanguages?: string[] | null;
   location: Location;
-  rssUrl?: string;
-  rssTitle?: string;
+  rssLink?: boolean;
 }
 
 /**
@@ -72,8 +73,7 @@ const SEO = ({
   noIndex,
   overrideLanguages,
   location,
-  rssUrl,
-  rssTitle,
+  rssLink,
 }: SeoProps) => {
   const { site } = useStaticQuery(
     graphql`
@@ -141,12 +141,12 @@ const SEO = ({
       {alternateLanguagesMetaTags}
 
       {/* Link RSS Feed */}
-      {rssUrl && (
+      {rssLink && (
         <link
           rel="alternate"
           type="application/rss+xml"
-          title={rssTitle ?? 'Satellytes RSS Feed'}
-          href={rssUrl}
+          title={RSS_TITLE}
+          href={RSS_URL}
         />
       )}
     </Helmet>
