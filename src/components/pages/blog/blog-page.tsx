@@ -5,6 +5,7 @@ import { BlogPostTeaser } from '../../../types';
 import { SectionHeader } from '../../content/section-header/section-header';
 import { ContentBlockContainer } from '../../layout/content-block-container';
 import { Layout } from '../../layout/layout';
+import FollowPanel from '../blog-post/follow-panel';
 import { NotAvailableInGerman } from './not-avilable-in-german';
 import { Posts } from './posts';
 
@@ -12,7 +13,8 @@ interface BlogPageProps {
   posts: BlogPostTeaser[];
 }
 
-const BlogHeader = styled(SectionHeader)`
+const BlogSharePanel = styled(FollowPanel)`
+  margin-top: 48px;
   margin-bottom: 80px;
 `;
 
@@ -28,12 +30,13 @@ export const BlogPage = ({ posts }: BlogPageProps) => {
   return (
     <Layout light showLanguageSwitch={false} breadcrumb={BREADCRUMB}>
       <ContentBlockContainer>
-        <BlogHeader forwardedAs={'h1'} headline={t('navigation.blog')}>
+        <SectionHeader as={'h1'} headline={t('navigation.blog')}>
           {t('blog.info')}
 
           {language != 'en' && <NotAvailableInGerman />}
-        </BlogHeader>
+        </SectionHeader>
       </ContentBlockContainer>
+      {language == 'en' && <BlogSharePanel />}
       {language == 'en' && <Posts posts={posts} />}
     </Layout>
   );

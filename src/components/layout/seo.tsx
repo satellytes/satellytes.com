@@ -6,6 +6,8 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { I18nNextData } from '../../types';
 
 const DEFAULT_META_IMAGE_URL_PATH = '/sy-share-image.jpg';
+const RSS_URL = 'https://satellytes.com/blog/rss.xml';
+const RSS_TITLE = 'Satellytes Blog';
 
 interface SeoProps {
   title: string;
@@ -17,6 +19,7 @@ interface SeoProps {
   noIndex?: boolean;
   overrideLanguages?: string[] | null;
   location: Location;
+  rssLink?: boolean;
 }
 
 /**
@@ -70,6 +73,7 @@ const SEO = ({
   noIndex,
   overrideLanguages,
   location,
+  rssLink,
 }: SeoProps) => {
   const { site } = useStaticQuery(
     graphql`
@@ -129,12 +133,22 @@ const SEO = ({
       <meta name="twitter:card" content="summary_large_image" />
 
       {/*  Exclude robots if required
-      Reference: https://developers.google.com/search/docs/advanced/robots/robots_meta_tag 
+      Reference: https://developers.google.com/search/docs/advanced/robots/robots_meta_tag
       */}
       {noIndex && <meta name="robots" content="noindex" />}
 
       {/* Alternate Links */}
       {alternateLanguagesMetaTags}
+
+      {/* Link RSS Feed */}
+      {rssLink && (
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title={RSS_TITLE}
+          href={RSS_URL}
+        />
+      )}
     </Helmet>
   );
 };
