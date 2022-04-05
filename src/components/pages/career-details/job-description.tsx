@@ -53,7 +53,7 @@ export const JobDescription = ({ sections }: JobDescriptionProps) => {
       {sections?.map(({ headline, descriptionHtml }, index) => {
         return (
           <div key={index}>
-            <SectionHeadline as={'h2'}>{headline}</SectionHeadline>
+            <SectionHeadline>{headline}</SectionHeadline>
             <PersonioHtml
               dangerouslySetInnerHTML={{ __html: descriptionHtml }}
             />
