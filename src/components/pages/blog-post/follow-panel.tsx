@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { up } from '../../support/breakpoint';
 import { isBrowser } from '../../support/is-browser';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { SimpleLink } from '../../legacy/markdown/custom-components';
 import { theme } from '../../layout/theme';
 import { Icon } from '../../ui/icon/icon';
 
@@ -49,6 +48,11 @@ const SocialLinkItem = styled.li`
   &:last-of-type {
     margin-right: 0;
   }
+`;
+
+const SimpleLink = styled.a`
+  margin: 0;
+  color: ${theme.palette.text.link.default};
 `;
 
 export const FollowPanel: React.FC = () => {
