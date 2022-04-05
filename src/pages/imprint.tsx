@@ -34,7 +34,7 @@ const ImprintPage = ({ data, location }: PageProps<ImprintPageQueryProps>) => {
         noIndex={true}
       />
       <ContentBlockContainer>
-        <SectionHeader headline={t('navigation.imprint')} />
+        <SectionHeader as={'h1'} headline={t('navigation.imprint')} />
         <MarkdownAst htmlAst={data.markdownRemark.htmlAst} />
         <BottomNote>{t('imprint.updated')}</BottomNote>
       </ContentBlockContainer>

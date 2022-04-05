@@ -28,7 +28,7 @@ export const BlogPage = ({ posts }: BlogPageProps) => {
   return (
     <Layout light showLanguageSwitch={false} breadcrumb={BREADCRUMB}>
       <ContentBlockContainer>
-        <BlogHeader headline={t('navigation.blog')}>
+        <BlogHeader forwardedAs={'h1'} headline={t('navigation.blog')}>
           {t('blog.info')}
 
           {language != 'en' && <NotAvailableInGerman />}
