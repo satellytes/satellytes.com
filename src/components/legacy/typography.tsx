@@ -1,7 +1,4 @@
-import React from 'react';
 import styled from 'styled-components';
-import { theme } from '../layout/theme';
-import { Link } from './links/links';
 
 export const SubTitle = styled.h3`
   font-size: 36px;
