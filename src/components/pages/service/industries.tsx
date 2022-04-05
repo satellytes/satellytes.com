@@ -12,7 +12,7 @@ interface IndustriesProps {
   className?: string;
 }
 
-const HeadlineStyled = styled.h3`
+const HeadlineStyled = styled.h2`
   ${TextStyles.headlineL}
   margin: 0;
   color: #202840;
@@ -31,16 +31,6 @@ const ContentStyled = styled.div`
     ${TextStyles.textL}
   }
 `;
-
-export const Intro = ({ illustration, headline, children }: any) => (
-  <IntroLayout>
-    <IllustrationStyled size={IllustrationSize.LARGE} show={illustration} />
-    <div>
-      <HeadlineStyled>{headline}</HeadlineStyled>
-      <ContentStyled>{children}</ContentStyled>
-    </div>
-  </IntroLayout>
-);
 
 const TeaserContainer = styled.div`
   display: grid;
