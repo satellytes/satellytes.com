@@ -22,7 +22,7 @@ import { Label, StyledErrorMessage } from '../text-input/text-input';
 
 export interface FileDropperType {
   file: File;
-  fileCategory?: { value: string; label: string };
+  fileCategory?: FileCategory;
 }
 
 interface FileDropperProps extends React.ComponentPropsWithRef<'input'> {

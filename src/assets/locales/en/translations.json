@@ -82,6 +82,8 @@
   "career.error.max-number": "Maximum number of documents has been reached.",
   "career.error.max-size": "Maximum document size (20MB) was exceeded",
   "career.error.category": "There is a category missing",
+  "career.error.cover-letter": "Your Cover letter is missing",
+  "career.error.cover-letter-length": "Your Cover letter should have a minimum length of 100 characters",
   "career.action.upload": "<0>Drag the documents onto the field or <1>select</1> them</0>",
   "career.action.send": "Send",
   "career.action.again": "Send again",

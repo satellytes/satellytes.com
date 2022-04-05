@@ -7,7 +7,40 @@ interface PersonioApiResponse {
 
 const API_ENDPOINT = 'https://api.personio.de/recruiting/applicant';
 
-export const submitApplication = async (props, formValues, setError) => {
+export const submitApplication = async (
+  props,
+  formValues,
+  setError,
+  errors,
+  clearErrors,
+  errorMessages,
+) => {
+  // to allow re send after api error
+  // there should not be an old api error when pressing submit
+  if (errors.api) {
+    clearErrors('api');
+  }
+
+  // since documents is not controlled, it has to be validated manually
+  if (formValues?.documents?.length === 0 || !formValues?.documents) {
+    setError(
+      'documents',
+      { type: 'manual', message: errorMessages.cv },
+      { shouldFocus: true },
+    );
+    return;
+  }
+
+  for (let i = 0; i < formValues?.documents?.length; i++) {
+    if (!formValues?.documents[i]?.fileCategory) {
+      setError('documents', {
+        type: 'manual',
+        message: errorMessages.category,
+      });
+      return;
+    }
+  }
+
   const apiData = {
     company_id: props.company_id,
     access_token: props.access_token,
