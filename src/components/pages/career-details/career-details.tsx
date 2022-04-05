@@ -58,7 +58,11 @@ export const CareerDetails = ({
       showLanguageSwitch={Boolean(complementPath)}
     >
       <ContentBlockContainer>
-        <SectionHeader headline={position.name} kicker={t('career.position')}>
+        <SectionHeader
+          as={'h1'}
+          headline={position.name}
+          kicker={t('career.position')}
+        >
           {position.short}
         </SectionHeader>
       </ContentBlockContainer>

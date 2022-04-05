@@ -27,7 +27,7 @@ const DataPrivacyPage = ({
         noIndex={true}
       />
       <ContentBlockContainer>
-        <SectionHeader headline={t('navigation.data-privacy')} />
+        <SectionHeader as={'h1'} headline={t('navigation.data-privacy')} />
         <MarkdownAst htmlAst={data.markdownRemark.htmlAst} />
       </ContentBlockContainer>
     </Layout>

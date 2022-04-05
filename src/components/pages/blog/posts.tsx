@@ -29,6 +29,7 @@ export const Posts = ({ posts }: PostsProps) => {
 
         return (
           <Teaser
+            as={'h2'}
             key={item.id}
             title={item.title}
             linkTo={item.fields.path}

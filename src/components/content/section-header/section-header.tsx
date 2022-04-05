@@ -9,9 +9,19 @@ interface SectionHeaderProps {
    */
   kicker?: string;
   /**
+   * html tag as which the kicker will be rendered
+   * @default "span"
+   */
+  kickerAs?: any;
+  /**
    * The headline for the given section
    */
   headline: string;
+  /**
+   * html tag as which the headline will be rendered
+   * @default "h2"
+   */
+  as?: any;
   /**
    * The actual text content
    */
@@ -49,8 +59,10 @@ const ContentStyled = styled.div`
 export const SectionHeader = (props: SectionHeaderProps) => {
   return (
     <div className={props.className}>
-      {props.kicker && <KickerStyled>{props.kicker}</KickerStyled>}
-      <HeadlineStyled>{props.headline}</HeadlineStyled>
+      {props.kicker && (
+        <KickerStyled as={props.kickerAs}>{props.kicker}</KickerStyled>
+      )}
+      <HeadlineStyled as={props.as}>{props.headline}</HeadlineStyled>
       <ContentStyled>{props.children}</ContentStyled>
     </div>
   );

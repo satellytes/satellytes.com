@@ -2,15 +2,18 @@ import React from 'react';
 import SEO from '../components/layout/seo';
 import { graphql, PageProps } from 'gatsby';
 import styled from 'styled-components';
-import { Text } from '../components/legacy/typography';
 import { MarkdownAst } from '../components/legacy/markdown/markdown-ast';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Layout } from '../components/layout/layout';
 import { SectionHeader } from '../components/content/section-header/section-header';
 import { ContentBlockContainer } from '../components/layout/content-block-container';
+import { TextStyles } from '../components/typography';
 
-const BottomNote = styled(Text)`
+const BottomNote = styled.p`
+  ${TextStyles.textR}
+
   margin-top: 80px;
+  margin-bottom: 16px;
   opacity: 0.8;
 `;
 
@@ -31,7 +34,7 @@ const ImprintPage = ({ data, location }: PageProps<ImprintPageQueryProps>) => {
         noIndex={true}
       />
       <ContentBlockContainer>
-        <SectionHeader headline={t('navigation.imprint')} />
+        <SectionHeader as={'h1'} headline={t('navigation.imprint')} />
         <MarkdownAst htmlAst={data.markdownRemark.htmlAst} />
         <BottomNote>{t('imprint.updated')}</BottomNote>
       </ContentBlockContainer>
