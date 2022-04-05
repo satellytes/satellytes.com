@@ -17,6 +17,8 @@ interface SeoProps {
   noIndex?: boolean;
   overrideLanguages?: string[] | null;
   location: Location;
+  rssUrl?: string;
+  rssTitle?: string;
 }
 
 /**
@@ -70,6 +72,8 @@ const SEO = ({
   noIndex,
   overrideLanguages,
   location,
+  rssUrl,
+  rssTitle,
 }: SeoProps) => {
   const { site } = useStaticQuery(
     graphql`
@@ -129,12 +133,22 @@ const SEO = ({
       <meta name="twitter:card" content="summary_large_image" />
 
       {/*  Exclude robots if required
-      Reference: https://developers.google.com/search/docs/advanced/robots/robots_meta_tag 
+      Reference: https://developers.google.com/search/docs/advanced/robots/robots_meta_tag
       */}
       {noIndex && <meta name="robots" content="noindex" />}
 
       {/* Alternate Links */}
       {alternateLanguagesMetaTags}
+
+      {/* Link RSS Feed */}
+      {rssUrl && (
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title={rssTitle ?? 'Satellytes RSS Feed'}
+          href={rssUrl}
+        />
+      )}
     </Helmet>
   );
 };

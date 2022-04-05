@@ -10,6 +10,8 @@ interface BlogArticleTemplateQueryProps {
   contentfulBlogPost: BlogArticleQueryData;
 }
 
+const RSS_URL = 'https://satellytes.com/blog/rss.xml';
+
 const BlogArticleTemplate = ({
   data,
   location,
@@ -43,6 +45,8 @@ const BlogArticleTemplate = ({
         siteType="article"
         description={seoMetaText}
         location={location}
+        rssUrl={RSS_URL}
+        rssTitle={'Satellytes Blog - RSS Feed'}
       />
 
       <BlogPostPage
