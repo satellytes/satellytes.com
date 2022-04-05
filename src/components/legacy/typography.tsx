@@ -83,6 +83,8 @@ export const Text = styled.p`
 
   margin-top: 0;
   margin-bottom: 16px;
+
+  white-space: pre-wrap;
 `;
 
 export const CaptionText = styled.p`

@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { CareerDetails } from '../components/pages/career-details/career-details';
 import { SyPersonioJob } from '../types';
+import { CareerDetailsStructuredData } from '../components/pages/career-details/career-details-structured-data';
 
 interface CareerPageProps {
   pageContext: {
@@ -40,6 +41,8 @@ const CareerPage = (props: CareerPageProps): JSX.Element => {
         location={props.location}
       />
 
+      <CareerDetailsStructuredData position={position} />
+
       <CareerDetails
         originalPath={pageContext.i18n.originalPath}
         position={position}
@@ -59,6 +62,7 @@ export const CareerDetailsPageQuery = graphql`
       short
       createdAt
       slug
+      schedule
       sections {
         headline
         descriptionHtml

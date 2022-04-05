@@ -15,6 +15,11 @@ const StyledTextArea = styled.textarea<{ hasError?: boolean }>`
 
   background: ${theme.palette.background.leadbox};
   border: 2px solid ${theme.palette.background.leadbox};
+
+  &:hover {
+    border: 1px solid ${theme.palette.text.default};
+  }
+
   ${(props) =>
     props.hasError &&
     css`
