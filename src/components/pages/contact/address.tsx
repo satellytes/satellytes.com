@@ -17,7 +17,11 @@ export const Address = () => {
   const { t } = useTranslation();
 
   return (
-    <SectionHeader headline={t('contact.address')} kicker={t('contact.title')}>
+    <SectionHeader
+      headline={t('contact.address')}
+      kicker={t('contact.title')}
+      kickerAs={'h1'}
+    >
       Satellytes Digital Consulting GmbH
       <br />
       Sendlinger Straße 52
