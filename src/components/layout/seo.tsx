@@ -7,7 +7,7 @@ import { I18nNextData } from '../../types';
 
 const DEFAULT_META_IMAGE_URL_PATH = '/sy-share-image.jpg';
 const RSS_URL = 'https://satellytes.com/blog/rss.xml';
-const RSS_TITLE = 'Satellytes Blog - RSS Feed';
+const RSS_TITLE = 'Satellytes Blog';
 
 interface SeoProps {
   title: string;
