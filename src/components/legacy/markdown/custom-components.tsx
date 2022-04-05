@@ -44,7 +44,7 @@ const OrderedList = styled.ol<{ doubleDigit: boolean }>`
   }
 `;
 
-const SimpleLink = styled(Link)`
+const MarkdownLink = styled(Link)`
   display: inline-block;
   color: ${theme.palette.text.link.default};
 
@@ -125,9 +125,9 @@ const customSatellytesComponents = {
   },
   a(props) {
     return (
-      <SimpleLink {...props} to={props.href}>
+      <MarkdownLink {...props} to={props.href}>
         {props.children}
-      </SimpleLink>
+      </MarkdownLink>
     );
   },
   // define our lovely headlines from h1 to h6
