@@ -13,6 +13,10 @@ interface SectionHeaderProps {
    */
   headline: string;
   /**
+   * html tag as which the headline will be rendered
+   */
+  as?: any;
+  /**
    * The actual text content
    */
   children?: React.ReactNode;
@@ -50,7 +54,7 @@ export const SectionHeader = (props: SectionHeaderProps) => {
   return (
     <div className={props.className}>
       {props.kicker && <KickerStyled>{props.kicker}</KickerStyled>}
-      <HeadlineStyled>{props.headline}</HeadlineStyled>
+      <HeadlineStyled as={props.as}>{props.headline}</HeadlineStyled>
       <ContentStyled>{props.children}</ContentStyled>
     </div>
   );

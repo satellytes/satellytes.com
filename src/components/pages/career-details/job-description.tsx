@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { TextTitle } from '../../legacy/typography';
 import { up } from '../../support/breakpoint';
 import { SyPersonioJobSection } from '../../../types';
+import { TextStyles } from '../../typography';
 
-export const SectionHeadline = styled(TextTitle)`
+export const SectionHeadline = styled.h2`
+  ${TextStyles.headlineM}
+
   margin-top: 40px;
   margin-bottom: 16px;
 
@@ -51,7 +53,7 @@ export const JobDescription = ({ sections }: JobDescriptionProps) => {
       {sections?.map(({ headline, descriptionHtml }, index) => {
         return (
           <div key={index}>
-            <SectionHeadline>{headline}</SectionHeadline>
+            <SectionHeadline as={'h2'}>{headline}</SectionHeadline>
             <PersonioHtml
               dangerouslySetInnerHTML={{ __html: descriptionHtml }}
             />

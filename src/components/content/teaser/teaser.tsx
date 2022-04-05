@@ -65,7 +65,7 @@ const TeaserText = styled.div`
   margin: 0;
 `;
 
-const StyledTeaserTitle = styled.p<{
+const StyledTeaserTitle = styled.h3<{
   large: boolean;
   hasTopline: boolean;
 }>`
