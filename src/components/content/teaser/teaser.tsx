@@ -90,6 +90,11 @@ export interface TeaserProps {
    */
   title: string;
   /**
+   * html tag, as which the teaser title will be rendered
+   * @default "h3"
+   */
+  as?: any;
+  /**
    * A topline/kicker which can be added
    */
   topline?: string;
@@ -139,6 +144,7 @@ export const Teaser = ({
   topline,
   language,
   title,
+  as,
   dateFormatted,
   image,
   linkTo,
@@ -175,6 +181,7 @@ export const Teaser = ({
           </ToplineContainer>
         )}
         <StyledTeaserTitle
+          as={as}
           large={!(image || illustration)}
           hasTopline={hasToplineContainer}
         >

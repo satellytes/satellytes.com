@@ -14,6 +14,7 @@ interface SectionHeaderProps {
   headline: string;
   /**
    * html tag as which the headline will be rendered
+   * @default "h2"
    */
   as?: any;
   /**
