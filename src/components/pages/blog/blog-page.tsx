@@ -35,9 +35,8 @@ export const BlogPage = ({ posts }: BlogPageProps) => {
 
           {language != 'en' && <NotAvailableInGerman />}
         </SectionHeader>
-        <BlogSharePanel />
       </ContentBlockContainer>
-
+      {language == 'en' && <BlogSharePanel />}
       {language == 'en' && <Posts posts={posts} />}
     </Layout>
   );
