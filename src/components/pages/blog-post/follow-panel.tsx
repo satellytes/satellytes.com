@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { up } from '../../support/breakpoint';
 import { isBrowser } from '../../support/is-browser';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { theme } from '../../layout/theme';
 import { Icon } from '../../ui/icon/icon';
 import { Link } from '../../legacy/links/links';
 
@@ -14,7 +13,7 @@ export interface ShareProps {
 }
 
 const FollowPanelContainer = styled.div`
-  color: ${theme.palette.text.header.light};
+  color: ${({ theme }) => theme.palette.text.header.light};
   margin-top: 48px;
   font-weight: bold;
   font-size: 16px;
@@ -29,13 +28,13 @@ export const PanelText = styled.p`
   font-weight: bold;
   font-size: 16px;
 
-  color: ${theme.palette.text.default};
+  color: ${({ theme }) => theme.palette.text.default};
 `;
 
 const SocialLinks = styled.ul`
   all: unset;
   order: 2;
-  color: ${theme.palette.text.link.default};
+  color: ${({ theme }) => theme.palette.text.link.default};
 
   ${up('md')} {
     order: 1;
