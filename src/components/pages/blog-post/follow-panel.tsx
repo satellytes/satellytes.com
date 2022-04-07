@@ -3,9 +3,8 @@ import styled from 'styled-components';
 import { up } from '../../support/breakpoint';
 import { isBrowser } from '../../support/is-browser';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { SimpleLink } from '../../legacy/markdown/custom-components';
-import { theme } from '../../layout/theme';
 import { Icon } from '../../ui/icon/icon';
+import { Link } from '../../legacy/links/links';
 
 const RSS_FEED_URL = '/blog/rss.xml';
 
@@ -14,7 +13,7 @@ interface FollowProps {
 }
 
 const FollowPanelContainer = styled.div`
-  color: ${theme.palette.text.header.light};
+  color: ${({ theme }) => theme.palette.text.header.light};
   margin-top: 48px;
   font-weight: bold;
   font-size: 16px;
@@ -29,12 +28,13 @@ export const PanelText = styled.p`
   font-weight: bold;
   font-size: 16px;
 
-  color: ${theme.palette.text.default};
+  color: ${({ theme }) => theme.palette.text.default};
 `;
 
 const SocialLinks = styled.ul`
   all: unset;
   order: 2;
+  color: ${({ theme }) => theme.palette.text.link.default};
 
   ${up('md')} {
     order: 1;
@@ -67,9 +67,9 @@ export const FollowPanel = ({ className }: FollowProps) => {
       <PanelText>{t('blog.follow')}</PanelText>
       <SocialLinks>
         <SocialLinkItem data-testid="rss-feed">
-          <SimpleLink href={rssUrl}>
+          <Link to={rssUrl}>
             <Icon show="rss" />
-          </SimpleLink>
+          </Link>
         </SocialLinkItem>
       </SocialLinks>
     </FollowPanelContainer>

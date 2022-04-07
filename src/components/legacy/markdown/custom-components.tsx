@@ -6,6 +6,7 @@ import { theme } from '../../layout/theme';
 import { CodeBlock } from './code-block';
 import { TextStyles } from '../../typography';
 import { Quote } from '../../ui/quote/quote';
+import { Link } from '../links/links';
 import { WithAnchorHOC } from '../../layout/with-anchor-hoc';
 
 /**
@@ -44,7 +45,7 @@ const OrderedList = styled.ol<{ doubleDigit: boolean }>`
   }
 `;
 
-export const SimpleLink = styled.a`
+const MarkdownLink = styled(Link)`
   display: inline-block;
   color: ${theme.palette.text.link.default};
 
@@ -134,7 +135,11 @@ const customSatellytesComponents = {
     return <DetailsStyled {...props}>{props.children}</DetailsStyled>;
   },
   a(props) {
-    return <SimpleLink {...props}>{props.children}</SimpleLink>;
+    return (
+      <MarkdownLink {...props} to={props.href}>
+        {props.children}
+      </MarkdownLink>
+    );
   },
   // define our lovely headlines from h1 to h6
   h1(props) {
