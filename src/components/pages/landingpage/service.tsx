@@ -26,21 +26,21 @@ export const Service = () => {
       <TeaserGrid>
         <Teaser
           title={t('services.platform.title')}
-          linkTo="/services"
+          linkTo="/services#digital-platforms"
           illustration="monitor_024"
         >
           {t('services.platform.teaser')}
         </Teaser>
         <Teaser
           title={t('services.products_services.title')}
-          linkTo="/services"
+          linkTo="/services#products--services"
           illustration="book_038"
         >
           {t('services.products_services.teaser')}
         </Teaser>
         <Teaser
           title={t('services.consulting.title')}
-          linkTo="/services"
+          linkTo="/services#consultation"
           illustration="scientist_042"
         >
           {t('services.consulting.teaser')}
