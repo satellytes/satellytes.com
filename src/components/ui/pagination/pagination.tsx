@@ -9,9 +9,10 @@ import { Icon } from '../icon/icon';
 interface PaginationProps {
   onPreviousClick: () => any;
   onNextClick: () => any;
-  onDropdownSelect: (selectedPage: number) => any;
+  onDropdownSelect?: (selectedPage: number) => any;
   amountOfPages: number;
   currentPage: number;
+  className?: string;
 }
 
 const PaginationContainer = styled.div`
@@ -22,6 +23,7 @@ const PaginationContainer = styled.div`
 `;
 
 const PaginationDropdown = styled(Dropdown)`
+  border: none !important;
   ${TextStyles.toplineR}
   color: ${theme.palette.text.link.default};
   cursor: pointer;
@@ -46,43 +48,53 @@ const StyledButton = styled.button`
   }
 `;
 
+const PageText = styled.span`
+  ${TextStyles.toplineR}
+  color: ${({ theme }) => theme.palette.text.topline};
+`;
+
 export const Pagination = ({
   onPreviousClick,
   onNextClick,
   amountOfPages,
   onDropdownSelect,
   currentPage,
+  className,
 }: PaginationProps): JSX.Element => {
   const { t } = useTranslation();
 
   const options = new Array(amountOfPages)
     .fill(null)
     .map((_, index) => (
-      <DropdownOption key={index} value={index.toString()}>{`${t(
+      <DropdownOption key={index} value={(index + 1).toString()}>{`${t(
         'blog.pagination',
       )} ${index + 1}`}</DropdownOption>
     ));
 
   const handleDropdownChange = (selectedOption) => {
     const selectedPage = parseInt(selectedOption);
-    onDropdownSelect(selectedPage);
+    onDropdownSelect?.(selectedPage);
   };
 
   return (
-    <PaginationContainer>
-      <StyledButton onClick={onPreviousClick} disabled={currentPage === 0}>
+    <PaginationContainer className={className}>
+      <StyledButton onClick={onPreviousClick} disabled={currentPage === 1}>
         <Icon show={'arrow_left'} />
       </StyledButton>
-      <PaginationDropdown
-        onChange={handleDropdownChange}
-        value={currentPage.toString()}
-        arrow={<Icon show={'chevron_down'} />}
-      >
-        {options}
-      </PaginationDropdown>
+      {onDropdownSelect ? (
+        <PaginationDropdown
+          onChange={handleDropdownChange}
+          value={currentPage.toString()}
+          arrow={<Icon show={'chevron_down'} />}
+        >
+          {options}
+        </PaginationDropdown>
+      ) : (
+        <PageText>{`Page ${currentPage} of ${amountOfPages}`}</PageText>
+      )}
       <StyledButton
         onClick={onNextClick}
-        disabled={currentPage + 1 === amountOfPages}
+        disabled={currentPage === amountOfPages}
       >
         <Icon show={'arrow_right'} />
       </StyledButton>

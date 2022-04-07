@@ -308,7 +308,7 @@ const gatsbyConfig: GatsbyConfig = {
             getLanguageFromPath: true,
           },
           {
-            matchPath: '/blog/:title/',
+            matchPath: '/blog/post/:title/',
             languages: [DEFAULT_LANGUAGE],
           },
         ],

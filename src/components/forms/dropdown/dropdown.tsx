@@ -18,6 +18,10 @@ const StyledListboxPopover = styled(ListboxPopover)`
 
 const StyledListboxButton = styled(ListboxButton)`
   border: none;
+
+  [data-expanded] {
+    transform: rotate(180deg);
+  }
 `;
 
 export const Dropdown = ({
