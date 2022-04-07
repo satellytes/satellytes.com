@@ -43,6 +43,7 @@ const BlogArticleTemplate = ({
         siteType="article"
         description={seoMetaText}
         location={location}
+        rssLink
       />
 
       <BlogPostPage

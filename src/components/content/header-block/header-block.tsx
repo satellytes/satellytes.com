@@ -46,7 +46,7 @@ const Topline = styled.p`
   margin: 0;
 `;
 
-const Headline = styled.p<LargeProps>`
+const Headline = styled.h2<LargeProps>`
   ${TextStyles.headlineL}
   letter-spacing: -0.01em;
   color: #202840;
