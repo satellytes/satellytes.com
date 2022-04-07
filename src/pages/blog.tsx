@@ -29,7 +29,7 @@ const Blog = ({ data, location }: PageProps<BlogPageQueryProps>) => {
 
   return (
     <>
-      <SEO title="Blog | Satellytes" location={location} />
+      <SEO title="Blog | Satellytes" location={location} rssLink />
       <BlogPage posts={blogPosts} />
     </>
   );

@@ -8,8 +8,8 @@ import { Link } from '../../legacy/links/links';
 
 const RSS_FEED_URL = '/blog/rss.xml';
 
-export interface ShareProps {
-  title: string;
+interface FollowProps {
+  className?: string;
 }
 
 const FollowPanelContainer = styled.div`
@@ -51,7 +51,7 @@ const SocialLinkItem = styled.li`
   }
 `;
 
-export const FollowPanel: React.FC = () => {
+export const FollowPanel = ({ className }: FollowProps) => {
   const [rssUrl, setRssUrl] = useState('');
   const { t } = useTranslation();
 
@@ -63,7 +63,7 @@ export const FollowPanel: React.FC = () => {
   });
 
   return (
-    <FollowPanelContainer>
+    <FollowPanelContainer className={className}>
       <PanelText>{t('blog.follow')}</PanelText>
       <SocialLinks>
         <SocialLinkItem data-testid="rss-feed">

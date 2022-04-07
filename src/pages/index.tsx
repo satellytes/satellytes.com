@@ -35,7 +35,7 @@ const IndexPage = (props: PageProps<IndexPageQueryProps>) => {
 
   return (
     <>
-      <SEO title="Satellytes" location={props.location} />
+      <SEO title="Satellytes" location={props.location} rssLink />
 
       <StructuredOrganizationData />
 

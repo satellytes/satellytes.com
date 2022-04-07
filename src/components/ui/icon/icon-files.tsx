@@ -1,4 +1,5 @@
 export { ReactComponent as theme_switch } from '../../../assets/icons/theme-switch-24.svg';
+export { ReactComponent as anchor } from '../../../assets/icons/anchor-24.svg';
 export { ReactComponent as checkmark_bold } from '../../../assets/icons/checkmark-bold-24.svg';
 export { ReactComponent as chevron_down } from '../../../assets/icons/chevron-down-24.svg';
 export { ReactComponent as chevron_left } from '../../../assets/icons/chevron-left-24.svg';
