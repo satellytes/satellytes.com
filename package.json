@@ -72,7 +72,7 @@
     "gatsby-transformer-remark": "^5.10.1",
     "gatsby-transformer-sharp": "^4.10.0",
     "html-entities": "^2.3.2",
-    "i18next": "^21.6.6",
+    "i18next": "^21.6.15",
     "leaflet": "^1.7.1",
     "modern-normalize": "1.1.0",
     "polished": "^4.2.1",
