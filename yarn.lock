@@ -9852,10 +9852,10 @@ gatsby-plugin-smoothscroll@^1.2.0:
   dependencies:
     smoothscroll-polyfill "^0.4.4"
 
-gatsby-plugin-styled-components@^5.9.0:
-  version "5.10.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-styled-components/-/gatsby-plugin-styled-components-5.10.0.tgz#2f4d87bf161da421795464e8c12accc5e21a504e"
-  integrity sha512-aEycuqIecQK/lATy75sJoNkfy2pEZ12yPRlg9iTrPCZKUHQImbLIp9J9YzxMjxkH6XB3pbf2Ug31XaGVntJUVQ==
+gatsby-plugin-styled-components@^5.11.0:
+  version "5.11.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-styled-components/-/gatsby-plugin-styled-components-5.11.0.tgz#46c17daed71381895c00806e4f9f4f7a4637dfdc"
+  integrity sha512-DkbF6sh+JJJc66PZBvaxOWzf3mHFQ5YQKtgnfBZZ8V1WdlXTEVqHyg4evRDjDVAIFQyp6SHnyduKsJN3rtjCSw==
   dependencies:
     "@babel/runtime" "^7.15.4"
 
