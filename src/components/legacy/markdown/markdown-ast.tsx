@@ -14,9 +14,8 @@ import customSatellytesComponents from './custom-components';
  * > Oh my gosh. What is gatsby suggesting there?!
  * > The types here are correct. The example in the readme here is correct. What gatsby is suggesting there is really weird.
  */
-
 const customAstRenderer = unified().use(rehypeReact, {
-  createElement,
+  createElement: createElement as any,
   components: customSatellytesComponents,
 });
 
