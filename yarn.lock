@@ -1186,12 +1186,12 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@contentful/rich-text-html-renderer@^15.11.1":
-  version "15.11.1"
-  resolved "https://registry.yarnpkg.com/@contentful/rich-text-html-renderer/-/rich-text-html-renderer-15.11.1.tgz#aff08f8bd1a6a8a767e3bf3e6f5d16a52f6959fe"
-  integrity sha512-DkvApk+spkxECmosGoA8Rmznv59Kmu633Ngm4QnIAt3yTF/Q6nox6/+v4Gv9YAwjYpw/01rXGFIUaP2p7m1fJA==
+"@contentful/rich-text-html-renderer@^15.12.0":
+  version "15.12.0"
+  resolved "https://registry.yarnpkg.com/@contentful/rich-text-html-renderer/-/rich-text-html-renderer-15.12.0.tgz#17b5eacde99ad1505f535bf2ae960f53c51658ce"
+  integrity sha512-EAn75nMsO4bKI5cgAyyrtfV1/snHhvP7JHKLOepkn2GNO906ODLiXPVTsMFpyTcZEx6WOichQZQkK7peNBuPPQ==
   dependencies:
-    "@contentful/rich-text-types" "^15.11.1"
+    "@contentful/rich-text-types" "^15.12.0"
     escape-html "^1.0.3"
 
 "@contentful/rich-text-plain-text-renderer@^15.12.0":
@@ -1213,7 +1213,7 @@
   resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-14.1.2.tgz#33162fdbf427891122a96030f806ca9a9cf0e844"
   integrity sha512-XbgZ7op5uyYYszipgQg/bYobF4b+llXyTwS8hISRniQY9xKESz544eP2OGmRc4J3MHx29M7Vmx7TVA/IK65giQ==
 
-"@contentful/rich-text-types@^15.11.1", "@contentful/rich-text-types@^15.12.0":
+"@contentful/rich-text-types@^15.12.0":
   version "15.12.0"
   resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-15.12.0.tgz#25d51e4c6d353286662c53e038052c999d5c01d0"
   integrity sha512-PgpNu9X+TteL2P9jNi3nUMvQk/y6fyeFdN18/P1hL8HX5iezFZGskaYNu5rlog4O9yc93XrWfWYfXbuBTE91Kg==
