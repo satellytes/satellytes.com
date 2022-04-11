@@ -15,6 +15,10 @@ import customSatellytesComponents from './custom-components';
  * > The types here are correct. The example in the readme here is correct. What gatsby is suggesting there is really weird.
  */
 const customAstRenderer = unified().use(rehypeReact, {
+  /**
+   * Due to types with React 18 we need to cast it to `any`. This can probably
+   * be removed in the future.
+   */
   createElement: createElement as any,
   components: customSatellytesComponents,
 });
