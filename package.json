@@ -89,7 +89,7 @@
     "react-spring": "^9.4.4",
     "react-use": "^17.3.2",
     "rehype-react": "^7.0.4",
-    "sass": "^1.49.0",
+    "sass": "^1.50.0",
     "schema-dts": "^1.1.0",
     "slugify": "^1.6.5",
     "striptags": "^3.2.0",
