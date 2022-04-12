@@ -5,7 +5,6 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { CareerDetails } from '../components/pages/career-details/career-details';
 import { SyPersonioJob } from '../types';
 import { CareerDetailsStructuredData } from '../components/pages/career-details/career-details-structured-data';
-import { getImage } from 'gatsby-plugin-image';
 
 interface CareerPageProps {
   pageContext: {
