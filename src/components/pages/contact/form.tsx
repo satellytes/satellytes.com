@@ -57,7 +57,7 @@ export const Form = ({ onSuccess }: { onSuccess: () => any }) => {
     control,
     formState: { isValid, isSubmitted },
   } = useForm<FormData>({
-    mode: 'onSubmit',
+    mode: 'onTouched',
   });
   const { t } = useTranslation();
   const [requestStatus, setRequestStatus] = useState<RequestStatus>('pending');
