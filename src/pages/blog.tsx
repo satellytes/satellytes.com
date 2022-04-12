@@ -2,6 +2,7 @@ import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import SEO from '../components/layout/seo';
 import { BlogPage } from '../components/pages/blog/blog-page';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 interface AllBlogPostsQuery {
   nodes: {
@@ -9,9 +10,7 @@ interface AllBlogPostsQuery {
       path: string;
     };
     heroImage: {
-      image: {
-        publicUrl: string;
-      };
+      image: IGatsbyImageData;
     };
     id: string;
     publicationDate: string;

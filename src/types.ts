@@ -9,7 +9,7 @@ export interface BlogPostTeaser {
     path: string;
   };
   heroImage: {
-    image: any;
+    image: IGatsbyImageData;
   };
   id: string;
   publicationDate: string;
@@ -38,21 +38,17 @@ export interface SyPersonioJob {
   sections: SyPersonioJobSection[];
 
   // added via `onCreateNode`
-  socialCardFile: PlainFixedImageSharpSource;
+  socialCardFile: {
+    childImageSharp: {
+      gatsbyImageData: IGatsbyImageData;
+    };
+  };
 }
 
 export interface SyTeamMember {
   id: string;
   name: string;
   image: IGatsbyImageData;
-}
-
-export interface PlainFixedImageSharpSource {
-  childImageSharp: {
-    fixed: {
-      src: string;
-    };
-  };
 }
 
 export interface ContentFulBlogPostAuthor {
