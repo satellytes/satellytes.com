@@ -5,6 +5,7 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { CareerDetails } from '../components/pages/career-details/career-details';
 import { SyPersonioJob } from '../types';
 import { CareerDetailsStructuredData } from '../components/pages/career-details/career-details-structured-data';
+import { getImage } from 'gatsby-plugin-image';
 
 interface CareerPageProps {
   pageContext: {
@@ -24,7 +25,9 @@ interface CareerPageProps {
 const CareerPage = (props: CareerPageProps): JSX.Element => {
   const { pageContext } = props;
   const position = props.data.syPersonioJob;
-  const socialCardPath = position.socialCardFile.childImageSharp.fixed.src;
+  const socialCardPath =
+    position.socialCardFile.childImageSharp.gatsbyImageData.images.fallback
+      ?.src;
   const { t } = useTranslation();
 
   return (
@@ -70,9 +73,7 @@ export const CareerDetailsPageQuery = graphql`
       }
       socialCardFile {
         childImageSharp {
-          fixed(width: 1440, height: 760) {
-            src
-          }
+          gatsbyImageData(width: 1440, height: 760)
         }
       }
     }

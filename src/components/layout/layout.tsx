@@ -4,7 +4,6 @@ import Navigation from './navigation/navigation';
 import { HEADER_HEIGHT_VALUE, theme } from './theme';
 import styled, { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './global-style';
-import { FluidObject } from 'gatsby-image';
 import {
   Leadbox,
   LeadboxFooterContainer,
@@ -75,7 +74,6 @@ const BreadcrumbContainer = styled.div<{ hero: boolean }>`
 
 interface LayoutProps {
   transparentHeader?: boolean;
-  heroImage?: FluidObject | string;
   siteTitleUrl?: string;
   light?: boolean;
   hero?: ReactNode;
