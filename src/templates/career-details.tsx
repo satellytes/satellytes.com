@@ -24,7 +24,9 @@ interface CareerPageProps {
 const CareerPage = (props: CareerPageProps): JSX.Element => {
   const { pageContext } = props;
   const position = props.data.syPersonioJob;
-  const socialCardPath = position.socialCardFile.childImageSharp.fixed.src;
+  const socialCardPath =
+    position.socialCardFile.childImageSharp.gatsbyImageData.images.fallback
+      ?.src;
   const { t } = useTranslation();
 
   return (
@@ -70,9 +72,7 @@ export const CareerDetailsPageQuery = graphql`
       }
       socialCardFile {
         childImageSharp {
-          fixed(width: 1440, height: 760) {
-            src
-          }
+          gatsbyImageData(width: 1440, height: 760)
         }
       }
     }
