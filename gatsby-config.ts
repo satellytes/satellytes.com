@@ -272,6 +272,11 @@ const gatsbyConfig: GatsbyConfig = {
     },
     {
       resolve: `gatsby-plugin-gatsby-cloud`,
+      options: {
+        headers: {
+          '/fonts/*': ['Cache-Control: public, max-age=31536000, immutable'],
+        },
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
