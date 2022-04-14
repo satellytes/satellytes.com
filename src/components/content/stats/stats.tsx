@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { theme } from '../../layout/theme';
-import { up } from '../../support/breakpoint';
+import { down, up } from '../../support/breakpoint';
 import { TextStyles } from '../../typography';
 
 interface StatProps {
@@ -9,39 +8,35 @@ interface StatProps {
   content: string;
 }
 
-const Wrapper = styled.div`
-  display: inline-block;
-`;
-
-const Title = styled.div`
+const Title = styled.dt`
   ${TextStyles.toplineR}
-  color: ${theme.palette.text.topline};
-  margin-bottom: 12px;
+  color: ${({ theme }) => theme.palette.text.topline};
 `;
 
-const Content = styled.div`
+const Content = styled.dd`
   ${TextStyles.headlineM}
+  margin: 0;
 `;
 
-const StatsWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
+const StatsWrapper = styled.dl`
+  display: grid;
+  gap: 12px;
 
   margin-top: 48px;
   margin-bottom: 80px;
 
   ${up('sm')} {
-    flex-direction: row;
+    grid-auto-flow: column;
+    grid-template-rows: 1fr 1fr;
   }
 `;
 
 export const StatItem = ({ title, content }: StatProps) => {
   return (
-    <Wrapper>
+    <>
       <Title>{title}</Title>
       <Content>{content}</Content>
-    </Wrapper>
+    </>
   );
 };
 
