@@ -34,6 +34,7 @@ enum ContentfulCustomModel {
   CONTENTFUL_FOOTNOTE = 'ContentfulFootnote',
   CONTENTFUL_CODE_BLOCK = 'ContentfulCodeBlock',
   CONTENTFUL_BLOG_POST_COLLAPSIBLE = 'ContentfulBlogPostCollapsible',
+  CONTENTFUL_STATS = 'ContentfulStats',
 }
 
 enum EmbeddedAssetType {
@@ -196,6 +197,15 @@ const customContentfulRenderer = (
                 <summary key="summary">{summary}</summary>,
                 renderRichText(content, contentfulRenderOptions),
               ],
+            });
+          }
+          /**
+           * Blog Post Stats
+           */
+          case ContentfulCustomModel.CONTENTFUL_STATS: {
+            const { statItems } = node.data.target;
+            return customComponents.stats({
+              statItems: statItems,
             });
           }
           /**

@@ -8,6 +8,7 @@ import { TextStyles } from '../../typography';
 import { Quote } from '../../ui/quote/quote';
 import { Link } from '../links/links';
 import { WithAnchorHOC } from '../../layout/with-anchor-hoc';
+import { StatItem, Stats } from '../../content/stats/stats';
 
 /**
  * Override markdown generated html content with custom React components (for us mostly to pass in custom styling)
@@ -228,6 +229,20 @@ const customSatellytesComponents = {
   figcaption(props) {
     const { children, ...rest } = props;
     return <Figcaption {...rest}>{children}</Figcaption>;
+  },
+  stats(props) {
+    const { statItems } = props;
+    return (
+      <Stats>
+        {statItems.map((item, index) => (
+          <StatItem
+            key={item.label + index}
+            title={item.label}
+            content={item.value}
+          />
+        ))}
+      </Stats>
+    );
   },
 };
 

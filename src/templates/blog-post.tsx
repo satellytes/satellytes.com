@@ -114,6 +114,15 @@ export const BlogPostPageQuery = graphql`
             }
           }
 
+          ... on ContentfulStats {
+            contentful_id
+            __typename
+            statItems {
+              label
+              value
+            }
+          }
+
           ... on ContentfulBlogPostCollapsible {
             contentful_id
             __typename
