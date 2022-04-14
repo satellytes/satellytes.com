@@ -28,6 +28,9 @@ const StatsWrapper = styled.div`
   flex-direction: column;
   gap: 48px;
 
+  margin-top: 48px;
+  margin-bottom: 80px;
+
   ${up('sm')} {
     flex-direction: row;
   }
