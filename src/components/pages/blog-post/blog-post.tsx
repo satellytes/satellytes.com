@@ -24,6 +24,7 @@ import FollowPanel from './follow-panel';
 import SharePanel from './share-panel';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
+import { StatItem, Stats } from '../../content/stats/stats';
 
 interface ContentfulFootnoteReference
   extends ContentfulRichTextGatsbyReference {
@@ -204,9 +205,17 @@ const customContentfulRenderer = (
            */
           case ContentfulCustomModel.CONTENTFUL_STATS: {
             const { statItems } = node.data.target;
-            return customComponents.stats({
-              statItems: statItems,
-            });
+            return (
+              <Stats>
+                {statItems.map((item, index) => (
+                  <StatItem
+                    key={item.label + index}
+                    title={item.label}
+                    content={item.value}
+                  />
+                ))}
+              </Stats>
+            );
           }
           /**
            * Log error to console if type is not yet implemented
