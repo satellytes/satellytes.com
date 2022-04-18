@@ -59,7 +59,7 @@
     "gatsby-plugin-sharp": "^4.11.1",
     "gatsby-plugin-sitemap": "^5.11.1",
     "gatsby-plugin-smoothscroll": "^1.2.0",
-    "gatsby-plugin-styled-components": "^5.11.0",
+    "gatsby-plugin-styled-components": "^5.12.1",
     "gatsby-plugin-svgr": "^3.0.0-beta.0",
     "gatsby-remark-copy-linked-files": "^5.11.0",
     "gatsby-remark-external-links": "^0.0.4",
