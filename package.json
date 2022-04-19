@@ -49,7 +49,7 @@
     "gatsby-plugin-catch-links": "^4.12.1",
     "gatsby-plugin-feed": "^4.11.1",
     "gatsby-plugin-gatsby-cloud": "^4.11.1",
-    "gatsby-plugin-image": "^2.11.1",
+    "gatsby-plugin-image": "^2.12.1",
     "gatsby-plugin-manifest": "^4.11.1",
     "gatsby-plugin-react-helmet": "^5.12.1",
     "gatsby-plugin-react-i18next": "^1.2.3",
