@@ -58,7 +58,6 @@ const MapWrapper = styled.div`
 `;
 
 export const Leaflet = () => {
-  const [mapInstance, setMapInstance] = useState(null);
   const [isBrowser, setIsBrowser] = useState(false);
 
   useEffect(() => {
@@ -72,7 +71,6 @@ export const Leaflet = () => {
 
   const MapView = (
     <MapContainerWithHeight
-      whenCreated={setMapInstance as any}
       zoomControl={false}
       center={OFFICE_COORDINATES}
       zoom={MAP_VIEW_ZOOM}
@@ -112,6 +110,17 @@ export const Leaflet = () => {
         pathOptions={{ color: '#668CFF', opacity: 0.2 }}
         radius={170}
       />
+
+      <BringMeHome center={OFFICE_COORDINATES} zoom={MAP_VIEW_ZOOM}>
+        Lost?{' '}
+        <span
+          role={'img'}
+          aria-label={"see no evil monkey emoji, because it's embarassing"}
+        >
+          🙈
+        </span>{' '}
+        Click here.
+      </BringMeHome>
     </MapContainerWithHeight>
   );
 
@@ -124,22 +133,6 @@ export const Leaflet = () => {
         />
       </Helmet>
       {MapView}
-      {mapInstance ? (
-        <BringMeHome
-          center={OFFICE_COORDINATES}
-          zoom={MAP_VIEW_ZOOM}
-          map={mapInstance}
-        >
-          Lost?{' '}
-          <span
-            role={'img'}
-            aria-label={"see no evil monkey emoji, because it's embarassing"}
-          >
-            🙈
-          </span>{' '}
-          Click here.
-        </BringMeHome>
-      ) : null}
     </MapWrapper>
   );
 };
