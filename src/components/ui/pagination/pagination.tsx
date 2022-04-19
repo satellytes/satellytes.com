@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { theme } from '../../layout/theme';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { TextStyles } from '../../typography';
@@ -29,7 +29,7 @@ const PaginationDropdown = styled(Dropdown)`
   cursor: pointer;
 `;
 
-const StyledButton = styled.button`
+const StyledLink = styled.a<{ disabled: boolean }>`
   padding: 8px;
   border: none;
   background: linear-gradient(275.41deg, #543fd7 0%, #2756fd 100%);
@@ -38,12 +38,14 @@ const StyledButton = styled.button`
   display: flex;
   color: white;
 
-  &:disabled {
-    opacity: 50%;
-    cursor: default;
-  }
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      opacity: 50%;
+      cursor: default;
+    `}
 
-  &:hover:enabled {
+  &:hover {
     background: ${theme.palette.text.link.default};
   }
 `;
@@ -78,9 +80,13 @@ export const Pagination = ({
 
   return (
     <PaginationContainer className={className}>
-      <StyledButton onClick={onPreviousClick} disabled={currentPage === 1}>
+      <StyledLink
+        onClick={onPreviousClick}
+        disabled={currentPage === 1}
+        aria-label="Next Page"
+      >
         <Icon show={'arrow_left'} />
-      </StyledButton>
+      </StyledLink>
       {onDropdownSelect ? (
         <PaginationDropdown
           onChange={handleDropdownChange}
@@ -92,12 +98,13 @@ export const Pagination = ({
       ) : (
         <PageText>{`Page ${currentPage} of ${amountOfPages}`}</PageText>
       )}
-      <StyledButton
+      <StyledLink
         onClick={onNextClick}
         disabled={currentPage === amountOfPages}
+        aria-label="Previous Page"
       >
         <Icon show={'arrow_right'} />
-      </StyledButton>
+      </StyledLink>
     </PaginationContainer>
   );
 };
