@@ -9721,10 +9721,10 @@ gatsby-plugin-canonical-urls@^4.11.0:
   dependencies:
     "@babel/runtime" "^7.15.4"
 
-gatsby-plugin-catch-links@^4.11.0:
-  version "4.11.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-catch-links/-/gatsby-plugin-catch-links-4.11.0.tgz#14b309760a1e8754cd6c875f08e58927e3dab872"
-  integrity sha512-IaIoUnI+Z+b1e2lxbVEjjw7X6LPGLPuDxVxVbpa1L8WqOOOVuXeFGtank2VNcWYw8n3I8gQgWmaTAwzR52Tilg==
+gatsby-plugin-catch-links@^4.12.1:
+  version "4.12.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-catch-links/-/gatsby-plugin-catch-links-4.12.1.tgz#568d96c9fb9752d6fee6e26904f4b91a96576ee0"
+  integrity sha512-xTf909I+eIXuPzpvLaan90NGT8Tb+TihsvPxqeFyS7s8oqNm/E9jgqfbU6HNFAqRypGauy8P+MVGUBoRS7jwUQ==
   dependencies:
     "@babel/runtime" "^7.15.4"
     escape-string-regexp "^1.0.5"
