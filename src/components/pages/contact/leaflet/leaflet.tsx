@@ -4,17 +4,23 @@ import {
   MapContainer,
   Marker,
   TileLayer,
+  useMap,
   ZoomControl,
 } from 'react-leaflet';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { LatLngExpression } from 'leaflet';
 import { up } from '../../../support/breakpoint';
-
 import { BringMeHome } from './bring-home';
 import { SatellytesMarkerIcon } from './sy-marker';
 import { theme } from '../../../layout/theme';
 import { Helmet } from 'react-helmet';
+
+import 'leaflet/dist/leaflet.css';
+import 'leaflet-gesture-handling/dist/leaflet-gesture-handling.css';
+import * as L from 'leaflet';
+import { GestureHandling } from 'leaflet-gesture-handling';
+
 const MAP_VIEW_ZOOM = 14;
 
 const OFFICE_COORDINATES: LatLngExpression = [48.13479, 11.56839];
@@ -57,13 +63,23 @@ const MapWrapper = styled.div`
   position: relative;
 `;
 
+const EnableGestureHandling = () => {
+  /**
+   * leaflet-gesture-handling does not add gestureHandling to the types
+   * but map.gestureHandling exists and works
+   */
+  const map = useMap() as any;
+  map.gestureHandling.enable();
+  L.Map.addInitHook('addHandler', 'gestureHandling', GestureHandling);
+  return null;
+};
+
 export const Leaflet = () => {
   const [isBrowser, setIsBrowser] = useState(false);
 
   useEffect(() => {
     setIsBrowser(true);
   });
-
   // we don't want to render leaflet outside of the browser (SSR)
   if (!isBrowser) {
     return <MapPlaceholder />;
@@ -76,6 +92,9 @@ export const Leaflet = () => {
       zoom={MAP_VIEW_ZOOM}
       scrollWheelZoom={true}
     >
+      {/* Component with no content for the DOM, just to get access to useMap(), this has to be inside MapContainer */}
+      <EnableGestureHandling />
+
       {/*Introduce a LayerControl so we can offer multiple tile layers if people want to explore the city
       without the minimal skin (and if they are curious enough to find the layer toggle of course)*/}
       <LayersControl position="bottomright">
@@ -131,6 +150,12 @@ export const Leaflet = () => {
           rel="stylesheet"
           href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
         />
+        <link
+          rel="stylesheet"
+          href="//unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css"
+          type="text/css"
+        />
+        <script src="//unpkg.com/leaflet-gesture-handling"></script>
       </Helmet>
       {MapView}
     </MapWrapper>
