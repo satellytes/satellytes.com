@@ -4,7 +4,6 @@ import {
   MapContainer,
   Marker,
   TileLayer,
-  useMap,
   ZoomControl,
 } from 'react-leaflet';
 import React, { useEffect, useState } from 'react';
