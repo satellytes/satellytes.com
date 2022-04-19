@@ -73,6 +73,7 @@
     "html-entities": "^2.3.2",
     "i18next": "^21.6.16",
     "leaflet": "^1.8.0",
+    "leaflet-gesture-handling": "^1.2.2",
     "modern-normalize": "1.1.0",
     "polished": "^4.2.2",
     "prismjs": "^1.28.0",
