@@ -135,10 +135,7 @@ const REDIRECTS = [
  * some other external links still link to the old URL they will only get the 404
  * page. That is why we need to redirect the old links to the new ones.
  */
-export const createRedirects = async ({
-  actions,
-  graphql,
-}: CreatePagesArgs) => {
+export const createRedirects = async ({ actions }: CreatePagesArgs) => {
   const { createRedirect } = actions;
   /**
    * Our vanity url to access our gather office through satellytes.com/orion

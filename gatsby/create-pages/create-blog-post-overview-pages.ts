@@ -48,15 +48,15 @@ export const createBlogPostOverviewPages = async ({
 
   const posts = contentfulBlogPages.data.allContentfulBlogPost.nodes;
   const postsPerPage = 10;
-  const numPages = Math.ceil(posts.length / postsPerPage);
-  Array.from({ length: numPages }).forEach((_, i) => {
+  const numberOfPages = Math.ceil(posts.length / postsPerPage);
+  Array.from({ length: numberOfPages }).forEach((_, i) => {
     createPage<BlogOverviewPageContext>({
       path: i === 0 ? `/blog` : `/blog/page/${i + 1}`,
       component: BLOG_OVERVIEW_TEMPLATE_PATH,
       context: {
         limit: postsPerPage,
         skip: i * postsPerPage,
-        numPages,
+        numPages: numberOfPages,
         currentPage: i + 1,
       },
     });
