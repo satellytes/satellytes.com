@@ -1,3 +1,10 @@
+import * as L from 'leaflet';
+import { LatLngExpression } from 'leaflet';
+import { GestureHandling } from 'leaflet-gesture-handling';
+import 'leaflet-gesture-handling/dist/leaflet-gesture-handling.css';
+import 'leaflet/dist/leaflet.css';
+import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import {
   CircleMarker,
   LayersControl,
@@ -7,19 +14,11 @@ import {
   useMap,
   ZoomControl,
 } from 'react-leaflet';
-import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { LatLngExpression } from 'leaflet';
+import { theme } from '../../../layout/theme';
 import { up } from '../../../support/breakpoint';
 import { BringMeHome } from './bring-home';
 import { SatellytesMarkerIcon } from './sy-marker';
-import { theme } from '../../../layout/theme';
-import { Helmet } from 'react-helmet';
-
-import 'leaflet/dist/leaflet.css';
-import 'leaflet-gesture-handling/dist/leaflet-gesture-handling.css';
-import * as L from 'leaflet';
-import { GestureHandling } from 'leaflet-gesture-handling';
 
 const MAP_VIEW_ZOOM = 14;
 
