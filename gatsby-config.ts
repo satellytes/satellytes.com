@@ -42,6 +42,7 @@ const SEO_EXCLUDED_URLS = [
   '/de/404/',
   '/**/404.html',
   '/de/404.html',
+  '/blog/page/',
 ];
 
 const RSS_FEED_URL = '/blog/rss.xml';
