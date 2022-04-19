@@ -3,6 +3,7 @@ import { documentToPlainTextString } from '@contentful/rich-text-plain-text-rend
 import type { GatsbyNode } from 'gatsby';
 import { createFilePath } from 'gatsby-source-filesystem';
 import { createPreviewCards } from './gatsby/create-node/create-preview-cards';
+import { createBlogPostOverviewPages } from './gatsby/create-pages/create-blog-post-overview-pages';
 import { createBlogPosts } from './gatsby/create-pages/create-blog-posts';
 import { createCareerPages } from './gatsby/create-pages/create-career-pages';
 import { createRedirects } from './gatsby/create-pages/create-redirects';
@@ -47,7 +48,7 @@ export const onCreateNode: GatsbyNode<SatellytesNode>['onCreateNode'] = async (
     createNodeField({
       name: 'path',
       node,
-      value: `/blog/${node.slug}/`,
+      value: `/blog/post/${node.slug}/`,
     });
   }
 };
@@ -72,10 +73,10 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
     const { createTypes } = actions;
 
     const typeDefs = [
-      `type MarkdownRemark implements Node { 
+      `type MarkdownRemark implements Node {
         socialCardFile: File @link(from: "fields.socialCardFileId")
       }`,
-      `type SyPersonioJob implements Node { 
+      `type SyPersonioJob implements Node {
         socialCardFile: File @link(from: "fields.socialCardFileId")
       }`,
     ];
@@ -87,6 +88,7 @@ export const createPages: GatsbyNode['createPages'] = async (
   createPagesArgs,
 ) => {
   await createCareerPages(createPagesArgs);
+  await createBlogPostOverviewPages(createPagesArgs);
   await createBlogPosts(createPagesArgs);
 
   createRedirects(createPagesArgs);
