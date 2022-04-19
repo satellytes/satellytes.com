@@ -68,7 +68,7 @@
     "gatsby-source-contentful": "^7.10.1",
     "gatsby-source-filesystem": "^4.12.1",
     "gatsby-transformer-json": "^4.11.0",
-    "gatsby-transformer-remark": "^5.11.1",
+    "gatsby-transformer-remark": "^5.12.1",
     "gatsby-transformer-sharp": "^4.11.0",
     "html-entities": "^2.3.2",
     "i18next": "^21.6.16",
