@@ -127,7 +127,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
     "jsdom": "^19.0.0",
-    "lint-staged": "^12.3.7",
+    "lint-staged": "^12.3.8",
     "prettier": "^2.6.2",
     "serve": "^13.0.2",
     "storybook-addon-gatsby": "^0.0.5",
