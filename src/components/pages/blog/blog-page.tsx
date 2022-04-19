@@ -14,7 +14,7 @@ import { Posts } from './posts';
 interface BlogPageProps {
   posts: BlogPostTeaser[];
   pagination: {
-    numPages: number;
+    numberOfPages: number;
     currentPage: number;
   };
 }
@@ -32,7 +32,7 @@ export const BlogPage = ({ posts, pagination }: BlogPageProps) => {
   const { t } = useTranslation();
   const { language } = useI18next();
 
-  const { currentPage, numPages } = pagination;
+  const { currentPage, numberOfPages } = pagination;
 
   const BREADCRUMB = [
     { pathname: '/', label: 'Satellytes' },
@@ -58,7 +58,7 @@ export const BlogPage = ({ posts, pagination }: BlogPageProps) => {
           <BlogSharePanel />
           <Posts posts={posts} />
           <StyledPagination
-            amountOfPages={numPages}
+            amountOfPages={numberOfPages}
             currentPage={currentPage}
             onPreviousClick={onPreviousClick}
             onNextClick={onNextClick}

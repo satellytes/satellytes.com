@@ -8,7 +8,7 @@ const BLOG_OVERVIEW_TEMPLATE_PATH = path.resolve(
 export interface BlogOverviewPageContext {
   limit: number;
   skip: number;
-  numPages: number;
+  numberOfPages: number;
   currentPage: number;
 }
 
@@ -56,7 +56,7 @@ export const createBlogPostOverviewPages = async ({
       context: {
         limit: postsPerPage,
         skip: i * postsPerPage,
-        numPages: numberOfPages,
+        numberOfPages: numberOfPages,
         currentPage: i + 1,
       },
     });
