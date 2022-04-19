@@ -1,0 +1,34 @@
+name: Scheduled Dependency Update
+
+on:
+  # run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+  # every monday at 02:00
+  schedule:
+    - cron: '0 2 * * 1'
+
+jobs:
+  dependency-update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+      - name: Upgrade dependencies
+        run: yarn upgrade --latest --caret
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          branch: chore-dependency-update
+          delete-branch: true
+          title: 'chore: dependency update 🧹'
+          commit-message: 'chore: dependency update'
+          body: |
+            This PR was automatically created.
+            - All dependencies are updated to the latest version.
+            - This PR will be created every monday at 2am and the branch will be force pushed.
+            - If all checks are green, feel free to merge it.

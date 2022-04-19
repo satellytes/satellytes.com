@@ -1,32 +1,17 @@
 version: 2
 
 updates:
-  - package-ecosystem: npm
+  - package-ecosystem: 'github-actions'
     open-pull-requests-limit: 10
-    directory: "/"
+    directory: '/'
     schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "06:00"
-      timezone: "Europe/Berlin"
+      interval: 'weekly'
+      day: 'monday'
+      time: '06:00'
+      timezone: 'Europe/Berlin'
     commit-message:
       # we need to disable netlify as we don't have enough build minutes for all dependency updates
       # https://docs.netlify.com/site-deploys/manage-deploys/#skip-a-deploy
-      prefix: "[skip netlify]"
-    labels:
-      - dependencies
-
-  - package-ecosystem: "github-actions"
-    open-pull-requests-limit: 10
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "06:00"
-      timezone: "Europe/Berlin"
-    commit-message:
-      # we need to disable netlify as we don't have enough build minutes for all dependency updates
-      # https://docs.netlify.com/site-deploys/manage-deploys/#skip-a-deploy
-      prefix: "[skip netlify]"
+      prefix: '[skip netlify]'
     labels:
       - dependencies
