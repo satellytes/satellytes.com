@@ -47,12 +47,11 @@ const BylineStyled = styled.span`
 `;
 
 const LeadStyled = styled.div`
-  ${TextStyles.textR}
+  ${TextStyles.textL}
   margin-top: 48px;
 
   ${up('md')} {
     margin-top: 32px;
-    ${TextStyles.textL}
   }
 `;
 
