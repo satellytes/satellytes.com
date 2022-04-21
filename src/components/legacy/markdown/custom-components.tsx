@@ -52,6 +52,7 @@ const MarkdownLink = styled(Link)`
   line-height: 150%;
   font-weight: bold;
   text-decoration: none;
+  overflow-wrap: anywhere;
 
   &:hover {
     color: ${theme.palette.text.link.hover};

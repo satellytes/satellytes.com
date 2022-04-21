@@ -168,7 +168,7 @@ export const serialize = (sitemapItem) => {
 export const filterPages = ({ path }, excludedPath) => {
   const [EXCLUDE, KEEP] = [true, false];
 
-  if (excludedPath === path) {
+  if (path.includes(excludedPath)) {
     return EXCLUDE;
   }
 

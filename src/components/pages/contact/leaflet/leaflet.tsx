@@ -1,3 +1,9 @@
+import * as L from 'leaflet';
+import { LatLngExpression } from 'leaflet';
+import { GestureHandling } from 'leaflet-gesture-handling';
+import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
+import { useTranslation } from 'react-i18next';
 import {
   CircleMarker,
   LayersControl,
@@ -6,15 +12,12 @@ import {
   TileLayer,
   ZoomControl,
 } from 'react-leaflet';
-import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { LatLngExpression } from 'leaflet';
+import { theme } from '../../../layout/theme';
 import { up } from '../../../support/breakpoint';
-
 import { BringMeHome } from './bring-home';
 import { SatellytesMarkerIcon } from './sy-marker';
-import { theme } from '../../../layout/theme';
-import { Helmet } from 'react-helmet';
+
 const MAP_VIEW_ZOOM = 14;
 
 const OFFICE_COORDINATES: LatLngExpression = [48.13479, 11.56839];
@@ -58,25 +61,36 @@ const MapWrapper = styled.div`
 `;
 
 export const Leaflet = () => {
-  const [mapInstance, setMapInstance] = useState(null);
   const [isBrowser, setIsBrowser] = useState(false);
 
   useEffect(() => {
     setIsBrowser(true);
   });
 
+  const { t } = useTranslation();
+
   // we don't want to render leaflet outside of the browser (SSR)
   if (!isBrowser) {
     return <MapPlaceholder />;
   }
 
+  L.Map.addInitHook('addHandler', 'gestureHandling', GestureHandling);
+
   const MapView = (
     <MapContainerWithHeight
-      whenCreated={setMapInstance as any}
       zoomControl={false}
       center={OFFICE_COORDINATES}
       zoom={MAP_VIEW_ZOOM}
       scrollWheelZoom={true}
+      /* eslint-disable */
+      // @ts-ignore the following props are for leaflet-gesture-handling, but there is no type provided
+      // https://github.com/elmarquis/Leaflet.GestureHandling for possible options
+      gestureHandling={true}
+      gestureHandlingText={{
+        touch: t<string>('contact.leaflet.touch'),
+        scroll: t<string>('contact.leaflet.scroll'),
+        scrollMac: t<string>('contact.leaflet.scrollMac'),
+      }}
     >
       {/*Introduce a LayerControl so we can offer multiple tile layers if people want to explore the city
       without the minimal skin (and if they are curious enough to find the layer toggle of course)*/}
@@ -112,6 +126,17 @@ export const Leaflet = () => {
         pathOptions={{ color: '#668CFF', opacity: 0.2 }}
         radius={170}
       />
+
+      <BringMeHome center={OFFICE_COORDINATES} zoom={MAP_VIEW_ZOOM}>
+        Lost?{' '}
+        <span
+          role={'img'}
+          aria-label={"see no evil monkey emoji, because it's embarassing"}
+        >
+          🙈
+        </span>{' '}
+        Click here.
+      </BringMeHome>
     </MapContainerWithHeight>
   );
 
@@ -122,24 +147,14 @@ export const Leaflet = () => {
           rel="stylesheet"
           href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
         />
+        <link
+          rel="stylesheet"
+          href="//unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css"
+          type="text/css"
+        />
+        <script src="//unpkg.com/leaflet-gesture-handling"></script>
       </Helmet>
       {MapView}
-      {mapInstance ? (
-        <BringMeHome
-          center={OFFICE_COORDINATES}
-          zoom={MAP_VIEW_ZOOM}
-          map={mapInstance}
-        >
-          Lost?{' '}
-          <span
-            role={'img'}
-            aria-label={"see no evil monkey emoji, because it's embarassing"}
-          >
-            🙈
-          </span>{' '}
-          Click here.
-        </BringMeHome>
-      ) : null}
     </MapWrapper>
   );
 };

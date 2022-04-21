@@ -75,6 +75,9 @@ export const BlogPostPageQuery = graphql`
           }
         }
       }
+      introText {
+        introText
+      }
       content {
         raw
         references {

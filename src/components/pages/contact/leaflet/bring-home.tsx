@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 import { theme } from '../../../layout/theme';
 import React, { useCallback, useEffect, useState } from 'react';
+import { useMap } from 'react-leaflet';
 
 const BringMeHomeStyled = styled.a`
   position: absolute;
   left: 50%;
   bottom: 5px;
   transform: translate(-50%);
-  z-index: 1;
+  z-index: 400;
 
   display: inline-block;
   color: ${theme.palette.text.link.default};
@@ -26,7 +27,8 @@ const BringMeHomeStyled = styled.a`
   cursor: pointer;
 `;
 
-export const BringMeHome = ({ map, center, zoom, children }) => {
+export const BringMeHome = ({ center, zoom, children }) => {
+  const map = useMap();
   const [showHelper, setShowHelper] = useState(false);
 
   const onClick = useCallback(() => {

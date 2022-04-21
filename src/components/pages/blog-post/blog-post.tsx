@@ -365,13 +365,17 @@ export const BlogPostPage = ({ blogPost, breadcrumb }: BlogPostPageProps) => {
       showLanguageSwitch={false}
       breadcrumb={breadcrumb}
     >
-      <BlogHeader headline={blogPost.title} byline={heroByLine} />
-      {customContentfulRenderer(blogPost.content)}
+      <article>
+        <BlogHeader headline={blogPost.title} byline={heroByLine}>
+          {blogPost.introText?.introText}
+        </BlogHeader>
+        {customContentfulRenderer(blogPost.content)}
 
-      <PanelContainer>
-        <SharePanel title={blogPost.title} />
-        <FollowPanel />
-      </PanelContainer>
+        <PanelContainer>
+          <SharePanel title={blogPost.title} />
+          <FollowPanel />
+        </PanelContainer>
+      </article>
     </Layout>
   );
 };

@@ -57,6 +57,77 @@ const REDIRECTS = [
     fromPath: '/blog/thoughts-on-collaborative-work/',
     toPath: '/blog/four-ways-to-improve-collaboration-in-your-team/',
   },
+  /**
+   * Blog posts have been moved from "/blog/[slug]" to "/blog/post/[slug]"
+   */
+  {
+    fromPath: '/blog/we-work-remotely/',
+    toPath: '/blog/post/we-work-remotely/',
+  },
+  {
+    fromPath: '/blog/four-ways-to-improve-collaboration-in-your-team/',
+    toPath: '/blog/post/four-ways-to-improve-collaboration-in-your-team/',
+  },
+  {
+    fromPath: '/blog/boosting-developer-productivity-with-github-actions/',
+    toPath: '/blog/post/boosting-developer-productivity-with-github-actions/',
+  },
+  {
+    fromPath: '/blog/cache-gatsby-ssr-pages-on-gatsby-cloud/',
+    toPath: '/blog/post/cache-gatsby-ssr-pages-on-gatsby-cloud/',
+  },
+  {
+    fromPath: '/blog/cloudfront-cache-efficiency/',
+    toPath: '/blog/post/cloudfront-cache-efficiency/',
+  },
+  {
+    fromPath: '/blog/interview-felix-hamann/',
+    toPath: '/blog/post/interview-felix-hamann/',
+  },
+  {
+    fromPath: '/blog/getting-started-gatsby-next-remix/',
+    toPath: '/blog/post/getting-started-gatsby-next-remix/',
+  },
+  {
+    fromPath: '/blog/enterprises-benefit-from-scoped-npm-registries/',
+    toPath: '/blog/post/enterprises-benefit-from-scoped-npm-registries/',
+  },
+  {
+    fromPath: '/blog/gather-metaverse-bump-each-other-2021/',
+    toPath: '/blog/post/gather-metaverse-bump-each-other-2021/',
+  },
+  {
+    fromPath: '/blog/interview-daniel-eissing/',
+    toPath: '/blog/post/interview-daniel-eissing/',
+  },
+  {
+    fromPath: '/blog/the-modern-code-reviewer-2021/',
+    toPath: '/blog/post/the-modern-code-reviewer-2021/',
+  },
+  {
+    fromPath: '/blog/github-billing-dashboard/',
+    toPath: '/blog/post/github-billing-dashboard/',
+  },
+  {
+    fromPath: '/blog/how-consistency-helps-you-to-optimize-gatsby-urls/',
+    toPath: '/blog/post/how-consistency-helps-you-to-optimize-gatsby-urls/',
+  },
+  {
+    fromPath: '/blog/monorepo-codeowner-github-enterprise/',
+    toPath: '/blog/post/monorepo-codeowner-github-enterprise/',
+  },
+  {
+    fromPath: '/blog/typescript-ast-type-checker/',
+    toPath: '/blog/post/typescript-ast-type-checker/',
+  },
+  {
+    fromPath: '/blog/angular-inject-the-injector/',
+    toPath: '/blog/post/angular-inject-the-injector/',
+  },
+  {
+    fromPath: '/blog/angular-workshop-kaiserx-allianz-2018/',
+    toPath: '/blog/post/angular-workshop-kaiserx-allianz-2018/',
+  },
 ];
 
 /**
@@ -64,7 +135,7 @@ const REDIRECTS = [
  * some other external links still link to the old URL they will only get the 404
  * page. That is why we need to redirect the old links to the new ones.
  */
-export const createRedirects = ({ actions }: CreatePagesArgs) => {
+export const createRedirects = async ({ actions }: CreatePagesArgs) => {
   const { createRedirect } = actions;
   /**
    * Our vanity url to access our gather office through satellytes.com/orion

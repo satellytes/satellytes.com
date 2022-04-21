@@ -1,5 +1,6 @@
 import { graphql, PageProps } from 'gatsby';
 import React from 'react';
+import { BlogOverviewPageContext } from '../../gatsby/create-pages/create-blog-post-overview-pages';
 import SEO from '../components/layout/seo';
 import { BlogPage } from '../components/pages/blog/blog-page';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
@@ -23,13 +24,27 @@ interface BlogPageQueryProps {
   allContentfulBlogPost: AllBlogPostsQuery;
 }
 
-const Blog = ({ data, location }: PageProps<BlogPageQueryProps>) => {
+const Blog = ({
+  data,
+  location,
+  pageContext,
+}: PageProps<BlogPageQueryProps, BlogOverviewPageContext>) => {
   const blogPosts = data.allContentfulBlogPost.nodes;
 
   return (
     <>
-      <SEO title="Blog | Satellytes" location={location} rssLink />
-      <BlogPage posts={blogPosts} />
+      <SEO
+        title="Blog | Satellytes"
+        location={location}
+        rssLink
+        noIndex={pageContext.currentPage !== 1}
+      />
+      <BlogPage
+        posts={blogPosts}
+        pagination={{
+          ...pageContext,
+        }}
+      />
     </>
   );
 };
@@ -37,8 +52,12 @@ const Blog = ({ data, location }: PageProps<BlogPageQueryProps>) => {
 export default Blog;
 
 export const BlogPageQuery = graphql`
-  query ($language: String!) {
-    allContentfulBlogPost(sort: { fields: publicationDate, order: DESC }) {
+  query ($language: String!, $skip: Int!, $limit: Int!) {
+    allContentfulBlogPost(
+      sort: { fields: publicationDate, order: DESC }
+      limit: $limit
+      skip: $skip
+    ) {
       nodes {
         fields {
           path

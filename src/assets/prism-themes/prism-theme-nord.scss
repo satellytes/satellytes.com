@@ -52,6 +52,7 @@ pre[class*="language-"].line-numbers .line-numbers-rows {
     padding: .1em;
     border-radius: .3em;
     white-space: normal;
+    overflow-wrap: anywhere;
 }
 
 .token.comment,
