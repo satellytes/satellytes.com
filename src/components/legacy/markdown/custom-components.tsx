@@ -118,6 +118,10 @@ const Figure = styled.figure`
   }
 `;
 
+const StyledCode = styled.code`
+  overflow-wrap: anywhere !important;
+`;
+
 const Figcaption = styled.figcaption`
   ${TextStyles.textS};
   color: ${theme.palette.text.timestamp};
@@ -228,6 +232,9 @@ const customSatellytesComponents = {
   figcaption(props) {
     const { children, ...rest } = props;
     return <Figcaption {...rest}>{children}</Figcaption>;
+  },
+  code(props) {
+    return <StyledCode {...props}>{props.children}</StyledCode>;
   },
 };
 

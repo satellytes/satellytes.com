@@ -101,7 +101,8 @@ const customContentfulRenderer = (
    */
   const contentfulRenderOptions: Options = {
     renderMark: {
-      [MARKS.CODE]: (text) => <code className="language-text">{text}</code>,
+      [MARKS.CODE]: (text) =>
+        customComponents.code({ children: text, className: 'language-text' }),
     },
     renderNode: {
       [INLINES.HYPERLINK]: (props, children) =>
