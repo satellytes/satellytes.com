@@ -86,12 +86,10 @@ export const Leaflet = () => {
       // @ts-ignore the following props are for leaflet-gesture-handling, but there is no type provided
       // https://github.com/elmarquis/Leaflet.GestureHandling for possible options
       gestureHandling={true}
-      gestureHandlingOptions={{
-        text: {
-          touch: t<string>('contact.leaflet.touch'),
-          scroll: t<string>('contact.leaflet.scroll'),
-          scrollMac: t<string>('contact.leaflet.scrollMac'),
-        },
+      gestureHandlingText={{
+        touch: t<string>('contact.leaflet.touch'),
+        scroll: t<string>('contact.leaflet.scroll'),
+        scrollMac: t<string>('contact.leaflet.scrollMac'),
       }}
     >
       {/*Introduce a LayerControl so we can offer multiple tile layers if people want to explore the city
