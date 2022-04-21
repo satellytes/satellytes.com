@@ -11,6 +11,8 @@ interface StatProps {
 const Title = styled.dt`
   ${TextStyles.toplineR}
   color: ${({ theme }) => theme.palette.text.topline};
+
+  margin-bottom: 12px;
 `;
 
 const Content = styled.dd`
@@ -19,24 +21,24 @@ const Content = styled.dd`
 `;
 
 const StatsWrapper = styled.dl`
-  display: grid;
-  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
 
   margin-top: 48px;
   margin-bottom: 80px;
 
   ${up('sm')} {
-    grid-auto-flow: column;
-    grid-template-rows: 1fr 1fr;
+    flex-direction: row;
   }
 `;
 
 export const StatItem = ({ title, content }: StatProps) => {
   return (
-    <>
+    <div>
       <Title>{title}</Title>
       <Content>{content}</Content>
-    </>
+    </div>
   );
 };
 
