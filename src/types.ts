@@ -69,6 +69,9 @@ export interface ContentfulCodeBlock {
 
 export interface ContentfulBlogPost {
   author: ContentFulBlogPostAuthor;
+  introText?: {
+    introText: string;
+  };
   content: RenderRichTextData<ContentfulRichTextGatsbyReference>;
   heroImage: ContentfulBlogPostHero;
   id: string;

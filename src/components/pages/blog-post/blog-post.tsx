@@ -346,7 +346,9 @@ export const BlogPostPage = ({ blogPost, breadcrumb }: BlogPostPageProps) => {
       showLanguageSwitch={false}
       breadcrumb={breadcrumb}
     >
-      <BlogHeader headline={blogPost.title} byline={heroByLine} />
+      <BlogHeader headline={blogPost.title} byline={heroByLine}>
+        {blogPost.introText?.introText}
+      </BlogHeader>
       {customContentfulRenderer(blogPost.content)}
 
       <PanelContainer>
