@@ -68,7 +68,7 @@ yarn storybook:build
 yarn storybook:serve
 ```
 
-A production build of Storybook gets be created for every pull request. You will get the link as pull request comment. 
+A production build of Storybook gets be created for every pull request. You will get the link as pull request comment.
 For the `main` branch, the build can be found here: https://satellytes-website-storybook.netlify.app
 
 ## Writing a blog post

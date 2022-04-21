@@ -51,8 +51,8 @@ const LeadStyled = styled.div`
   margin-top: 48px;
 
   ${up('md')} {
-    margin-top: 32px;
     ${TextStyles.textL}
+    margin-top: 32px;
   }
 `;
 
