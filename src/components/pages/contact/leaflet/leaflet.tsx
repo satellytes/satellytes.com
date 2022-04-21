@@ -3,13 +3,13 @@ import { LatLngExpression } from 'leaflet';
 import { GestureHandling } from 'leaflet-gesture-handling';
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
+import { useTranslation } from 'react-i18next';
 import {
   CircleMarker,
   LayersControl,
   MapContainer,
   Marker,
   TileLayer,
-  useMap,
   ZoomControl,
 } from 'react-leaflet';
 import styled from 'styled-components';
@@ -60,27 +60,21 @@ const MapWrapper = styled.div`
   position: relative;
 `;
 
-const EnableGestureHandling = () => {
-  /**
-   * leaflet-gesture-handling does not add gestureHandling to the types
-   * but map.gestureHandling exists and works
-   */
-  const map = useMap() as any;
-  map.gestureHandling.enable();
-  L.Map.addInitHook('addHandler', 'gestureHandling', GestureHandling);
-  return null;
-};
-
 export const Leaflet = () => {
   const [isBrowser, setIsBrowser] = useState(false);
 
   useEffect(() => {
     setIsBrowser(true);
   });
+
+  const { t } = useTranslation();
+
   // we don't want to render leaflet outside of the browser (SSR)
   if (!isBrowser) {
     return <MapPlaceholder />;
   }
+
+  L.Map.addInitHook('addHandler', 'gestureHandling', GestureHandling);
 
   const MapView = (
     <MapContainerWithHeight
@@ -88,10 +82,16 @@ export const Leaflet = () => {
       center={OFFICE_COORDINATES}
       zoom={MAP_VIEW_ZOOM}
       scrollWheelZoom={true}
+      /* eslint-disable */
+      // @ts-ignore the following props are for leaflet-gesture-handling, but there is no type provided
+      // https://github.com/elmarquis/Leaflet.GestureHandling for possible options
+      gestureHandling={true}
+      gestureHandlingText={{
+        touch: t<string>('contact.leaflet.touch'),
+        scroll: t<string>('contact.leaflet.scroll'),
+        scrollMac: t<string>('contact.leaflet.scrollMac'),
+      }}
     >
-      {/* Component with no content for the DOM, just to get access to useMap(), this has to be inside MapContainer */}
-      <EnableGestureHandling />
-
       {/*Introduce a LayerControl so we can offer multiple tile layers if people want to explore the city
       without the minimal skin (and if they are curious enough to find the layer toggle of course)*/}
       <LayersControl position="bottomright">
