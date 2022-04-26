@@ -123,6 +123,24 @@ export const BlogPostPageQuery = graphql`
             }
           }
 
+          ... on ContentfulAdvancedAsset {
+            contentful_id
+            __typename
+            image {
+              contentful_id
+              description
+              file {
+                contentType
+                url
+              }
+              gatsbyImageData(layout: FULL_WIDTH)
+
+              title
+              __typename
+            }
+            fullWidth
+          }
+
           ... on ContentfulBlogPostCollapsible {
             contentful_id
             __typename

@@ -25,6 +25,7 @@ import SharePanel from './share-panel';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 import { StatItem, Stats } from '../../content/stats/stats';
+import { AdvancedAsset } from '../../content/advanced-asset/advanced-asset';
 
 interface ContentfulFootnoteReference
   extends ContentfulRichTextGatsbyReference {
@@ -36,6 +37,7 @@ enum ContentfulCustomModel {
   CONTENTFUL_CODE_BLOCK = 'ContentfulCodeBlock',
   CONTENTFUL_BLOG_POST_COLLAPSIBLE = 'ContentfulBlogPostCollapsible',
   CONTENTFUL_STATS = 'ContentfulStats',
+  CONTENTFUL_ADVANCED_ASSET = 'ContentfulAdvancedAsset',
 }
 
 enum EmbeddedAssetType {
@@ -216,6 +218,23 @@ const customContentfulRenderer = (
                 ))}
               </Stats>
             );
+          }
+          /**
+           * Advanced Images
+           */
+          case ContentfulCustomModel.CONTENTFUL_ADVANCED_ASSET: {
+            return customComponents.figure({
+              children: [
+                <AdvancedAsset
+                  {...node.data.target}
+                  key={node.data.target.contentful_id}
+                />,
+                customComponents.figcaption({
+                  key: 'figcaption',
+                  children: node.data.target.description,
+                }),
+              ],
+            });
           }
           /**
            * Log error to console if type is not yet implemented
