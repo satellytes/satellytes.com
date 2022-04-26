@@ -129,10 +129,6 @@ export const BlogPostPageQuery = graphql`
             image {
               contentful_id
               description
-              file {
-                contentType
-                url
-              }
               gatsbyImageData(layout: FULL_WIDTH)
 
               title
