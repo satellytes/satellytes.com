@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { down, up } from '../../support/breakpoint';
+import { up } from '../../support/breakpoint';
 import { TextStyles } from '../../typography';
 
 interface StatProps {
