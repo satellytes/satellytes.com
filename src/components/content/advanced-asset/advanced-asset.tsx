@@ -1,5 +1,5 @@
 import { GatsbyImage } from 'gatsby-plugin-image';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Zoom from 'react-medium-image-zoom';
 import styled from 'styled-components';
 
@@ -19,7 +19,6 @@ const FullWidthContainer = styled.div.attrs((props: ContainerProps) => props)`
 const getWidthString = (toSubtract: number) => `calc(100vw - ${toSubtract}px)`;
 
 const ConditionalAsset = ({ fullWidth, children }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
   const [containerWidth, setContainerWidth] = useState<string>(
     getWidthString(0),
   );
@@ -27,14 +26,12 @@ const ConditionalAsset = ({ fullWidth, children }) => {
   useEffect(() => {
     const scrollbarWidth = window.innerWidth - document.body.clientWidth;
 
-    if (containerRef && containerRef.current) {
-      setContainerWidth(getWidthString(scrollbarWidth));
-    }
+    setContainerWidth(getWidthString(scrollbarWidth));
   }, []);
 
   if (fullWidth) {
     return (
-      <FullWidthContainer ref={containerRef} $width={containerWidth}>
+      <FullWidthContainer $width={containerWidth}>
         {children}
       </FullWidthContainer>
     );
