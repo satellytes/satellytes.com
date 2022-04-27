@@ -17,11 +17,11 @@ export const HeroContainer = styled.div<{ naturalHeight?: boolean }>`
     !naturalHeight &&
     css`
       height: 520px;
-    `}
 
-  ${up('md')} {
-    height: 640px;
-  }
+      ${up('md')} {
+        height: 640px;
+      }
+    `}
 
   overflow: hidden;
   /**
