@@ -18,6 +18,7 @@ const coverContainerCss = {
 
 type ImageHeroProps = Partial<HeroWithText> & {
   image: IGatsbyImageData;
+  naturalHeight: boolean;
   attribution?: BlogAttribution;
 };
 
@@ -55,11 +56,12 @@ export const BlogHero = ({
   title,
   children,
   kicker,
+  naturalHeight,
 }: ImageHeroProps) => {
   const gatsbyImageData = getImage(image);
 
   return (
-    <HeroContainer naturalHeight>
+    <HeroContainer naturalHeight={naturalHeight}>
       {gatsbyImageData && (
         <GatsbyImage style={coverContainerCss} alt="" image={gatsbyImageData} />
       )}
