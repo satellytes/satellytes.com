@@ -1,4 +1,16 @@
-import { CreatePagesArgs } from 'gatsby';
+import React from 'react';
+import SEO from '../components/layout/seo';
+import {
+  GetServerDataProps,
+  GetServerDataReturn,
+  graphql,
+  navigate,
+  PageProps,
+} from 'gatsby';
+import { SectionHeader } from '../components/content/section-header/section-header';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { Layout } from '../components/layout/layout';
+import { ContentBlockContainer } from '../components/layout/content-block-container';
 
 const REDIRECTS = [
   {
@@ -130,42 +142,63 @@ const REDIRECTS = [
   },
 ];
 
-/**
- * Sometimes we mess up URLs. Fixing them is necessary, but if Google or other
- * some other external links still link to the old URL they will only get the 404
- * page. That is why we need to redirect the old links to the new ones.
- */
-export const createRedirects = async ({ actions }: CreatePagesArgs) => {
-  const { createRedirect } = actions;
-  /**
-   * Our vanity url to access our gather office through satellytes.com/orion
-   * This should be a temporary redirect and actually SEO should never pick this url up anyway.
-   */
-  createRedirect({
-    fromPath: `/orion/`,
-    toPath: `/api/redirect-gather-sy-office`,
-  });
+interface NotFoundPageProps {
+  redirectToPath: string;
+}
 
-  REDIRECTS.forEach((redirect) => {
-    createRedirect({
-      fromPath: redirect.fromPath,
-      toPath: redirect.toPath,
-      isPermanent: true,
-      redirectInBrowser: true,
-    });
+const NotFoundPage = ({
+  location,
+  serverData,
+}: PageProps<any, any, any, NotFoundPageProps>): JSX.Element => {
+  const { t } = useTranslation();
 
-    // the redirect only works for exact matches, that's why we also need to
-    // create a redirect without the trailing slash
-    const additionalFromPath = redirect.fromPath.substring(
-      0,
-      redirect.fromPath.length - 1,
-    );
+  if (serverData?.redirectToPath) navigate(serverData.redirectToPath);
 
-    createRedirect({
-      fromPath: additionalFromPath,
-      toPath: redirect.toPath,
-      isPermanent: true,
-      redirectInBrowser: true,
-    });
-  });
+  return (
+    <>
+      <SEO title="404: Not found | Satellytes" location={location} />
+      <Layout light={true}>
+        <ContentBlockContainer>
+          <SectionHeader headline={'404'}>{t('404')}</SectionHeader>
+        </ContentBlockContainer>
+      </Layout>
+    </>
+  );
 };
+
+export default NotFoundPage;
+
+export const getServerData = async (
+  context: GetServerDataProps,
+): GetServerDataReturn<NotFoundPageProps> => {
+  console.log(context.url);
+
+  REDIRECTS.forEach(({ fromPath, toPath }) => {
+    if (context.url === fromPath) {
+      return {
+        status: 301,
+        headers: {
+          Location: toPath,
+        },
+      };
+    }
+  });
+
+  return {
+    status: 404,
+  };
+};
+
+export const NotFoundPageQuery = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;
