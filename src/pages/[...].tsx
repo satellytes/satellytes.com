@@ -143,17 +143,8 @@ const REDIRECTS = [
   },
 ];
 
-interface NotFoundPageProps {
-  redirectToPath: string;
-}
-
-const NotFoundPage = ({
-  location,
-  serverData,
-}: PageProps<any, any, any, NotFoundPageProps>): JSX.Element => {
+const NotFoundPage = ({ location }: PageProps): JSX.Element => {
   const { t } = useTranslation();
-
-  if (serverData?.redirectToPath) navigate(serverData.redirectToPath);
 
   return (
     <>
@@ -171,8 +162,8 @@ export default NotFoundPage;
 
 export const getServerData = async (
   context: GetServerDataProps,
-): GetServerDataReturn<NotFoundPageProps> => {
-  console.log(context.url);
+): GetServerDataReturn => {
+  console.log('404 page triggered with URL:', context.url);
 
   const redirect = REDIRECTS.find(({ fromPath }) => {
     return (
