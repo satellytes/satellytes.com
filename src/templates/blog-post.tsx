@@ -66,6 +66,7 @@ export const BlogPostPageQuery = graphql`
       heroImage {
         creator
         source
+        naturalHeight
         fullImage: image {
           gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
         }
