@@ -4,7 +4,6 @@ import {
   GetServerDataProps,
   GetServerDataReturn,
   graphql,
-  navigate,
   PageProps,
 } from 'gatsby';
 import { SectionHeader } from '../components/content/section-header/section-header';
