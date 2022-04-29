@@ -60,6 +60,7 @@ export interface ContentfulBlogPostHero {
   image: any;
   creator: string;
   source: string;
+  naturalHeight: boolean;
 }
 
 export interface ContentfulCodeBlock {
