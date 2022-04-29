@@ -12,6 +12,7 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Layout } from '../components/layout/layout';
 import { ContentBlockContainer } from '../components/layout/content-block-container';
 
+// Provide redirects always with trailing slash
 const REDIRECTS = [
   {
     fromPath: '/career/325433-senior-backend-engineer-m-w-x/',
@@ -173,16 +174,24 @@ export const getServerData = async (
 ): GetServerDataReturn<NotFoundPageProps> => {
   console.log(context.url);
 
-  REDIRECTS.forEach(({ fromPath, toPath }) => {
-    if (context.url === fromPath) {
-      return {
-        status: 301,
-        headers: {
-          Location: toPath,
-        },
-      };
-    }
+  const redirect = REDIRECTS.find(({ fromPath }) => {
+    return (
+      context.url === fromPath ||
+      // check without trailing slash
+      context.url === fromPath.slice(0, -1)
+    );
   });
+
+  if (redirect) {
+    return {
+      status: 301,
+      headers: {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore gatsby types are wrong
+        Location: redirect.toPath,
+      },
+    };
+  }
 
   return {
     status: 404,
