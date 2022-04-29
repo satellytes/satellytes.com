@@ -6,7 +6,6 @@ import { createPreviewCards } from './gatsby/create-node/create-preview-cards';
 import { createBlogPostOverviewPages } from './gatsby/create-pages/create-blog-post-overview-pages';
 import { createBlogPosts } from './gatsby/create-pages/create-blog-posts';
 import { createCareerPages } from './gatsby/create-pages/create-career-pages';
-import { createRedirects } from './gatsby/create-pages/create-redirects';
 
 export type SatellytesNode = {
   frontmatter: {
@@ -90,8 +89,6 @@ export const createPages: GatsbyNode['createPages'] = async (
   await createCareerPages(createPagesArgs);
   await createBlogPostOverviewPages(createPagesArgs);
   await createBlogPosts(createPagesArgs);
-
-  createRedirects(createPagesArgs);
 };
 
 // for leaflet to prevent window errors
