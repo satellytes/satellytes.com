@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FileError, useDropzone } from 'react-dropzone';
+import { Accept, FileError, useDropzone } from 'react-dropzone';
 import styled, { css } from 'styled-components';
 import { theme } from '../../layout/theme';
 import {
@@ -34,7 +34,7 @@ interface FileDropperProps extends React.ComponentPropsWithRef<'input'> {
   /**
    * comma-separated list of unique content type specifiers (e.g. `'image/jpeg, image/png, .pdf'`) or `undefined` to allow all files. See also: [react-dropzone: accepting specific file types](https://react-dropzone.js.org/#section-accepting-specific-file-types)
    */
-  acceptedFileTypes?: string;
+  acceptedFileTypes?: Accept;
 
   /**
    * Set a maximum number of files that can be uploaded. If this number is exceeded, `onDropRejected()` is called with all uploaded files.
