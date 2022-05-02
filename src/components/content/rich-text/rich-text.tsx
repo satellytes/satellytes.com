@@ -145,6 +145,8 @@ export const ContentfulRichText = ({ data }: ContentfulRichTextProps) => {
         customComponents.blockquote({ children }),
       [BLOCKS.PARAGRAPH]: (props, children) => customComponents.p({ children }),
       [BLOCKS.EMBEDDED_ENTRY]: (node) => {
+        if (!node.data.target) return;
+
         const { __typename } = node.data.target;
         switch (__typename) {
           /**
