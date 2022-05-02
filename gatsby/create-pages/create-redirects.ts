@@ -1,6 +1,6 @@
 import { CreatePagesArgs } from 'gatsby';
 
-const REDIRECTS = [
+const INTERNAL_REDIRECTS = [
   {
     fromPath: '/career/325433-senior-backend-engineer-m-w-x/',
     toPath: '/de/career/senior-backend-engineer/',
@@ -57,6 +57,7 @@ const REDIRECTS = [
     fromPath: '/blog/thoughts-on-collaborative-work/',
     toPath: '/blog/four-ways-to-improve-collaboration-in-your-team/',
   },
+
   /**
    * Blog posts have been moved from "/blog/[slug]" to "/blog/post/[slug]"
    */
@@ -130,6 +131,37 @@ const REDIRECTS = [
   },
 ];
 
+const EXTERNAL_REDIRECTS = [
+  {
+    fromPath: '/orion',
+    toUrl: 'https://gather.town/app/ea0xvXaHYWuWurME/satellytes',
+  },
+  {
+    fromPath: '/gather',
+    toUrl: 'https://gather.town/app/ea0xvXaHYWuWurME/satellytes',
+  },
+  {
+    fromPath: '/github',
+    toUrl: 'https://github.com/satellytes',
+  },
+  {
+    fromPath: '/slack',
+    toUrl: 'https://app.slack.com/client/T9B7YFCC8',
+  },
+  {
+    fromPath: '/notion',
+    toUrl: 'https://www.notion.so/satellytes',
+  },
+  {
+    fromPath: '/personio',
+    toUrl: 'https://satellytes.personio.de',
+  },
+  {
+    fromPath: '/lattice',
+    toUrl: 'https://satellytes.latticehq.com',
+  },
+];
+
 /**
  * Sometimes we mess up URLs. Fixing them is necessary, but if Google or other
  * some other external links still link to the old URL they will only get the 404
@@ -137,16 +169,8 @@ const REDIRECTS = [
  */
 export const createRedirects = async ({ actions }: CreatePagesArgs) => {
   const { createRedirect } = actions;
-  /**
-   * Our vanity url to access our gather office through satellytes.com/orion
-   * This should be a temporary redirect and actually SEO should never pick this url up anyway.
-   */
-  createRedirect({
-    fromPath: `/orion/`,
-    toPath: `/api/redirect-gather-sy-office`,
-  });
 
-  REDIRECTS.forEach((redirect) => {
+  INTERNAL_REDIRECTS.forEach((redirect) => {
     createRedirect({
       fromPath: redirect.fromPath,
       toPath: redirect.toPath,
@@ -156,14 +180,23 @@ export const createRedirects = async ({ actions }: CreatePagesArgs) => {
 
     // the redirect only works for exact matches, that's why we also need to
     // create a redirect without the trailing slash
-    const additionalFromPath = redirect.fromPath.substring(
+    const fromPathWithoutTrailingSlash = redirect.fromPath.substring(
       0,
       redirect.fromPath.length - 1,
     );
 
     createRedirect({
-      fromPath: additionalFromPath,
+      fromPath: fromPathWithoutTrailingSlash,
       toPath: redirect.toPath,
+      isPermanent: true,
+      redirectInBrowser: true,
+    });
+  });
+
+  EXTERNAL_REDIRECTS.forEach((redirect) => {
+    createRedirect({
+      fromPath: redirect.fromPath,
+      toPath: redirect.toUrl,
       isPermanent: true,
       redirectInBrowser: true,
     });
