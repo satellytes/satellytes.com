@@ -37,5 +37,9 @@ export const ParallaxImageSpacer = ({ image }) => {
   const gatsbyImageData = getImage(image);
   const bgImage = convertToBgImage(gatsbyImageData);
 
-  return <StyledBackgroundImage {...bgImage} preserveStackingContext />;
+  return (
+    // eslint-disable-next-line
+    // @ts-ignore get rid of "error TS2589: Type instantiation is excessively deep and possibly infinite."
+    <StyledBackgroundImage fluid={bgImage?.fluid} preserveStackingContext />
+  );
 };
