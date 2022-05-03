@@ -8,7 +8,7 @@ import { Service } from './service';
 import { Blog } from './blog';
 import { BlogPostTeaser, SyPersonioJob } from '../../../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
-import { ImageSpacer } from './image-spacer';
+import { ImageSpacer, ParallaxImageSpacer } from './image-spacer';
 
 interface OfficeImage {
   relativePath: string;
@@ -44,13 +44,13 @@ export const Landingpage = ({
         <Service />
       </ContentBlockContainer>
 
-      <ImageSpacer image={officeImages['office/sy-office-01.jpg']} />
+      <ParallaxImageSpacer image={officeImages['office/sy-office-01.jpg']} />
 
       <ContentBlockContainer>
         <Career positions={positions} />
       </ContentBlockContainer>
 
-      <ImageSpacer image={officeImages['office/sy-office-02.jpg']} />
+      <ParallaxImageSpacer image={officeImages['office/sy-office-02.jpg']} />
 
       <ContentBlockContainer>
         <Blog posts={posts} />
