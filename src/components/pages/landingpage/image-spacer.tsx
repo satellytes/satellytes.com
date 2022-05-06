@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 import { up } from '../../support/breakpoint';
 import { getImage } from 'gatsby-plugin-image';
-import { convertToBgImage } from 'gbimage-bridge';
-import BackgroundImage from 'gatsby-background-image';
-import React from 'react';
+import { BgImage } from 'gbimage-bridge';
+import React, { useEffect, useState } from 'react';
 
-const StyledBackgroundImage = styled(BackgroundImage)`
+const StyledBackgroundImage = styled(BgImage)`
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -34,12 +33,16 @@ const StyledBackgroundImage = styled(BackgroundImage)`
 `;
 
 export const ParallaxImageSpacer = ({ image }) => {
+  const [isBrowser, setIsBrowser] = useState(false);
+
+  useEffect(() => {
+    setIsBrowser(true);
+  });
   const gatsbyImageData = getImage(image);
-  const bgImage = convertToBgImage(gatsbyImageData);
+
+  if (!isBrowser) return null;
 
   return (
-    // eslint-disable-next-line
-    // @ts-ignore get rid of "error TS2589: Type instantiation is excessively deep and possibly infinite."
-    <StyledBackgroundImage {...bgImage} />
+    <>{gatsbyImageData && <StyledBackgroundImage image={gatsbyImageData} />}</>
   );
 };
