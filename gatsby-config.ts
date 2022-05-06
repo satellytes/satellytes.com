@@ -323,6 +323,13 @@ const gatsbyConfig: GatsbyConfig = {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
     },
+    {
+      resolve: `gatsby-plugin-schema-snapshot`,
+      options: {
+        path: `schema.gql`,
+        update: false,
+      },
+    },
   ],
 };
 

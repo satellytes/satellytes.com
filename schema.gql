@@ -1,0 +1,1869 @@
+### Type definitions saved at 2022-05-06T10:55:39.915Z ###
+
+enum RemoteFileFit {
+  COVER
+  FILL
+  OUTSIDE
+  CONTAIN
+}
+
+enum RemoteFileFormat {
+  AUTO
+  JPG
+  PNG
+  WEBP
+  AVIF
+}
+
+enum RemoteFileLayout {
+  FIXED
+  FULL_WIDTH
+  CONSTRAINED
+}
+
+enum RemoteFilePlaceholder {
+  DOMINANT_COLOR
+  BLURRED
+  NONE
+}
+
+enum RemoteFileCropFocus {
+  CENTER
+  TOP
+  RIGHT
+  BOTTOM
+  LEFT
+  ENTROPY
+  EDGES
+  FACES
+}
+
+type RemoteFileResize {
+  width: Int
+  height: Int
+  src: String
+}
+
+"""
+Remote Interface
+"""
+interface RemoteFile {
+  id: ID!
+  mimeType: String!
+  filename: String!
+  filesize: Int
+  width: Int
+  height: Int
+  publicUrl: String!
+  resize(
+    width: Int
+    height: Int
+    aspectRatio: Float
+    fit: RemoteFileFit = COVER
+
+    """
+    The image formats to generate. Valid values are AUTO (meaning the same
+    format as the source image), JPG, PNG, WEBP and AVIF.
+    The default value is [AUTO, WEBP, AVIF], and you should rarely need to
+    change this. Take care if you specify JPG or PNG when you do
+    not know the formats of the source images, as this could lead to unwanted
+    results such as converting JPEGs to PNGs. Specifying
+    both PNG and JPG is not supported and will be ignored.
+    """
+    format: RemoteFileFormat = AUTO
+    cropFocus: [RemoteFileCropFocus]
+    quality: Int = 75
+  ): RemoteFileResize
+
+  """
+  Data used in the <GatsbyImage /> component. See https://gatsby.dev/img for more info.
+  """
+  gatsbyImage(
+    """
+    The layout for the image.
+    FIXED: A static image sized, that does not resize according to the screen width
+    FULL_WIDTH: The image resizes to fit its container. Pass a "sizes" option if
+    it isn't going to be the full width of the screen.
+    CONSTRAINED: Resizes to fit its container, up to a maximum width, at which point it will remain fixed in size.
+    """
+    layout: RemoteFileLayout = CONSTRAINED
+
+    """
+    The display width of the generated image for layout = FIXED, and the display
+    width of the largest image for layout = CONSTRAINED.
+    The actual largest image resolution will be this value multiplied by the largest value in outputPixelDensities
+    Ignored if layout = FLUID.
+    """
+    width: Int
+
+    """
+    If set, the height of the generated image. If omitted, it is calculated from
+    the supplied width, matching the aspect ratio of the source image.
+    """
+    height: Int
+
+    """
+    Format of generated placeholder image, displayed while the main image loads.
+    BLURRED: a blurred, low resolution image, encoded as a base64 data URI (default)
+    DOMINANT_COLOR: a solid color, calculated from the dominant color of the image.
+    TRACED_SVG: a low-resolution traced SVG of the image.
+    NONE: no placeholder. Set the argument "backgroundColor" to use a fixed background color.
+    """
+    placeholder: RemoteFilePlaceholder = DOMINANT_COLOR
+
+    """
+    If set along with width or height, this will set the value of the other
+    dimension to match the provided aspect ratio, cropping the image if needed.
+    If neither width or height is provided, height will be set based on the intrinsic width of the source image.
+    """
+    aspectRatio: Float
+
+    """
+    The image formats to generate. Valid values are AUTO (meaning the same
+    format as the source image), JPG, PNG, WEBP and AVIF.
+    The default value is [AUTO, WEBP, AVIF], and you should rarely need to
+    change this. Take care if you specify JPG or PNG when you do
+    not know the formats of the source images, as this could lead to unwanted
+    results such as converting JPEGs to PNGs. Specifying
+    both PNG and JPG is not supported and will be ignored.
+    """
+    formats: [RemoteFileFormat!] = [AUTO, WEBP, AVIF]
+
+    """
+    A list of image pixel densities to generate for FIXED and CONSTRAINED
+    images. You should rarely need to change this. It will never generate images
+    larger than the source, and will always include a 1x image.
+    Default is [ 1, 2 ] for fixed images, meaning 1x, 2x, and [0.25, 0.5, 1, 2]
+    for fluid. In this case, an image with a fluid layout and width = 400 would
+    generate images at 100, 200, 400 and 800px wide.
+    """
+    outputPixelDensities: [Float] = [0.25, 0.5, 1, 2]
+
+    """
+    Specifies the image widths to generate. You should rarely need to change
+    this. For FIXED and CONSTRAINED images it is better to allow these to be
+    determined automatically,
+    based on the image size. For FULL_WIDTH images this can be used to override
+    the default, which is [750, 1080, 1366, 1920].
+    It will never generate any images larger than the source.
+    """
+    breakpoints: [Int] = [750, 1080, 1366, 1920]
+
+    """
+    The "sizes" property, passed to the img tag. This describes the display size of the image.
+    This does not affect the generated images, but is used by the browser to
+    decide which images to download. You can leave this blank for fixed images,
+    or if the responsive image
+    container will be the full width of the screen. In these cases we will generate an appropriate value.
+    """
+    sizes: String
+
+    """
+    Background color applied to the wrapper, or when "letterboxing" an image to another aspect ratio.
+    """
+    backgroundColor: String
+    fit: RemoteFileFit = COVER
+    cropFocus: [RemoteFileCropFocus]
+    quality: Int = 75
+  ): JSON
+}
+
+type File implements Node @dontInfer {
+  sourceInstanceName: String!
+  absolutePath: String!
+  relativePath: String!
+  extension: String!
+  size: Int!
+  prettySize: String!
+  modifiedTime: Date! @dateformat
+  accessTime: Date! @dateformat
+  changeTime: Date! @dateformat
+  birthTime: Date! @dateformat
+  root: String!
+  dir: String!
+  base: String!
+  ext: String!
+  name: String!
+  relativeDirectory: String!
+  dev: Int!
+  mode: Int!
+  nlink: Int!
+  uid: Int!
+  gid: Int!
+  rdev: Int!
+  ino: Float!
+  atimeMs: Float!
+  mtimeMs: Float!
+  ctimeMs: Float!
+  atime: Date! @dateformat
+  mtime: Date! @dateformat
+  ctime: Date! @dateformat
+  birthtime: Date @deprecated(reason: "Use `birthTime` instead")
+  birthtimeMs: Float @deprecated(reason: "Use `birthTime` instead")
+  blksize: Int
+  blocks: Int
+  hash: String
+}
+
+type Directory implements Node @dontInfer {
+  sourceInstanceName: String!
+  absolutePath: String!
+  relativePath: String!
+  extension: String!
+  size: Int!
+  prettySize: String!
+  modifiedTime: Date! @dateformat
+  accessTime: Date! @dateformat
+  changeTime: Date! @dateformat
+  birthTime: Date! @dateformat
+  root: String!
+  dir: String!
+  base: String!
+  ext: String!
+  name: String!
+  relativeDirectory: String!
+  dev: Int!
+  mode: Int!
+  nlink: Int!
+  uid: Int!
+  gid: Int!
+  rdev: Int!
+  ino: Float!
+  atimeMs: Float!
+  mtimeMs: Float!
+  ctimeMs: Float!
+  atime: Date! @dateformat
+  mtime: Date! @dateformat
+  ctime: Date! @dateformat
+  birthtime: Date @deprecated(reason: "Use `birthTime` instead")
+  birthtimeMs: Float @deprecated(reason: "Use `birthTime` instead")
+}
+
+type Site implements Node @dontInfer {
+  buildTime: Date @dateformat
+  siteMetadata: SiteSiteMetadata
+  port: Int
+  host: String
+  trailingSlash: String
+  polyfill: Boolean
+  pathPrefix: String
+  jsxRuntime: String
+}
+
+type SiteSiteMetadata {
+  title: String
+  description: String
+  author: String
+  siteUrl: String
+}
+
+type SiteFunction implements Node @dontInfer {
+  functionRoute: String!
+  pluginName: String!
+  originalAbsoluteFilePath: String!
+  originalRelativeFilePath: String!
+  relativeCompiledFilePath: String!
+  absoluteCompiledFilePath: String!
+  matchPath: String
+}
+
+type SitePage implements Node @dontInfer {
+  path: String!
+  component: String!
+  internalComponentName: String!
+  componentChunkName: String!
+  matchPath: String
+  pageContext: JSON @proxy(from: "context", fromNode: false)
+  pluginCreator: SitePlugin @link(by: "id", from: "pluginCreatorId")
+}
+
+type SitePlugin implements Node @dontInfer {
+  resolve: String
+  name: String
+  version: String
+  nodeAPIs: [String]
+  browserAPIs: [String]
+  ssrAPIs: [String]
+  pluginFilepath: String
+  pluginOptions: JSON
+  packageJson: JSON
+}
+
+type SiteBuildMetadata implements Node @dontInfer {
+  buildTime: Date @dateformat
+}
+
+enum GatsbyImageFormat {
+  NO_CHANGE
+  AUTO
+  JPG
+  PNG
+  WEBP
+  AVIF
+}
+
+enum GatsbyImageLayout {
+  FIXED
+  FULL_WIDTH
+  CONSTRAINED
+}
+
+enum GatsbyImagePlaceholder {
+  DOMINANT_COLOR
+  TRACED_SVG
+  BLURRED
+  NONE
+}
+
+type MarkdownHeading {
+  id: String
+  value: String
+  depth: Int
+}
+
+enum MarkdownHeadingLevels {
+  h1
+  h2
+  h3
+  h4
+  h5
+  h6
+}
+
+enum MarkdownExcerptFormats {
+  PLAIN
+  HTML
+  MARKDOWN
+}
+
+type MarkdownWordCount {
+  paragraphs: Int
+  sentences: Int
+  words: Int
+}
+
+type MarkdownRemark implements Node
+  @childOf(
+    mimeTypes: ["text/markdown", "text/x-markdown"]
+    types: [
+      "File"
+      "contentfulFootnoteNoteTextNode"
+      "contentfulCodeBlockCodeTextNode"
+      "contentfulBlogPostIntroTextTextNode"
+    ]
+  )
+  @derivedTypes
+  @dontInfer {
+  socialCardFile: File @link(by: "id", from: "fields.socialCardFileId")
+  frontmatter: MarkdownRemarkFrontmatter
+  excerpt: String
+  rawMarkdownBody: String
+  fileAbsolutePath: String
+  fields: MarkdownRemarkFields
+}
+
+type MarkdownRemarkFrontmatter {
+  title: String
+  language: String
+}
+
+type MarkdownRemarkFields {
+  socialCardFileId: String
+  slug: String
+}
+
+enum ImageFormat {
+  NO_CHANGE
+  AUTO
+  JPG
+  PNG
+  WEBP
+  AVIF
+}
+
+enum ImageFit {
+  COVER
+  CONTAIN
+  FILL
+  INSIDE
+  OUTSIDE
+}
+
+enum ImageLayout {
+  FIXED
+  FULL_WIDTH
+  CONSTRAINED
+}
+
+enum ImageCropFocus {
+  CENTER
+  NORTH
+  NORTHEAST
+  EAST
+  SOUTHEAST
+  SOUTH
+  SOUTHWEST
+  WEST
+  NORTHWEST
+  ENTROPY
+  ATTENTION
+}
+
+input DuotoneGradient {
+  highlight: String!
+  shadow: String!
+  opacity: Int
+}
+
+enum PotraceTurnPolicy {
+  TURNPOLICY_BLACK
+  TURNPOLICY_WHITE
+  TURNPOLICY_LEFT
+  TURNPOLICY_RIGHT
+  TURNPOLICY_MINORITY
+  TURNPOLICY_MAJORITY
+}
+
+input Potrace {
+  turnPolicy: PotraceTurnPolicy
+  turdSize: Float
+  alphaMax: Float
+  optCurve: Boolean
+  optTolerance: Float
+  threshold: Int
+  blackOnWhite: Boolean
+  color: String
+  background: String
+}
+
+type ImageSharpFixed {
+  base64: String
+  tracedSVG: String
+  aspectRatio: Float
+  width: Float!
+  height: Float!
+  src: String!
+  srcSet: String!
+  srcWebp: String
+  srcSetWebp: String
+  originalName: String
+}
+
+type ImageSharpFluid {
+  base64: String
+  tracedSVG: String
+  aspectRatio: Float!
+  src: String!
+  srcSet: String!
+  srcWebp: String
+  srcSetWebp: String
+  sizes: String!
+  originalImg: String
+  originalName: String
+  presentationWidth: Int!
+  presentationHeight: Int!
+}
+
+enum ImagePlaceholder {
+  DOMINANT_COLOR
+  TRACED_SVG
+  BLURRED
+  NONE
+}
+
+input BlurredOptions {
+  """
+  Width of the generated low-res preview. Default is 20px
+  """
+  width: Int
+
+  """
+  Force the output format for the low-res preview. Default is to use the same
+  format as the input. You should rarely need to change this
+  """
+  toFormat: ImageFormat
+}
+
+input JPGOptions {
+  quality: Int
+  progressive: Boolean = true
+}
+
+input PNGOptions {
+  quality: Int
+  compressionSpeed: Int = 4
+}
+
+input WebPOptions {
+  quality: Int
+}
+
+input AVIFOptions {
+  quality: Int
+  lossless: Boolean
+  speed: Int
+}
+
+input TransformOptions {
+  grayscale: Boolean
+  duotone: DuotoneGradient
+  rotate: Int
+  trim: Float
+  cropFocus: ImageCropFocus = ATTENTION
+  fit: ImageFit = COVER
+}
+
+type ImageSharpOriginal {
+  width: Float
+  height: Float
+  src: String
+}
+
+type ImageSharpResize {
+  src: String
+  tracedSVG: String
+  width: Int
+  height: Int
+  aspectRatio: Float
+  originalName: String
+}
+
+type ImageSharp implements Node @childOf(types: ["File"]) @dontInfer {
+  fixed(
+    width: Int
+    height: Int
+    base64Width: Int
+    jpegProgressive: Boolean = true
+    pngCompressionSpeed: Int = 4
+    grayscale: Boolean
+    duotone: DuotoneGradient
+    traceSVG: Potrace
+    quality: Int
+    jpegQuality: Int
+    pngQuality: Int
+    webpQuality: Int
+    toFormat: ImageFormat
+    toFormatBase64: ImageFormat
+    cropFocus: ImageCropFocus = ATTENTION
+    fit: ImageFit = COVER
+    background: String = "rgba(0,0,0,1)"
+    rotate: Int
+    trim: Float
+  ): ImageSharpFixed
+  fluid(
+    maxWidth: Int
+    maxHeight: Int
+    base64Width: Int
+    grayscale: Boolean
+    jpegProgressive: Boolean = true
+    pngCompressionSpeed: Int = 4
+    duotone: DuotoneGradient
+    traceSVG: Potrace
+    quality: Int
+    jpegQuality: Int
+    pngQuality: Int
+    webpQuality: Int
+    toFormat: ImageFormat
+    toFormatBase64: ImageFormat
+    cropFocus: ImageCropFocus = ATTENTION
+    fit: ImageFit = COVER
+    background: String = "rgba(0,0,0,1)"
+    rotate: Int
+    trim: Float
+    sizes: String
+
+    """
+    A list of image widths to be generated. Example: [ 200, 340, 520, 890 ]
+    """
+    srcSetBreakpoints: [Int] = []
+  ): ImageSharpFluid
+  gatsbyImageData(
+    """
+    The layout for the image.
+    FIXED: A static image sized, that does not resize according to the screen width
+    FULL_WIDTH: The image resizes to fit its container. Pass a "sizes" option if
+    it isn't going to be the full width of the screen.
+    CONSTRAINED: Resizes to fit its container, up to a maximum width, at which point it will remain fixed in size.
+    """
+    layout: ImageLayout = CONSTRAINED
+
+    """
+    The display width of the generated image for layout = FIXED, and the maximum
+    display width of the largest image for layout = CONSTRAINED.
+    Ignored if layout = FLUID.
+    """
+    width: Int
+
+    """
+    The display height of the generated image for layout = FIXED, and the
+    maximum display height of the largest image for layout = CONSTRAINED.
+    The image will be cropped if the aspect ratio does not match the source
+    image. If omitted, it is calculated from the supplied width,
+    matching the aspect ratio of the source image.
+    """
+    height: Int
+
+    """
+    If set along with width or height, this will set the value of the other
+    dimension to match the provided aspect ratio, cropping the image if needed.
+    If neither width or height is provided, height will be set based on the intrinsic width of the source image.
+    """
+    aspectRatio: Float
+
+    """
+    Format of generated placeholder image, displayed while the main image loads.
+    BLURRED: a blurred, low resolution image, encoded as a base64 data URI (default)
+    DOMINANT_COLOR: a solid color, calculated from the dominant color of the image.
+    TRACED_SVG: a low-resolution traced SVG of the image.
+    NONE: no placeholder. Set "background" to use a fixed background color.
+    """
+    placeholder: ImagePlaceholder
+
+    """
+    Options for the low-resolution placeholder image. Set placeholder to "BLURRED" to use this
+    """
+    blurredOptions: BlurredOptions
+
+    """
+    Options for traced placeholder SVGs. You also should set placeholder to "TRACED_SVG".
+    """
+    tracedSVGOptions: Potrace
+
+    """
+    The image formats to generate. Valid values are "AUTO" (meaning the same
+    format as the source image), "JPG", "PNG", "WEBP" and "AVIF".
+    The default value is [AUTO, WEBP], and you should rarely need to change
+    this. Take care if you specify JPG or PNG when you do
+    not know the formats of the source images, as this could lead to unwanted
+    results such as converting JPEGs to PNGs. Specifying
+    both PNG and JPG is not supported and will be ignored.
+    """
+    formats: [ImageFormat]
+
+    """
+    A list of image pixel densities to generate. It will never generate images
+    larger than the source, and will always include a 1x image.
+    Default is [ 1, 2 ] for FIXED images, meaning 1x and 2x and [0.25, 0.5, 1,
+    2] for CONSTRAINED. In this case, an image with a constrained layout
+    and width = 400 would generate images at 100, 200, 400 and 800px wide.
+    Ignored for FULL_WIDTH images, which use breakpoints instead
+    """
+    outputPixelDensities: [Float]
+
+    """
+    Specifies the image widths to generate. For FIXED and CONSTRAINED images it
+    is better to allow these to be determined automatically,
+    based on the image size. For FULL_WIDTH images this can be used to override
+    the default, which is [750, 1080, 1366, 1920].
+    It will never generate any images larger than the source.
+    """
+    breakpoints: [Int]
+
+    """
+    The "sizes" property, passed to the img tag. This describes the display size of the image.
+    This does not affect the generated images, but is used by the browser to decide which images to download.
+    You should usually leave this blank, and a suitable value will be calculated. The exception is if a FULL_WIDTH image
+    does not actually span the full width of the screen, in which case you should pass the correct size here.
+    """
+    sizes: String
+
+    """
+    The default quality. This is overridden by any format-specific options
+    """
+    quality: Int
+
+    """
+    Options to pass to sharp when generating JPG images.
+    """
+    jpgOptions: JPGOptions
+
+    """
+    Options to pass to sharp when generating PNG images.
+    """
+    pngOptions: PNGOptions
+
+    """
+    Options to pass to sharp when generating WebP images.
+    """
+    webpOptions: WebPOptions
+
+    """
+    Options to pass to sharp when generating AVIF images.
+    """
+    avifOptions: AVIFOptions
+
+    """
+    Options to pass to sharp to control cropping and other image manipulations.
+    """
+    transformOptions: TransformOptions
+
+    """
+    Background color applied to the wrapper. Also passed to sharp to use as a
+    background when "letterboxing" an image to another aspect ratio.
+    """
+    backgroundColor: String
+  ): JSON!
+  original: ImageSharpOriginal
+  resize(
+    width: Int
+    height: Int
+    quality: Int
+    jpegQuality: Int
+    pngQuality: Int
+    webpQuality: Int
+    jpegProgressive: Boolean = true
+    pngCompressionLevel: Int = 9
+    pngCompressionSpeed: Int = 4
+    grayscale: Boolean
+    duotone: DuotoneGradient
+    base64: Boolean
+    traceSVG: Potrace
+    toFormat: ImageFormat
+    cropFocus: ImageCropFocus = ATTENTION
+    fit: ImageFit = COVER
+    background: String = "rgba(0,0,0,1)"
+    rotate: Int
+    trim: Float
+  ): ImageSharpResize
+}
+
+type ReadingTime {
+  text: String
+  minutes: Float
+  time: Int
+  words: Int
+}
+
+interface ContentfulEntry implements Node {
+  contentful_id: String!
+  id: ID!
+  node_locale: String!
+}
+
+interface ContentfulReference {
+  contentful_id: String!
+  id: ID!
+}
+
+enum ImageResizingBehavior {
+  NO_CHANGE
+
+  """
+  Same as the default resizing, but adds padding so that the generated image has the specified dimensions.
+  """
+  PAD
+
+  """
+  Crop a part of the original image to match the specified size.
+  """
+  CROP
+
+  """
+  Crop the image to the specified dimensions, if the original image is smaller
+  than these dimensions, then the image will be upscaled.
+  """
+  FILL
+
+  """
+  When used in association with the f parameter below, creates a thumbnail from the image based on a focus area.
+  """
+  THUMB
+
+  """
+  Scale the image regardless of the original aspect ratio.
+  """
+  SCALE
+}
+
+enum ContentfulImageCropFocus {
+  TOP
+  TOP_LEFT
+  TOP_RIGHT
+  BOTTOM
+  BOTTOM_RIGHT
+  BOTTOM_LEFT
+  RIGHT
+  LEFT
+  FACE
+  FACES
+  CENTER
+}
+
+type ContentfulAsset implements ContentfulReference & Node & RemoteFile
+  @derivedTypes
+  @dontInfer {
+  contentful_id: String!
+  gatsbyImageData(
+    """
+    The layout for the image.
+    FIXED: A static image sized, that does not resize according to the screen width
+    FULL_WIDTH: The image resizes to fit its container. Pass a "sizes" option if
+    it isn't going to be the full width of the screen.
+    CONSTRAINED: Resizes to fit its container, up to a maximum width, at which point it will remain fixed in size.
+    """
+    layout: GatsbyImageLayout
+
+    """
+    The display width of the generated image for layout = FIXED, and the display
+    width of the largest image for layout = CONSTRAINED.
+    The actual largest image resolution will be this value multiplied by the largest value in outputPixelDensities
+    Ignored if layout = FLUID.
+    """
+    width: Int
+
+    """
+    If set, the height of the generated image. If omitted, it is calculated from
+    the supplied width, matching the aspect ratio of the source image.
+    """
+    height: Int
+
+    """
+    If set along with width or height, this will set the value of the other
+    dimension to match the provided aspect ratio, cropping the image if needed.
+    If neither width or height is provided, height will be set based on the intrinsic width of the source image.
+    """
+    aspectRatio: Float
+
+    """
+    Format of generated placeholder image, displayed while the main image loads.
+    BLURRED: a blurred, low resolution image, encoded as a base64 data URI (default)
+    DOMINANT_COLOR: a solid color, calculated from the dominant color of the image.
+    TRACED_SVG: a low-resolution traced SVG of the image.
+    NONE: no placeholder. Set the argument "backgroundColor" to use a fixed background color.
+    """
+    placeholder: GatsbyImagePlaceholder
+
+    """
+    The image formats to generate. Valid values are AUTO (meaning the same
+    format as the source image), JPG, PNG, WEBP and AVIF.
+    The default value is [AUTO, WEBP], and you should rarely need to change
+    this. Take care if you specify JPG or PNG when you do
+    not know the formats of the source images, as this could lead to unwanted
+    results such as converting JPEGs to PNGs. Specifying
+    both PNG and JPG is not supported and will be ignored.
+    """
+    formats: [GatsbyImageFormat] = [NO_CHANGE, WEBP]
+
+    """
+    A list of image pixel densities to generate for FIXED and CONSTRAINED
+    images. You should rarely need to change this. It will never generate images
+    larger than the source, and will always include a 1x image.
+    Default is [ 1, 2 ] for fixed images, meaning 1x, 2x, 3x, and [0.25, 0.5, 1,
+    2] for fluid. In this case, an image with a fluid layout and width = 400
+    would generate images at 100, 200, 400 and 800px wide.
+    """
+    outputPixelDensities: [Float]
+
+    """
+    Specifies the image widths to generate. You should rarely need to change
+    this. For FIXED and CONSTRAINED images it is better to allow these to be
+    determined automatically,
+    based on the image size. For FULL_WIDTH images this can be used to override
+    the default, which is [750, 1080, 1366, 1920].
+    It will never generate any images larger than the source.
+    """
+    breakpoints: [Int]
+
+    """
+    The "sizes" property, passed to the img tag. This describes the display size of the image.
+    This does not affect the generated images, but is used by the browser to
+    decide which images to download. You can leave this blank for fixed images,
+    or if the responsive image
+    container will be the full width of the screen. In these cases we will generate an appropriate value.
+    """
+    sizes: String
+
+    """
+    Background color applied to the wrapper, or when "letterboxing" an image to another aspect ratio.
+    """
+    backgroundColor: String
+    jpegProgressive: Boolean = true
+    resizingBehavior: ImageResizingBehavior
+    cropFocus: ContentfulImageCropFocus
+
+    """
+    Desired corner radius in pixels. Results in an image with rounded corners.
+    Pass `-1` for a full circle/ellipse.
+    """
+    cornerRadius: Int
+    quality: Int = 50
+  ): JSON!
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  file: ContentfulAssetFile
+  title: String
+  description: String
+  node_locale: String
+  sys: ContentfulAssetSys
+  url: String
+  placeholderUrl: String
+  mimeType: String
+  filename: String
+  width: Int
+  height: Int
+}
+
+type ContentfulAssetFile @derivedTypes {
+  url: String
+  details: ContentfulAssetFileDetails
+  fileName: String
+  contentType: String
+}
+
+type ContentfulAssetFileDetails @derivedTypes {
+  size: Int
+  image: ContentfulAssetFileDetailsImage
+}
+
+type ContentfulAssetFileDetailsImage {
+  width: Int
+  height: Int
+}
+
+type ContentfulAssetSys {
+  type: String
+  revision: Int
+}
+
+type ContentfulBlogPost implements ContentfulReference & ContentfulEntry & Node
+  @derivedTypes
+  @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  content: ContentfulRichText
+  publicationDate: Date @dateformat
+  seoMetaText: String
+  teaserText: String
+  slug: String
+  heroImage: ContentfulBlogPostHero @link(by: "id", from: "heroImage___NODE")
+  author: ContentfulBlogPostAuthor @link(by: "id", from: "author___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulBlogPostSys
+  fields: ContentfulBlogPostFields
+  introText: contentfulBlogPostIntroTextTextNode
+    @link(by: "id", from: "introText___NODE")
+  leadBoxText: String
+}
+
+type ContentfulRichText {
+  raw: String
+  references: [ContentfulEmbedUnion] @link(by: "id", from: "references___NODE")
+}
+
+union ContentfulEmbedUnion =
+    ContentfulAdvancedAsset
+  | ContentfulAsset
+  | ContentfulBlogPostCollapsible
+  | ContentfulCodeBlock
+  | ContentfulFootnote
+  | ContentfulStats
+
+type ContentfulBlogPostHero implements ContentfulReference & ContentfulEntry & Node
+  @derivedTypes
+  @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  creator: String
+  source: String
+  image: ContentfulAsset @link(by: "id", from: "image___NODE")
+  blog_post: [ContentfulBlogPost]
+    @link(by: "id", from: "blog post___NODE")
+    @proxy(from: "blog post___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulBlogPostHeroSys
+  naturalHeight: Boolean
+}
+
+type ContentfulBlogPostHeroSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulBlogPostHeroSysContentType
+}
+
+type ContentfulBlogPostHeroSysContentType @derivedTypes {
+  sys: ContentfulBlogPostHeroSysContentTypeSys
+}
+
+type ContentfulBlogPostHeroSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulBlogPostAuthor implements ContentfulReference & ContentfulEntry & Node
+  @derivedTypes
+  @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  fullName: String
+  summary: String
+  blog_post: [ContentfulBlogPost]
+    @link(by: "id", from: "blog post___NODE")
+    @proxy(from: "blog post___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulBlogPostAuthorSys
+}
+
+type ContentfulBlogPostAuthorSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulBlogPostAuthorSysContentType
+}
+
+type ContentfulBlogPostAuthorSysContentType @derivedTypes {
+  sys: ContentfulBlogPostAuthorSysContentTypeSys
+}
+
+type ContentfulBlogPostAuthorSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulBlogPostSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulBlogPostSysContentType
+}
+
+type ContentfulBlogPostSysContentType @derivedTypes {
+  sys: ContentfulBlogPostSysContentTypeSys
+}
+
+type ContentfulBlogPostSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulBlogPostFields {
+  path: String
+}
+
+type contentfulBlogPostIntroTextTextNode implements Node
+  @derivedTypes
+  @childOf(types: ["ContentfulBlogPost"])
+  @dontInfer {
+  introText: String
+  sys: contentfulBlogPostIntroTextTextNodeSys
+}
+
+type contentfulBlogPostIntroTextTextNodeSys {
+  type: String
+}
+
+type ContentfulCodeBlock implements ContentfulReference & ContentfulEntry & Node
+  @derivedTypes
+  @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  code: contentfulCodeBlockCodeTextNode @link(by: "id", from: "code___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulCodeBlockSys
+  description: String
+}
+
+type contentfulCodeBlockCodeTextNode implements Node
+  @derivedTypes
+  @childOf(types: ["ContentfulCodeBlock"])
+  @dontInfer {
+  code: String
+  sys: contentfulCodeBlockCodeTextNodeSys
+}
+
+type contentfulCodeBlockCodeTextNodeSys {
+  type: String
+}
+
+type ContentfulCodeBlockSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulCodeBlockSysContentType
+}
+
+type ContentfulCodeBlockSysContentType @derivedTypes {
+  sys: ContentfulCodeBlockSysContentTypeSys
+}
+
+type ContentfulCodeBlockSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulBlogPostCollapsible implements ContentfulReference & ContentfulEntry & Node
+  @derivedTypes
+  @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  summary: String
+  content: ContentfulBlogPostCollapsibleContent
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulBlogPostCollapsibleSys
+}
+
+type ContentfulBlogPostCollapsibleContent {
+  raw: String
+  references: [ContentfulAssetContentfulCodeBlockUnion]
+    @link(by: "id", from: "references___NODE")
+}
+
+union ContentfulAssetContentfulCodeBlockUnion =
+    ContentfulAsset
+  | ContentfulCodeBlock
+
+type ContentfulBlogPostCollapsibleSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulBlogPostCollapsibleSysContentType
+}
+
+type ContentfulBlogPostCollapsibleSysContentType @derivedTypes {
+  sys: ContentfulBlogPostCollapsibleSysContentTypeSys
+}
+
+type ContentfulBlogPostCollapsibleSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulFootnote implements ContentfulReference & ContentfulEntry & Node
+  @derivedTypes
+  @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  note: contentfulFootnoteNoteTextNode @link(by: "id", from: "note___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulFootnoteSys
+}
+
+type contentfulFootnoteNoteTextNode implements Node
+  @derivedTypes
+  @childOf(types: ["ContentfulFootnote"])
+  @dontInfer {
+  note: String
+  sys: contentfulFootnoteNoteTextNodeSys
+}
+
+type contentfulFootnoteNoteTextNodeSys {
+  type: String
+}
+
+type ContentfulFootnoteSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulFootnoteSysContentType
+}
+
+type ContentfulFootnoteSysContentType @derivedTypes {
+  sys: ContentfulFootnoteSysContentTypeSys
+}
+
+type ContentfulFootnoteSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulStats implements ContentfulReference & ContentfulEntry & Node
+  @derivedTypes
+  @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  identifier: String
+  statItems: [ContentfulStatItem] @link(by: "id", from: "statItems___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulStatsSys
+}
+
+type ContentfulStatItem implements ContentfulReference & ContentfulEntry & Node
+  @derivedTypes
+  @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  label: String
+  value: String
+  stats: [ContentfulStats] @link(by: "id", from: "stats___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulStatItemSys
+}
+
+type ContentfulStatItemSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulStatItemSysContentType
+}
+
+type ContentfulStatItemSysContentType @derivedTypes {
+  sys: ContentfulStatItemSysContentTypeSys
+}
+
+type ContentfulStatItemSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulStatsSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulStatsSysContentType
+}
+
+type ContentfulStatsSysContentType @derivedTypes {
+  sys: ContentfulStatsSysContentTypeSys
+}
+
+type ContentfulStatsSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulAdvancedAsset implements ContentfulReference & ContentfulEntry & Node
+  @derivedTypes
+  @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  fullWidth: Boolean
+  image: ContentfulAsset @link(by: "id", from: "image___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulAdvancedAssetSys
+}
+
+type ContentfulAdvancedAssetSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulAdvancedAssetSysContentType
+}
+
+type ContentfulAdvancedAssetSysContentType @derivedTypes {
+  sys: ContentfulAdvancedAssetSysContentTypeSys
+}
+
+type ContentfulAdvancedAssetSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type SyPersonioJob implements Node @derivedTypes @dontInfer {
+  socialCardFile: File @link(by: "id", from: "fields.socialCardFileId")
+  office: String
+  department: String
+  recruitingCategory: String
+  name: String
+  employmentType: String
+  seniority: String
+  schedule: String
+  yearsOfExperience: String
+  occupation: String
+  occupationCategory: String
+  createdAt: Date @dateformat
+  slug: String
+  short: String
+  sections: [SyPersonioJobSections]
+  lang: String
+  sort: Float
+  jobId: Int
+  fields: SyPersonioJobFields
+  keywords: String
+}
+
+type SyPersonioJobSections {
+  headline: String
+  descriptionHtml: String
+  description: String
+}
+
+type SyPersonioJobFields {
+  socialCardFileId: String
+}
+
+type TeamJson implements Node @childOf(types: ["File"]) @dontInfer {
+  name: String
+  image: File @fileByRelativePath
+}
+
+type Locale implements Node @childOf(types: ["File"]) @dontInfer {
+  language: String
+  ns: String
+  data: String
+  fileAbsolutePath: String
+}
+
+type EnJson implements Node @childOf(types: ["File"]) @dontInfer {
+  _404: String @proxy(from: "404")
+  main_description: String @proxy(from: "main.description")
+  main_services_title: String @proxy(from: "main.services.title")
+  main_services_kicker: String @proxy(from: "main.services.kicker")
+  main_services_text: String @proxy(from: "main.services.text")
+  main_services_teasers_first_title: String
+    @proxy(from: "main.services.teasers.first.title")
+  main_services_teasers_first_text: String
+    @proxy(from: "main.services.teasers.first.text")
+  main_services_teasers_second_title: String
+    @proxy(from: "main.services.teasers.second.title")
+  main_services_teasers_second_text: String
+    @proxy(from: "main.services.teasers.second.text")
+  main_services_teasers_third_title: String
+    @proxy(from: "main.services.teasers.third.title")
+  main_services_teasers_third_text: String
+    @proxy(from: "main.services.teasers.third.text")
+  main_career_title: String @proxy(from: "main.career.title")
+  main_career_kicker: String @proxy(from: "main.career.kicker")
+  main_career_text: String @proxy(from: "main.career.text")
+  main_blog_title: String @proxy(from: "main.blog.title")
+  main_blog_kicker: String @proxy(from: "main.blog.kicker")
+  main_blog_text: String @proxy(from: "main.blog.text")
+  career_title: String @proxy(from: "career.title")
+  career_headline: String @proxy(from: "career.headline")
+  career_mandatory_field: String @proxy(from: "career.mandatory-field")
+  career_first_name: String @proxy(from: "career.first-name")
+  career_last_name: String @proxy(from: "career.last-name")
+  career_email: String @proxy(from: "career.email")
+  career_location: String @proxy(from: "career.location")
+  career_available_from: String @proxy(from: "career.available-from")
+  career_salary_expectations: String @proxy(from: "career.salary-expectations")
+  career_cover_letter: String @proxy(from: "career.cover-letter")
+  career_file_category: String @proxy(from: "career.file-category")
+  career_remove_file: String @proxy(from: "career.remove-file")
+  career_cv: String @proxy(from: "career.cv")
+  career_other: String @proxy(from: "career.other")
+  career_info_text: String @proxy(from: "career.info-text")
+  career_privacy_policy: String @proxy(from: "career.privacy-policy")
+  career_introduction_headline: String
+    @proxy(from: "career.introduction.headline")
+  career_introduction_kicker: String @proxy(from: "career.introduction.kicker")
+  career_introduction_paragraphs_0: String
+    @proxy(from: "career.introduction.paragraphs.0")
+  career_application_process_headline: String
+    @proxy(from: "career.application-process.headline")
+  career_application_process_paragraph: String
+    @proxy(from: "career.application-process.paragraph")
+  career_application_process_accordion_0_title: String
+    @proxy(from: "career.application-process.accordion.0.title")
+  career_application_process_accordion_0_paragraph: String
+    @proxy(from: "career.application-process.accordion.0.paragraph")
+  career_application_process_accordion_1_title: String
+    @proxy(from: "career.application-process.accordion.1.title")
+  career_application_process_accordion_1_paragraph: String
+    @proxy(from: "career.application-process.accordion.1.paragraph")
+  career_application_process_accordion_2_title: String
+    @proxy(from: "career.application-process.accordion.2.title")
+  career_application_process_accordion_2_paragraph: String
+    @proxy(from: "career.application-process.accordion.2.paragraph")
+  career_application_process_accordion_3_title: String
+    @proxy(from: "career.application-process.accordion.3.title")
+  career_application_process_accordion_3_paragraph: String
+    @proxy(from: "career.application-process.accordion.3.paragraph")
+  career_openings_headline: String @proxy(from: "career.openings.headline")
+  career_culture_headline: String @proxy(from: "career.culture.headline")
+  career_culture_kicker: String @proxy(from: "career.culture.kicker")
+  career_culture_paragraph: String @proxy(from: "career.culture.paragraph")
+  career_culture_teaser_0_title: String
+    @proxy(from: "career.culture.teaser.0.title")
+  career_culture_teaser_0_description: String
+    @proxy(from: "career.culture.teaser.0.description")
+  career_culture_teaser_1_title: String
+    @proxy(from: "career.culture.teaser.1.title")
+  career_culture_teaser_1_description: String
+    @proxy(from: "career.culture.teaser.1.description")
+  career_culture_teaser_2_title: String
+    @proxy(from: "career.culture.teaser.2.title")
+  career_culture_teaser_2_description: String
+    @proxy(from: "career.culture.teaser.2.description")
+  career_culture_teaser_3_title: String
+    @proxy(from: "career.culture.teaser.3.title")
+  career_culture_teaser_3_description: String
+    @proxy(from: "career.culture.teaser.3.description")
+  career_culture_teaser_4_title: String
+    @proxy(from: "career.culture.teaser.4.title")
+  career_culture_teaser_4_description: String
+    @proxy(from: "career.culture.teaser.4.description")
+  career_culture_teaser_5_title: String
+    @proxy(from: "career.culture.teaser.5.title")
+  career_culture_teaser_5_description: String
+    @proxy(from: "career.culture.teaser.5.description")
+  career_perk_headline: String @proxy(from: "career.perk.headline")
+  career_perk_kicker: String @proxy(from: "career.perk.kicker")
+  career_perk_paragraph: String @proxy(from: "career.perk.paragraph")
+  career_perk_teaser_0_title: String @proxy(from: "career.perk.teaser.0.title")
+  career_perk_teaser_0_description: String
+    @proxy(from: "career.perk.teaser.0.description")
+  career_perk_teaser_1_title: String @proxy(from: "career.perk.teaser.1.title")
+  career_perk_teaser_1_description: String
+    @proxy(from: "career.perk.teaser.1.description")
+  career_perk_teaser_2_title: String @proxy(from: "career.perk.teaser.2.title")
+  career_perk_teaser_2_description: String
+    @proxy(from: "career.perk.teaser.2.description")
+  career_perk_teaser_3_title: String @proxy(from: "career.perk.teaser.3.title")
+  career_perk_teaser_3_description: String
+    @proxy(from: "career.perk.teaser.3.description")
+  career_perk_teaser_4_title: String @proxy(from: "career.perk.teaser.4.title")
+  career_perk_teaser_4_description: String
+    @proxy(from: "career.perk.teaser.4.description")
+  career_error_approval: String @proxy(from: "career.error.approval")
+  career_error_first_name: String @proxy(from: "career.error.first-name")
+  career_error_last_name: String @proxy(from: "career.error.last-name")
+  career_error_email: String @proxy(from: "career.error.email")
+  career_error_email_undefined: String
+    @proxy(from: "career.error.email-undefined")
+  career_error_cv: String @proxy(from: "career.error.cv")
+  career_error_max_number: String @proxy(from: "career.error.max-number")
+  career_error_max_size: String @proxy(from: "career.error.max-size")
+  career_error_category: String @proxy(from: "career.error.category")
+  career_error_cover_letter: String @proxy(from: "career.error.cover-letter")
+  career_error_cover_letter_length: String
+    @proxy(from: "career.error.cover-letter-length")
+  career_action_upload: String @proxy(from: "career.action.upload")
+  career_action_send: String @proxy(from: "career.action.send")
+  career_action_again: String @proxy(from: "career.action.again")
+  career_action_home: String @proxy(from: "career.action.home")
+  career_action_again_text: String @proxy(from: "career.action.again-text")
+  career_seo_title_detail: String @proxy(from: "career.seo.title-detail")
+  career_seo_description_detail: String
+    @proxy(from: "career.seo.description-detail")
+  career_seo_title: String @proxy(from: "career.seo.title")
+  career_seo_description: String @proxy(from: "career.seo.description")
+  career_thank: String @proxy(from: "career.thank")
+  career_email_confirmation: String @proxy(from: "career.email-confirmation")
+  career_success_text: String @proxy(from: "career.success-text")
+  career_leadbox_title: String @proxy(from: "career.leadbox.title")
+  career_leadbox_subtitle: String @proxy(from: "career.leadbox.subtitle")
+  career_leadbox_text: String @proxy(from: "career.leadbox.text")
+  career_leadbox_mail: String @proxy(from: "career.leadbox.mail")
+  services_hero: String @proxy(from: "services.hero")
+  services_title: String @proxy(from: "services.title")
+  services_kicker: String @proxy(from: "services.kicker")
+  services_text: String @proxy(from: "services.text")
+  services_platform_title: String @proxy(from: "services.platform.title")
+  services_platform_teaser: String @proxy(from: "services.platform.teaser")
+  services_platform_text: String @proxy(from: "services.platform.text")
+  services_platform_list_platforms: String
+    @proxy(from: "services.platform.list.platforms")
+  services_platform_list_lowcode: String
+    @proxy(from: "services.platform.list.lowcode")
+  services_platform_list_designsystems: String
+    @proxy(from: "services.platform.list.designsystems")
+  services_platform_list_infrastructure: String
+    @proxy(from: "services.platform.list.infrastructure")
+  services_consulting_title: String @proxy(from: "services.consulting.title")
+  services_consulting_teaser: String @proxy(from: "services.consulting.teaser")
+  services_consulting_text: String @proxy(from: "services.consulting.text")
+  services_consulting_list_workshops: String
+    @proxy(from: "services.consulting.list.workshops")
+  services_products_services_title: String
+    @proxy(from: "services.products_services.title")
+  services_products_services_teaser: String
+    @proxy(from: "services.products_services.teaser")
+  services_products_services_text: String
+    @proxy(from: "services.products_services.text")
+  services_products_services_list_prototyping: String
+    @proxy(from: "services.products_services.list.prototyping")
+  services_products_services_list_ideation: String
+    @proxy(from: "services.products_services.list.ideation")
+  services_products_services_list_development: String
+    @proxy(from: "services.products_services.list.development")
+  services_industries_text: String @proxy(from: "services.industries.text")
+  services_industries_title: String @proxy(from: "services.industries.title")
+  services_industries_bank_title: String
+    @proxy(from: "services.industries.bank.title")
+  services_industries_bank_text: String
+    @proxy(from: "services.industries.bank.text")
+  services_industries_automotive_title: String
+    @proxy(from: "services.industries.automotive.title")
+  services_industries_automotive_text: String
+    @proxy(from: "services.industries.automotive.text")
+  services_industries_sport_title: String
+    @proxy(from: "services.industries.sport.title")
+  services_industries_sport_text: String
+    @proxy(from: "services.industries.sport.text")
+  services_industries_you_title: String
+    @proxy(from: "services.industries.you.title")
+  services_industries_you_text: String
+    @proxy(from: "services.industries.you.text")
+  services_industries_insurance_title: String
+    @proxy(from: "services.industries.insurance.title")
+  services_industries_insurance_text: String
+    @proxy(from: "services.industries.insurance.text")
+  services_leadbox_title: String @proxy(from: "services.leadbox.title")
+  services_leadbox_subtitle: String @proxy(from: "services.leadbox.subtitle")
+  services_leadbox_text: String @proxy(from: "services.leadbox.text")
+  services_leadbox_mail: String @proxy(from: "services.leadbox.mail")
+  contact_title: String @proxy(from: "contact.title")
+  contact_address: String @proxy(from: "contact.address")
+  contact_info_headline: String @proxy(from: "contact.info.headline")
+  contact_info_link: String @proxy(from: "contact.info-link")
+  contact_info: String @proxy(from: "contact.info")
+  contact_name: String @proxy(from: "contact.name")
+  contact_email: String @proxy(from: "contact.email")
+  contact_message: String @proxy(from: "contact.message")
+  contact_mandatory_field: String @proxy(from: "contact.mandatory-field")
+  contact_error_name: String @proxy(from: "contact.error.name")
+  contact_error_message: String @proxy(from: "contact.error.message")
+  contact_error_email: String @proxy(from: "contact.error.email")
+  contact_error_email_undefined: String
+    @proxy(from: "contact.error.email-undefined")
+  contact_action_again_text: String @proxy(from: "contact.action.again-text")
+  contact_action_missing: String @proxy(from: "contact.action.missing")
+  contact_action_send: String @proxy(from: "contact.action.send")
+  contact_action_again: String @proxy(from: "contact.action.again")
+  contact_leaflet_touch: String @proxy(from: "contact.leaflet.touch")
+  contact_leaflet_scroll: String @proxy(from: "contact.leaflet.scroll")
+  contact_leaflet_scrollMac: String @proxy(from: "contact.leaflet.scrollMac")
+  imprint_title: String @proxy(from: "imprint.title")
+  imprint_info: String @proxy(from: "imprint.info")
+  imprint_updated: String @proxy(from: "imprint.updated")
+  data_privacy_title: String @proxy(from: "data-privacy.title")
+  data_privacy_info: String @proxy(from: "data-privacy.info")
+  navigation_language_aria: String @proxy(from: "navigation.language-aria")
+  navigation_main_navigation_aria: String
+    @proxy(from: "navigation.main-navigation-aria")
+  navigation_en: String @proxy(from: "navigation.en")
+  navigation_de: String @proxy(from: "navigation.de")
+  navigation_menu: String @proxy(from: "navigation.menu")
+  navigation_imprint: String @proxy(from: "navigation.imprint")
+  navigation_data_privacy: String @proxy(from: "navigation.data-privacy")
+  navigation_services: String @proxy(from: "navigation.services")
+  navigation_career: String @proxy(from: "navigation.career")
+  navigation_blog: String @proxy(from: "navigation.blog")
+  navigation_contact: String @proxy(from: "navigation.contact")
+  blog_info: String @proxy(from: "blog.info")
+  blog_share: String @proxy(from: "blog.share")
+  blog_copied: String @proxy(from: "blog.copied")
+  blog_follow: String @proxy(from: "blog.follow")
+  blog_pagination: String @proxy(from: "blog.pagination")
+  blogpost_leadbox_title: String @proxy(from: "blogpost.leadbox.title")
+  blogpost_leadbox_link: String @proxy(from: "blogpost.leadbox.link")
+  image_attribution: String @proxy(from: "image.attribution")
+  main_services_button: String @proxy(from: "main.services.button")
+  main_career_button: String @proxy(from: "main.career.button")
+  main_blog_button: String @proxy(from: "main.blog.button")
+  career_position: String @proxy(from: "career.position")
+  about_us_title: String @proxy(from: "about-us.title")
+  about_us_office_title: String @proxy(from: "about-us.office.title")
+  about_us_office_kicker: String @proxy(from: "about-us.office.kicker")
+  about_us_office_heading: String @proxy(from: "about-us.office.heading")
+  about_us_office_text: String @proxy(from: "about-us.office.text")
+  about_us_team_title: String @proxy(from: "about-us.team.title")
+  about_us_team_heading: String @proxy(from: "about-us.team.heading")
+  about_us_team_text: String @proxy(from: "about-us.team.text")
+  about_us_leadbox_title: String @proxy(from: "about-us.leadbox.title")
+  about_us_leadbox_link: String @proxy(from: "about-us.leadbox.link")
+  services_hero_description: String @proxy(from: "services.hero.description")
+  services_consulting_list_techanalysis: String
+    @proxy(from: "services.consulting.list.techanalysis")
+  services_consulting_list_uxanalysis: String
+    @proxy(from: "services.consulting.list.uxanalysis")
+  contact_action_sent_headline: String
+    @proxy(from: "contact.action.sent.headline")
+  contact_action_sent_kicker: String @proxy(from: "contact.action.sent.kicker")
+  contact_action_sent_info: String @proxy(from: "contact.action.sent.info")
+  contact_action_sent_button: String @proxy(from: "contact.action.sent.button")
+  navigation_about_us: String @proxy(from: "navigation.about-us")
+}
+
+type DeJson implements Node @childOf(types: ["File"]) @dontInfer {
+  _404: String @proxy(from: "404")
+  main_description: String @proxy(from: "main.description")
+  main_services_title: String @proxy(from: "main.services.title")
+  main_services_kicker: String @proxy(from: "main.services.kicker")
+  main_services_text: String @proxy(from: "main.services.text")
+  main_services_teasers_first_title: String
+    @proxy(from: "main.services.teasers.first.title")
+  main_services_teasers_first_text: String
+    @proxy(from: "main.services.teasers.first.text")
+  main_services_teasers_second_title: String
+    @proxy(from: "main.services.teasers.second.title")
+  main_services_teasers_second_text: String
+    @proxy(from: "main.services.teasers.second.text")
+  main_services_teasers_third_title: String
+    @proxy(from: "main.services.teasers.third.title")
+  main_services_teasers_third_text: String
+    @proxy(from: "main.services.teasers.third.text")
+  main_services_button: String @proxy(from: "main.services.button")
+  main_career_title: String @proxy(from: "main.career.title")
+  main_career_kicker: String @proxy(from: "main.career.kicker")
+  main_career_text: String @proxy(from: "main.career.text")
+  main_career_button: String @proxy(from: "main.career.button")
+  main_blog_title: String @proxy(from: "main.blog.title")
+  main_blog_kicker: String @proxy(from: "main.blog.kicker")
+  main_blog_text: String @proxy(from: "main.blog.text")
+  main_blog_button: String @proxy(from: "main.blog.button")
+  career_title: String @proxy(from: "career.title")
+  career_headline: String @proxy(from: "career.headline")
+  career_mandatory_field: String @proxy(from: "career.mandatory-field")
+  career_first_name: String @proxy(from: "career.first-name")
+  career_last_name: String @proxy(from: "career.last-name")
+  career_email: String @proxy(from: "career.email")
+  career_location: String @proxy(from: "career.location")
+  career_available_from: String @proxy(from: "career.available-from")
+  career_salary_expectations: String @proxy(from: "career.salary-expectations")
+  career_cover_letter: String @proxy(from: "career.cover-letter")
+  career_file_category: String @proxy(from: "career.file-category")
+  career_remove_file: String @proxy(from: "career.remove-file")
+  career_cv: String @proxy(from: "career.cv")
+  career_other: String @proxy(from: "career.other")
+  career_position: String @proxy(from: "career.position")
+  career_info_text: String @proxy(from: "career.info-text")
+  career_privacy_policy: String @proxy(from: "career.privacy-policy")
+  career_introduction_headline: String
+    @proxy(from: "career.introduction.headline")
+  career_introduction_kicker: String @proxy(from: "career.introduction.kicker")
+  career_introduction_paragraphs_0: String
+    @proxy(from: "career.introduction.paragraphs.0")
+  career_application_process_headline: String
+    @proxy(from: "career.application-process.headline")
+  career_application_process_paragraph: String
+    @proxy(from: "career.application-process.paragraph")
+  career_application_process_accordion_0_title: String
+    @proxy(from: "career.application-process.accordion.0.title")
+  career_application_process_accordion_0_paragraph: String
+    @proxy(from: "career.application-process.accordion.0.paragraph")
+  career_application_process_accordion_1_title: String
+    @proxy(from: "career.application-process.accordion.1.title")
+  career_application_process_accordion_1_paragraph: String
+    @proxy(from: "career.application-process.accordion.1.paragraph")
+  career_application_process_accordion_2_title: String
+    @proxy(from: "career.application-process.accordion.2.title")
+  career_application_process_accordion_2_paragraph: String
+    @proxy(from: "career.application-process.accordion.2.paragraph")
+  career_application_process_accordion_3_title: String
+    @proxy(from: "career.application-process.accordion.3.title")
+  career_application_process_accordion_3_paragraph: String
+    @proxy(from: "career.application-process.accordion.3.paragraph")
+  career_openings_headline: String @proxy(from: "career.openings.headline")
+  career_culture_headline: String @proxy(from: "career.culture.headline")
+  career_culture_kicker: String @proxy(from: "career.culture.kicker")
+  career_culture_paragraph: String @proxy(from: "career.culture.paragraph")
+  career_culture_teaser_0_title: String
+    @proxy(from: "career.culture.teaser.0.title")
+  career_culture_teaser_0_description: String
+    @proxy(from: "career.culture.teaser.0.description")
+  career_culture_teaser_1_title: String
+    @proxy(from: "career.culture.teaser.1.title")
+  career_culture_teaser_1_description: String
+    @proxy(from: "career.culture.teaser.1.description")
+  career_culture_teaser_2_title: String
+    @proxy(from: "career.culture.teaser.2.title")
+  career_culture_teaser_2_description: String
+    @proxy(from: "career.culture.teaser.2.description")
+  career_culture_teaser_3_title: String
+    @proxy(from: "career.culture.teaser.3.title")
+  career_culture_teaser_3_description: String
+    @proxy(from: "career.culture.teaser.3.description")
+  career_culture_teaser_4_title: String
+    @proxy(from: "career.culture.teaser.4.title")
+  career_culture_teaser_4_description: String
+    @proxy(from: "career.culture.teaser.4.description")
+  career_culture_teaser_5_title: String
+    @proxy(from: "career.culture.teaser.5.title")
+  career_culture_teaser_5_description: String
+    @proxy(from: "career.culture.teaser.5.description")
+  career_perk_headline: String @proxy(from: "career.perk.headline")
+  career_perk_kicker: String @proxy(from: "career.perk.kicker")
+  career_perk_paragraph: String @proxy(from: "career.perk.paragraph")
+  career_perk_teaser_0_title: String @proxy(from: "career.perk.teaser.0.title")
+  career_perk_teaser_0_description: String
+    @proxy(from: "career.perk.teaser.0.description")
+  career_perk_teaser_1_title: String @proxy(from: "career.perk.teaser.1.title")
+  career_perk_teaser_1_description: String
+    @proxy(from: "career.perk.teaser.1.description")
+  career_perk_teaser_2_title: String @proxy(from: "career.perk.teaser.2.title")
+  career_perk_teaser_2_description: String
+    @proxy(from: "career.perk.teaser.2.description")
+  career_perk_teaser_3_title: String @proxy(from: "career.perk.teaser.3.title")
+  career_perk_teaser_3_description: String
+    @proxy(from: "career.perk.teaser.3.description")
+  career_perk_teaser_4_title: String @proxy(from: "career.perk.teaser.4.title")
+  career_perk_teaser_4_description: String
+    @proxy(from: "career.perk.teaser.4.description")
+  career_error_approval: String @proxy(from: "career.error.approval")
+  career_error_first_name: String @proxy(from: "career.error.first-name")
+  career_error_last_name: String @proxy(from: "career.error.last-name")
+  career_error_email: String @proxy(from: "career.error.email")
+  career_error_email_undefined: String
+    @proxy(from: "career.error.email-undefined")
+  career_error_cv: String @proxy(from: "career.error.cv")
+  career_error_max_number: String @proxy(from: "career.error.max-number")
+  career_error_max_size: String @proxy(from: "career.error.max-size")
+  career_error_category: String @proxy(from: "career.error.category")
+  career_error_cover_letter: String @proxy(from: "career.error.cover-letter")
+  career_error_cover_letter_length: String
+    @proxy(from: "career.error.cover-letter-length")
+  career_action_upload: String @proxy(from: "career.action.upload")
+  career_action_send: String @proxy(from: "career.action.send")
+  career_action_again: String @proxy(from: "career.action.again")
+  career_action_home: String @proxy(from: "career.action.home")
+  career_action_again_text: String @proxy(from: "career.action.again-text")
+  career_seo_title_detail: String @proxy(from: "career.seo.title-detail")
+  career_seo_description_detail: String
+    @proxy(from: "career.seo.description-detail")
+  career_seo_title: String @proxy(from: "career.seo.title")
+  career_seo_description: String @proxy(from: "career.seo.description")
+  career_thank: String @proxy(from: "career.thank")
+  career_email_confirmation: String @proxy(from: "career.email-confirmation")
+  career_success_text: String @proxy(from: "career.success-text")
+  career_leadbox_title: String @proxy(from: "career.leadbox.title")
+  career_leadbox_subtitle: String @proxy(from: "career.leadbox.subtitle")
+  career_leadbox_text: String @proxy(from: "career.leadbox.text")
+  career_leadbox_mail: String @proxy(from: "career.leadbox.mail")
+  about_us_title: String @proxy(from: "about-us.title")
+  about_us_office_title: String @proxy(from: "about-us.office.title")
+  about_us_office_kicker: String @proxy(from: "about-us.office.kicker")
+  about_us_office_heading: String @proxy(from: "about-us.office.heading")
+  about_us_office_text: String @proxy(from: "about-us.office.text")
+  about_us_team_title: String @proxy(from: "about-us.team.title")
+  about_us_team_heading: String @proxy(from: "about-us.team.heading")
+  about_us_team_text: String @proxy(from: "about-us.team.text")
+  about_us_leadbox_title: String @proxy(from: "about-us.leadbox.title")
+  about_us_leadbox_link: String @proxy(from: "about-us.leadbox.link")
+  services_hero: String @proxy(from: "services.hero")
+  services_hero_description: String @proxy(from: "services.hero.description")
+  services_title: String @proxy(from: "services.title")
+  services_kicker: String @proxy(from: "services.kicker")
+  services_text: String @proxy(from: "services.text")
+  services_platform_title: String @proxy(from: "services.platform.title")
+  services_platform_teaser: String @proxy(from: "services.platform.teaser")
+  services_platform_text: String @proxy(from: "services.platform.text")
+  services_platform_list_platforms: String
+    @proxy(from: "services.platform.list.platforms")
+  services_platform_list_lowcode: String
+    @proxy(from: "services.platform.list.lowcode")
+  services_platform_list_designsystems: String
+    @proxy(from: "services.platform.list.designsystems")
+  services_platform_list_infrastructure: String
+    @proxy(from: "services.platform.list.infrastructure")
+  services_consulting_title: String @proxy(from: "services.consulting.title")
+  services_consulting_teaser: String @proxy(from: "services.consulting.teaser")
+  services_consulting_text: String @proxy(from: "services.consulting.text")
+  services_consulting_list_workshops: String
+    @proxy(from: "services.consulting.list.workshops")
+  services_consulting_list_techanalysis: String
+    @proxy(from: "services.consulting.list.techanalysis")
+  services_consulting_list_uxanalysis: String
+    @proxy(from: "services.consulting.list.uxanalysis")
+  services_products_services_title: String
+    @proxy(from: "services.products_services.title")
+  services_products_services_teaser: String
+    @proxy(from: "services.products_services.teaser")
+  services_products_services_text: String
+    @proxy(from: "services.products_services.text")
+  services_products_services_list_prototyping: String
+    @proxy(from: "services.products_services.list.prototyping")
+  services_products_services_list_ideation: String
+    @proxy(from: "services.products_services.list.ideation")
+  services_products_services_list_development: String
+    @proxy(from: "services.products_services.list.development")
+  services_industries_text: String @proxy(from: "services.industries.text")
+  services_industries_title: String @proxy(from: "services.industries.title")
+  services_industries_bank_title: String
+    @proxy(from: "services.industries.bank.title")
+  services_industries_bank_text: String
+    @proxy(from: "services.industries.bank.text")
+  services_industries_automotive_title: String
+    @proxy(from: "services.industries.automotive.title")
+  services_industries_automotive_text: String
+    @proxy(from: "services.industries.automotive.text")
+  services_industries_sport_title: String
+    @proxy(from: "services.industries.sport.title")
+  services_industries_sport_text: String
+    @proxy(from: "services.industries.sport.text")
+  services_industries_you_title: String
+    @proxy(from: "services.industries.you.title")
+  services_industries_you_text: String
+    @proxy(from: "services.industries.you.text")
+  services_industries_insurance_title: String
+    @proxy(from: "services.industries.insurance.title")
+  services_industries_insurance_text: String
+    @proxy(from: "services.industries.insurance.text")
+  services_leadbox_title: String @proxy(from: "services.leadbox.title")
+  services_leadbox_subtitle: String @proxy(from: "services.leadbox.subtitle")
+  services_leadbox_text: String @proxy(from: "services.leadbox.text")
+  services_leadbox_mail: String @proxy(from: "services.leadbox.mail")
+  contact_title: String @proxy(from: "contact.title")
+  contact_address: String @proxy(from: "contact.address")
+  contact_info_headline: String @proxy(from: "contact.info.headline")
+  contact_info_link: String @proxy(from: "contact.info-link")
+  contact_info: String @proxy(from: "contact.info")
+  contact_name: String @proxy(from: "contact.name")
+  contact_email: String @proxy(from: "contact.email")
+  contact_message: String @proxy(from: "contact.message")
+  contact_mandatory_field: String @proxy(from: "contact.mandatory-field")
+  contact_error_name: String @proxy(from: "contact.error.name")
+  contact_error_message: String @proxy(from: "contact.error.message")
+  contact_error_email: String @proxy(from: "contact.error.email")
+  contact_error_email_undefined: String
+    @proxy(from: "contact.error.email-undefined")
+  contact_action_again_text: String @proxy(from: "contact.action.again-text")
+  contact_action_missing: String @proxy(from: "contact.action.missing")
+  contact_action_send: String @proxy(from: "contact.action.send")
+  contact_action_sent_headline: String
+    @proxy(from: "contact.action.sent.headline")
+  contact_action_sent_kicker: String @proxy(from: "contact.action.sent.kicker")
+  contact_action_sent_info: String @proxy(from: "contact.action.sent.info")
+  contact_action_sent_button: String @proxy(from: "contact.action.sent.button")
+  contact_action_again: String @proxy(from: "contact.action.again")
+  contact_leaflet_touch: String @proxy(from: "contact.leaflet.touch")
+  contact_leaflet_scroll: String @proxy(from: "contact.leaflet.scroll")
+  contact_leaflet_scrollMac: String @proxy(from: "contact.leaflet.scrollMac")
+  imprint_title: String @proxy(from: "imprint.title")
+  imprint_info: String @proxy(from: "imprint.info")
+  imprint_updated: String @proxy(from: "imprint.updated")
+  data_privacy_title: String @proxy(from: "data-privacy.title")
+  data_privacy_info: String @proxy(from: "data-privacy.info")
+  navigation_language_aria: String @proxy(from: "navigation.language-aria")
+  navigation_main_navigation_aria: String
+    @proxy(from: "navigation.main-navigation-aria")
+  navigation_en: String @proxy(from: "navigation.en")
+  navigation_de: String @proxy(from: "navigation.de")
+  navigation_menu: String @proxy(from: "navigation.menu")
+  navigation_imprint: String @proxy(from: "navigation.imprint")
+  navigation_data_privacy: String @proxy(from: "navigation.data-privacy")
+  navigation_services: String @proxy(from: "navigation.services")
+  navigation_career: String @proxy(from: "navigation.career")
+  navigation_about_us: String @proxy(from: "navigation.about-us")
+  navigation_blog: String @proxy(from: "navigation.blog")
+  navigation_contact: String @proxy(from: "navigation.contact")
+  blog_info: String @proxy(from: "blog.info")
+  blog_share: String @proxy(from: "blog.share")
+  blog_copied: String @proxy(from: "blog.copied")
+  blog_follow: String @proxy(from: "blog.follow")
+  blog_pagination: String @proxy(from: "blog.pagination")
+  blogpost_leadbox_title: String @proxy(from: "blogpost.leadbox.title")
+  blogpost_leadbox_link: String @proxy(from: "blogpost.leadbox.link")
+  image_attribution: String @proxy(from: "image.attribution")
+}
+
+type ContentfulContentType implements Node @derivedTypes @dontInfer {
+  name: String
+  displayField: String
+  description: String
+  sys: ContentfulContentTypeSys
+}
+
+type ContentfulContentTypeSys {
+  type: String
+}

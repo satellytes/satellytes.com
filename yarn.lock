@@ -9531,6 +9531,13 @@ gatsby-plugin-sass@^5.13.0:
     resolve-url-loader "^3.1.4"
     sass-loader "^10.1.1"
 
+gatsby-plugin-schema-snapshot@^3.13.0:
+  version "3.13.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-schema-snapshot/-/gatsby-plugin-schema-snapshot-3.13.0.tgz#9a92a23331226c72d431a92a21646df6cceb812a"
+  integrity sha512-h7eQqpbyvmUEMeZko4lawk/ZZy6yM05b0Pzm7xtqIyNrxlo1CShWailaxvLk8rZFpQQQtESv1WeRWikLUbFd/g==
+  dependencies:
+    "@babel/runtime" "^7.15.4"
+
 gatsby-plugin-sharp@^4.13.0:
   version "4.13.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-4.13.0.tgz#b5d9494cb9e5246bcca726181ea09afbe5699513"
