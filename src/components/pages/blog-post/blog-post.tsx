@@ -11,7 +11,7 @@ import { Layout } from '../../layout/layout';
 import { up } from '../../support/breakpoint';
 import FollowPanel from './follow-panel';
 import SharePanel from './share-panel';
-import { RichText } from '../../content/rich-text/rich-text';
+import { ContentfulRichText } from '../../content/rich-text/rich-text';
 
 interface BlogPostPageProps {
   blogPost: BlogArticleQueryData;
@@ -77,7 +77,7 @@ export const BlogPostPage = ({ blogPost, breadcrumb }: BlogPostPageProps) => {
           {blogPost.introText?.introText}
         </BlogHeader>
 
-        <RichText data={blogPost.content} />
+        <ContentfulRichText data={blogPost.content} />
 
         <PanelContainer>
           <SharePanel title={blogPost.title} />

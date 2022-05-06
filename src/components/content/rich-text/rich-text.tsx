@@ -15,7 +15,7 @@ import 'react-medium-image-zoom/dist/styles.css';
 import { StatItem, Stats } from '../../content/stats/stats';
 import { AdvancedAsset } from '../../content/advanced-asset/advanced-asset';
 
-interface RichTextProps {
+interface ContentfulRichTextProps {
   data: RenderRichTextData<ContentfulRichTextGatsbyReference>;
 }
 
@@ -53,9 +53,7 @@ interface FootnoteReference {
  * @param data rich text data
  * @returns rendered elements
  */
-const customContentfulRenderer = (
-  data: RenderRichTextData<ContentfulRichTextGatsbyReference>,
-) => {
+export const ContentfulRichText = ({ data }: ContentfulRichTextProps) => {
   /**
    * Filter out footnotes from content references
    */
@@ -323,8 +321,4 @@ const customContentfulRenderer = (
       )}
     </div>
   );
-};
-
-export const RichText = ({ data }: RichTextProps) => {
-  return <>{customContentfulRenderer(data)}</>;
 };
