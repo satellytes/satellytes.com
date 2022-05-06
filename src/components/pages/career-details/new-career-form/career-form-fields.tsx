@@ -115,7 +115,9 @@ export const CareerDetailsFileUpload = ({
       errors={errors}
       name="documents"
       fileCategories={fileCategories}
-      acceptedFileTypes={'.pdf'}
+      acceptedFileTypes={{
+        'application/pdf': ['.pdf'],
+      }}
       illustration="monitor_024"
       maxFiles={3}
       validator={fileValidator}

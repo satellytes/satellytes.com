@@ -10,7 +10,9 @@ export const Regular = Template.bind({});
 Regular.args = {
   illustration: 'monitor_024',
   maxFiles: 1,
-  acceptedFileTypes: '.pdf',
+  acceptedFileTypes: {
+    'application/pdf': ['.pdf'],
+  },
   fileCategories: [
     {
       value: 'CV',

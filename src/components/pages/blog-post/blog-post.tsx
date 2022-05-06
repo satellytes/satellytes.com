@@ -49,13 +49,6 @@ export const BlogPostPage = ({ blogPost, breadcrumb }: BlogPostPageProps) => {
   }`;
   const heroByLine = `${formattedDate} • ${readingTime} • ${byLine}`;
 
-  // todo: put this variable into Contentful
-  const heroNaturalHeight =
-    blogPost.id === 'e154c38b-4dfe-5e9b-81ea-9df1c852bb07' ||
-    blogPost.id === '0a0945c4-f5f8-5734-b44e-b6c193ceeee1' ||
-    blogPost.id === 'ca5d5e82-481f-5f6b-acc0-004e567d76c4' ||
-    blogPost.id === 'a60c3422-ba69-5bc2-8da0-5833de3dca39';
-
   return (
     <Layout
       transparentHeader
@@ -65,7 +58,7 @@ export const BlogPostPage = ({ blogPost, breadcrumb }: BlogPostPageProps) => {
         <BlogHero
           attribution={blogPost.heroImage}
           image={blogPost.heroImage.fullImage}
-          naturalHeight={heroNaturalHeight}
+          naturalHeight={blogPost.heroImage.naturalHeight}
         />
       }
       leadbox={leadbox}
