@@ -25,12 +25,6 @@ module.exports = {
   },
   moduleNameMapper: {
     '\\.(css|less|woff|woff2|ttf|eot)$': 'identity-obj-proxy',
-    '^gatsby-page-utils/(.*)$': `gatsby-page-utils/dist/$1`, // Workaround for https://github.com/facebook/jest/issues/9771
-    '^gatsby-core-utils/(.*)$': `gatsby-core-utils/dist/$1`, // Workaround for https://github.com/facebook/jest/issues/9771
-    '^gatsby-plugin-utils/(.*)$': [
-      `gatsby-plugin-utils/dist/$1`,
-      `gatsby-plugin-utils/$1`,
-    ], // Workaround for https://github.com/facebook/jest/issues/9771
   },
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
