@@ -28,6 +28,15 @@ const PanelContainer = styled.div`
   }
 `;
 
+const StyledArticle = styled.article`
+  display: grid;
+  grid-template-columns: minmax(24px, 1fr) minmax(0, 820px) minmax(24px, 1fr);
+
+  > * {
+    grid-column: 2;
+  }
+`;
+
 export const BlogPostPage = ({ blogPost, breadcrumb }: BlogPostPageProps) => {
   const { t } = useTranslation();
   const dateFormatter = useLocaleFormat(LONG_DATE_FORMAT);
@@ -54,6 +63,7 @@ export const BlogPostPage = ({ blogPost, breadcrumb }: BlogPostPageProps) => {
       transparentHeader
       siteTitleUrl={'/blog'}
       light
+      fullWidth
       hero={
         <BlogHero
           attribution={blogPost.heroImage}
@@ -65,7 +75,7 @@ export const BlogPostPage = ({ blogPost, breadcrumb }: BlogPostPageProps) => {
       showLanguageSwitch={false}
       breadcrumb={breadcrumb}
     >
-      <article>
+      <StyledArticle>
         <BlogHeader headline={blogPost.title} byline={heroByLine}>
           {blogPost.introText?.introText}
         </BlogHeader>
@@ -76,7 +86,7 @@ export const BlogPostPage = ({ blogPost, breadcrumb }: BlogPostPageProps) => {
           <SharePanel title={blogPost.title} />
           <FollowPanel />
         </PanelContainer>
-      </article>
+      </StyledArticle>
     </Layout>
   );
 };

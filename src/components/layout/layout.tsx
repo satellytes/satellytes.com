@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import Header, { HEADER_HEIGHT } from './header/header';
 import Navigation from './navigation/navigation';
 import { HEADER_HEIGHT_VALUE, theme } from './theme';
-import styled, { ThemeProvider } from 'styled-components';
+import styled, { css, ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './global-style';
 import {
   Leadbox,
@@ -30,28 +30,34 @@ const FullHeightContainer = styled.div`
   }
 `;
 
-const Main = styled.main`
+const Main = styled.main<{ fullWidth?: boolean }>`
   /** make the element take up all available space */
   flex-grow: 1;
 
-  display: grid;
+  ${({ fullWidth }) =>
+    !fullWidth &&
+    css`
+      display: grid;
 
-  /**
+      /**
     The best reference for naming things comes from the css queen Rachel Andrew.
-    Read the following if you need a refresher. 
+    Read the following if you need a refresher.
     https://www.smashingmagazine.com/2017/10/naming-things-css-grid-layout/
    */
+      grid-template-columns: minmax(24px, 1fr) minmax(0, 820px) minmax(
+          24px,
+          1fr
+        );
+      grid-template-areas: 'margin-start content margin-end';
 
-  grid-template-columns: minmax(24px, 1fr) minmax(0, 820px) minmax(24px, 1fr);
-  grid-template-areas: 'margin-start content margin-end';
-
-  /**
+      /**
    * This technique comes from here:
    * https://www.joshwcomeau.com/css/full-bleed/
    */
-  > * {
-    grid-column: content;
-  }
+      > * {
+        grid-column: content;
+      }
+    `}
 
   /** make sure the distance to the footer is always the same */
   padding-bottom: 120px;
@@ -76,6 +82,7 @@ interface LayoutProps {
   transparentHeader?: boolean;
   siteTitleUrl?: string;
   light?: boolean;
+  fullWidth?: boolean;
   hero?: ReactNode;
   children?: ReactNode;
   showLanguageSwitch?: boolean;
@@ -112,6 +119,7 @@ export const Layout = ({
   translation,
   leadbox,
   breadcrumb,
+  fullWidth,
 }: LayoutProps): JSX.Element => {
   const isLight = light === true && !overrideDarkFromQuery();
 
@@ -138,7 +146,7 @@ export const Layout = ({
         </BreadcrumbContainer>
       )}
       <FullHeightContainer>
-        <Main>{children}</Main>
+        <Main fullWidth={fullWidth}>{children}</Main>
         {leadbox && (
           <LeadboxFooterContainer>
             <Leadbox {...leadbox} />

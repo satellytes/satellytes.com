@@ -198,18 +198,13 @@ export const ContentfulRichText = ({ data }: ContentfulRichTextProps) => {
            * Advanced Images
            */
           case ContentfulCustomModel.CONTENTFUL_ADVANCED_ASSET: {
-            return customComponents.figure({
-              children: [
-                <AdvancedAsset
-                  {...node.data.target}
-                  key={node.data.target.contentful_id}
-                />,
-                customComponents.figcaption({
-                  key: 'figcaption',
-                  children: node.data.target.description,
-                }),
-              ],
-            });
+            return (
+              <AdvancedAsset
+                {...node.data.target}
+                key={node.data.target.contentful_id}
+                description={node.data.target.description}
+              />
+            );
           }
           /**
            * Log error to console if type is not yet implemented
@@ -311,7 +306,7 @@ export const ContentfulRichText = ({ data }: ContentfulRichTextProps) => {
    * Rendered Rich Text + Footnotes
    */
   return (
-    <div>
+    <>
       {renderRichText(data, contentfulRenderOptions)}
       {footnotes.length > 0 && (
         <>
@@ -319,6 +314,6 @@ export const ContentfulRichText = ({ data }: ContentfulRichTextProps) => {
           {footNoteElements}
         </>
       )}
-    </div>
+    </>
   );
 };
