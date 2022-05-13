@@ -73,6 +73,7 @@ export interface ContentfulBlogPost {
   introText?: {
     introText: string;
   };
+  introRichText?: RenderRichTextData<ContentfulRichTextGatsbyReference>;
   content: RenderRichTextData<ContentfulRichTextGatsbyReference>;
   heroImage: ContentfulBlogPostHero;
   id: string;

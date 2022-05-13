@@ -57,7 +57,7 @@ export const ContentfulRichText = ({ data }: ContentfulRichTextProps) => {
   /**
    * Filter out footnotes from content references
    */
-  const footnotes: ContentfulFootnoteReference[] = data.references.filter(
+  const footnotes: ContentfulFootnoteReference[] = data.references?.filter(
     (reference) =>
       reference.__typename === ContentfulCustomModel.CONTENTFUL_FOOTNOTE,
   ) as ContentfulFootnoteReference[];
@@ -66,7 +66,7 @@ export const ContentfulRichText = ({ data }: ContentfulRichTextProps) => {
    * Create an object that contains information we'll use later
    */
   const footnoteReferences: FootnoteReference = {};
-  footnotes.map(
+  footnotes?.map(
     (footnote, index) =>
       (footnoteReferences[footnote.contentful_id] = {
         index: index + 1,
@@ -278,47 +278,49 @@ export const ContentfulRichText = ({ data }: ContentfulRichTextProps) => {
   /**
    * Footnote elements
    */
-  const footNoteElements = customComponents.ol({
-    children: footnotes.map((footnote) => {
-      const { contentful_id, note } = footnote;
-      const { anchor, referenceAnchor } = footnoteReferences[contentful_id];
-      return (
-        <li key={contentful_id} id={anchor}>
-          <div style={{ display: 'flex', gap: 10 }}>
-            <MarkdownAst
-              key={contentful_id}
-              htmlAst={note.childMarkdownRemark.htmlAst}
-            />
-            {customComponents.a({
-              children: '\u21A9',
-              href: `#${referenceAnchor}`,
-              onClick: (e: MouseEvent) => {
-                e.preventDefault();
-                const target = document.querySelector(
-                  `[id='${referenceAnchor}']`,
-                );
-                history.pushState({}, '', `#${referenceAnchor}`);
-                scrollToTarget(target);
-              },
-            })}
-          </div>
-        </li>
-      );
-    }),
-  });
+  const footNoteElements = footnotes
+    ? customComponents.ol({
+        children: footnotes?.map((footnote) => {
+          const { contentful_id, note } = footnote;
+          const { anchor, referenceAnchor } = footnoteReferences[contentful_id];
+          return (
+            <li key={contentful_id} id={anchor}>
+              <div style={{ display: 'flex', gap: 10 }}>
+                <MarkdownAst
+                  key={contentful_id}
+                  htmlAst={note.childMarkdownRemark.htmlAst}
+                />
+                {customComponents.a({
+                  children: '\u21A9',
+                  href: `#${referenceAnchor}`,
+                  onClick: (e: MouseEvent) => {
+                    e.preventDefault();
+                    const target = document.querySelector(
+                      `[id='${referenceAnchor}']`,
+                    );
+                    history.pushState({}, '', `#${referenceAnchor}`);
+                    scrollToTarget(target);
+                  },
+                })}
+              </div>
+            </li>
+          );
+        }),
+      })
+    : undefined;
 
   /**
    * Rendered Rich Text + Footnotes
    */
   return (
-    <div>
+    <>
       {renderRichText(data, contentfulRenderOptions)}
-      {footnotes.length > 0 && (
+      {footnotes?.length > 0 && (
         <>
           <hr />
           {footNoteElements}
         </>
       )}
-    </div>
+    </>
   );
 };

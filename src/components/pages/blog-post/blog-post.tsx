@@ -12,6 +12,7 @@ import { up } from '../../support/breakpoint';
 import FollowPanel from './follow-panel';
 import SharePanel from './share-panel';
 import { ContentfulRichText } from '../../content/rich-text/rich-text';
+import { TextStyles } from '../../typography';
 
 interface BlogPostPageProps {
   blogPost: BlogArticleQueryData;
@@ -25,6 +26,15 @@ const PanelContainer = styled.div`
   ${up('md')} {
     display: flex;
     justify-content: space-between;
+  }
+`;
+
+const RichTextContainer = styled.div`
+  > * {
+    ${TextStyles.textR}
+    ${up('md')} {
+      ${TextStyles.textL}
+    }
   }
 `;
 
@@ -67,7 +77,11 @@ export const BlogPostPage = ({ blogPost, breadcrumb }: BlogPostPageProps) => {
     >
       <article>
         <BlogHeader headline={blogPost.title} byline={heroByLine}>
-          {blogPost.introText?.introText}
+          {blogPost.introRichText && (
+            <RichTextContainer>
+              <ContentfulRichText data={blogPost.introRichText} />
+            </RichTextContainer>
+          )}
         </BlogHeader>
 
         <ContentfulRichText data={blogPost.content} />
