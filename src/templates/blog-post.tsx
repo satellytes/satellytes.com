@@ -80,7 +80,7 @@ export const BlogPostPageQuery = graphql`
         introText
       }
       content {
-        ...richText
+        ...contentfulRichText
       }
       publicationDate
       readingTime {

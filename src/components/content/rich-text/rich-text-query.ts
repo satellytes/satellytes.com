@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 
-export const richTextFragment = graphql`
-  fragment richText on ContentfulBlogPostContent {
+export const ContentfulRichText = graphql`
+  fragment contentfulRichText on ContentfulBlogPostContent {
     raw
     references {
       ... on ContentfulCodeBlock {
