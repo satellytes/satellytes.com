@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import Header, { HEADER_HEIGHT } from './header/header';
 import Navigation from './navigation/navigation';
 import { HEADER_HEIGHT_VALUE, theme } from './theme';
-import styled, { css, ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './global-style';
 import {
   Leadbox,
