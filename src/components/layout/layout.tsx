@@ -30,34 +30,27 @@ const FullHeightContainer = styled.div`
   }
 `;
 
-const Main = styled.main<{ fullWidth?: boolean }>`
+const Main = styled.main`
   /** make the element take up all available space */
   flex-grow: 1;
 
-  ${({ fullWidth }) =>
-    !fullWidth &&
-    css`
-      display: grid;
+  display: grid;
 
-      /**
+  /**
     The best reference for naming things comes from the css queen Rachel Andrew.
     Read the following if you need a refresher.
     https://www.smashingmagazine.com/2017/10/naming-things-css-grid-layout/
    */
-      grid-template-columns: minmax(24px, 1fr) minmax(0, 820px) minmax(
-          24px,
-          1fr
-        );
-      grid-template-areas: 'margin-start content margin-end';
+  grid-template-columns: minmax(24px, 1fr) minmax(0, 820px) minmax(24px, 1fr);
+  grid-template-areas: 'margin-start content margin-end';
 
-      /**
+  /**
    * This technique comes from here:
    * https://www.joshwcomeau.com/css/full-bleed/
    */
-      > * {
-        grid-column: content;
-      }
-    `}
+  > * {
+    grid-column: content;
+  }
 
   /** make sure the distance to the footer is always the same */
   padding-bottom: 120px;
@@ -82,13 +75,13 @@ interface LayoutProps {
   transparentHeader?: boolean;
   siteTitleUrl?: string;
   light?: boolean;
-  fullWidth?: boolean;
   hero?: ReactNode;
   children?: ReactNode;
   showLanguageSwitch?: boolean;
   translation?: string;
   leadbox?: LeadboxProps;
   breadcrumb?: BreadcrumbEntry[];
+  mainAs?: any;
 }
 
 /**
@@ -119,7 +112,7 @@ export const Layout = ({
   translation,
   leadbox,
   breadcrumb,
-  fullWidth,
+  mainAs,
 }: LayoutProps): JSX.Element => {
   const isLight = light === true && !overrideDarkFromQuery();
 
@@ -146,7 +139,7 @@ export const Layout = ({
         </BreadcrumbContainer>
       )}
       <FullHeightContainer>
-        <Main fullWidth={fullWidth}>{children}</Main>
+        <Main as={mainAs}>{children}</Main>
         {leadbox && (
           <LeadboxFooterContainer>
             <Leadbox {...leadbox} />
