@@ -70,10 +70,9 @@ export interface ContentfulCodeBlock {
 
 export interface ContentfulBlogPost {
   author: ContentFulBlogPostAuthor;
-  introText?: {
-    introText: string;
+  introRichText?: {
+    raw: string;
   };
-  introRichText?: RenderRichTextData<ContentfulRichTextGatsbyReference>;
   content: RenderRichTextData<ContentfulRichTextGatsbyReference>;
   heroImage: ContentfulBlogPostHero;
   id: string;
