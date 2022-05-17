@@ -79,7 +79,12 @@ export const BlogPostPage = ({ blogPost, breadcrumb }: BlogPostPageProps) => {
         <BlogHeader headline={blogPost.title} byline={heroByLine}>
           {blogPost.introRichText && (
             <RichTextContainer>
-              <ContentfulRichText data={blogPost.introRichText} />
+              <ContentfulRichText
+                data={{
+                  ...blogPost.introRichText,
+                  references: undefined as any,
+                }}
+              />
             </RichTextContainer>
           )}
         </BlogHeader>
