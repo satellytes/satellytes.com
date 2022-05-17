@@ -30,7 +30,7 @@ const FullHeightContainer = styled.div`
   }
 `;
 
-const Main = styled.main`
+const ContentWrapper = styled.div`
   /** make the element take up all available space */
   flex-grow: 1;
 
@@ -81,7 +81,7 @@ interface LayoutProps {
   translation?: string;
   leadbox?: LeadboxProps;
   breadcrumb?: BreadcrumbEntry[];
-  mainAs?: any;
+  contentAs?: any;
 }
 
 /**
@@ -112,7 +112,7 @@ export const Layout = ({
   translation,
   leadbox,
   breadcrumb,
-  mainAs,
+  contentAs,
 }: LayoutProps): JSX.Element => {
   const isLight = light === true && !overrideDarkFromQuery();
 
@@ -139,7 +139,9 @@ export const Layout = ({
         </BreadcrumbContainer>
       )}
       <FullHeightContainer>
-        <Main as={mainAs}>{children}</Main>
+        <main>
+          <ContentWrapper as={contentAs}>{children}</ContentWrapper>
+        </main>
         {leadbox && (
           <LeadboxFooterContainer>
             <Leadbox {...leadbox} />

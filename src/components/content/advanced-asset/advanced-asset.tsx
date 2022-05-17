@@ -5,10 +5,8 @@ import styled from 'styled-components';
 import customComponents from '../../legacy/markdown/custom-components';
 
 const FullWidthContainer = styled.div`
+  grid-column: 1 / 4;
   width: 100%;
-  && {
-    grid-column: 1 / 4;
-  }
 `;
 
 const ConditionalAsset = ({ fullWidth, children }) => {

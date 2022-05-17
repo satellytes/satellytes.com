@@ -54,7 +54,7 @@ export const BlogPostPage = ({ blogPost, breadcrumb }: BlogPostPageProps) => {
       transparentHeader
       siteTitleUrl={'/blog'}
       light
-      mainAs={'article'}
+      contentAs={'article'}
       hero={
         <BlogHero
           attribution={blogPost.heroImage}
