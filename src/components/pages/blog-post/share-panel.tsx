@@ -48,12 +48,6 @@ const SocialLinkItem = styled.li`
   }
 `;
 
-const XingShareButton = styled.a`
-  margin: 0;
-
-  color: ${theme.palette.text.header.light};
-`;
-
 export const SharePanel: React.FC<ShareProps> = ({ title }) => {
   const [shareUrl, setShareUrl] = useState('');
   const { t } = useTranslation();
@@ -93,15 +87,6 @@ export const SharePanel: React.FC<ShareProps> = ({ title }) => {
           <LinkedinShareButton title={title} url={shareUrl}>
             <Icon show="linked_in" />
           </LinkedinShareButton>
-        </SocialLinkItem>
-        <SocialLinkItem data-testid="xing">
-          <XingShareButton
-            href={'https://www.xing.com/spi/shares/new?url=' + shareUrl}
-            title={title}
-            target="_blank"
-          >
-            <Icon show="xing" />
-          </XingShareButton>
         </SocialLinkItem>
       </SocialLinks>
     </SharePanelContainer>

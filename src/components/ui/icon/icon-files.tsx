@@ -21,5 +21,4 @@ export { ReactComponent as linked_in } from '../../../assets/icons/linked-in-24.
 export { ReactComponent as rss } from '../../../assets/icons/rss-24.svg';
 export { ReactComponent as twitter } from '../../../assets/icons/twitter-24.svg';
 export { ReactComponent as whatsapp } from '../../../assets/icons/whatsapp-24.svg';
-export { ReactComponent as xing } from '../../../assets/icons/xing-24.svg';
 export { ReactComponent as github } from '../../../assets/icons/github-24.svg';
