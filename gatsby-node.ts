@@ -122,12 +122,16 @@ export const createResolvers = ({ createResolvers }) => {
       plainText: {
         type: 'String',
         resolve: (source) =>
-          documentToPlainTextString(JSON.parse(source.content.raw)),
+          documentToPlainTextString(
+            JSON.parse(source.introRichText.raw + source.content.raw),
+          ),
       },
       rssHtml: {
         type: 'String',
         resolve: (source) =>
-          documentToHtmlString(JSON.parse(source.content.raw)),
+          documentToHtmlString(
+            JSON.parse(source.introRichText.raw + source.content.raw),
+          ),
       },
     },
   });
