@@ -169,7 +169,7 @@ const gatsbyConfig: GatsbyConfig = {
                   guid: site.siteMetadata.siteUrl + node.fields.path,
                   custom_elements: [
                     {
-                      'content:encoded': `${coverImage} <p>${node.introText?.introText}</p> ${node.rssHtml}`,
+                      'content:encoded': `${coverImage} ${node.rssHtml}`,
                     },
                   ],
                 };
@@ -196,9 +196,6 @@ const gatsbyConfig: GatsbyConfig = {
                       }
                       creator
                       source
-                    }
-                    introText {
-                      introText
                     }
                   }
                 }
