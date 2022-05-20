@@ -82,7 +82,7 @@ export const BlogPostPage = ({ blogPost, breadcrumb }: BlogPostPageProps) => {
               <ContentfulRichText
                 data={{
                   ...blogPost.introRichText,
-                  references: undefined as any,
+                  references: [],
                 }}
               />
             </RichTextContainer>
