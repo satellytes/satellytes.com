@@ -248,18 +248,6 @@ const Navigation: React.FC<NavigationProps> = ({
                 </SocialLinkItem>
                 <SocialLinkItem>
                   <SocialLink
-                    title="Go to the Satellytes Xing profile"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://www.xing.com/companies/satellytesgmbh"
-                  >
-                    <IconWrapper>
-                      <Icon show="xing" />
-                    </IconWrapper>
-                  </SocialLink>
-                </SocialLinkItem>
-                <SocialLinkItem>
-                  <SocialLink
                     title="Go to the Satellytes Github profile"
                     target="_blank"
                     rel="noopener noreferrer"

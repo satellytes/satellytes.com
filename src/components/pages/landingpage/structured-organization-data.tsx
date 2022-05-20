@@ -25,7 +25,6 @@ export const StructuredOrganizationData = () => {
     logo: 'https://satellytes.com/sy-logo.png',
     sameAs: [
       'https://www.linkedin.com/company/satellytes',
-      'https://www.xing.com/companies/satellytesgmbh',
       'https://github.com/satellytes',
       'https://twitter.com/satellytes_beep',
     ],
