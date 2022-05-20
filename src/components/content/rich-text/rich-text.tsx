@@ -21,7 +21,7 @@ interface ContentfulRichTextProps {
 
 interface ContentfulFootnoteReference
   extends ContentfulRichTextGatsbyReference {
-  note: any; // TODO: Improve typing here
+  note?: any; // TODO: Improve typing here
 }
 
 enum ContentfulCustomModel {
@@ -57,10 +57,11 @@ export const ContentfulRichText = ({ data }: ContentfulRichTextProps) => {
   /**
    * Filter out footnotes from content references
    */
-  const footnotes: ContentfulFootnoteReference[] = data.references.filter(
-    (reference) =>
-      reference.__typename === ContentfulCustomModel.CONTENTFUL_FOOTNOTE,
-  ) as ContentfulFootnoteReference[];
+  const footnotes: ContentfulFootnoteReference[] =
+    data.references?.filter(
+      (reference) =>
+        reference.__typename === ContentfulCustomModel.CONTENTFUL_FOOTNOTE,
+    ) || ([] as ContentfulFootnoteReference[]);
 
   /**
    * Create an object that contains information we'll use later
@@ -301,7 +302,6 @@ export const ContentfulRichText = ({ data }: ContentfulRichTextProps) => {
       );
     }),
   });
-
   /**
    * Rendered Rich Text + Footnotes
    */

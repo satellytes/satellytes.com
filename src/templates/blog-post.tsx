@@ -76,8 +76,8 @@ export const BlogPostPageQuery = graphql`
           }
         }
       }
-      introText {
-        introText
+      introRichText {
+        raw
       }
       content {
         ...contentfulRichText
