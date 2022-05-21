@@ -121,13 +121,27 @@ export const createResolvers = ({ createResolvers }) => {
     ContentfulBlogPost: {
       plainText: {
         type: 'String',
-        resolve: (source) =>
-          documentToPlainTextString(JSON.parse(source.content.raw)),
+        resolve: (source) => {
+          const intro = source.introRichText
+            ? documentToPlainTextString(JSON.parse(source.introRichText.raw))
+            : '';
+
+          const content = documentToPlainTextString(
+            JSON.parse(source.content.raw),
+          );
+          return intro + ' ' + content;
+        },
       },
       rssHtml: {
         type: 'String',
-        resolve: (source) =>
-          documentToHtmlString(JSON.parse(source.content.raw)),
+        resolve: (source) => {
+          const intro = source.introRichText
+            ? documentToHtmlString(JSON.parse(source.introRichText.raw))
+            : '';
+
+          const content = documentToHtmlString(JSON.parse(source.content.raw));
+          return intro + content;
+        },
       },
     },
   });
