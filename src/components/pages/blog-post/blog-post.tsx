@@ -64,6 +64,7 @@ export const BlogPostPage = ({ blogPost, breadcrumb }: BlogPostPageProps) => {
       transparentHeader
       siteTitleUrl={'/blog'}
       light
+      contentAs={'article'}
       hero={
         <BlogHero
           attribution={blogPost.heroImage}
@@ -75,27 +76,25 @@ export const BlogPostPage = ({ blogPost, breadcrumb }: BlogPostPageProps) => {
       showLanguageSwitch={false}
       breadcrumb={breadcrumb}
     >
-      <article>
-        <BlogHeader headline={blogPost.title} byline={heroByLine}>
-          {blogPost.introRichText && (
-            <RichTextContainer>
-              <ContentfulRichText
-                data={{
-                  ...blogPost.introRichText,
-                  references: [],
-                }}
-              />
-            </RichTextContainer>
-          )}
-        </BlogHeader>
+      <BlogHeader headline={blogPost.title} byline={heroByLine}>
+        {blogPost.introRichText && (
+          <RichTextContainer>
+            <ContentfulRichText
+              data={{
+                ...blogPost.introRichText,
+                references: [],
+              }}
+            />
+          </RichTextContainer>
+        )}
+      </BlogHeader>
 
-        <ContentfulRichText data={blogPost.content} />
+      <ContentfulRichText data={blogPost.content} />
 
-        <PanelContainer>
-          <SharePanel title={blogPost.title} />
-          <FollowPanel />
-        </PanelContainer>
-      </article>
+      <PanelContainer>
+        <SharePanel title={blogPost.title} />
+        <FollowPanel />
+      </PanelContainer>
     </Layout>
   );
 };

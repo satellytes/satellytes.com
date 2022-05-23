@@ -30,7 +30,7 @@ const FullHeightContainer = styled.div`
   }
 `;
 
-const Main = styled.main`
+const ContentWrapper = styled.div`
   /** make the element take up all available space */
   flex-grow: 1;
 
@@ -38,10 +38,9 @@ const Main = styled.main`
 
   /**
     The best reference for naming things comes from the css queen Rachel Andrew.
-    Read the following if you need a refresher. 
+    Read the following if you need a refresher.
     https://www.smashingmagazine.com/2017/10/naming-things-css-grid-layout/
    */
-
   grid-template-columns: minmax(24px, 1fr) minmax(0, 820px) minmax(24px, 1fr);
   grid-template-areas: 'margin-start content margin-end';
 
@@ -82,6 +81,7 @@ interface LayoutProps {
   translation?: string;
   leadbox?: LeadboxProps;
   breadcrumb?: BreadcrumbEntry[];
+  contentAs?: any;
 }
 
 /**
@@ -112,6 +112,7 @@ export const Layout = ({
   translation,
   leadbox,
   breadcrumb,
+  contentAs,
 }: LayoutProps): JSX.Element => {
   const isLight = light === true && !overrideDarkFromQuery();
 
@@ -138,7 +139,9 @@ export const Layout = ({
         </BreadcrumbContainer>
       )}
       <FullHeightContainer>
-        <Main>{children}</Main>
+        <main>
+          <ContentWrapper as={contentAs}>{children}</ContentWrapper>
+        </main>
         {leadbox && (
           <LeadboxFooterContainer>
             <Leadbox {...leadbox} />
