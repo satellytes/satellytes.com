@@ -220,8 +220,6 @@ export const getServerData = async (
     return {
       status: 301,
       headers: {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore gatsby types are wrong
         Location: redirect.to,
 
         // https://developers.google.com/search/docs/advanced/robots/robots_meta_tag#xrobotstag
