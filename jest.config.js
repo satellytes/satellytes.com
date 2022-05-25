@@ -28,6 +28,6 @@ module.exports = {
   },
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
-    '^.+\\.svg$': '<rootDir>/svgTransform.js',
+    '^.+\\.svg$': '<rootDir>/jest/svg-transform.js',
   },
 };
