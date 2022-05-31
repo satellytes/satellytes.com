@@ -42,6 +42,8 @@ module.exports = {
       include: path.resolve(__dirname, '../'),
     });
 
+    config.resolve.fallback.util = require.resolve('util/');
+
     return config;
   },
 };
