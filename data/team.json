@@ -92,5 +92,20 @@
   {
     "name": "Ivan",
     "image": "team/ivan_1U1A1243.jpg"
+  },
+
+  {
+    "name": "Timon",
+    "image": "team/timon_1U1A2286.jpg"
+  },
+
+  {
+    "name": "Julian",
+    "image": "team/julian_1U1A2308.jpg"
+  },
+
+  {
+    "name": "Philipp",
+    "image": "team/philipp_1U1A2348.jpg"
   }
 ]
