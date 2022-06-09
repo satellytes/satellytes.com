@@ -8,7 +8,7 @@ import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 interface AboutUsQueryProps {
   hero: IGatsbyImageData;
-  allTeamJson: {
+  allContentfulTeamMember: {
     nodes: SyTeamMember[];
   };
 }
@@ -23,7 +23,7 @@ const AboutUs = (props: PageProps<AboutUsQueryProps>) => {
       />
       <AboutUsPage
         heroImageData={props.data.hero}
-        team={props.data.allTeamJson.nodes}
+        team={props.data.allContentfulTeamMember.nodes}
       />
     </>
   );
@@ -38,20 +38,21 @@ export const AboutUsPageQuery = graphql`
       }
     }
 
-    allTeamJson {
+    allContentfulTeamMember {
       nodes {
         id
         name
         image {
-          childImageSharp {
-            gatsbyImageData(
-              width: 400
-              aspectRatio: 1
-              layout: CONSTRAINED
-              placeholder: DOMINANT_COLOR
-              formats: [AUTO, WEBP, AVIF]
-            )
-          }
+          gatsbyImageData(
+            width: 400
+            aspectRatio: 1
+            layout: CONSTRAINED
+            placeholder: DOMINANT_COLOR
+            formats: [AUTO, WEBP, AVIF]
+            cropFocus: FACE
+            resizingBehavior: FILL
+            jpegProgressive: false
+          )
         }
       }
     }
