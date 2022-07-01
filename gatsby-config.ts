@@ -152,12 +152,16 @@ const gatsbyConfig: GatsbyConfig = {
                   node.heroImage && node.heroImage.creator
                     ? `
                     <figure>
-                      <img src='${imageUrl}' alt=''>
-                      <figcaption><a href='${node.heroImage.source}' target='_blank' rel="nofollow noreferrer">Image by ${node.heroImage.creator}</figcaption>
+                      <img src="${imageUrl}" alt="">
+                      <figcaption>
+                        <a href="${node.heroImage.source}" target="_blank" rel="nofollow noreferrer">
+                          Image by ${node.heroImage.creator}
+                        </a>
+                      </figcaption>
                     </figure>
                   `
                     : `
-                    <img src='${imageUrl}' alt=''>
+                    <img src="${imageUrl}" alt="">
                   `;
 
                 return {
