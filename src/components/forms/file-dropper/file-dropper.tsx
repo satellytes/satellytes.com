@@ -221,7 +221,7 @@ export const FileDropper = ({
 
       {errors?.documents && (
         <StyledErrorMessage>
-          {errors.documents.message as string}
+          {errors.documents.message as unknown as string}
         </StyledErrorMessage>
       )}
     </>

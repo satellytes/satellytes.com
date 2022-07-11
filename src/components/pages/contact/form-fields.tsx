@@ -19,7 +19,7 @@ export const FirstName = ({ control }) => {
   return (
     <TextInputContainer>
       <TextInput
-        name={'name'}
+        name={'first_name'}
         label={t('contact.name')}
         control={control}
         rules={{ required: t<string>('contact.error.name') }}
