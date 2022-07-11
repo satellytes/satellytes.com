@@ -2,13 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { hideVisually } from 'polished';
 import { useController, UseControllerProps } from 'react-hook-form';
+import { FormData } from './form';
 
 const HoneypotFieldContainer = styled.div`
   ${hideVisually()}
 `;
 
 export const HoneypotField = (
-  props: UseControllerProps<any> & { label: string },
+  props: UseControllerProps<FormData> & { label: string },
 ) => {
   const { field } = useController(props);
   return (
