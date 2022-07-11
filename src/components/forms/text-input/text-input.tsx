@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { TextStyles } from '../../typography';
 import { theme } from '../../layout/theme';
 import { useController, UseControllerProps } from 'react-hook-form';
+import { FormDataProps } from '../../pages/career-details/new-career-form/career-form';
 
 const Input = styled.input<{ hasError?: boolean }>`
   width: 100%;
@@ -46,7 +47,7 @@ export const StyledErrorMessage = styled.span`
 `;
 
 export const TextInput = (
-  props: UseControllerProps<any> & { label: string },
+  props: UseControllerProps<FormDataProps> & { label: string },
 ) => {
   const { field, fieldState, formState } = useController(props);
   const errorMessage = fieldState?.error?.message;
@@ -66,8 +67,7 @@ export const TextInput = (
         disabled={formState.isSubmitting}
         id={props.name}
         {...field}
-        value={field?.value || ''}
-        {...props}
+        value={(field?.value as string) || ''}
       />
       {errorMessage && <StyledErrorMessage>{errorMessage}</StyledErrorMessage>}
     </div>

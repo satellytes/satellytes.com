@@ -4,6 +4,7 @@ import { TextStyles } from '../../typography';
 import { theme } from '../../layout/theme';
 import { useController, UseControllerProps } from 'react-hook-form';
 import { StyledErrorMessage, Label } from '../text-input/text-input';
+import { FormDataProps } from '../../pages/career-details/new-career-form/career-form';
 
 const StyledTextArea = styled.textarea<{ hasError?: boolean }>`
   height: 160px;
@@ -28,7 +29,7 @@ const StyledTextArea = styled.textarea<{ hasError?: boolean }>`
 `;
 
 export const TextArea = (
-  props: UseControllerProps<any> & { label: string },
+  props: UseControllerProps<FormDataProps> & { label: string },
 ) => {
   const { field, fieldState, formState } = useController(props);
   const errorMessage = fieldState?.error?.message;
@@ -46,8 +47,8 @@ export const TextArea = (
         hasError={Boolean(errorMessage)}
         disabled={formState.isSubmitting}
         {...field}
-        value={field?.value || ''}
-        {...props}
+        value={(field?.value as string) || ''}
+        name={props.name}
         id={props.name}
       />
 
