@@ -1,8 +1,10 @@
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 import dotenv from 'dotenv';
 import type { GatsbyConfig, IPluginRefOptions } from 'gatsby';
 import * as siteMapTransformers from './gatsby/gatsby-plugin-sitemap/gatsby-plugin-sitemap';
 import { buildGatsbyCloudPreviewUrl } from './gatsby/util/build-gatsby-cloud-preview-url';
+import { rssRenderOptions } from './src/components/content/rss/rss-render-options';
 
 dotenv.config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -164,6 +166,48 @@ const gatsbyConfig: GatsbyConfig = {
                     <img src="${imageUrl}" alt="">
                   `;
 
+                const rawContent = JSON.parse(node.content.raw);
+
+                const contentWithEmbeddedEntries = rawContent.content.map(
+                  (content) => {
+                    // Skip everything but entry blocks
+                    if (content.nodeType !== 'embedded-entry-block') {
+                      return content;
+                    }
+
+                    const data =
+                      node.content.references.find(
+                        (ref) =>
+                          ref.contentful_id === content.data?.target?.sys?.id,
+                      ) ?? {};
+
+                    console.log('found data: ', data, content);
+
+                    const newContent = { ...content };
+                    newContent.data = { ...content.data, target: data };
+
+                    return newContent;
+                  },
+                );
+
+                const newContent = {
+                  ...rawContent,
+                  content: contentWithEmbeddedEntries,
+                };
+
+                console.log({ contentWithEmbeddedEntries });
+
+                const rssHtml = documentToHtmlString(
+                  newContent,
+                  rssRenderOptions,
+                );
+
+                console.log({
+                  rssHtml,
+                  noOptions: documentToHtmlString(newContent),
+                  oldContent: documentToHtmlString(rawContent),
+                });
+
                 return {
                   title: node.title,
                   site_url: site.siteMetadata.siteUrl,
@@ -173,7 +217,7 @@ const gatsbyConfig: GatsbyConfig = {
                   guid: site.siteMetadata.siteUrl + node.fields.path,
                   custom_elements: [
                     {
-                      'content:encoded': `${coverImage} ${node.rssHtml}`,
+                      'content:encoded': `${coverImage} ${rssHtml}`,
                     },
                   ],
                 };
@@ -183,6 +227,98 @@ const gatsbyConfig: GatsbyConfig = {
               {
                 allContentfulBlogPost(sort: { order: DESC, fields: [publicationDate] }) {
                   nodes {
+                    content {
+                      raw
+                      references {
+                        ... on ContentfulCodeBlock {
+                          contentful_id
+                          __typename
+                          description
+                          code {
+                            code
+                            childMarkdownRemark {
+                              htmlAst
+                            }
+                          }
+                        }
+                        ... on ContentfulAsset {
+                          contentful_id
+                          description
+                          file {
+                            contentType
+                            url
+                          }
+                          gatsbyImageData(width: 1440)
+                          title
+                          __typename
+                        }
+
+                        ... on ContentfulFootnote {
+                          contentful_id
+                          __typename
+                          note {
+                            childMarkdownRemark {
+                              htmlAst
+                            }
+                          }
+                        }
+
+                        ... on ContentfulStats {
+                          contentful_id
+                          __typename
+                          statItems {
+                            label
+                            value
+                          }
+                        }
+
+                        ... on ContentfulAdvancedAsset {
+                          contentful_id
+                          __typename
+                          image {
+                            contentful_id
+                            description
+                            gatsbyImageData(layout: FULL_WIDTH, quality: 80)
+                            title
+                            __typename
+                          }
+                          fullWidth
+                        }
+
+                        ... on ContentfulBlogPostCollapsible {
+                          contentful_id
+                          __typename
+                          summary
+                          content {
+                            raw
+                            references {
+                              ... on ContentfulCodeBlock {
+                                contentful_id
+                                __typename
+                                description
+                                code {
+                                  code
+                                  childMarkdownRemark {
+                                    htmlAst
+                                  }
+                                }
+                              }
+                              ... on ContentfulAsset {
+                                contentful_id
+                                description
+                                file {
+                                  contentType
+                                  url
+                                }
+                                gatsbyImageData(width: 1440)
+                                title
+                                __typename
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
                     seoMetaText
                     fields {
                       path
