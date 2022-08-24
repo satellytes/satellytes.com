@@ -33,30 +33,36 @@ const PERKS = (t): Perk[] => [
   {
     title: t('career.perk.teaser.0.title'),
     description: t('career.perk.teaser.0.description'),
-    illustration: 'scientistA_006',
+    illustration: 'bicycle_052',
   },
 
   {
     title: t('career.perk.teaser.1.title'),
     description: t('career.perk.teaser.1.description'),
-    illustration: 'universe_003',
+    illustration: 'scientistA_006',
   },
 
   {
     title: t('career.perk.teaser.2.title'),
     description: t('career.perk.teaser.2.description'),
-    illustration: 'monitor_024',
+    illustration: 'universe_003',
   },
 
   {
     title: t('career.perk.teaser.3.title'),
     description: t('career.perk.teaser.3.description'),
-    illustration: 'galaxy_013',
+    illustration: 'monitor_024',
   },
 
   {
     title: t('career.perk.teaser.4.title'),
     description: t('career.perk.teaser.4.description'),
+    illustration: 'galaxy_013',
+  },
+
+  {
+    title: t('career.perk.teaser.5.title'),
+    description: t('career.perk.teaser.5.description'),
     illustration: 'planetarium_028',
   },
 ];
