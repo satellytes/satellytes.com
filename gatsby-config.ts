@@ -2,6 +2,7 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 import dotenv from 'dotenv';
 import type { GatsbyConfig, IPluginRefOptions } from 'gatsby';
+import { inspect } from 'util';
 import * as siteMapTransformers from './gatsby/gatsby-plugin-sitemap/gatsby-plugin-sitemap';
 import { buildGatsbyCloudPreviewUrl } from './gatsby/util/build-gatsby-cloud-preview-url';
 import { rssRenderOptions } from './src/components/content/rss/rss-render-options';
@@ -145,7 +146,9 @@ const gatsbyConfig: GatsbyConfig = {
         feeds: [
           {
             serialize: ({ query: { site, allContentfulBlogPost } }) => {
+              //console.log(inspect(allContentfulBlogPost));
               return allContentfulBlogPost.nodes.map((node) => {
+                console.log(inspect(node.data));
                 const imageUrl = `${BASE_URL}${
                   node.heroImage.image?.resize?.src ??
                   DEFAULT_META_IMAGE_URL_PATH
@@ -181,7 +184,7 @@ const gatsbyConfig: GatsbyConfig = {
                           ref.contentful_id === content.data?.target?.sys?.id,
                       ) ?? {};
 
-                    console.log('found data: ', data, content);
+                    //console.log('found data: ', data, content);
 
                     const newContent = { ...content };
                     newContent.data = { ...content.data, target: data };
@@ -195,18 +198,18 @@ const gatsbyConfig: GatsbyConfig = {
                   content: contentWithEmbeddedEntries,
                 };
 
-                console.log({ contentWithEmbeddedEntries });
+                //console.log({ contentWithEmbeddedEntries });
 
                 const rssHtml = documentToHtmlString(
                   newContent,
                   rssRenderOptions,
                 );
 
-                console.log({
-                  rssHtml,
-                  noOptions: documentToHtmlString(newContent),
-                  oldContent: documentToHtmlString(rawContent),
-                });
+                // console.log({
+                //   rssHtml,
+                //   noOptions: documentToHtmlString(newContent),
+                //   oldContent: documentToHtmlString(rawContent),
+                // });
 
                 return {
                   title: node.title,
@@ -276,6 +279,9 @@ const gatsbyConfig: GatsbyConfig = {
                           contentful_id
                           __typename
                           image {
+                            file {
+                              url
+                            }
                             contentful_id
                             description
                             gatsbyImageData(layout: FULL_WIDTH, quality: 80)
