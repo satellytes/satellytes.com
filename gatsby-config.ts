@@ -2,7 +2,6 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 import dotenv from 'dotenv';
 import type { GatsbyConfig, IPluginRefOptions } from 'gatsby';
-import { inspect } from 'util';
 import * as siteMapTransformers from './gatsby/gatsby-plugin-sitemap/gatsby-plugin-sitemap';
 import { buildGatsbyCloudPreviewUrl } from './gatsby/util/build-gatsby-cloud-preview-url';
 import { rssRenderOptions } from './src/components/content/rss/rss-render-options';
@@ -146,9 +145,7 @@ const gatsbyConfig: GatsbyConfig = {
         feeds: [
           {
             serialize: ({ query: { site, allContentfulBlogPost } }) => {
-              //console.log(inspect(allContentfulBlogPost));
               return allContentfulBlogPost.nodes.map((node) => {
-                console.log(inspect(node.data));
                 const imageUrl = `${BASE_URL}${
                   node.heroImage.image?.resize?.src ??
                   DEFAULT_META_IMAGE_URL_PATH
@@ -169,12 +166,25 @@ const gatsbyConfig: GatsbyConfig = {
                     <img src="${imageUrl}" alt="">
                   `;
 
-                const rawContent = JSON.parse(node.content.raw);
+                // combine intro text and copy/body text
+                const introRaw = node.introRichText
+                  ? JSON.parse(node.introRichText.raw)
+                  : {};
+                const copyRaw = JSON.parse(node.content.raw);
+                const rawContent = { ...copyRaw };
+                if (introRaw.content)
+                  rawContent.content = [
+                    ...introRaw.content,
+                    ...copyRaw.content,
+                  ];
 
                 const contentWithEmbeddedEntries = rawContent.content.map(
                   (content) => {
                     // Skip everything but entry blocks
-                    if (content.nodeType !== 'embedded-entry-block') {
+                    if (
+                      content.nodeType !== 'embedded-entry-block' &&
+                      content.nodeType !== 'embedded-asset-block'
+                    ) {
                       return content;
                     }
 
@@ -183,8 +193,6 @@ const gatsbyConfig: GatsbyConfig = {
                         (ref) =>
                           ref.contentful_id === content.data?.target?.sys?.id,
                       ) ?? {};
-
-                    //console.log('found data: ', data, content);
 
                     const newContent = { ...content };
                     newContent.data = { ...content.data, target: data };
@@ -198,18 +206,10 @@ const gatsbyConfig: GatsbyConfig = {
                   content: contentWithEmbeddedEntries,
                 };
 
-                //console.log({ contentWithEmbeddedEntries });
-
                 const rssHtml = documentToHtmlString(
                   newContent,
                   rssRenderOptions,
                 );
-
-                // console.log({
-                //   rssHtml,
-                //   noOptions: documentToHtmlString(newContent),
-                //   oldContent: documentToHtmlString(rawContent),
-                // });
 
                 return {
                   title: node.title,
@@ -230,6 +230,9 @@ const gatsbyConfig: GatsbyConfig = {
               {
                 allContentfulBlogPost(sort: { order: DESC, fields: [publicationDate] }) {
                   nodes {
+                    introRichText {
+                      raw
+                    }
                     content {
                       raw
                       references {
@@ -251,7 +254,6 @@ const gatsbyConfig: GatsbyConfig = {
                             contentType
                             url
                           }
-                          gatsbyImageData(width: 1440)
                           title
                           __typename
                         }

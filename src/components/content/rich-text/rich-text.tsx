@@ -15,8 +15,6 @@ import 'react-medium-image-zoom/dist/styles.css';
 import { StatItem, Stats } from '../../content/stats/stats';
 import { AdvancedAsset } from '../../content/advanced-asset/advanced-asset';
 import { ContentfulCustomModel } from '../../../types/contentful.types';
-//import * as fs from 'fs';
-import { inspect } from 'util';
 
 interface ContentfulRichTextProps {
   data: RenderRichTextData<ContentfulRichTextGatsbyReference>;
@@ -215,9 +213,6 @@ export const ContentfulRichText = ({ data }: ContentfulRichTextProps) => {
         }
       },
       [BLOCKS.EMBEDDED_ASSET]: (node) => {
-        // const dataString = JSON.stringify(node.data);
-        // fs.writeFileSync(`BLOG asset-${new Date().toISOString()}.json`, dataString);
-        console.log(inspect(node.data));
         const { contentType, url } = node.data.target.file;
         switch (contentType.split('/')[0]) {
           /**

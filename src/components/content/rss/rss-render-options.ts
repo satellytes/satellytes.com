@@ -3,11 +3,8 @@ import {
   Options,
 } from '@contentful/rich-text-html-renderer';
 import { BLOCKS } from '@contentful/rich-text-types';
-//import { inspect } from 'util';
 import { ContentfulCustomModel } from '../../../types/contentful.types';
 import { Converter } from 'showdown';
-import * as fs from 'fs';
-//import { EmbeddedAssetType } from '../../content/rich-text/rich-text';
 
 enum EmbeddedAssetType {
   IMAGE = 'image',
@@ -20,9 +17,6 @@ const markdownToHyperText = (markdown: string) => converter.makeHtml(markdown);
 export const rssRenderOptions: Partial<Options> = {
   renderNode: {
     [BLOCKS.EMBEDDED_ENTRY]: (node) => {
-      // const dataString = JSON.stringify(node.data);
-      // fs.writeFileSync(`entry-${new Date().toISOString()}.json`, dataString);
-
       if (!node.data.target) {
         //console.error(`Embedded entry got no target: ${node.data.target}`);
         return ``;
@@ -34,7 +28,6 @@ export const rssRenderOptions: Partial<Options> = {
          * Code Blocks
          */
         case ContentfulCustomModel.CONTENTFUL_CODE_BLOCK: {
-          //console.log('rendering CONTENTFUL_CODE_BLOCK:', node.data.target);
           const { code, description } = node.data.target;
           const md = `
           <figure>
@@ -100,12 +93,6 @@ export const rssRenderOptions: Partial<Options> = {
       }
     },
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
-      const dataString = JSON.stringify(node.data);
-      fs.writeFileSync(`asset-${new Date().toISOString()}.json`, dataString);
-      if (node.data.target.file === undefined) {
-        //console.log(inspect(node.data));
-        return 'undefined';
-      }
       const { url, contentType } = node.data.target.file;
       switch (contentType.split('/')[0]) {
         /**
@@ -119,6 +106,9 @@ export const rssRenderOptions: Partial<Options> = {
             </figure>
           `;
         }
+        /**
+         * Embedded videos
+         */
         case EmbeddedAssetType.VIDEO: {
           return `
             <figure>
