@@ -135,9 +135,6 @@ export const createResolvers = ({ createResolvers }) => {
           const intro = source.introRichText
             ? documentToHtmlString(JSON.parse(source.introRichText.raw))
             : '';
-
-          // console.log(inspect(source, true, 10, true));
-
           const content = documentToHtmlString(JSON.parse(source.content.raw));
           return intro + content;
         },

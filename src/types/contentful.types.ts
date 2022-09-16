@@ -5,3 +5,8 @@ export enum ContentfulCustomModel {
   CONTENTFUL_STATS = 'ContentfulStats',
   CONTENTFUL_ADVANCED_ASSET = 'ContentfulAdvancedAsset',
 }
+
+export enum EmbeddedAssetType {
+  IMAGE = 'image',
+  VIDEO = 'video',
+}

@@ -1,10 +1,14 @@
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 import dotenv from 'dotenv';
 import type { GatsbyConfig, IPluginRefOptions } from 'gatsby';
 import * as siteMapTransformers from './gatsby/gatsby-plugin-sitemap/gatsby-plugin-sitemap';
-import { buildGatsbyCloudPreviewUrl } from './gatsby/util/build-gatsby-cloud-preview-url';
-import { rssRenderOptions } from './src/components/content/rss/rss-render-options';
+import feedOptions from './gatsby/config-options/feed-options';
+import {
+  BASE_URL,
+  DEFAULT_LANGUAGE,
+  LANGUAGES,
+  SEO_EXCLUDED_URLS,
+} from './gatsby/config-options/config-constants';
 
 dotenv.config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -20,35 +24,6 @@ if (process.env.CONTENTFUL_HOST) {
   contentfulConfig.host = process.env.CONTENTFUL_HOST;
   contentfulConfig.accessToken = process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN;
 }
-
-const GATSBY_SITE_PREFIX = process.env.GATSBY_SITE_PREFIX || '';
-const BRANCH_PREVIEW_URL = buildGatsbyCloudPreviewUrl({
-  prefix: GATSBY_SITE_PREFIX,
-  branch: process.env.BRANCH,
-});
-
-// either use a branch preview url if any
-const BASE_URL =
-  BRANCH_PREVIEW_URL || process.env.GATBSY_BASE_URL || 'http://localhost:8000';
-
-const LANGUAGES = ['en', 'de'];
-const DEFAULT_LANGUAGE = 'en';
-
-// excluded urls for sitemap and robots.txt
-const SEO_EXCLUDED_URLS = [
-  '/imprint/',
-  '/data-privacy/',
-  '/de/imprint/',
-  '/de/data-privacy/',
-  '/**/404/',
-  '/de/404/',
-  '/**/404.html',
-  '/de/404.html',
-  '/blog/page/',
-];
-
-const RSS_FEED_URL = '/blog/rss.xml';
-const DEFAULT_META_IMAGE_URL_PATH = '/sy-share-image.jpg';
 
 const gatsbyConfig: GatsbyConfig = {
   trailingSlash: 'always',
@@ -130,237 +105,7 @@ const gatsbyConfig: GatsbyConfig = {
     },
     {
       resolve: `gatsby-plugin-feed`,
-      options: {
-        query: `
-          {
-            site {
-              siteMetadata {
-                title
-                description
-                siteUrl
-              }
-            }
-          }
-        `,
-        feeds: [
-          {
-            serialize: ({ query: { site, allContentfulBlogPost } }) => {
-              return allContentfulBlogPost.nodes.map((node) => {
-                const imageUrl = `${BASE_URL}${
-                  node.heroImage.image?.resize?.src ??
-                  DEFAULT_META_IMAGE_URL_PATH
-                }`;
-                const coverImage =
-                  node.heroImage && node.heroImage.creator
-                    ? `
-                    <figure>
-                      <img src="${imageUrl}" alt="">
-                      <figcaption>
-                        <a href="${node.heroImage.source}" target="_blank" rel="nofollow noreferrer">
-                          Image by ${node.heroImage.creator}
-                        </a>
-                      </figcaption>
-                    </figure>
-                  `
-                    : `
-                    <img src="${imageUrl}" alt="">
-                  `;
-
-                // combine intro text and copy/body text
-                const introRaw = node.introRichText
-                  ? JSON.parse(node.introRichText.raw)
-                  : {};
-                const copyRaw = JSON.parse(node.content.raw);
-                const rawContent = { ...copyRaw };
-                if (introRaw.content)
-                  rawContent.content = [
-                    ...introRaw.content,
-                    ...copyRaw.content,
-                  ];
-
-                const contentWithEmbeddedEntries = rawContent.content.map(
-                  (content) => {
-                    // Skip everything but entry blocks
-                    if (
-                      content.nodeType !== 'embedded-entry-block' &&
-                      content.nodeType !== 'embedded-asset-block'
-                    ) {
-                      return content;
-                    }
-
-                    const data =
-                      node.content.references.find(
-                        (ref) =>
-                          ref.contentful_id === content.data?.target?.sys?.id,
-                      ) ?? {};
-
-                    const newContent = { ...content };
-                    newContent.data = { ...content.data, target: data };
-
-                    return newContent;
-                  },
-                );
-
-                const newContent = {
-                  ...rawContent,
-                  content: contentWithEmbeddedEntries,
-                };
-
-                const rssHtml = documentToHtmlString(
-                  newContent,
-                  rssRenderOptions,
-                );
-
-                return {
-                  title: node.title,
-                  site_url: site.siteMetadata.siteUrl,
-                  date: node.publicationDate,
-                  description: node.seoMetaText,
-                  url: site.siteMetadata.siteUrl + node.fields.path,
-                  guid: site.siteMetadata.siteUrl + node.fields.path,
-                  custom_elements: [
-                    {
-                      'content:encoded': `${coverImage} ${rssHtml}`,
-                    },
-                  ],
-                };
-              });
-            },
-            query: `
-              {
-                allContentfulBlogPost(sort: { order: DESC, fields: [publicationDate] }) {
-                  nodes {
-                    introRichText {
-                      raw
-                    }
-                    content {
-                      raw
-                      references {
-                        ... on ContentfulCodeBlock {
-                          contentful_id
-                          __typename
-                          description
-                          code {
-                            code
-                            childMarkdownRemark {
-                              htmlAst
-                            }
-                          }
-                        }
-                        ... on ContentfulAsset {
-                          contentful_id
-                          description
-                          file {
-                            contentType
-                            url
-                          }
-                          title
-                          __typename
-                        }
-
-                        ... on ContentfulFootnote {
-                          contentful_id
-                          __typename
-                          note {
-                            childMarkdownRemark {
-                              htmlAst
-                            }
-                          }
-                        }
-
-                        ... on ContentfulStats {
-                          contentful_id
-                          __typename
-                          statItems {
-                            label
-                            value
-                          }
-                        }
-
-                        ... on ContentfulAdvancedAsset {
-                          contentful_id
-                          __typename
-                          image {
-                            file {
-                              url
-                            }
-                            contentful_id
-                            description
-                            gatsbyImageData(layout: FULL_WIDTH, quality: 80)
-                            title
-                            __typename
-                          }
-                          fullWidth
-                        }
-
-                        ... on ContentfulBlogPostCollapsible {
-                          contentful_id
-                          __typename
-                          summary
-                          content {
-                            raw
-                            references {
-                              ... on ContentfulCodeBlock {
-                                contentful_id
-                                __typename
-                                description
-                                code {
-                                  code
-                                  childMarkdownRemark {
-                                    htmlAst
-                                  }
-                                }
-                              }
-                              ... on ContentfulAsset {
-                                contentful_id
-                                description
-                                file {
-                                  contentType
-                                  url
-                                }
-                                gatsbyImageData(width: 1440)
-                                title
-                                __typename
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                    seoMetaText
-                    fields {
-                      path
-                    }
-                    rssHtml
-                    slug
-                    title
-                    publicationDate
-                    heroImage {
-                      image {
-                        url
-                        resize(width: 1440, height: 760) {
-                          src
-                        }
-                      }
-                      creator
-                      source
-                    }
-                  }
-                }
-              }
-            `,
-            output: RSS_FEED_URL,
-            title: 'Satellytes',
-            image_url: BASE_URL + DEFAULT_META_IMAGE_URL_PATH,
-            // optional configuration to insert feed reference in pages:
-            // if `string` is used, it will be used to create RegExp and then test if pathname of
-            // current page satisfied this regular expression;
-            // if not provided or `undefined`, all pages will have feed reference inserted
-            match: '^/blog/',
-            site_url: 'https://satellytes.com',
-          },
-        ],
-      },
+      options: feedOptions,
     },
     {
       resolve: 'gatsby-plugin-manifest',
