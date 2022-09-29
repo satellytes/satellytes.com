@@ -2,13 +2,13 @@ import { documentToPlainTextString } from '@contentful/rich-text-plain-text-rend
 import dotenv from 'dotenv';
 import type { GatsbyConfig, IPluginRefOptions } from 'gatsby';
 import * as siteMapTransformers from './gatsby/gatsby-plugin-sitemap/gatsby-plugin-sitemap';
-import feedOptions from './gatsby/config-options/feed-options';
+import feedOptions from './gatsby/config-options/gatsby-plugin-feed-options';
 import {
   BASE_URL,
   DEFAULT_LANGUAGE,
   LANGUAGES,
   SEO_EXCLUDED_URLS,
-} from './gatsby/config-options/config-constants';
+} from './gatsby/config-options/constants';
 
 dotenv.config({
   path: `.env.${process.env.NODE_ENV}`,

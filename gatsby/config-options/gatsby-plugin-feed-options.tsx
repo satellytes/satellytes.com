@@ -6,7 +6,7 @@ import {
   BASE_URL,
   DEFAULT_META_IMAGE_URL_PATH,
   RSS_FEED_URL,
-} from './config-constants';
+} from './constants';
 import * as ReactDOMServer from 'react-dom/server';
 import React from 'react';
 import { BLOCKS } from '@contentful/rich-text-types';
@@ -15,7 +15,6 @@ import {
   EmbeddedAssetType,
 } from '../../src/types/contentful.types';
 import { Converter } from 'showdown';
-import { MarkdownAst } from '../../src/components/legacy/markdown/markdown-ast';
 
 // markdown converter for rendering code blocks
 const converter: Converter = new Converter();
