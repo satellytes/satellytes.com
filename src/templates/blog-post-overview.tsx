@@ -54,6 +54,7 @@ export default Blog;
 export const BlogPageQuery = graphql`
   query ($language: String!, $skip: Int!, $limit: Int!) {
     allContentfulBlogPost(
+      filter: { node_locale: { eq: "en" } }
       sort: { fields: publicationDate, order: DESC }
       limit: $limit
       skip: $skip
