@@ -49,3 +49,4 @@ export { ReactComponent as telescope_048 } from '../../../assets/illustrations/0
 export { ReactComponent as ufo_049 } from '../../../assets/illustrations/049-ufo.svg';
 export { ReactComponent as uranus_050 } from '../../../assets/illustrations/050-uranus.svg';
 export { ReactComponent as venus_051 } from '../../../assets/illustrations/051-venus.svg';
+export { ReactComponent as bicycle_052 } from '../../../assets/illustrations/052-bicycle.svg';

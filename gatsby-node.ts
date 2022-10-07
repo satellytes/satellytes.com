@@ -6,6 +6,7 @@ import { createPreviewCards } from './gatsby/create-node/create-preview-cards';
 import { createBlogPostOverviewPages } from './gatsby/create-pages/create-blog-post-overview-pages';
 import { createBlogPosts } from './gatsby/create-pages/create-blog-posts';
 import { createCareerPages } from './gatsby/create-pages/create-career-pages';
+import { redirects } from './src/redirects';
 
 export type SatellytesNode = {
   frontmatter: {
@@ -86,6 +87,20 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
 export const createPages: GatsbyNode['createPages'] = async (
   createPagesArgs,
 ) => {
+  const {
+    actions: { createRedirect },
+  } = createPagesArgs;
+
+  redirects.forEach((redirect) => {
+    createRedirect({
+      fromPath: redirect.fromPath,
+      toPath: redirect.toPath,
+      statusCode: 301,
+      isPermanent: true,
+      redirectInBrowser: true,
+    });
+  });
+
   await createCareerPages(createPagesArgs);
   await createBlogPostOverviewPages(createPagesArgs);
   await createBlogPosts(createPagesArgs);

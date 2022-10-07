@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Gatsby Plugin Sitemap works 1`] = `
-Array [
-  Object {
+[
+  {
     "changefreq": "daily",
     "lastmod": undefined,
-    "links": Array [
-      Object {
+    "links": [
+      {
         "lang": "en",
         "url": "/some-page/",
       },
-      Object {
+      {
         "lang": "de",
         "url": "/de/some-page/",
       },
@@ -18,15 +18,15 @@ Array [
     "priority": 0.8,
     "url": "/some-page/",
   },
-  Object {
+  {
     "changefreq": "daily",
     "lastmod": undefined,
-    "links": Array [
-      Object {
+    "links": [
+      {
         "lang": "en",
         "url": "/some-page/",
       },
-      Object {
+      {
         "lang": "de",
         "url": "/de/some-page/",
       },
@@ -34,11 +34,11 @@ Array [
     "priority": 0.8,
     "url": "/de/some-page/",
   },
-  Object {
+  {
     "changefreq": "daily",
     "lastmod": undefined,
-    "links": Array [
-      Object {
+    "links": [
+      {
         "lang": "de",
         "url": "/de/only-german/",
       },
@@ -46,11 +46,11 @@ Array [
     "priority": 0.8,
     "url": "/de/only-german/",
   },
-  Object {
+  {
     "changefreq": "daily",
     "lastmod": undefined,
-    "links": Array [
-      Object {
+    "links": [
+      {
         "lang": "en",
         "url": "/only-default/",
       },

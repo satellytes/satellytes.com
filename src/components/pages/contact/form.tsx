@@ -41,7 +41,7 @@ const Submit = styled(Button)`
   margin-right: 16px;
 `;
 
-interface FormData {
+export interface FormData {
   name: string;
   email: string;
   message: string;

@@ -38,7 +38,7 @@ export const AboutUsPageQuery = graphql`
       }
     }
 
-    allContentfulTeamMember {
+    allContentfulTeamMember(filter: { node_locale: { eq: "en" } }) {
       nodes {
         id
         name
