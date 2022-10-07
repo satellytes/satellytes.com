@@ -92,13 +92,14 @@
     "rehype-react": "^7.1.1",
     "sass": "^1.55.0",
     "schema-dts": "^1.1.0",
+    "sharp": "^0.31.1",
     "showdown": "^2.1.0",
     "slugify": "^1.6.5",
     "striptags": "^3.2.0",
     "styled-components": "^5.3.6",
     "unified": "^10.1.1",
     "util": "^0.12.4",
-    "webpack": "5.73.0",
+    "webpack": "^5.74.0",
     "what-input": "^5.2.12"
   },
   "devDependencies": {
