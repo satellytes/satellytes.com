@@ -1,4 +1,4 @@
-const { default: axios } = require('axios');
+const axios = require('axios');
 const { XMLParser } = require('fast-xml-parser');
 const { decode } = require('html-entities');
 const striptags = require('striptags');
