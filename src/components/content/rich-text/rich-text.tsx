@@ -14,6 +14,10 @@ import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 import { StatItem, Stats } from '../../content/stats/stats';
 import { AdvancedAsset } from '../../content/advanced-asset/advanced-asset';
+import {
+  ContentfulCustomModel,
+  EmbeddedAssetType,
+} from '../../../types/contentful.types';
 
 interface ContentfulRichTextProps {
   data: RenderRichTextData<ContentfulRichTextGatsbyReference>;
@@ -24,18 +28,6 @@ interface ContentfulFootnoteReference
   note?: any; // TODO: Improve typing here
 }
 
-enum ContentfulCustomModel {
-  CONTENTFUL_FOOTNOTE = 'ContentfulFootnote',
-  CONTENTFUL_CODE_BLOCK = 'ContentfulCodeBlock',
-  CONTENTFUL_BLOG_POST_COLLAPSIBLE = 'ContentfulBlogPostCollapsible',
-  CONTENTFUL_STATS = 'ContentfulStats',
-  CONTENTFUL_ADVANCED_ASSET = 'ContentfulAdvancedAsset',
-}
-
-enum EmbeddedAssetType {
-  IMAGE = 'image',
-  VIDEO = 'video',
-}
 interface FootnoteReference {
   [key: string]: {
     index: number;

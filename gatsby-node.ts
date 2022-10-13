@@ -150,7 +150,6 @@ export const createResolvers = ({ createResolvers }) => {
           const intro = source.introRichText
             ? documentToHtmlString(JSON.parse(source.introRichText.raw))
             : '';
-
           const content = documentToHtmlString(JSON.parse(source.content.raw));
           return intro + content;
         },
