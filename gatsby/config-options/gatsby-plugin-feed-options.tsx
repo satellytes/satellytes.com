@@ -2,19 +2,18 @@ import {
   documentToHtmlString,
   Options,
 } from '@contentful/rich-text-html-renderer';
+import { BLOCKS } from '@contentful/rich-text-types';
+import * as ReactDOMServer from 'react-dom/server';
+import { Converter } from 'showdown';
+import {
+  ContentfulCustomModel,
+  EmbeddedAssetType,
+} from '../../src/types/contentful.types';
 import {
   BASE_URL,
   DEFAULT_META_IMAGE_URL_PATH,
   RSS_FEED_URL,
 } from './constants';
-import * as ReactDOMServer from 'react-dom/server';
-import React from 'react';
-import { BLOCKS } from '@contentful/rich-text-types';
-import {
-  ContentfulCustomModel,
-  EmbeddedAssetType,
-} from '../../src/types/contentful.types';
-import { Converter } from 'showdown';
 
 // markdown converter for rendering code blocks
 const converter: Converter = new Converter();
@@ -244,7 +243,10 @@ const feedOptions = {
       },
       query: `
           {
-            allContentfulBlogPost(sort: { order: DESC, fields: [publicationDate] }) {
+            allContentfulBlogPost(
+              filter: { node_locale: { eq: "en" } }
+              sort: { order: DESC, fields: [publicationDate] }
+            ) {
               nodes {
                 introRichText {
                   raw
