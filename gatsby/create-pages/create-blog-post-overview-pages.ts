@@ -29,7 +29,10 @@ export const createBlogPostOverviewPages = async ({
     };
   }>(`
     {
-      allContentfulBlogPost(sort: { fields: publicationDate, order: DESC }) {
+      allContentfulBlogPost(
+        filter: { node_locale: { eq: "en" } }
+        sort: { fields: publicationDate, order: DESC }
+      ) {
         nodes {
           fields {
             path
