@@ -108,7 +108,7 @@ export const rssRenderOptions: Partial<Options> = {
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
       if (!node.data.target.file) {
         console.log(JSON.stringify(node));
-        return '';
+        //return '';
       }
 
       const { url, contentType } = node.data.target.file;
@@ -157,6 +157,35 @@ export const rssRenderOptions: Partial<Options> = {
   },
 };
 
+const addImageDataToLinks = ({ content, node }) => {
+  // Skip everything but entry and asset blocks
+  if (
+    content.nodeType !== 'embedded-entry-block' &&
+    content.nodeType !== 'embedded-asset-block'
+  ) {
+    if (content.content) {
+      return {
+        ...content,
+        content: content.content.map((el) =>
+          addImageDataToLinks({ content: el, node }),
+        ),
+      };
+    } else {
+      return content;
+    }
+  }
+
+  const data =
+    node.content.references.find(
+      (ref) => ref.contentful_id === content.data?.target?.sys?.id,
+    ) ?? {};
+
+  const newContent = { ...content };
+  newContent.data = { ...content.data, target: data };
+
+  return newContent;
+};
+
 const feedOptions = {
   query: `
       {
@@ -202,26 +231,8 @@ const feedOptions = {
           if (introRaw.content)
             rawContent.content = [...introRaw.content, ...copyRaw.content];
 
-          const contentWithEmbeddedEntries = rawContent.content.map(
-            (content) => {
-              // Skip everything but entry and asset blocks
-              if (
-                content.nodeType !== 'embedded-entry-block' &&
-                content.nodeType !== 'embedded-asset-block'
-              ) {
-                return content;
-              }
-
-              const data =
-                node.content.references.find(
-                  (ref) => ref.contentful_id === content.data?.target?.sys?.id,
-                ) ?? {};
-
-              const newContent = { ...content };
-              newContent.data = { ...content.data, target: data };
-
-              return newContent;
-            },
+          const contentWithEmbeddedEntries = rawContent.content.map((content) =>
+            addImageDataToLinks({ content, node }),
           );
 
           const newContent = {
