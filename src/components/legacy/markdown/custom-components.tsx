@@ -74,7 +74,7 @@ const TableWrapper = styled.div`
 `;
 
 const TitleWrapper = styled.div`
-  margin-top: 30px;
+  margin-top: 32px;
   margin-bottom: 16px;
 `;
 
@@ -115,7 +115,7 @@ const Image = styled.img`
 `;
 
 const Figure = styled.figure`
-  margin: 20px 0 40px;
+  margin: 16px 0 24px;
 
   figcaption {
     margin-top: 12px;
