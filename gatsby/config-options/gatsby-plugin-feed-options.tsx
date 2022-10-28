@@ -106,6 +106,11 @@ export const rssRenderOptions: Partial<Options> = {
       }
     },
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
+      if (!node.data.target.file) {
+        console.log(JSON.stringify(node));
+        return '';
+      }
+
       const { url, contentType } = node.data.target.file;
       switch (contentType.split('/')[0]) {
         /**
