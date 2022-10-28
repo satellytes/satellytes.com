@@ -19,7 +19,7 @@ const UnorderedList = styled.ul`
   line-height: 150%;
   list-style-type: none;
   padding-left: 0;
-  margin: 16px 0;
+  margin: 0 0 16px;
 
   > li:before {
     content: '-';
@@ -32,16 +32,20 @@ const UnorderedList = styled.ul`
   > li {
     position: relative;
     padding-left: 16px;
-    margin-bottom: 12px;
+  }
+
+  > li > p {
+    margin-bottom: 8px;
   }
 `;
 
 const OrderedList = styled.ol<{ doubleDigit: boolean }>`
   line-height: 150%;
   padding-left: ${(props) => (props.doubleDigit ? '26px' : '18px')};
+  margin: 0 0 16px;
 
-  > li {
-    margin-bottom: 12px;
+  > li > p {
+    margin-bottom: 8px;
   }
 `;
 
@@ -70,7 +74,7 @@ const TableWrapper = styled.div`
 `;
 
 const TitleWrapper = styled.div`
-  margin-top: 80px;
+  margin-top: 32px;
   margin-bottom: 16px;
 `;
 
@@ -111,7 +115,7 @@ const Image = styled.img`
 `;
 
 const Figure = styled.figure`
-  margin: 48px 0;
+  margin: 16px 0 24px;
 
   figcaption {
     margin-top: 12px;
