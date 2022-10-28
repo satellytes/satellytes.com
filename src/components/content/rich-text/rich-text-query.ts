@@ -22,7 +22,7 @@ export const ContentfulRichText = graphql`
           contentType
           url
         }
-        gatsbyImageData(width: 1440)
+        gatsbyImageData(layout: CONSTRAINED)
         title
         __typename
       }
