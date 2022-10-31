@@ -52,9 +52,23 @@ export const TextStyles = {
 
     letter-spacing: -0.01em;
   `,
+  textXL: css`
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 150%;
+
+    letter-spacing: -0.01em;
+  `,
   textL: css`
     font-weight: normal;
     font-size: 20px;
+    line-height: 150%;
+
+    letter-spacing: -0.01em;
+  `,
+  textXR: css`
+    font-weight: normal;
+    font-size: 18px;
     line-height: 150%;
 
     letter-spacing: -0.01em;
