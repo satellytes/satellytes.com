@@ -28,9 +28,9 @@ export const SmallTitle = styled.h5`
  *
  */
 export const Text = styled.p`
-  ${TextStyles.textR}
+  ${TextStyles.textSR}
   ${up('md')} {
-    ${TextStyles.textXR}
+    ${TextStyles.textR}
   }
 
   margin-top: 0;

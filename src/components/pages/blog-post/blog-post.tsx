@@ -33,7 +33,7 @@ const RichTextContainer = styled.div`
   > * {
     ${TextStyles.textR}
     ${up('md')} {
-      ${TextStyles.textXL}
+      ${TextStyles.textL}
     }
   }
 `;
