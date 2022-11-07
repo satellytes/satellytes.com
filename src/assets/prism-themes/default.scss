@@ -11,7 +11,7 @@ pre[class*="language-"] {
   background: none;
   text-shadow: 0 1px white;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  font-size: 16px;
+  font-size: 17px;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
@@ -29,7 +29,7 @@ pre[class*="language-"] {
   hyphens: none;
 
   @media only screen and (max-width: 960px) {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 
@@ -77,7 +77,7 @@ pre[class*="language-"].line-numbers .line-numbers-rows {
 
 /* Inline code */
 :not(pre) > code[class*="language-"] {
-  padding: .1em;
+  padding: 0 .1em;
   border-radius: .3em;
   white-space: normal;
   overflow-wrap: anywhere;
