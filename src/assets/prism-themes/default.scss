@@ -11,7 +11,7 @@ pre[class*="language-"] {
   background: none;
   text-shadow: 0 1px white;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  font-size: 18px;
+  font-size: 16px;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
@@ -29,7 +29,7 @@ pre[class*="language-"] {
   hyphens: none;
 
   @media only screen and (max-width: 960px) {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
