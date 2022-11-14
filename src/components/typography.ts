@@ -40,7 +40,7 @@ export const TextStyles = {
   `,
   headlineS: css`
     font-weight: bold;
-    font-size: 20px;
+    font-size: 22px;
     line-height: 110%;
 
     letter-spacing: -0.01em;
@@ -54,12 +54,19 @@ export const TextStyles = {
   `,
   textL: css`
     font-weight: normal;
-    font-size: 20px;
+    font-size: 22px;
     line-height: 150%;
 
     letter-spacing: -0.01em;
   `,
   textR: css`
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 150%;
+
+    letter-spacing: -0.01em;
+  `,
+  textSR: css`
     font-weight: normal;
     font-size: 16px;
     line-height: 150%;
