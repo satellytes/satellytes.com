@@ -16,6 +16,11 @@ jobs:
         with:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'yarn'
+
       - name: Upgrade dependencies
         run: yarn upgrade --latest --caret
 
