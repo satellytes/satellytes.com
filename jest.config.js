@@ -12,17 +12,6 @@ module.exports = {
   transformIgnorePatterns: [`node_modules/(?!(gatsby)/)`],
   setupFiles: ['<rootDir>/jest/loadershim.ts'],
   setupFilesAfterEnv: ['<rootDir>/jest/setup-jest.ts'],
-  globals: {
-    // needs to be set because of gatsby https://www.gatsbyjs.org/docs/unit-testing/#2-creating-a-configuration-file-for-jest
-    __PATH_PREFIX__: '',
-    __BASE_PATH__: '',
-    'ts-jest': {
-      tsconfig: {
-        allowJs: false,
-        jsx: 'react',
-      },
-    },
-  },
   moduleNameMapper: {
     '\\.(css|less|woff|woff2|ttf|eot)$': 'identity-obj-proxy',
   },

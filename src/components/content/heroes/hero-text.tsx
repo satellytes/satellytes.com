@@ -5,8 +5,8 @@ import React from 'react';
 import { ReactNode } from 'react';
 
 export interface HeroWithText {
-  title: string;
-  kicker?: string;
+  title: any; // TODO: should be string, but TFunc type is broken
+  kicker?: any; // TODO: should be string, but TFunc type is broken
   children?: ReactNode;
 }
 
