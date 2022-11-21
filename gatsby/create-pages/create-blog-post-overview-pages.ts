@@ -31,7 +31,7 @@ export const createBlogPostOverviewPages = async ({
     {
       allContentfulBlogPost(
         filter: { node_locale: { eq: "en" } }
-        sort: { fields: publicationDate, order: DESC }
+        sort: { publicationDate: DESC }
       ) {
         nodes {
           fields {

@@ -24,7 +24,7 @@ export const createBlogPosts = async ({
     };
   }>(`
     {
-      allContentfulBlogPost(sort: { fields: publicationDate, order: DESC }) {
+      allContentfulBlogPost(sort: { publicationDate: DESC }) {
         nodes {
           fields {
             path

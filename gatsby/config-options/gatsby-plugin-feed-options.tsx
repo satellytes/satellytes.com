@@ -261,7 +261,7 @@ const feedOptions = {
           {
             allContentfulBlogPost(
               filter: { node_locale: { eq: "en" } }
-              sort: { order: DESC, fields: [publicationDate] }
+              sort: { publicationDate: DESC }
             ) {
               nodes {
                 introRichText {
