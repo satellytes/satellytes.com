@@ -61,7 +61,7 @@ export const CareerDetails = ({
         <SectionHeader
           as={'h1'}
           headline={position.name}
-          kicker={t('career.position')}
+          kicker={t<string>('career.position')}
         >
           {position.short}
         </SectionHeader>

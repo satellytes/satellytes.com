@@ -75,7 +75,7 @@ export const IndexPageQuery = graphql`
 
     allContentfulBlogPost(
       filter: { node_locale: { eq: "en" } }
-      sort: { fields: publicationDate, order: DESC }
+      sort: { publicationDate: DESC }
       limit: 3
     ) {
       nodes {

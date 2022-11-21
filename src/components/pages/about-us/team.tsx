@@ -30,8 +30,8 @@ export const Team = ({ team }: TeamProps) => {
   return (
     <div>
       <SectionHeader
-        headline={t('about-us.team.heading')}
-        kicker={t('about-us.team.title')}
+        headline={t<string>('about-us.team.heading')}
+        kicker={t<string>('about-us.team.title')}
       >
         {t('about-us.team.text')}
       </SectionHeader>

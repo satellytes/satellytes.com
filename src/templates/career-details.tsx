@@ -36,7 +36,7 @@ const CareerPage = (props: CareerPageProps): JSX.Element => {
         title={t('career.seo.title-detail', {
           name: position.name,
         })}
-        description={t('career.seo.description-detail', {
+        description={t<string>('career.seo.description-detail', {
           name: position.name,
         })}
         overrideLanguages={pageContext.overrideLanguages}
