@@ -36,8 +36,8 @@ export const Service = () => {
     >
       <ContentBlockContainer>
         <SectionHeader
-          headline={t('services.title')}
-          kicker={t('services.kicker')}
+          headline={t<string>('services.title')}
+          kicker={t<string>('services.kicker')}
         >
           {t('services.text')}
         </SectionHeader>
