@@ -13,7 +13,7 @@ interface SeoProps {
   title: string;
   author?: string;
   publishDate?: string;
-  description?: any; // TODO: should be string but TFunc type is broken
+  description?: string;
   shareImagePath?: string;
   siteType?: string;
   noIndex?: boolean;

@@ -6,11 +6,8 @@ import { up } from '../../support/breakpoint';
 interface SectionHeaderProps {
   /**
    * A short label above the headline
-   *
-   * TODO: should be a string, but the Return Value
-   * of the i18n TFunction has been broken
    */
-  kicker?: any;
+  kicker?: string;
   /**
    * html tag as which the kicker will be rendered
    * @default "span"

@@ -20,7 +20,7 @@ const Career = (props: PageProps<CareerPageQueryProps>) => {
     <>
       <SEO
         title={`${t('career.title')} | Satellytes`}
-        description={t('career.seo.description')}
+        description={t<string>('career.seo.description')}
         location={props.location}
       />
       <CareerPage

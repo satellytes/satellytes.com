@@ -27,8 +27,8 @@ export const ContactForm = () => {
     return (
       <>
         <StyledSectionHeader
-          kicker={t('contact.action.sent.kicker')}
-          headline={t('contact.action.sent.headline')}
+          kicker={t<string>('contact.action.sent.kicker')}
+          headline={t<string>('contact.action.sent.headline')}
         >
           {t('contact.action.sent.info')}
         </StyledSectionHeader>

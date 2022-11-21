@@ -75,8 +75,8 @@ export const Culture = () => {
   return (
     <>
       <SectionHeader
-        kicker={t('career.culture.kicker')}
-        headline={t('career.culture.headline')}
+        kicker={t<string>('career.culture.kicker')}
+        headline={t<string>('career.culture.headline')}
       >
         {t('career.culture.paragraph')}
       </SectionHeader>

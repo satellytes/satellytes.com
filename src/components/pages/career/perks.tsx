@@ -76,8 +76,8 @@ export const Perks = () => {
   return (
     <>
       <SectionHeader
-        kicker={t('career.perk.kicker')}
-        headline={t('career.perk.headline')}
+        kicker={t<string>('career.perk.kicker')}
+        headline={t<string>('career.perk.headline')}
       >
         {t('career.perk.paragraph')}
       </SectionHeader>

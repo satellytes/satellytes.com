@@ -22,7 +22,7 @@ const DataPrivacyPage = ({
     <Layout light={true}>
       <SEO
         title={`${t('data-privacy.title')} | Satellytes`}
-        description={t('data-privacy.info')}
+        description={t<string>('data-privacy.info')}
         location={location}
         noIndex={true}
       />

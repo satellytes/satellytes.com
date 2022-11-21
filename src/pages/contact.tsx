@@ -11,7 +11,7 @@ const Contact = ({ location }: PageProps) => {
     <>
       <SEO
         title={`${t('contact.title')} | Satellytes`}
-        description={t('contact.info')}
+        description={t<string>('contact.info')}
         location={location}
       />
       <ContactPage />

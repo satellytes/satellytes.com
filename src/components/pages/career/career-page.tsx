@@ -40,8 +40,8 @@ export const CareerPage = ({ positions, heroImageData }: CareerPageProps) => {
       <ContentBlockContainer>
         <SectionHeader
           as={'h1'}
-          kicker={t('career.introduction.kicker')}
-          headline={t('career.introduction.headline')}
+          kicker={t<string>('career.introduction.kicker')}
+          headline={t<string>('career.introduction.headline')}
         >
           {t('career.introduction.paragraphs.0')}
         </SectionHeader>

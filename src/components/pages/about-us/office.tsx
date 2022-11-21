@@ -22,8 +22,8 @@ export const Office = () => {
   return (
     <div>
       <Header
-        headline={t('about-us.office.heading')}
-        kicker={t('about-us.office.title')}
+        headline={t<string>('about-us.office.heading')}
+        kicker={t<string>('about-us.office.title')}
       >
         {t('about-us.office.text')}
       </Header>

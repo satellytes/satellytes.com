@@ -29,7 +29,7 @@ const ImprintPage = ({ data, location }: PageProps<ImprintPageQueryProps>) => {
     <Layout light={true}>
       <SEO
         title={`${t('imprint.title')} | Satellytes`}
-        description={t('imprint.info')}
+        description={t<string>('imprint.info')}
         location={location}
         noIndex={true}
       />
