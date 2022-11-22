@@ -71,6 +71,10 @@ export const CareerDetailsStructuredData = ({
       },
     },
     jobLocationType: 'TELECOMMUTE',
+    applicantLocationRequirements: {
+      '@type': 'Country',
+      name: 'EU',
+    },
     employmentType: normalizeJobScheduleFormat(position.schedule),
     directApply: true,
   };
