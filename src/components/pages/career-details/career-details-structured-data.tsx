@@ -57,7 +57,8 @@ export const CareerDetailsStructuredData = ({
     hiringOrganization: {
       '@type': 'Organization',
       name: 'Satellytes Digital Consulting GmbH',
-      sameAs: 'http://www.satellytes.com',
+      sameAs: 'https://satellytes.com',
+      logo: 'https://satellytes.com/sy-logo.png',
     },
     jobLocation: {
       '@type': 'Place',
@@ -73,7 +74,7 @@ export const CareerDetailsStructuredData = ({
     jobLocationType: 'TELECOMMUTE',
     applicantLocationRequirements: {
       '@type': 'Country',
-      name: 'EU',
+      name: 'DE',
     },
     employmentType: normalizeJobScheduleFormat(position.schedule),
     directApply: true,
