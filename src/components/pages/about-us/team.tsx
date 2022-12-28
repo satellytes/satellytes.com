@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 import { up } from '../../support/breakpoint';
 import { Image } from '../../ui/image/image';

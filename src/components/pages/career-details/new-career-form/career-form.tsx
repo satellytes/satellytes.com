@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Trans, useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { SIMPLE_EMAIL_PATTERN } from '../../../forms/constants';
 import { FileDropperType } from '../../../forms/file-dropper/file-dropper';
 import { TextArea } from '../../../forms/text-area/text-area';
