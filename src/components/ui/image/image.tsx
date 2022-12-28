@@ -1,5 +1,5 @@
 import React from 'react';
-import { Trans } from 'react-i18next';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import styled, { css } from 'styled-components';
 import { up } from '../../support/breakpoint';
 import { theme } from '../../layout/theme';

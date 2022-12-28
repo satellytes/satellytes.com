@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import styled, { css } from 'styled-components';
 import { IconButton } from '../buttons/icon-button';
 import { Icon } from '../icon/icon';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ErrorCode, FileError } from 'react-dropzone';
-import { Trans, useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 import { SectionHeader } from '../../../content/section-header/section-header';
 import { Checkbox } from '../../../forms/checkbox/checkbox';

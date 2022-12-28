@@ -3,7 +3,7 @@ import { LatLngExpression } from 'leaflet';
 import { GestureHandling } from 'leaflet-gesture-handling';
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import {
   CircleMarker,
   LayersControl,

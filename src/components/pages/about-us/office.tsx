@@ -4,7 +4,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 
 import { Image } from '../../ui/image/image';
 import { SectionHeader } from '../../content/section-header/section-header';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 const ImageContentWrapper = styled.div`
   display: flex;
