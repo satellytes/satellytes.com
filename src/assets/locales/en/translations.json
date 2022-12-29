@@ -188,7 +188,7 @@
   "main.career.button": "All vacancies",
   "main.blog.button": "All articles",
   "career.position": "Position",
-  "about-us.title": "About us",
+  "about-us.title": "About",
   "about-us.office.title": "Office",
   "about-us.office.kicker": "Satellytes",
   "about-us.office.heading": "In the heart of Munich - directly at Sendlinger Tor",
@@ -205,5 +205,5 @@
   "contact.action.sent.kicker": "Thank you very much!",
   "contact.action.sent.info": "Thank you for your message. We will process it and get back to you as soon as possible.",
   "contact.action.sent.button": "To the home page",
-  "navigation.about-us": "About us"
+  "navigation.about-us": "About"
 }
