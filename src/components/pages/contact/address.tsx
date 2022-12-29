@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Link } from '../../legacy/links/links';
 import { theme } from '../../layout/theme';
 
-const StyledLink = styled(Link)`
+export const StyledLink = styled(Link)`
   color: ${theme.palette.text.link.default};
 
   &:hover {

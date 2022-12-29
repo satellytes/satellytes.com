@@ -28,24 +28,15 @@ export const Team = ({ team }: TeamProps) => {
   const { t } = useTranslation();
 
   return (
-    <div>
-      <SectionHeader
-        headline={t<string>('about-us.team.heading')}
-        kicker={t<string>('about-us.team.title')}
-      >
-        {t('about-us.team.text')}
-      </SectionHeader>
-
-      <TeamLayout>
-        {team.map((member) => {
-          const imageData = getImage(member.image);
-          return (
-            <Image description={member.name} textAlign="bottom" key={member.id}>
-              {imageData && <GatsbyImage alt="" image={imageData} />}
-            </Image>
-          );
-        })}
-      </TeamLayout>
-    </div>
+    <TeamLayout>
+      {team.map((member) => {
+        const imageData = getImage(member.image);
+        return (
+          <Image description={member.name} textAlign="bottom" key={member.id}>
+            {imageData && <GatsbyImage alt="" image={imageData} />}
+          </Image>
+        );
+      })}
+    </TeamLayout>
   );
 };

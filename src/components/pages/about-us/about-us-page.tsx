@@ -8,6 +8,8 @@ import { Team } from './team';
 import { SyTeamMember } from '../../../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { ImageHero } from '../../content/heroes';
+import { SectionHeader } from '../../content/section-header/section-header';
+import { StyledLink } from '../contact/address';
 
 interface AboutUsPageProps {
   team: SyTeamMember[];
@@ -31,14 +33,19 @@ export const AboutUsPage = (props: AboutUsPageProps) => {
       transparentHeader={true}
       light={true}
       leadbox={leadbox}
-      hero={
-        <ImageHero
-          kicker={t<string>('about-us.office.kicker')}
-          title={t<string>('about-us.title')}
-          image={props.heroImageData}
-        />
-      }
+      hero={<ImageHero image={props.heroImageData} />}
     >
+      <SectionHeader
+        headline={t<string>('about-us.intro.heading')}
+        kicker={t<string>('about-us.intro.title')}
+      >
+        <p>{t('about-us.intro.text')}</p>
+        <p>{t('about-us.intro.invite')}</p>
+        <StyledLink to="https://g.page/satellytes?share">
+          Google Maps &gt;
+        </StyledLink>
+      </SectionHeader>
+
       <ContentBlockContainer>
         <Team team={props.team} />
       </ContentBlockContainer>
