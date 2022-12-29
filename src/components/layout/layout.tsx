@@ -21,6 +21,7 @@ import { useAnchorTagScrolling } from './use-anchor-tag-scrolling';
 const FullHeightContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 
   min-height: 100vh;
 
