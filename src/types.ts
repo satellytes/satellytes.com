@@ -51,6 +51,13 @@ export interface SyTeamMember {
   image: IGatsbyImageData;
 }
 
+// TODO: maybe use this as a replacement for SyTeamMember for About page image gallery
+export interface SyAboutImage {
+  id: string;
+  index: string;
+  image: IGatsbyImageData;
+}
+
 export interface ContentFulBlogPostAuthor {
   fullName: string;
   summary: string;
