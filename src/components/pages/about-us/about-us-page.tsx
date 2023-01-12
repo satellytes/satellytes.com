@@ -3,16 +3,15 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Layout } from '../../layout/layout';
 import { LeadboxProps } from '../../content/leadbox/leadbox';
 import { ContentBlockContainer } from '../../layout/content-block-container';
-import { Office } from './office';
 import { Team } from './team';
-import { SyTeamMember } from '../../../types';
+import { GalleryItem } from '../../../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { ImageHero } from '../../content/heroes';
 import { SectionHeader } from '../../content/section-header/section-header';
 import { StyledLink } from '../contact/address';
 
 interface AboutUsPageProps {
-  team: SyTeamMember[];
+  images: GalleryItem[];
   heroImageData: IGatsbyImageData;
 }
 
@@ -47,11 +46,7 @@ export const AboutUsPage = (props: AboutUsPageProps) => {
       </SectionHeader>
 
       <ContentBlockContainer>
-        <Team team={props.team} />
-      </ContentBlockContainer>
-
-      <ContentBlockContainer>
-        <Office />
+        <Team team={props.images} />
       </ContentBlockContainer>
     </Layout>
   );

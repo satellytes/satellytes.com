@@ -3,13 +3,13 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import SEO from '../components/layout/seo';
 import { AboutUsPage } from '../components/pages/about-us/about-us-page';
-import { SyTeamMember } from '../types';
+import { GalleryItem } from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 interface AboutUsQueryProps {
   hero: IGatsbyImageData;
-  allContentfulTeamMember: {
-    nodes: SyTeamMember[];
+  allContentfulGalleryImage: {
+    nodes: GalleryItem[];
   };
 }
 
@@ -23,36 +23,30 @@ const AboutUs = (props: PageProps<AboutUsQueryProps>) => {
       />
       <AboutUsPage
         heroImageData={props.data.hero}
-        team={props.data.allContentfulTeamMember.nodes}
+        images={props.data.allContentfulGalleryImage.nodes}
       />
     </>
   );
 };
 
 export default AboutUs;
+
 export const AboutUsPageQuery = graphql`
   query ($language: String!) {
-    hero: file(relativePath: { eq: "office/sy-office-02.jpg" }) {
+    hero: file(relativePath: { eq: "office/sy-office-05.jpg" }) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
 
-    allContentfulTeamMember(filter: { node_locale: { eq: "en" } }) {
+    allContentfulGalleryImage(
+      filter: { node_locale: { eq: "en" } }
+      sort: { index: ASC }
+    ) {
       nodes {
         id
-        name
         image {
-          gatsbyImageData(
-            width: 400
-            aspectRatio: 1
-            layout: CONSTRAINED
-            placeholder: DOMINANT_COLOR
-            formats: [AUTO, WEBP, AVIF]
-            cropFocus: FACE
-            resizingBehavior: FILL
-            jpegProgressive: false
-          )
+          gatsbyImageData(resizingBehavior: FILL, jpegProgressive: false)
         }
       }
     }

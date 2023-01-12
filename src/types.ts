@@ -52,9 +52,8 @@ export interface SyTeamMember {
 }
 
 // TODO: maybe use this as a replacement for SyTeamMember for About page image gallery
-export interface SyAboutImage {
+export interface GalleryItem {
   id: string;
-  index: string;
   image: IGatsbyImageData;
 }
 
