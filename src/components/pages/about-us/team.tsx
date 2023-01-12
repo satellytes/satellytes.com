@@ -5,7 +5,7 @@ import { GalleryItem } from '../../../types';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 // the number of vertical tiles
-const rowCount = 36;
+const rowCount = 38;
 
 const TeamLayout = styled.div`
   display: grid;
@@ -30,34 +30,36 @@ const TeamLayout = styled.div`
     'p6 p6'
     'p7 p8'
     'p9 p8'
-    'p10 p11'
-    'p10 p12'
-    'p13 p12'
-    'p14 p14'
-    'p14 p14'
+    'p10 p10'
+    'p10 p10'
+    'p11 p12'
+    'p11 p13'
+    'p14 p13'
     'p15 p15'
     'p15 p15'
-    'p16 p17'
-    'p16 p17'
-    'p18 p18'
-    'p18 p18'
-    'p19 p20'
-    'p19 p21'
-    'p22 p21'
-    'p23 p24'
-    'p23 p24'
-    'p25 p25'
-    'p25 p25'
+    'p16 p16'
+    'p16 p16'
+    'p17 p18'
+    'p17 p18'
+    'p19 p19'
+    'p19 p19'
+    'p20 p21'
+    'p20 p22'
+    'p23 p22'
+    'p24 p25'
+    'p24 p25'
     'p26 p26'
     'p26 p26'
-    'p27 p28'
-    'p27 p28'
-    'p29 p30'
-    'p29 p31'
-    'p32 p32'
-    'p32 p32'
-    'p33 p34'
-    'p33 p34';
+    'p27 p27'
+    'p27 p27'
+    'p28 p29'
+    'p28 p29'
+    'p30 p31'
+    'p30 p32'
+    'p33 p33'
+    'p33 p33'
+    'p34 p35'
+    'p34 p35';
 
   ${down('sm')} {
     grid-template-areas: unset;
