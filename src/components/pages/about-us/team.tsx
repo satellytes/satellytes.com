@@ -4,9 +4,6 @@ import { down } from '../../support/breakpoint';
 import { GalleryItem, TileSize } from '../../../types';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
-// the number of vertical tiles
-const rowCount = 38;
-
 const TeamLayout = styled.div`
   display: grid;
   overflow: hidden;
