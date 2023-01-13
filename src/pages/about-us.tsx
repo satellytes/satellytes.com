@@ -44,6 +44,7 @@ export const AboutUsPageQuery = graphql`
       sort: { index: ASC }
     ) {
       nodes {
+        tileSize
         id
         image {
           gatsbyImageData(resizingBehavior: FILL, jpegProgressive: false)

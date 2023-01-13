@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { down } from '../../support/breakpoint';
-import { GalleryItem } from '../../../types';
+import { GalleryItem, TileSize } from '../../../types';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 // the number of vertical tiles
@@ -11,58 +11,15 @@ const TeamLayout = styled.div`
   display: grid;
   overflow: hidden;
   object-fit: cover;
-  // atomical tile height: 250px,
-  grid-template-rows: repeat(${rowCount}, 250px);
+  // atomic tile height: 250px,
+  grid-template-rows: repeat(auto-fill, 250px);
   grid-template-columns: repeat(2, calc(50% - 12px));
   align-items: stretch;
   justify-items: stretch;
   gap: 24px;
   grid-auto-flow: row;
-  // combine multiple smaller tiles into bigger ones
-  // each line represents one row, each word ('pN') represents one column
-  grid-template-areas:
-    'p1 p1'
-    'p1 p1'
-    'p2 p3'
-    'p2 p4'
-    'p5 p4'
-    'p6 p6'
-    'p6 p6'
-    'p7 p8'
-    'p9 p8'
-    'p10 p10'
-    'p10 p10'
-    'p11 p12'
-    'p11 p13'
-    'p14 p13'
-    'p15 p15'
-    'p15 p15'
-    'p16 p16'
-    'p16 p16'
-    'p17 p18'
-    'p17 p18'
-    'p19 p19'
-    'p19 p19'
-    'p20 p21'
-    'p20 p22'
-    'p23 p22'
-    'p24 p25'
-    'p24 p25'
-    'p26 p26'
-    'p26 p26'
-    'p27 p27'
-    'p27 p27'
-    'p28 p29'
-    'p28 p29'
-    'p30 p31'
-    'p30 p32'
-    'p33 p33'
-    'p33 p33'
-    'p34 p35'
-    'p34 p35';
 
   ${down('sm')} {
-    grid-template-areas: unset;
     grid-template-rows: auto;
     grid-template-columns: 100%;
     grid-auto-flow: row;
@@ -74,6 +31,7 @@ interface TeamProps {
 }
 
 interface GalleryTileProps {
+  tileSize: TileSize;
   index: number;
   children?: ReactNode;
 }
@@ -83,8 +41,19 @@ const GalleryImage = styled(GatsbyImage)`
   min-height: 100%;
 `;
 
+function getSpan(tileSize?: TileSize) {
+  let value = 'span 2 / span 2';
+  if (tileSize && tileSize === '1x1') {
+    value = 'span 1 / span 1';
+  } else if (tileSize && tileSize === '2x1') {
+    value = 'span 2 / span 1';
+  }
+  return value;
+}
+
 const GalleryTile = styled.div<GalleryTileProps>`
-  grid-area: ${({ index }) => 'p' + index};
+  //grid-area: ${({ index }) => (index >= 0 ? 'p' + index : 'auto')};
+  grid-area: ${({ tileSize }) => getSpan(tileSize)};
   overflow: hidden;
   ${down('sm')} {
     grid-area: unset;
@@ -93,13 +62,18 @@ const GalleryTile = styled.div<GalleryTileProps>`
 
 export const Team = ({ team }: TeamProps) => {
   let index = 1;
+  const imageCount = team.length;
 
   return (
     <TeamLayout>
       {team.map((member) => {
         const imageData = getImage(member.image);
         return (
-          <GalleryTile index={index++} key={member.id}>
+          <GalleryTile
+            index={index <= imageCount ? index++ : -1}
+            tileSize={member.tileSize}
+            key={member.id}
+          >
             {imageData && <GalleryImage alt="" image={imageData} />}
           </GalleryTile>
         );

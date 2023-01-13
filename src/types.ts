@@ -4,6 +4,7 @@ import {
   RenderRichTextData,
 } from 'gatsby-source-contentful/rich-text';
 
+export type TileSize = '1x1' | '2x1' | '2x2';
 export interface BlogPostTeaser {
   fields: {
     path: string;
@@ -51,8 +52,8 @@ export interface SyTeamMember {
   image: IGatsbyImageData;
 }
 
-// TODO: maybe use this as a replacement for SyTeamMember for About page image gallery
 export interface GalleryItem {
+  tileSize: TileSize;
   id: string;
   image: IGatsbyImageData;
 }
