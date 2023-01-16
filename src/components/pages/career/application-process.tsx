@@ -1,10 +1,10 @@
 import React from 'react';
 import { Accordion, AccordionSection } from '../../ui/accordion/accordion';
 import styled from 'styled-components';
-import { SectionHeader } from '../../content/section-header/section-header';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { up } from '../../support/breakpoint';
 import { TextStyles } from '../../typography';
+import { Teaser } from '../../content/teaser/teaser';
 
 const Spacer = styled.div`
   margin-bottom: 48px;
@@ -24,13 +24,17 @@ const AccordionText = styled.p`
   margin-bottom: -3px;
 `;
 
+const ApplicationWrapper = styled.div`
+  margin-top: 80px;
+`;
+
 export const ApplicationProcess = () => {
   const { t } = useTranslation();
   return (
-    <>
-      <SectionHeader headline={t('career.application-process.headline')}>
+    <ApplicationWrapper>
+      <Teaser title={t('career.application-process.headline')}>
         {t('career.application-process.paragraph')}
-      </SectionHeader>
+      </Teaser>
 
       <Spacer />
 
@@ -71,6 +75,6 @@ export const ApplicationProcess = () => {
           </AccordionSection>
         </Accordion>
       </AccordionWrapper>
-    </>
+    </ApplicationWrapper>
   );
 };

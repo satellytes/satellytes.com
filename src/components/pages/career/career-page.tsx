@@ -62,9 +62,7 @@ export const CareerPage = ({
         </SectionHeader>
       </ContentBlockContainer>
 
-      <ContentBlockContainer>
-        <ApplicationProcess />
-      </ContentBlockContainer>
+      <ApplicationProcess />
 
       <ContentBlockContainer>
         <Openings jobs={positions} />
@@ -82,6 +80,5 @@ export const CareerPage = ({
         <Perks />
       </ContentBlockContainer>
     </Layout>
-
   );
 };
