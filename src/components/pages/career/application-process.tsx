@@ -24,14 +24,14 @@ const AccordionText = styled.p`
   margin-bottom: -3px;
 `;
 
-const ApplicationWrapper = styled.div`
+const ApplicationProcessWrapper = styled.div`
   margin-top: 80px;
 `;
 
 export const ApplicationProcess = () => {
   const { t } = useTranslation();
   return (
-    <ApplicationWrapper>
+    <ApplicationProcessWrapper>
       <Teaser title={t('career.application-process.headline')}>
         {t('career.application-process.paragraph')}
       </Teaser>
@@ -75,6 +75,6 @@ export const ApplicationProcess = () => {
           </AccordionSection>
         </Accordion>
       </AccordionWrapper>
-    </ApplicationWrapper>
+    </ApplicationProcessWrapper>
   );
 };

@@ -60,9 +60,8 @@ export const CareerPage = ({
         >
           {t('career.introduction.paragraphs.0')}
         </SectionHeader>
+        <ApplicationProcess />
       </ContentBlockContainer>
-
-      <ApplicationProcess />
 
       <ContentBlockContainer>
         <Openings jobs={positions} />
