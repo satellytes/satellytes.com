@@ -12,18 +12,12 @@ import { SyPersonioJob } from '../../../types';
 import { ImageHero } from '../../content/heroes';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { ImageSpacer } from '../../pages/landingpage/image-spacer';
+import { OfficeImage } from '../../../pages/career';
 
 interface CareerPageProps {
   positions: SyPersonioJob[];
   heroImageData: IGatsbyImageData;
   officeImages: OfficeImages;
-}
-
-interface OfficeImage {
-  relativePath: string;
-  childImageSharp: {
-    gatsbyImageData: IGatsbyImageData;
-  };
 }
 
 type OfficeImages = { [relativePath: string]: OfficeImage };

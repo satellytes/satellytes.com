@@ -6,7 +6,7 @@ import { CareerPage } from '../components/pages/career/career-page';
 import { SyPersonioJob } from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 
-interface OfficeImage {
+export interface OfficeImage {
   relativePath: string;
   childImageSharp: {
     gatsbyImageData: IGatsbyImageData;
