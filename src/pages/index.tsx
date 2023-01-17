@@ -6,7 +6,7 @@ import { BlogPostTeaser, SyPersonioJob } from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { StructuredOrganizationData } from '../components/pages/landingpage/structured-organization-data';
 
-interface OfficeImage {
+export interface OfficeImage {
   relativePath: string;
   childImageSharp: {
     gatsbyImageData: IGatsbyImageData;

@@ -5,13 +5,7 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { CareerPage } from '../components/pages/career/career-page';
 import { SyPersonioJob } from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
-
-export interface OfficeImage {
-  relativePath: string;
-  childImageSharp: {
-    gatsbyImageData: IGatsbyImageData;
-  };
-}
+import { OfficeImage } from '../pages/index';
 
 interface CareerPageQueryProps {
   allSyPersonioJob: {
