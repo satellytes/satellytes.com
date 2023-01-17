@@ -8,7 +8,7 @@ import { Service } from './service';
 import { Blog } from './blog';
 import { BlogPostTeaser, SyPersonioJob } from '../../../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
-import { ImageSpacer } from './image-spacer';
+import { ImageSpacer } from '../../ui/image/image-spacer';
 
 interface OfficeImage {
   relativePath: string;

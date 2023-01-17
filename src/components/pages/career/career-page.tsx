@@ -11,7 +11,7 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { SyPersonioJob } from '../../../types';
 import { ImageHero } from '../../content/heroes';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
-import { ImageSpacer } from '../../pages/landingpage/image-spacer';
+import { ImageSpacer } from '../../ui/image/image-spacer';
 import { OfficeImage } from '../../../pages/career';
 
 interface CareerPageProps {
