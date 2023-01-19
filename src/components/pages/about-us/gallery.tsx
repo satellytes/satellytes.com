@@ -4,7 +4,7 @@ import { down } from '../../support/breakpoint';
 import { GalleryItem, TileSize } from '../../../types';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
-const TeamLayout = styled.div`
+const GalleryLayout = styled.div`
   display: grid;
   overflow: hidden;
   object-fit: cover;
@@ -23,8 +23,8 @@ const TeamLayout = styled.div`
   }
 `;
 
-interface TeamProps {
-  team: GalleryItem[];
+interface GalleryProps {
+  items: GalleryItem[];
 }
 
 interface GalleryTileProps {
@@ -49,7 +49,6 @@ function getSpan(tileSize?: TileSize) {
 }
 
 const GalleryTile = styled.div<GalleryTileProps>`
-  //grid-area: ${({ index }) => (index >= 0 ? 'p' + index : 'auto')};
   grid-area: ${({ tileSize }) => getSpan(tileSize)};
   overflow: hidden;
   ${down('sm')} {
@@ -57,24 +56,19 @@ const GalleryTile = styled.div<GalleryTileProps>`
   }
 `;
 
-export const Team = ({ team }: TeamProps) => {
+export const Gallery = ({ items }: GalleryProps) => {
   let index = 1;
-  const imageCount = team.length;
 
   return (
-    <TeamLayout>
-      {team.map((member) => {
-        const imageData = getImage(member.image);
+    <GalleryLayout>
+      {items.map((item) => {
+        const imageData = getImage(item.image);
         return (
-          <GalleryTile
-            index={index <= imageCount ? index++ : -1}
-            tileSize={member.tileSize}
-            key={member.id}
-          >
+          <GalleryTile index={index++} tileSize={item.tileSize} key={item.id}>
             {imageData && <GalleryImage alt="" image={imageData} />}
           </GalleryTile>
         );
       })}
-    </TeamLayout>
+    </GalleryLayout>
   );
 };

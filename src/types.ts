@@ -5,6 +5,7 @@ import {
 } from 'gatsby-source-contentful/rich-text';
 
 export type TileSize = '1x1' | '2x1' | '2x2';
+
 export interface BlogPostTeaser {
   fields: {
     path: string;

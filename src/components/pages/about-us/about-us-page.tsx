@@ -3,7 +3,7 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Layout } from '../../layout/layout';
 import { LeadboxProps } from '../../content/leadbox/leadbox';
 import { ContentBlockContainer } from '../../layout/content-block-container';
-import { Team } from './team';
+import { Gallery } from './gallery';
 import { GalleryItem } from '../../../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { ImageHero } from '../../content/heroes';
@@ -46,7 +46,7 @@ export const AboutUsPage = (props: AboutUsPageProps) => {
       </SectionHeader>
 
       <ContentBlockContainer>
-        <Team team={props.images} />
+        <Gallery items={props.images} />
       </ContentBlockContainer>
     </Layout>
   );
