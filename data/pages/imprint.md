@@ -5,7 +5,7 @@ language: en
 
 Mandatory information according to § 5 Telemediengesetz/Imprint
 
-Satellytes Digital Consulting GmbH Carola-Neher-Str. 10 81379 Munich, Germany
+Satellytes Digital Consulting GmbH Sendlinger Str. 52 80331 Munich, Germany
 
 #### Represented by
 
@@ -27,7 +27,7 @@ Sales tax identification number according to §27 a Umsatzsteuergesetz: DE317837
 
 #### Responsible for content according to § 55 RStV
 
-Gholam Abdol, Carola-Neher-Strasse 10, 81379 Munich, Germany
+Gholam Abdol, Sendlinger Straße 52, 80331 Munich, Germany
 
 #### Terms of Use/Disclaimer
 
