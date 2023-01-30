@@ -5,7 +5,7 @@ language: de
 
 Pflichtangaben nach § 5 Telemediengesetz/Impressum
 
-Satellytes Digital Consulting GmbH Carola-Neher-Str. 10 81379 München
+Satellytes Digital Consulting GmbH Sendlinger Str. 52 80331 München
 
 #### Vertreten durch
 
@@ -27,7 +27,7 @@ Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz: DE31783743
 
 #### Inhaltlich Verantwortlicher gemäß § 55 RStV
 
-Gholam Abdol, Carola-Neher-Straße 10, 81379 München
+Gholam Abdol, Sendlinger Straße 52, 80331 München
 
 #### Nutzungsbedingungen/Disclaimer
 
