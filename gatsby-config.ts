@@ -10,8 +10,16 @@ import {
   SEO_EXCLUDED_URLS,
 } from './gatsby/config-options/constants';
 
+const envFilePath = `.env.${process.env.NODE_ENV}`;
+
+let loggedOnce = false;
+if (!loggedOnce) {
+  loggedOnce = true;
+  console.log('Loading .env file from ', envFilePath);
+}
+
 dotenv.config({
-  path: `.env.${process.env.NODE_ENV}`,
+  path: envFilePath,
 });
 
 const contentfulConfig: IPluginRefOptions = {
