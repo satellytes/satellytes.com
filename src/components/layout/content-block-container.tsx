@@ -19,7 +19,7 @@ export const ContentBlockContainer = styled.div`
 
   ${up('md')} {
     margin-top: ${CONTENT_SPACE_LARGE}px;
-    padding: 0 ${CONTENT_SPACE_LEFT_RIGHT};
+    padding: 0 ${CONTENT_SPACE_LEFT_RIGHT}px;
   }
 
   &:first-child {
