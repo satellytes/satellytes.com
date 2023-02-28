@@ -8,12 +8,12 @@ import { TeaserGrid } from '../../content/teaser/teaser-grid';
 import { up } from '../../support/breakpoint';
 
 const SectionHeadline = styled.h2`
-  ${TextStyles.headlineL}
+  ${TextStyles.headlineM}
   margin: 0;
   margin-bottom: 80px;
 
   ${up('md')} {
-    ${TextStyles.headlineXL}
+    ${TextStyles.headlineL}
   }
 `;
 
