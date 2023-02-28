@@ -230,7 +230,7 @@ const Navigation: React.FC<NavigationProps> = ({
     <NavigationBackground>
       <Grid center>
         <GridItem xs={0} md={1} />
-        <GridItem xs={12} md={10} noGap>
+        <GridItem xs={12} md={11} noGap>
           <NavigationContent>
             <MetaContainer>
               <SocialLinks>

@@ -10,10 +10,11 @@ import { up } from '../../support/breakpoint';
 const SectionHeadline = styled.h2`
   ${TextStyles.headlineL}
   margin: 0;
-  margin-bottom: 80px;
+  margin-bottom: 48px;
 
   ${up('md')} {
     ${TextStyles.headlineXL}
+    margin-bottom: 60px;
   }
 `;
 

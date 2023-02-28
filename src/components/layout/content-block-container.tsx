@@ -4,6 +4,7 @@ import {
   CONTENT_SPACE_LARGE,
   CONTENT_SPACE_SMALL,
   HEADER_HEIGHT_VALUE,
+  CONTENT_SPACE_LEFT_RIGHT,
 } from './theme';
 
 /**
@@ -18,6 +19,7 @@ export const ContentBlockContainer = styled.div`
 
   ${up('md')} {
     margin-top: ${CONTENT_SPACE_LARGE}px;
+    padding: 0 ${CONTENT_SPACE_LEFT_RIGHT};
   }
 
   &:first-child {

@@ -2,7 +2,8 @@ import { DefaultTheme } from 'styled-components';
 
 export const HEADER_HEIGHT_VALUE = 65;
 export const CONTENT_SPACE_SMALL = 80;
-export const CONTENT_SPACE_LARGE = 180;
+export const CONTENT_SPACE_LARGE = 120;
+export const CONTENT_SPACE_LEFT_RIGHT = 76;
 
 export const theme: DefaultTheme = {
   palette: {
