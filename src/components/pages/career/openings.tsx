@@ -4,16 +4,27 @@ import styled from 'styled-components';
 import { TextStyles } from '../../typography';
 import { SyPersonioJob } from '../../../types';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { TeaserGrid } from '../../content/teaser/teaser-grid';
 import { up } from '../../support/breakpoint';
 
 const SectionHeadline = styled.h2`
   ${TextStyles.headlineL}
   margin: 0;
-  margin-bottom: 80px;
+  margin-bottom: 48px;
 
   ${up('md')} {
     ${TextStyles.headlineXL}
+    margin-bottom: 60px;
+  }
+`;
+
+const TeaserGrid = styled.div`
+  display: grid;
+  gap: 48px;
+  grid-template-columns: 1fr;
+
+  ${up('md')} {
+    grid-template-columns: repeat(auto-fit, minmax(242px, 1fr));
+    gap: 72px;
   }
 `;
 
