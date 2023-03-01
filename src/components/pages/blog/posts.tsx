@@ -11,7 +11,8 @@ const BlogTeaserGrid = styled.div`
   gap: 48px;
 
   ${up('md')} {
-    gap: 24px;
+    row-gap: 60px;
+    column-gap: 24px;
   }
 
   justify-items: stretch;

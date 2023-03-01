@@ -25,7 +25,7 @@ export const Grid = styled.div<GridProps>`
   padding: 0
     ${(props) => (props.disableGap || props.nested ? 0 : GRID_GAP_MOBILE)}; // outer gap
 
-  // max-width: ${(props) => props.theme.maxWidth};
+  max-width: ${(props) => props.theme.maxWidth};
 
   ${(props) =>
     props.center &&

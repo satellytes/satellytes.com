@@ -28,7 +28,7 @@ const ApplicationProcessWrapper = styled.div`
   margin-top: 48px;
 
   ${up('md')} {
-    margin-bottom: 60px;
+    margin-top: 60px;
   }
 `;
 
