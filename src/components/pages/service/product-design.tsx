@@ -12,7 +12,9 @@ export const ProductDesign = () => {
         illustration="eclipse_039"
         headline={t('services.product_design.title')}
       >
-        <p>{t('services.product_design.text')}</p>
+        <p>{t('services.product_design.text.1')}</p>
+        <p>{t('services.product_design.text.2')}</p>
+        <p>{t('services.product_design.text.3')}</p>
       </Intro>
     </ContentBlockContainer>
   );
