@@ -44,13 +44,11 @@ export const Landingpage = ({
         <Service />
       </ContentBlockContainer>
 
-      <ImageSpacer image={officeImages['office/sy-office-01.jpg']} />
-
       <ContentBlockContainer>
         <Career positions={positions} />
       </ContentBlockContainer>
 
-      <ImageSpacer image={officeImages['office/sy-office-02.jpg']} />
+      <ImageSpacer image={officeImages['office/sy-office-05.jpg']} />
 
       <ContentBlockContainer>
         <Blog posts={posts} />
