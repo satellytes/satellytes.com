@@ -1,4 +1,3 @@
-import { AuroraHero } from '../../content/heroes';
 import React from 'react';
 import { Layout } from '../../layout/layout';
 import { ContentBlockContainer } from '../../layout/content-block-container';
@@ -9,6 +8,7 @@ import { Blog } from './blog';
 import { BlogPostTeaser, SyPersonioJob } from '../../../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { ImageSpacer } from '../../ui/image/image-spacer';
+import { Hero } from '../../content/heroes/support';
 
 interface OfficeImage {
   relativePath: string;
@@ -36,9 +36,7 @@ export const Landingpage = ({
     <Layout
       transparentHeader={true}
       light={true}
-      hero={
-        <AuroraHero title={'Satellytes'}>{t('main.description')}</AuroraHero>
-      }
+      hero={<Hero title={'Satellytes'}>{t('main.description')}</Hero>}
     >
       <ContentBlockContainer>
         <Service />

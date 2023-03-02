@@ -3,17 +3,16 @@ import { up } from '../../support/breakpoint';
 import { TextStyles } from '../../typography';
 import React from 'react';
 import { ReactNode } from 'react';
+import { theme } from '../../layout/theme';
 
 export interface HeroWithText {
   title: string;
-  kicker?: string;
   children?: ReactNode;
 }
 
-export const HeroText = ({ title, children, kicker }: HeroWithText) => {
+export const HeroText = ({ title, children }: HeroWithText) => {
   return (
     <HeroTextStyled>
-      {kicker && <Kicker>{kicker}</Kicker>}
       <Headline>{title}</Headline>
       <Text>{children}</Text>
     </HeroTextStyled>
@@ -22,18 +21,11 @@ export const HeroText = ({ title, children, kicker }: HeroWithText) => {
 
 const HeroTextStyled = styled.div`
   padding: 48px 0;
-  color: #fff;
+  color: ${theme.palette.text.default};
 
   ${up('md')} {
-    padding: 108px 0;
+    padding: 160px 0;
   }
-`;
-
-const Kicker = styled.span`
-  ${TextStyles.toplineR}
-  display: block;
-  margin-bottom: 16px;
-  text-transform: capitalize;
 `;
 
 const Headline = styled.h1`

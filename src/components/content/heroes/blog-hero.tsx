@@ -55,7 +55,6 @@ export const BlogHero = ({
   attribution,
   title,
   children,
-  kicker,
   naturalHeight,
 }: ImageHeroProps) => {
   const gatsbyImageData = getImage(image);
@@ -68,9 +67,7 @@ export const BlogHero = ({
 
       {title && (
         <TextContainer dimmed>
-          <HeroText title={title} kicker={kicker}>
-            {children}
-          </HeroText>
+          <HeroText title={title}>{children}</HeroText>
         </TextContainer>
       )}
 

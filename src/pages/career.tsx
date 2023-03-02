@@ -4,8 +4,7 @@ import { graphql, PageProps } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { CareerPage } from '../components/pages/career/career-page';
 import { SyPersonioJob } from '../types';
-import { IGatsbyImageData } from 'gatsby-plugin-image';
-import { OfficeImage } from '../pages/index';
+import { OfficeImage } from './index';
 
 interface CareerPageQueryProps {
   allSyPersonioJob: {
@@ -14,7 +13,6 @@ interface CareerPageQueryProps {
   officeImages: {
     nodes: OfficeImage[];
   };
-  hero: IGatsbyImageData;
 }
 
 const Career = (props: PageProps<CareerPageQueryProps>) => {
@@ -33,7 +31,6 @@ const Career = (props: PageProps<CareerPageQueryProps>) => {
         location={props.location}
       />
       <CareerPage
-        heroImageData={props.data.hero}
         positions={props.data.allSyPersonioJob.nodes}
         officeImages={officeImages}
       />
@@ -52,12 +49,6 @@ export const CareerPageQuery = graphql`
         childImageSharp {
           gatsbyImageData(layout: FULL_WIDTH)
         }
-      }
-    }
-
-    hero: file(relativePath: { eq: "office/sy-office-01.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
       }
     }
 

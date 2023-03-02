@@ -4,10 +4,8 @@ import React from 'react';
 import SEO from '../components/layout/seo';
 import { AboutUsPage } from '../components/pages/about-us/about-us-page';
 import { SyTeamMember } from '../types';
-import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 interface AboutUsQueryProps {
-  hero: IGatsbyImageData;
   allContentfulTeamMember: {
     nodes: SyTeamMember[];
   };
@@ -21,10 +19,7 @@ const AboutUs = (props: PageProps<AboutUsQueryProps>) => {
         title={`${t('about-us.title')} | Satellytes`}
         location={props.location}
       />
-      <AboutUsPage
-        heroImageData={props.data.hero}
-        team={props.data.allContentfulTeamMember.nodes}
-      />
+      <AboutUsPage team={props.data.allContentfulTeamMember.nodes} />
     </>
   );
 };
@@ -32,12 +27,6 @@ const AboutUs = (props: PageProps<AboutUsQueryProps>) => {
 export default AboutUs;
 export const AboutUsPageQuery = graphql`
   query ($language: String!) {
-    hero: file(relativePath: { eq: "office/sy-office-02.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
-      }
-    }
-
     allContentfulTeamMember(filter: { node_locale: { eq: "en" } }) {
       nodes {
         id

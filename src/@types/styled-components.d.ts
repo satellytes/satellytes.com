@@ -43,6 +43,7 @@ declare module 'styled-components' {
         bodyLight: string;
         body: string;
         card: string;
+        hero: string;
         footer: string;
         headerTransparent: string;
         leadbox: string;

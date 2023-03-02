@@ -6,12 +6,10 @@ import { ContentBlockContainer } from '../../layout/content-block-container';
 import { Office } from './office';
 import { Team } from './team';
 import { SyTeamMember } from '../../../types';
-import { IGatsbyImageData } from 'gatsby-plugin-image';
-import { ImageHero } from '../../content/heroes';
+import { Hero } from '../../content/heroes/support';
 
 interface AboutUsPageProps {
   team: SyTeamMember[];
-  heroImageData: IGatsbyImageData;
 }
 
 export const AboutUsPage = (props: AboutUsPageProps) => {
@@ -31,13 +29,7 @@ export const AboutUsPage = (props: AboutUsPageProps) => {
       transparentHeader={true}
       light={true}
       leadbox={leadbox}
-      hero={
-        <ImageHero
-          kicker={t<string>('about-us.office.kicker')}
-          title={t<string>('about-us.title')}
-          image={props.heroImageData}
-        />
-      }
+      hero={<Hero title={t<string>('about-us.title')} />}
     >
       <ContentBlockContainer>
         <Team team={props.team} />

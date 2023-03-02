@@ -1,6 +1,9 @@
 import styled, { css } from 'styled-components';
 import { up } from '../../support/breakpoint';
 import { rgba } from 'polished';
+import { HeroText, HeroWithText } from './hero-text';
+import React from 'react';
+import { theme } from '../../layout/theme';
 
 /**
  * Provide the default space we want to give to heroes.
@@ -22,6 +25,8 @@ export const HeroContainer = styled.div<{ naturalHeight?: boolean }>`
         height: 640px;
       }
     `}
+
+  background-color: ${theme.palette.background.hero};
 
   overflow: hidden;
   /**
@@ -61,3 +66,13 @@ export const TextContainer = styled.div<TextContainerProps>`
       background-color: ${rgba('#000000', 0.2)};
     `}
 `;
+
+export const Hero = ({ title, children }: HeroWithText) => (
+  <HeroContainer>
+    {title && (
+      <TextContainer>
+        <HeroText title={title}>{children}</HeroText>
+      </TextContainer>
+    )}
+  </HeroContainer>
+);

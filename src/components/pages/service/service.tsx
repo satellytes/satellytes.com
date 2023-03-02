@@ -8,7 +8,7 @@ import { Consulting } from './consulting';
 import { Industries } from './industries';
 import { Platforms } from './platforms';
 import { ProductsServices } from './products-services';
-import { AuroraHero } from '../../content/heroes';
+import { Hero } from '../../content/heroes/support';
 
 export const Service = () => {
   const { t } = useTranslation();
@@ -29,9 +29,9 @@ export const Service = () => {
       light={true}
       leadbox={leadbox}
       hero={
-        <AuroraHero title={t('services.hero')}>
+        <Hero title={t('services.hero')}>
           {t('services.hero.description')}{' '}
-        </AuroraHero>
+        </Hero>
       }
     >
       <ContentBlockContainer>

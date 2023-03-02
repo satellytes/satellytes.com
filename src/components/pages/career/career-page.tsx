@@ -9,24 +9,18 @@ import { Perks } from './perks';
 import { LeadboxProps } from '../../content/leadbox/leadbox';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { SyPersonioJob } from '../../../types';
-import { ImageHero } from '../../content/heroes';
-import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { ImageSpacer } from '../../ui/image/image-spacer';
 import { OfficeImage } from '../../../pages/index';
+import { Hero } from '../../content/heroes/support';
 
 interface CareerPageProps {
   positions: SyPersonioJob[];
-  heroImageData: IGatsbyImageData;
   officeImages: OfficeImages;
 }
 
 type OfficeImages = { [relativePath: string]: OfficeImage };
 
-export const CareerPage = ({
-  positions,
-  heroImageData,
-  officeImages,
-}: CareerPageProps) => {
+export const CareerPage = ({ positions, officeImages }: CareerPageProps) => {
   const { t } = useTranslation();
 
   const leadbox: LeadboxProps = {
@@ -44,7 +38,7 @@ export const CareerPage = ({
       leadbox={leadbox}
       transparentHeader={true}
       light={true}
-      hero={<ImageHero image={heroImageData} />}
+      hero={<Hero title={t<string>('career.title')} />}
     >
       <ContentBlockContainer>
         <SectionHeader
