@@ -1,4 +1,4 @@
-export { ReactComponent as shooting_stars_037 } from '../../../assets/illustrations/037-shooting stars.svg';
+export { ReactComponent as blimp_000 } from '../../../assets/illustrations/000-blimp.svg';
 export { ReactComponent as blimp_001 } from '../../../assets/illustrations/001-blimp.svg';
 export { ReactComponent as alien_002 } from '../../../assets/illustrations/002-alien.svg';
 export { ReactComponent as universe_003 } from '../../../assets/illustrations/003-universe.svg';
@@ -35,6 +35,7 @@ export { ReactComponent as launchB_033 } from '../../../assets/illustrations/033
 export { ReactComponent as satelliteA_034 } from '../../../assets/illustrations/034-satellite.svg';
 export { ReactComponent as satelliteB_035 } from '../../../assets/illustrations/035-satellite.svg';
 export { ReactComponent as saturn_036 } from '../../../assets/illustrations/036-saturn.svg';
+export { ReactComponent as shooting_stars_037 } from '../../../assets/illustrations/037-shooting stars.svg';
 export { ReactComponent as book_038 } from '../../../assets/illustrations/038-book.svg';
 export { ReactComponent as eclipse_039 } from '../../../assets/illustrations/039-eclipse.svg';
 export { ReactComponent as solar_system_040 } from '../../../assets/illustrations/040-solar system.svg';
@@ -50,3 +51,18 @@ export { ReactComponent as ufo_049 } from '../../../assets/illustrations/049-ufo
 export { ReactComponent as uranus_050 } from '../../../assets/illustrations/050-uranus.svg';
 export { ReactComponent as venus_051 } from '../../../assets/illustrations/051-venus.svg';
 export { ReactComponent as bicycle_052 } from '../../../assets/illustrations/052-bicycle.svg';
+export { ReactComponent as bike_052 } from '../../../assets/illustrations/052-bike.svg';
+export { ReactComponent as consulting_054 } from '../../../assets/illustrations/054-consulting.svg';
+export { ReactComponent as product_design_055 } from '../../../assets/illustrations/055-product_design.svg';
+export { ReactComponent as digital_platform_056 } from '../../../assets/illustrations/056-digital_platform.svg';
+export { ReactComponent as software_057 } from '../../../assets/illustrations/057-software.svg';
+export { ReactComponent as equipment_058 } from '../../../assets/illustrations/058-equipment.svg';
+export { ReactComponent as agile_059 } from '../../../assets/illustrations/059-agile.svg';
+export { ReactComponent as positiveWork_060 } from '../../../assets/illustrations/060-positiveWork.svg';
+export { ReactComponent as communication_061 } from '../../../assets/illustrations/061-communication.svg';
+export { ReactComponent as events_062 } from '../../../assets/illustrations/062-events.svg';
+export { ReactComponent as appreciate_063 } from '../../../assets/illustrations/063-appreciate.svg';
+export { ReactComponent as workLifeBalance_064 } from '../../../assets/illustrations/064-workLifeBalance.svg';
+export { ReactComponent as crossfunction_065 } from '../../../assets/illustrations/065-crossfunction.svg';
+export { ReactComponent as selfOrganization_066 } from '../../../assets/illustrations/066-selfOrganization.svg';
+export { ReactComponent as teamwork_067 } from '../../../assets/illustrations/067-teamwork.svg';
