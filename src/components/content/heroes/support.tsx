@@ -46,7 +46,7 @@ export const TextContainer = styled.div<TextContainerProps>`
   display: grid;
   grid-template-columns:
     [main-start] minmax(24px, 1fr)
-    [content-start] minmax(0, 1400px) [content-end]
+    [content-start] minmax(0, 1184px) [content-end]
     minmax(24px, 1fr) [main-end];
 
   > * {

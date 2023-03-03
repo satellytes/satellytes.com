@@ -3,7 +3,6 @@ import { up } from '../../support/breakpoint';
 import { TextStyles } from '../../typography';
 import React from 'react';
 import { ReactNode } from 'react';
-import { CONTENT_SPACE_LEFT_RIGHT } from '../../layout/theme';
 
 export interface HeroWithText {
   title: string;
@@ -26,7 +25,7 @@ const HeroTextStyled = styled.div`
   color: #fff;
 
   ${up('md')} {
-    padding: 160px ${CONTENT_SPACE_LEFT_RIGHT}px;
+    padding: 160px 0;
   }
 `;
 

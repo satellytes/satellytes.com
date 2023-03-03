@@ -42,7 +42,7 @@ const ContentWrapper = styled.div`
     Read the following if you need a refresher.
     https://www.smashingmagazine.com/2017/10/naming-things-css-grid-layout/
    */
-  grid-template-columns: minmax(24px, 1fr) minmax(0, 1400px) minmax(24px, 1fr);
+  grid-template-columns: minmax(24px, 1fr) minmax(0, 1184px) minmax(24px, 1fr);
   grid-template-areas: 'margin-start content margin-end';
 
   /**
