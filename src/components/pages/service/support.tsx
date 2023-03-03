@@ -36,16 +36,30 @@ const ContentStyled = styled.div`
   ${TextStyles.textR}
 `;
 
-export const Intro = ({ illustration, headline, children }: any) => {
+const Kicker = styled.span`
+  ${TextStyles.toplineS}
+  display: block;
+  margin-bottom: 12px;
+  color: #3e61ee;
+  ${up('md')} {
+    ${TextStyles.toplineR}
+    margin-bottom: 16px;
+  }
+`;
+
+export const Intro = ({ illustration, headline, children, kicker }: any) => {
   const HeadlineStyledWithAnchor = WithAnchorHOC(HeadlineStyled);
   return (
-    <IntroLayout>
-      <IllustrationStyled size={IllustrationSize.LARGE} show={illustration} />
-      <div>
-        <HeadlineStyledWithAnchor>{headline}</HeadlineStyledWithAnchor>
-        <ContentStyled>{children}</ContentStyled>
-      </div>
-    </IntroLayout>
+    <>
+      {kicker && <Kicker>{kicker}</Kicker>}
+      <IntroLayout>
+        <IllustrationStyled size={IllustrationSize.LARGE} show={illustration} />
+        <div>
+          <HeadlineStyledWithAnchor>{headline}</HeadlineStyledWithAnchor>
+          <ContentStyled>{children}</ContentStyled>
+        </div>
+      </IntroLayout>
+    </>
   );
 };
 
