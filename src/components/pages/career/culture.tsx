@@ -59,7 +59,6 @@ const CultureTeaserGrid = styled(CareerTeaserGrid)`
 
 export const Culture = () => {
   const { t } = useTranslation();
-  const amountOfTeasers = ASPECTS(t).length;
 
   return (
     <>
@@ -70,7 +69,7 @@ export const Culture = () => {
         {t('career.culture.paragraph')}
       </SectionHeader>
 
-      <CultureTeaserGrid amountOfChildren={amountOfTeasers}>
+      <CultureTeaserGrid>
         {ASPECTS(t).map((item, index) => (
           <Teaser
             title={item.title}

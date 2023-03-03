@@ -61,7 +61,6 @@ const PerksTeaserGrid = styled(CareerTeaserGrid)`
 
 export const Perks = () => {
   const { t } = useTranslation();
-  const amountOfTeasers = PERKS(t).length;
 
   return (
     <>
@@ -72,7 +71,7 @@ export const Perks = () => {
         {t('career.perk.paragraph')}
       </SectionHeader>
 
-      <PerksTeaserGrid amountOfChildren={amountOfTeasers}>
+      <PerksTeaserGrid>
         {PERKS(t).map((item, index) => (
           <Teaser
             title={item.title}
