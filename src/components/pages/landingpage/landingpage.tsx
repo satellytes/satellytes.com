@@ -23,12 +23,15 @@ interface LandingpageProps {
   positions: SyPersonioJob[];
   posts: BlogPostTeaser[];
   officeImages: OfficeImages;
+  //todo add type
+  customerLogos: any[];
 }
 
 export const Landingpage = ({
   positions,
   posts,
   officeImages,
+  customerLogos,
 }: LandingpageProps) => {
   const { t } = useTranslation();
 
@@ -40,6 +43,11 @@ export const Landingpage = ({
         <AuroraHero title={'Satellytes'}>{t('main.description')}</AuroraHero>
       }
     >
+      <img
+        src={customerLogos[0].logo.url}
+        alt={''}
+        width={customerLogos[0].desktopWidth}
+      />
       <ContentBlockContainer>
         <Service />
       </ContentBlockContainer>

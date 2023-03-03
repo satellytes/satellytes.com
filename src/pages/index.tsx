@@ -23,11 +23,18 @@ interface IndexPageQueryProps {
   officeImages: {
     nodes: OfficeImage[];
   };
+
+  //todo add type
+  allContentfulCustomerLogos: {
+    nodes: any[];
+  };
 }
 
 const IndexPage = (props: PageProps<IndexPageQueryProps>) => {
   const jobPositions = props.data.allSyPersonioJob.nodes;
   const blogPosts = props.data.allContentfulBlogPost.nodes;
+  const customerLogos = props.data.allContentfulCustomerLogos.nodes;
+
   const officeImages = props.data.officeImages.nodes.reduce((memo, image) => {
     memo[image.relativePath] = image;
     return memo;
@@ -43,6 +50,7 @@ const IndexPage = (props: PageProps<IndexPageQueryProps>) => {
         officeImages={officeImages}
         positions={jobPositions}
         posts={blogPosts}
+        customerLogos={customerLogos}
       />
     </>
   );
@@ -97,6 +105,22 @@ export const IndexPageQuery = graphql`
             )
           }
         }
+      }
+    }
+
+    allContentfulCustomerLogos(
+      filter: { node_locale: { eq: "en" } }
+      sort: { index: ASC }
+    ) {
+      nodes {
+        id
+        name
+        logo {
+          url
+        }
+        mobileWidth
+        desktopWidth
+        index
       }
     }
 
