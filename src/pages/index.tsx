@@ -2,7 +2,11 @@ import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import SEO from '../components/layout/seo';
 import { Landingpage } from '../components/pages/landingpage/landingpage';
-import { BlogPostTeaser, SyPersonioJob } from '../types';
+import {
+  BlogPostTeaser,
+  ContentfulCustomerLogo,
+  SyPersonioJob,
+} from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { StructuredOrganizationData } from '../components/pages/landingpage/structured-organization-data';
 
@@ -23,10 +27,8 @@ interface IndexPageQueryProps {
   officeImages: {
     nodes: OfficeImage[];
   };
-
-  //todo add type
   allContentfulCustomerLogos: {
-    nodes: any[];
+    nodes: ContentfulCustomerLogo[];
   };
 }
 
@@ -120,7 +122,6 @@ export const IndexPageQuery = graphql`
         }
         mobileWidth
         desktopWidth
-        index
       }
     }
 

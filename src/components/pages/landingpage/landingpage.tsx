@@ -6,9 +6,14 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Career } from './career';
 import { Service } from './service';
 import { Blog } from './blog';
-import { BlogPostTeaser, SyPersonioJob } from '../../../types';
+import {
+  BlogPostTeaser,
+  ContentfulCustomerLogo,
+  SyPersonioJob,
+} from '../../../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { ImageSpacer } from '../../ui/image/image-spacer';
+import { Customers } from './customers';
 
 interface OfficeImage {
   relativePath: string;
@@ -23,8 +28,7 @@ interface LandingpageProps {
   positions: SyPersonioJob[];
   posts: BlogPostTeaser[];
   officeImages: OfficeImages;
-  //todo add type
-  customerLogos: any[];
+  customerLogos: ContentfulCustomerLogo[];
 }
 
 export const Landingpage = ({
@@ -43,16 +47,11 @@ export const Landingpage = ({
         <AuroraHero title={'Satellytes'}>{t('main.description')}</AuroraHero>
       }
     >
-      <img
-        src={customerLogos[0].logo.url}
-        alt={''}
-        width={customerLogos[0].desktopWidth}
-      />
       <ContentBlockContainer>
         <Service />
       </ContentBlockContainer>
 
-      <ImageSpacer image={officeImages['office/sy-office-01.jpg']} />
+      <Customers logos={customerLogos} />
 
       <ContentBlockContainer>
         <Career positions={positions} />
