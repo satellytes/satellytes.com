@@ -56,22 +56,15 @@ const StyledLink = styled.a`
 `;
 
 const TextWrapper = styled.div<TextAlignProps>`
-  ${TextStyles.textXS}
+  ${TextStyles.textS}
 
   max-width: 100%;
   color: ${theme.palette.text.default};
 
   ${up('sm')} {
     ${({ textPlacement: textPlacement }) =>
-      textPlacement === 'bottom' &&
-      css`
-        ${TextStyles.textXS}
-      `}
-
-    ${({ textPlacement: textPlacement }) =>
       textPlacement !== 'bottom' &&
       css`
-        ${TextStyles.textS}
         max-width: 228px;
       `}
   }

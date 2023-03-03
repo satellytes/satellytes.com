@@ -30,29 +30,33 @@ interface SectionHeaderProps {
 }
 
 const KickerStyled = styled.span`
-  ${TextStyles.toplineR}
+  ${TextStyles.toplineS}
   display: block;
   color: #3e61ee;
   margin-bottom: 16px;
+
+  ${up('md')} {
+    ${TextStyles.toplineR}
+  }
 `;
 
 const HeadlineStyled = styled.h2`
-  ${TextStyles.headlineL}
+  ${TextStyles.headlineM}
   margin: 0;
   color: #202840;
   margin-bottom: 24px;
 
   ${up('md')} {
     margin-bottom: 32px;
-    ${TextStyles.headlineXL}
+    ${TextStyles.headlineL}
   }
 `;
 
 const ContentStyled = styled.div`
-  ${TextStyles.textR}
+  ${TextStyles.textSR}
 
   ${up('md')} {
-    ${TextStyles.textL}
+    ${TextStyles.textR}
   }
 `;
 
