@@ -16,7 +16,7 @@ const LogosContainer = styled.div`
   flex-direction: column;
   gap: 24px;
   ${up('md')} {
-    margin-top: 160px;
+    margin-top: 120px;
     padding: 120px 24px;
     gap: 80px;
   }
