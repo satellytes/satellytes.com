@@ -6,14 +6,12 @@ import { ReactNode } from 'react';
 
 export interface HeroWithText {
   title: string;
-  kicker?: string;
   children?: ReactNode;
 }
 
-export const HeroText = ({ title, children, kicker }: HeroWithText) => {
+export const HeroText = ({ title, children }: HeroWithText) => {
   return (
     <HeroTextStyled>
-      {kicker && <Kicker>{kicker}</Kicker>}
       <Headline>{title}</Headline>
       <Text>{children}</Text>
     </HeroTextStyled>
@@ -27,13 +25,6 @@ const HeroTextStyled = styled.div`
   ${up('md')} {
     padding: 160px 0;
   }
-`;
-
-const Kicker = styled.span`
-  ${TextStyles.toplineR}
-  display: block;
-  margin-bottom: 16px;
-  text-transform: capitalize;
 `;
 
 const Headline = styled.h1`

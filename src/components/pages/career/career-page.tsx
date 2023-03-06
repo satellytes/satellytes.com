@@ -44,7 +44,9 @@ export const CareerPage = ({
       leadbox={leadbox}
       transparentHeader={true}
       light={true}
-      hero={<ImageHero image={heroImageData} />}
+      hero={
+        <ImageHero title={t<string>('career.title')} image={heroImageData} />
+      }
     >
       <ContentBlockContainer>
         <SectionHeader

@@ -33,7 +33,6 @@ export const AboutUsPage = (props: AboutUsPageProps) => {
       leadbox={leadbox}
       hero={
         <ImageHero
-          kicker={t<string>('about-us.office.kicker')}
           title={t<string>('about-us.title')}
           image={props.heroImageData}
         />

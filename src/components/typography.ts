@@ -63,7 +63,7 @@ export const TextStyles = {
   `,
   textL: css`
     font-weight: normal;
-    font-size: 22px;
+    font-size: 24px;
     line-height: 150%;
 
     letter-spacing: -0.01em;
