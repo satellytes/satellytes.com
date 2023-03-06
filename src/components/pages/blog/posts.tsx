@@ -12,7 +12,7 @@ const BlogTeaserGrid = styled.div`
   // we fetch teaser of size 600px
   // this means we can search for a column size of 300px - 12px (half gap) = 288px
   // to auto fit our teasers
-  grid-template-columns: repeat(auto-fill, minmax(278px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
 `;
 
 interface PostsProps {
