@@ -9,6 +9,7 @@ import {
 } from '../../ui/illustration/illustration';
 import { Icon } from '../../ui/icon/icon';
 import { TextStyles } from '../../typography';
+import { up } from '../../support/breakpoint';
 
 const TeaserContainer = styled.div<{ hover: boolean }>`
   overflow: hidden;
@@ -69,8 +70,13 @@ const StyledTeaserTitle = styled.h3<{
   large: boolean;
   hasTopline: boolean;
 }>`
-  ${TextStyles.headlineS}
-  ${(props) => props.large && TextStyles.headlineM};
+  ${TextStyles.headlineXS}
+
+  ${(props) => props.large && TextStyles.headlineXS};
+
+  ${up('md')} {
+    ${(props) => props.large && TextStyles.headlineM};
+  }
 
   margin-top: 0;
   margin-bottom: ${(props) => (props.hasTopline ? '8px' : '16px')};

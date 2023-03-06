@@ -5,29 +5,13 @@ import { up } from '../../support/breakpoint';
 import { IllustrationType } from '../../ui/illustration/illustration-set';
 import { SectionHeader } from '../../content/section-header/section-header';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { CareerTeaserGrid } from './career-teaser-grid';
 
 interface Perk {
   illustration: IllustrationType;
   title: string;
   description: string;
 }
-
-const TeaserGrid = styled.div`
-  display: grid;
-  gap: 24px;
-
-  justify-items: stretch;
-  grid-template-columns: 1fr;
-
-  ${up('sm')} {
-    grid-template-columns: repeat(auto-fit, 250px);
-  }
-
-  ${up('md')} {
-    gap: 70px;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-`;
 
 const PERKS = (t): Perk[] => [
   {
@@ -67,12 +51,17 @@ const PERKS = (t): Perk[] => [
   },
 ];
 
-const PerksTeaserGrid = styled(TeaserGrid)`
+const PerksTeaserGrid = styled(CareerTeaserGrid)`
   margin-top: 48px;
+
+  ${up('md')} {
+    margin-top: 60px;
+  }
 `;
 
 export const Perks = () => {
   const { t } = useTranslation();
+
   return (
     <>
       <SectionHeader

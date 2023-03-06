@@ -5,29 +5,13 @@ import { Teaser } from '../../content/teaser/teaser';
 import { IllustrationType } from '../../ui/illustration/illustration-set';
 import { SectionHeader } from '../../content/section-header/section-header';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { CareerTeaserGrid } from './career-teaser-grid';
 
 interface CultureAspect {
   illustration: IllustrationType;
   title: string;
   description: string;
 }
-
-const TeaserGrid = styled.div`
-  display: grid;
-  gap: 24px;
-
-  justify-items: stretch;
-  grid-template-columns: 1fr;
-
-  ${up('sm')} {
-    grid-template-columns: repeat(auto-fit, 250px);
-  }
-
-  ${up('md')} {
-    gap: 70px;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-`;
 
 const ASPECTS = (t): CultureAspect[] => [
   {
@@ -66,12 +50,16 @@ const ASPECTS = (t): CultureAspect[] => [
   },
 ];
 
-const CultureTeaserGrid = styled(TeaserGrid)`
+const CultureTeaserGrid = styled(CareerTeaserGrid)`
   margin-top: 48px;
+  ${up('md')} {
+    margin-top: 60px;
+  }
 `;
 
 export const Culture = () => {
   const { t } = useTranslation();
+
   return (
     <>
       <SectionHeader
