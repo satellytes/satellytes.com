@@ -14,6 +14,7 @@ const SectionHeadline = styled.h2`
 
   ${up('md')} {
     ${TextStyles.headlineL}
+    margin-bottom: 60px;
   }
 `;
 

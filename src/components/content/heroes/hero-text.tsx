@@ -25,7 +25,7 @@ const HeroTextStyled = styled.div`
   color: #fff;
 
   ${up('md')} {
-    padding: 108px 0;
+    padding: 160px 0;
   }
 `;
 
