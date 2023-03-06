@@ -52,19 +52,20 @@ export const BlogPage = ({ posts, pagination }: BlogPageProps) => {
 
           {language != 'en' && <NotAvailableInGerman />}
         </SectionHeader>
+
+        {language == 'en' && (
+          <>
+            <BlogSharePanel />
+            <Posts posts={posts} />
+            <StyledPagination
+              amountOfPages={numberOfPages}
+              currentPage={currentPage}
+              onPreviousClick={onPreviousClick}
+              onNextClick={onNextClick}
+            />
+          </>
+        )}
       </ContentBlockContainer>
-      {language == 'en' && (
-        <>
-          <BlogSharePanel />
-          <Posts posts={posts} />
-          <StyledPagination
-            amountOfPages={numberOfPages}
-            currentPage={currentPage}
-            onPreviousClick={onPreviousClick}
-            onNextClick={onNextClick}
-          />
-        </>
-      )}
     </Layout>
   );
 };

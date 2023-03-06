@@ -45,7 +45,16 @@ export const TextStyles = {
 
     letter-spacing: -0.01em;
   `,
+
   headlineXS: css`
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 110%;
+
+    letter-spacing: -0.01em;
+  `,
+
+  headlineXXS: css`
     font-weight: bold;
     font-size: 16px;
     line-height: 150%;
