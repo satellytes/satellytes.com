@@ -8,7 +8,11 @@ export const Platforms = () => {
 
   return (
     <ContentBlockContainer>
-      <Intro illustration="monitor_024" headline={t('services.platform.title')}>
+      <Intro
+        illustration="monitor_024"
+        headline={t('services.platform.title')}
+        kicker={t('services.platform.kicker')}
+      >
         <p>{t('services.platform.text')}</p>
       </Intro>
 

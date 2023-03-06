@@ -8,6 +8,7 @@ import { Expandable } from '../../ui/expandable/expandable';
 import { TextStyles } from '../../typography';
 import { up } from '../../support/breakpoint';
 import { WithAnchorHOC } from '../../layout/with-anchor-hoc';
+import { theme } from '../../../components/layout/theme';
 
 export const IntroLayout = styled.div`
   ${up('md')} {
@@ -36,16 +37,30 @@ const ContentStyled = styled.div`
   ${TextStyles.textR}
 `;
 
-export const Intro = ({ illustration, headline, children }: any) => {
+const Kicker = styled.span`
+  ${TextStyles.toplineS}
+  display: block;
+  margin-bottom: 12px;
+  color: ${theme.palette.text.topline};
+  ${up('md')} {
+    ${TextStyles.toplineR}
+    margin-bottom: 16px;
+  }
+`;
+
+export const Intro = ({ illustration, headline, children, kicker }: any) => {
   const HeadlineStyledWithAnchor = WithAnchorHOC(HeadlineStyled);
   return (
-    <IntroLayout>
-      <IllustrationStyled size={IllustrationSize.LARGE} show={illustration} />
-      <div>
-        <HeadlineStyledWithAnchor>{headline}</HeadlineStyledWithAnchor>
-        <ContentStyled>{children}</ContentStyled>
-      </div>
-    </IntroLayout>
+    <>
+      <IntroLayout>
+        <IllustrationStyled size={IllustrationSize.LARGE} show={illustration} />
+        <div>
+          {kicker && <Kicker>{kicker}</Kicker>}
+          <HeadlineStyledWithAnchor>{headline}</HeadlineStyledWithAnchor>
+          <ContentStyled>{children}</ContentStyled>
+        </div>
+      </IntroLayout>
+    </>
   );
 };
 

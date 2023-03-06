@@ -11,6 +11,7 @@ export const ProductsServices = () => {
       <Intro
         illustration="book_038"
         headline={t('services.products_services.title')}
+        kicker={t('services.products_services.kicker')}
       >
         <p>{t('services.products_services.text')}</p>
       </Intro>
