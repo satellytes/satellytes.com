@@ -3,13 +3,16 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import SEO from '../components/layout/seo';
 import { AboutUsPage } from '../components/pages/about-us/about-us-page';
-import { SyTeamMember } from '../types';
+import { ContentfulAboutUsImpression, SyTeamMember } from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 interface AboutUsQueryProps {
   hero: IGatsbyImageData;
   allContentfulTeamMember: {
     nodes: SyTeamMember[];
+  };
+  allContentfulAboutUsImpressions: {
+    nodes: ContentfulAboutUsImpression[];
   };
 }
 
@@ -23,6 +26,7 @@ const AboutUs = (props: PageProps<AboutUsQueryProps>) => {
       />
       <AboutUsPage
         heroImageData={props.data.hero}
+        impressions={props.data.allContentfulAboutUsImpressions.nodes}
         team={props.data.allContentfulTeamMember.nodes}
       />
     </>
@@ -53,6 +57,19 @@ export const AboutUsPageQuery = graphql`
             resizingBehavior: FILL
             jpegProgressive: false
           )
+        }
+      }
+    }
+
+    allContentfulAboutUsImpressions(
+      filter: { node_locale: { eq: "en" } }
+      sort: { name: ASC }
+    ) {
+      nodes {
+        tileSize
+        id
+        image {
+          gatsbyImageData(resizingBehavior: FILL, jpegProgressive: false)
         }
       }
     }

@@ -51,6 +51,17 @@ export interface SyTeamMember {
   image: IGatsbyImageData;
 }
 
+export type AboutUsImpressionTileSize =
+  | 'landscape-big'
+  | 'landscape-small'
+  | 'portrait';
+
+export interface ContentfulAboutUsImpression {
+  tileSize: AboutUsImpressionTileSize;
+  id: string;
+  image: IGatsbyImageData;
+}
+
 export interface ContentFulBlogPostAuthor {
   fullName: string;
   summary: string;
