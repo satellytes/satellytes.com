@@ -1,11 +1,7 @@
 import React from 'react';
-import { ContentfulCustomerLogo } from '../../../types';
 import { up } from '../../support/breakpoint';
 import styled from 'styled-components';
-
-interface CustomersProps {
-  logos: ContentfulCustomerLogo[];
-}
+import LogoSet, { CustomerLogoType } from './customer-logos/logo-set';
 
 const LogosContainer = styled.div`
   grid-column: 1 / 4;
@@ -32,40 +28,55 @@ const LogoLine = styled.div`
   }
 `;
 
-const Logo = styled.img<{ mobileWidth: number; desktopWidth: number }>`
-  width: ${({ mobileWidth }) => mobileWidth}px;
+const CustomerLogoLayout = styled.div<{
+  mobileWidth: number;
+  desktopWidth: number;
+}>`
+  display: flex;
+  align-items: center;
 
+  width: ${({ mobileWidth }) => mobileWidth}px;
   ${up('md')} {
     width: ${({ desktopWidth }) => desktopWidth}px;
   }
 `;
 
-export const Customers = ({ logos }: CustomersProps) => {
-  const Logos = logos.map((logo) => (
-    <Logo
-      src={logo.logo.url}
-      mobileWidth={logo.mobileWidth}
-      desktopWidth={logo.desktopWidth}
-      key={logo.id}
-      alt={logo.name + ' Logo'}
-    />
-  ));
+interface CustomerLogoProps {
+  show: CustomerLogoType;
+  mobileWidth: number;
+  desktopWidth: number;
+}
 
+const CustomerLogo = ({
+  show,
+  mobileWidth,
+  desktopWidth,
+}: CustomerLogoProps) => {
+  const CustomerLogoSVG = LogoSet[show];
+
+  return (
+    <CustomerLogoLayout mobileWidth={mobileWidth} desktopWidth={desktopWidth}>
+      <CustomerLogoSVG />
+    </CustomerLogoLayout>
+  );
+};
+
+export const Customers = () => {
   return (
     <LogosContainer>
       <LogoLine>
-        {Logos[0]}
-        {Logos[1]}
+        <CustomerLogo desktopWidth={330} mobileWidth={127} show="allianz" />
+        <CustomerLogo desktopWidth={451} mobileWidth={176} show="rosenbauer" />
       </LogoLine>
       <LogoLine>
-        {Logos[2]}
-        {Logos[3]}
-        {Logos[4]}
+        <CustomerLogo desktopWidth={403} mobileWidth={170} show="mediamarkt" />
+        <CustomerLogo desktopWidth={285} mobileWidth={121} show="saturn" />
+        <CustomerLogo desktopWidth={337} mobileWidth={156} show="greencity" />
       </LogoLine>
       <LogoLine>
-        {Logos[5]}
-        {Logos[6]}
-        {Logos[7]}
+        <CustomerLogo desktopWidth={112} mobileWidth={48} show="fcbayern" />
+        <CustomerLogo desktopWidth={92} mobileWidth={39} show="zeiss" />
+        <CustomerLogo desktopWidth={324} mobileWidth={138} show="adac" />
       </LogoLine>
     </LogosContainer>
   );

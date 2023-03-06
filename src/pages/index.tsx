@@ -2,11 +2,7 @@ import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import SEO from '../components/layout/seo';
 import { Landingpage } from '../components/pages/landingpage/landingpage';
-import {
-  BlogPostTeaser,
-  ContentfulCustomerLogo,
-  SyPersonioJob,
-} from '../types';
+import { BlogPostTeaser, SyPersonioJob } from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { StructuredOrganizationData } from '../components/pages/landingpage/structured-organization-data';
 
@@ -27,16 +23,11 @@ interface IndexPageQueryProps {
   officeImages: {
     nodes: OfficeImage[];
   };
-  allContentfulCustomerLogos: {
-    nodes: ContentfulCustomerLogo[];
-  };
 }
 
 const IndexPage = (props: PageProps<IndexPageQueryProps>) => {
   const jobPositions = props.data.allSyPersonioJob.nodes;
   const blogPosts = props.data.allContentfulBlogPost.nodes;
-  const customerLogos = props.data.allContentfulCustomerLogos.nodes;
-
   const officeImages = props.data.officeImages.nodes.reduce((memo, image) => {
     memo[image.relativePath] = image;
     return memo;
@@ -52,7 +43,6 @@ const IndexPage = (props: PageProps<IndexPageQueryProps>) => {
         officeImages={officeImages}
         positions={jobPositions}
         posts={blogPosts}
-        customerLogos={customerLogos}
       />
     </>
   );
@@ -107,21 +97,6 @@ export const IndexPageQuery = graphql`
             )
           }
         }
-      }
-    }
-
-    allContentfulCustomerLogos(
-      filter: { node_locale: { eq: "en" } }
-      sort: { index: ASC }
-    ) {
-      nodes {
-        id
-        name
-        logo {
-          url
-        }
-        mobileWidth
-        desktopWidth
       }
     }
 

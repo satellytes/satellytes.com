@@ -68,16 +68,6 @@ export interface ContentfulCodeBlock {
   code: string;
 }
 
-export interface ContentfulCustomerLogo {
-  id: string;
-  name: string;
-  logo: {
-    url: string;
-  };
-  mobileWidth: number;
-  desktopWidth: number;
-}
-
 export interface ContentfulBlogPost {
   author: ContentFulBlogPostAuthor;
   introRichText?: {

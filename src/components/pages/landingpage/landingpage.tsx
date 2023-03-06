@@ -6,11 +6,7 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Career } from './career';
 import { Service } from './service';
 import { Blog } from './blog';
-import {
-  BlogPostTeaser,
-  ContentfulCustomerLogo,
-  SyPersonioJob,
-} from '../../../types';
+import { BlogPostTeaser, SyPersonioJob } from '../../../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { ImageSpacer } from '../../ui/image/image-spacer';
 import { Customers } from './customers';
@@ -28,14 +24,12 @@ interface LandingpageProps {
   positions: SyPersonioJob[];
   posts: BlogPostTeaser[];
   officeImages: OfficeImages;
-  customerLogos: ContentfulCustomerLogo[];
 }
 
 export const Landingpage = ({
   positions,
   posts,
   officeImages,
-  customerLogos,
 }: LandingpageProps) => {
   const { t } = useTranslation();
 
@@ -51,7 +45,7 @@ export const Landingpage = ({
         <Service />
       </ContentBlockContainer>
 
-      <Customers logos={customerLogos} />
+      <Customers />
 
       <ContentBlockContainer>
         <Career positions={positions} />
