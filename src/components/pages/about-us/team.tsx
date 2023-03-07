@@ -8,15 +8,17 @@ import { SyTeamMember } from '../../../types';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 const TeamLayout = styled.div`
-  margin-top: 80px;
+  margin-top: 48px;
 
   display: grid;
-
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 40px 8px;
 
   ${up('sm')} {
+    margin-top: 60px;
+
     gap: 40px 24px;
+    grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
   }
 `;
 
