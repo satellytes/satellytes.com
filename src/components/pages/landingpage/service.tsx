@@ -1,14 +1,9 @@
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { TeaserGrid } from '../../content/teaser/teaser-grid';
 import { Teaser } from '../../content/teaser/teaser';
 import React from 'react';
 import { HomePageHeaderBlock } from './support';
-import styled from 'styled-components';
 import { Button } from '../../ui/buttons/button';
-
-const Spacer = styled.div`
-  height: 40px;
-`;
+import { LandingPageTeaserGrid } from './landing-page-teaser-grid';
 
 export const Service = () => {
   const { t } = useTranslation();
@@ -23,7 +18,7 @@ export const Service = () => {
         {t('main.services.text')}
       </HomePageHeaderBlock>
 
-      <TeaserGrid>
+      <LandingPageTeaserGrid>
         <Teaser
           title={t('services.platform.title')}
           linkTo="/services#digital-platforms"
@@ -45,9 +40,14 @@ export const Service = () => {
         >
           {t('services.consulting.teaser')}
         </Teaser>
-      </TeaserGrid>
-
-      <Spacer />
+        <Teaser
+          title={t('services.design.title')}
+          linkTo="/services#design"
+          illustration="scientist_042"
+        >
+          {t('services.design.teaser')}
+        </Teaser>
+      </LandingPageTeaserGrid>
       <Button to={'/services'}>{t('main.services.button')}</Button>
     </>
   );
