@@ -5,10 +5,10 @@ import { SectionHeader } from '../../content/section-header/section-header';
 import { LeadboxProps } from '../../content/leadbox/leadbox';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Consulting } from './consulting';
-import { Industries } from './industries';
 import { Platforms } from './platforms';
 import { ProductsServices } from './products-services';
 import { AuroraHero } from '../../content/heroes';
+import { ProductDesign } from './product-design';
 
 export const Service = () => {
   const { t } = useTranslation();
@@ -46,8 +46,7 @@ export const Service = () => {
       <Platforms />
       <ProductsServices />
       <Consulting />
-
-      <Industries />
+      <ProductDesign />
     </Layout>
   );
 };
