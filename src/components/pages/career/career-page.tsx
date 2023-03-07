@@ -12,7 +12,7 @@ import { SyPersonioJob } from '../../../types';
 import { ImageHero } from '../../content/heroes';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { ImageSpacer } from '../../ui/image/image-spacer';
-import { OfficeImage } from '../../../pages/index';
+import { OfficeImage } from '../../../pages';
 
 interface CareerPageProps {
   positions: SyPersonioJob[];
@@ -61,13 +61,13 @@ export const CareerPage = ({
         <Openings jobs={positions} />
       </ContentBlockContainer>
 
-      <ImageSpacer image={officeImages['office/sy-office-03.jpg']} />
+      <ImageSpacer image={officeImages['office/sy-office-05.jpg']} />
 
       <ContentBlockContainer>
         <Culture />
       </ContentBlockContainer>
 
-      <ImageSpacer image={officeImages['office/sy-office-02.jpg']} />
+      <ImageSpacer image={officeImages['office/sy-office-06.jpg']} />
 
       <ContentBlockContainer>
         <Perks />

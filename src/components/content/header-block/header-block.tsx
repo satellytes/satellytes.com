@@ -41,19 +41,24 @@ const IconWrapper = styled.div`
 `;
 
 const Topline = styled.p`
-  ${TextStyles.toplineR}
+  ${TextStyles.toplineS}
   color: #3e61ee;
   margin: 0;
+
+  ${up('md')} {
+    ${TextStyles.toplineR}
+  }
 `;
 
 const Headline = styled.h2<LargeProps>`
-  ${TextStyles.headlineL}
+  ${TextStyles.headlineM}
   letter-spacing: -0.01em;
   color: #202840;
   margin-top: 16px;
   margin-bottom: ${({ large }) => (large ? '32px' : '16px')};
+
   ${up('md')} {
-    ${TextStyles.headlineXL}
+    ${TextStyles.headlineL}
   }
 `;
 
@@ -65,7 +70,11 @@ const Metaline = styled.p<LargeProps>`
 `;
 
 const HeaderBlockText = styled.p<LargeProps>`
-  ${({ large }) => (large ? TextStyles.textL : TextStyles.textR)};
+  ${({ large }) => (large ? TextStyles.textSR : TextStyles.textS)};
+
+  ${up('md')} {
+    ${({ large }) => (large ? TextStyles.textR : TextStyles.textSR)};
+  }
 
   letter-spacing: -0.01em;
   color: #202840;

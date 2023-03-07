@@ -48,7 +48,7 @@ export const Landingpage = ({
         <Career positions={positions} />
       </ContentBlockContainer>
 
-      <ImageSpacer image={officeImages['office/sy-office-05.jpg']} />
+      <ImageSpacer image={officeImages['office/sy-office-07.jpg']} />
 
       <ContentBlockContainer>
         <Blog posts={posts} />

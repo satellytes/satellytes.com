@@ -3,15 +3,16 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Layout } from '../../layout/layout';
 import { LeadboxProps } from '../../content/leadbox/leadbox';
 import { ContentBlockContainer } from '../../layout/content-block-container';
-import { Office } from './office';
 import { Team } from './team';
-import { SyTeamMember } from '../../../types';
+import { ContentfulAboutUsImpression, SyTeamMember } from '../../../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { ImageHero } from '../../content/heroes';
+import { Impressions } from './impressions';
 
 interface AboutUsPageProps {
   team: SyTeamMember[];
   heroImageData: IGatsbyImageData;
+  impressions: ContentfulAboutUsImpression[];
 }
 
 export const AboutUsPage = (props: AboutUsPageProps) => {
@@ -40,11 +41,11 @@ export const AboutUsPage = (props: AboutUsPageProps) => {
       }
     >
       <ContentBlockContainer>
-        <Team team={props.team} />
+        <Impressions impressions={props.impressions} />
       </ContentBlockContainer>
 
       <ContentBlockContainer>
-        <Office />
+        <Team team={props.team} />
       </ContentBlockContainer>
     </Layout>
   );

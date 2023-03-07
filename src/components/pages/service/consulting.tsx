@@ -11,6 +11,7 @@ export const Consulting = () => {
       <Intro
         illustration="scientist_042"
         headline={t('services.consulting.title')}
+        kicker={t('services.consulting.kicker')}
       >
         <p>{t('services.consulting.text')}</p>
       </Intro>

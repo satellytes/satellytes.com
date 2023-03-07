@@ -25,7 +25,11 @@ const AccordionText = styled.p`
 `;
 
 const ApplicationProcessWrapper = styled.div`
-  margin-top: 80px;
+  margin-top: 48px;
+
+  ${up('md')} {
+    margin-top: 60px;
+  }
 `;
 
 export const ApplicationProcess = () => {

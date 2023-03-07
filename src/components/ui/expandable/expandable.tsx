@@ -41,7 +41,7 @@ const SummaryContainer = styled.summary`
 `;
 
 const SummaryText = styled.p`
-  ${TextStyles.headlineXS}
+  ${TextStyles.headlineXXS}
   margin: 0;
   line-height: 1;
 `;
