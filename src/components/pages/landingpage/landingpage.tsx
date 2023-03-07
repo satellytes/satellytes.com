@@ -9,6 +9,7 @@ import { Blog } from './blog';
 import { BlogPostTeaser, SyPersonioJob } from '../../../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { ImageSpacer } from '../../ui/image/image-spacer';
+import { Customers } from './customers';
 
 interface OfficeImage {
   relativePath: string;
@@ -43,6 +44,8 @@ export const Landingpage = ({
       <ContentBlockContainer>
         <Service />
       </ContentBlockContainer>
+
+      <Customers />
 
       <ContentBlockContainer>
         <Career positions={positions} />

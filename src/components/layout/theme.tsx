@@ -1,8 +1,11 @@
-import { DefaultTheme } from 'styled-components';
+import { CSSProp, DefaultTheme } from 'styled-components';
 
 export const HEADER_HEIGHT_VALUE = 65;
 export const CONTENT_SPACE_SMALL = 80;
 export const CONTENT_SPACE_LARGE = 120;
+
+export const GRID_GAP_DESKTOP: CSSProp = '24px';
+export const GRID_GAP_MOBILE: CSSProp = '16px';
 
 export const theme: DefaultTheme = {
   palette: {

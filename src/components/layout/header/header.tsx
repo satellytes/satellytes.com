@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { up } from '../../support/breakpoint';
-import { GRID_GAP_DESKTOP, GRID_GAP_MOBILE } from '../../legacy/grid/grid';
+import {
+  GRID_GAP_DESKTOP,
+  GRID_GAP_MOBILE,
+  HEADER_HEIGHT_VALUE,
+} from '../theme';
 import { BurgerMenu } from '../../legacy/icons/header-icons/burger-menu';
 import { CloseBurgerMenuIcon } from '../../legacy/icons/header-icons/close-burger-menu';
 import { FLYOUT_Z_INDEX, NavigationFlyout } from './menu-flyout';
 import { Link } from '../../legacy/links/links';
 import { Swoosh } from '../../legacy/icons/header-icons/swoosh';
-import { HEADER_HEIGHT_VALUE } from '../theme';
 
 export const HEADER_HEIGHT = `${HEADER_HEIGHT_VALUE}px`;
 const ESC_KEY_CODE = 27;
