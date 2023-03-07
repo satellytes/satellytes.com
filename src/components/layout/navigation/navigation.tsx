@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { up } from '../../support/breakpoint';
-import { Grid, GridItem } from '../../legacy/grid/grid';
-
 import { Link } from '../../legacy/links/links';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { LanguageSwitch } from '../header/language-switch';
@@ -11,95 +9,71 @@ import { Icon } from '../../ui/icon/icon';
 import { theme } from '../theme';
 
 const NavigationBackground = styled.div`
+  grid-column: 1 / 4;
+  padding: 82px 24px 24px;
+
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  justify-items: end;
+
   background: linear-gradient(289.7deg, #543fd7 2.95%, #2756fd 100.82%);
   clip-path: polygon(
-    0 16vw /* left top */,
+    0 10vw /* left top */,
     100% 0 /* right top */,
     100% 100% /* right bottom */,
     0% 100% /* left bottom */
   );
-`;
-
-const NavigationContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  padding: 80px 0 30px 0;
 
   ${up('md')} {
-    padding: 10vw 0 80px 0;
-    flex-direction: row;
-  }
-`;
-
-/**
- * Meta navigation
- *
- */
-const MetaContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-end;
-  order: 2;
-
-  width: 100%;
-  margin-top: 54px;
-
-  ${up('md')} {
-    flex-direction: column;
-    align-self: flex-end;
-    align-items: flex-start;
-    order: 1;
-
-    width: auto;
-    margin-top: 0;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 18px;
+    padding: 120px 80px 80px;
   }
 `;
 
 const LegalLinks = styled.ul`
   list-style-type: none;
-
+  align-self: end;
   margin: 0;
+  margin-top: 24px;
   padding: 0;
-  order: 1;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
 
   ${up('md')} {
-    order: 2;
-  }
-`;
-
-const UnstyledListItem = styled.li`
-  &:not(:last-of-type) {
-    margin-right: 24px;
-    margin-bottom: 16px;
-  }
-
-  ${up('md')} {
-    display: inline-block;
-
-    &:not(:last-of-type) {
-      margin-right: 24px;
-      margin-bottom: 0;
-    }
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+    margin: 0;
   }
 `;
 
 const SocialLinks = styled.ul`
-  all: unset;
-  order: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  grid-column: 1;
+  grid-row: 1 / 3;
+  align-self: end;
+
+  margin: 0;
+  padding: 0;
 
   ${up('md')} {
-    order: 1;
-    margin-left: 1px;
+    justify-self: start;
+    grid-column: 1;
+    grid-row: 1;
+    flex-direction: row;
     margin-bottom: 24px;
   }
 `;
 
 const SocialLinkItem = styled.li`
   display: inline-block;
-  margin-right: 16px;
   cursor: pointer;
 
   &:last-of-type {
@@ -147,14 +121,18 @@ const LegalLink = styled(Link)<{ $isSelected: boolean }>`
  *
  */
 const SiteNavigation = styled.div`
+  grid-column: 2;
+  grid-row: 1;
+
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   text-align: right;
-  order: 1;
 
   ${up('md')} {
-    order: 2;
+    grid-column: 2;
+    grid-row: 1 / 3;
+    align-self: end;
   }
 `;
 
@@ -228,111 +206,103 @@ const Navigation: React.FC<NavigationProps> = ({
 
   return (
     <NavigationBackground>
-      <Grid center>
-        <GridItem xs={0} md={1} />
-        <GridItem xs={12} md={10} noGap>
-          <NavigationContent>
-            <MetaContainer>
-              <SocialLinks>
-                <SocialLinkItem>
-                  <SocialLink
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://www.linkedin.com/company/satellytes"
-                    title="Go to the Satellytes LinkedIn profile"
-                  >
-                    <IconWrapper>
-                      <Icon show="linked_in" />
-                    </IconWrapper>
-                  </SocialLink>
-                </SocialLinkItem>
-                <SocialLinkItem>
-                  <SocialLink
-                    title="Go to the Satellytes Github profile"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://github.com/satellytes"
-                  >
-                    <IconWrapper>
-                      <Icon show="github" />
-                    </IconWrapper>
-                  </SocialLink>
-                </SocialLinkItem>
-              </SocialLinks>
-              <LegalLinks>
-                <UnstyledListItem>
-                  <LegalLink
-                    to="/imprint"
-                    $isSelected={activePath.includes('/imprint')}
-                  >
-                    {t('navigation.imprint')}
-                  </LegalLink>
-                </UnstyledListItem>
-                <UnstyledListItem>
-                  <LegalLink
-                    to="/data-privacy"
-                    $isSelected={activePath.includes('/data-privacy')}
-                  >
-                    {t('navigation.data-privacy')}
-                  </LegalLink>
-                </UnstyledListItem>
-              </LegalLinks>
-            </MetaContainer>
-            <SiteNavigation>
-              {showLanguageSwitch && (
-                <LanguageSwitchWrapper
-                  translation={translation}
-                  className={'language-switch'}
-                />
-              )}
-              <nav>
-                <SiteNavigationList>
-                  <NavigationListItem>
-                    <SiteNavigationLink
-                      to="/services"
-                      $isSelected={activePath.includes('/services')}
-                    >
-                      {t('navigation.services')}
-                    </SiteNavigationLink>
-                  </NavigationListItem>
-                  <NavigationListItem>
-                    <SiteNavigationLink
-                      to="/career"
-                      $isSelected={activePath.includes('/career')}
-                    >
-                      {t('navigation.career')}
-                    </SiteNavigationLink>
-                  </NavigationListItem>
-                  <NavigationListItem>
-                    <SiteNavigationLink
-                      to="/about-us"
-                      $isSelected={activePath.includes('/about-us')}
-                    >
-                      {t('navigation.about-us')}
-                    </SiteNavigationLink>
-                  </NavigationListItem>
-                  <NavigationListItem>
-                    <SiteNavigationLink
-                      to="/blog"
-                      $isSelected={activePath.includes('/blog')}
-                    >
-                      {t('navigation.blog')}
-                    </SiteNavigationLink>
-                  </NavigationListItem>
-                  <NavigationListItem>
-                    <SiteNavigationLink
-                      to="/contact"
-                      $isSelected={activePath.includes('/contact')}
-                    >
-                      {t('navigation.contact')}
-                    </SiteNavigationLink>
-                  </NavigationListItem>
-                </SiteNavigationList>
-              </nav>
-            </SiteNavigation>
-          </NavigationContent>
-        </GridItem>
-      </Grid>
+      <SocialLinks>
+        <SocialLinkItem>
+          <SocialLink
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.linkedin.com/company/satellytes"
+            title="Go to the Satellytes LinkedIn profile"
+          >
+            <IconWrapper>
+              <Icon show="linked_in" />
+            </IconWrapper>
+          </SocialLink>
+        </SocialLinkItem>
+        <SocialLinkItem>
+          <SocialLink
+            title="Go to the Satellytes Github profile"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/satellytes"
+          >
+            <IconWrapper>
+              <Icon show="github" />
+            </IconWrapper>
+          </SocialLink>
+        </SocialLinkItem>
+      </SocialLinks>
+      <LegalLinks>
+        <li>
+          <LegalLink
+            to="/imprint"
+            $isSelected={activePath.includes('/imprint')}
+          >
+            {t('navigation.imprint')}
+          </LegalLink>
+        </li>
+        <span>·</span>
+        <li>
+          <LegalLink
+            to="/data-privacy"
+            $isSelected={activePath.includes('/data-privacy')}
+          >
+            {t('navigation.data-privacy')}
+          </LegalLink>
+        </li>
+      </LegalLinks>
+      <SiteNavigation>
+        {showLanguageSwitch && (
+          <LanguageSwitchWrapper
+            translation={translation}
+            className={'language-switch'}
+          />
+        )}
+        <nav>
+          <SiteNavigationList>
+            <NavigationListItem>
+              <SiteNavigationLink
+                to="/services"
+                $isSelected={activePath.includes('/services')}
+              >
+                {t('navigation.services')}
+              </SiteNavigationLink>
+            </NavigationListItem>
+            <NavigationListItem>
+              <SiteNavigationLink
+                to="/career"
+                $isSelected={activePath.includes('/career')}
+              >
+                {t('navigation.career')}
+              </SiteNavigationLink>
+            </NavigationListItem>
+            <NavigationListItem>
+              <SiteNavigationLink
+                to="/about-us"
+                $isSelected={activePath.includes('/about-us')}
+              >
+                {t('navigation.about-us')}
+              </SiteNavigationLink>
+            </NavigationListItem>
+            <NavigationListItem>
+              <SiteNavigationLink
+                to="/blog"
+                $isSelected={activePath.includes('/blog')}
+              >
+                {t('navigation.blog')}
+              </SiteNavigationLink>
+            </NavigationListItem>
+            <NavigationListItem>
+              <SiteNavigationLink
+                to="/contact"
+                $isSelected={activePath.includes('/contact')}
+              >
+                {t('navigation.contact')}
+              </SiteNavigationLink>
+            </NavigationListItem>
+          </SiteNavigationList>
+        </nav>
+      </SiteNavigation>
     </NavigationBackground>
   );
 };
