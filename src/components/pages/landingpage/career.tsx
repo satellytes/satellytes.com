@@ -1,19 +1,14 @@
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { TeaserGrid } from '../../content/teaser/teaser-grid';
 import { Teaser } from '../../content/teaser/teaser';
 import React from 'react';
 import { HomePageHeaderBlock } from './support';
 import { SyPersonioJob } from '../../../types';
-import styled from 'styled-components';
 import { Button } from '../../ui/buttons/button';
+import { LandingPageTeaserGrid } from './landing-page-teaser-grid';
 
 interface CareerProps {
   positions: SyPersonioJob[];
 }
-
-const Spacer = styled.div`
-  height: 40px;
-`;
 
 const textEllipsis = (text, maxLength) => {
   const truncatedText = text.substring(0, maxLength);
@@ -37,14 +32,13 @@ export const Career = ({ positions }: CareerProps) => {
         {t('main.career.text')}
       </HomePageHeaderBlock>
 
-      <TeaserGrid>
+      <LandingPageTeaserGrid>
         {positions.map((item) => (
           <Teaser key={item.id} title={item.name} linkTo={item.slug}>
             {textEllipsis(item.short, 200)}
           </Teaser>
         ))}
-      </TeaserGrid>
-      <Spacer />
+      </LandingPageTeaserGrid>
       <Button to={'/career'}>{t('main.career.button')}</Button>
     </>
   );

@@ -61,7 +61,7 @@ export const IndexPageQuery = graphql`
         }
       }
     }
-    allSyPersonioJob(filter: { lang: { eq: $language } }, limit: 3) {
+    allSyPersonioJob(filter: { lang: { eq: $language } }, limit: 4) {
       nodes {
         id
         lang
@@ -76,7 +76,7 @@ export const IndexPageQuery = graphql`
     allContentfulBlogPost(
       filter: { node_locale: { eq: "en" } }
       sort: { publicationDate: DESC }
-      limit: 3
+      limit: 4
     ) {
       nodes {
         fields {

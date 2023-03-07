@@ -1,5 +1,4 @@
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { TeaserGrid } from '../../content/teaser/teaser-grid';
 import { Teaser } from '../../content/teaser/teaser';
 import React from 'react';
 import { HomePageHeaderBlock } from './support';
@@ -8,13 +7,21 @@ import { LONG_DATE_FORMAT, useLocaleFormat } from '../../i18n-helpers';
 import { BlogPostTeaser } from '../../../types';
 import styled from 'styled-components';
 import { Button } from '../../ui/buttons/button';
+import { LandingPageTeaserGrid } from './landing-page-teaser-grid';
+import { up } from '../../support/breakpoint';
 
 interface BlogProps {
   posts: BlogPostTeaser[];
 }
 
-const Spacer = styled.div`
-  height: 40px;
+const StyledLandingPageTeaserGrid = styled(LandingPageTeaserGrid)`
+  margin-bottom: 60px;
+  grid-auto-columns: 256px;
+
+  ${up('md')} {
+    grid-template-columns: repeat(auto-fit, minmax(278px, 1fr));
+    gap: 24px;
+  }
 `;
 
 export const Blog = ({ posts }: BlogProps) => {
@@ -31,7 +38,7 @@ export const Blog = ({ posts }: BlogProps) => {
         {t('main.blog.text')}
       </HomePageHeaderBlock>
 
-      <TeaserGrid>
+      <StyledLandingPageTeaserGrid>
         {posts.map((item) => {
           const imageData = getImage(item.heroImage.image);
 
@@ -48,9 +55,7 @@ export const Blog = ({ posts }: BlogProps) => {
             </Teaser>
           );
         })}
-      </TeaserGrid>
-
-      <Spacer />
+      </StyledLandingPageTeaserGrid>
       <Button to={'/blog'}>{t('main.blog.button')}</Button>
     </>
   );
