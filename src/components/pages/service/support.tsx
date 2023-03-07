@@ -16,9 +16,11 @@ export const IntroLayout = styled.div`
   }
 `;
 export const IllustrationStyled = styled(Illustration)`
-  margin-left: auto;
+  display: none;
 
   ${up('md')} {
+    margin-left: auto;
+    display: block;
     flex: 0 0 auto;
     padding-left: 108px;
     box-sizing: content-box;

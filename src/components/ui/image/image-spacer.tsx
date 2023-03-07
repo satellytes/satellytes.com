@@ -12,6 +12,8 @@ const ImageContainer = styled.div`
 
   ${up('md')} {
     height: 620px;
+    margin-top: 180px;
+    height: 620px;
     margin-top: 120px;
   }
 `;

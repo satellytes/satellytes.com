@@ -46,7 +46,6 @@ export const ApplicationProcess = () => {
         <Accordion defaultIndex={0}>
           <AccordionSection
             title={t('career.application-process.accordion.0.title')}
-            illustration={'scientistB_007'}
           >
             <AccordionText>
               {t('career.application-process.accordion.0.paragraph')}
@@ -55,7 +54,6 @@ export const ApplicationProcess = () => {
 
           <AccordionSection
             title={t('career.application-process.accordion.1.title')}
-            illustration={'astronaut_015'}
           >
             <AccordionText>
               {t('career.application-process.accordion.1.paragraph')}
