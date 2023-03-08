@@ -8,7 +8,7 @@ import { Expandable } from '../../ui/expandable/expandable';
 import { TextStyles } from '../../typography';
 import { up } from '../../support/breakpoint';
 import { WithAnchorHOC } from '../../layout/with-anchor-hoc';
-import { theme } from '../../../components/layout/theme';
+import { theme } from '../../layout/theme';
 
 export const IntroLayout = styled.div`
   ${up('md')} {
@@ -35,8 +35,12 @@ const HeadlineStyled = styled.h3`
 `;
 
 const ContentStyled = styled.div`
-  margin-top: 24px;
-  ${TextStyles.textR}
+  margin-top: 16px;
+  ${TextStyles.textR};
+
+  ${up('md')} {
+    margin-top: 24px;
+  }
 `;
 
 const Kicker = styled.span`

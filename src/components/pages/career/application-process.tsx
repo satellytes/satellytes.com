@@ -7,7 +7,11 @@ import { TextStyles } from '../../typography';
 import { Teaser } from '../../content/teaser/teaser';
 
 const Spacer = styled.div`
-  margin-bottom: 48px;
+  margin-bottom: 32px;
+
+  ${up('md')} {
+    margin-top: 48px;
+  }
 `;
 
 const AccordionWrapper = styled.div`

@@ -11,7 +11,7 @@ const TeamLayout = styled.div`
   margin-top: 48px;
 
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 40px 8px;
 
   ${up('sm')} {
