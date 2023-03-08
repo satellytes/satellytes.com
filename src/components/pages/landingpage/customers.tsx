@@ -39,6 +39,11 @@ const CustomerLogoLayout = styled.div<{
   ${up('md')} {
     width: ${({ desktopWidth }) => desktopWidth}px;
   }
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 interface CustomerLogoProps {
