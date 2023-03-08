@@ -35,7 +35,7 @@ const PERKS = (t): Perk[] => [
   {
     title: t('career.perk.teaser.3.title'),
     description: t('career.perk.teaser.3.description'),
-    illustration: 'monitor_024',
+    illustration: 'equipment_058',
   },
 
   {

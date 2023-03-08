@@ -9,7 +9,7 @@ export const Platforms = () => {
   return (
     <ContentBlockContainer>
       <Intro
-        illustration="monitor_024"
+        illustration="digital_platform_056"
         headline={t('services.platform.title')}
         kicker={t('services.platform.kicker')}
       >

@@ -9,7 +9,7 @@ export const Consulting = () => {
   return (
     <ContentBlockContainer>
       <Intro
-        illustration="scientist_042"
+        illustration="consulting_054"
         headline={t('services.consulting.title')}
         kicker={t('services.consulting.kicker')}
       >
