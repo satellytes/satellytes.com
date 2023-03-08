@@ -17,19 +17,19 @@ const ASPECTS = (t): CultureAspect[] => [
   {
     title: t('career.culture.teaser.0.title'),
     description: t('career.culture.teaser.0.description'),
-    illustration: 'radar_030',
+    illustration: 'uranus_050',
   },
 
   {
     title: t('career.culture.teaser.1.title'),
     description: t('career.culture.teaser.1.description'),
-    illustration: 'rocket_011',
+    illustration: 'stars_009',
   },
 
   {
     title: t('career.culture.teaser.2.title'),
     description: t('career.culture.teaser.2.description'),
-    illustration: 'sputnik_045',
+    illustration: 'agile_059',
   },
 
   {
@@ -46,7 +46,7 @@ const ASPECTS = (t): CultureAspect[] => [
   {
     title: t('career.culture.teaser.5.title'),
     description: t('career.culture.teaser.5.description'),
-    illustration: 'book_038',
+    illustration: 'blimp_000',
   },
 ];
 

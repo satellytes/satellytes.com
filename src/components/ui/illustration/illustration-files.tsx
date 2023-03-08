@@ -1,5 +1,4 @@
 export { ReactComponent as blimp_000 } from '../../../assets/illustrations/000-blimp.svg';
-export { ReactComponent as blimp_001 } from '../../../assets/illustrations/001-blimp.svg';
 export { ReactComponent as alien_002 } from '../../../assets/illustrations/002-alien.svg';
 export { ReactComponent as universe_003 } from '../../../assets/illustrations/003-universe.svg';
 export { ReactComponent as asteroid_004 } from '../../../assets/illustrations/004-asteroid.svg';
@@ -9,13 +8,12 @@ export { ReactComponent as scientistB_007 } from '../../../assets/illustrations/
 export { ReactComponent as dish_008 } from '../../../assets/illustrations/008-dish.svg';
 export { ReactComponent as stars_009 } from '../../../assets/illustrations/009-stars.svg';
 export { ReactComponent as earth_010 } from '../../../assets/illustrations/010-earth.svg';
-export { ReactComponent as rocket_011 } from '../../../assets/illustrations/011-rocket 2.svg';
+export { ReactComponent as rocket_011 } from '../../../assets/illustrations/011-rocket.svg';
 export { ReactComponent as astronaut_012 } from '../../../assets/illustrations/012-astronaut.svg';
 export { ReactComponent as galaxy_013 } from '../../../assets/illustrations/013-galaxy.svg';
 export { ReactComponent as globe_014 } from '../../../assets/illustrations/014-globe.svg';
 export { ReactComponent as astronaut_015 } from '../../../assets/illustrations/015-astronaut.svg';
 export { ReactComponent as jupiter_016 } from '../../../assets/illustrations/016-jupiter.svg';
-export { ReactComponent as ufo_017 } from '../../../assets/illustrations/017-ufo 3.svg';
 export { ReactComponent as laser_gun_018 } from '../../../assets/illustrations/018-laser gun.svg';
 export { ReactComponent as lunar_019 } from '../../../assets/illustrations/019-lunar.svg';
 export { ReactComponent as astronaut_020 } from '../../../assets/illustrations/020-astronaut.svg';
@@ -46,15 +44,13 @@ export { ReactComponent as astronaut_044 } from '../../../assets/illustrations/0
 export { ReactComponent as sputnik_045 } from '../../../assets/illustrations/045-sputnik.svg';
 export { ReactComponent as stars_046 } from '../../../assets/illustrations/046-stars.svg';
 export { ReactComponent as sun_047 } from '../../../assets/illustrations/047-sun.svg';
-export { ReactComponent as telescope_048 } from '../../../assets/illustrations/048-telescope 1.svg';
 export { ReactComponent as ufo_049 } from '../../../assets/illustrations/049-ufo.svg';
 export { ReactComponent as uranus_050 } from '../../../assets/illustrations/050-uranus.svg';
 export { ReactComponent as venus_051 } from '../../../assets/illustrations/051-venus.svg';
 export { ReactComponent as bicycle_052 } from '../../../assets/illustrations/052-bicycle.svg';
-export { ReactComponent as bike_052 } from '../../../assets/illustrations/052-bike.svg';
 export { ReactComponent as consulting_054 } from '../../../assets/illustrations/054-consulting.svg';
-export { ReactComponent as product_design_055 } from '../../../assets/illustrations/055-product_design.svg';
-export { ReactComponent as digital_platform_056 } from '../../../assets/illustrations/056-digital_platform.svg';
+export { ReactComponent as product_design_055 } from '../../../assets/illustrations/055-productDesign.svg';
+export { ReactComponent as digital_platform_056 } from '../../../assets/illustrations/056-digitalPlatform.svg';
 export { ReactComponent as software_057 } from '../../../assets/illustrations/057-software.svg';
 export { ReactComponent as equipment_058 } from '../../../assets/illustrations/058-equipment.svg';
 export { ReactComponent as agile_059 } from '../../../assets/illustrations/059-agile.svg';

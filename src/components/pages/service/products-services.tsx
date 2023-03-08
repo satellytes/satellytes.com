@@ -9,7 +9,7 @@ export const ProductsServices = () => {
   return (
     <ContentBlockContainer>
       <Intro
-        illustration="book_038"
+        illustration="software_057"
         headline={t('services.products_services.title')}
         kicker={t('services.products_services.kicker')}
       >
