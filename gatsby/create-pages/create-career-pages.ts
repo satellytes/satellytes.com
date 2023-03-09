@@ -86,6 +86,7 @@ export const createCareerPages = async ({
       component: CAREER_DETAILS_TEMPLATE_PATH,
       context: {
         id: position.id, // internal object id which is unique across all jobs
+        translation: complementPosition?.slug ?? null,
         language: position.node_locale,
       },
     });
