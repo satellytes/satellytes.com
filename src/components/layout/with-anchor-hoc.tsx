@@ -11,8 +11,10 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const generateAnchorId = (children) => {
-  return onlyText(children)
+export const generateAnchorId = (children) => {
+  if (!(children instanceof String)) children = onlyText(children);
+
+  return children
     .replace(/[^\w\s]/g, '')
     .split(' ')
     .join('-')
