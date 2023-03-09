@@ -42,7 +42,7 @@ const Submit = styled(Button)`
 `;
 
 export interface FormData {
-  name: string;
+  first_name: string;
   email: string;
   message: string;
 
