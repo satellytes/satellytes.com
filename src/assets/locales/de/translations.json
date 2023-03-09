@@ -117,12 +117,13 @@
   "career.leadbox.text": "Georgios Kaleadis, CTO",
   "career.leadbox.mail": "career@satellytes.com",
   "about-us.title": "Über uns",
+  "about-us.description": "Wir sind ein Team von leidenschaftlichen Softwareentwicklern, die sich auf die Entwicklung von benutzerfreundlichen, intiutiven und zuverlässigen Softwarelösungen spezialisiert haben. Unser Ziel ist es, innovative Lösungen zu entwickeln, die die Bedürfnisse unserer Kunden erfüllen und Ihre Geschäftsprozesse automatisiert, um Zeit und Kosten zu sparen.",
   "about-us.office.title": "Office",
   "about-us.office.heading": "Im Herzen von München - direkt am Sendlinger Tor",
   "about-us.office.text": "Unser Büro ist ein Ort zum Arbeiten, Wohlfühlen, Kennenlernen und Zusammenkommen. Für uns und unsere Kund:innen.",
   "about-us.team.title": "Team",
   "about-us.team.heading": "Das sind wir",
-  "about-us.team.text": "Unser erfahrenes Team aus Softwareingenieur:innen und Designer:innen.",
+  "about-us.team.text": "Unser Team ist das Herzstück unserer Firma und besteht aus talentierten und engagierten Softwareingenieur:innen und Designer:innen, die gemeinsam daran arbeiten, innovative Lösungen zu entwickeln und unsere Kunden zufrieden zu stellen.",
   "about-us.leadbox.title": "Haben Sie Interesse bekommen?",
   "about-us.leadbox.link": "Karriere",
   "services.hero": "Unsere Leistungen",
@@ -222,5 +223,8 @@
   "blogpost.leadbox.title": "Interesse mit und bei uns zu arbeiten?",
   "blogpost.leadbox.link": "Karriere",
   "image.attribution": "Foto von ",
-  "404": "Oh sorry! Our Satellite took the wrong direction."
+  "404": "Oh sorry! Our Satellite took the wrong direction.",
+  "about-us.impressions.title": "Büro",
+  "about-us.impressions.heading": "Im Herzen von München - direkt am Sendlinger Tor",
+  "about-us.impressions.text": "Unsere Team aus Entwickler:innen und Designer:innen ist stolz darauf, komplexte Herausforderungen zu meistern und innovative Lösungen zu entwickeln. Jedes Mitglied brint einzigartige Fähigkeiten und Perspektiven mit, um sicherzustellen, dass wir die beste Ergebnisse für unsere Kunden erzielen. Obwohl wir über ein diverses Team verfügen, arbeiten wir nahtlos zusammen, um sicherzustellen, dass jedes Projekt reibunslos und effektiv verläuft. Einige unserer talentierten Mitarbeiter arbeiten vollständig remote, während andere ihr Fachwissen in unserem modernen Büro im Herzen von München einbringen - direkt am Sendlinger Tor gelegen. Wir glauben, dass eine positive Arbeitsatmosphäre eine wichtige Rolle bei der Erzielung großartiger Ergebnisse spielt. Deshalb haben wir eine Umgebung geschaffen, die Kreativität und Zusammenhalt fördert. Wir sind stolz auf unser Team und freuen uns, Besucher zu begrüßen und eine Tasse Kaffee zu teilen, während wir uns über neue Ideen und Projekte unterhalten."
 }
