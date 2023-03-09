@@ -45,7 +45,10 @@ export const CareerPage = ({
       transparentHeader={true}
       light={true}
       hero={
-        <ImageHero title={t<string>('career.title')} image={heroImageData} />
+        <ImageHero title={t<string>('career.title')} image={heroImageData}>
+          {' '}
+          {t('career.description')}{' '}
+        </ImageHero>
       }
     >
       <ContentBlockContainer>

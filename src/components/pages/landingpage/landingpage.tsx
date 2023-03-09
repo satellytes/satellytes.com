@@ -38,7 +38,7 @@ export const Landingpage = ({
       transparentHeader={true}
       light={true}
       hero={
-        <AuroraHero title={'Satellytes'}>{t('main.description')}</AuroraHero>
+        <AuroraHero title={t('main.title')}>{t('main.description')}</AuroraHero>
       }
     >
       <ContentBlockContainer>
