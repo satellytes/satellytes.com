@@ -6,7 +6,7 @@ const TOKEN = process.env.SLACK_BOT_SY_TOKEN;
 /**
  * Easily build this block structure via https://app.slack.com/block-kit-builder
  */
-const createSlackMessage = ({ name, email, message }) => {
+const createSlackMessage = ({ first_name, email, message }) => {
   return [
     {
       type: 'header',
@@ -27,7 +27,7 @@ const createSlackMessage = ({ name, email, message }) => {
       fields: [
         {
           type: 'mrkdwn',
-          text: `*Name*:\n ${name}`,
+          text: `*Name*:\n ${first_name}`,
         },
         {
           type: 'mrkdwn',
@@ -63,8 +63,8 @@ export default async function handler(
   req: GatsbyFunctionRequest,
   res: GatsbyFunctionResponse,
 ) {
-  const { name, email, message, ...honey } = req.body;
-  console.log('receive form data', { name, email, message }, honey);
+  const { first_name, email, message, ...honey } = req.body;
+  console.log('receive form data', { first_name, email, message }, honey);
 
   if (honey.firstName || honey.phone) {
     console.log(`honeypot trap filled, aborting (received "${honey}")`);
@@ -91,8 +91,8 @@ export default async function handler(
     const result = await client.chat.postMessage({
       channel: channelId,
       // raw text as the fallback content for notifications.
-      text: `${name} (${email}) sent the following message:\n ${message}`,
-      blocks: createSlackMessage({ name, email, message }),
+      text: `${first_name} (${email}) sent the following message:\n ${message}`,
+      blocks: createSlackMessage({ first_name, email, message }),
       icon_emoji: ':inbox_tray:',
     });
 
