@@ -48,6 +48,18 @@ const ASPECTS = (t): CultureAspect[] => [
     description: t('career.culture.teaser.5.description'),
     illustration: 'blimp_000',
   },
+
+  {
+    title: t('career.culture.teaser.6.title'),
+    description: t('career.culture.teaser.6.description'),
+    illustration: 'report_031',
+  },
+
+  {
+    title: t('career.culture.teaser.7.title'),
+    description: t('career.culture.teaser.7.description'),
+    illustration: 'blimp_000',
+  },
 ];
 
 const CultureTeaserGrid = styled(CareerTeaserGrid)`
