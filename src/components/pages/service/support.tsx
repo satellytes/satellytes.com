@@ -8,7 +8,7 @@ import { Expandable } from '../../ui/expandable/expandable';
 import { TextStyles } from '../../typography';
 import { up } from '../../support/breakpoint';
 import { WithAnchorHOC } from '../../layout/with-anchor-hoc';
-import { theme } from '../../../components/layout/theme';
+import { theme } from '../../layout/theme';
 
 export const IntroLayout = styled.div`
   ${up('md')} {
@@ -81,11 +81,11 @@ export const ExpandableStyled = styled(Expandable)`
 export const UnorderedList = styled.ul`
   line-height: 150%;
   margin: 0;
-  padding-left: 0;
+  padding-left: 12px;
   list-style-type: none;
 
   > li:before {
-    content: '-';
+    content: '•';
     position: absolute;
     top: 0;
     bottom: 0;
