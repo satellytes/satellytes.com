@@ -1,7 +1,7 @@
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Teaser } from '../../content/teaser/teaser';
 import React from 'react';
-import { HomePageHeaderBlock } from './support';
+import { getAnchorLinkFromTitle, HomePageHeaderBlock } from './support';
 import { Button } from '../../ui/buttons/button';
 import { LandingPageTeaserGrid } from './landing-page-teaser-grid';
 
@@ -21,28 +21,28 @@ export const Service = () => {
       <LandingPageTeaserGrid>
         <Teaser
           title={t('services.platform.title')}
-          linkTo="/services#digital-platforms"
+          linkTo={getAnchorLinkFromTitle(t('services.platform.title'))}
           illustration="digital_platform_056"
         >
           {t('services.platform.teaser')}
         </Teaser>
         <Teaser
           title={t('services.products_services.title')}
-          linkTo="/services#products--services"
+          linkTo={getAnchorLinkFromTitle(t('services.products_services.title'))}
           illustration="software_057"
         >
           {t('services.products_services.teaser')}
         </Teaser>
         <Teaser
           title={t('services.consulting.title')}
-          linkTo="/services#consultation"
+          linkTo={getAnchorLinkFromTitle(t('services.consulting.title'))}
           illustration="consulting_054"
         >
           {t('services.consulting.teaser')}
         </Teaser>
         <Teaser
           title={t('services.product_design.title')}
-          linkTo="/services#product-design"
+          linkTo={getAnchorLinkFromTitle(t('services.product_design.title'))}
           illustration="product_design_055"
         >
           {t('services.product_design.teaser')}
