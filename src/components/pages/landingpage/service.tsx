@@ -1,14 +1,9 @@
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Teaser } from '../../content/teaser/teaser';
 import React from 'react';
-import { HomePageHeaderBlock } from './support';
+import { getAnchorLinkFromTitle, HomePageHeaderBlock } from './support';
 import { Button } from '../../ui/buttons/button';
 import { LandingPageTeaserGrid } from './landing-page-teaser-grid';
-import { generateAnchorId } from '../../layout/with-anchor-hoc';
-
-const getAnchorLinkFromTitle = (title: string): string => {
-  return '/services#' + generateAnchorId(title);
-};
 
 export const Service = () => {
   const { t } = useTranslation();
