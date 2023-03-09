@@ -36,7 +36,10 @@ export const AboutUsPage = (props: AboutUsPageProps) => {
         <ImageHero
           title={t<string>('about-us.title')}
           image={props.heroImageData}
-        />
+        >
+          {' '}
+          {t('about-us.description')}{' '}
+        </ImageHero>
       }
     >
       <ContentBlockContainer>
