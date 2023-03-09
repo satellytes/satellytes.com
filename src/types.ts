@@ -84,6 +84,16 @@ export interface ContentfulBlogPost {
   title: string;
 }
 
+export interface ContentfulVacancy {
+  id: string;
+  name: string;
+  slug: string;
+  content: any;
+  shortDescription: {
+    shortDescription: string;
+  };
+}
+
 export interface BreadcrumbEntry {
   pathname: string;
   label: string;

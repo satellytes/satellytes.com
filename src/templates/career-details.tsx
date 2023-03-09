@@ -3,8 +3,9 @@ import SEO from '../components/layout/seo';
 import { graphql } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { CareerDetails } from '../components/pages/career-details/career-details';
-import { SyPersonioJob } from '../types';
+import { ContentfulVacancy, SyPersonioJob } from '../types';
 import { CareerDetailsStructuredData } from '../components/pages/career-details/career-details-structured-data';
+import { ContentfulRichText } from '../components/content/rich-text/rich-text';
 
 interface CareerPageProps {
   pageContext: {
@@ -18,21 +19,23 @@ interface CareerPageProps {
   location: Location;
   data: {
     syPersonioJob: SyPersonioJob;
+    contentfulVacancy: ContentfulVacancy;
   };
 }
 
 const CareerPage = (props: CareerPageProps): JSX.Element => {
   const { pageContext } = props;
-  const position = props.data.syPersonioJob;
-  const socialCardPath =
-    position.socialCardFile.childImageSharp.gatsbyImageData.images.fallback
-      ?.src;
+  const position = props.data.contentfulVacancy;
+  // const socialCardPath =
+  //   position.socialCardFile.childImageSharp.gatsbyImageData.images.fallback
+  //     ?.src;
   const { t } = useTranslation();
 
   return (
     <>
       <SEO
-        shareImagePath={socialCardPath}
+        // todo add social card
+        // shareImagePath={socialCardPath}
         title={t('career.seo.title-detail', {
           name: position.name,
         })}
@@ -43,7 +46,8 @@ const CareerPage = (props: CareerPageProps): JSX.Element => {
         location={props.location}
       />
 
-      <CareerDetailsStructuredData position={position} />
+      {/*todo add structured data*/}
+      {/*<CareerDetailsStructuredData position={position} />*/}
 
       <CareerDetails
         originalPath={pageContext.i18n.originalPath}
@@ -55,7 +59,7 @@ const CareerPage = (props: CareerPageProps): JSX.Element => {
 };
 
 export const CareerDetailsPageQuery = graphql`
-  query ($id: String!, $language: String!) {
+  query ($language: String!, $id: String!) {
     syPersonioJob(id: { eq: $id }) {
       id
       lang
@@ -75,6 +79,18 @@ export const CareerDetailsPageQuery = graphql`
           gatsbyImageData(width: 1440, height: 760)
         }
       }
+    }
+
+    contentfulVacancy(id: { eq: $id }) {
+      id
+      name
+      shortDescription {
+        shortDescription
+      }
+      content {
+        raw
+      }
+      slug
     }
 
     locales: allLocale(filter: { language: { eq: $language } }) {

@@ -6,7 +6,7 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Career } from './career';
 import { Service } from './service';
 import { Blog } from './blog';
-import { BlogPostTeaser, SyPersonioJob } from '../../../types';
+import { BlogPostTeaser, ContentfulVacancy } from '../../../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { ImageSpacer } from '../../ui/image/image-spacer';
 
@@ -20,7 +20,7 @@ interface OfficeImage {
 type OfficeImages = { [relativePath: string]: OfficeImage };
 
 interface LandingpageProps {
-  positions: SyPersonioJob[];
+  positions: ContentfulVacancy[];
   posts: BlogPostTeaser[];
   officeImages: OfficeImages;
 }

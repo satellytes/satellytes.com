@@ -8,14 +8,14 @@ import { Culture } from './culture';
 import { Perks } from './perks';
 import { LeadboxProps } from '../../content/leadbox/leadbox';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { SyPersonioJob } from '../../../types';
+import { ContentfulVacancy } from '../../../types';
 import { ImageHero } from '../../content/heroes';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { ImageSpacer } from '../../ui/image/image-spacer';
-import { OfficeImage } from '../../../pages/index';
+import { OfficeImage } from '../../../pages';
 
 interface CareerPageProps {
-  positions: SyPersonioJob[];
+  positions: ContentfulVacancy[];
   heroImageData: IGatsbyImageData;
   officeImages: OfficeImages;
 }

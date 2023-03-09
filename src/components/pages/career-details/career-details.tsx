@@ -1,16 +1,16 @@
 import React from 'react';
 import { Layout } from '../../layout/layout';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { JobDescription } from './job-description';
-import { SyPersonioJob } from '../../../types';
+import { ContentfulVacancy } from '../../../types';
 import { SectionHeader } from '../../content/section-header/section-header';
 import { ContentBlockContainer } from '../../layout/content-block-container';
 import { Form } from './new-career-form/career-form';
 import { useLocation } from 'react-use';
+import { ContentfulRichText } from '../../content/rich-text/rich-text';
 
 interface CareerDetailsProps {
   originalPath: string;
-  position: SyPersonioJob;
+  position: ContentfulVacancy;
   complementPath: string;
 }
 
@@ -63,17 +63,19 @@ export const CareerDetails = ({
           headline={position.name}
           kicker={t<string>('career.position')}
         >
-          {position.short}
+          {position.shortDescription.shortDescription}
         </SectionHeader>
       </ContentBlockContainer>
 
-      <JobDescription sections={position.sections} />
+      {/*todo check if ContentfulRichText is correct here*/}
+      <ContentfulRichText data={position.content} />
 
       <Form
         company_id="41230"
         recruiting_channel_id={recruitingChannel}
         access_token="89b2acfa3a239b75c7d6"
-        job_position_id={position.jobId + ''}
+        // todo check if id can be used here
+        job_position_id={position.id + ''}
         scrollToStart={scrollToStart}
       />
     </Layout>

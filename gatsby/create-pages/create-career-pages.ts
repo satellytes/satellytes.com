@@ -41,43 +41,41 @@ export const createCareerPages = async ({
 }: CreatePagesArgs) => {
   const { createPage } = actions;
 
-  const personioJobsResponse = await graphql<{
-    allSyPersonioJob: {
+  const contentfulJobsResponse = await graphql<{
+    allContentfulVacancy: {
       nodes: {
         id: string;
-        lang: string;
-        jobId: string;
         name: string;
         slug: string;
+        node_locale: string;
       }[];
     };
   }>(`
     {
-      allSyPersonioJob {
+      allContentfulVacancy {
         nodes {
           id
-          lang
-          jobId
           name
           slug
+          node_locale
         }
       }
     }
   `);
 
-  if (personioJobsResponse.errors || !personioJobsResponse.data) {
+  if (contentfulJobsResponse.errors || !contentfulJobsResponse.data) {
     reporter.panicOnBuild(
       `Error while running GraphQL query for career pages.`,
     );
     return;
   }
 
-  const positions = personioJobsResponse.data.allSyPersonioJob.nodes;
+  const positions = contentfulJobsResponse.data.allContentfulVacancy.nodes;
   const complementFinder = createComplementFinder(positions);
 
   positions.forEach((position) => {
     const complementPosition = complementFinder.get(position);
-    const path = getTranslationPath(position.slug, position.lang);
+    const path = getTranslationPath(position.slug, position.node_locale);
     // create an array of available languages, otherwise empty
     const overrideLanguages = [complementPosition?.lang ?? null].filter(
       (language) => language !== null,
@@ -88,9 +86,7 @@ export const createCareerPages = async ({
       component: CAREER_DETAILS_TEMPLATE_PATH,
       context: {
         id: position.id, // internal object id which is unique across all jobs
-        language: position.lang,
-        translation: complementPosition?.slug ?? null,
-        overrideLanguages: overrideLanguages,
+        language: position.node_locale,
       },
     });
   });
