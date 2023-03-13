@@ -26,16 +26,6 @@ const OpeningsTeaseGrid = styled(CareerTeaserGrid)`
   }
 `;
 
-const CareerTeaser = styled(Teaser)`
-  // Prevents the teaser from stretching across the whole width
-  // if there is exactly one vacancy
-  ${up('md')} {
-    &:only-child {
-      max-width: 50%;
-    }
-  }
-`;
-
 interface OpeningsProps {
   jobs: SyPersonioJob[];
 }
@@ -48,9 +38,14 @@ export const Openings = (props: OpeningsProps) => {
       <SectionHeadline>{t('career.openings.headline')}</SectionHeadline>
       <OpeningsTeaseGrid>
         {props.jobs.map((item) => (
-          <CareerTeaser title={item.name} linkTo={item.slug} key={item.id}>
+          <Teaser
+            preventStretching
+            title={item.name}
+            linkTo={item.slug}
+            key={item.id}
+          >
             {item.short}
-          </CareerTeaser>
+          </Teaser>
         ))}
       </OpeningsTeaseGrid>
     </div>
