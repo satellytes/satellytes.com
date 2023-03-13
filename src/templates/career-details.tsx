@@ -42,7 +42,6 @@ const CareerPage = (props: CareerPageProps): JSX.Element => {
         description={t<string>('career.seo.description-detail', {
           name: position.name,
         })}
-        overrideLanguages={pageContext.overrideLanguages}
         location={props.location}
       />
 
