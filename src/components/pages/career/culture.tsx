@@ -15,9 +15,15 @@ interface CultureAspect {
 
 const ASPECTS = (t): CultureAspect[] => [
   {
-    title: t('career.culture.teaser.0.title'),
-    description: t('career.culture.teaser.0.description'),
-    illustration: 'positiveWork_060',
+    title: t('career.culture.teaser.5.title'),
+    description: t('career.culture.teaser.5.description'),
+    illustration: 'teamwork_067',
+  },
+
+  {
+    title: t('career.culture.teaser.3.title'),
+    description: t('career.culture.teaser.3.description'),
+    illustration: 'workLifeBalance_064',
   },
 
   {
@@ -33,20 +39,15 @@ const ASPECTS = (t): CultureAspect[] => [
   },
 
   {
-    title: t('career.culture.teaser.3.title'),
-    description: t('career.culture.teaser.3.description'),
-    illustration: 'workLifeBalance_064',
+    title: t('career.culture.teaser.0.title'),
+    description: t('career.culture.teaser.0.description'),
+    illustration: 'positiveWork_060',
   },
 
   {
     title: t('career.culture.teaser.4.title'),
     description: t('career.culture.teaser.4.description'),
     illustration: 'events_062',
-  },
-  {
-    title: t('career.culture.teaser.5.title'),
-    description: t('career.culture.teaser.5.description'),
-    illustration: 'teamwork_067',
   },
 
   {
