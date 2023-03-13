@@ -38,7 +38,12 @@ export const Openings = (props: OpeningsProps) => {
       <SectionHeadline>{t('career.openings.headline')}</SectionHeadline>
       <OpeningsTeaseGrid>
         {props.jobs.map((item) => (
-          <Teaser title={item.name} linkTo={item.slug} key={item.id}>
+          <Teaser
+            preventStretching
+            title={item.name}
+            linkTo={item.slug}
+            key={item.id}
+          >
             {item.short}
           </Teaser>
         ))}

@@ -11,7 +11,10 @@ import { Icon } from '../../ui/icon/icon';
 import { TextStyles } from '../../typography';
 import { up } from '../../support/breakpoint';
 
-const TeaserContainer = styled.div<{ hover: boolean }>`
+const TeaserContainer = styled.div<{
+  hover: boolean;
+  preventStretching?: boolean;
+}>`
   overflow: hidden;
 
   ${(props) =>
@@ -20,6 +23,16 @@ const TeaserContainer = styled.div<{ hover: boolean }>`
       color: ${theme.palette.text.topline};
       cursor: pointer;
     `};
+
+  ${up('md')} {
+    ${(props) =>
+      props.preventStretching &&
+      css`
+        &:only-child {
+          max-width: 50%;
+        }
+      `};
+  }
 `;
 
 const StyledIllustration = styled(Illustration)<{ hover: boolean }>`
@@ -120,6 +133,10 @@ export interface TeaserProps {
    * Adds a link to another page and makes the whole teaser clickable
    */
   linkTo?: string;
+  /**
+   * Prevents the teaser from stretching across the whole width if there is exactly one teaser
+   */
+  preventStretching?: boolean;
   className?: string;
   /**
    * The main text of the teaser is entered as child
@@ -155,6 +172,7 @@ export const Teaser = ({
   image,
   linkTo,
   illustration,
+  preventStretching,
   className,
   children,
 }: TeaserProps): JSX.Element => {
@@ -162,7 +180,11 @@ export const Teaser = ({
   const hasToplineContainer = Boolean(topline || dateFormatted);
 
   return (
-    <TeaserContainer className={className} hover={hoverActive}>
+    <TeaserContainer
+      className={className}
+      hover={hoverActive}
+      preventStretching={preventStretching}
+    >
       <ConditionalLink
         language={language}
         onHover={(hasHover) => setIsHoverActive(hasHover)}

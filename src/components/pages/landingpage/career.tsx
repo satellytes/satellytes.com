@@ -34,7 +34,12 @@ export const Career = ({ positions }: CareerProps) => {
 
       <LandingPageTeaserGrid>
         {positions.map((item) => (
-          <Teaser key={item.id} title={item.name} linkTo={item.slug}>
+          <Teaser
+            preventStretching
+            key={item.id}
+            title={item.name}
+            linkTo={item.slug}
+          >
             {textEllipsis(item.short, 200)}
           </Teaser>
         ))}
