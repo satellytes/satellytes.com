@@ -17,48 +17,48 @@ const ASPECTS = (t): CultureAspect[] => [
   {
     title: t('career.culture.teaser.0.title'),
     description: t('career.culture.teaser.0.description'),
-    illustration: 'uranus_050',
+    illustration: 'positiveWork_060',
   },
 
   {
     title: t('career.culture.teaser.1.title'),
     description: t('career.culture.teaser.1.description'),
-    illustration: 'stars_009',
+    illustration: 'communication_061',
   },
 
   {
     title: t('career.culture.teaser.2.title'),
     description: t('career.culture.teaser.2.description'),
-    illustration: 'agile_059',
+    illustration: 'appreciate_063',
   },
 
   {
     title: t('career.culture.teaser.3.title'),
     description: t('career.culture.teaser.3.description'),
-    illustration: 'planets_005',
+    illustration: 'workLifeBalance_064',
   },
 
   {
     title: t('career.culture.teaser.4.title'),
     description: t('career.culture.teaser.4.description'),
-    illustration: 'report_031',
+    illustration: 'events_062',
   },
   {
     title: t('career.culture.teaser.5.title'),
     description: t('career.culture.teaser.5.description'),
-    illustration: 'blimp_000',
+    illustration: 'teamwork_067',
   },
 
   {
     title: t('career.culture.teaser.6.title'),
     description: t('career.culture.teaser.6.description'),
-    illustration: 'report_031',
+    illustration: 'selfOrganization_066',
   },
 
   {
     title: t('career.culture.teaser.7.title'),
     description: t('career.culture.teaser.7.description'),
-    illustration: 'blimp_000',
+    illustration: 'crossfunction_065',
   },
 ];
 
