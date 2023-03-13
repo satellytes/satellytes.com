@@ -33,10 +33,11 @@ const KickerStyled = styled.span`
   ${TextStyles.toplineS}
   display: block;
   color: #3e61ee;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 
   ${up('md')} {
     ${TextStyles.toplineR}
+    margin-bottom: 16px;
   }
 `;
 
@@ -44,10 +45,10 @@ const HeadlineStyled = styled.h2`
   ${TextStyles.headlineM}
   margin: 0;
   color: #202840;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 
   ${up('md')} {
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     ${TextStyles.headlineL}
   }
 `;

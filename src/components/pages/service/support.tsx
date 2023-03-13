@@ -35,8 +35,12 @@ const HeadlineStyled = styled.h3`
 `;
 
 const ContentStyled = styled.div`
-  margin-top: 24px;
-  ${TextStyles.textR}
+  margin-top: 16px;
+  ${TextStyles.textR};
+
+  ${up('md')} {
+    margin-top: 24px;
+  }
 `;
 
 const Kicker = styled.span`
