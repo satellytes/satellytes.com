@@ -89,6 +89,8 @@ export interface ContentfulVacancy {
   name: string;
   slug: string;
   content: any;
+  schedule: string;
+  createdAt: string;
   shortDescription: {
     shortDescription: string;
   };

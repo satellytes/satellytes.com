@@ -45,8 +45,7 @@ const CareerPage = (props: CareerPageProps): JSX.Element => {
         location={props.location}
       />
 
-      {/*todo add structured data*/}
-      {/*<CareerDetailsStructuredData position={position} />*/}
+      <CareerDetailsStructuredData position={position} />
 
       <CareerDetails
         originalPath={pageContext.i18n.originalPath}
@@ -83,6 +82,8 @@ export const CareerDetailsPageQuery = graphql`
     contentfulVacancy(id: { eq: $id }) {
       id
       name
+      createdAt
+      schedule
       shortDescription {
         shortDescription
       }

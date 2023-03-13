@@ -1,19 +1,13 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { SyPersonioJob } from '../../../types';
+import { ContentfulVacancy } from '../../../types';
 import { JobPosting, WithContext } from 'schema-dts';
+import { renderRichText } from 'gatsby-source-contentful/rich-text';
+import { renderToString } from 'react-dom/server';
 
 interface CareerDetailsStructuredDataProps {
-  position: SyPersonioJob;
+  position: ContentfulVacancy;
 }
-
-/**
- * Convert the kebab-case, lowercase Personio values like `full-time`
- * to the expected snake_case, uppercase format `FULL_TIME`.
- */
-const normalizeJobScheduleFormat = (schedule: string): string => {
-  return schedule.toUpperCase().replace('-', '_');
-};
 
 /**
  * Create a full description of the job in HTML format to suite the requirements of the structured data format.
@@ -27,12 +21,9 @@ const normalizeJobScheduleFormat = (schedule: string): string => {
  * Reference:
  * https://developers.google.com/search/docs/advanced/structured-data/job-posting#rdescription
  */
-const generateHtmlDescription = (position: SyPersonioJob): string => {
-  const htmlIntro = `${position.short} <br><br>`;
-  const htmlSections = position.sections
-    .map((section) => `${section.headline} <br> ${section.descriptionHtml}`)
-    .join('<br><br>');
-  return htmlIntro + htmlSections;
+const generateHtmlDescription = (position: ContentfulVacancy): string => {
+  const richText = renderRichText(position.content, {});
+  return renderToString(<>{richText}</>);
 };
 
 /**
@@ -52,7 +43,7 @@ export const CareerDetailsStructuredData = ({
     description: generateHtmlDescription(position),
     identifier: {
       '@type': 'PropertyValue',
-      value: position.jobId,
+      value: position.id,
     },
     hiringOrganization: {
       '@type': 'Organization',
@@ -76,7 +67,7 @@ export const CareerDetailsStructuredData = ({
       '@type': 'Country',
       name: 'DE',
     },
-    employmentType: normalizeJobScheduleFormat(position.schedule),
+    employmentType: position.schedule,
     directApply: true,
   };
 
