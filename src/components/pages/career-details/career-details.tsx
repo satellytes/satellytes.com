@@ -67,14 +67,12 @@ export const CareerDetails = ({
         </SectionHeader>
       </ContentBlockContainer>
 
-      {/*todo check if ContentfulRichText is correct here*/}
       <ContentfulRichText data={position.content} />
 
       <Form
         company_id="41230"
         recruiting_channel_id={recruitingChannel}
         access_token="89b2acfa3a239b75c7d6"
-        // todo check if id can be used here
         job_position_id={position.id + ''}
         scrollToStart={scrollToStart}
       />

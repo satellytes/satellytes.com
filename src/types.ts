@@ -88,11 +88,18 @@ export interface ContentfulVacancy {
   id: string;
   name: string;
   slug: string;
-  content: any;
+  content: RenderRichTextData<ContentfulRichTextGatsbyReference>;
   schedule: string;
   createdAt: string;
   shortDescription: {
     shortDescription: string;
+  };
+
+  // added via `onCreateNode`
+  socialCardFile: {
+    childImageSharp: {
+      gatsbyImageData: IGatsbyImageData;
+    };
   };
 }
 

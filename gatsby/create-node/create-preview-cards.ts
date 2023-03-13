@@ -50,7 +50,7 @@ export const createPreviewCards = async (
   createNodeArgs: CreateNodeArgs<SatellytesNode>,
 ) => {
   const { node } = createNodeArgs;
-  if (node.internal.type === 'SyPersonioJob') {
+  if (node.internal.type === 'ContentfulVacancy') {
     await createPreviewCard({ title: node.name }, createNodeArgs);
   }
 
