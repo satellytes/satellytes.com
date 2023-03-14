@@ -53,6 +53,7 @@ const Attribution = ({ attribution }: { attribution?: BlogAttribution }) => {
 export const BlogHero = ({
   image,
   attribution,
+  hideMobileText,
   title,
   children,
   naturalHeight,
@@ -67,7 +68,9 @@ export const BlogHero = ({
 
       {title && (
         <TextContainer dimmed>
-          <HeroText title={title}>{children}</HeroText>
+          <HeroText hideMobileText={hideMobileText} title={title}>
+            {children}
+          </HeroText>
         </TextContainer>
       )}
 

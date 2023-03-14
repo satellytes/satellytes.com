@@ -19,7 +19,12 @@ type ImageHeroProps = Partial<HeroWithText> & {
 /**
  * Display any given gatsby image as a hero image.
  */
-export const ImageHero = ({ image, title, children }: ImageHeroProps) => {
+export const ImageHero = ({
+  image,
+  title,
+  hideMobileText,
+  children,
+}: ImageHeroProps) => {
   const gatsbyImageData = getImage(image);
 
   return (
@@ -30,7 +35,9 @@ export const ImageHero = ({ image, title, children }: ImageHeroProps) => {
 
       {title && (
         <TextContainer dimmed>
-          <HeroText title={title}>{children}</HeroText>
+          <HeroText hideMobileText={hideMobileText} title={title}>
+            {children}
+          </HeroText>
         </TextContainer>
       )}
     </HeroContainer>

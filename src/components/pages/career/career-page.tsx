@@ -13,6 +13,7 @@ import { ImageHero } from '../../content/heroes';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { ImageSpacer } from '../../ui/image/image-spacer';
 import { OfficeImage } from '../../../pages';
+import { MobileOnlyText } from '../../content/heroes/support';
 
 interface CareerPageProps {
   positions: SyPersonioJob[];
@@ -45,7 +46,11 @@ export const CareerPage = ({
       transparentHeader={true}
       light={true}
       hero={
-        <ImageHero title={t<string>('career.title')} image={heroImageData}>
+        <ImageHero
+          hideMobileText
+          title={t<string>('career.title')}
+          image={heroImageData}
+        >
           {' '}
           {t('career.description')}{' '}
         </ImageHero>
@@ -57,6 +62,7 @@ export const CareerPage = ({
           kicker={t<string>('career.introduction.kicker')}
           headline={t<string>('career.introduction.headline')}
         >
+          <MobileOnlyText>{t('career.description')}</MobileOnlyText>
           {t('career.introduction.paragraphs.0')}
         </SectionHeader>
         <ApplicationProcess />
