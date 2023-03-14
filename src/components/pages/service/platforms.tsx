@@ -17,10 +17,11 @@ export const Platforms = () => {
       </Intro>
 
       <UnorderedList>
-        <li>{t('services.platform.list.platforms')}</li>
-        <li>{t('services.platform.list.lowcode')}</li>
-        <li>{t('services.platform.list.designsystems')}</li>
-        <li>{t('services.platform.list.infrastructure')}</li>
+        <li>{t('services.platform.1.list')}</li>
+        <li>{t('services.platform.2.list')}</li>
+        <li>{t('services.platform.3.list')}</li>
+        <li>{t('services.platform.4.list')}</li>
+        <li>{t('services.platform.5.list')}</li>
       </UnorderedList>
     </ContentBlockContainer>
   );

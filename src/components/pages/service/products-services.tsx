@@ -17,9 +17,11 @@ export const ProductsServices = () => {
       </Intro>
 
       <UnorderedList>
-        <li>{t('services.products_services.list.prototyping')}</li>
-        <li>{t('services.products_services.list.ideation')}</li>
-        <li>{t('services.products_services.list.development')}</li>
+        <li>{t('services.products_services.1.list')}</li>
+        <li>{t('services.products_services.2.list')}</li>
+        <li>{t('services.products_services.3.list')}</li>
+        <li>{t('services.products_services.4.list')}</li>
+        <li>{t('services.products_services.5.list')}</li>
       </UnorderedList>
     </ContentBlockContainer>
   );
