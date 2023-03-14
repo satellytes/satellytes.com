@@ -28,6 +28,7 @@ const HeroTextStyled = styled.div`
 `;
 
 const Headline = styled.h1`
+  white-space: pre-line;
   ${TextStyles.headlineL}
   margin: 0;
   margin-bottom: 24px;
