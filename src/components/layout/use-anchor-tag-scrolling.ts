@@ -1,5 +1,8 @@
 import { useEffect } from 'react';
-import { HEADER_HEIGHT } from './header/header';
+import { HEADER_HEIGHT_VALUE } from './theme';
+
+// we need to scroll past the header and a little offset
+export const SCROLLING_OFFSET = HEADER_HEIGHT_VALUE + 50;
 
 export const useAnchorTagScrolling = (): void => {
   useEffect(() => {
@@ -19,10 +22,7 @@ export const scrollToTarget = (target: Element | null) => {
   }
 
   const scrollTop =
-    target.getBoundingClientRect().top +
-    window.pageYOffset -
-    // we need to scroll past the header and a little offset
-    (Number.parseInt(HEADER_HEIGHT, 10) + 16);
+    target.getBoundingClientRect().top + window.pageYOffset - SCROLLING_OFFSET;
 
   window.scrollTo({
     top: scrollTop,
