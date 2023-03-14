@@ -17,34 +17,6 @@ export interface BlogPostTeaser {
   title: string;
 }
 
-/**
- * the normalized jobs content coming from the API
- */
-export interface SyPersonioJobSection {
-  headline: string;
-  descriptionHtml: string;
-  description: string;
-}
-
-export interface SyPersonioJob {
-  id: string;
-  lang: string;
-  jobId: string;
-  name: string;
-  short: string;
-  createdAt: string;
-  slug: string;
-  schedule: string;
-  sections: SyPersonioJobSection[];
-
-  // added via `onCreateNode`
-  socialCardFile: {
-    childImageSharp: {
-      gatsbyImageData: IGatsbyImageData;
-    };
-  };
-}
-
 export interface SyTeamMember {
   id: string;
   name: string;
