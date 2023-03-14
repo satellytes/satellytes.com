@@ -62,7 +62,7 @@ export const IndexPageQuery = graphql`
       }
     }
 
-    allContentfulVacancy(filter: { node_locale: { eq: $language } }) {
+    allContentfulVacancy(filter: { node_locale: { eq: $language } }, limit: 3) {
       nodes {
         id
         name
