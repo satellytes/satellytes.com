@@ -7,6 +7,7 @@ import { ContentBlockContainer } from '../../layout/content-block-container';
 import { Form } from './new-career-form/career-form';
 import { useLocation } from 'react-use';
 import { ContentfulRichText } from '../../content/rich-text/rich-text';
+import styled from 'styled-components';
 
 interface CareerDetailsProps {
   originalPath: string;
@@ -19,6 +20,10 @@ const DEFAULT_CHANNEL_ID = '329206';
 const UTM_CHANNEL_MAP = {
   google_jobs_apply: '713571',
 };
+
+const StyledContentBlockContainer = styled(ContentBlockContainer)`
+  margin-bottom: 48px;
+`;
 
 export const CareerDetails = ({
   position,
@@ -57,7 +62,7 @@ export const CareerDetails = ({
       breadcrumb={breadcrumb}
       showLanguageSwitch={Boolean(complementPath)}
     >
-      <ContentBlockContainer>
+      <StyledContentBlockContainer>
         <SectionHeader
           as={'h1'}
           headline={position.name}
@@ -65,7 +70,7 @@ export const CareerDetails = ({
         >
           {position.shortDescription.shortDescription}
         </SectionHeader>
-      </ContentBlockContainer>
+      </StyledContentBlockContainer>
 
       <ContentfulRichText data={position.content} />
 
