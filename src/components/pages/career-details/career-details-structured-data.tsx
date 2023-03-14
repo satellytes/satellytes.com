@@ -23,7 +23,13 @@ interface CareerDetailsStructuredDataProps {
  */
 const generateHtmlDescription = (position: ContentfulVacancy): string => {
   const richText = renderRichText(position.content, {});
-  return renderToString(<>{richText}</>);
+  return renderToString(
+    <>
+      {position.shortDescription.shortDescription}
+      <br />
+      {richText}
+    </>,
+  );
 };
 
 /**
