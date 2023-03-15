@@ -1,16 +1,17 @@
 import React from 'react';
 import { Layout } from '../../layout/layout';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { JobDescription } from './job-description';
-import { SyPersonioJob } from '../../../types';
+import { ContentfulVacancy } from '../../../types';
 import { SectionHeader } from '../../content/section-header/section-header';
 import { ContentBlockContainer } from '../../layout/content-block-container';
 import { Form } from './new-career-form/career-form';
 import { useLocation } from 'react-use';
+import { ContentfulRichText } from '../../content/rich-text/rich-text';
+import styled from 'styled-components';
 
 interface CareerDetailsProps {
   originalPath: string;
-  position: SyPersonioJob;
+  position: ContentfulVacancy;
   complementPath: string;
 }
 
@@ -19,6 +20,10 @@ const DEFAULT_CHANNEL_ID = '329206';
 const UTM_CHANNEL_MAP = {
   google_jobs_apply: '713571',
 };
+
+const StyledContentBlockContainer = styled(ContentBlockContainer)`
+  margin-bottom: 48px;
+`;
 
 export const CareerDetails = ({
   position,
@@ -57,23 +62,23 @@ export const CareerDetails = ({
       breadcrumb={breadcrumb}
       showLanguageSwitch={Boolean(complementPath)}
     >
-      <ContentBlockContainer>
+      <StyledContentBlockContainer>
         <SectionHeader
           as={'h1'}
           headline={position.name}
           kicker={t<string>('career.position')}
         >
-          {position.short}
+          {position.shortDescription.shortDescription}
         </SectionHeader>
-      </ContentBlockContainer>
+      </StyledContentBlockContainer>
 
-      <JobDescription sections={position.sections} />
+      <ContentfulRichText data={position.content} />
 
       <Form
         company_id="41230"
         recruiting_channel_id={recruitingChannel}
         access_token="89b2acfa3a239b75c7d6"
-        job_position_id={position.jobId + ''}
+        job_position_id={position.id + ''}
         scrollToStart={scrollToStart}
       />
     </Layout>

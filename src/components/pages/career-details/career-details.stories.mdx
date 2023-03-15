@@ -1,5 +1,4 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
-import { JobDescription } from './job-description';
 import { Form } from './new-career-form/career-form';
 
 <Meta title="Components/Pages/Career Details" component={{ Image }} />
@@ -8,27 +7,6 @@ import { Form } from './new-career-form/career-form';
 
 Here the parts to build the career details page.
 
-## Job Description
-
-We will receive multiple sections from the Personio API. Pass them to this
-component to render the job description.
-
-<Canvas withSource={'open'}>
-  <Story name="Job Description">
-    <JobDescription
-      sections={[
-        { headline: 'First', descriptionHtml: 'some <em>normal</em> html' },
-        {
-          headline: 'Second',
-          descriptionHtml: `some <strong>other</strong> html`,
-        },
-        { headline: 'Third', descriptionHtml: 'some <u>better</u> html' },
-      ]}
-    />
-  </Story>
-</Canvas>
-
-<ArgsTable of={JobDescription} />
 
 ## Career Form
 

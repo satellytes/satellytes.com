@@ -2,7 +2,7 @@ import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import SEO from '../components/layout/seo';
 import { Landingpage } from '../components/pages/landingpage/landingpage';
-import { BlogPostTeaser, SyPersonioJob } from '../types';
+import { BlogPostTeaser, ContentfulVacancy } from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { StructuredOrganizationData } from '../components/pages/landingpage/structured-organization-data';
 
@@ -14,8 +14,8 @@ export interface OfficeImage {
 }
 
 interface IndexPageQueryProps {
-  allSyPersonioJob: {
-    nodes: SyPersonioJob[];
+  allContentfulVacancy: {
+    nodes: ContentfulVacancy[];
   };
   allContentfulBlogPost: {
     nodes: BlogPostTeaser[];
@@ -26,7 +26,7 @@ interface IndexPageQueryProps {
 }
 
 const IndexPage = (props: PageProps<IndexPageQueryProps>) => {
-  const jobPositions = props.data.allSyPersonioJob.nodes;
+  const jobPositions = props.data.allContentfulVacancy.nodes;
   const blogPosts = props.data.allContentfulBlogPost.nodes;
   const officeImages = props.data.officeImages.nodes.reduce((memo, image) => {
     memo[image.relativePath] = image;
@@ -61,14 +61,14 @@ export const IndexPageQuery = graphql`
         }
       }
     }
-    allSyPersonioJob(filter: { lang: { eq: $language } }, limit: 3) {
+
+    allContentfulVacancy(filter: { node_locale: { eq: $language } }, limit: 3) {
       nodes {
         id
-        lang
-        jobId
         name
-        short
-        createdAt
+        shortDescription {
+          shortDescription
+        }
         slug
       }
     }
