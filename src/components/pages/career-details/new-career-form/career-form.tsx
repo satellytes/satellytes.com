@@ -23,6 +23,7 @@ interface CareerFormProps {
   job_position_id: string;
   recruiting_channel_id: string;
   scrollToStart: () => void;
+  jobName: string;
 }
 
 export type FormDataProps = {

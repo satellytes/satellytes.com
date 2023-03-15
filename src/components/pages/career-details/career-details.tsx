@@ -75,6 +75,7 @@ export const CareerDetails = ({
         access_token="89b2acfa3a239b75c7d6"
         job_position_id={position.jobId + ''}
         scrollToStart={scrollToStart}
+        jobName={position.name}
       />
     </Layout>
   );
