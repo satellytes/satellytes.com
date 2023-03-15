@@ -1,16 +1,10 @@
-import { FormDataProps } from '../components/pages/career-details/new-career-form/career-form';
 import { GatsbyFunctionRequest, GatsbyFunctionResponse } from 'gatsby';
 import { LogLevel, WebClient } from '@slack/web-api';
-import { FileDropperType } from '../components/forms/file-dropper/file-dropper';
 
 const TOKEN = process.env.SLACK_BOT_SY_TOKEN;
 
-interface CareerFormData extends FormDataProps {
-  jobName: string;
-}
-
-const getFileNameList = (files: FileDropperType[]) =>
-  files.reduce((acc, current) => acc + ` - ${current.file.name} \n`, '');
+const getFileNameList = (files) =>
+  files.reduce((acc, current) => acc + ` - ${current.originalname} \n`, '');
 
 /**
  * Easily build this block structure via https://app.slack.com/block-kit-builder
@@ -19,12 +13,12 @@ const createSlackMessage = ({
   first_name,
   last_name,
   email,
-  documents,
   message,
   location,
   available_from,
   salary_expectations,
   jobName,
+  files,
 }) => {
   return [
     {
@@ -81,7 +75,7 @@ const createSlackMessage = ({
       type: 'section',
       text: {
         type: 'mrkdwn',
-        text: `*Files*:\n ${getFileNameList(documents)}`,
+        text: `*Files*:\n${getFileNameList(files)}`,
       },
     },
     {
@@ -104,13 +98,16 @@ export default async function handler(
     first_name,
     last_name,
     email,
-    documents,
     message,
     location,
     available_from,
     salary_expectations,
     jobName,
   } = req.body;
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  const files = req?.files;
 
   if (req.method !== `POST`) {
     return res.status(500).json({ error: `not allowed` });
@@ -130,19 +127,19 @@ export default async function handler(
     const result = client.chat.postMessage({
       channel: channelId,
       // raw text as the fallback content for notifications.
-      text: `${first_name} (${email}) sent the following message:\n ${message}`,
+      text: `${first_name} ${last_name} (${email}) sent the following application for ${jobName}:\n ${message}`,
       blocks: createSlackMessage({
         first_name,
         last_name,
         email,
-        documents,
         message,
         location,
         available_from,
         salary_expectations,
         jobName,
+        files,
       }),
-      icon_emoji: ':inbox_tray:',
+      icon_emoji: ':rocket:',
     });
 
     // await client.files.upload({

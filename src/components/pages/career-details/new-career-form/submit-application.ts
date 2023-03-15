@@ -39,32 +39,28 @@ export const submitApplication = async (
     ...formValues,
   };
 
-  //
-  // const formData = new FormData();
-  //
-  // for (const [key, value] of Object.entries(payload)) {
-  //   if (key === 'documents') {
-  //     for (let i = 0; i < formValues.documents.length; i++) {
-  //       const keyName = `categorised_documents[${i}][file]`;
-  //       const category = formValues.documents[i].fileCategory;
-  //       formData.append(keyName, formValues.documents[i].file);
-  //       const nameCategory = `categorised_documents[${i}][category]`;
-  //
-  //       if (category) {
-  //         formData.append(nameCategory, category);
-  //       }
-  //     }
-  //   } else {
-  //     formData.append(key, value as any); // formdata doesn't take objects
-  //   }
-  // }
-  //
-  // formData.append('gender', 'diverse');
+  const formData = new FormData();
+
+  for (const [key, value] of Object.entries(payload)) {
+    if (key === 'documents') {
+      for (let i = 0; i < formValues.documents.length; i++) {
+        const keyName = `categorised_documents[${i}][file]`;
+        const category = formValues.documents[i].fileCategory;
+        formData.append(keyName, formValues.documents[i].file);
+        const nameCategory = `categorised_documents[${i}][category]`;
+
+        if (category) {
+          formData.append(nameCategory, category);
+        }
+      }
+    } else {
+      formData.append(key, value as any); // formdata doesn't take objects
+    }
+  }
 
   fetch(API_ENDPOINT, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
+    body: formData,
   })
     .then((response) => {
       if (!response.ok) {
