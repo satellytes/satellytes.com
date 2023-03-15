@@ -105,6 +105,8 @@ export default async function handler(
     jobName,
   } = req.body;
 
+  // GatsbyFunctionRequest has no "files" key even though it is defined in the documentation:
+  // https://www.gatsbyjs.com/docs/reference/functions/middleware-and-helpers/#data-formats
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const files = req?.files;
