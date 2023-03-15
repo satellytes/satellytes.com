@@ -153,7 +153,7 @@ export default async function handler(
     }
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ error: `Slack API error` });
+    return res.status(500).json({ error: 'Slack API error' });
   }
 
   return res.status(200).json({ ok: true });
