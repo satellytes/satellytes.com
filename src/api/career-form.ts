@@ -124,7 +124,7 @@ export default async function handler(
   });
 
   try {
-    const result = client.chat.postMessage({
+    const postMessageResult = await client.chat.postMessage({
       channel: channelId,
       // raw text as the fallback content for notifications.
       text: `${first_name} ${last_name} (${email}) sent the following application for ${jobName}:\n ${message}`,
@@ -141,16 +141,16 @@ export default async function handler(
       }),
       icon_emoji: ':rocket:',
     });
+    console.log(postMessageResult);
 
-    // await client.files.upload({
-    //   // channels can be a list of one to many strings
-    //   channels: channelId,
-    //   initial_comment: "Here's my file :smile:",
-    //   // Include your filename in a ReadStream here
-    //   file: createReadStream(path.join(__dirname, 'cool.png')),
-    // });
-
-    console.log(result);
+    for (const file of files) {
+      const fileUploadResult = await client.files.upload({
+        channels: channelId,
+        file: file.buffer,
+        filename: file.originalname,
+      });
+      console.log(fileUploadResult);
+    }
   } catch (error) {
     console.error(error);
   }
