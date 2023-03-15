@@ -79,39 +79,4 @@ export const submitApplication = async (
         message: `Irgendetwas ist schief gelaufen.`, //todo add error message
       });
     });
-
-  // await axios
-  //   .post<FormDataProps, AxiosResponse<PersonioApiResponse>>(
-  //     API_ENDPOINT,
-  //     formData,
-  //     /*
-  //       if we would like to add a progress State this would be needed again
-  //       {
-  //         onUploadProgress: (progressEvent) => (
-  //           setUploadProgress(progressEvent.loaded / progressEvent.total),
-  //       },*/
-  //   )
-  //   .then((response) => response.data)
-  //   .then((data) => {
-  //     // will contain 'Applicant successfully applied to the job position!'
-  //     // from the Personio API.
-  //     if (data.success) {
-  //       // all good
-  //       props.scrollToStart?.();
-  //     } else {
-  //       console.error('Something was wrong with the received response', data);
-  //     }
-  //   })
-  //   .catch((error) => {
-  //     // personio seems to deliver a different so the message can be inside the error object or the error object itself
-  //     const personioErrorMessage =
-  //       error?.response?.data?.error?.message ??
-  //       error?.response?.data?.error ??
-  //       error.message;
-  //
-  //     setError('api', {
-  //       type: 'server',
-  //       message: `Irgendetwas ist schief gelaufen (${personioErrorMessage}).`,
-  //     });
-  //   });
 };

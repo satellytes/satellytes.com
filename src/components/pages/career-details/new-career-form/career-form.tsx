@@ -83,7 +83,7 @@ export const Form = (props: CareerFormProps) => {
     }
   };
 
-  if (isSubmitSuccessful) return <CareerDetailsSuccess />;
+  if (isSubmitSuccessful && !errors?.api) return <CareerDetailsSuccess />;
 
   return (
     <>
