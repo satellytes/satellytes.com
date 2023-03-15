@@ -18,10 +18,6 @@ import {
 import { submitApplication } from './submit-application';
 
 interface CareerFormProps {
-  company_id: string;
-  access_token: string;
-  job_position_id: string;
-  recruiting_channel_id: string;
   scrollToStart: () => void;
   jobName: string;
 }

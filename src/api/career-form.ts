@@ -4,7 +4,7 @@ import { LogLevel, WebClient } from '@slack/web-api';
 const TOKEN = process.env.SLACK_BOT_SY_TOKEN;
 
 const getFileNameList = (files) =>
-  files.reduce((acc, current) => acc + ` - ${current.originalname} \n`, '');
+  files?.reduce((acc, current) => acc + ` - ${current.originalname} \n`, '');
 
 /**
  * Easily build this block structure via https://app.slack.com/block-kit-builder
