@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { onlyText } from '../support/only-text';
 import { Icon } from '../ui/icon/icon';
 import { up } from '../support/breakpoint';
-import { HEADER_HEIGHT_VALUE, theme } from './theme';
+import { theme } from './theme';
+import { SCROLLING_OFFSET } from './use-anchor-tag-scrolling';
 
 const Wrapper = styled.div`
   margin-left: -24px;
@@ -22,7 +23,7 @@ export const generateAnchorId = (children) => {
 };
 
 const ShareSymbol = styled.a<{ visible }>`
-  scroll-margin-top: ${HEADER_HEIGHT_VALUE + 20}px;
+  scroll-margin-top: ${SCROLLING_OFFSET}px;
   color: ${theme.palette.text.default};
   opacity: 0.3;
 
