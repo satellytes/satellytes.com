@@ -6,6 +6,7 @@ import { SyPersonioJob } from '../../../types';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { up } from '../../support/breakpoint';
 import { CareerTeaserGrid } from './career-teaser-grid';
+import { textEllipsis } from '../../support/text-ellipsis';
 
 const SectionHeadline = styled.h2`
   ${TextStyles.headlineM}
@@ -44,7 +45,7 @@ export const Openings = (props: OpeningsProps) => {
             linkTo={item.slug}
             key={item.id}
           >
-            {item.short}
+            {textEllipsis(item.short, 200)}
           </Teaser>
         ))}
       </OpeningsTeaseGrid>
