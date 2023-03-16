@@ -2,6 +2,7 @@ import { GatsbyFunctionRequest, GatsbyFunctionResponse } from 'gatsby';
 import { LogLevel, WebClient } from '@slack/web-api';
 
 const TOKEN = process.env.SLACK_BOT_SY_TOKEN;
+const CHANNEL_ID = 'raketenhafte-rekrutierung';
 
 const getFileNameList = (files) =>
   files?.reduce((acc, current) => acc + ` - ${current.originalname} \n`, '');
@@ -46,15 +47,19 @@ const createSlackMessage = ({
         },
         {
           type: 'mrkdwn',
-          text: `*Location*:\n ${location}`,
+          text: `*Location*:\n ${location === 'undefined' ? '-' : location}`,
         },
         {
           type: 'mrkdwn',
-          text: `*Avaible from*:\n ${available_from}`,
+          text: `*Avaible from*:\n ${
+            available_from === 'undefined' ? '-' : salary_expectations
+          }`,
         },
         {
           type: 'mrkdwn',
-          text: `*Salary Expectation*:\n ${salary_expectations}`,
+          text: `*Salary Expectation*:\n ${
+            salary_expectations === 'undefined' ? '-' : salary_expectations
+          }`,
         },
       ],
     },
@@ -119,15 +124,13 @@ export default async function handler(
     return res.status(500).json({ error: `no slack token given` });
   }
 
-  const channelId = 'raketenhafte-rekrutierung';
-
   const client = new WebClient(TOKEN, {
     logLevel: LogLevel.DEBUG,
   });
 
   try {
     const postMessageResult = await client.chat.postMessage({
-      channel: channelId,
+      channel: CHANNEL_ID,
       // raw text as the fallback content for notifications.
       text: `${first_name} ${last_name} (${email}) sent the following application for ${jobName}:\n ${message}`,
       blocks: createSlackMessage({
@@ -143,19 +146,18 @@ export default async function handler(
       }),
       icon_emoji: ':rocket:',
     });
-    console.log(postMessageResult);
 
     for (const file of files) {
-      const fileUploadResult = await client.files.upload({
-        channels: channelId,
+      await client.files.upload({
+        channels: CHANNEL_ID,
+        thread_ts: postMessageResult.ts,
         file: file.buffer,
         filename: file.originalname,
       });
-      console.log(fileUploadResult);
     }
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ error: 'Slack API error' });
+    return res.status(500).json({ error: 'API error' });
   }
 
   return res.status(200).json({ ok: true });

@@ -66,7 +66,7 @@ export const submitApplication = async (
       if (!response.ok) {
         setError('api', {
           type: 'server',
-          message: 'Slack API error',
+          message: 'API error',
         });
       } else {
         props.scrollToStart?.();
@@ -76,7 +76,7 @@ export const submitApplication = async (
       console.error(error);
       setError('api', {
         type: 'server',
-        message: 'Slack API error',
+        message: 'API error',
       });
     });
 };
