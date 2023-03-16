@@ -112,6 +112,7 @@ const FileDropperContainer = styled.div<{
   }
 `;
 
+// Without the label the FileDropper is not clickable in Firefox
 const StyledLabel = styled.label`
   width: 100%;
   height: 100%;
