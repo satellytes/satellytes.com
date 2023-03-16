@@ -75,8 +75,12 @@ const Timestamp = styled.p<{ hover: boolean }>`
 `;
 
 const TeaserText = styled.div`
-  ${TextStyles.textR};
+  ${TextStyles.textSR};
   margin: 0;
+
+  ${up('md')} {
+    ${TextStyles.textR};
+  }
 `;
 
 const StyledTeaserTitle = styled.h3<{

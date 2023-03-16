@@ -36,10 +36,11 @@ const HeadlineStyled = styled.h3`
 
 const ContentStyled = styled.div`
   margin-top: 16px;
-  ${TextStyles.textR};
+  ${TextStyles.textSR};
 
   ${up('md')} {
     margin-top: 24px;
+    ${TextStyles.textR};
   }
 `;
 
@@ -87,6 +88,10 @@ export const UnorderedList = styled.ul`
   margin: 0;
   padding-left: 12px;
   list-style-type: none;
+
+  ${up('md')} {
+    ${TextStyles.textR};
+  }
 
   > li:before {
     content: '•';

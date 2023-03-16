@@ -10,6 +10,7 @@ import { ContentBlockContainer } from '../../../layout/content-block-container';
 import { TextStyles } from '../../../typography';
 import { Button } from '../../../ui/buttons/button';
 import { StyledLink } from '../../contact/contact-form';
+import { up } from '../../../support/breakpoint';
 
 const PRIVACY_POLICY = 'https://satellytes.jobs.personio.de/privacy-policy';
 const MAX_SIZE = 20 * 1024 * 1024;
@@ -21,7 +22,11 @@ const StyledButton = styled(Button)`
 const TextWrapper = styled.div`
   margin: 24px 0;
 
-  ${TextStyles.textR}
+  ${TextStyles.textSR}
+
+  ${up('sm')} {
+    ${TextStyles.textR}
+  }
 `;
 
 export const CareerDetailsSubmitButton = ({ isSubmitting, errors }) => {
