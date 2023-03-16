@@ -8,6 +8,7 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { up } from '../../support/breakpoint';
+import { MobileOnlyText } from '../../content/heroes/support';
 
 interface ImpressionsProps {
   impressions: ContentfulAboutUsImpression[];
@@ -57,6 +58,7 @@ export const Impressions = ({ impressions }: ImpressionsProps) => {
         headline={t<string>('about-us.impressions.heading')}
         kicker={t<string>('about-us.impressions.title')}
       >
+        <MobileOnlyText>{t('about-us.description')}</MobileOnlyText>
         {t('about-us.impressions.text')}
       </SectionHeader>
 

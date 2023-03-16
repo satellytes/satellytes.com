@@ -34,6 +34,7 @@ export const AboutUsPage = (props: AboutUsPageProps) => {
       leadbox={leadbox}
       hero={
         <ImageHero
+          hideMobileText
           title={t<string>('about-us.title')}
           image={props.heroImageData}
         >
