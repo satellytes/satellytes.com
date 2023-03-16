@@ -6,7 +6,6 @@ import { FileDropperType } from '../../../forms/file-dropper/file-dropper';
 import { TextArea } from '../../../forms/text-area/text-area';
 import { TextInput } from '../../../forms/text-input/text-input';
 import { FormLayout } from '../../contact/form';
-import { SectionHeadline } from '../job-description';
 import {
   CareerDetailsCheckbox,
   CareerDetailsError,
@@ -16,13 +15,13 @@ import {
   CareerDetailsSuccess,
 } from './career-form-fields';
 import { submitApplication } from './submit-application';
+import styled from 'styled-components';
+import { TextStyles } from '../../../typography';
+import { up } from '../../../support/breakpoint';
 
 interface CareerFormProps {
-  company_id: string;
-  access_token: string;
-  job_position_id: string;
-  recruiting_channel_id: string;
   scrollToStart: () => void;
+  jobName: string;
 }
 
 export type FormDataProps = {
@@ -38,6 +37,17 @@ export type FormDataProps = {
 
   privacy: boolean;
 };
+
+const SectionHeadline = styled.h2`
+  ${TextStyles.headlineM}
+
+  margin-top: 40px;
+  margin-bottom: 16px;
+
+  ${up('md')} {
+    margin-top: 80px;
+  }
+`;
 
 export type FormErrors = { api?: never };
 
@@ -82,7 +92,7 @@ export const Form = (props: CareerFormProps) => {
     }
   };
 
-  if (isSubmitSuccessful) return <CareerDetailsSuccess />;
+  if (isSubmitSuccessful && !errors?.api) return <CareerDetailsSuccess />;
 
   return (
     <>

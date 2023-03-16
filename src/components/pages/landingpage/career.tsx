@@ -2,12 +2,12 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Teaser } from '../../content/teaser/teaser';
 import React from 'react';
 import { HomePageHeaderBlock } from './support';
-import { SyPersonioJob } from '../../../types';
+import { ContentfulVacancy } from '../../../types';
 import { Button } from '../../ui/buttons/button';
 import { LandingPageTeaserGrid } from './landing-page-teaser-grid';
 
 interface CareerProps {
-  positions: SyPersonioJob[];
+  positions: ContentfulVacancy[];
 }
 
 const textEllipsis = (text, maxLength) => {
@@ -40,7 +40,7 @@ export const Career = ({ positions }: CareerProps) => {
             title={item.name}
             linkTo={item.slug}
           >
-            {textEllipsis(item.short, 200)}
+            {textEllipsis(item.shortDescription.shortDescription, 200)}
           </Teaser>
         ))}
       </LandingPageTeaserGrid>

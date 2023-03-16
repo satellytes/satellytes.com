@@ -3,18 +3,19 @@ import SEO from '../components/layout/seo';
 import { graphql, PageProps } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { CareerPage } from '../components/pages/career/career-page';
-import { SyPersonioJob } from '../types';
+import { ContentfulVacancy } from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
-import { OfficeImage } from '../pages/index';
+import { OfficeImage } from './index';
 
 interface CareerPageQueryProps {
-  allSyPersonioJob: {
-    nodes: SyPersonioJob[];
-  };
   officeImages: {
     nodes: OfficeImage[];
   };
   hero: IGatsbyImageData;
+
+  allContentfulVacancy: {
+    nodes: ContentfulVacancy[];
+  };
 }
 
 const Career = (props: PageProps<CareerPageQueryProps>) => {
@@ -34,7 +35,7 @@ const Career = (props: PageProps<CareerPageQueryProps>) => {
       />
       <CareerPage
         heroImageData={props.data.hero}
-        positions={props.data.allSyPersonioJob.nodes}
+        positions={props.data.allContentfulVacancy.nodes}
         officeImages={officeImages}
       />
     </>
@@ -61,14 +62,13 @@ export const CareerPageQuery = graphql`
       }
     }
 
-    allSyPersonioJob(filter: { lang: { eq: $language } }) {
+    allContentfulVacancy(filter: { node_locale: { eq: $language } }) {
       nodes {
         id
-        lang
-        jobId
         name
-        short
-        createdAt
+        shortDescription {
+          shortDescription
+        }
         slug
       }
     }

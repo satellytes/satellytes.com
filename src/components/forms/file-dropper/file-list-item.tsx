@@ -104,7 +104,7 @@ export const FileListItem = ({
             ))}
           </FileCategoryDropdown>
         )}
-        <RemoveButton onClick={() => onRemove(index)}>
+        <RemoveButton type="button" onClick={() => onRemove(index)}>
           {t('career.remove-file')}
         </RemoveButton>
       </Actions>
