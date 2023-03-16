@@ -64,7 +64,6 @@ export default async function handler(
   res: GatsbyFunctionResponse,
 ) {
   const { first_name, email, message, ...honey } = req.body;
-  console.log('receive form data', { first_name, email, message }, honey);
 
   if (honey.firstName || honey.phone) {
     console.log(`honeypot trap filled, aborting (received "${honey}")`);
@@ -88,15 +87,13 @@ export default async function handler(
   });
 
   try {
-    const result = await client.chat.postMessage({
+    await client.chat.postMessage({
       channel: channelId,
       // raw text as the fallback content for notifications.
       text: `${first_name} (${email}) sent the following message:\n ${message}`,
       blocks: createSlackMessage({ first_name, email, message }),
       icon_emoji: ':inbox_tray:',
     });
-
-    console.log(result);
   } catch (error) {
     console.error(error);
   }

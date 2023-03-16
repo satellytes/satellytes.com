@@ -11,7 +11,6 @@ import { TextStyles } from '../../../typography';
 import { Button } from '../../../ui/buttons/button';
 import { StyledLink } from '../../contact/contact-form';
 
-const PRIVACY_POLICY = 'https://satellytes.jobs.personio.de/privacy-policy';
 const MAX_SIZE = 20 * 1024 * 1024;
 
 const StyledButton = styled(Button)`
@@ -61,7 +60,7 @@ export const CareerDetailsCheckbox = ({ control }) => {
         <Trans i18nKey={'career.privacy-policy'}>
           <span>
             Hiermit bestätige ich, dass ich die
-            <StyledLink to={PRIVACY_POLICY}>Datenschutzerklärung</StyledLink>
+            <StyledLink to="/data-privacy">Datenschutzerklärung</StyledLink>
             zur Kenntnis genommen habe
           </span>
         </Trans>

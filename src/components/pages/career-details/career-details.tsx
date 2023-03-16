@@ -5,7 +5,6 @@ import { ContentfulVacancy } from '../../../types';
 import { SectionHeader } from '../../content/section-header/section-header';
 import { ContentBlockContainer } from '../../layout/content-block-container';
 import { Form } from './new-career-form/career-form';
-import { useLocation } from 'react-use';
 import { ContentfulRichText } from '../../content/rich-text/rich-text';
 import styled from 'styled-components';
 
@@ -14,17 +13,9 @@ interface CareerDetailsProps {
   position: ContentfulVacancy;
   complementPath: string;
 }
-
-const DEFAULT_CHANNEL_ID = '329206';
-
-const UTM_CHANNEL_MAP = {
-  google_jobs_apply: '713571',
-};
-
 const StyledContentBlockContainer = styled(ContentBlockContainer)`
   margin-bottom: 48px;
 `;
-
 export const CareerDetails = ({
   position,
   complementPath,
@@ -47,13 +38,6 @@ export const CareerDetails = ({
     ref?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
-  const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const personioChannel = searchParams.get('_pc');
-  const utmChannel = UTM_CHANNEL_MAP[searchParams.get('utm_source') ?? ''];
-
-  const recruitingChannel = utmChannel ?? personioChannel ?? DEFAULT_CHANNEL_ID;
-
   return (
     <Layout
       siteTitleUrl="/career/"
@@ -74,13 +58,7 @@ export const CareerDetails = ({
 
       <ContentfulRichText data={position.content} />
 
-      <Form
-        company_id="41230"
-        recruiting_channel_id={recruitingChannel}
-        access_token="89b2acfa3a239b75c7d6"
-        job_position_id={position.id + ''}
-        scrollToStart={scrollToStart}
-      />
+      <Form scrollToStart={scrollToStart} jobName={position.name} />
     </Layout>
   );
 };
