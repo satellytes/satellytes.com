@@ -20,11 +20,8 @@ import { TextStyles } from '../../../typography';
 import { up } from '../../../support/breakpoint';
 
 interface CareerFormProps {
-  company_id: string;
-  access_token: string;
-  job_position_id: string;
-  recruiting_channel_id: string;
   scrollToStart: () => void;
+  jobName: string;
 }
 
 export type FormDataProps = {
@@ -95,7 +92,7 @@ export const Form = (props: CareerFormProps) => {
     }
   };
 
-  if (isSubmitSuccessful) return <CareerDetailsSuccess />;
+  if (isSubmitSuccessful && !errors?.api) return <CareerDetailsSuccess />;
 
   return (
     <>
