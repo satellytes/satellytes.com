@@ -10,7 +10,7 @@ language: de
 2. Verantwortlicher gem. Art. 4 Abs. 7 EU-Datenschutz-Grundverordnung (DSGVO) ist Satellytes Digital Consulting GmbH,
    Sendlinger Straße 52, 80331 München, info@satellytes.com (siehe [Impressum](/imprint/)).
 3. Bei Ihrer Kontaktaufnahme mit uns per E-Mail oder über ein Kontaktformular werden die von Ihnen mitgeteilten Daten 
-   (Ihre E-Mail-Adresse, Ihr Vorname, ggf. Ihr Nachname und ggf. Ihr Lebenslauf) von uns gespeichert, um Ihre Fragen zu beantworten. Die in
+   (Ihre E-Mail-Adresse, Ihr Vorname, ggf. Ihr Nachname oder Ihr Lebenslauf bzw. andere hochgeladene Dateien) von uns gespeichert, um Ihre Fragen zu beantworten. Die in
    diesem Zusammenhang anfallenden Daten löschen wir, nachdem die Speicherung nicht mehr erforderlich ist, oder
    schränken die Verarbeitung ein, falls gesetzliche Aufbewahrungspflichten bestehen.
 4. Falls wir für einzelne Funktionen unseres Angebots auf beauftragte Dienstleister zurückgreifen oder Ihre Daten für
