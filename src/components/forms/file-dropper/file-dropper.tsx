@@ -76,6 +76,7 @@ const FileDropperContainer = styled.div<{
   hasFiles: boolean;
   hasErrors: boolean;
 }>`
+  position: relative;
   display: flex;
   gap: 16px;
   flex-direction: column;
@@ -109,6 +110,16 @@ const FileDropperContainer = styled.div<{
   &:hover {
     border: 1px solid ${theme.palette.text.default};
   }
+`;
+
+// Without the label the FileDropper is not clickable in Firefox
+const StyledLabel = styled.label`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
 `;
 
 const Description = styled.p`
@@ -197,7 +208,9 @@ export const FileDropper = ({
         hasFiles={hasFiles}
         hasErrors={errors?.documents}
       >
-        <input {...getInputProps({ ...register(name) })} />
+        <StyledLabel>
+          <input {...getInputProps({ ...register(name) })} />
+        </StyledLabel>
         {!hasFiles && illustration && (
           <Illustration show={illustration} size={IllustrationSize.NORMAL} />
         )}
