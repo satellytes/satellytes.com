@@ -195,7 +195,6 @@ export const FileDropper = ({
     validator,
     onDropRejected,
     maxFiles,
-    useFsAccessApi: true,
   });
 
   const hasFiles = Boolean(currentFiles.length);
