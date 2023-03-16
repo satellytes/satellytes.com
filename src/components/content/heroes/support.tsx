@@ -61,3 +61,8 @@ export const TextContainer = styled.div<TextContainerProps>`
       background-color: ${rgba('#000000', 0.2)};
     `}
 `;
+export const MobileOnlyText = styled.p`
+  ${up('md')} {
+    display: none;
+  }
+`;

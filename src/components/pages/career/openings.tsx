@@ -2,7 +2,7 @@ import React from 'react';
 import { Teaser } from '../../content/teaser/teaser';
 import styled from 'styled-components';
 import { TextStyles } from '../../typography';
-import { SyPersonioJob } from '../../../types';
+import { ContentfulVacancy } from '../../../types';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { up } from '../../support/breakpoint';
 import { CareerTeaserGrid } from './career-teaser-grid';
@@ -28,7 +28,7 @@ const OpeningsTeaseGrid = styled(CareerTeaserGrid)`
 `;
 
 interface OpeningsProps {
-  jobs: SyPersonioJob[];
+  jobs: ContentfulVacancy[];
 }
 
 export const Openings = (props: OpeningsProps) => {
@@ -45,7 +45,7 @@ export const Openings = (props: OpeningsProps) => {
             linkTo={item.slug}
             key={item.id}
           >
-            {textEllipsis(item.short, 200)}
+            {textEllipsis(item.shortDescription.shortDescription, 200)}
           </Teaser>
         ))}
       </OpeningsTeaseGrid>

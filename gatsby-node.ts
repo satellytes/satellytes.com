@@ -76,7 +76,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
       `type MarkdownRemark implements Node {
         socialCardFile: File @link(from: "fields.socialCardFileId")
       }`,
-      `type SyPersonioJob implements Node {
+      `type ContentfulVacancy implements Node {
         socialCardFile: File @link(from: "fields.socialCardFileId")
       }`,
     ];

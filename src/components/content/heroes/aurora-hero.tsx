@@ -14,6 +14,7 @@ interface AuroraHeroProps extends HeroWithText {
 
 export const AuroraHero = ({
   title,
+  hideMobileText,
   children,
   auroraType,
 }: AuroraHeroProps) => {
@@ -22,7 +23,9 @@ export const AuroraHero = ({
       <AuroraFullSize type={auroraType} />
 
       <TextContainer>
-        <HeroText title={title}>{children}</HeroText>
+        <HeroText hideMobileText={hideMobileText} title={title}>
+          {children}
+        </HeroText>
       </TextContainer>
     </HeroContainer>
   );

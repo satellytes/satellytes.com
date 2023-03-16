@@ -1,11 +1,4 @@
-import axios, { AxiosResponse } from 'axios';
-import { FormDataProps } from './career-form';
-
-interface PersonioApiResponse {
-  success: string;
-}
-
-const API_ENDPOINT = 'https://api.personio.de/recruiting/applicant';
+const API_ENDPOINT = '/api/career-form';
 
 export const submitApplication = async (
   props,
@@ -41,15 +34,8 @@ export const submitApplication = async (
     }
   }
 
-  const apiData = {
-    company_id: props.company_id,
-    access_token: props.access_token,
-    job_position_id: props.job_position_id, // dev test position
-    recruiting_channel_id: props.recruiting_channel_id, //satellytes.com
-  };
-
   const payload = {
-    ...apiData,
+    jobName: props.jobName,
     ...formValues,
   };
 
@@ -72,40 +58,25 @@ export const submitApplication = async (
     }
   }
 
-  formData.append('gender', 'diverse');
-
-  await axios
-    .post<FormDataProps, AxiosResponse<PersonioApiResponse>>(
-      API_ENDPOINT,
-      formData,
-      /*
-        if we would like to add a progress State this would be needed again
-        {
-          onUploadProgress: (progressEvent) => (
-            setUploadProgress(progressEvent.loaded / progressEvent.total),
-        },*/
-    )
-    .then((response) => response.data)
-    .then((data) => {
-      // will contain 'Applicant successfully applied to the job position!'
-      // from the Personio API.
-      if (data.success) {
-        // all good
-        props.scrollToStart?.();
+  fetch(API_ENDPOINT, {
+    method: 'POST',
+    body: formData,
+  })
+    .then((response) => {
+      if (!response.ok) {
+        setError('api', {
+          type: 'server',
+          message: 'API error',
+        });
       } else {
-        console.error('Something was wrong with the received response', data);
+        props.scrollToStart?.();
       }
     })
     .catch((error) => {
-      // personio seems to deliver a different so the message can be inside the error object or the error object itself
-      const personioErrorMessage =
-        error?.response?.data?.error?.message ??
-        error?.response?.data?.error ??
-        error.message;
-
+      console.error(error);
       setError('api', {
         type: 'server',
-        message: `Irgendetwas ist schief gelaufen (${personioErrorMessage}).`,
+        message: 'API error',
       });
     });
 };

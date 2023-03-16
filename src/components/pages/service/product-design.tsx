@@ -15,7 +15,6 @@ export const ProductDesign = () => {
       >
         <p>{t('services.product_design.text.1')}</p>
         <p>{t('services.product_design.text.2')}</p>
-        <p>{t('services.product_design.text.3')}</p>
       </Intro>
     </ContentBlockContainer>
   );
