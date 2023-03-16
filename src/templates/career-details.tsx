@@ -3,7 +3,7 @@ import SEO from '../components/layout/seo';
 import { graphql } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { CareerDetails } from '../components/pages/career-details/career-details';
-import { SyPersonioJob } from '../types';
+import { ContentfulVacancy } from '../types';
 import { CareerDetailsStructuredData } from '../components/pages/career-details/career-details-structured-data';
 
 interface CareerPageProps {
@@ -17,13 +17,13 @@ interface CareerPageProps {
   };
   location: Location;
   data: {
-    syPersonioJob: SyPersonioJob;
+    contentfulVacancy: ContentfulVacancy;
   };
 }
 
 const CareerPage = (props: CareerPageProps): JSX.Element => {
   const { pageContext } = props;
-  const position = props.data.syPersonioJob;
+  const position = props.data.contentfulVacancy;
   const socialCardPath =
     position.socialCardFile.childImageSharp.gatsbyImageData.images.fallback
       ?.src;
@@ -39,7 +39,6 @@ const CareerPage = (props: CareerPageProps): JSX.Element => {
         description={t<string>('career.seo.description-detail', {
           name: position.name,
         })}
-        overrideLanguages={pageContext.overrideLanguages}
         location={props.location}
       />
 
@@ -55,26 +54,24 @@ const CareerPage = (props: CareerPageProps): JSX.Element => {
 };
 
 export const CareerDetailsPageQuery = graphql`
-  query ($id: String!, $language: String!) {
-    syPersonioJob(id: { eq: $id }) {
+  query ($language: String!, $id: String!) {
+    contentfulVacancy(id: { eq: $id }) {
       id
-      lang
-      jobId
       name
-      short
       createdAt
-      slug
       schedule
-      sections {
-        headline
-        descriptionHtml
-        description
+      shortDescription {
+        shortDescription
+      }
+      content {
+        raw
       }
       socialCardFile {
         childImageSharp {
           gatsbyImageData(width: 1440, height: 760)
         }
       }
+      slug
     }
 
     locales: allLocale(filter: { language: { eq: $language } }) {

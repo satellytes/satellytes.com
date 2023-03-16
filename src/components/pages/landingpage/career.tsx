@@ -3,12 +3,12 @@ import { TeaserGrid } from '../../content/teaser/teaser-grid';
 import { Teaser } from '../../content/teaser/teaser';
 import React from 'react';
 import { HomePageHeaderBlock } from './support';
-import { SyPersonioJob } from '../../../types';
+import { ContentfulVacancy } from '../../../types';
 import styled from 'styled-components';
 import { Button } from '../../ui/buttons/button';
 
 interface CareerProps {
-  positions: SyPersonioJob[];
+  positions: ContentfulVacancy[];
 }
 
 const Spacer = styled.div`
@@ -40,7 +40,7 @@ export const Career = ({ positions }: CareerProps) => {
       <TeaserGrid>
         {positions.map((item) => (
           <Teaser key={item.id} title={item.name} linkTo={item.slug}>
-            {textEllipsis(item.short, 200)}
+            {textEllipsis(item.shortDescription.shortDescription, 200)}
           </Teaser>
         ))}
       </TeaserGrid>

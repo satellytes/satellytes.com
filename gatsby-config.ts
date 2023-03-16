@@ -43,12 +43,6 @@ const gatsbyConfig: GatsbyConfig = {
     siteUrl: BASE_URL,
   },
   plugins: [
-    {
-      resolve: `sy-personio-jobs-source-plugin`,
-      options: {
-        slugPrefix: `career`,
-      },
-    },
     `gatsby-plugin-sass`,
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-smoothscroll`,

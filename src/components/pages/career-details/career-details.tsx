@@ -1,18 +1,21 @@
 import React from 'react';
 import { Layout } from '../../layout/layout';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { JobDescription } from './job-description';
-import { SyPersonioJob } from '../../../types';
+import { ContentfulVacancy } from '../../../types';
 import { SectionHeader } from '../../content/section-header/section-header';
 import { ContentBlockContainer } from '../../layout/content-block-container';
 import { Form } from './new-career-form/career-form';
+import { ContentfulRichText } from '../../content/rich-text/rich-text';
+import styled from 'styled-components';
 
 interface CareerDetailsProps {
   originalPath: string;
-  position: SyPersonioJob;
+  position: ContentfulVacancy;
   complementPath: string;
 }
-
+const StyledContentBlockContainer = styled(ContentBlockContainer)`
+  margin-bottom: 48px;
+`;
 export const CareerDetails = ({
   position,
   complementPath,
@@ -43,17 +46,17 @@ export const CareerDetails = ({
       breadcrumb={breadcrumb}
       showLanguageSwitch={Boolean(complementPath)}
     >
-      <ContentBlockContainer>
+      <StyledContentBlockContainer>
         <SectionHeader
           as={'h1'}
           headline={position.name}
           kicker={t<string>('career.position')}
         >
-          {position.short}
+          {position.shortDescription.shortDescription}
         </SectionHeader>
-      </ContentBlockContainer>
+      </StyledContentBlockContainer>
 
-      <JobDescription sections={position.sections} />
+      <ContentfulRichText data={position.content} />
 
       <Form scrollToStart={scrollToStart} jobName={position.name} />
     </Layout>

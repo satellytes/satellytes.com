@@ -17,7 +17,6 @@ interface SeoProps {
   shareImagePath?: string;
   siteType?: string;
   noIndex?: boolean;
-  overrideLanguages?: string[] | null;
   location: Location;
   rssLink?: boolean;
 }
@@ -26,11 +25,7 @@ interface SeoProps {
  * Help Google & friends to show the most appropriate version by language,
  * for more information: https://developers.google.com/search/docs/advanced/crawling/localized-versions#html
  *
- * You can force a specific set of languages by passing in `overrideLanguages`
- * which is currently used to determine of a translation is available for a given job position detail
- * which we can query from personio upfront.
- *
- * Otherwise i18n-next just concludes that there is a translation as it creates a translated page
+ * i18n-next just concludes that there is a translation as it creates a translated page
  * for every english page by default.
  *
  * The function calculates a list of meta tags from a given set of i18n-next data
@@ -39,10 +34,8 @@ interface SeoProps {
 const buildAlternateMetaTags = (
   { languages, language, originalPath, defaultLanguage }: I18nNextData,
   host,
-  overrideLanguages,
 ) => {
-  const otherLanguages =
-    overrideLanguages ?? languages.filter((item) => item !== language);
+  const otherLanguages = languages.filter((item) => item !== language);
 
   const getUrl = (otherLanguage) => {
     if (otherLanguage === defaultLanguage) {
@@ -71,7 +64,6 @@ const SEO = ({
   shareImagePath,
   siteType,
   noIndex,
-  overrideLanguages,
   location,
   rssLink,
 }: SeoProps) => {
@@ -99,7 +91,6 @@ const SEO = ({
   const alternateLanguagesMetaTags = buildAlternateMetaTags(
     i18n,
     location.origin,
-    overrideLanguages,
   );
 
   return (
