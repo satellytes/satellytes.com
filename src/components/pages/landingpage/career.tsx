@@ -5,19 +5,11 @@ import { HomePageHeaderBlock } from './support';
 import { ContentfulVacancy } from '../../../types';
 import { Button } from '../../ui/buttons/button';
 import { LandingPageTeaserGrid } from './landing-page-teaser-grid';
+import { textEllipsis } from '../../support/text-ellipsis';
 
 interface CareerProps {
   positions: ContentfulVacancy[];
 }
-
-const textEllipsis = (text, maxLength) => {
-  const truncatedText = text.substring(0, maxLength);
-  if (truncatedText.length < text.length) {
-    return truncatedText + '...';
-  }
-
-  return truncatedText;
-};
 
 export const Career = ({ positions }: CareerProps) => {
   const { t } = useTranslation();
