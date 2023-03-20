@@ -58,7 +58,6 @@ export const CareerPage = ({
     >
       <ContentBlockContainer>
         <SectionHeader
-          as={'h1'}
           kicker={t<string>('career.introduction.kicker')}
           headline={t<string>('career.introduction.headline')}
         >
