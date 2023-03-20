@@ -250,6 +250,7 @@ const feedOptions = {
             url: site.siteMetadata.siteUrl + node.fields.path,
             guid: site.siteMetadata.siteUrl + node.fields.path,
             custom_elements: [
+              '<enclosure url="https://images.ctfassets.net/54dnxp2417nl/5fCePk8aewwPIKCj9I5aTj/b652db31186358c555df2db14b65bbb7/gatsby-next-remix-hero.jpg" length="744356" type="image/jpeg"/>',
               {
                 'content:encoded': `${coverImage} ${rssHtml}`,
               },
