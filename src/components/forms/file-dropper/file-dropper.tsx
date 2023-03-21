@@ -126,6 +126,8 @@ const Description = styled.p`
   ${TextStyles.timestamp};
   letter-spacing: 0;
   margin: 0;
+  padding: 0 24px;
+  text-align: center;
 `;
 
 export const FileDropper = ({
