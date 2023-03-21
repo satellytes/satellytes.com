@@ -42,15 +42,12 @@ export const useTranslationParagraphs = (
   const tWithParagraphs = (key) => {
     const texts = t(key).split(/\n\s*\n/);
 
-    return texts.map((text) => {
+    return texts.map((text, index) => {
       const textWithBreaks = text
         .split(/\n/)
-        .map((textContent) => [
-          textContent,
-          <br key={textContent.substring(0, 7)} />,
-        ])
+        .map((textContent, index) => [textContent, <br key={index} />])
         .flat();
-      return <p key={text.substring(0, 7)}>{textWithBreaks}</p>;
+      return <p key={index}>{textWithBreaks}</p>;
     });
   };
 
