@@ -23,7 +23,7 @@ const AccordionWrapper = styled.div`
 `;
 
 const AccordionText = styled.p`
-  ${TextStyles.textR}
+  ${TextStyles.textSR}
   margin-top: 12px;
   margin-bottom: -3px;
 `;
