@@ -1,0 +1,6 @@
+targets:
+  - name: test
+    sources:
+      - /translation.json
+    file: src/assets/locales/de/translations.json
+    format: crowdin-json
