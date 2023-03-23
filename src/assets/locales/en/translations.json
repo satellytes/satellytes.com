@@ -208,7 +208,5 @@
   "contact.action.sent.info": "Thank you for your message. We will process it and get back to you as soon as possible.",
   "contact.action.sent.button": "To the home page",
   "navigation.about-us": "About",
-  "main": {
-    "title": "[Missing Translation]"
-  }
+  "main.title": "[Missing Translation]"
 }
