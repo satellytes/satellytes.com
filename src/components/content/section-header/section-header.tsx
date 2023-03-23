@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { TextStyles } from '../../typography';
 import { up } from '../../support/breakpoint';
 
@@ -26,6 +26,10 @@ interface SectionHeaderProps {
    * The actual text content
    */
   children?: React.ReactNode;
+  /**
+   * Large headline
+   */
+  large?: boolean;
   className?: string;
 }
 
@@ -41,7 +45,7 @@ const KickerStyled = styled.span`
   }
 `;
 
-const HeadlineStyled = styled.h2`
+const HeadlineStyled = styled.h2<{ large?: boolean }>`
   ${TextStyles.headlineM}
   margin: 0;
   color: #202840;
@@ -51,6 +55,15 @@ const HeadlineStyled = styled.h2`
     margin-bottom: 24px;
     ${TextStyles.headlineL}
   }
+
+  ${({ large }) =>
+    large &&
+    css`
+      ${TextStyles.headlineL}
+      ${up('md')} {
+        ${TextStyles.headlineXL}
+      }
+    `}
 `;
 
 const ContentStyled = styled.div`
@@ -67,7 +80,9 @@ export const SectionHeader = (props: SectionHeaderProps) => {
       {props.kicker && (
         <KickerStyled as={props.kickerAs}>{props.kicker}</KickerStyled>
       )}
-      <HeadlineStyled as={props.as}>{props.headline}</HeadlineStyled>
+      <HeadlineStyled large={props.large} as={props.as}>
+        {props.headline}
+      </HeadlineStyled>
       <ContentStyled>{props.children}</ContentStyled>
     </div>
   );
