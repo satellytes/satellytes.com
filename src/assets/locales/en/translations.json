@@ -161,7 +161,7 @@
   "contact.action.again": "Send again",
   "contact.leaflet.touch": "Use two fingers to move the map",
   "contact.leaflet.scroll": "Use ctrl + scroll to zoom the map",
-  "contact.leaflet.scrollMac": "Use \u2318 + scroll to zoom the map",
+  "contact.leaflet.scrollMac": "Use ⌘ + scroll to zoom the map",
   "imprint.title": "Imprint",
   "imprint.info": "Mandatory information according to § 5 Telemedia Act/Imprint",
   "imprint.updated": "Updated: 16th July 2020, Created: 12th Sep. 2018",
@@ -207,5 +207,8 @@
   "contact.action.sent.kicker": "Thank you very much!",
   "contact.action.sent.info": "Thank you for your message. We will process it and get back to you as soon as possible.",
   "contact.action.sent.button": "To the home page",
-  "navigation.about-us": "About"
+  "navigation.about-us": "About",
+  "main": {
+    "title": "[Missing Translation]"
+  }
 }
