@@ -4,11 +4,11 @@ import {
   ContentfulAboutUsImpression,
 } from '../../../types';
 import { SectionHeader } from '../../content/section-header/section-header';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { up } from '../../support/breakpoint';
 import { MobileOnlyText } from '../../content/heroes/support';
+import { useTranslationParagraphs } from '../../i18n-helpers';
 
 interface ImpressionsProps {
   impressions: ContentfulAboutUsImpression[];
@@ -50,7 +50,7 @@ const GalleryImage = styled(GatsbyImage)`
 `;
 
 export const Impressions = ({ impressions }: ImpressionsProps) => {
-  const { t } = useTranslation();
+  const { t, tWithParagraphs } = useTranslationParagraphs();
 
   return (
     <>
@@ -59,7 +59,7 @@ export const Impressions = ({ impressions }: ImpressionsProps) => {
         kicker={t<string>('about-us.impressions.title')}
       >
         <MobileOnlyText>{t('about-us.description')}</MobileOnlyText>
-        {t('about-us.impressions.text')}
+        {tWithParagraphs('about-us.impressions.text')}
       </SectionHeader>
 
       <GalleryGrid>

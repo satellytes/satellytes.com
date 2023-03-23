@@ -1,6 +1,8 @@
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { format, parseISO } from 'date-fns';
 import { enGB, de } from 'date-fns/locale';
+import React from 'react';
+import { UseTranslationOptions } from 'react-i18next';
 
 export const LONG_DATE_FORMAT = 'dd. MMMM yyyy';
 
@@ -29,4 +31,25 @@ export const useLocaleFormat = (dateFormat) => {
       return null;
     }
   };
+};
+
+export const useTranslationParagraphs = (
+  ns?: string,
+  options?: UseTranslationOptions,
+) => {
+  const { t, ...useTranslationResponse } = useTranslation(ns, options);
+
+  const tWithParagraphs = (key) => {
+    const texts = t(key).split(/\n\s*\n/);
+
+    return texts.map((text, index) => {
+      const textWithBreaks = text
+        .split(/\n/)
+        .map((textContent, index) => [textContent, <br key={index} />])
+        .flat();
+      return <p key={index}>{textWithBreaks}</p>;
+    });
+  };
+
+  return { t, tWithParagraphs, useTranslationResponse };
 };
