@@ -1,10 +1,10 @@
 import React from 'react';
 import { ContentBlockContainer } from '../../layout/content-block-container';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Intro } from './support';
+import { useTranslationParagraphs } from '../../i18n-helpers';
 
 export const ProductDesign = () => {
-  const { t } = useTranslation();
+  const { t, tWithParagraphs } = useTranslationParagraphs();
 
   return (
     <ContentBlockContainer>
@@ -13,8 +13,7 @@ export const ProductDesign = () => {
         headline={t('services.product_design.title')}
         kicker={t('services.product_design.kicker')}
       >
-        <p>{t('services.product_design.text.1')}</p>
-        <p>{t('services.product_design.text.2')}</p>
+        {tWithParagraphs('services.product_design.text')}
       </Intro>
     </ContentBlockContainer>
   );
