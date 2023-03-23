@@ -1670,5 +1670,13 @@
         "context": " -> navigation.about-us",
         "labels": null,
         "max_length": null
+    },
+    {
+        "identifier": "hello_world",
+        "source_string": "Hello World!",
+        "translation": "Hello World!",
+        "context": "hello_world",
+        "labels": null,
+        "max_length": null
     }
 ]
