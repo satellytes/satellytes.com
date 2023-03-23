@@ -7,11 +7,9 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Layout } from '../components/layout/layout';
 import { SectionHeader } from '../components/content/section-header/section-header';
 import { ContentBlockContainer } from '../components/layout/content-block-container';
-import { TextStyles } from '../components/typography';
+import { Text } from '../components/legacy/typography';
 
-const BottomNote = styled.p`
-  ${TextStyles.textR}
-
+const BottomNote = styled(Text)`
   margin-top: 80px;
   margin-bottom: 16px;
   opacity: 0.8;
@@ -34,7 +32,7 @@ const ImprintPage = ({ data, location }: PageProps<ImprintPageQueryProps>) => {
         noIndex={true}
       />
       <ContentBlockContainer>
-        <SectionHeader as={'h1'} headline={t('navigation.imprint')} />
+        <SectionHeader large as={'h1'} headline={t('navigation.imprint')} />
         <MarkdownAst htmlAst={data.markdownRemark.htmlAst} />
         <BottomNote>{t('imprint.updated')}</BottomNote>
       </ContentBlockContainer>
