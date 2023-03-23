@@ -1,209 +1,1674 @@
-{
-  "main.description": "Wir machen die digitale Welt einfacher. Mit maßgeschneiderter Web-Software für Unternehmen. Von Frontend bis Backend. Vom Webauftritt bis zur digitalen Sicherheitsinfrastruktur.",
-  "main.services.title": "Wir verbinden. Mit Technologie.",
-  "main.services.kicker": "Unsere Leistungen",
-  "main.services.text": "Unsere Softwareingenieur:innen und Designer:innen vereint eines: die Liebe zum Detail und zur Technologie. Beide bringen wir für die Ziele Ihres Unternehmens und die Experience Ihrer Kunden ein. So finden wir innovative und sichere Lösungen. Mit Respekt, Neugierde, Kreativität. Und jeder Menge Herzblut.",
-  "main.services.teasers.first.title": "Enterprise Applikationen & Libraries",
-  "main.services.teasers.first.text": "Teams aus Designern, Produktmanagern, Entwicklern, Supportmitarbeitern, Marketingspezialisten usw. bringen die richtige Mischung aus Know-how und Erfahrung mit und sorgen dafür, dass auch mal über den Tellerrand geschaut wird.",
-  "main.services.teasers.second.title": "Technische Analyse",
-  "main.services.teasers.second.text": "Jedes Team bei Satellytes ist für seine eigenen Aufgaben verantwortlich. In den Worten des Agilen Manifests: „Die besten Architekturen, Anforderungen und Entwürfe entstehen durch selbstorganisierte Teams.“",
-  "main.services.teasers.third.title": "UX/UI",
-  "main.services.teasers.third.text": "Schnelles Feedback, kurze Entscheidungswege und Offenheit für Veränderung sind uns wichtig – egal, ob man es Scrum, Kanban oder XP nennt.",
-  "main.services.button": "Erfahre Sie mehr",
-  "main.career.title": "Arbeite mit uns",
-  "main.career.kicker": "Karriere bei Satellytes",
-  "main.career.text": "Wir suchen Entwickler:innen aus Leidenschaft! Du hast noch nicht viel Berufserfahrung? Kein Problem. Denn alles, was du wissen musst, lernst du bei uns. Du kannst schon alles? Dann findest du bei Satellytes neue Herausforderungen und erfahrene Kolleg:innen, mit denen du weiter wachsen kannst. Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung.",
-  "main.career.button": "Alle offenen Stellen",
-  "main.blog.title": "Blog",
-  "main.blog.kicker": "News von Satellytes",
-  "main.blog.text": "Hier schreiben wir über Themen, die uns gerade beschäftigen: neueste Trends, interessante Cases, persönliche Porträts aus unserem Team und natürlich jede Menge Know-how.",
-  "main.blog.button": "Alle Artikel",
-  "career.title": "Karriere",
-  "career.headline": "Bewirb dich jetzt",
-  "career.mandatory-field": "* Pflichtfeld",
-  "career.first-name": "Vorname",
-  "career.last-name": "Nachname",
-  "career.email": "E-Mail Adresse",
-  "career.location": "Wohnort",
-  "career.available-from": "Verfügbar ab",
-  "career.salary-expectations": "Gehaltsvorstellung",
-  "career.cover-letter": "Anschreiben",
-  "career.file-category": "Dokument-Kategorie",
-  "career.remove-file": "Entfernen",
-  "career.cv": "Lebenslauf",
-  "career.other": "anderes",
-  "career.position": "Stelle",
-  "career.info-text": "Lade hier bitte deine relevanten Dokumente hoch, wie zb Lebenslauf (CV), Motivationsschreiben oder Referenzen. Erlaubt sind ausschließlich 3 PDF Dateien, die maximale Größe pro Datei beträgt 20MB.",
-  "career.privacy-policy": "<0>Hiermit bestätige ich, dass ich die <1>Datenschutzerklärung</1> zur Kenntnis genommen habe.</0>",
-  "career.introduction.headline": "Arbeite mit uns",
-  "career.introduction.kicker": "Karriere bei Satellytes",
-  "career.introduction.paragraphs.0": "Wir sind Satellytes. Ein Team aus sehr erfahrenen Softwareingenieur:innen und Designer:innen. Wir entwickeln nachhaltige, barrierefreie, verlässliche und moderne Web-Lösungen für große Unternehmen. Wenn du uns dabei unterstützen willst, dann schau dir am besten gleich unsere offenen Positionen an.",
-  "career.application-process.headline": "Bewerbungsprozess",
-  "career.application-process.paragraph": "Sich auf einen Job zu bewerben, ist oft anstrengend. Wir kennen das. Deshalb hat sich unser Team hat sich vier Schritte überlegt, die alles einfacher machen.",
-  "career.application-process.accordion.0.title": "1. Bewirb dich",
-  "career.application-process.accordion.0.paragraph": "Schicke uns deinen Lebenslauf und ein kurzes Anschreiben, in dem du uns erzählst, wieso du dich gerade bei uns bewirbst. Dabei ist uns nicht dein Abschluss, sondern  deine Leidenschaft fürs Coden wichtig. Zeig uns deinen GitHub- oder GitLab-Account, deinen Blog oder YouTube-Kanal. Ganz egal. Hauptsache, wir spüren, wofür du brennst.",
-  "career.application-process.accordion.1.title": "2. Kennenlernen",
-  "career.application-process.accordion.1.paragraph": "Wenn wir deine Bewerbung überzeugend finden, laden wir dich zu einem ersten Gespräch mit ein oder zwei deiner zukünftigen Kolleg:innen ein. Sie wollen erfahren, wie du zum Programmieren gekommen bist und was dich antreibt. Danach kennen wir dich besser – und du kennst die ersten Gesichter hinter Satellytes.",
-  "career.application-process.accordion.2.title": "3. Technisches Interview",
-  "career.application-process.accordion.2.paragraph": "Wir machen weder Whiteboard Interviews noch schicken wir dir irgendwelche Programmieraufgaben. Stattdessen möchten wir, dass du ein Code Review machst, dass wir im Interview durchsprechen. Dabei ergeben sich ganz automatisch spannende Gespräche – über Probleme im Code, Fachwissen und relevante Technologien. Und natürlich haben wir neben der ganzen Technik auch Zeit, über unsere Kultur zu sprechen. Um sicherzustellen, dass wir zu dir passen. Und du zu uns.",
-  "career.application-process.accordion.3.title": "4. Entscheidung",
-  "career.application-process.accordion.3.paragraph": "Du hast gezeigt, was du kannst und wie du arbeitest. Wir haben gezeigt, was uns antreibt und wie wir arbeiten. Wenn alles passt, lassen wir es dich wissen. Passt etwas nicht, dann lassen wir es dich auch wissen.",
-  "career.openings.headline": "Unsere offenen Stellen",
-  "career.culture.headline": "Spass an der Arbeit",
-  "career.culture.kicker": "Team",
-  "career.culture.paragraph": "Wir schaffen die Voraussetzung, dass sich alle unsere Teammitglieder persönlich und beruflich weiterentwickeln können.",
-  "career.culture.teaser.0.title": "Cross-Functional",
-  "career.culture.teaser.0.description": "Unsere Teams aus Designer:innen, Produktmanager:innen, Entwickler:innen, Supportmitarbeiter:innen, Marketingspezialiste:innen usw. bringen die richtige Mischung aus Know-how und Erfahrung mit und sorgen dafür, dass jeder auch mal über seinen Tellerrand schaut.",
-  "career.culture.teaser.1.title": "Selbstorganisation",
-  "career.culture.teaser.1.description": "Jedes Team bei Satellytes ist für seine eigenen Aufgaben verantwortlich. Denn die besten Architekturen, Anforderungen und Entwürfe entstehen durch selbstorganisierte Teams.",
-  "career.culture.teaser.2.title": "Agile",
-  "career.culture.teaser.2.description": "Schnelles Feedback, kurze Entscheidungswege und Offenheit für Veränderung sind uns wichtig – egal, ob man es Scrum, Kanban oder XP nennt.",
-  "career.culture.teaser.3.title": "Erfolgreich scheitern",
-  "career.culture.teaser.3.description": "Wenn wir etwas Neues ausprobieren, riskieren wir immer auch einen Misserfolg. Macht nichts – aus Fehlern lernen wir, teilen unsere Erkenntnisse mit anderen und münzen sie im nächsten Projekt in Erfolge um.",
-  "career.culture.teaser.4.title": "Feedback",
-  "career.culture.teaser.4.description": "Feedback ist unser wichtigstes Instrument. Code Reviews, Pair Programming, tägliche Stand-up-Meetings, 360-Grad-Feedback: Wir geben jedem die Möglichkeit, sich stetig zu verbessern.",
-  "career.culture.teaser.5.title": "Open Work",
-  "career.culture.teaser.5.description": "Offen sein, zuhören, andere Meinungen respektieren und gemeinsam die besten Lösungen finden. Das ist unser Motto.",
-  "career.perk.headline": "Perks & Benefits",
-  "career.perk.kicker": "Arbeiten",
-  "career.perk.paragraph": "Neben einem großartigen Team, interessanten Aufgaben und einer modernen Arbeitsumgebung bieten wir dir noch weitere Extras.",
-  "career.perk.teaser.0.title": "Fahrrad",
-  "career.perk.teaser.0.description": "Fahrrad fahren ist gut für Körper und Geist. Bei uns kannst du ein Fahrrad oder E-Bike leasen. Wir bezahlen die Wartung und Versicherung und du sparst ca. 40% des Gesamtpreises.",
-  "career.perk.teaser.1.title": "Zeit für Experimente",
-  "career.perk.teaser.1.description": "Wir geben dir Raum, neue Technologien auszuprobieren oder mit deinen Kolleg:innen kleine Experimente durchzuführen.",
-  "career.perk.teaser.2.title": "Lebenslanges Lernen",
-  "career.perk.teaser.2.description": "Du wirst bei uns jeden Tag etwas lernen, egal ob du dich als Anfänger oder Profi siehst. Sollte dir selbst mal die Muse fehlen, dann inspirieren dich ganz sicher deine Kolleg:innen. Und wenn du mal ein Buch brauchst: Jedes Buch geht auf uns.",
-  "career.perk.teaser.3.title": "Lieblingsausrüstung",
-  "career.perk.teaser.3.description": "Ob MacBook oder Linux Laptop. Ob Maus, Trackpad, VSCode oder IntelliJ. Du hast bei uns die Wahl.",
-  "career.perk.teaser.4.title": "Arbeiten wo du willst",
-  "career.perk.teaser.4.description": "Arbeitszeit und Arbeitsort kannst du in Absprache mit deinem Team und Kunden flexibel wählen.",
-  "career.perk.teaser.5.title": "Konferenzen",
-  "career.perk.teaser.5.description": "Wir lieben Tech-Konferenzen und sind schon bei vielen gewesen – manchmal sogar als Speaker. Das wollen wir auch für dich: Deshalb zahlen wir Ticket, Kost und Logis – und unterstützen dich, wenn du Ambitionen hast, Speaker:in zu werden.",
-  "career.error.approval": "Deine Zustimmung fehlt",
-  "career.error.first-name": "Dein Vorname fehlt",
-  "career.error.last-name": "Dein Nachname fehlt",
-  "career.error.email": "Deine E-Mail fehlt",
-  "career.error.email-undefined": "Irgendwas stimmt an dieser E-Mail nicht",
-  "career.error.cv": "Dein CV fehlt",
-  "career.error.max-number": "Maximale Anzahl Dokumente ist erreicht.",
-  "career.error.max-size": "Maximale Dokumentgröße (20MB) wurde überschritten",
-  "career.error.category": "Eine Kategorie fehlt",
-  "career.error.cover-letter": "Dein Anschreiben fehlt",
-  "career.error.cover-letter-length": "Dein Anschreiben muss mindestens 100 Zeichen lang sein",
-  "career.action.upload": "<0>Ziehe die Dokumente auf das Feld oder <1>wähle</1> sie aus</0>",
-  "career.action.send": "Senden",
-  "career.action.again": "Nochmal senden",
-  "career.action.home": "Zur Startseite",
-  "career.action.again-text": "Versuch es bitte noch einmal. Klappt es nicht dann schicke deine Bewerbung direkt an <1>career@satellytes.com</1>",
-  "career.seo.title-detail": "Karriere - {{name}} | Satellytes",
-  "career.seo.description-detail": "Bewirb dich jetzt als {{name}}! Schaue Dir unsere anderen offenen Stelle an. Wir freuen uns auf Deine Bewerbung.",
-  "career.seo.title": "Karriere | Satellytes",
-  "career.seo.description": "Wir suchen Entwickler:innen aus Leidenschaft! Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung.",
-  "career.thank": "Vielen Dank!",
-  "career.email-confirmation": "E-Mail wurde gesendet",
-  "career.success-text": "Wir schauen uns alles an und melden uns dann!",
-  "career.leadbox.title": "Deine Stelle ist nicht dabei?",
-  "career.leadbox.subtitle": "Initiativbewerbung",
-  "career.leadbox.text": "Georgios Kaleadis, CTO",
-  "career.leadbox.mail": "career@satellytes.com",
-  "about-us.title": "Über uns",
-  "about-us.office.title": "Office",
-  "about-us.office.kicker": "Satellytes",
-  "about-us.office.heading": "Im Herzen von München - direkt am Sendlinger Tor",
-  "about-us.office.text": "Unser Büro ist ein Ort zum Arbeiten, Wohlfühlen, Kennenlernen und Zusammenkommen. Für uns und unsere Kund:innen.",
-  "about-us.team.title": "Team",
-  "about-us.team.heading": "Das sind wir",
-  "about-us.team.text": "Unser erfahrenes Team aus Softwareingenieur:innen und Designer:innen.",
-  "about-us.leadbox.title": "Haben Sie Interesse bekommen?",
-  "about-us.leadbox.link": "Karriere",
-  "services.hero": "Leistungen",
-  "services.hero.description": "Wir setzen digitale Plattformen auf. Entwickeln Produkte und Services für Sie – und mit Ihnen. Und stehen Ihnen mit Workshops, Schulungen und Analysen beratend zur Seite.",
-  "services.title": "Development trifft Design",
-  "services.kicker": "Von der Plattform bis zum Produkt",
-  "services.text": "Unsere Liebe für exzellente Technologie ist genau so groß wie unsere Liebe für gutes Design. Deshalb vereinen wir beide Welten. Damit Sie sich nicht nur auf Funktionalität und Sicherheit verlassen können. Sondern auch darauf, dass Ihre Kunden ein digitales Erlebnis geboten bekommen.",
-  "services.platform.title": "Digitale Plattformen",
-  "services.platform.teaser": "Ob B2B- und B2C-Plattform – wir sind der ideale Partner für Sie.",
-  "services.platform.text": "Wir sind Spezialist:innen für digitale Plattformen. Von der Idee bis zur Umsetzung. Unsere langjährige Erfahrung bei der Gestaltung von B2B- und B2C-Plattformen aus den unterschiedlichsten Branchen macht uns zum idealen Partner für Ihr Projekt.",
-  "services.platform.list.platforms": "Digital platform design & development",
-  "services.platform.list.lowcode": "Low-Code Systems",
-  "services.platform.list.designsystems": "Design Systeme",
-  "services.platform.list.infrastructure": "Infrastruktur & Automation",
-  "services.consulting.title": "Beratung",
-  "services.consulting.teaser": "Sie können sich auf unsere langjährige Erfahrung verlassen.",
-  "services.consulting.text": "Die langjährige Erfahrung unserer Mitarbeitenden ist unser wertvollster Schatz. Wir öffnen unsere Schatztruhe gern für Sie – und beraten Sie in technischen und konzeptionellen Angelegenheiten.",
-  "services.consulting.list.workshops": "Schulungen & Workshops",
-  "services.consulting.list.techanalysis": "Technische Analyse",
-  "services.consulting.list.uxanalysis": "UX/UI Analysen & Reports",
-  "services.products_services.title": "Produkte & Services",
-  "services.products_services.teaser": "Wir unterstützen Sie von der Ideenfindung übers Prototyping bis zur Entwicklung.",
-  "services.products_services.text": "Digitale Produkte und Services sind unsere Königsdisziplin. Unabhängig davon, ob Sie noch ganz am Anfang stehen oder schon einen ausgearbeiteten Plan haben: unsere Expert:innen tragen gern zum Erfolg Ihrer Idee bei – und bringen ihre eigenen ein.",
-  "services.products_services.list.prototyping": "Prototyping",
-  "services.products_services.list.ideation": "Ideation & Proof of Concepts",
-  "services.products_services.list.development": "Product Design & Development",
-  "services.industries.text": "Wir streben nach hochwertigen und zeitgemäßen Lösungen. Unabhängig von Ihrer Branche und der gewählten Technologie.",
-  "services.industries.title": "Branchen",
-  "services.industries.bank.title": "Banken",
-  "services.industries.bank.text": "Umsetzung und Design der gesamten B2C-Plattform.",
-  "services.industries.automotive.title": "Automotive",
-  "services.industries.automotive.text": "Unterstützung internationaler Marken im Ausbau von B2B- und B2C-Plattformen.",
-  "services.industries.sport.title": "Sport",
-  "services.industries.sport.text": "Gestaltung und Umsetzung der gesamten B2C-Plattform von globalen Playern in der Sportindustrie.",
-  "services.industries.you.title": "Ihre Branche",
-  "services.industries.you.text": "Für Sie werden wir zu Branchenexpert:innen. Sprechen Sie uns an.",
-  "services.industries.insurance.title": "Versicherungen",
-  "services.industries.insurance.text": "Innovative B2B- und B2C-Plattform für Marktführer, abgestimmt auf internationale Märkte und komplexe Regulationen.",
-  "services.leadbox.title": "Haben Sie Interesse bekommen?",
-  "services.leadbox.subtitle": "Projektanfragen",
-  "services.leadbox.text": "Gholam Abdol, Geschäftsführer",
-  "services.leadbox.mail": "info@satellytes.com",
-  "contact.title": "Kontakt",
-  "contact.address": "Adresse",
-  "contact.info.headline": "E-Mail",
-  "contact.info-link": "<0>Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine E-Mail an <1>info@satellytes.com</1></0>",
-  "contact.info": "Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine E-Mail an beep@satellytes.com",
-  "contact.name": "Name",
-  "contact.email": "E-Mail Adresse",
-  "contact.message": "Deine Nachricht an uns",
-  "contact.mandatory-field": "Pflichtfeld",
-  "contact.error.name": "Dein Name fehlt",
-  "contact.error.message": "Deine Nachricht fehlt",
-  "contact.error.email": "Deine E-Mail fehlt",
-  "contact.error.email-undefined": "Irgendwas stimmt an dieser E-Mail nicht",
-  "contact.action.again-text": "Leider gab es einen Fehler. Bitte versuche es noch einmal. Klappt das nicht, schicke deine Nachricht bitte direkt an",
-  "contact.action.missing": "Bitte fülle alle benötigten Felder aus",
-  "contact.action.send": "Senden",
-  "contact.action.sent.headline": "E-Mail wurde gesendet",
-  "contact.action.sent.kicker": "Vielen Dank!",
-  "contact.action.sent.info": "Vielen Dank für Ihre Nachricht. Wir bearbeiten diese und melden uns schnellstmöglich bei Ihnen.",
-  "contact.action.sent.button": "Zur Startseite",
-  "contact.action.again": "Nochmal senden",
-  "contact.leaflet.touch": "Benutze zwei Finger um die Karte zu bewegen",
-  "contact.leaflet.scroll": "Halte 'Strg' während dem Scrollen gedrückt um zu zoomen",
-  "contact.leaflet.scrollMac": "Halte '\u2318' während dem Scrollen gedrückt um zu zoomen",
-  "imprint.title": "Impressum",
-  "imprint.info": "Pflichtangaben nach § 5 Telemediengesetz/Impressum",
-  "imprint.updated": "Aktualisiert: 16.Juli 2020, Erstellt: 12.Sep. 2018",
-  "data-privacy.title": "Datenschutz",
-  "data-privacy.info": "Information über die Erhebung personenbezogener Daten",
-  "navigation.language-aria": "Sprachauswahl",
-  "navigation.main-navigation-aria": "Hauptnavigation",
-  "navigation.en": "English",
-  "navigation.de": "Deutsch",
-  "navigation.menu": "Menu",
-  "navigation.imprint": "Impressum",
-  "navigation.data-privacy": "Datenschutz",
-  "navigation.services": "Leistungen",
-  "navigation.career": "Karriere",
-  "navigation.about-us": "Über Uns",
-  "navigation.blog": "Blog",
-  "navigation.contact": "Kontakt",
-  "blog.info": "Unsere Softwareingenieur:innen und Designer:innen sprechen über die neuesten Trends und das Know-how rund um Tech & Design. Insbesondere über unsere neuesten Erkenntnisse und Einsichten zur Entwicklung guter Software für das Web.",
-  "blog.share": "Artikel teilen",
-  "blog.copied": "Kopiert",
-  "blog.follow": "Blog abonnieren",
-  "blog.pagination": "Seite",
-  "blogpost.leadbox.title": "Interesse mit und bei uns zu arbeiten?",
-  "blogpost.leadbox.link": "Karriere",
-  "image.attribution": "Foto von ",
-  "404": "Oh sorry! Our Satellite took the wrong direction."
-}
+[
+    {
+        "identifier": "\"main.description\"",
+        "source_string": "We make the digital world easier. With customised web software for businesses. From frontend to backend. From web presence to digital security infrastructure.",
+        "translation": "Wir sind Ihr Partner für moderne und zukunftsorientierte Softwareentwicklung. Mit einer Kombination aus Expertise und Enthusiasmus bringen wir Ihre digitale Vision zum Leben. Wir wissen, dass jeder Kunde einzigartig ist. Deshalb entwickeln und designen wir maßgeschneiderte Softwarelösungen, die perfekt auf Ihre Bedürfnisse abgestimmt sind.",
+        "context": " -> main.description",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"main.services.title\"",
+        "source_string": "We connect. With technology.",
+        "translation": "Wir verbinden. Mit Technologie.",
+        "context": " -> main.services.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"main.services.kicker\"",
+        "source_string": "Our services",
+        "translation": "Unsere Leistungen",
+        "context": " -> main.services.kicker",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"main.services.text\"",
+        "source_string": "Our software engineers and designers are united by one thing: a love of detail and technology. We bring both for the goals of your company and the experience of your customers. This is how we find innovative and safe solutions. With respect, curiosity, creativity. And a lot of heart and soul.",
+        "translation": "Unsere Softwareingenieur:innen und Designer:innen vereint eines: die Liebe zum Detail und zur Technologie. Beides bringen wir für die Ziele Ihres Unternehmens und die Experience Ihrer Kunden ein. Mit Respekt, Neugierde, Kreativität und unserem tiefen Verständnis für Technologie und Design schaffen wir Lösungen, die höchsten Sicherheitsstandards entsprechen und benutzerfreundlich sind. Vom Brainstorming über das Prototyping bis zur Entwicklung bieten wir Ihnen einen umfassenden Service, auf den Sie sich verlassen können.",
+        "context": " -> main.services.text",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"main.services.teasers.first.title\"",
+        "source_string": "Enterprise Applications & Libraries",
+        "translation": "Enterprise Applikationen & Libraries",
+        "context": " -> main.services.teasers.first.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"main.services.teasers.first.text\"",
+        "source_string": "Teams of designers, product managers, developers, support staff, marketing specialists, etc. bring the right mix of know-how and experience and ensure that people think outside the box from time to time.",
+        "translation": "Teams aus Designern, Produktmanagern, Entwicklern, Supportmitarbeitern, Marketingspezialisten usw. bringen die richtige Mischung aus Know-how und Erfahrung mit und sorgen dafür, dass auch mal über den Tellerrand geschaut wird.",
+        "context": " -> main.services.teasers.first.text",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"main.services.teasers.second.title\"",
+        "source_string": "Technical analysis",
+        "translation": "Technische Analyse",
+        "context": " -> main.services.teasers.second.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"main.services.teasers.second.text\"",
+        "source_string": "Each team at Satellytes is responsible for its own tasks. In the words of the Agile Manifesto: “The best architectures, requirements and designs come from self-organised teams.”",
+        "translation": "Jedes Team bei Satellytes ist für seine eigenen Aufgaben verantwortlich. In den Worten des Agilen Manifests: „Die besten Architekturen, Anforderungen und Entwürfe entstehen durch selbstorganisierte Teams.“",
+        "context": " -> main.services.teasers.second.text",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"main.services.teasers.third.title\"",
+        "source_string": "UX\/UI",
+        "translation": "Test",
+        "context": " -> main.services.teasers.third.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"main.services.teasers.third.text\"",
+        "source_string": "Quick feedback, short decision-making processes and openness to change are important to us – whether you call it Scrum, Kanban or XP.",
+        "translation": "Schnelles Feedback, kurze Entscheidungswege und Offenheit für Veränderung sind uns wichtig – egal, ob man es Scrum, Kanban oder XP nennt.",
+        "context": " -> main.services.teasers.third.text",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"main.career.title\"",
+        "source_string": "Work with us",
+        "translation": "Arbeite mit uns",
+        "context": " -> main.career.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"main.career.kicker\"",
+        "source_string": "Career with Satellytes",
+        "translation": "Karriere bei Satellytes",
+        "context": " -> main.career.kicker",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"main.career.text\"",
+        "source_string": "We are looking for developers with a passion! You don’t have much work experience yet? No problem. Because you’ll learn everything you need to know with us. You can do everything already? Then you will find new challenges and experienced colleagues at Satellytes with whom you can continue to grow. Take a look at our vacancies. We look forward to receiving your application.",
+        "translation": "Als Technologie-Unternehmen sind wir immer auf der Suche nach leidenschaftlichen Entwickler:innen, die Lust haben, sich neuen Herausforderungen zu stellen um sich kontinuierlich weiterzuentwickeln. Ob du bereits viel Berufserfahrung hast oder nicht, ist für uns nicht ausschlaggebend. Wir bieten dir die Möglichkeit, bei uns alles zu lernen, was du brauchst, um erfolgreich zu sein. Und falls du bereits einiges drauf hast, findest du bei uns anspruchsvolle Aufgaben und erfahrene Kolleg:innen, mit denen du dich weiterentwickeln kannst. Schau dir unsere offenen Stellen an und bewirb dich noch heute. Wir freuen uns darauf, dich kennenzulernen.",
+        "context": " -> main.career.text",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"main.blog.title\"",
+        "source_string": "Blog",
+        "translation": "Blog",
+        "context": " -> main.blog.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"main.blog.kicker\"",
+        "source_string": "News from Satellytes",
+        "translation": "News von Satellytes",
+        "context": " -> main.blog.kicker",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"main.blog.text\"",
+        "source_string": "Here we write about topics that are currently on our minds: the latest trends, interesting cases, personal portraits of our team and, of course, lots of know-how.",
+        "translation": "Hier teilen wir unsere Gedanken zu den neuesten Trends, präsentieren interessante Fallbeispiele und geben Ihnen einen Einblick in das Leben unseres Teams. Unser Ziel ist es, unser Wissen mit anderen zu teilen und unsere Leser auf dem Laufenden zu halten.",
+        "context": " -> main.blog.text",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.title\"",
+        "source_string": "Careers",
+        "translation": "Karriere",
+        "context": " -> career.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.headline\"",
+        "source_string": "Apply now",
+        "translation": "Bewirb dich jetzt",
+        "context": " -> career.headline",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.mandatory-field\"",
+        "source_string": "* Mandatory field",
+        "translation": "* Pflichtfeld",
+        "context": " -> career.mandatory-field",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.first-name\"",
+        "source_string": "First name",
+        "translation": "Vorname",
+        "context": " -> career.first-name",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.last-name\"",
+        "source_string": "Last name",
+        "translation": "Nachname",
+        "context": " -> career.last-name",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.email\"",
+        "source_string": "E-mail address",
+        "translation": "E-Mail Adresse",
+        "context": " -> career.email",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.location\"",
+        "source_string": "Place of residence",
+        "translation": "Wohnort",
+        "context": " -> career.location",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.available-from\"",
+        "source_string": "Available from",
+        "translation": "Verfügbar ab",
+        "context": " -> career.available-from",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.salary-expectations\"",
+        "source_string": "Salary expectation",
+        "translation": "Gehaltsvorstellung",
+        "context": " -> career.salary-expectations",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.cover-letter\"",
+        "source_string": "Cover letter",
+        "translation": "Anschreiben",
+        "context": " -> career.cover-letter",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.file-category\"",
+        "source_string": "Document category",
+        "translation": "Dokument-Kategorie",
+        "context": " -> career.file-category",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.remove-file\"",
+        "source_string": "Remove",
+        "translation": "Entfernen",
+        "context": " -> career.remove-file",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.cv\"",
+        "source_string": "CV",
+        "translation": "Lebenslauf",
+        "context": " -> career.cv",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.other\"",
+        "source_string": "other",
+        "translation": "anderes",
+        "context": " -> career.other",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.info-text\"",
+        "source_string": "Please upload your relevant documents here, e.g. curriculum vitae (CV), letter of motivation or references. Only 3 PDF files are allowed, the maximum size per file is 20MB.",
+        "translation": "Lade hier bitte deine relevanten Dokumente hoch, wie zb Lebenslauf (CV), Motivationsschreiben oder Referenzen. Erlaubt sind ausschließlich 3 PDF Dateien, die maximale Größe pro Datei beträgt 20MB.",
+        "context": " -> career.info-text",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.privacy-policy\"",
+        "source_string": "<0>I hereby confirm that I have read and understood the <1>privacy policy<\/1>.<\/0>",
+        "translation": "<0>Hiermit bestätige ich, dass ich die <1>Datenschutzerklärung<\/1> zur Kenntnis genommen habe.<\/0>",
+        "context": " -> career.privacy-policy",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.introduction.headline\"",
+        "source_string": "Work with us",
+        "translation": "Arbeite mit uns",
+        "context": " -> career.introduction.headline",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.introduction.kicker\"",
+        "source_string": "Career with Satellytes",
+        "translation": "Karriere bei Satellytes",
+        "context": " -> career.introduction.kicker",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.introduction.paragraphs.0\"",
+        "source_string": "We are Satellytes. A team of highly experienced software engineers and designers. We develop sustainable, accessible, reliable and modern web solutions for large companies. If you want to support us in this, then take a look at our open positions right now.",
+        "translation": "Satellytes ist ein Team von hochqualifizierten Softwareingenieur:innen und Designer:innen, das sich auf die Entwicklung von modernen, zuverlässigen und barrierefreien Web-Lösungen spezialisiert hat. Unsere Produkte sind nicht nur funktional und effektiv, sondern auch nachhaltig und zukunftssicher. Wenn du Teil unseres Teams werden möchtest und an der Entwicklung innovativer Lösungen für namhafte Kunden interessiert bist, schau dir am besten unsere aktuellen Stellenangebote an und bewirb dich noch heute.",
+        "context": " -> career.introduction.paragraphs.0",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.application-process.headline\"",
+        "source_string": "Application process",
+        "translation": "Bewerbungsprozess",
+        "context": " -> career.application-process.headline",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.application-process.paragraph\"",
+        "source_string": "Applying for a job is often stressful. We know that. That’s why our team has come up with four steps that make everything easier.",
+        "translation": "Sich auf einen Job zu bewerben, ist oft anstrengend. Wir kennen das. Deshalb hat sich unser Team vier Schritte überlegt, die alles einfacher machen.",
+        "context": " -> career.application-process.paragraph",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.application-process.accordion.0.title\"",
+        "source_string": "1. Apply",
+        "translation": "1. Bewirb dich",
+        "context": " -> career.application-process.accordion.0.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.application-process.accordion.0.paragraph\"",
+        "source_string": "Send us your CV and a short cover letter telling us why you are applying to us. It’s not your degree that’s important to us, but your passion for coding. Show us your GitHub or GitLab account, your blog or YouTube channel. It doesn’t matter. The main thing is that we get a sense of what you are passionate about.",
+        "translation": "Schicke uns deinen Lebenslauf und ein kurzes Anschreiben, in dem du uns erzählst, wieso du dich gerade bei uns bewirbst. Dabei ist uns nicht dein Abschluss, sondern  deine Leidenschaft fürs Coden wichtig. Zeig uns deinen GitHub- oder GitLab-Account, deinen Blog oder YouTube-Kanal. Ganz egal. Hauptsache, wir spüren, wofür du brennst.",
+        "context": " -> career.application-process.accordion.0.paragraph",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.application-process.accordion.1.title\"",
+        "source_string": "2. Get to know each other",
+        "translation": "2. Kennenlernen",
+        "context": " -> career.application-process.accordion.1.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.application-process.accordion.1.paragraph\"",
+        "source_string": "If we find your application convincing, we will invite you to an initial interview with one or two of your future colleagues. They want to know how you got into programming and what drives you. After that, we know you better – and you know the first faces behind Satellytes.",
+        "translation": "Wenn wir deine Bewerbung überzeugend finden, laden wir dich zu einem ersten Gespräch mit ein oder zwei deiner zukünftigen Kolleg:innen ein. Sie wollen erfahren, wie du zum Programmieren gekommen bist und was dich antreibt. Danach kennen wir dich besser – und du kennst die ersten Gesichter hinter Satellytes.",
+        "context": " -> career.application-process.accordion.1.paragraph",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.application-process.accordion.2.title\"",
+        "source_string": "3. Technical interview",
+        "translation": "3. Technisches Interview",
+        "context": " -> career.application-process.accordion.2.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.application-process.accordion.2.paragraph\"",
+        "source_string": "We don’t do whiteboard interviews, nor do we send you any programming assignments. Instead, we want you to do a code review that we talk through in the interview. This automatically leads to exciting conversations – about problems in the code, expertise and relevant technologies. And of course, besides all the technology, we also have time to talk about our culture. To make sure that we fit you. And you fit us.",
+        "translation": "Wir machen weder Whiteboard Interviews noch schicken wir dir irgendwelche Programmieraufgaben. Stattdessen möchten wir, dass du ein Code Review machst, dass wir im Interview durchsprechen. Dabei ergeben sich ganz automatisch spannende Gespräche – über Probleme im Code, Fachwissen und relevante Technologien. Und natürlich haben wir neben der ganzen Technik auch Zeit, über unsere Kultur zu sprechen. Um sicherzustellen, dass wir zu dir passen. Und du zu uns.",
+        "context": " -> career.application-process.accordion.2.paragraph",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.application-process.accordion.3.title\"",
+        "source_string": "4. Decision",
+        "translation": "4. Entscheidung",
+        "context": " -> career.application-process.accordion.3.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.application-process.accordion.3.paragraph\"",
+        "source_string": "You have shown what you can do and how you work. We have shown what drives us and how we work. If everything fits, we’ll let you know. If something doesn’t fit, we’ll let you know too.",
+        "translation": "Du hast gezeigt, was du kannst und wie du arbeitest. Wir haben gezeigt, was uns antreibt und wie wir arbeiten. Wenn alles passt, lassen wir es dich wissen. Passt etwas nicht, dann lassen wir es dich auch wissen.",
+        "context": " -> career.application-process.accordion.3.paragraph",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.openings.headline\"",
+        "source_string": "Our vacancies",
+        "translation": "Unsere offenen Stellen",
+        "context": " -> career.openings.headline",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.culture.headline\"",
+        "source_string": "Fun at work",
+        "translation": "Arbeit, die Freude bereitet",
+        "context": " -> career.culture.headline",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.culture.kicker\"",
+        "source_string": "Team",
+        "translation": "Team",
+        "context": " -> career.culture.kicker",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.culture.paragraph\"",
+        "source_string": "We create the conditions for all our team members to develop personally and professionally.",
+        "translation": "Wir sind überzeugt, dass Freude und Begeisterung bei der Arbeit nicht nur das Arbeitsumfeld angenehmer gestalten, sondern auch die Produktivität und Qualität unserer Arbeit steigern können. Bei uns hast du die Möglichkeit, deine Fähigkeiten und Talente voll auszuschöpfen und deine Ideen einzubringen. Wir fördern eine offene und kreative Arbeitskultur, in der jeder gehört wird und die Möglichkeit hat, zur Verbesserung des Unternehmens beizutragen.",
+        "context": " -> career.culture.paragraph",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.culture.teaser.0.title\"",
+        "source_string": "Cross-functional",
+        "translation": "Positive Arbeitsumgebung",
+        "context": " -> career.culture.teaser.0.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.culture.teaser.0.description\"",
+        "source_string": "Our teams of designers, product managers, developers, support staff, marketing specialists, etc. bring the right mix of know-how and experience and ensure that people think outside the box from time to time.",
+        "translation": "Wir setzen uns dafür ein, dass unsere Kolleg:innen motiviert und zufrieden sind, indem wir ein angenehmes Arbeitsumfeld schaffen, Schulungen und Entwicklungsmöglichkeiten anbieten und eine offene Kommunikation fördern. ",
+        "context": " -> career.culture.teaser.0.description",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.culture.teaser.1.title\"",
+        "source_string": "Self-organisation",
+        "translation": "Feedback",
+        "context": " -> career.culture.teaser.1.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.culture.teaser.1.description\"",
+        "source_string": "Each team at Satellytes is responsible for its own tasks. Because the best architectures, requirements and designs are created by self-organised teams.",
+        "translation": "Feedback ist unser wichtigstes Instrument. Es ist für uns unerlässlich, um als Team erfolgreich zu sein. Code Reviews, Pair Programming, tägliche Stand-up-Meetings, 360-Grad-Feedback: Wir geben jedem die Möglichkeit, sich stetig zu verbessern.",
+        "context": " -> career.culture.teaser.1.description",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.culture.teaser.2.title\"",
+        "source_string": "Agile",
+        "translation": "Wertschätzung",
+        "context": " -> career.culture.teaser.2.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.culture.teaser.2.description\"",
+        "source_string": "Quick feedback, short decision-making processes and openness to change are important to us – whether you call it Scrum, Kanban or XP.",
+        "translation": "Wir schätzen und honorieren die Arbeit unserer Kolleg:innen und möchten dies auch deutlich zum Ausdruck bringen. Wir setzen auf ein offenes Feedback-System, in dem Leistungen gewürdigt und Fortschritte besprochen werden.",
+        "context": " -> career.culture.teaser.2.description",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.culture.teaser.3.title\"",
+        "source_string": "Fail successfully",
+        "translation": "Work-Life-Balance",
+        "context": " -> career.culture.teaser.3.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.culture.teaser.3.description\"",
+        "source_string": "When we try something new, we always risk failure. Never mind – we learn from mistakes, share our insights with others and turn them into successes in the next project.",
+        "translation": "Wir wissen, dass die Work-Life-Balance ein wichtiger Faktor für das Wohlbefinden unserer Kolleg:innen ist. Wir setzen daher auf flexible Arbeitszeiten und Homeoffice-Möglichkeiten, um unseren Kolleg:innen eine ausgewogene Balance zwischen Beruf und Privatleben zu ermöglichen.",
+        "context": " -> career.culture.teaser.3.description",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.culture.teaser.4.title\"",
+        "source_string": "Feedback",
+        "translation": "Team-Events",
+        "context": " -> career.culture.teaser.4.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.culture.teaser.4.description\"",
+        "source_string": "Feedback is our most important tool. Code reviews, pair programming, daily stand-up meetings, 360-degree feedback: We give everyone the opportunity to constantly improve.",
+        "translation": "Gemeinsame Team-Events und Aktivitäten fördern den Zusammenhalt und die Motivation unserer Kolleg:innen. Wir organisieren regelmäßig Events wie Teambuilding-Workshops, Hackathons oder Gaming-Abende, um die Kreativität und den Teamgeist zu fördern.",
+        "context": " -> career.culture.teaser.4.description",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.culture.teaser.5.title\"",
+        "source_string": "Open work",
+        "translation": "Teamarbeit",
+        "context": " -> career.culture.teaser.5.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.culture.teaser.5.description\"",
+        "source_string": "Be open, listen, respect other opinions and find the best solutions together. That’s our motto.",
+        "translation": "Teamarbeit und Zusammenhalt sind bei uns zentrale Werte, die wir aktiv fördern. Wir setzen auf eine enge Zusammenarbeit zwischen unseren Entwicklungs- und Design-Teams, um gemeinsam innovative Software-Lösungen zu entwickeln.",
+        "context": " -> career.culture.teaser.5.description",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.perk.headline\"",
+        "source_string": "Perks & Benefits",
+        "translation": "Perks & Benefits",
+        "context": " -> career.perk.headline",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.perk.kicker\"",
+        "source_string": "Work",
+        "translation": "Arbeiten",
+        "context": " -> career.perk.kicker",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.perk.paragraph\"",
+        "source_string": "In addition to a great team, interesting tasks and a modern working environment, we also offer you other extras.",
+        "translation": "Neben einem großartigen Team, interessanten Aufgaben und einer modernen Arbeitsumgebung bieten wir dir noch weitere Extras.",
+        "context": " -> career.perk.paragraph",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.perk.teaser.0.title\"",
+        "source_string": "Bike",
+        "translation": "Fahrrad",
+        "context": " -> career.perk.teaser.0.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.perk.teaser.0.description\"",
+        "source_string": "Cycling is good for body and mind. With us you can lease a bike or E-Bike. We pay the maintenance and insurance and you save about 40% of the total price.",
+        "translation": "Fahrrad fahren ist gut für Körper und Geist. Bei uns kannst du ein Fahrrad oder E-Bike leasen. Wir bezahlen die Wartung und Versicherung und ihr spart ca. 40% des Gesamtpreises. So könnt ihr nicht nur euren CO2-Fußabdruck reduzieren, sondern auch fit und gesund bleiben.",
+        "context": " -> career.perk.teaser.0.description",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.perk.teaser.1.title\"",
+        "source_string": "Time for experimentation",
+        "translation": "Arbeiten wo du willst",
+        "context": " -> career.perk.teaser.1.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.perk.teaser.1.description\"",
+        "source_string": "We give you the space to try out new technologies or carry out small experiments with your colleagues.",
+        "translation": "Wir bieten unseren Kolleg:innen die Möglichkeit, remote zu arbeiten und somit flexibel zu sein. Ob ihr von zu Hause aus arbeiten möchtet oder von einem Café in der Stadt, ihr habt die Freiheit zu entscheiden, wo ihr am produktivsten seid.",
+        "context": " -> career.perk.teaser.1.description",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.perk.teaser.2.title\"",
+        "source_string": "Lifelong learning",
+        "translation": "Konferenzen",
+        "context": " -> career.perk.teaser.2.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.perk.teaser.2.description\"",
+        "source_string": "You will learn something with us every day, whether you consider yourself a beginner or a professional. If you don’t have the muse yourself, your colleagues will certainly inspire you. And if you ever need a book: Every book is on us.",
+        "translation": "Wir lieben Tech-Konferenzen und sind schon bei vielen gewesen – manchmal sogar als Speaker. Das wollen wir auch für dich: Deshalb zahlen wir Ticket, Kost und Logis – und unterstützen dich, wenn du Ambitionen hast, Speaker:in zu werden.",
+        "context": " -> career.perk.teaser.2.description",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.perk.teaser.3.title\"",
+        "source_string": "Favourite equipment",
+        "translation": "Flexible Arbeitszeiten",
+        "context": " -> career.perk.teaser.3.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.perk.teaser.3.description\"",
+        "source_string": "Whether MacBook or Linux laptop. Whether mouse, trackpad, VSCode or IntelliJ. You have the choice with us.",
+        "translation": "Wir wissen, dass jede:r Kolleg:innen unterschiedliche Bedürfnisse hat. Deshalb bieten wir flexible Arbeitszeiten an, damit ihr eure Arbeit an eure persönlichen Anforderungen anpassen könnt.",
+        "context": " -> career.perk.teaser.3.description",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.perk.teaser.4.title\"",
+        "source_string": "Work where you want",
+        "translation": "Lebenslanges Lernen",
+        "context": " -> career.perk.teaser.4.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.perk.teaser.4.description\"",
+        "source_string": "You can choose your working hours and location flexibly in consultation with your team and customers.",
+        "translation": "Du wirst bei uns jeden Tag etwas lernen, egal ob du dich als Anfänger oder Profi siehst. Sollte dir selbst mal die Muse fehlen, dann inspirieren dich ganz sicher deine Kolleg:innen. Und wenn du mal ein Buch brauchst: Jedes Buch geht auf uns.",
+        "context": " -> career.perk.teaser.4.description",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.perk.teaser.5.title\"",
+        "source_string": "Conferences",
+        "translation": "Lieblingsausrüstung",
+        "context": " -> career.perk.teaser.5.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.perk.teaser.5.description\"",
+        "source_string": "We love tech conferences and have been to many – sometimes even as speakers. We want that for you too: That’s why we pay for your ticket, board and lodging – and support you if you have ambitions to become a speaker.",
+        "translation": "Wir möchten sicherstellen, dass ihr euch bei uns wohlfühlt und motiviert seid. Egal, ob du lieber mit einem MacBook oder einem Linux Laptop arbeitest, eine Maus oder ein Trackpad bevorzugst oder dich für VSCode oder IntelliJ entscheidest - bei uns hast du die Wahl.",
+        "context": " -> career.perk.teaser.5.description",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.error.approval\"",
+        "source_string": "Your consent is missing",
+        "translation": "Deine Zustimmung fehlt",
+        "context": " -> career.error.approval",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.error.first-name\"",
+        "source_string": "Your first name is missing",
+        "translation": "Dein Vorname fehlt",
+        "context": " -> career.error.first-name",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.error.last-name\"",
+        "source_string": "Your last name is missing",
+        "translation": "Dein Nachname fehlt",
+        "context": " -> career.error.last-name",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.error.email\"",
+        "source_string": "Your email is missing",
+        "translation": "Deine E-Mail fehlt",
+        "context": " -> career.error.email",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.error.email-undefined\"",
+        "source_string": "Something is wrong with this email",
+        "translation": "Irgendwas stimmt an dieser E-Mail nicht",
+        "context": " -> career.error.email-undefined",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.error.cv\"",
+        "source_string": "Your CV is missing",
+        "translation": "Dein CV fehlt",
+        "context": " -> career.error.cv",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.error.max-number\"",
+        "source_string": "Maximum number of documents has been reached.",
+        "translation": "Maximale Anzahl Dokumente ist erreicht.",
+        "context": " -> career.error.max-number",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.error.max-size\"",
+        "source_string": "Maximum document size (20MB) was exceeded",
+        "translation": "Maximale Dokumentgröße (20MB) wurde überschritten",
+        "context": " -> career.error.max-size",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.error.category\"",
+        "source_string": "There is a category missing",
+        "translation": "Eine Kategorie fehlt",
+        "context": " -> career.error.category",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.error.cover-letter\"",
+        "source_string": "Your Cover letter is missing",
+        "translation": "Dein Anschreiben fehlt",
+        "context": " -> career.error.cover-letter",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.error.cover-letter-length\"",
+        "source_string": "Your Cover letter should have a minimum length of 100 characters",
+        "translation": "Dein Anschreiben muss mindestens 100 Zeichen lang sein",
+        "context": " -> career.error.cover-letter-length",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.action.upload\"",
+        "source_string": "<0>Drag the documents onto the field or <1>select<\/1> them<\/0>",
+        "translation": "<0>Ziehe die Dokumente auf das Feld oder <1>wähle<\/1> sie aus<\/0>",
+        "context": " -> career.action.upload",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.action.send\"",
+        "source_string": "Send",
+        "translation": "Senden",
+        "context": " -> career.action.send",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.action.again\"",
+        "source_string": "Send again",
+        "translation": "Nochmal senden",
+        "context": " -> career.action.again",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.action.home\"",
+        "source_string": "Back to home",
+        "translation": "Zur Startseite",
+        "context": " -> career.action.home",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.action.again-text\"",
+        "source_string": "Please try again. If it doesn’t work, send your application directly to <1>career@satellytes.com<\/1>",
+        "translation": "Versuch es bitte noch einmal. Klappt es nicht dann schicke deine Bewerbung direkt an <1>career@satellytes.com<\/1>",
+        "context": " -> career.action.again-text",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.seo.title-detail\"",
+        "source_string": "Careers - {{name}} | Satellytes",
+        "translation": "Karriere - {{name}} | Satellytes",
+        "context": " -> career.seo.title-detail",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.seo.description-detail\"",
+        "source_string": "Apply now as {{name}}! Check out our other vacancies. We look forward to receiving your application.",
+        "translation": "Bewirb dich jetzt als {{name}}! Schaue Dir unsere anderen offenen Stelle an. Wir freuen uns auf Deine Bewerbung.",
+        "context": " -> career.seo.description-detail",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.seo.title\"",
+        "source_string": "Careers | Satellytes",
+        "translation": "Karriere | Satellytes",
+        "context": " -> career.seo.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.seo.description\"",
+        "source_string": "We are looking for developers with passion! Take a look at our vacancies. We look forward to receiving your application.",
+        "translation": "Wir suchen Entwickler:innen aus Leidenschaft! Schaue Dir unsere offenen Stellen an. Wir freuen uns auf Deine Bewerbung.",
+        "context": " -> career.seo.description",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.thank\"",
+        "source_string": "Thank you!",
+        "translation": "Vielen Dank!",
+        "context": " -> career.thank",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.email-confirmation\"",
+        "source_string": "E-Mail has been sent",
+        "translation": "E-Mail wurde gesendet",
+        "context": " -> career.email-confirmation",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.success-text\"",
+        "source_string": "We'll take a look at everything and get back to you!",
+        "translation": "Wir schauen uns alles an und melden uns dann!",
+        "context": " -> career.success-text",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.leadbox.title\"",
+        "source_string": "Your job is not listed?",
+        "translation": "Deine Stelle ist nicht dabei?",
+        "context": " -> career.leadbox.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.leadbox.subtitle\"",
+        "source_string": "Unsolicited application",
+        "translation": "Initiativbewerbung",
+        "context": " -> career.leadbox.subtitle",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.leadbox.text\"",
+        "source_string": "Georgios Kaleadis, CTO",
+        "translation": "Georgios Kaleadis, CTO",
+        "context": " -> career.leadbox.text",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.leadbox.mail\"",
+        "source_string": "career@satellytes.com",
+        "translation": "career@satellytes.com",
+        "context": " -> career.leadbox.mail",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.hero\"",
+        "source_string": "Services",
+        "translation": "Unsere Leistungen",
+        "context": " -> services.hero",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.title\"",
+        "source_string": "Development meets design",
+        "translation": "Development trifft Design",
+        "context": " -> services.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.kicker\"",
+        "source_string": "From platform to product",
+        "translation": "Von der Plattform bis zum Produkt",
+        "context": " -> services.kicker",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.text\"",
+        "source_string": "Our love for excellent technology is just as great as our love for good design. That is why we unite both worlds. So that you can rely not only on functionality and safety. But also that your customers are offered a digital experience.",
+        "translation": "Wir bei Satellytes sind der Überzeugung, dass Technologie und Design Hand in Hand gehen sollten. Nur wenn beides perfekt aufeinander abgestimmt ist, entstehen digitale Lösungen, die nicht nur funktionieren, sondern auch begeistern. Deshalb haben wir es uns zur Aufgabe gemacht, die neuesten technischen Entwicklungen mit einem herausragenden Design zu verbinden. Denn wir wissen, dass sich Ihre Kunden nicht nur auf Funktionalität und Sicherheit verlassen möchten. Sie möchten ein digitales Erlebnis, das sie in seinen Bann zieht und sie auf eine einzigartige Reise mitnimmt. Dabei geht es nicht nur um Ästhetik, sondern auch um eine intuitive Benutzerführung, die es jedem ermöglicht, sich schnell zurechtzufinden und das volle Potenzial der Technologie zu nutzen. Ob es um Entwicklung Ihrer Applikation oder eines digitalen Produkts geht - wir sind immer bestrebt, das Beste aus beiden Welten zu vereinen. ",
+        "context": " -> services.text",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.platform.title\"",
+        "source_string": "Digital platforms",
+        "translation": "Digitale Plattformen",
+        "context": " -> services.platform.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.platform.teaser\"",
+        "source_string": "Whether B2B or B2C platform – we are the ideal partner for you.",
+        "translation": "Unser Fokus auf Usability und agiler Entwicklung ermöglicht es uns, digitale Produkte zu gestalten und umzusetzen, die nicht nur technisch solide sind, sondern auch die Bedürfnisse und Wünsche Ihrer Kunden erfüllen.",
+        "context": " -> services.platform.teaser",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.platform.text\"",
+        "source_string": "We are specialists for digital platforms. From idea to implementation. Our many years of experience in designing B2B and B2C platforms from a wide range of industries make us the ideal partner for your project.",
+        "translation": "Dank unserer umfassenden Kompetenz in den Bereichen Technologie und Design sind wir in der Lage, Ihre digitalen Produkte optimal zu gestalten und zu entwickeln. Wir sind uns bewusst, dass eine einwandfreie Funktionalität und Sicherheit ebenso wichtig sind wie ein ansprechendes Design, um ein erstklassiges digitales Erlebnis für Ihre Kunden zu schaffen. Aus diesem Grund haben wir unser Fachwissen in beiden Bereichen kombiniert, um Produkte zu entwickeln, die diesen Anforderungen gerecht werden.",
+        "context": " -> services.platform.text",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.platform.list.platforms\"",
+        "source_string": "Digital platform design & development",
+        "translation": "Digital platform design & development",
+        "context": " -> services.platform.list.platforms",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.platform.list.lowcode\"",
+        "source_string": "Low-Code systems",
+        "translation": "Low-Code systems",
+        "context": " -> services.platform.list.lowcode",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.platform.list.designsystems\"",
+        "source_string": "Design systems",
+        "translation": "Design systems",
+        "context": " -> services.platform.list.designsystems",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.platform.list.infrastructure\"",
+        "source_string": "Infrastructure & Automation",
+        "translation": "Infrastructure & Automation",
+        "context": " -> services.platform.list.infrastructure",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.platform.kicker\"",
+        "source_string": "Cloud. Engineering. Design",
+        "translation": "Cloud. Engineering. Design",
+        "context": " -> services.platform.kicker",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.consulting.title\"",
+        "source_string": "Consultation",
+        "translation": "Technische Beratung",
+        "context": " -> services.consulting.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.consulting.teaser\"",
+        "source_string": "You can rely on our many years of experience.",
+        "translation": "Mit unseren bewährten Methoden und neuesten Technologien arbeiten wir eng mit Ihnen zusammen, um sicherzustellen, dass Ihr digitales Ökosystem stets auf dem neuesten Stand ist und Sie Ihre Konkurrenten hinter sich lassen.",
+        "context": " -> services.consulting.teaser",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.consulting.text\"",
+        "source_string": "The many years of experience of our employees is our most valuable treasure. We will gladly open our treasure chest for you – and advise you on technical and conceptual matters.",
+        "translation": "Unser Unternehmen verfügt über ein hochqualifiziertes Team von Experten mit langjähriger Erfahrung in der Softwareentwicklung. Wir wissen, dass jedes Unternehmen unterschiedliche Bedürfnisse hat und bieten daher individuelle Lösungen für unsere Kunden an. Wir öffnen gerne unsere Schatztruhe und teilen unser Wissen und unsere Erfahrung, um unseren Kunden dabei zu helfen, ihre digitale Präsenz zu verbessern und ihre Geschäftsziele zu erreichen.",
+        "context": " -> services.consulting.text",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.consulting.list.workshops\"",
+        "source_string": "Trainings & Workshops",
+        "translation": "Trainings & Workshops",
+        "context": " -> services.consulting.list.workshops",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.consulting.kicker\"",
+        "source_string": "Technical Analysis",
+        "translation": "Technische Analyse",
+        "context": " -> services.consulting.kicker",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.products_services.title\"",
+        "source_string": "Products & Services",
+        "translation": "Softwareentwicklung",
+        "context": " -> services.products_services.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.products_services.teaser\"",
+        "source_string": "We support you from brainstorming through prototyping to development.",
+        "translation": "Unser tiefes Verständnis für Ihre Anforderungen, gepaart mit unserer Expertise in der Softwareentwicklung, ermöglicht es uns, Lösungen von höchster Qualität zu liefern, die Ihre Erwartungen übertreffen werden.",
+        "context": " -> services.products_services.teaser",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.products_services.text\"",
+        "source_string": "Digital products and services are our supreme discipline. Regardless of whether you are still at the very beginning or already have a well-developed plan: our experts are happy to contribute to the success of your idea – and bring in their own.",
+        "translation": "Wir lieben Softwareentwicklung und setzen unsere Leidenschaft und Expertise ein, um für Sie maßgeschneiderte Lösungen zu entwickeln, die Ihre Geschäftsprozesse verbessern und Ihre Effizienz steigern. Unser Ziel ist es, Ihre individuellen Anforderungen zu verstehen und eine Softwarelösung zu entwickeln, die perfekt auf Ihre Bedürfnisse abgestimmt ist. Dabei setzen wir die neuesten Technologien ein und achten auf höchste Qualität und Effizienz in jeder Phase des Entwicklungsprozesses. Wir glauben, dass der Schlüssel zum Erfolg in der Zusammenarbeit mit unseren Kunden liegt. Wir hören genau zu, stellen gezielte Fragen und arbeiten eng mit Ihnen zusammen, um sicherzustellen, dass Sie die bestmögliche Lösung erhalten. Wir sind erst dann zufrieden, wenn Sie es auch sind.",
+        "context": " -> services.products_services.text",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.products_services.list.prototyping\"",
+        "source_string": "Prototyping",
+        "translation": "Prototyping",
+        "context": " -> services.products_services.list.prototyping",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.products_services.list.ideation\"",
+        "source_string": "Ideation & Proof of Concepts",
+        "translation": "Ideation & Proof of Concepts",
+        "context": " -> services.products_services.list.ideation",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.products_services.list.development\"",
+        "source_string": "Product Design & Development",
+        "translation": "Product Design & Development",
+        "context": " -> services.products_services.list.development",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.products_services.kicker\"",
+        "source_string": "Product Engineering",
+        "translation": "Product Engineering",
+        "context": " -> services.products_services.kicker",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.industries.text\"",
+        "source_string": "We strive for high-quality and contemporary solutions. Regardless of your industry and the technology you choose.",
+        "translation": "Wir streben nach hochwertigen und zeitgemäßen Lösungen. Unabhängig von Ihrer Branche und der gewählten Technologie.",
+        "context": " -> services.industries.text",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.industries.title\"",
+        "source_string": "Industries",
+        "translation": "Branchen",
+        "context": " -> services.industries.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.industries.bank.title\"",
+        "source_string": "Banks",
+        "translation": "Banken",
+        "context": " -> services.industries.bank.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.industries.bank.text\"",
+        "source_string": "Implementation and design of the entire B2C platform.",
+        "translation": "Umsetzung und Design der gesamten B2C-Plattform.",
+        "context": " -> services.industries.bank.text",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.industries.automotive.title\"",
+        "source_string": "Automotive",
+        "translation": "Automotive",
+        "context": " -> services.industries.automotive.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.industries.automotive.text\"",
+        "source_string": "Supporting international brands in the expansion of B2B and B2C platforms.",
+        "translation": "Unterstützung internationaler Marken im Ausbau von B2B- und B2C-Plattformen.",
+        "context": " -> services.industries.automotive.text",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.industries.sport.title\"",
+        "source_string": "Sport",
+        "translation": "Sport",
+        "context": " -> services.industries.sport.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.industries.sport.text\"",
+        "source_string": "Design and implementation of the entire B2C platform of global players in the sports industry.",
+        "translation": "Gestaltung und Umsetzung der gesamten B2C-Plattform von globalen Playern in der Sportindustrie.",
+        "context": " -> services.industries.sport.text",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.industries.you.title\"",
+        "source_string": "Your industry",
+        "translation": "Ihre Branche",
+        "context": " -> services.industries.you.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.industries.you.text\"",
+        "source_string": "We become industry experts for you. Talk to us.",
+        "translation": "Für Sie werden wir zu Branchenexpert:innen. Sprechen Sie uns an.",
+        "context": " -> services.industries.you.text",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.industries.insurance.title\"",
+        "source_string": "Insurances",
+        "translation": "Versicherungen",
+        "context": " -> services.industries.insurance.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.industries.insurance.text\"",
+        "source_string": "Innovative B2B and B2C platform for market leaders, adapted to international markets and complex regulations.",
+        "translation": "Innovative B2B- und B2C-Plattform für Marktführer, abgestimmt auf internationale Märkte und komplexe Regulationen.",
+        "context": " -> services.industries.insurance.text",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.leadbox.title\"",
+        "source_string": "Have you become interested?",
+        "translation": "Haben Sie Interesse bekommen?",
+        "context": " -> services.leadbox.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.leadbox.subtitle\"",
+        "source_string": "Project enquiries",
+        "translation": "Projektanfragen",
+        "context": " -> services.leadbox.subtitle",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.leadbox.text\"",
+        "source_string": "Gholam Abdol, Managing Director",
+        "translation": "Gholam Abdol, Geschäftsführer",
+        "context": " -> services.leadbox.text",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.leadbox.mail\"",
+        "source_string": "info@satellytes.com",
+        "translation": "info@satellytes.com",
+        "context": " -> services.leadbox.mail",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"contact.title\"",
+        "source_string": "Contact",
+        "translation": "Kontakt",
+        "context": " -> contact.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"contact.address\"",
+        "source_string": "Address",
+        "translation": "Adresse",
+        "context": " -> contact.address",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"contact.info.headline\"",
+        "source_string": "Email",
+        "translation": "E-Mail",
+        "context": " -> contact.info.headline",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"contact.info-link\"",
+        "source_string": "<0>Please use our contact form or send us an email to <1>info@satellytes.com<\/1><\/0>",
+        "translation": "<0>Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine E-Mail an <1>info@satellytes.com<\/1><\/0>",
+        "context": " -> contact.info-link",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"contact.info\"",
+        "source_string": "Please use our contact form or send us an email to beep@satellytes.com",
+        "translation": "Nutzen Sie unser Kontaktformular oder schreiben Sie uns eine E-Mail an beep@satellytes.com",
+        "context": " -> contact.info",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"contact.name\"",
+        "source_string": "Name",
+        "translation": "Name",
+        "context": " -> contact.name",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"contact.email\"",
+        "source_string": "E-mail address",
+        "translation": "E-Mail Adresse",
+        "context": " -> contact.email",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"contact.message\"",
+        "source_string": "Your message to us",
+        "translation": "Deine Nachricht an uns",
+        "context": " -> contact.message",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"contact.mandatory-field\"",
+        "source_string": "Mandatory field",
+        "translation": "Pflichtfeld",
+        "context": " -> contact.mandatory-field",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"contact.error.name\"",
+        "source_string": "Your name is missing",
+        "translation": "Dein Name fehlt",
+        "context": " -> contact.error.name",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"contact.error.message\"",
+        "source_string": "Your message is missing",
+        "translation": "Deine Nachricht fehlt",
+        "context": " -> contact.error.message",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"contact.error.email\"",
+        "source_string": "Your email is missing",
+        "translation": "Deine E-Mail fehlt",
+        "context": " -> contact.error.email",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"contact.error.email-undefined\"",
+        "source_string": "Something is wrong with this email",
+        "translation": "Irgendwas stimmt an dieser E-Mail nicht",
+        "context": " -> contact.error.email-undefined",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"contact.action.again-text\"",
+        "source_string": "Unfortunately, there was a mistake. Please try again. If this does not work, please send your message directly to",
+        "translation": "Leider gab es einen Fehler. Bitte versuche es noch einmal. Klappt das nicht, schicke deine Nachricht bitte direkt an",
+        "context": " -> contact.action.again-text",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"contact.action.missing\"",
+        "source_string": "Please fill in all required fields",
+        "translation": "Bitte fülle alle benötigten Felder aus",
+        "context": " -> contact.action.missing",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"contact.action.send\"",
+        "source_string": "Send",
+        "translation": "Senden",
+        "context": " -> contact.action.send",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"contact.action.again\"",
+        "source_string": "Send again",
+        "translation": "Nochmal senden",
+        "context": " -> contact.action.again",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"contact.leaflet.touch\"",
+        "source_string": "Use two fingers to move the map",
+        "translation": "Benutze zwei Finger um die Karte zu bewegen",
+        "context": " -> contact.leaflet.touch",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"contact.leaflet.scroll\"",
+        "source_string": "Use ctrl + scroll to zoom the map",
+        "translation": "Halte 'Strg' während dem Scrollen gedrückt um zu zoomen",
+        "context": " -> contact.leaflet.scroll",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"contact.leaflet.scrollMac\"",
+        "source_string": "Use ⌘ + scroll to zoom the map",
+        "translation": "Halte '⌘' während dem Scrollen gedrückt um zu zoomen",
+        "context": " -> contact.leaflet.scrollMac",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"imprint.title\"",
+        "source_string": "Imprint",
+        "translation": "Impressum",
+        "context": " -> imprint.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"imprint.info\"",
+        "source_string": "Mandatory information according to § 5 Telemedia Act\/Imprint",
+        "translation": "Pflichtangaben nach § 5 Telemediengesetz\/Impressum",
+        "context": " -> imprint.info",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"imprint.updated\"",
+        "source_string": "Updated: 16th July 2020, Created: 12th Sep. 2018",
+        "translation": "Aktualisiert: 16.Juli 2020, Erstellt: 12.Sep. 2018",
+        "context": " -> imprint.updated",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"data-privacy.title\"",
+        "source_string": "Data protection",
+        "translation": "Datenschutz",
+        "context": " -> data-privacy.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"data-privacy.info\"",
+        "source_string": "Information on the collection of personal data",
+        "translation": "Information über die Erhebung personenbezogener Daten",
+        "context": " -> data-privacy.info",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"navigation.language-aria\"",
+        "source_string": "Language selection",
+        "translation": "Sprachauswahl",
+        "context": " -> navigation.language-aria",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"navigation.main-navigation-aria\"",
+        "source_string": "Main navigation",
+        "translation": "Hauptnavigation",
+        "context": " -> navigation.main-navigation-aria",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"navigation.en\"",
+        "source_string": "English",
+        "translation": "English",
+        "context": " -> navigation.en",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"navigation.de\"",
+        "source_string": "German",
+        "translation": "Deutsch",
+        "context": " -> navigation.de",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"navigation.menu\"",
+        "source_string": "Menu",
+        "translation": "Menu",
+        "context": " -> navigation.menu",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"navigation.imprint\"",
+        "source_string": "Imprint",
+        "translation": "Impressum",
+        "context": " -> navigation.imprint",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"navigation.data-privacy\"",
+        "source_string": "Data protection",
+        "translation": "Datenschutz",
+        "context": " -> navigation.data-privacy",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"navigation.services\"",
+        "source_string": "Services",
+        "translation": "Leistungen",
+        "context": " -> navigation.services",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"navigation.career\"",
+        "source_string": "Careers",
+        "translation": "Karriere",
+        "context": " -> navigation.career",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"navigation.blog\"",
+        "source_string": "Blog",
+        "translation": "Blog",
+        "context": " -> navigation.blog",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"navigation.contact\"",
+        "source_string": "Contact",
+        "translation": "Kontakt",
+        "context": " -> navigation.contact",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"blog.info\"",
+        "source_string": "Our software engineers and designers talk about the latest trends and know-how in tech & design. Especially about our latest findings and insights on developing good software for the web.",
+        "translation": "Unsere Softwareingenieur:innen und Designer:innen sprechen über die neuesten Trends und das Know-how rund um Tech & Design. Insbesondere über unsere neuesten Erkenntnisse und Einsichten zur Entwicklung guter Software für das Web.",
+        "context": " -> blog.info",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"blog.share\"",
+        "source_string": "Share article",
+        "translation": "Artikel teilen",
+        "context": " -> blog.share",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"blog.copied\"",
+        "source_string": "Copied",
+        "translation": "Kopiert",
+        "context": " -> blog.copied",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"blog.follow\"",
+        "source_string": "Subscribe to blog",
+        "translation": "Blog abonnieren",
+        "context": " -> blog.follow",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"blog.pagination\"",
+        "source_string": "Page",
+        "translation": "Seite",
+        "context": " -> blog.pagination",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"blogpost.leadbox.title\"",
+        "source_string": "Interested in working with and for us?",
+        "translation": "Interesse mit und bei uns zu arbeiten?",
+        "context": " -> blogpost.leadbox.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"blogpost.leadbox.link\"",
+        "source_string": "Careers",
+        "translation": "Karriere",
+        "context": " -> blogpost.leadbox.link",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"image.attribution\"",
+        "source_string": "Photo by ",
+        "translation": "Foto von ",
+        "context": " -> image.attribution",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "404",
+        "source_string": "Oh sorry! Our Satellite took the wrong direction.",
+        "translation": "Oh sorry! Our Satellite took the wrong direction.",
+        "context": " -> 404",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"main.services.button\"",
+        "source_string": "Learn more",
+        "translation": "Erfahren Sie mehr",
+        "context": " -> main.services.button",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"main.career.button\"",
+        "source_string": "All vacancies",
+        "translation": "Alle offenen Stellen",
+        "context": " -> main.career.button",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"main.blog.button\"",
+        "source_string": "All articles",
+        "translation": "Alle Artikel",
+        "context": " -> main.blog.button",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"career.position\"",
+        "source_string": "Position",
+        "translation": "Stelle",
+        "context": " -> career.position",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"about-us.title\"",
+        "source_string": "About",
+        "translation": "Über uns",
+        "context": " -> about-us.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"about-us.office.title\"",
+        "source_string": "Office",
+        "translation": "Office",
+        "context": " -> about-us.office.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"about-us.office.heading\"",
+        "source_string": "In the heart of Munich - directly at Sendlinger Tor",
+        "translation": "Im Herzen von München - direkt am Sendlinger Tor",
+        "context": " -> about-us.office.heading",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"about-us.office.text\"",
+        "source_string": "Our office is a place to work, feel good, get to know each other and get together. For us and our customers.",
+        "translation": "Unser Büro ist ein Ort zum Arbeiten, Wohlfühlen, Kennenlernen und Zusammenkommen. Für uns und unsere Kund:innen.",
+        "context": " -> about-us.office.text",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"about-us.team.title\"",
+        "source_string": "Team",
+        "translation": "Team",
+        "context": " -> about-us.team.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"about-us.team.heading\"",
+        "source_string": "This is us",
+        "translation": "Das sind wir",
+        "context": " -> about-us.team.heading",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"about-us.team.text\"",
+        "source_string": "Our experienced team of software engineers and designers.",
+        "translation": "Unser Team ist das Herzstück unserer Firma und besteht aus talentierten und engagierten Softwareingenieur:innen und Designer:innen, die gemeinsam daran arbeiten, innovative Lösungen zu entwickeln und unsere Kunden zufrieden zu stellen.",
+        "context": " -> about-us.team.text",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"about-us.leadbox.title\"",
+        "source_string": "Have you become interested?",
+        "translation": "Du hast Interesse bekommen?",
+        "context": " -> about-us.leadbox.title",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"about-us.leadbox.link\"",
+        "source_string": "Careers",
+        "translation": "Karriere",
+        "context": " -> about-us.leadbox.link",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.hero.description\"",
+        "source_string": "We set up digital platforms. Develop products and services for you – and with you. And are available to advise you with workshops, training and analyses.",
+        "translation": "Unsere Priorität ist es, kreative und effektive Lösungen zu erarbeiten, welche unseren Kunden dabei helfen, ihre Geschäftsziele zu erreichen. Dazu hören wir unseren Kunden aufmerksam zu, um ihre individuellen Bedürfnisse und Anforderungen zu verstehen. Mithilfe der neuesten Technologien erarbeiten wir anschließend maßgeschneiderte Lösungen. Wir sind davon überzeugt, dass unsere Arbeit einen positiven Einfluss haben wird.",
+        "context": " -> services.hero.description",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.consulting.list.techanalysis\"",
+        "source_string": "Technical analysis",
+        "translation": "Technical analysis",
+        "context": " -> services.consulting.list.techanalysis",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"services.consulting.list.uxanalysis\"",
+        "source_string": "UX\/UI Analyses & Reports",
+        "translation": "UX\/UI Analyses & Reports",
+        "context": " -> services.consulting.list.uxanalysis",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"contact.action.sent.headline\"",
+        "source_string": "Email was sent",
+        "translation": "E-Mail wurde gesendet",
+        "context": " -> contact.action.sent.headline",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"contact.action.sent.kicker\"",
+        "source_string": "Thank you very much!",
+        "translation": "Vielen Dank!",
+        "context": " -> contact.action.sent.kicker",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"contact.action.sent.info\"",
+        "source_string": "Thank you for your message. We will process it and get back to you as soon as possible.",
+        "translation": "Vielen Dank für Ihre Nachricht. Wir bearbeiten diese und melden uns schnellstmöglich bei Ihnen.",
+        "context": " -> contact.action.sent.info",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"contact.action.sent.button\"",
+        "source_string": "To the home page",
+        "translation": "Zur Startseite",
+        "context": " -> contact.action.sent.button",
+        "labels": null,
+        "max_length": null
+    },
+    {
+        "identifier": "\"navigation.about-us\"",
+        "source_string": "About",
+        "translation": "Über Uns",
+        "context": " -> navigation.about-us",
+        "labels": null,
+        "max_length": null
+    }
+]
