@@ -58,5 +58,19 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
         `,
       }}
     />,
+    <script
+      key="cronitor-rum-src"
+      async
+      src="https://rum.cronitor.io/script.js"
+    />,
+    <script
+      key="cronitor-rum-code"
+      dangerouslySetInnerHTML={{
+        __html: `
+          window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
+          cronitor('config', { clientKey: '1738c097c114938b168dfd91d5253e22' });
+        `,
+      }}
+    />,
   ]);
 };
