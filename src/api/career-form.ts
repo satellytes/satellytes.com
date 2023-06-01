@@ -2,7 +2,7 @@ import { GatsbyFunctionRequest, GatsbyFunctionResponse } from 'gatsby';
 import { LogLevel, WebClient } from '@slack/web-api';
 
 const TOKEN = process.env.SLACK_BOT_SY_TOKEN;
-const CHANNEL_ID = 'raketenhafte-rekrutierung';
+const CHANNEL_ID = 'C04TU7RUEM8'; // id of the recruiting channel
 
 const getFileNameList = (files) =>
   files?.reduce((acc, current) => acc + ` - ${current.originalname} \n`, '');
