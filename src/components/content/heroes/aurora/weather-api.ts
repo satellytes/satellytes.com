@@ -4,7 +4,7 @@ const API_KEY = process.env.WEATHER_API_KEY;
 const latitude = 48.1351;
 const longitude = 11.582;
 
-async function getWeather() {
+export async function getWeather() {
   const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${latitude},${longitude}`;
 
   try {

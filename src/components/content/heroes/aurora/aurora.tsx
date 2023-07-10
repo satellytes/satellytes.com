@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { getWeather } from './weather-api';
 
 import AuroraBlurredBackgroundA from '../../../../assets/images/aurora/bg-blur-a.png';
 import AuroraBlurredBackgroundB from '../../../../assets/images/aurora/bg-blur-b.png';
@@ -15,6 +16,14 @@ export enum AuroraType {
   Pink = 'pink',
   Blue = 'blue',
   BrightBlue = 'bright-blue',
+}
+
+export enum WeatherType {
+  Sunny = 'Sunny',
+  Cloudy = 'Cloudy',
+  Rainy = 'Rainy',
+  Snowy = 'Snowy',
+  NotSet = 'Not set',
 }
 
 interface AuroraBackgroundProps {
@@ -56,6 +65,40 @@ export interface AuroraProps {
 }
 
 export const Aurora = ({ type, className }: AuroraProps) => {
+  const [weather, setWeather] = useState(WeatherType.NotSet);
+
+  const activateWeather = async () => {
+    setWeather(await getWeather());
+  };
+
+  const deactivateWeather = () => {
+    setWeather(WeatherType.NotSet);
+  };
+
+  const toggleWeather = () => {
+    if (weather === WeatherType.NotSet) {
+      activateWeather();
+    } else {
+      deactivateWeather();
+    }
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      // Check if the shortcut is pressed (Ctrl + Alt + Shift)
+      if (event.ctrlKey && event.altKey && event.shiftKey) {
+        toggleWeather();
+      }
+    };
+
+    // Attach the keydown event listener when the component mounts
+    document.addEventListener('keydown', handleKeyDown);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [weather]);
   function getSource(type?: AuroraType) {
     if (type === AuroraType.Pink) {
       return AuroraBlurredBackgroundB;
