@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { WanderAnimation } from './aurora-animation';
 import FlareTypeB from '../../../../assets/images/aurora/flare-type-b.png';
 import FlareTypeA from '../../../../assets/images/aurora/flare-type-a.png';
+import FlareTypeC from '../../../../assets/images/aurora/flare-type-c.png';
 
 const FLARE_ANIMATION_DURATION = 240;
 
@@ -20,12 +21,12 @@ export interface FlareProps {
   /**
    * The human eye spots similar animations really quickly
    * that's why we want to allow to rotate the entire animation with this value
-   * This creates enough noise so it looks like a distinct animation.
+   * This creates enough noise, so it looks like a distinct animation.
    */
   rotation?: number;
   /**
    * The actual animation has a fixed duration (currently 240s) to appear
-   * very slowly. This multipliers allows to scale the value. A value of 2 means
+   * very slowly. This multiplier allows to scale the value. A value of 2 means
    * half the time (120s) which makes the animation twice as fast. If you pass 0.5
    * the animation will run 480s (half the speed)
    */
@@ -56,6 +57,7 @@ export interface FlareProps {
 export enum FlareType {
   LIGHT = 'light',
   DARK = 'dark',
+  RADIAL = 'radial',
 }
 
 function getFlareImage(type: FlareType) {
@@ -63,9 +65,13 @@ function getFlareImage(type: FlareType) {
     return css`
       background-image: url(${FlareTypeB});
     `;
-  } else {
+  } else if (type === FlareType.LIGHT) {
     return css`
       background-image: url(${FlareTypeA});
+    `;
+  } else if (type === FlareType.RADIAL) {
+    return css`
+      background-image: url(${FlareTypeC});
     `;
   }
 }
