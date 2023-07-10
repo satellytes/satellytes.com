@@ -133,6 +133,42 @@ export const Aurora = ({ type, className }: AuroraProps) => {
       <AuroraForeground>
         <AuroraForeground>
           {flaresByWeather[weather || WeatherType.NotSet]}
+          <Flare
+            key="flare-2"
+            opacity={0.5}
+            speedMultiplier={2}
+            stepSize={20}
+            flareType={FlareType.LIGHT}
+            x={'20vw'}
+            y={'90vh'}
+            size={550}
+            rotation={0}
+          />
+          ,
+          <Flare
+            key="flare-4"
+            opacity={0.3}
+            stepSize={40}
+            flareType={FlareType.LIGHT}
+            x={'80vw'}
+            y={'20vw'}
+            size={250}
+            rotation={70}
+            animationOffset={7}
+          />
+          ,
+          <Flare
+            key="flare-1"
+            opacity={0.6}
+            speedMultiplier={0.5}
+            stepSize={-80}
+            flareType={FlareType.LIGHT}
+            x={'20vw'}
+            y={'0vh'}
+            size={400}
+            rotation={180}
+          />
+          ,
         </AuroraForeground>
       </AuroraForeground>
     </AuroraContainer>
@@ -142,7 +178,7 @@ export const Aurora = ({ type, className }: AuroraProps) => {
 const flaresByWeather: { [key in WeatherType] } = {
   [WeatherType.Sunny]: [
     <Flare
-      key="flare-1"
+      key="flare-sun"
       opacity={0.9}
       speedMultiplier={0.1}
       stepSize={-80}
@@ -151,6 +187,26 @@ const flaresByWeather: { [key in WeatherType] } = {
       y={'40vh'}
       size={400}
       rotation={180}
+    />,
+    <Flare
+      key="flare-5"
+      stepSize={0}
+      flareType={FlareType.LIGHT}
+      x={'70vw'}
+      y={'300px'}
+      size={100}
+      rotation={80}
+      animationOffset={14}
+    />,
+    <Flare
+      key="flare-3"
+      stepSize={20}
+      flareType={FlareType.LIGHT}
+      x={'50vw'}
+      y={'50vw'}
+      size={150}
+      rotation={30}
+      animationOffset={3}
     />,
   ],
   [WeatherType.Cloudy]: [
@@ -164,28 +220,6 @@ const flaresByWeather: { [key in WeatherType] } = {
   ],
   [WeatherType.NotSet]: [
     <Flare
-      key="flare-1"
-      opacity={0.6}
-      speedMultiplier={0.5}
-      stepSize={-80}
-      flareType={FlareType.LIGHT}
-      x={'20vw'}
-      y={'0vh'}
-      size={400}
-      rotation={180}
-    />,
-    <Flare
-      key="flare-2"
-      opacity={0.5}
-      speedMultiplier={2}
-      stepSize={20}
-      flareType={FlareType.LIGHT}
-      x={'20vw'}
-      y={'90vh'}
-      size={550}
-      rotation={0}
-    />,
-    <Flare
       key="flare-3"
       stepSize={20}
       flareType={FlareType.DARK}
@@ -194,17 +228,6 @@ const flaresByWeather: { [key in WeatherType] } = {
       size={150}
       rotation={30}
       animationOffset={3}
-    />,
-    <Flare
-      key="flare-4"
-      opacity={0.3}
-      stepSize={40}
-      flareType={FlareType.LIGHT}
-      x={'80vw'}
-      y={'20vw'}
-      size={250}
-      rotation={70}
-      animationOffset={7}
     />,
     <Flare
       key="flare-5"
