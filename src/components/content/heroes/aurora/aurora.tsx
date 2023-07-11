@@ -9,6 +9,21 @@ import AuroraBlurredBackgroundC from '../../../../assets/images/aurora/bg-blur-c
 
 import { Flare, FlareType } from './flare';
 import PrecipitationEffect, { PrecipitationType } from './precipitationEffect';
+import {
+  CloudBackground,
+  CloudFrame,
+  CloudGroup,
+  CloudOverlapGroup,
+  CloudOverlay1,
+  CloudOverlay2,
+  CloudOverlay3,
+  CloudOverlay4,
+  CloudOverlay5,
+  CloudOverlay6,
+  CloudShape1,
+  CloudShape2,
+  CloudWrapper,
+} from './clouds';
 
 const BACKGROUND_LAYER_Z = -2;
 const FOREGROUND_LAYER_Z = -1;
@@ -259,7 +274,23 @@ const flaresByWeather: { [key in WeatherType] } = {
     />,
   ],
   [WeatherType.Cloudy]: [
-    // Add your cloudy flares here
+    <CloudFrame key="clouds">
+      <CloudWrapper>
+        <CloudGroup>
+          <CloudOverlapGroup>
+            <CloudShape1 />
+            <CloudBackground />
+            <CloudShape2 />
+            <CloudOverlay1 />
+            <CloudOverlay2 />
+            <CloudOverlay3 />
+            <CloudOverlay4 />
+            <CloudOverlay5 />
+            <CloudOverlay6 />
+          </CloudOverlapGroup>
+        </CloudGroup>
+      </CloudWrapper>
+    </CloudFrame>,
   ],
   [WeatherType.Rainy]: [
     <AuroraRainyFlareBackground4 key="flare-rainy-bg-4" />,
