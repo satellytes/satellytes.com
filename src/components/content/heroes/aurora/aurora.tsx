@@ -81,38 +81,27 @@ export interface AuroraProps {
 export const Aurora = ({ type, className }: AuroraProps) => {
   const [weather, setWeather] = useState(WeatherType.NotSet);
 
-  const activateWeather = async () => {
-    setWeather(await getWeather());
-  };
-
-  const deactivateWeather = () => {
-    setWeather(WeatherType.NotSet);
-  };
-
-  const toggleWeather = () => {
+  const toggleWeather = async () => {
     if (weather === WeatherType.NotSet) {
-      activateWeather();
+      setWeather(await getWeather());
     } else {
-      deactivateWeather();
+      setWeather(WeatherType.NotSet);
     }
   };
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      // Check if the shortcut is pressed (Ctrl + Alt + Shift)
       if (event.ctrlKey && event.altKey && event.shiftKey) {
         toggleWeather();
       }
     };
 
-    // Attach the keydown event listener when the component mounts
     document.addEventListener('keydown', handleKeyDown);
 
-    // Clean up the event listener when the component unmounts
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [weather]);
+  });
   function getSource(type?: AuroraType) {
     if (weather !== WeatherType.NotSet) {
       return '';
