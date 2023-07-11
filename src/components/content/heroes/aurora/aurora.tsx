@@ -8,7 +8,7 @@ import AuroraBlurredBackgroundB from '../../../../assets/images/aurora/bg-blur-b
 import AuroraBlurredBackgroundC from '../../../../assets/images/aurora/bg-blur-c.png';
 
 import { Flare, FlareType } from './flare';
-import RainyEffect from './rain';
+import PrecipitationEffect, { PrecipitationType } from './precipitationEffect';
 
 const BACKGROUND_LAYER_Z = -2;
 const FOREGROUND_LAYER_Z = -1;
@@ -117,6 +117,19 @@ const AuroraRainyFlareBackground4 = styled.div`
   width: 100%;
   height: 100%;
   background: linear-gradient(180deg, #110f31 0%, rgba(77, 121, 255, 0.15) 90%);
+  position: absolute;
+`;
+
+const AuroraSnowyFlareBackground1 = styled.div`
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    0deg,
+    rgba(99, 93, 224, 0.6) 0%,
+    rgba(77, 121, 255, 0) 90%
+  );
   position: absolute;
 `;
 
@@ -253,10 +266,21 @@ const flaresByWeather: { [key in WeatherType] } = {
     <AuroraRainyFlareBackground3 key="flare-rainy-bg-3" />,
     <AuroraRainyFlareBackground2 key="flare-rainy-bg-2" />,
     <AuroraRainyFlareBackground1 key="flare-rainy-bg-1" />,
-    <RainyEffect dropCount={550} speed={1} key="rain" />,
+    <PrecipitationEffect
+      dropCount={550}
+      speed={1}
+      type={PrecipitationType.Rain}
+      key="rain"
+    />,
   ],
   [WeatherType.Snowy]: [
-    // Add your snowy flares here
+    <AuroraSnowyFlareBackground1 key="flare-snowy-bg-1" />,
+    <PrecipitationEffect
+      dropCount={200}
+      speed={5}
+      type={PrecipitationType.Snow}
+      key="snow"
+    />,
   ],
   [WeatherType.NotSet]: [
     <Flare
