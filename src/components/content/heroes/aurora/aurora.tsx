@@ -88,7 +88,7 @@ const AuroraContainer = styled.div`
   pointer-events: none;
 `;
 
-const AuroraRainyFlareBackground1 = styled.div`
+const AuroraRainyFlareColor1 = styled.div`
   right: -25%;
   top: -20%;
   width: 1094px;
@@ -99,7 +99,7 @@ const AuroraRainyFlareBackground1 = styled.div`
   position: absolute;
 `;
 
-const AuroraRainyFlareBackground2 = styled.div`
+const AuroraRainyFlareColor2 = styled.div`
   top: -65%;
   left: -30%;
   width: 970px;
@@ -110,7 +110,7 @@ const AuroraRainyFlareBackground2 = styled.div`
   position: absolute;
 `;
 
-const AuroraRainyFlareBackground3 = styled.div`
+const AuroraRainyFlareColor3 = styled.div`
   bottom: -50%;
   left: -20%;
   width: 970px;
@@ -126,7 +126,7 @@ const AuroraRainyFlareBackground3 = styled.div`
   opacity: 50%;
 `;
 
-const AuroraRainyFlareBackground4 = styled.div`
+const AuroraRainyFlareColor4 = styled.div`
   top: 0;
   left: 0;
   width: 100%;
@@ -135,7 +135,7 @@ const AuroraRainyFlareBackground4 = styled.div`
   position: absolute;
 `;
 
-const AuroraSnowyFlareBackground1 = styled.div`
+const AuroraSnowyFlareColor1 = styled.div`
   top: 0;
   left: 0;
   width: 100%;
@@ -293,10 +293,10 @@ const flaresByWeather: { [key in WeatherType] } = {
     </CloudFrame>,
   ],
   [WeatherType.Rainy]: [
-    <AuroraRainyFlareBackground4 key="flare-rainy-bg-4" />,
-    <AuroraRainyFlareBackground3 key="flare-rainy-bg-3" />,
-    <AuroraRainyFlareBackground2 key="flare-rainy-bg-2" />,
-    <AuroraRainyFlareBackground1 key="flare-rainy-bg-1" />,
+    <AuroraRainyFlareColor4 key="flare-rainy-bg-4" />,
+    <AuroraRainyFlareColor3 key="flare-rainy-bg-3" />,
+    <AuroraRainyFlareColor2 key="flare-rainy-bg-2" />,
+    <AuroraRainyFlareColor1 key="flare-rainy-bg-1" />,
     <PrecipitationEffect
       dropCount={550}
       speed={1}
@@ -305,7 +305,7 @@ const flaresByWeather: { [key in WeatherType] } = {
     />,
   ],
   [WeatherType.Snowy]: [
-    <AuroraSnowyFlareBackground1 key="flare-snowy-bg-1" />,
+    <AuroraSnowyFlareColor1 key="flare-snowy-bg-1" />,
     <PrecipitationEffect
       dropCount={200}
       speed={5}
