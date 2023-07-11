@@ -8,6 +8,7 @@ import AuroraBlurredBackgroundB from '../../../../assets/images/aurora/bg-blur-b
 import AuroraBlurredBackgroundC from '../../../../assets/images/aurora/bg-blur-c.png';
 
 import { Flare, FlareType } from './flare';
+import RainyEffect from './rain';
 
 const BACKGROUND_LAYER_Z = -2;
 const FOREGROUND_LAYER_Z = -1;
@@ -252,6 +253,7 @@ const flaresByWeather: { [key in WeatherType] } = {
     <AuroraRainyFlareBackground3 key="flare-rainy-bg-3" />,
     <AuroraRainyFlareBackground2 key="flare-rainy-bg-2" />,
     <AuroraRainyFlareBackground1 key="flare-rainy-bg-1" />,
+    <RainyEffect dropCount={550} speed={1} key="rain" />,
   ],
   [WeatherType.Snowy]: [
     // Add your snowy flares here
