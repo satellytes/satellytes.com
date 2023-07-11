@@ -1,12 +1,23 @@
 import axios from 'axios';
 
 const API_KEY = process.env.WEATHER_API_KEY;
-const BASE_URL = 'https://api.weatherapi.com/v1/current.json';
-const latitude = 48.1351;
-const longitude = 11.582;
+const BASE_URL = 'https://api.weatherapi.com/v1';
 
 export async function getWeather() {
-  const apiUrl = BASE_URL + `?key=${API_KEY}&q=${latitude},${longitude}`;
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/ip.json?key=${API_KEY}&q=auto:ip`,
+    );
+    const { lat, lon } = response.data;
+    return getWeatherOfLocation(lat, lon);
+  } catch (error) {
+    console.error('Error fetching IP geolocation:', error);
+    return 'NotSet';
+  }
+}
+
+export async function getWeatherOfLocation(latitude, longitude) {
+  const apiUrl = `${BASE_URL}/current.json?key=${API_KEY}&q=${latitude},${longitude}`;
 
   try {
     const response = await axios.get(apiUrl);
