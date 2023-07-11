@@ -9,8 +9,8 @@ import AuroraBlurredBackgroundC from '../../../../assets/images/aurora/bg-blur-c
 
 import { Flare, FlareType } from './flare';
 
-const BACKGROUND_LAYER_Z = -1;
-const FOREGROUND_LAYER_Z = 0;
+const BACKGROUND_LAYER_Z = -2;
+const FOREGROUND_LAYER_Z = -1;
 
 export enum AuroraType {
   Pink = 'pink',
@@ -70,6 +70,53 @@ const AuroraForeground = styled.div`
 
 const AuroraContainer = styled.div`
   pointer-events: none;
+`;
+
+const AuroraRainyFlareBackground1 = styled.div`
+  right: -25%;
+  top: -20%;
+  width: 1094px;
+  height: 1094px;
+  border-radius: 1094px;
+  background: linear-gradient(180deg, #150b28 0%, rgba(35, 33, 131, 0.15) 100%);
+  filter: blur(125px);
+  position: absolute;
+`;
+
+const AuroraRainyFlareBackground2 = styled.div`
+  top: -65%;
+  left: -30%;
+  width: 970px;
+  height: 970px;
+  border-radius: 970px;
+  background: linear-gradient(180deg, #2a275f 0%, #535364 100%);
+  filter: blur(125px);
+  position: absolute;
+`;
+
+const AuroraRainyFlareBackground3 = styled.div`
+  bottom: -50%;
+  left: -20%;
+  width: 970px;
+  height: 970px;
+  border-radius: 970px;
+  background: linear-gradient(
+    180deg,
+    #4d79ff 0%,
+    rgba(77, 121, 255, 0.15) 100%
+  );
+  filter: blur(125px);
+  position: absolute;
+  opacity: 50%;
+`;
+
+const AuroraRainyFlareBackground4 = styled.div`
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #110f31 0%, rgba(77, 121, 255, 0.15) 90%);
+  position: absolute;
 `;
 
 export interface AuroraProps {
@@ -201,7 +248,10 @@ const flaresByWeather: { [key in WeatherType] } = {
     // Add your cloudy flares here
   ],
   [WeatherType.Rainy]: [
-    // Add your rainy flares here
+    <AuroraRainyFlareBackground4 key="flare-rainy-bg-4" />,
+    <AuroraRainyFlareBackground3 key="flare-rainy-bg-3" />,
+    <AuroraRainyFlareBackground2 key="flare-rainy-bg-2" />,
+    <AuroraRainyFlareBackground1 key="flare-rainy-bg-1" />,
   ],
   [WeatherType.Snowy]: [
     // Add your snowy flares here
