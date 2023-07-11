@@ -198,7 +198,6 @@ export const Aurora = ({ type, className }: AuroraProps) => {
         <AuroraForeground>
           {flaresByWeather[weather || WeatherType.NotSet]}
           <Flare
-            key="flare-2"
             opacity={0.5}
             speedMultiplier={2}
             stepSize={20}
@@ -210,7 +209,6 @@ export const Aurora = ({ type, className }: AuroraProps) => {
           />
           ,
           <Flare
-            key="flare-4"
             opacity={0.3}
             stepSize={40}
             flareType={FlareType.LIGHT}
@@ -222,7 +220,6 @@ export const Aurora = ({ type, className }: AuroraProps) => {
           />
           ,
           <Flare
-            key="flare-1"
             opacity={0.6}
             speedMultiplier={0.5}
             stepSize={-80}
@@ -240,40 +237,39 @@ export const Aurora = ({ type, className }: AuroraProps) => {
 };
 
 const flaresByWeather: { [key in WeatherType] } = {
-  [WeatherType.Sunny]: [
-    <Flare
-      key="flare-sun"
-      opacity={0.9}
-      speedMultiplier={0.1}
-      stepSize={-80}
-      flareType={FlareType.RADIAL}
-      x={'20vw'}
-      y={'40vh'}
-      size={400}
-      rotation={180}
-    />,
-    <Flare
-      key="flare-5"
-      stepSize={0}
-      flareType={FlareType.LIGHT}
-      x={'70vw'}
-      y={'300px'}
-      size={100}
-      rotation={80}
-      animationOffset={14}
-    />,
-    <Flare
-      key="flare-3"
-      stepSize={20}
-      flareType={FlareType.LIGHT}
-      x={'50vw'}
-      y={'50vw'}
-      size={150}
-      rotation={30}
-      animationOffset={3}
-    />,
-  ],
-  [WeatherType.Cloudy]: [
+  [WeatherType.Sunny]: (
+    <>
+      <Flare
+        opacity={0.9}
+        speedMultiplier={0.1}
+        stepSize={-80}
+        flareType={FlareType.RADIAL}
+        x={'20vw'}
+        y={'40vh'}
+        size={400}
+        rotation={180}
+      />
+      <Flare
+        stepSize={0}
+        flareType={FlareType.LIGHT}
+        x={'70vw'}
+        y={'300px'}
+        size={100}
+        rotation={80}
+        animationOffset={14}
+      />
+      <Flare
+        stepSize={20}
+        flareType={FlareType.LIGHT}
+        x={'50vw'}
+        y={'50vw'}
+        size={150}
+        rotation={30}
+        animationOffset={3}
+      />
+    </>
+  ),
+  [WeatherType.Cloudy]: (
     <CloudFrame key="clouds">
       <CloudWrapper>
         <CloudGroup>
@@ -290,49 +286,51 @@ const flaresByWeather: { [key in WeatherType] } = {
           </CloudOverlapGroup>
         </CloudGroup>
       </CloudWrapper>
-    </CloudFrame>,
-  ],
-  [WeatherType.Rainy]: [
-    <AuroraRainyFlareColor4 key="flare-rainy-bg-4" />,
-    <AuroraRainyFlareColor3 key="flare-rainy-bg-3" />,
-    <AuroraRainyFlareColor2 key="flare-rainy-bg-2" />,
-    <AuroraRainyFlareColor1 key="flare-rainy-bg-1" />,
-    <PrecipitationEffect
-      dropCount={550}
-      speed={1}
-      type={PrecipitationType.Rain}
-      key="rain"
-    />,
-  ],
-  [WeatherType.Snowy]: [
-    <AuroraSnowyFlareColor1 key="flare-snowy-bg-1" />,
-    <PrecipitationEffect
-      dropCount={200}
-      speed={5}
-      type={PrecipitationType.Snow}
-      key="snow"
-    />,
-  ],
-  [WeatherType.NotSet]: [
-    <Flare
-      key="flare-3"
-      stepSize={20}
-      flareType={FlareType.DARK}
-      x={'50vw'}
-      y={'50vw'}
-      size={150}
-      rotation={30}
-      animationOffset={3}
-    />,
-    <Flare
-      key="flare-5"
-      stepSize={0}
-      flareType={FlareType.DARK}
-      x={'70vw'}
-      y={'300px'}
-      size={100}
-      rotation={80}
-      animationOffset={14}
-    />,
-  ],
+    </CloudFrame>
+  ),
+  [WeatherType.Rainy]: (
+    <>
+      <AuroraRainyFlareColor4 />
+      <AuroraRainyFlareColor3 />
+      <AuroraRainyFlareColor2 />
+      <AuroraRainyFlareColor1 />
+      <PrecipitationEffect
+        dropCount={550}
+        speed={1}
+        type={PrecipitationType.Rain}
+      />
+    </>
+  ),
+  [WeatherType.Snowy]: (
+    <>
+      <AuroraSnowyFlareColor1 />
+      <PrecipitationEffect
+        dropCount={200}
+        speed={5}
+        type={PrecipitationType.Snow}
+      />
+    </>
+  ),
+  [WeatherType.NotSet]: (
+    <>
+      <Flare
+        stepSize={20}
+        flareType={FlareType.DARK}
+        x={'50vw'}
+        y={'50vw'}
+        size={150}
+        rotation={30}
+        animationOffset={3}
+      />
+      <Flare
+        stepSize={0}
+        flareType={FlareType.DARK}
+        x={'70vw'}
+        y={'300px'}
+        size={100}
+        rotation={80}
+        animationOffset={14}
+      />
+    </>
+  ),
 };
