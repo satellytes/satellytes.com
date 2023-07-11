@@ -298,6 +298,7 @@ const flaresByWeather: { [key in WeatherType] } = {
         dropCount={550}
         speed={1}
         type={PrecipitationType.Rain}
+        speedDeviation={0.1}
       />
     </>
   ),
@@ -308,6 +309,7 @@ const flaresByWeather: { [key in WeatherType] } = {
         dropCount={200}
         speed={5}
         type={PrecipitationType.Snow}
+        speedDeviation={1}
       />
     </>
   ),

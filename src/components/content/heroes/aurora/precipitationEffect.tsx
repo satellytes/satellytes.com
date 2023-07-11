@@ -50,7 +50,7 @@ export enum PrecipitationType {
   Snow = 'snow',
 }
 
-const PrecipitationEffect = ({ dropCount, speed, type }) => {
+const PrecipitationEffect = ({ dropCount, speed, type, speedDeviation }) => {
   const [rainDrops, setRainDrops] = useState<RainDropData[]>([]);
   const [snowflakes, setSnowflakes] = useState<RainDropData[]>([]);
 
@@ -59,7 +59,8 @@ const PrecipitationEffect = ({ dropCount, speed, type }) => {
       const newDrops = Array.from({ length: dropCount }, (_, index) => ({
         id: index,
         color: '#76a5d2',
-        speed: speed || 1,
+        speed:
+          speed + (Math.random() * (speedDeviation * 2) - speedDeviation) || 1,
         delay: Math.random() * 5,
         left: Math.random() * 100,
       }));
