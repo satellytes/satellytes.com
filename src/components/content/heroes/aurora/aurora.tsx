@@ -32,16 +32,15 @@ interface AuroraBackgroundProps {
 }
 
 const AuroraBackground = styled.div<AuroraBackgroundProps>`
-  background-color: ${(props) => {
+  background: ${(props) => {
     switch (props.weather) {
       case WeatherType.Sunny:
         return '#3E61EE';
       case WeatherType.Rainy:
         return '#9BA3BB';
       case WeatherType.Snowy:
-        return '#202840';
       case WeatherType.Cloudy:
-        return '#202840';
+      case WeatherType.NotSet:
       default:
         return '#202840';
     }
