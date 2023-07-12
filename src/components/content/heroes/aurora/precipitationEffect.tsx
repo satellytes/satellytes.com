@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
-const fallAnimation = keyframes`
+const fallAnimationRain = keyframes`
   0% {
     transform: translateY(-75px);
     opacity: 0;
@@ -12,21 +12,35 @@ const fallAnimation = keyframes`
   }
 `;
 
+const fallAnimationSnow = keyframes`
+  0% {
+    transform: translateY(-75px) translateX(0);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(random(-100vw, 100vw));
+  }
+  100% {
+    transform: translateY(150vh) translateX(0);
+    opacity: 1;
+  }
+`;
+
 const Raindrop = styled.div<{ color: string; speed: number }>`
   position: absolute;
   width: 3px;
   height: 50px;
   border-radius: 150%;
   background-color: ${(props) => props.color};
-  animation: ${fallAnimation} ${(props) => props.speed}s linear infinite;
+  animation: ${fallAnimationRain} ${(props) => props.speed}s linear infinite;
 `;
 
-const Snowflake = styled.div<{ speed: number }>`
+const Snowflake = styled.div<{ speed: number; size: number }>`
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: ${(props) => props.size}px;
+  height: ${(props) => props.size}px;
   border-radius: 150%;
-  animation: ${fallAnimation} ${(props) => props.speed}s linear infinite;
+  animation: ${fallAnimationSnow} ${(props) => props.speed}s linear infinite;
   background: radial-gradient(
     50% 50% at 50% 50%,
     #fff 0%,
@@ -99,6 +113,7 @@ const PrecipitationEffect = ({ dropCount, speed, type, speedDeviation }) => {
           <Snowflake
             key={drop.id}
             speed={drop.speed}
+            size={(30 - drop.speed * 3) * 1.75}
             style={{
               left: `${drop.left}%`,
               top: '-75px',
