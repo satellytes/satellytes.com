@@ -18,8 +18,8 @@ export async function getWeather() {
 
 export function getWeatherDescription(conditionCode) {
   const weatherTypeMap = {
-    '1000': WeatherType.Sunny,
-    '1003-1009': WeatherType.Cloudy,
+    '1000-1003': WeatherType.Sunny,
+    '1004-1009': WeatherType.Cloudy,
     '1030': WeatherType.Cloudy,
     '1063-1072': WeatherType.Rainy,
     '1087': WeatherType.Rainy,
