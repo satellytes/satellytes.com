@@ -63,8 +63,10 @@ const AuroraBackground = styled.div<AuroraBackgroundProps>`
   }};
   position: absolute;
 
-  background: url(${(props) => props.source}) no-repeat center -20vw;
+  background-image: url(${(props) => props.source});
+  background-repeat: no-repeat;
   background-size: cover;
+  background-position: center -20vw;
   z-index: ${BACKGROUND_LAYER_Z};
   left: 0;
   right: 0;
