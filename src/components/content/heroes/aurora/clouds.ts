@@ -1,4 +1,21 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const getRandomValue = (min, max) => Math.random() * (max - min) + min;
+const getRandomDuration = () => `${getRandomValue(8, 12)}s`;
+const getRandomTransform = () =>
+  `translate(${getRandomValue(-50, 50)}px, ${getRandomValue(-50, 50)}px)`;
+
+const cloudAnimation = keyframes`
+  0% {
+    transform: ${getRandomTransform()};
+  }
+  50% {
+    transform: ${getRandomTransform()};
+  }
+  100% {
+    transform: ${getRandomTransform()};
+  }
+`;
 
 export const CloudFrame = styled.div`
   background-color: #202840;
@@ -6,6 +23,7 @@ export const CloudFrame = styled.div`
   flex-direction: row;
   justify-content: center;
   width: 100%;
+  height: 100%;
 `;
 
 export const CloudWrapper = styled.div`
@@ -22,10 +40,11 @@ export const CloudGroup = styled.div`
   position: relative;
   top: -407px;
   width: 100%;
+  animation: ${cloudAnimation} ${getRandomDuration()} infinite alternate;
 `;
 
 export const CloudOverlapGroup = styled.div`
-  height: 1648px;
+  height: 100%;
   position: relative;
 `;
 
@@ -57,6 +76,7 @@ export const CloudShape1 = styled.div`
   position: absolute;
   top: 485px;
   width: 970px;
+  animation: ${cloudAnimation} ${getRandomDuration()} infinite alternate;
 `;
 
 export const CloudShape2 = styled.div`
@@ -72,6 +92,7 @@ export const CloudShape2 = styled.div`
   position: absolute;
   top: 305px;
   width: 1094px;
+  animation: ${cloudAnimation} ${getRandomDuration()} infinite alternate;
 `;
 
 export const CloudOverlay1 = styled.div`
@@ -90,6 +111,7 @@ export const CloudOverlay1 = styled.div`
   top: 465px;
   width: 284px;
   filter: blur(25px);
+  animation: ${cloudAnimation} ${getRandomDuration()} infinite alternate;
 `;
 
 export const CloudOverlay2 = styled.div`
@@ -109,6 +131,7 @@ export const CloudOverlay2 = styled.div`
   transform: rotate(122.06deg);
   width: 693px;
   filter: blur(25px);
+  animation: ${cloudAnimation} ${getRandomDuration()} infinite alternate;
 `;
 
 export const CloudOverlay3 = styled.div`
@@ -127,6 +150,7 @@ export const CloudOverlay3 = styled.div`
   top: 500px;
   width: 333px;
   filter: blur(25px);
+  animation: ${cloudAnimation} ${getRandomDuration()} infinite alternate;
 `;
 
 export const CloudOverlay4 = styled.div`
@@ -145,6 +169,7 @@ export const CloudOverlay4 = styled.div`
   top: 626px;
   width: 308px;
   filter: blur(25px);
+  animation: ${cloudAnimation} ${getRandomDuration()} infinite alternate;
 `;
 
 export const CloudOverlay5 = styled.div`
@@ -163,6 +188,7 @@ export const CloudOverlay5 = styled.div`
   top: 465px;
   width: 457px;
   filter: blur(25px);
+  animation: ${cloudAnimation} ${getRandomDuration()} infinite alternate;
 `;
 
 export const CloudOverlay6 = styled.div`
@@ -180,4 +206,5 @@ export const CloudOverlay6 = styled.div`
   top: 434px;
   width: 285px;
   filter: blur(25px);
+  animation: ${cloudAnimation} ${getRandomDuration()} infinite alternate;
 `;
