@@ -63,10 +63,8 @@ const AuroraBackground = styled.div<AuroraBackgroundProps>`
   }};
   position: absolute;
 
-  background-image: url(${(props) => props.source});
-  background-repeat: no-repeat;
+  background: url(${(props) => props.source}) no-repeat center -20vw;
   background-size: cover;
-  background-position: center -20vw;
   z-index: ${BACKGROUND_LAYER_Z};
   left: 0;
   right: 0;
@@ -167,7 +165,7 @@ export const Aurora = ({ type, className }: AuroraProps) => {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.ctrlKey && event.altKey && event.shiftKey) {
-        toggleWeather();
+        toggleWeather().then();
       }
     };
 

@@ -77,7 +77,6 @@ function getFlareImage(type: FlareType) {
 }
 
 export const Flare = styled.div<FlareProps>`
-  --flare-rotate: 0deg;
   --flare-step-size: ${(props) => props.stepSize ?? 20}px;
   --flare-size: ${(props) => props.size ?? 100}px;
   --flare-rotate: ${(props) => props.rotation ?? 0}deg;
