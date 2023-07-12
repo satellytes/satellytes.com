@@ -207,7 +207,6 @@ export const Aurora = ({ type, className }: AuroraProps) => {
             size={550}
             rotation={0}
           />
-          ,
           <Flare
             opacity={0.3}
             stepSize={40}
@@ -218,7 +217,6 @@ export const Aurora = ({ type, className }: AuroraProps) => {
             rotation={70}
             animationOffset={7}
           />
-          ,
           <Flare
             opacity={0.6}
             speedMultiplier={0.5}
@@ -229,7 +227,6 @@ export const Aurora = ({ type, className }: AuroraProps) => {
             size={400}
             rotation={180}
           />
-          ,
         </AuroraForeground>
       </AuroraForeground>
     </AuroraContainer>
