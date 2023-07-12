@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Aurora, AuroraType } from './aurora/aurora';
+import { Aurora } from './aurora/aurora';
 import { HeroContainer, TextContainer } from './support';
 import { HeroText, HeroWithText } from './hero-text';
+import { AuroraType } from './aurora/aurora-types';
 
 const AuroraFullSize = styled(Aurora)`
   grid-area: 1/1;
