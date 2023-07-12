@@ -198,10 +198,10 @@ export const flaresByWeather: { [key in WeatherType] } = {
     <>
       <AuroraSnowyFlareColor1 />
       <PrecipitationEffect
-        dropCount={200}
-        speed={5}
+        dropCount={100}
+        speed={10}
         type={PrecipitationType.Snow}
-        speedDeviation={1}
+        speedDeviation={3}
       />
     </>
   ),

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
-const fallAnimationRain = keyframes`
+const fallAnimation = keyframes`
   0% {
     transform: translateY(-75px);
     opacity: 0;
@@ -12,17 +12,12 @@ const fallAnimationRain = keyframes`
   }
 `;
 
-const fallAnimationSnow = keyframes`
-  0% {
-    transform: translateY(-75px) translateX(0);
-    opacity: 0;
+const swayAnimation = keyframes`
+  0%, 100% {
+    transform: translateX(0);
   }
   50% {
-    transform: translateX(random(-100vw, 100vw));
-  }
-  100% {
-    transform: translateY(150vh) translateX(0);
-    opacity: 1;
+    transform: translateX(-${Math.random() * 200}px);
   }
 `;
 
@@ -32,7 +27,7 @@ const Raindrop = styled.div<{ color: string; speed: number }>`
   height: 50px;
   border-radius: 150%;
   background-color: ${(props) => props.color};
-  animation: ${fallAnimationRain} ${(props) => props.speed}s linear infinite;
+  animation: ${fallAnimation} ${(props) => props.speed}s linear infinite;
 `;
 
 const Snowflake = styled.div<{ speed: number; size: number }>`
@@ -40,7 +35,8 @@ const Snowflake = styled.div<{ speed: number; size: number }>`
   width: ${(props) => props.size}px;
   height: ${(props) => props.size}px;
   border-radius: 150%;
-  animation: ${fallAnimationSnow} ${(props) => props.speed}s linear infinite;
+  animation: ${swayAnimation} ${(props) => props.speed / 3}s ease-in-out
+    infinite alternate;
   background: radial-gradient(
     50% 50% at 50% 50%,
     #fff 0%,
@@ -50,8 +46,12 @@ const Snowflake = styled.div<{ speed: number; size: number }>`
   );
   filter: blur(2px);
 `;
+const SnowflakeContainer = styled.div<{ speed: number }>`
+  animation: ${fallAnimation} ${(props) => props.speed}s linear infinite;
+  position: absolute;
+`;
 
-interface RainDropData {
+interface precipitationData {
   id: number;
   color: string;
   speed: number;
@@ -65,8 +65,8 @@ export enum PrecipitationType {
 }
 
 const PrecipitationEffect = ({ dropCount, speed, type, speedDeviation }) => {
-  const [rainDrops, setRainDrops] = useState<RainDropData[]>([]);
-  const [snowflakes, setSnowflakes] = useState<RainDropData[]>([]);
+  const [rainDrops, setRainDrops] = useState<precipitationData[]>([]);
+  const [snowflakes, setSnowflakes] = useState<precipitationData[]>([]);
 
   useEffect(() => {
     const generateDrops = () => {
@@ -87,7 +87,7 @@ const PrecipitationEffect = ({ dropCount, speed, type, speedDeviation }) => {
     };
 
     generateDrops();
-  }, [dropCount, speed, type]);
+  }, [dropCount, speed, type, speedDeviation]);
 
   if (type === PrecipitationType.Rain) {
     return (
@@ -109,17 +109,27 @@ const PrecipitationEffect = ({ dropCount, speed, type, speedDeviation }) => {
   } else if (type === PrecipitationType.Snow) {
     return (
       <>
-        {snowflakes.map((drop) => (
-          <Snowflake
-            key={drop.id}
-            speed={drop.speed}
-            size={(30 - drop.speed * 3) * 1.75}
+        {snowflakes.map((snowflake) => (
+          <SnowflakeContainer
+            key={snowflake.id}
+            speed={snowflake.speed}
             style={{
-              left: `${drop.left}%`,
+              left: `${snowflake.left}%`,
               top: '-75px',
-              animationDelay: `${drop.delay}s`,
+              animationDelay: `${snowflake.delay}s`,
             }}
-          />
+          >
+            <Snowflake
+              key={snowflake.id}
+              speed={snowflake.speed}
+              size={(snowflake.speed * 5 - snowflake.speed * 3) * 1.75}
+              style={{
+                left: `${snowflake.left}%`,
+                top: '-75px',
+                animationDelay: `${snowflake.delay}s`,
+              }}
+            />
+          </SnowflakeContainer>
         ))}
       </>
     );
