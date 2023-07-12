@@ -13,11 +13,14 @@ const fallAnimation = keyframes`
 `;
 
 const swayAnimation = keyframes`
-  0%, 100% {
+  0% {
     transform: translateX(0);
   }
   50% {
-    transform: translateX(-${Math.random() * 200}px);
+    transform: translateX(${Math.random() * 400 - 200}px);
+  }
+  100% {
+    transform: translateX(${Math.random() * 200 - 100}px);
   }
 `;
 
