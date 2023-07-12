@@ -54,7 +54,7 @@ const SnowflakeContainer = styled.div<{ speed: number }>`
   position: absolute;
 `;
 
-interface precipitationData {
+interface PrecipitationData {
   id: number;
   color: string;
   speed: number;
@@ -68,8 +68,8 @@ export enum PrecipitationType {
 }
 
 const PrecipitationEffect = ({ dropCount, speed, type, speedDeviation }) => {
-  const [rainDrops, setRainDrops] = useState<precipitationData[]>([]);
-  const [snowflakes, setSnowflakes] = useState<precipitationData[]>([]);
+  const [rainDrops, setRainDrops] = useState<PrecipitationData[]>([]);
+  const [snowflakes, setSnowflakes] = useState<PrecipitationData[]>([]);
 
   useEffect(() => {
     const generateDrops = () => {

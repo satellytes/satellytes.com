@@ -16,7 +16,7 @@ import {
   CloudShape2,
   CloudWrapper,
 } from './clouds';
-import PrecipitationEffect, { PrecipitationType } from './precipitationEffect';
+import PrecipitationEffect, { PrecipitationType } from './precipitation-effect';
 import React from 'react';
 
 const BACKGROUND_LAYER_Z = -2;
