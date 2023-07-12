@@ -12,15 +12,17 @@ const fallAnimation = keyframes`
   }
 `;
 
-const swayAnimation = keyframes`
+const generateSwayAnimation = (initialX: number, range: number) => keyframes`
   0% {
     transform: translateX(0);
   }
   50% {
-    transform: translateX(${Math.random() * 400 - 200}px);
+    transform: translateX(${initialX + Math.random() * range - range / 2}px);
   }
   100% {
-    transform: translateX(${Math.random() * 200 - 100}px);
+    transform: translateX(${
+      initialX + (Math.random() * range) / 2 - range / 4
+    }px);
   }
 `;
 
@@ -33,13 +35,13 @@ const Raindrop = styled.div<{ color: string; speed: number }>`
   animation: ${fallAnimation} ${(props) => props.speed}s linear infinite;
 `;
 
-const Snowflake = styled.div<{ speed: number; size: number }>`
+const Snowflake = styled.div<{ speed: number; size: number; animation: any }>`
   position: absolute;
   width: ${(props) => props.size}px;
   height: ${(props) => props.size}px;
   border-radius: 150%;
-  animation: ${swayAnimation} ${(props) => props.speed / 3}s ease-in-out
-    infinite alternate;
+  animation: ${(props) => props.animation} ${(props) => props.speed / 3}s
+    ease-in-out infinite alternate;
   background: radial-gradient(
     50% 50% at 50% 50%,
     #fff 0%,
@@ -112,28 +114,32 @@ const PrecipitationEffect = ({ dropCount, speed, type, speedDeviation }) => {
   } else if (type === PrecipitationType.Snow) {
     return (
       <>
-        {snowflakes.map((snowflake) => (
-          <SnowflakeContainer
-            key={snowflake.id}
-            speed={snowflake.speed}
-            style={{
-              left: `${snowflake.left}%`,
-              top: '-75px',
-              animationDelay: `${snowflake.delay}s`,
-            }}
-          >
-            <Snowflake
+        {snowflakes.map((snowflake) => {
+          const swayAnimation = generateSwayAnimation(snowflake.left, 400);
+          return (
+            <SnowflakeContainer
               key={snowflake.id}
               speed={snowflake.speed}
-              size={(snowflake.speed * 5 - snowflake.speed * 3) * 1.75}
               style={{
                 left: `${snowflake.left}%`,
                 top: '-75px',
                 animationDelay: `${snowflake.delay}s`,
               }}
-            />
-          </SnowflakeContainer>
-        ))}
+            >
+              <Snowflake
+                key={snowflake.id}
+                speed={snowflake.speed}
+                size={(snowflake.speed * 5 - snowflake.speed * 3) * 1.75}
+                animation={swayAnimation}
+                style={{
+                  left: `${snowflake.left}%`,
+                  top: '-75px',
+                  animationDelay: `${snowflake.delay}s`,
+                }}
+              />
+            </SnowflakeContainer>
+          );
+        })}
       </>
     );
   }
