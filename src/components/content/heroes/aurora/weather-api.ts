@@ -1,65 +1,35 @@
 import axios from 'axios';
+import { WeatherType } from './aurora';
 
 const API_KEY = process.env.WEATHER_API_KEY;
 const BASE_URL = 'https://api.weatherapi.com/v1';
 
 export async function getWeather() {
-  try {
-    const response = await axios.get(
-      `${BASE_URL}/ip.json?key=${API_KEY}&q=auto:ip`,
-    );
-    const { lat, lon } = response.data;
-    return getWeatherOfLocation(lat, lon);
-  } catch (error) {
-    console.error('Error fetching IP geolocation:', error);
-    return 'NotSet';
-  }
-}
-
-export async function getWeatherOfLocation(latitude, longitude) {
-  const apiUrl = `${BASE_URL}/current.json?key=${API_KEY}&q=${latitude},${longitude}`;
-
+  const apiUrl = `${BASE_URL}/current.json?key=${API_KEY}&q=auto:ip`;
   try {
     const response = await axios.get(apiUrl);
     const conditionCode = response.data.current.condition.code;
     return getWeatherDescription(conditionCode);
   } catch (error) {
     console.error('Error fetching weather:', error);
-    return 'NotSet';
+    return WeatherType.NotSet;
   }
 }
 
 function getWeatherDescription(conditionCode) {
-  switch (conditionCode) {
-    case 1000:
-      return 'Sunny';
-    case 1003:
-    case 1006:
-      return 'Cloudy';
-    case 1063:
-    case 1180:
-    case 1183:
-    case 1186:
-    case 1189:
-    case 1192:
-    case 1195:
-    case 1198:
-    case 1201:
-    case 1204:
-    case 1207:
-    case 1240:
-    case 1243:
-      return 'Rainy';
-    case 1114:
-    case 1117:
-    case 1210:
-    case 1213:
-    case 1216:
-    case 1219:
-    case 1222:
-    case 1225:
-      return 'Snowy';
-    default:
-      return 'NotSet';
+  if (conditionCode === 1000) {
+    return WeatherType.Sunny;
+  } else if (conditionCode >= 1003 && conditionCode <= 1030) {
+    return WeatherType.Cloudy;
+  } else if (
+    (conditionCode >= 1063 && conditionCode <= 1113) ||
+    (conditionCode >= 1180 && conditionCode <= 1243) ||
+    (conditionCode >= 1246 && conditionCode <= 1282)
+  ) {
+    return WeatherType.Rainy;
+  } else if (conditionCode >= 1114 && conditionCode <= 1225) {
+    return WeatherType.Snowy;
+  } else {
+    return WeatherType.NotSet;
   }
 }
