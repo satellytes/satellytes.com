@@ -24,23 +24,10 @@ import {
   CloudShape2,
   CloudWrapper,
 } from './clouds';
+import { AuroraType, WeatherType } from './aurora-types';
 
 const BACKGROUND_LAYER_Z = -2;
 const FOREGROUND_LAYER_Z = -1;
-
-export enum AuroraType {
-  Pink = 'pink',
-  Blue = 'blue',
-  BrightBlue = 'bright-blue',
-}
-
-export enum WeatherType {
-  Sunny = 'Sunny',
-  Cloudy = 'Cloudy',
-  Rainy = 'Rainy',
-  Snowy = 'Snowy',
-  NotSet = 'Not set',
-}
 
 interface AuroraBackgroundProps {
   source: string;
