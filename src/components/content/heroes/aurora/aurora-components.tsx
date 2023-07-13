@@ -119,14 +119,14 @@ export const flaresByWeather: { [key in WeatherType] } = {
     </>
   ),
   [WeatherType.Cloudy]: (
-    <CloudFrame key="clouds">
+    <CloudFrame>
       <CloudWrapper>
         <CloudGroup>
           <CloudOverlapGroup>
             <CloudShape
               height={970}
-              left={86}
-              top={485}
+              left={10}
+              top={50}
               width={970}
               background={
                 'linear-gradient(180deg,rgb(76.5, 121.12, 255) 0%,rgba(76.5, 121.12, 255, 0.15) 100%)'
@@ -135,39 +135,52 @@ export const flaresByWeather: { [key in WeatherType] } = {
             <CloudBackground />
             <CloudShape
               height={1094}
-              left={509}
-              top={305}
+              left={35}
+              top={30}
               width={1094}
               background={
                 'linear-gradient(180deg, rgb(86, 80.98, 96.69) 0%, rgba(99.44, 98.73, 133.87, 0.15) 100%)'
               }
             />
-            <CloudOverlay height={284} width={284} top={465} left={211} />
+            <CloudOverlay height={284} width={284} top={45} left={15} />
             <CloudOverlay
               height={693}
               width={693}
-              top={824}
-              left={733}
+              top={80}
+              left={70}
               customStyle={'rotate(122.06deg);'}
             />
-            <CloudOverlay height={333} width={333} top={500} left={414} />
-            <CloudOverlay height={308} width={308} top={626} left={1010} />
-            <CloudOverlay height={457} width={457} top={465} left={718} />
+            <CloudOverlay height={333} width={333} top={50} left={25} />
+            <CloudOverlay height={308} width={308} top={62} left={95} />
+            <CloudOverlay height={457} width={457} top={45} left={65} />
             <CloudOverlay
               height={285}
               width={285}
-              top={434}
-              left={332}
+              top={43}
+              left={30}
               customStyle={`
-              background: linear-gradient(
+            background: linear-gradient(
               180deg,
               rgb(44, 42, 90) 0%,
               rgba(42, 27, 113, 0.64) 100%
-              );
-              mix-blend-mode: multiply;
-              opacity: 0.1;
-              `}
+            );
+            mix-blend-mode: multiply;
+            opacity: 0.1;
+          `}
             />
+            <CloudOverlay height={150} width={150} bottom={10} right={30} />
+            <CloudOverlay height={200} width={200} top={60} left={5} />
+            <CloudOverlay height={200} width={200} top={10} left={10} />
+            <CloudOverlay height={250} width={250} top={30} left={30} />
+            <CloudOverlay height={180} width={180} top={50} left={50} />
+            <CloudOverlay height={300} width={300} top={70} left={70} />
+            <CloudOverlay height={230} width={230} top={90} left={90} />
+            <CloudOverlay height={200} width={200} top={70} left={5} />
+            <CloudOverlay height={200} width={200} top={110} left={10} />
+            <CloudOverlay height={550} width={550} top={90} left={30} />
+            <CloudOverlay height={180} width={180} top={100} left={50} />
+            <CloudOverlay height={300} width={300} top={130} left={70} />
+            <CloudOverlay height={230} width={230} top={140} left={90} />
           </CloudOverlapGroup>
         </CloudGroup>
       </CloudWrapper>

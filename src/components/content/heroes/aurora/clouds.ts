@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 
 const getRandomValue = (min, max) => Math.random() * (max - min) + min;
-const getRandomDuration = () => `${getRandomValue(8, 12)}s`;
+const getRandomDuration = () => `${getRandomValue(9, 12)}s`;
 const getRandomTransform = () =>
   `translate(${getRandomValue(-50, 50)}px, ${getRandomValue(-50, 50)}px)`;
 
@@ -84,8 +84,10 @@ export const CloudShape = styled.div<{
 export const CloudOverlay = styled.div<{
   height: number;
   width: number;
-  top: number;
-  left: number;
+  top?: number;
+  bottom?: number;
+  left?: number;
+  right?: number;
   customStyle?: string;
 }>`
   background: linear-gradient(
@@ -99,12 +101,14 @@ export const CloudOverlay = styled.div<{
   position: absolute;
   filter: blur(25px);
   animation: ${cloudAnimation} ${getRandomDuration()} infinite alternate;
-  border-radius: 200px;
+  border-radius: 2000px;
 
   height: ${(props) => props.height}px;
   width: ${(props) => props.width}px;
-  top: ${(props) => props.top}px;
-  left: ${(props) => props.left}px;
+  top: ${(props) => props.top}vh;
+  bottom: ${(props) => props.bottom}vh;
+  left: ${(props) => props.left}vw;
+  right: ${(props) => props.right}vw;
 
   ${(props) => props.customStyle}
 `;
