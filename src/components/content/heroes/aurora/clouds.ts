@@ -63,148 +63,48 @@ export const CloudBackground = styled.div`
   width: 100%;
 `;
 
-export const CloudShape1 = styled.div`
-  background: linear-gradient(
-    180deg,
-    rgb(76.5, 121.12, 255) 0%,
-    rgba(76.5, 121.12, 255, 0.15) 100%
-  );
+export const CloudShape = styled.div<{
+  background: string;
+  height: number;
+  width: number;
+  left: number;
+  top: number;
+}>`
+  background: ${(props) => props.background};
   border-radius: 485px;
   filter: blur(250px);
-  height: 970px;
-  left: 86px;
+  height: ${(props) => props.height}px;
+  left: ${(props) => props.left}px;
   position: absolute;
-  top: 485px;
-  width: 970px;
+  top: ${(props) => props.top}px;
+  width: ${(props) => props.width}px;
   animation: ${cloudAnimation} ${getRandomDuration()} infinite alternate;
 `;
 
-export const CloudShape2 = styled.div`
-  background: linear-gradient(
-    180deg,
-    rgb(86, 80.98, 96.69) 0%,
-    rgba(99.44, 98.73, 133.87, 0.15) 100%
-  );
-  border-radius: 547px;
-  filter: blur(250px);
-  height: 1094px;
-  left: 509px;
-  position: absolute;
-  top: 305px;
-  width: 1094px;
-  animation: ${cloudAnimation} ${getRandomDuration()} infinite alternate;
-`;
-
-export const CloudOverlay1 = styled.div`
+export const CloudOverlay = styled.div<{
+  height: number;
+  width: number;
+  top: number;
+  left: number;
+  customStyle?: string;
+}>`
   background: linear-gradient(
     180deg,
     rgb(255, 255, 255) 0%,
     rgba(255, 255, 255, 0.15) 100%
   );
-  border-radius: 142px;
   box-shadow: inset 0 0 60px #00000080;
-  height: 284px;
-  left: 211px;
   mix-blend-mode: overlay;
   opacity: 0.2;
   position: absolute;
-  top: 465px;
-  width: 284px;
   filter: blur(25px);
   animation: ${cloudAnimation} ${getRandomDuration()} infinite alternate;
-`;
+  border-radius: 200px;
 
-export const CloudOverlay2 = styled.div`
-  background: linear-gradient(
-    180deg,
-    rgb(255, 255, 255) 0%,
-    rgba(255, 255, 255, 0.15) 100%
-  );
-  border-radius: 346.5px;
-  box-shadow: inset 0 0 60px #00000080;
-  height: 693px;
-  left: 733px;
-  mix-blend-mode: overlay;
-  opacity: 0.2;
-  position: absolute;
-  top: 824px;
-  transform: rotate(122.06deg);
-  width: 693px;
-  filter: blur(25px);
-  animation: ${cloudAnimation} ${getRandomDuration()} infinite alternate;
-`;
+  height: ${(props) => props.height}px;
+  width: ${(props) => props.width}px;
+  top: ${(props) => props.top}px;
+  left: ${(props) => props.left}px;
 
-export const CloudOverlay3 = styled.div`
-  background: linear-gradient(
-    180deg,
-    rgb(255, 255, 255) 0%,
-    rgba(255, 255, 255, 0.15) 100%
-  );
-  border-radius: 166.5px;
-  box-shadow: inset 0 0 60px #00000080;
-  height: 333px;
-  left: 414px;
-  mix-blend-mode: overlay;
-  opacity: 0.2;
-  position: absolute;
-  top: 500px;
-  width: 333px;
-  filter: blur(25px);
-  animation: ${cloudAnimation} ${getRandomDuration()} infinite alternate;
-`;
-
-export const CloudOverlay4 = styled.div`
-  background: linear-gradient(
-    180deg,
-    rgb(255, 255, 255) 0%,
-    rgba(255, 255, 255, 0.15) 100%
-  );
-  border-radius: 154px;
-  box-shadow: inset 0 0 60px #00000080;
-  height: 308px;
-  left: 1010px;
-  mix-blend-mode: overlay;
-  opacity: 0.2;
-  position: absolute;
-  top: 626px;
-  width: 308px;
-  filter: blur(25px);
-  animation: ${cloudAnimation} ${getRandomDuration()} infinite alternate;
-`;
-
-export const CloudOverlay5 = styled.div`
-  background: linear-gradient(
-    180deg,
-    rgb(255, 255, 255) 0%,
-    rgba(255, 255, 255, 0.15) 100%
-  );
-  border-radius: 228.5px;
-  box-shadow: inset 0 0 60px #00000080;
-  height: 457px;
-  left: 718px;
-  mix-blend-mode: overlay;
-  opacity: 0.2;
-  position: absolute;
-  top: 465px;
-  width: 457px;
-  filter: blur(25px);
-  animation: ${cloudAnimation} ${getRandomDuration()} infinite alternate;
-`;
-
-export const CloudOverlay6 = styled.div`
-  background: linear-gradient(
-    180deg,
-    rgb(44, 42, 90) 0%,
-    rgba(42, 27, 113, 0.64) 100%
-  );
-  border-radius: 142.5px;
-  height: 285px;
-  left: 332px;
-  mix-blend-mode: multiply;
-  opacity: 0.1;
-  position: absolute;
-  top: 434px;
-  width: 285px;
-  filter: blur(25px);
-  animation: ${cloudAnimation} ${getRandomDuration()} infinite alternate;
+  ${(props) => props.customStyle}
 `;

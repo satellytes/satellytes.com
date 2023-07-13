@@ -6,14 +6,8 @@ import {
   CloudFrame,
   CloudGroup,
   CloudOverlapGroup,
-  CloudOverlay1,
-  CloudOverlay2,
-  CloudOverlay3,
-  CloudOverlay4,
-  CloudOverlay5,
-  CloudOverlay6,
-  CloudShape1,
-  CloudShape2,
+  CloudOverlay,
+  CloudShape,
   CloudWrapper,
 } from './clouds';
 import PrecipitationEffect, { PrecipitationType } from './precipitation-effect';
@@ -129,15 +123,51 @@ export const flaresByWeather: { [key in WeatherType] } = {
       <CloudWrapper>
         <CloudGroup>
           <CloudOverlapGroup>
-            <CloudShape1 />
+            <CloudShape
+              height={970}
+              left={86}
+              top={485}
+              width={970}
+              background={
+                'linear-gradient(180deg,rgb(76.5, 121.12, 255) 0%,rgba(76.5, 121.12, 255, 0.15) 100%)'
+              }
+            />
             <CloudBackground />
-            <CloudShape2 />
-            <CloudOverlay1 />
-            <CloudOverlay2 />
-            <CloudOverlay3 />
-            <CloudOverlay4 />
-            <CloudOverlay5 />
-            <CloudOverlay6 />
+            <CloudShape
+              height={1094}
+              left={509}
+              top={305}
+              width={1094}
+              background={
+                'linear-gradient(180deg, rgb(86, 80.98, 96.69) 0%, rgba(99.44, 98.73, 133.87, 0.15) 100%)'
+              }
+            />
+            <CloudOverlay height={284} width={284} top={465} left={211} />
+            <CloudOverlay
+              height={693}
+              width={693}
+              top={824}
+              left={733}
+              customStyle={'rotate(122.06deg);'}
+            />
+            <CloudOverlay height={333} width={333} top={500} left={414} />
+            <CloudOverlay height={308} width={308} top={626} left={1010} />
+            <CloudOverlay height={457} width={457} top={465} left={718} />
+            <CloudOverlay
+              height={285}
+              width={285}
+              top={434}
+              left={332}
+              customStyle={`
+              background: linear-gradient(
+              180deg,
+              rgb(44, 42, 90) 0%,
+              rgba(42, 27, 113, 0.64) 100%
+              );
+              mix-blend-mode: multiply;
+              opacity: 0.1;
+              `}
+            />
           </CloudOverlapGroup>
         </CloudGroup>
       </CloudWrapper>
