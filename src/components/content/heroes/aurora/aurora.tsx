@@ -24,7 +24,13 @@ export const Aurora = ({ type, className }: AuroraProps) => {
 
   const toggleWeather = async () => {
     if (weather === WeatherType.NotSet) {
-      setWeather(await getWeather());
+      getWeather()
+        .then((weather) => {
+          setWeather(weather);
+        })
+        .catch(() => {
+          setWeather(WeatherType.NotSet);
+        });
     } else {
       setWeather(WeatherType.NotSet);
     }
@@ -33,7 +39,7 @@ export const Aurora = ({ type, className }: AuroraProps) => {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.ctrlKey && event.altKey && event.shiftKey) {
-        toggleWeather().then();
+        toggleWeather();
       }
     };
 
@@ -43,10 +49,7 @@ export const Aurora = ({ type, className }: AuroraProps) => {
       document.removeEventListener('keydown', handleKeyDown);
     };
   });
-  function getSource(type?: AuroraType) {
-    if (weather !== WeatherType.NotSet) {
-      return '';
-    }
+  const getSource = (type?: AuroraType) => {
     if (type === AuroraType.Pink) {
       return AuroraBlurredBackgroundB;
     }
@@ -56,7 +59,7 @@ export const Aurora = ({ type, className }: AuroraProps) => {
 
     // default is the bright blue
     return AuroraBlurredBackgroundA;
-  }
+  };
   return (
     <AuroraContainer className={className}>
       <AuroraBackground source={getSource(type)} weather={weather} />

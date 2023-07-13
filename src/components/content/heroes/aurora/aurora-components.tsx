@@ -24,7 +24,7 @@ const FOREGROUND_LAYER_Z = -1;
 
 interface AuroraBackgroundProps {
   source: string;
-  weather?: WeatherType;
+  weather: WeatherType;
 }
 
 export const AuroraBackground = styled.div<AuroraBackgroundProps>`
@@ -34,24 +34,25 @@ export const AuroraBackground = styled.div<AuroraBackgroundProps>`
         return '#3E61EE';
       case WeatherType.Rainy:
         return '#9BA3BB';
-      case WeatherType.Snowy:
-      case WeatherType.Cloudy:
-      case WeatherType.NotSet:
       default:
         return '#202840';
     }
   }};
   position: absolute;
-
-  background-image: url(${(props) => props.source});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center -20vw;
   z-index: ${BACKGROUND_LAYER_Z};
   left: 0;
   right: 0;
   bottom: 0;
   top: 0;
+  ${(props) =>
+    props.weather === WeatherType.NotSet
+      ? `
+    background-image: url(${props.source});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center -20vw;
+  `
+      : ''}
 `;
 
 export const AuroraForeground = styled.div`
@@ -68,45 +69,7 @@ export const AuroraContainer = styled.div`
   pointer-events: none;
 `;
 
-export const AuroraRainyFlareColor1 = styled.div`
-  right: -25%;
-  top: -20%;
-  width: 1094px;
-  height: 1094px;
-  border-radius: 1094px;
-  background: linear-gradient(180deg, #150b28 0%, rgba(35, 33, 131, 0.15) 100%);
-  filter: blur(125px);
-  position: absolute;
-`;
-
-export const AuroraRainyFlareColor2 = styled.div`
-  top: -65%;
-  left: -30%;
-  width: 970px;
-  height: 970px;
-  border-radius: 970px;
-  background: linear-gradient(180deg, #2a275f 0%, #535364 100%);
-  filter: blur(125px);
-  position: absolute;
-`;
-
-export const AuroraRainyFlareColor3 = styled.div`
-  bottom: -50%;
-  left: -20%;
-  width: 970px;
-  height: 970px;
-  border-radius: 970px;
-  background: linear-gradient(
-    180deg,
-    #4d79ff 0%,
-    rgba(77, 121, 255, 0.15) 100%
-  );
-  filter: blur(125px);
-  position: absolute;
-  opacity: 50%;
-`;
-
-export const AuroraRainyFlareColor4 = styled.div`
+export const AuroraRainyFlareColor = styled.div`
   top: 0;
   left: 0;
   width: 100%;
@@ -115,7 +78,7 @@ export const AuroraRainyFlareColor4 = styled.div`
   position: absolute;
 `;
 
-export const AuroraSnowyFlareColor1 = styled.div`
+export const AuroraSnowyFlareColor = styled.div`
   top: 0;
   left: 0;
   width: 100%;
@@ -182,10 +145,33 @@ export const flaresByWeather: { [key in WeatherType] } = {
   ),
   [WeatherType.Rainy]: (
     <>
-      <AuroraRainyFlareColor4 />
-      <AuroraRainyFlareColor3 />
-      <AuroraRainyFlareColor2 />
-      <AuroraRainyFlareColor1 />
+      <AuroraRainyFlareColor />
+      <Flare
+        noAnimation={true}
+        size={970}
+        blur={125}
+        background={
+          'linear-gradient(180deg, #4d79ff 0%, rgba(77, 121, 255, 0.15) 100%)'
+        }
+        x={'38vw'}
+        y={'25vh'}
+      />
+      <Flare
+        noAnimation={true}
+        size={970}
+        background={'linear-gradient(180deg, #2a275f 0%, #535364 100%)'}
+        blur={125}
+        x={'30vw'}
+        y={'15vh'}
+      />
+      <Flare
+        noAnimation={true}
+        size={1094}
+        background={`linear-gradient(180deg, #150b28 0%, rgba(35, 33, 131, 0.15) 100%)`}
+        blur={125}
+        x={'64vw'}
+        y={'64vh'}
+      />
       <PrecipitationEffect
         dropCount={550}
         speed={1}
@@ -196,7 +182,7 @@ export const flaresByWeather: { [key in WeatherType] } = {
   ),
   [WeatherType.Snowy]: (
     <>
-      <AuroraSnowyFlareColor1 />
+      <AuroraSnowyFlareColor />
       <PrecipitationEffect
         dropCount={100}
         speed={10}

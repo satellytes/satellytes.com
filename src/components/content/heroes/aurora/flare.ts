@@ -52,6 +52,9 @@ export interface FlareProps {
    */
   animationOffset?: number;
   opacity?: number;
+  background?: string;
+  blur?: number;
+  noAnimation?: boolean;
 }
 
 export enum FlareType {
@@ -96,11 +99,16 @@ export const Flare = styled.div<FlareProps>`
 
   top: 0;
   left: 0;
-  ${(props) => getFlareImage(props.flareType ?? FlareType.LIGHT)}
-  animation: ${WanderAnimation} ${(props) =>
-    FLARE_ANIMATION_DURATION *
-    (1 / (props.speedMultiplier ?? 1))}s infinite linear;
+  ${(props) =>
+    props.background
+      ? `background: ${props.background}; border-radius: 1000px;`
+      : getFlareImage(props.flareType ?? FlareType.LIGHT)}
+  filter: blur(${(props) => props.blur ?? 0}px);
+  animation: ${WanderAnimation}
+    ${(props) => FLARE_ANIMATION_DURATION * (1 / (props.speedMultiplier ?? 1))}s
+    infinite linear;
   animation-delay: ${(props) => -1 * (props.animationOffset ?? 0)}s;
+  ${(props) => (props.noAnimation ? 'animation: none;' : '')}
 
   transform: translate(var(--flare-x, 0), var(--flare-y, 0))
     translate(-50%, -50%);
