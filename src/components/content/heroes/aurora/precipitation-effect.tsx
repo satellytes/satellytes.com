@@ -35,7 +35,13 @@ const Raindrop = styled.div<{ color: string; speed: number }>`
   animation: ${fallAnimation} ${(props) => props.speed}s linear infinite;
 `;
 
-const Snowflake = styled.div<{ speed: number; size: number; animation: any }>`
+const Snowflake = styled.div<{
+  speed: number;
+  size: number;
+  animation: any;
+  blur: number;
+  transparency: number;
+}>`
   position: absolute;
   width: ${(props) => props.size}px;
   height: ${(props) => props.size}px;
@@ -44,13 +50,14 @@ const Snowflake = styled.div<{ speed: number; size: number; animation: any }>`
     ease-in-out infinite alternate;
   background: radial-gradient(
     50% 50% at 50% 50%,
-    #fff 0%,
-    #fff 20.83%,
-    rgba(255, 255, 255, 0.8) 85.94%,
-    #fffcde 100%
+    rgba(255, 255, 255, ${(props) => props.transparency}) 0%,
+    rgba(255, 255, 255, ${(props) => props.transparency}) 20.83%,
+    rgba(255, 255, 255, ${(props) => props.transparency * 0.8}) 85.94%,
+    rgba(255, 252, 222, ${(props) => props.transparency}) 100%
   );
-  filter: blur(2px);
+  filter: blur(${(props) => props.blur}px);
 `;
+
 const SnowflakeContainer = styled.div<{ speed: number }>`
   animation: ${fallAnimation} ${(props) => props.speed}s linear infinite;
   position: absolute;
@@ -129,13 +136,15 @@ const PrecipitationEffect = ({ dropCount, speed, type, speedDeviation }) => {
               <Snowflake
                 key={snowflake.id}
                 speed={snowflake.speed}
-                size={(snowflake.speed * 5 - snowflake.speed * 3) * 1.75}
+                size={(snowflake.speed * 5 - snowflake.speed * 3) * 1.5}
                 animation={swayAnimation}
                 style={{
                   left: `${snowflake.left}%`,
                   top: '-75px',
                   animationDelay: `${snowflake.delay}s`,
                 }}
+                blur={Math.random() > 0.7 ? 0 : Math.random() * 5}
+                transparency={Math.random() > 0.3 ? 1 : Math.random()}
               />
             </SnowflakeContainer>
           );
