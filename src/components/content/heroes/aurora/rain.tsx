@@ -2,6 +2,7 @@ import { Flare } from './flare';
 import PrecipitationEffect, { PrecipitationType } from './precipitation-effect';
 import React from 'react';
 import styled from 'styled-components';
+import { DefaultFlares } from './default-flares';
 
 export const AuroraRainyFlareColor = styled.div`
   top: 0;
@@ -41,6 +42,7 @@ export const Rain = (amount) => {
         x={'64vw'}
         y={'64vh'}
       />
+      <DefaultFlares />
       <PrecipitationEffect
         dropCount={amount}
         speed={1}
