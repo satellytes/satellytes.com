@@ -5,7 +5,7 @@ import { Clouds } from './clouds';
 import PrecipitationEffect, { PrecipitationType } from './precipitation-effect';
 import React from 'react';
 import { DefaultFlares } from './default-flares';
-import { AuroraSun } from './sun';
+import { Sun } from './sun';
 
 const BACKGROUND_LAYER_Z = -2;
 const FOREGROUND_LAYER_Z = -1;
@@ -80,29 +80,7 @@ export const AuroraSnowyFlareColor = styled.div`
 `;
 
 export const flaresByWeather: { [key in WeatherType] } = {
-  [WeatherType.Sunny]: (
-    <>
-      <AuroraSun />
-      <Flare
-        stepSize={0}
-        flareType={FlareType.LIGHT}
-        x={'70vw'}
-        y={'300px'}
-        size={100}
-        rotation={80}
-        animationOffset={14}
-      />
-      <Flare
-        stepSize={20}
-        flareType={FlareType.LIGHT}
-        x={'50vw'}
-        y={'50vw'}
-        size={150}
-        rotation={30}
-        animationOffset={3}
-      />
-    </>
-  ),
+  [WeatherType.Sunny]: <Sun />,
   [WeatherType.Cloudy]: <Clouds amount={20} />,
   [WeatherType.Rainy]: (
     <>
