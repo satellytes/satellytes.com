@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 import { WeatherType } from './aurora-types';
 import { Flare, FlareType } from './flare';
 import { Clouds } from './clouds';
-import PrecipitationEffect, { PrecipitationType } from './precipitation-effect';
 import React from 'react';
 import { DefaultFlares } from './default-flares';
 import { Snow } from './snow';
