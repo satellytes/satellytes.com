@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 import { WanderAnimation } from './aurora-animation';
 import FlareTypeB from '../../../../assets/images/aurora/flare-type-b.png';
 import FlareTypeA from '../../../../assets/images/aurora/flare-type-a.png';
-import FlareTypeC from '../../../../assets/images/aurora/flare-type-c.png';
 
 const FLARE_ANIMATION_DURATION = 240;
 
@@ -60,7 +59,6 @@ export interface FlareProps {
 export enum FlareType {
   LIGHT = 'light',
   DARK = 'dark',
-  RADIAL = 'radial',
 }
 
 function getFlareImage(type: FlareType) {
@@ -71,10 +69,6 @@ function getFlareImage(type: FlareType) {
   } else if (type === FlareType.LIGHT) {
     return css`
       background-image: url(${FlareTypeA});
-    `;
-  } else if (type === FlareType.RADIAL) {
-    return css`
-      background-image: url(${FlareTypeC});
     `;
   }
 }

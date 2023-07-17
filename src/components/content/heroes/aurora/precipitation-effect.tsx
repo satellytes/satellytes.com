@@ -26,13 +26,14 @@ const generateSwayAnimation = (initialX: number, range: number) => keyframes`
   }
 `;
 
-const Raindrop = styled.div<{ color: string; speed: number }>`
+const Raindrop = styled.div<{ color: string; speed: number; blur: number }>`
   position: absolute;
-  width: 3px;
+  width: 4px;
   height: 50px;
   border-radius: 150%;
   background-color: ${(props) => props.color};
   animation: ${fallAnimation} ${(props) => props.speed}s linear infinite;
+  filter: blur(${(props) => props.blur}px);
 `;
 
 const Snowflake = styled.div<{
@@ -84,7 +85,7 @@ const PrecipitationEffect = ({ dropCount, speed, type, speedDeviation }) => {
     const generateDrops = () => {
       const newDrops = Array.from({ length: dropCount }, (_, index) => ({
         id: index,
-        color: '#76a5d2',
+        color: '#84abd0',
         speed:
           speed + (Math.random() * (speedDeviation * 2) - speedDeviation) || 1,
         delay: Math.random() * 5,
@@ -114,6 +115,8 @@ const PrecipitationEffect = ({ dropCount, speed, type, speedDeviation }) => {
               top: '-75px',
               animationDelay: `${drop.delay}s`,
             }}
+            // 70% of the drops will have a blur between 0 and 3 px
+            blur={Math.random() > 0.7 ? 0 : Math.random() * 3}
           />
         ))}
       </>
