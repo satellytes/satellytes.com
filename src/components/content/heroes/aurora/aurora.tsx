@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { getWeather } from './weather-easter-egg/weather-api';
-
+import React from 'react';
 import AuroraBlurredBackgroundA from '../../../../assets/images/aurora/bg-blur-a.png';
 import AuroraBlurredBackgroundB from '../../../../assets/images/aurora/bg-blur-b.png';
 import AuroraBlurredBackgroundC from '../../../../assets/images/aurora/bg-blur-c.png';
-
-import { AuroraType, WeatherType } from './aurora-types';
+import { AuroraType } from './aurora-types';
 import {
-  flaresByWeather,
   AuroraForeground,
   AuroraContainer,
   AuroraBackground,
 } from './aurora-components';
+import { WeatherEasterEgg } from './weather-easter-egg/weather-easter-egg';
+import { useWeather } from './weather-easter-egg/use-weather';
 
 export interface AuroraProps {
   type?: AuroraType;
@@ -19,35 +17,8 @@ export interface AuroraProps {
 }
 
 export const Aurora = ({ type, className }: AuroraProps) => {
-  const [weather, setWeather] = useState(WeatherType.NotSet);
+  const weather = useWeather();
 
-  const toggleWeather = () => {
-    if (weather === WeatherType.NotSet) {
-      getWeather()
-        .then((weather) => {
-          setWeather(weather);
-        })
-        .catch(() => {
-          setWeather(WeatherType.NotSet);
-        });
-    } else {
-      setWeather(WeatherType.NotSet);
-    }
-  };
-
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.ctrlKey && event.altKey && event.shiftKey) {
-        toggleWeather();
-      }
-    };
-
-    document.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  });
   const getSource = (type?: AuroraType) => {
     if (type === AuroraType.Pink) {
       return AuroraBlurredBackgroundB;
@@ -64,7 +35,7 @@ export const Aurora = ({ type, className }: AuroraProps) => {
       <AuroraBackground source={getSource(type)} weather={weather} />
       <AuroraForeground>
         <AuroraForeground>
-          {flaresByWeather[weather || WeatherType.NotSet]}
+          <WeatherEasterEgg weather={weather} />
         </AuroraForeground>
       </AuroraForeground>
     </AuroraContainer>
