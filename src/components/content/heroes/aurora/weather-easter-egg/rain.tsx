@@ -1,6 +1,6 @@
 import { Flare } from '../flare';
 import PrecipitationEffect, { PrecipitationType } from './precipitation-effect';
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { DefaultFlares } from '../default-flares';
 
@@ -12,7 +12,12 @@ export const AuroraRainyFlareColor = styled.div`
   background: linear-gradient(180deg, #231f67 0%, rgba(77, 121, 255, 0.27) 90%);
   position: absolute;
 `;
-export const Rain = (amount) => {
+
+interface RainProps {
+  amount: number;
+}
+
+export const Rain: FC<RainProps> = ({ amount }) => {
   return (
     <>
       <AuroraRainyFlareColor />

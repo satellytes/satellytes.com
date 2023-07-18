@@ -86,8 +86,7 @@ const PrecipitationEffect = ({ dropCount, speed, type, speedDeviation }) => {
       const newDrops = Array.from({ length: dropCount }, (_, index) => ({
         id: index,
         color: '#84abd0',
-        speed:
-          speed + (Math.random() * (speedDeviation * 2) - speedDeviation) || 1,
+        speed: speed + Math.random() * speedDeviation * 2 - speedDeviation || 1,
         delay: Math.random() * 5,
         left: Math.random() * 100,
       }));
