@@ -84,7 +84,6 @@ const Cloud = styled.div`
   opacity: ${Math.random() * 0.5 + 0.1};
   filter: blur(${() => getRandomValue(30, 50)}px);
   border-radius: 1000px;
-  border: 1px solid magenta;
 
   position: absolute;
   top: ${() => Math.floor(Math.random() * 100)}%;

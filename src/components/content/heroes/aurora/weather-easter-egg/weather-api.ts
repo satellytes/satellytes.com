@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { WeatherType } from './aurora-types';
+import { WeatherType } from '../aurora-types';
 
 const API_KEY = process.env.WEATHER_API_KEY;
 const BASE_URL = 'https://api.weatherapi.com/v1';

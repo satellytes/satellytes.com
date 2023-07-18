@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getWeather } from './weather-api';
+import { getWeather } from './weather-easter-egg/weather-api';
 
 import AuroraBlurredBackgroundA from '../../../../assets/images/aurora/bg-blur-a.png';
 import AuroraBlurredBackgroundB from '../../../../assets/images/aurora/bg-blur-b.png';

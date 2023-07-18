@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components';
 import { WeatherType } from './aurora-types';
 import { Flare, FlareType } from './flare';
-import { Clouds } from './clouds';
+import { Clouds } from './weather-easter-egg/clouds';
 import React from 'react';
 import { DefaultFlares } from './default-flares';
-import { Snow } from './snow';
-import { Rain } from './rain';
-import { Sun } from './sun';
+import { Snow } from './weather-easter-egg/snow';
+import { Rain } from './weather-easter-egg/rain';
+import { Sun } from './weather-easter-egg/sun';
 
 const BACKGROUND_LAYER_Z = -2;
 const FOREGROUND_LAYER_Z = -1;
