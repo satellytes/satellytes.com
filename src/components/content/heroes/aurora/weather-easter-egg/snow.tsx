@@ -1,6 +1,6 @@
 import PrecipitationEffect, { PrecipitationType } from './precipitation-effect';
 import React from 'react';
-import { DefaultFlares } from './default-flares';
+import { DefaultFlares } from '../default-flares';
 import styled from 'styled-components';
 
 export const AuroraSnowyFlareColor = styled.div`

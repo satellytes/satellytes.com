@@ -1,8 +1,8 @@
-import { Flare } from './flare';
+import { Flare } from '../flare';
 import PrecipitationEffect, { PrecipitationType } from './precipitation-effect';
 import React from 'react';
 import styled from 'styled-components';
-import { DefaultFlares } from './default-flares';
+import { DefaultFlares } from '../default-flares';
 
 export const AuroraRainyFlareColor = styled.div`
   top: 0;

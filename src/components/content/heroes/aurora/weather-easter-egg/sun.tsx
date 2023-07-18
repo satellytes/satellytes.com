@@ -1,13 +1,13 @@
-import SUN from '../../../../assets/images/aurora/sun.png';
-import REFLECTION from '../../../../assets/images/aurora/sun-reflection.png';
-import SUNSHINE from '../../../../assets/images/aurora/sun-shine.png';
+import SUN from '../../../../../assets/images/aurora/sun.png';
+import REFLECTION from '../../../../../assets/images/aurora/sun-reflection.png';
+import SUNSHINE from '../../../../../assets/images/aurora/sun-shine.png';
 import styled, { keyframes } from 'styled-components';
 import { useEffect, useState } from 'react';
 import React from 'react';
 import { getSunTime } from './weather-api';
 import { getSunlightPercentage } from './sun-percentage-calculator';
-import { Flare, FlareType } from './flare';
-import { DefaultFlares } from './default-flares';
+import { Flare, FlareType } from '../flare';
+import { DefaultFlares } from '../default-flares';
 
 const rotatingAnimation = keyframes`
     0% {
