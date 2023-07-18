@@ -1,4 +1,4 @@
-import { WeatherType } from '../aurora-types';
+import { WeatherType } from './weather-types';
 import {
   convertTimeStringToTimestamp,
   getWeatherDescription,
@@ -14,7 +14,7 @@ jest.mock('axios');
 describe('getWeatherDescription', () => {
   it.each([
     [1000, WeatherType.Sunny],
-    [1003, WeatherType.Sunny],
+    [1003, WeatherType.SlightlyCloudy],
     [1006, WeatherType.Cloudy],
     [1009, WeatherType.Cloudy],
     [1030, WeatherType.Cloudy],

@@ -1,4 +1,4 @@
-import { WeatherType } from '../aurora-types';
+import { WeatherType } from './weather-types';
 import { getWeather } from './weather-api';
 import { useEffect, useState } from 'react';
 

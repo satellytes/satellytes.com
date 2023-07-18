@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { WeatherType } from '../aurora-types';
+import { WeatherType } from './weather-types';
 
 const API_KEY = process.env.WEATHER_API_KEY;
 const BASE_URL = 'https://api.weatherapi.com/v1';
@@ -38,7 +38,8 @@ export async function getSunTime() {
 
 export function getWeatherDescription(conditionCode) {
   const weatherTypeMap = {
-    '1000-1003': WeatherType.Sunny,
+    '1000': WeatherType.Sunny,
+    '1003': WeatherType.SlightlyCloudy,
     '1004-1009': WeatherType.Cloudy,
     '1030': WeatherType.Cloudy,
     '1063-1072': WeatherType.Rainy,

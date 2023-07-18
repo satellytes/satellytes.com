@@ -5,6 +5,12 @@ const MAX_CLOUDS_PER_GROUP = 5;
 
 interface CloudsProps {
   amount: number;
+  type: CloudType;
+}
+
+export enum CloudType {
+  LIGHT = 'light',
+  DARK = 'dark',
 }
 
 const getRandomValue = (min, max) => Math.random() * (max - min) + min;
@@ -26,14 +32,18 @@ const cloudAnimation = (distance) =>
     transform: ${getRandomTransform(distance)};
   }`;
 
-const CloudsContainer = styled.div`
+const CloudsContainer = styled.div<{ type: CloudType }>`
   width: 100%;
   height: 100%;
 
   background: linear-gradient(
     180deg,
-    rgb(74, 73, 93) 0%,
-    rgb(134, 134, 171) 100%
+    ${(props) =>
+        props.type === CloudType.LIGHT ? '#8dedfd' : 'rgb(74, 73, 93)'}
+      0%,
+    ${(props) =>
+        props.type === CloudType.LIGHT ? '#49d6f6' : 'rgb(134, 134, 171)'}
+      100%
   );
 `;
 
@@ -49,38 +59,48 @@ const CloudGroupContainer = styled.div`
     infinite;
 `;
 
-export const Clouds = ({ amount }: CloudsProps) => {
+export const Clouds = ({ amount, type }: CloudsProps) => {
   return (
-    <CloudsContainer>
+    <CloudsContainer type={type}>
       {Array.from(Array(amount).keys()).map((i) => (
-        <CloudGroup key={i} />
+        <CloudGroup key={i} type={type} />
       ))}
     </CloudsContainer>
   );
 };
 
-export const CloudGroup = () => {
+export const CloudGroup = ({ type }) => {
   const amount = Math.floor(Math.random() * MAX_CLOUDS_PER_GROUP) + 1;
   console.log(amount);
   return (
     <CloudGroupContainer>
       {Array.from(Array(amount).keys()).map((i) => (
-        <Cloud key={i} />
+        <Cloud key={i} type={type} />
       ))}
     </CloudGroupContainer>
   );
 };
 
-const Cloud = styled.div`
+const Cloud = styled.div<{ type: CloudType }>`
   --size: ${() => Math.floor(Math.random() * 400) + 100}px;
   width: var(--size);
   height: var(--size);
   background: linear-gradient(
     180deg,
-    rgb(200, 200, 200) 0%,
-    rgba(200, 200, 200, 0.15) 100%
+    ${(props) =>
+        props.type == CloudType.DARK
+          ? 'rgb(200, 200, 200)'
+          : 'rgb(255, 255, 255)'}
+      0%,
+    ${(props) =>
+        props.type === CloudType.LIGHT
+          ? '#ffffff'
+          : 'rgba(200, 200, 200, 0.15)'}
+      100%
   );
-  box-shadow: inset 0 0 60px #00000080;
+  box-shadow: inset 0 0 60px
+    ${(props) =>
+      props.type == CloudType.DARK ? '#00000080' : 'rgba(255,255,255,0.75)'};
   opacity: ${Math.random() * 0.5 + 0.1};
   filter: blur(${() => getRandomValue(30, 50)}px);
   border-radius: 1000px;

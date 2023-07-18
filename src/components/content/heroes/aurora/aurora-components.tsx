@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
-import { WeatherType } from './aurora-types';
+import { WeatherType } from './weather-easter-egg/weather-types';
 import { Flare, FlareType } from './flare';
-import { Clouds } from './weather-easter-egg/clouds';
+import { Clouds, CloudType } from './weather-easter-egg/clouds';
 import React from 'react';
 import { DefaultFlares } from './default-flares';
 import { Snow } from './weather-easter-egg/snow';
@@ -23,6 +23,8 @@ export const AuroraBackground = styled.div<AuroraBackgroundProps>`
         return '#3E61EE';
       case WeatherType.Rainy:
         return '#76809b';
+      case WeatherType.SlightlyCloudy:
+        return '#5A6FC1';
       default:
         return '#202840';
     }
@@ -60,7 +62,8 @@ export const AuroraContainer = styled.div`
 
 export const flaresByWeather: { [key in WeatherType] } = {
   [WeatherType.Sunny]: <Sun />,
-  [WeatherType.Cloudy]: <Clouds amount={20} />,
+  [WeatherType.Cloudy]: <Clouds amount={20} type={CloudType.DARK} />,
+  [WeatherType.SlightlyCloudy]: <Clouds amount={10} type={CloudType.LIGHT} />,
   [WeatherType.Snowy]: <Snow amount={50} />,
   [WeatherType.Rainy]: <Rain amount={550} />,
   [WeatherType.NotSet]: (
