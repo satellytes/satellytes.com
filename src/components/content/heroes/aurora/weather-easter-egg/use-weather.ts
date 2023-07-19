@@ -2,18 +2,12 @@ import { WeatherType } from './weather-types';
 import { getWeather } from './weather-api';
 import { useEffect, useState } from 'react';
 
-export function useWeather() {
+export function useWeather(): WeatherType {
   const [weather, setWeather] = useState(WeatherType.NotSet);
 
-  const toggleWeather = () => {
+  const toggleWeather = async () => {
     if (weather === WeatherType.NotSet) {
-      getWeather()
-        .then((weather) => {
-          setWeather(weather);
-        })
-        .catch(() => {
-          setWeather(WeatherType.NotSet);
-        });
+      setWeather(await getWeather());
     } else {
       setWeather(WeatherType.NotSet);
     }

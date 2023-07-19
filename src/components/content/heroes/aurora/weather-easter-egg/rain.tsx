@@ -9,7 +9,7 @@ export const AuroraRainyFlareColor = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, #231f67 0%, rgba(77, 121, 255, 0.27) 90%);
+  background: linear-gradient(180deg, #231f67 0%, #4d79ff45 90%);
   position: absolute;
 `;
 
@@ -25,9 +25,7 @@ export const Rain: FC<RainProps> = ({ amount }) => {
         noAnimation={true}
         size={970}
         blur={125}
-        background={
-          'linear-gradient(180deg, #4d79ff 0%, rgba(77, 121, 255, 0.15) 100%)'
-        }
+        background={'linear-gradient(180deg, #4d79ff 0%, #4d79ff26 100%)'}
         x={'38vw'}
         y={'25vh'}
       />
@@ -42,7 +40,7 @@ export const Rain: FC<RainProps> = ({ amount }) => {
       <Flare
         noAnimation={true}
         size={1094}
-        background={`linear-gradient(180deg, #150b28 0%, rgba(35, 33, 131, 0.15) 100%)`}
+        background={`linear-gradient(180deg, #150b28 0%, #23218326 100%)`}
         blur={125}
         x={'64vw'}
         y={'64vh'}

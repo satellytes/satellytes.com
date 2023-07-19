@@ -35,7 +35,9 @@ const AuroraSunDiv = styled.div<{ timePercent: number }>`
   left: calc(${(props) => props.timePercent}% - 167.5px);
   bottom: calc(
     ${(props) =>
-      (1 / 125) * (-(props.timePercent - 50) * (props.timePercent - 50)) + 60}%
+        (1 / 125) * (-(props.timePercent - 50) * (props.timePercent - 50)) +
+        60}%
+      // parabola formula to get the sun to move in a parabola
   );
   position: absolute;
   background-image: url(${SUN});
@@ -58,12 +60,13 @@ const AuroraSunReflectionDiv = styled.div<{ timePercent: number }>`
   left: calc(
     ${(props) => props.timePercent}% +
       ${(props) => (props.timePercent - 50) / 2}% - 274.75px
+      // linear formula to control the speed of the sun reflection
   );
   bottom: calc(
     ${(props) =>
         (1 / 350) *
           -Math.pow(
-            (props.timePercent + (props.timePercent - 50) / 2) * 2 - 100,
+            (props.timePercent + (props.timePercent - 50) / 2) * 2 - 100, // parabola formula to get the sun reflection to move in a parabola
             2,
           ) +
         60}% - 100px

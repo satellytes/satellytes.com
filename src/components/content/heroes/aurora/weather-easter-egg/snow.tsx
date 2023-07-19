@@ -8,11 +8,7 @@ export const AuroraSnowyFlareColor = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    0deg,
-    rgba(73, 67, 203, 0.6) 0%,
-    rgba(77, 121, 255, 0) 90%
-  );
+  background: linear-gradient(0deg, #4943cb99 0%, #4d79ff00 90%);
   position: absolute;
 `;
 

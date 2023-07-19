@@ -10,6 +10,7 @@ import {
 } from './aurora-components';
 import { WeatherEasterEgg } from './weather-easter-egg/weather-easter-egg';
 import { useWeather } from './weather-easter-egg/use-weather';
+import { WeatherType } from './weather-easter-egg/weather-types';
 
 export interface AuroraProps {
   type?: AuroraType;
@@ -17,7 +18,7 @@ export interface AuroraProps {
 }
 
 export const Aurora = ({ type, className }: AuroraProps) => {
-  const weather = useWeather();
+  const weather: WeatherType = useWeather();
 
   const getSource = (type?: AuroraType) => {
     if (type === AuroraType.Pink) {

@@ -4,7 +4,12 @@ import { WeatherType } from './weather-types';
 const API_KEY = process.env.WEATHER_API_KEY;
 const BASE_URL = 'https://api.weatherapi.com/v1';
 
-export async function getWeather() {
+interface getSunTimeProps {
+  sunriseTime: number;
+  sunsetTime: number;
+}
+
+export const getWeather = async (): Promise<WeatherType> => {
   const apiUrl = `${BASE_URL}/current.json?key=${API_KEY}&q=auto:ip`;
   try {
     const response = await axios.get(apiUrl);
@@ -14,9 +19,9 @@ export async function getWeather() {
     console.error('Error fetching weather:', error);
     return WeatherType.NotSet;
   }
-}
+};
 
-export async function getSunTime() {
+export const getSunTime = async (): Promise<getSunTimeProps> => {
   try {
     const response = await axios.get(
       `${BASE_URL}/astronomy.json?key=${API_KEY}&q=auto:ip`,
@@ -34,9 +39,9 @@ export async function getSunTime() {
     console.error('Error retrieving weather data:', error);
     return { sunriseTime: 0, sunsetTime: 0 };
   }
-}
+};
 
-export function getWeatherDescription(conditionCode) {
+export function getWeatherDescription(conditionCode: number): WeatherType {
   const weatherTypeMap = {
     '1000': WeatherType.Sunny,
     '1003': WeatherType.SlightlyCloudy,
@@ -68,7 +73,7 @@ export function getWeatherDescription(conditionCode) {
   return WeatherType.NotSet;
 }
 
-export function convertTimeStringToTimestamp(timeString) {
+export function convertTimeStringToTimestamp(timeString: string): number {
   const [time, period] = timeString.split(' ');
   const [hours, minutes] = time.split(':');
 
