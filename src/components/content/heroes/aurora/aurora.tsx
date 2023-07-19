@@ -35,9 +35,7 @@ export const Aurora = ({ type, className }: AuroraProps) => {
     <AuroraContainer className={className}>
       <AuroraBackground source={getSource(type)} weather={weather} />
       <AuroraForeground>
-        <AuroraForeground>
-          <WeatherEasterEgg weather={weather} />
-        </AuroraForeground>
+        <WeatherEasterEgg weather={weather} />
       </AuroraForeground>
     </AuroraContainer>
   );
