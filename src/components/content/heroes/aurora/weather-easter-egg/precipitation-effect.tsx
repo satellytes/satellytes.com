@@ -87,8 +87,8 @@ const Snowflake = styled.div<SnowflakeProps>`
   background: radial-gradient(
     50% 50% at 50% 50%,
     rgba(255, 255, 255, ${(props) => props.transparency}) 0%,
-    rgba(255, 255, 255, ${(props) => props.transparency}) 20.83%,
-    rgba(255, 255, 255, ${(props) => props.transparency * 0.8}) 85.94%,
+    rgba(255, 255, 255, ${(props) => props.transparency}) 20%,
+    rgba(255, 255, 255, ${(props) => props.transparency * 0.8}) 85%,
     rgba(255, 252, 222, ${(props) => props.transparency}) 100%
   );
   filter: blur(${(props) => props.blur}px);
