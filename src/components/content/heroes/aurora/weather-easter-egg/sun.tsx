@@ -87,7 +87,7 @@ export const Sun = () => {
       setTimePercent(getSunlightPercentage(sunriseTime, sunsetTime));
     };
 
-    if (sunrise === 0 || sunset === 0) fetchData();
+    fetchData();
 
     const interval = setInterval(() => {
       setTimePercent(getSunlightPercentage(sunrise, sunset));
@@ -96,7 +96,7 @@ export const Sun = () => {
     return () => {
       clearInterval(interval);
     };
-  }, [sunset, sunrise, timePercent]);
+  });
 
   return (
     <>
