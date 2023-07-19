@@ -1,12 +1,5 @@
 import styled, { css } from 'styled-components';
 import { WeatherType } from './weather-easter-egg/weather-types';
-import { Flare, FlareType } from './flare';
-import { Clouds, CloudType } from './weather-easter-egg/clouds';
-import React from 'react';
-import { DefaultFlares } from './default-flares';
-import { Snow } from './weather-easter-egg/snow';
-import { Rain } from './weather-easter-egg/rain';
-import { Sun } from './weather-easter-egg/sun';
 
 const BACKGROUND_LAYER_Z = -2;
 const FOREGROUND_LAYER_Z = -1;
