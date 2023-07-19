@@ -52,7 +52,7 @@ const createSlackMessage = ({
         {
           type: 'mrkdwn',
           text: `*Avaible from*:\n ${
-            available_from === 'undefined' ? '-' : salary_expectations
+            available_from === 'undefined' ? '-' : available_from
           }`,
         },
         {
