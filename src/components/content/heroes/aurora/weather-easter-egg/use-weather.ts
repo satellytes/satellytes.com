@@ -5,15 +5,14 @@ import { useEffect, useState } from 'react';
 export function useWeather(): WeatherType {
   const [weather, setWeather] = useState(WeatherType.NotSet);
 
-  const toggleWeather = async () => {
-    if (weather === WeatherType.NotSet) {
-      setWeather(await getWeather());
-    } else {
-      setWeather(WeatherType.NotSet);
-    }
-  };
-
   useEffect(() => {
+    const toggleWeather = async () => {
+      if (weather === WeatherType.NotSet) {
+        setWeather(await getWeather());
+      } else {
+        setWeather(WeatherType.NotSet);
+      }
+    };
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.ctrlKey && event.altKey && event.shiftKey) {
         toggleWeather();
@@ -25,7 +24,7 @@ export function useWeather(): WeatherType {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  }, [weather]);
 
   return weather;
 }
