@@ -97,7 +97,7 @@ export const Sun = () => {
     return () => {
       clearInterval(interval);
     };
-  });
+  }, []);
 
   return (
     <>

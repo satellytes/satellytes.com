@@ -53,8 +53,8 @@ const CloudGroupContainer = styled.div`
   height: 200px;
   position: absolute;
 
-  top: calc(${() => Math.floor(Math.random() * 100)}% - 200px);
-  left: calc(${() => Math.floor(Math.random() * 100)}% - 200px);
+  top: calc(${() => Math.random() * 100}% - 200px);
+  left: calc(${() => Math.random() * 100}% - 200px);
 
   animation: ${() => cloudAnimation(50)} ${getRandomValue(9, 12)}s alternate
     infinite;
@@ -72,7 +72,6 @@ export const Clouds = ({ amount, type }: CloudsProps) => {
 
 export const CloudGroup = ({ type }: CloudGroupProps) => {
   const amount = Math.floor(Math.random() * MAX_CLOUDS_PER_GROUP) + 1;
-  console.log(amount);
   return (
     <CloudGroupContainer>
       {Array.from(Array(amount).keys()).map((i) => (
@@ -83,7 +82,7 @@ export const CloudGroup = ({ type }: CloudGroupProps) => {
 };
 
 const Cloud = styled.div<{ type: CloudType }>`
-  --size: ${() => Math.floor(Math.random() * 400) + 100}px;
+  --size: ${() => Math.random() * 400 + 100}px;
   width: var(--size);
   height: var(--size);
   background: linear-gradient(

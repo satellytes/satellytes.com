@@ -25,7 +25,7 @@ export function useWeather(): WeatherType {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  });
+  }, []);
 
   return weather;
 }
