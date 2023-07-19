@@ -99,8 +99,9 @@ const Cloud = styled.div<{ type: CloudType }>`
   border-radius: 1000px;
 
   position: absolute;
-  top: ${() => Math.floor(Math.random() * 100)}%;
-  left: ${() => Math.floor(Math.random() * 100)}%;
+
+  top: ${() => Math.random() * 100}%;
+  left: ${() => Math.random() * 100}%;
 
   animation: ${() => cloudAnimation(10)} ${getRandomValue(9, 12)}s alternate
     infinite;
