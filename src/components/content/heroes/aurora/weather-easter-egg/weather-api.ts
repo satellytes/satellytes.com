@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { WeatherType } from './weather-types';
 
-const API_KEY = process.env.WEATHER_API_KEY;
+const API_KEY = process.env.GATSBY_WEATHER_API_KEY;
 const BASE_URL = 'https://api.weatherapi.com/v1';
 
 interface getSunTimeProps {
