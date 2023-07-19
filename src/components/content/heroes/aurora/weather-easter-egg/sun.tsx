@@ -75,7 +75,7 @@ const AuroraSunReflectionDiv = styled.div<{ timePercent: number }>`
 `;
 
 export const Sun = () => {
-  const [time, setTime] = useState(0);
+  const [timePercent, setTimePercent] = useState(0);
   const [sunrise, setSunrise] = useState(0);
   const [sunset, setSunset] = useState(0);
 
@@ -84,26 +84,26 @@ export const Sun = () => {
       const { sunriseTime, sunsetTime } = await getSunTime();
       setSunrise(sunriseTime);
       setSunset(sunsetTime);
-      setTime(getSunlightPercentage(sunriseTime, sunsetTime));
+      setTimePercent(getSunlightPercentage(sunriseTime, sunsetTime));
     };
 
     if (sunrise === 0 || sunset === 0) fetchData();
 
     const interval = setInterval(() => {
-      setTime(getSunlightPercentage(sunrise, sunset));
+      setTimePercent(getSunlightPercentage(sunrise, sunset));
     }, 10000);
 
     return () => {
       clearInterval(interval);
     };
-  }, [sunset, sunrise, time]);
+  }, [sunset, sunrise, timePercent]);
 
   return (
     <>
-      <AuroraSunDiv timePercent={time}>
+      <AuroraSunDiv timePercent={timePercent}>
         <AuroraSunShineDiv />
       </AuroraSunDiv>
-      <AuroraSunReflectionDiv timePercent={time} />
+      <AuroraSunReflectionDiv timePercent={timePercent} />
       <Flare
         stepSize={0}
         flareType={FlareType.LIGHT}
