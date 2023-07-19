@@ -66,7 +66,7 @@ function getFlareImage(type: FlareType) {
     return css`
       background-image: url(${FlareTypeB});
     `;
-  } else if (type === FlareType.LIGHT) {
+  } else {
     return css`
       background-image: url(${FlareTypeA});
     `;
