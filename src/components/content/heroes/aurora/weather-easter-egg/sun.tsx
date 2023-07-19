@@ -32,6 +32,7 @@ const AuroraSunShineDiv = styled.div`
 `;
 
 const AuroraSunDiv = styled.div<{ timePercent: number }>`
+  transition: all 0.5s ease-out;
   left: calc(${(props) => props.timePercent}% - 167.5px);
   bottom: calc(
     ${(props) =>
