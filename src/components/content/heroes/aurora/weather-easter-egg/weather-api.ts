@@ -4,12 +4,7 @@ import { WeatherType } from './weather-types';
 const API_KEY = process.env.GATSBY_WEATHER_API_KEY;
 const BASE_URL = 'https://api.weatherapi.com/v1';
 
-interface getSunTimeProps {
-  sunriseTime: number;
-  sunsetTime: number;
-}
-
-export const getWeather = async (): Promise<WeatherType> => {
+export const getWeather = async () => {
   const apiUrl = `${BASE_URL}/current.json?key=${API_KEY}&q=auto:ip`;
   try {
     const response = await axios.get(apiUrl);
@@ -21,7 +16,7 @@ export const getWeather = async (): Promise<WeatherType> => {
   }
 };
 
-export const getSunTime = async (): Promise<getSunTimeProps> => {
+export const getSunTime = async () => {
   try {
     const response = await axios.get(
       `${BASE_URL}/astronomy.json?key=${API_KEY}&q=auto:ip`,
@@ -72,7 +67,7 @@ export function getWeatherDescription(conditionCode: number): WeatherType {
   return WeatherType.NotSet;
 }
 
-export function convertTimeStringToTimestamp(timeString: string): number {
+export function convertTimeStringToTimestamp(timeString: string) {
   const [time, period] = timeString.split(' ');
   const [hours, minutes] = time.split(':');
 
