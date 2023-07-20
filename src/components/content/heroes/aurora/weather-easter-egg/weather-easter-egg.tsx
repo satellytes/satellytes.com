@@ -33,7 +33,7 @@ export const WeatherEasterEgg = ({
     case WeatherType.Cloudy:
       return <Clouds amount={20} type={CloudType.DARK} />;
     case WeatherType.SlightlyCloudy:
-      return <Clouds amount={10} type={CloudType.LIGHT} />;
+      return <Clouds amount={15} type={CloudType.LIGHT} />;
     case WeatherType.Snowy:
       return <Snow amount={50} />;
     case WeatherType.Rainy:
@@ -50,7 +50,7 @@ export const getCustomBackground = (weather: WeatherType) => {
     case WeatherType.Rainy:
       return '#76809b';
     case WeatherType.SlightlyCloudy:
-      return '#5A6FC1';
+      return '#274ce5';
     case WeatherType.NotSet:
       return undefined;
     default:

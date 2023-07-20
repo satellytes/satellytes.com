@@ -44,7 +44,7 @@ const CloudsContainer = styled.div<{ type: CloudType }>`
   background: linear-gradient(
     180deg,
     ${(props) => (props.type === CloudType.LIGHT ? '#8dedfd' : '#4a495d')} 0%,
-    ${(props) => (props.type === CloudType.LIGHT ? '#49d6f6' : '#8686ab')} 100%
+    ${(props) => (props.type === CloudType.LIGHT ? '#34caec' : '#8686ab')} 100%
   );
 `;
 
@@ -92,9 +92,18 @@ const Cloud = styled.div<{ type: CloudType }>`
       100%
   );
   box-shadow: inset 0 0 60px
-    ${(props) => (props.type == CloudType.DARK ? '#00000080' : '#ffffffbf')};
-  opacity: ${Math.random() * 0.5 + 0.1};
-  filter: blur(${() => getRandomValue(30, 50)}px);
+    ${(props) =>
+      props.type == CloudType.DARK ? '#00000080' : 'rgba(175,175,175,0.75)'};
+  opacity: ${(props) =>
+    props.type == CloudType.DARK
+      ? Math.random() * 0.5 + 0.1
+      : Math.random() * 0.2 + 0.1};
+  filter: blur(
+    ${(props) =>
+      props.type === CloudType.DARK
+        ? getRandomValue(30, 50)
+        : getRandomValue(20, 30)}px
+  );
   border-radius: 1000px;
 
   position: absolute;
