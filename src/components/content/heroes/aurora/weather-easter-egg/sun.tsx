@@ -65,6 +65,7 @@ const AuroraSunDiv = styled.div<{ timePercent: number }>`
 
 // Lens flare effect on the sun
 const AuroraSunReflectionDiv = styled.div<{ timePercent: number }>`
+  transition: all 0.5s ease-out;
   --width: 549.5px;
   background-image: url(${REFLECTION});
   background-size: contain;
