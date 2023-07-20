@@ -8,7 +8,10 @@ import {
   AuroraContainer,
   AuroraBackground,
 } from './aurora-components';
-import { WeatherEasterEgg } from './weather-easter-egg/weather-easter-egg';
+import {
+  getCustomBackground,
+  WeatherEasterEgg,
+} from './weather-easter-egg/weather-easter-egg';
 import { useWeather } from './weather-easter-egg/use-weather';
 import { WeatherType } from './weather-easter-egg/weather-types';
 
@@ -33,7 +36,10 @@ export const Aurora = ({ type, className }: AuroraProps) => {
   };
   return (
     <AuroraContainer className={className}>
-      <AuroraBackground source={getSource(type)} weather={weather} />
+      <AuroraBackground
+        source={getSource(type)}
+        overwriteBackground={getCustomBackground(weather)}
+      />
       <AuroraForeground>
         <WeatherEasterEgg weather={weather} />
       </AuroraForeground>

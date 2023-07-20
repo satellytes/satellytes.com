@@ -1,27 +1,18 @@
 import styled, { css } from 'styled-components';
-import { WeatherType } from './weather-easter-egg/weather-types';
 
 const BACKGROUND_LAYER_Z = -2;
 const FOREGROUND_LAYER_Z = -1;
 
 interface AuroraBackgroundProps {
   source: string;
-  weather: WeatherType;
+  overwriteBackground?: string;
 }
 
 export const AuroraBackground = styled.div<AuroraBackgroundProps>`
-  background: ${(props) => {
-    switch (props.weather) {
-      case WeatherType.Sunny:
-        return '#3E61EE';
-      case WeatherType.Rainy:
-        return '#76809b';
-      case WeatherType.SlightlyCloudy:
-        return '#5A6FC1';
-      default:
-        return '#202840';
-    }
-  }};
+  ${(props) =>
+    props.overwriteBackground !== undefined
+      ? 'background: ' + props.overwriteBackground
+      : 'background: #202840'};
   position: absolute;
   z-index: ${BACKGROUND_LAYER_Z};
   left: 0;
@@ -29,7 +20,7 @@ export const AuroraBackground = styled.div<AuroraBackgroundProps>`
   bottom: 0;
   top: 0;
   ${(props) =>
-    props.weather === WeatherType.NotSet
+    props.overwriteBackground === undefined
       ? css`
           background-image: url(${props.source});
           background-repeat: no-repeat;

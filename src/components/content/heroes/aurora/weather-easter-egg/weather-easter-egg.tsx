@@ -31,3 +31,18 @@ export const WeatherEasterEgg = ({ weather }: WeatherEasterEggProps) => {
       );
   }
 };
+
+export const getCustomBackground = (weather: WeatherType) => {
+  switch (weather) {
+    case WeatherType.Sunny:
+      return '#3E61EE';
+    case WeatherType.Rainy:
+      return '#76809b';
+    case WeatherType.SlightlyCloudy:
+      return '#5A6FC1';
+    case WeatherType.NotSet:
+      return undefined;
+    default:
+      return '#202840';
+  }
+};
