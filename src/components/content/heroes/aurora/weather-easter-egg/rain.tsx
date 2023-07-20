@@ -49,7 +49,7 @@ export const Rain = ({ amount }: RainProps) => {
       <DefaultFlaresDark />
       <PrecipitationEffect
         dropCount={amount}
-        speed={1}
+        fallDuration={1}
         type={PrecipitationType.Rain}
         speedDeviation={0.1}
       />

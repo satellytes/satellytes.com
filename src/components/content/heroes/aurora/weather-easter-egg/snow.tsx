@@ -22,7 +22,7 @@ export const Snow = ({ amount }: SnowProps) => {
       <AuroraSnowyFlareColor />
       <PrecipitationEffect
         dropCount={amount}
-        speed={10}
+        fallDuration={10}
         type={PrecipitationType.Snow}
         speedDeviation={3}
       />
