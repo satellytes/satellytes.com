@@ -9,6 +9,21 @@ import { getSunlightPercentage } from './sun-percentage-calculator';
 import { Flare, FlareType } from '../flare';
 import { DefaultFlares } from '../default-flares';
 
+const getSunYPosition = (timePercent: number) => {
+  return (1 / 125) * (-(timePercent - 50) * (timePercent - 50)) + 60; // parabola formula to get the sun to move in a parabola
+};
+
+const getSunReflectionYPosition = (timePercent: number) => {
+  return (
+    (1 / 350) *
+      -Math.pow(
+        (timePercent + (timePercent - 50) / 2) * 2 - 100, // parabola formula to get the sun reflection to move in a parabola
+        2,
+      ) +
+    60
+  );
+};
+
 const rotatingAnimation = keyframes`
     0% {
         transform: rotate(0deg);
@@ -32,45 +47,36 @@ const AuroraSunShineDiv = styled.div`
 `;
 
 const AuroraSunDiv = styled.div<{ timePercent: number }>`
+  --width: 335px;
   transition: all 0.5s ease-out;
-  left: calc(${(props) => props.timePercent}% - 167.5px);
-  bottom: calc(
-    ${(props) =>
-        (1 / 125) * (-(props.timePercent - 50) * (props.timePercent - 50)) +
-        60}%
-      // parabola formula to get the sun to move in a parabola
-  );
+  left: calc(${(props) => props.timePercent}% - var(--width) / 2);
+  bottom: calc(${(props) => getSunYPosition(props.timePercent)}%);
   position: absolute;
   background-image: url(${SUN});
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   display: inline-block;
-  width: 335px;
+  width: var(--width);
   height: 335px;
 `;
 
 const AuroraSunReflectionDiv = styled.div<{ timePercent: number }>`
+  --width: 549.5px;
   background-image: url(${REFLECTION});
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   display: inline-block;
-  width: 549.5px;
+  width: var(--width);
   height: 539px;
   left: calc(
     ${(props) => props.timePercent}% +
-      ${(props) => (props.timePercent - 50) / 2}% - 274.75px
+      ${(props) => (props.timePercent - 50) / 2}% - var(--width) / 2
       // linear formula to control the speed of the sun reflection
   );
   bottom: calc(
-    ${(props) =>
-        (1 / 350) *
-          -Math.pow(
-            (props.timePercent + (props.timePercent - 50) / 2) * 2 - 100, // parabola formula to get the sun reflection to move in a parabola
-            2,
-          ) +
-        60}% - 100px
+    ${(props) => getSunReflectionYPosition(props.timePercent)}% - 100px
   );
   position: absolute;
 `;
