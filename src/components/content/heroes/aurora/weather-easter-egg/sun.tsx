@@ -28,6 +28,12 @@ const getSunReflectionYPosition = (timePercent: number) => {
   );
 };
 
+interface bgProps {
+  time: number;
+  sunrise: number;
+  sunset: number;
+}
+
 const rotatingAnimation = keyframes`
     0% {
         transform: rotate(0deg);
@@ -35,6 +41,79 @@ const rotatingAnimation = keyframes`
     100% {
         transform: rotate(360deg);
     }
+`;
+
+const sunBackgroundAnimation = keyframes`
+  0% {
+    width: 500%;
+    height: 500%;
+    transform: translate(-25%, -25%);
+  }
+  7% {
+    width: 0;
+    height: 0;
+  }
+  93% {
+    width: 0;
+    height: 0;
+  }
+  100% {
+    width: 500%;
+    height: 500%;
+    transform: translate(-25%, -25%);
+  }
+  `;
+
+const backgroundAnimation = keyframes`
+  0% {
+    opacity: .7;
+  }
+  7% {
+    opacity: 0;
+  }
+  93% {
+    opacity: 0;
+  }
+  100% {
+    opacity: .7;
+  }
+`;
+
+const SunBackgroundDiv = styled.div<bgProps>`
+  position: relative;
+  background: radial-gradient(
+    circle at 50% 50%,
+    #ff6a00c4 0%,
+    #ff6a00c4 50%,
+    #ffffff00 100%
+  );
+
+  animation: ${sunBackgroundAnimation}
+    ${(props) => (props.sunset - props.sunrise) / 1000}s linear infinite;
+  animation-delay: ${(props) =>
+    `-${((props.time / 100) * (props.sunset - props.sunrise)) / 1000}s`};
+  z-index: -1;
+  opacity: 0.7;
+  border-radius: 500%;
+  filter: blur(200px);
+`;
+
+const BackgroundDiv = styled.div<bgProps>`
+  position: absolute;
+  width: 100%;
+  height: 120%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgb(255, 38, 38) 100%
+  );
+  z-index: -2;
+  animation: ${backgroundAnimation}
+    ${(props) => (props.sunset - props.sunrise) / 1000}s linear infinite;
+  animation-delay: ${(props) =>
+    `-${((props.time / 100) * (props.sunset - props.sunrise)) / 1000}s`};
 `;
 
 // Sunshine effect around the sun
@@ -122,7 +201,13 @@ export const Sun = () => {
 
   return (
     <>
+      <BackgroundDiv sunrise={sunrise} sunset={sunset} time={timePercent} />
       <AuroraSunDiv timePercent={timePercent}>
+        <SunBackgroundDiv
+          sunrise={sunrise}
+          sunset={sunset}
+          time={timePercent}
+        />
         <AuroraSunShineDiv />
       </AuroraSunDiv>
       <AuroraSunReflectionDiv timePercent={timePercent} />
