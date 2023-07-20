@@ -4,7 +4,7 @@ import { JSX, useEffect, useState } from 'react';
 
 interface WeatherProps {
   key?: string[];
-  codes?: { [key: string]: WeatherType };
+  codes?: { [key: string]: string };
   customWeather?: { [key in WeatherType]: JSX.Element };
 }
 
@@ -14,13 +14,12 @@ export const useWeather = (props: WeatherProps): WeatherType => {
   useEffect(() => {
     const toggleWeather = async () => {
       if (weather === WeatherType.NotSet) {
-        setWeather(await getWeather());
+        setWeather(await getWeather(props.codes));
       } else {
         setWeather(WeatherType.NotSet);
       }
     };
     const handleKeyDown = (event: KeyboardEvent) => {
-      console.log(event.key);
       if (
         event.ctrlKey &&
         event.altKey &&

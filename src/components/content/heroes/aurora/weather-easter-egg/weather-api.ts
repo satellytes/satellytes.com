@@ -4,12 +4,14 @@ import { WeatherType } from './weather-types';
 const API_KEY = process.env.GATSBY_WEATHER_API_KEY;
 const BASE_URL = 'https://api.weatherapi.com/v1';
 
-export const getWeather = async () => {
+export const getWeather = async (
+  customCodes: { [key: string]: string } | undefined,
+) => {
   const apiUrl = `${BASE_URL}/current.json?key=${API_KEY}&q=auto:ip`;
   try {
     const response = await axios.get(apiUrl);
     const conditionCode = response.data.current.condition.code;
-    return getWeatherDescription(conditionCode);
+    return getWeatherDescription(conditionCode, customCodes);
   } catch (error) {
     console.error('Error fetching weather:', error);
     return WeatherType.NotSet;
@@ -36,7 +38,27 @@ export const getSunTime = async () => {
   }
 };
 
-export function getWeatherDescription(conditionCode: number): WeatherType {
+export function getWeatherDescription(
+  conditionCode: number,
+  customCodes: { [key: string]: string } | undefined,
+): WeatherType {
+  if (customCodes) {
+    return (
+      Object.keys(customCodes)
+        .map((range) => {
+          const customType = customCodes[range];
+          const [start, end] = range.split('-').map(Number);
+          if (start === conditionCode) {
+            return customType as WeatherType;
+          }
+          if (conditionCode >= start && conditionCode <= end) {
+            return customType as WeatherType;
+          }
+        })
+        .find((weatherType) => weatherType !== undefined) || WeatherType.NotSet
+    );
+  }
+
   const weatherTypeMap = {
     '1000': WeatherType.Sunny,
     '1003': WeatherType.SlightlyCloudy,

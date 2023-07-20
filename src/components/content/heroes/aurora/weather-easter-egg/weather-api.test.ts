@@ -65,7 +65,7 @@ describe('getWeatherDescription', () => {
   ])(
     'should return the correct weather type for condition code %s',
     (conditionCode, expectedWeatherType) => {
-      const actualWeatherType = getWeatherDescription(conditionCode);
+      const actualWeatherType = getWeatherDescription(conditionCode, undefined);
       expect(actualWeatherType).toBe(expectedWeatherType);
     },
   );

@@ -5,7 +5,7 @@ import React, { JSX } from 'react';
 
 interface WeatherEasterEggProps {
   key?: string[];
-  codes?: { [key: string]: WeatherType };
+  codes?: { [key: string]: string };
   customWeather?: { [key in WeatherType]: JSX.Element };
 }
 
