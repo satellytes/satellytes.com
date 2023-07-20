@@ -1,11 +1,10 @@
 import { WeatherType } from './weather-types';
 import { getWeather } from './weather-api';
-import { JSX, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface WeatherProps {
   key?: string[];
   codes?: { [key: string]: string };
-  customWeather?: { [key in WeatherType]: JSX.Element };
 }
 
 export const useWeather = (props: WeatherProps): WeatherType => {

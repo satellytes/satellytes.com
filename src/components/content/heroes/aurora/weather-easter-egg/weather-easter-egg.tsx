@@ -1,5 +1,5 @@
 import { WeatherType } from './weather-types';
-import React from 'react';
+import React, { JSX } from 'react';
 import { Sun } from './sun';
 import { Clouds, CloudType } from './clouds';
 import { Snow } from './snow';
@@ -7,9 +7,26 @@ import { Rain } from './rain';
 
 interface WeatherEasterEggProps {
   weather: WeatherType;
+  customWeather?: { [key: string]: JSX.Element };
 }
 
-export const WeatherEasterEgg = ({ weather }: WeatherEasterEggProps) => {
+const keysToWeatherTypes = (customWeather: { [key: string]: JSX.Element }) => {
+  return Object.entries(customWeather).reduce(
+    (convertedWeather, [key, value]) => ({
+      ...convertedWeather,
+      [key as WeatherType]: value,
+    }),
+    {},
+  );
+};
+
+export const WeatherEasterEgg = ({
+  weather,
+  customWeather,
+}: WeatherEasterEggProps): JSX.Element => {
+  if (customWeather && keysToWeatherTypes(customWeather)[weather]) {
+    return keysToWeatherTypes(customWeather)[weather];
+  }
   switch (weather) {
     case WeatherType.Sunny:
       return <Sun />;

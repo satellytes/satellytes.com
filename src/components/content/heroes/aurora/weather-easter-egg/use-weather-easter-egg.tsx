@@ -6,7 +6,7 @@ import React, { JSX } from 'react';
 interface WeatherEasterEggProps {
   key?: string[];
   codes?: { [key: string]: string };
-  customWeather?: { [key in WeatherType]: JSX.Element };
+  customWeather?: { [key: string]: JSX.Element };
 }
 
 export const useWeatherEasterEgg = ({
@@ -14,9 +14,11 @@ export const useWeatherEasterEgg = ({
   codes,
   customWeather,
 }: WeatherEasterEggProps) => {
-  const weather: WeatherType = useWeather({ key, codes, customWeather });
+  const weather: WeatherType = useWeather({ key, codes });
   const isWeatherEasterEggEnabled = weather !== WeatherType.NotSet;
-  const WeatherComponent = <WeatherEasterEgg weather={weather} />;
+  const WeatherComponent = (
+    <WeatherEasterEgg weather={weather} customWeather={customWeather} />
+  );
 
   return {
     WeatherComponent,
