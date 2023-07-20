@@ -3,6 +3,9 @@
 ## Description
 An Easter egg to display the current weather in Aurora
 
+## Requirements
+- [WeatherAPI](https://weatherapi.com/) API key as ```GATSBY_WEATHER_API_KEY``` environment variable
+
 ## Basic Usage
 ```jsx
 import { useWeatherEasterEgg } from './weather-easter-egg/use-weather-easter-egg';
