@@ -5,9 +5,13 @@ import styled, { keyframes } from 'styled-components';
 import { useEffect, useState } from 'react';
 import React from 'react';
 import { getSunTime } from './weather-api';
-import { getSunlightPercentage } from './sun-percentage-calculator';
+import {
+  getNighttimePercentage,
+  getSunlightPercentage,
+} from './daylight-percentage-calculator';
 import { Flare, FlareType } from '../flare';
 import { DefaultFlares } from '../default-flares';
+import { Moon } from './moon';
 
 const getSunYPosition = (timePercent: number) => {
   return (1 / 125) * (-(timePercent - 50) * (timePercent - 50)) + 60; // parabola formula to get the sun to move in a parabola
@@ -87,6 +91,7 @@ const AuroraSunReflectionDiv = styled.div<{ timePercent: number }>`
 
 export const Sun = () => {
   const [timePercent, setTimePercent] = useState(0);
+  const [nightTimePercent, setNightTimePercent] = useState(0);
   const [sunrise, setSunrise] = useState(0);
   const [sunset, setSunset] = useState(0);
 
@@ -98,12 +103,16 @@ export const Sun = () => {
       setTimePercent(
         getSunlightPercentage(sunriseTime, sunsetTime, +new Date()),
       );
+      setNightTimePercent(
+        getNighttimePercentage(sunriseTime, sunsetTime, +new Date()),
+      );
     };
 
     fetchData();
 
     const interval = setInterval(() => {
       setTimePercent(getSunlightPercentage(sunrise, sunset, +new Date()));
+      setNightTimePercent(getNighttimePercentage(sunrise, sunset, +new Date()));
     }, 10000);
 
     return () => {
@@ -117,6 +126,7 @@ export const Sun = () => {
         <AuroraSunShineDiv />
       </AuroraSunDiv>
       <AuroraSunReflectionDiv timePercent={timePercent} />
+      <Moon nightPercentage={nightTimePercent} />
       <Flare
         stepSize={0}
         flareType={FlareType.LIGHT}
