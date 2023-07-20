@@ -33,6 +33,7 @@ const rotatingAnimation = keyframes`
     }
 `;
 
+// Sunshine effect around the sun
 const AuroraSunShineDiv = styled.div`
   background-image: url(${SUNSHINE});
   background-position: center;
@@ -46,6 +47,7 @@ const AuroraSunShineDiv = styled.div`
   position: absolute;
 `;
 
+// The sun itself (in sync with real time)
 const AuroraSunDiv = styled.div<{ timePercent: number }>`
   --width: 335px;
   transition: all 0.5s ease-out;
@@ -61,6 +63,7 @@ const AuroraSunDiv = styled.div<{ timePercent: number }>`
   height: 335px;
 `;
 
+// Lens flare effect on the sun
 const AuroraSunReflectionDiv = styled.div<{ timePercent: number }>`
   --width: 549.5px;
   background-image: url(${REFLECTION});
