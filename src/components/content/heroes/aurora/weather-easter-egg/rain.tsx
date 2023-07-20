@@ -1,6 +1,6 @@
 import { Flare } from '../flare';
 import PrecipitationEffect, { PrecipitationType } from './precipitation-effect';
-import React, { FC } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { DefaultFlares, DefaultFlaresDark } from '../default-flares';
 
@@ -17,7 +17,7 @@ interface RainProps {
   amount: number;
 }
 
-export const Rain: FC<RainProps> = ({ amount }) => {
+export const Rain = ({ amount }: RainProps) => {
   return (
     <>
       <AuroraRainyFlareColor />

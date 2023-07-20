@@ -1,5 +1,5 @@
 import PrecipitationEffect, { PrecipitationType } from './precipitation-effect';
-import React, { FC } from 'react';
+import React from 'react';
 import { DefaultFlares, DefaultFlaresDark } from '../default-flares';
 import styled from 'styled-components';
 
@@ -16,7 +16,7 @@ interface SnowProps {
   amount: number;
 }
 
-export const Snow: FC<SnowProps> = ({ amount }) => {
+export const Snow = ({ amount }: SnowProps) => {
   return (
     <>
       <AuroraSnowyFlareColor />
