@@ -7,10 +7,7 @@ describe('getSunlightPercentage', () => {
   test('returns the correct sunlight percentage at noon', () => {
     const currentTime = new Date('2023-07-14T12:00:00Z').getTime();
 
-    jest.useFakeTimers();
-    jest.setSystemTime(currentTime);
-
-    const result = getSunlightPercentage(sunriseTime, sunsetTime);
+    const result = getSunlightPercentage(sunriseTime, sunsetTime, currentTime);
     const expectedPercentage = 50;
 
     expect(result).toEqual(expectedPercentage);
@@ -21,10 +18,7 @@ describe('getSunlightPercentage', () => {
   test('returns 0% sunlight before sunrise', () => {
     const currentTime = new Date('2023-07-14T04:59:59Z').getTime();
 
-    jest.useFakeTimers();
-    jest.setSystemTime(currentTime);
-
-    const result = getSunlightPercentage(sunriseTime, sunsetTime);
+    const result = getSunlightPercentage(sunriseTime, sunsetTime, currentTime);
     const expectedPercentage = 0;
 
     expect(result).toEqual(expectedPercentage);
@@ -35,10 +29,7 @@ describe('getSunlightPercentage', () => {
   test('returns 100% sunlight at sunset', () => {
     const currentTime = new Date('2023-07-14T18:00:00Z').getTime();
 
-    jest.useFakeTimers();
-    jest.setSystemTime(currentTime);
-
-    const result = getSunlightPercentage(sunriseTime, sunsetTime);
+    const result = getSunlightPercentage(sunriseTime, sunsetTime, currentTime);
     const expectedPercentage = 100;
 
     expect(result).toEqual(expectedPercentage);
@@ -49,10 +40,7 @@ describe('getSunlightPercentage', () => {
   test('returns 100% sunlight after sunset', () => {
     const currentTime = new Date('2023-07-14T19:00:01Z').getTime();
 
-    jest.useFakeTimers();
-    jest.setSystemTime(currentTime);
-
-    const result = getSunlightPercentage(sunriseTime, sunsetTime);
+    const result = getSunlightPercentage(sunriseTime, sunsetTime, currentTime);
     const expectedPercentage = 100;
 
     expect(result).toEqual(expectedPercentage);
@@ -63,10 +51,7 @@ describe('getSunlightPercentage', () => {
   test('returns 8% sunlight one hour after sunrise', () => {
     const currentTime = new Date('2023-07-14T07:00:00Z').getTime();
 
-    jest.useFakeTimers();
-    jest.setSystemTime(currentTime);
-
-    const result = getSunlightPercentage(sunriseTime, sunsetTime);
+    const result = getSunlightPercentage(sunriseTime, sunsetTime, currentTime);
     const expectedPercentage = 8;
 
     expect(result).toEqual(expectedPercentage);

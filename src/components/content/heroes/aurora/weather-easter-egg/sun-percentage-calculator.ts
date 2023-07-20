@@ -1,9 +1,8 @@
 export const getSunlightPercentage = (
   sunriseTime: number,
   sunsetTime: number,
+  time: number,
 ) => {
-  const time = +new Date();
-
   const totalDaylightMinutes = (sunsetTime - sunriseTime) / (1000 * 60);
   if (totalDaylightMinutes <= 0) {
     return 20;

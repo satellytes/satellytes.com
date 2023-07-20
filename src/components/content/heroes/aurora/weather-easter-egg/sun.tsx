@@ -91,13 +91,15 @@ export const Sun = () => {
       const { sunriseTime, sunsetTime } = await getSunTime();
       setSunrise(sunriseTime);
       setSunset(sunsetTime);
-      setTimePercent(getSunlightPercentage(sunriseTime, sunsetTime));
+      setTimePercent(
+        getSunlightPercentage(sunriseTime, sunsetTime, +new Date()),
+      );
     };
 
     fetchData();
 
     const interval = setInterval(() => {
-      setTimePercent(getSunlightPercentage(sunrise, sunset));
+      setTimePercent(getSunlightPercentage(sunrise, sunset, +new Date()));
     }, 10000);
 
     return () => {
