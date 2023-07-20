@@ -28,12 +28,25 @@ interface SnowflakeContainerProps {
   animation_delay: number;
 }
 
+interface SplashProps {
+  top: number;
+  left: number;
+  animation_delay: number;
+}
+
 interface PrecipitationData {
   id: number;
   color: string;
   speed: number;
   delay: number;
   left: number;
+}
+
+interface SplashData {
+  id: number;
+  top: number;
+  left: number;
+  delay: number;
 }
 
 const fallAnimation = keyframes`
@@ -44,6 +57,25 @@ const fallAnimation = keyframes`
   100% {
     transform: translateY(150vh);
     opacity: 1;
+  }
+`;
+
+const splashAnimation = keyframes`
+  0% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  90% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
   }
 `;
 
@@ -59,6 +91,20 @@ const generateSwayAnimation = (initialX: number, range: number) => keyframes`
       initialX + (Math.random() * range) / 2 - range / 4
     }px);
   }
+`;
+
+const Splash = styled.div<SplashProps>`
+  width: 25px;
+  height: 30px;
+  border-top: 4px dotted #84abd0;
+  border-radius: 50%;
+  opacity: 1;
+  transform: scale(0);
+  animation: ${splashAnimation} 0.5s linear infinite;
+  position: absolute;
+  top: ${(props) => props.top}%;
+  left: ${(props) => props.left}%;
+  animation-delay: ${(props) => props.animation_delay}s;
 `;
 
 const Raindrop = styled.div<RaindropProps>`
@@ -110,6 +156,7 @@ export enum PrecipitationType {
 const PrecipitationEffect = ({ dropCount, speed, type, speedDeviation }) => {
   const [rainDrops, setRainDrops] = useState<PrecipitationData[]>([]);
   const [snowflakes, setSnowflakes] = useState<PrecipitationData[]>([]);
+  const [splashes, setSplashes] = useState<SplashData[]>([]);
 
   useEffect(() => {
     const generateDrops = () => {
@@ -121,8 +168,16 @@ const PrecipitationEffect = ({ dropCount, speed, type, speedDeviation }) => {
         left: Math.random() * 100,
       }));
 
+      const newSplashes = Array.from({ length: dropCount / 4 }, (_, index) => ({
+        id: index,
+        top: Math.random() * 5 + 95,
+        left: Math.random() * 100,
+        delay: Math.random() * 5,
+      }));
+
       if (type === PrecipitationType.Rain) {
         setRainDrops(newDrops);
+        setSplashes(newSplashes);
       } else if (type === PrecipitationType.Snow) {
         setSnowflakes(newDrops);
       }
@@ -144,6 +199,14 @@ const PrecipitationEffect = ({ dropCount, speed, type, speedDeviation }) => {
             top={-75}
             // 70% of the drops will have a blur between 0 and 3 px
             blur={Math.random() > 0.7 ? 0 : Math.random() * 3}
+          />
+        ))}
+        {splashes.map((splash) => (
+          <Splash
+            key={splash.id}
+            top={splash.top}
+            left={splash.left}
+            animation_delay={splash.delay}
           />
         ))}
       </>
