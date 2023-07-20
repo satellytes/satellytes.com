@@ -1,8 +1,14 @@
 import { WeatherType } from './weather-types';
 import { getWeather } from './weather-api';
-import { useEffect, useState } from 'react';
+import { JSX, useEffect, useState } from 'react';
 
-export function useWeather(): WeatherType {
+interface WeatherProps {
+  key?: string[];
+  codes?: { [key: string]: WeatherType };
+  customWeather?: { [key in WeatherType]: JSX.Element };
+}
+
+export const useWeather = (props: WeatherProps): WeatherType => {
   const [weather, setWeather] = useState(WeatherType.NotSet);
 
   useEffect(() => {
@@ -14,7 +20,25 @@ export function useWeather(): WeatherType {
       }
     };
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.ctrlKey && event.altKey && event.shiftKey) {
+      console.log(event.key);
+      if (
+        event.ctrlKey &&
+        event.altKey &&
+        event.shiftKey &&
+        props.key === undefined
+      ) {
+        toggleWeather();
+      }
+      if (
+        props.key &&
+        props.key.every(
+          (key) =>
+            (key.toLowerCase() === 'shift' && event.shiftKey) ||
+            (key.toLowerCase() === 'alt' && event.altKey) ||
+            (key.toLowerCase() === 'ctrl' && event.ctrlKey) ||
+            key.toLowerCase() === event.key.toLowerCase(),
+        )
+      ) {
         toggleWeather();
       }
     };
@@ -27,4 +51,4 @@ export function useWeather(): WeatherType {
   }, [weather]);
 
   return weather;
-}
+};

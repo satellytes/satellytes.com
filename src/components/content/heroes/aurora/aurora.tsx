@@ -18,7 +18,7 @@ export interface AuroraProps {
 
 export const Aurora = ({ type, className }: AuroraProps) => {
   const { weatherBackground, WeatherComponent, isWeatherEasterEggEnabled } =
-    useWeatherEasterEgg();
+    useWeatherEasterEgg({});
 
   const getSource = (type?: AuroraType) => {
     if (type === AuroraType.Pink) {

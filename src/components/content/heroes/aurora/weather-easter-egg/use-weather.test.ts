@@ -13,14 +13,14 @@ describe('useWeather custom hook', () => {
   });
 
   it('should return WeatherType.NotSet initially', () => {
-    const { result } = renderHook(() => useWeather());
+    const { result } = renderHook(() => useWeather({}));
     expect(result.current).toBe(WeatherType.NotSet);
   });
 
   it('should call getWeather function when ctrl+alt+shift key is pressed', async () => {
     mockGetWeather.mockResolvedValue(WeatherType.Sunny);
 
-    const { result } = renderHook(() => useWeather());
+    const { result } = renderHook(() => useWeather({}));
 
     // Simulate the keydown event with ctrl+alt+shift
     await act(async () => {
@@ -39,7 +39,7 @@ describe('useWeather custom hook', () => {
   it('should reset weather to WeatherType.NotSet when ctrl+alt+shift is pressed again', async () => {
     mockGetWeather.mockResolvedValue(WeatherType.Cloudy);
 
-    const { result } = renderHook(() => useWeather());
+    const { result } = renderHook(() => useWeather({}));
 
     // Simulate the keydown event with ctrl+alt+shift
     await act(async () => {
@@ -67,7 +67,7 @@ describe('useWeather custom hook', () => {
   });
 
   it('should not call getWeather function when other keys are pressed', async () => {
-    const { result } = renderHook(() => useWeather());
+    const { result } = renderHook(() => useWeather({}));
 
     // Simulate the keydown event with ctrl+alt key (not ctrl+alt+shift)
     await act(async () => {
