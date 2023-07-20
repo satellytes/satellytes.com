@@ -4,7 +4,6 @@ import { Sun } from './sun';
 import { Clouds, CloudType } from './clouds';
 import { Snow } from './snow';
 import { Rain } from './rain';
-import { DefaultFlares, DefaultFlaresDark } from '../default-flares';
 
 interface WeatherEasterEggProps {
   weather: WeatherType;
@@ -23,12 +22,7 @@ export const WeatherEasterEgg = ({ weather }: WeatherEasterEggProps) => {
     case WeatherType.Rainy:
       return <Rain amount={550} />;
     case WeatherType.NotSet:
-      return (
-        <>
-          <DefaultFlaresDark />
-          <DefaultFlares />
-        </>
-      );
+      return <></>;
   }
 };
 

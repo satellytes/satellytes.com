@@ -8,12 +8,8 @@ import {
   AuroraContainer,
   AuroraBackground,
 } from './aurora-components';
-import {
-  getCustomBackground,
-  WeatherEasterEgg,
-} from './weather-easter-egg/weather-easter-egg';
-import { useWeather } from './weather-easter-egg/use-weather';
-import { WeatherType } from './weather-easter-egg/weather-types';
+import { useWeatherEasterEgg } from './weather-easter-egg/use-weather-easter-egg';
+import { DefaultFlares, DefaultFlaresDark } from './default-flares';
 
 export interface AuroraProps {
   type?: AuroraType;
@@ -21,7 +17,8 @@ export interface AuroraProps {
 }
 
 export const Aurora = ({ type, className }: AuroraProps) => {
-  const weather: WeatherType = useWeather();
+  const { weatherBackground, WeatherComponent, isWeatherEasterEggEnabled } =
+    useWeatherEasterEgg();
 
   const getSource = (type?: AuroraType) => {
     if (type === AuroraType.Pink) {
@@ -38,10 +35,17 @@ export const Aurora = ({ type, className }: AuroraProps) => {
     <AuroraContainer className={className}>
       <AuroraBackground
         source={getSource(type)}
-        overwriteBackground={getCustomBackground(weather)}
+        overwriteBackground={weatherBackground}
       />
       <AuroraForeground>
-        <WeatherEasterEgg weather={weather} />
+        {isWeatherEasterEggEnabled ? (
+          WeatherComponent
+        ) : (
+          <>
+            <DefaultFlaresDark />
+            <DefaultFlares />
+          </>
+        )}
       </AuroraForeground>
     </AuroraContainer>
   );
