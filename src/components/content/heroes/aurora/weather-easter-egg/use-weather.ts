@@ -26,6 +26,20 @@ export const useWeather = (props: WeatherProps): WeatherType => {
         props.key === undefined
       ) {
         toggleWeather();
+      } else {
+        if (weather !== WeatherType.NotSet) {
+          if (event.key === '1') {
+            setWeather(WeatherType.Sunny);
+          } else if (event.key === '2') {
+            setWeather(WeatherType.Cloudy);
+          } else if (event.key === '3') {
+            setWeather(WeatherType.SlightlyCloudy);
+          } else if (event.key === '4') {
+            setWeather(WeatherType.Rainy);
+          } else if (event.key === '5') {
+            setWeather(WeatherType.Snowy);
+          }
+        }
       }
       if (
         props.key &&
