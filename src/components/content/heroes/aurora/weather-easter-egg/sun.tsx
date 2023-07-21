@@ -28,7 +28,6 @@ const getSunReflectionYPosition = (timePercent: number) => {
   );
 };
 
-
 interface bgProps {
   time: number;
   sunrise: number;
@@ -42,7 +41,6 @@ const rotatingAnimation = keyframes`
         transform: rotate(360deg);
     }
 `;
-
 
 const sunBackgroundAnimation = keyframes`
   0% {
