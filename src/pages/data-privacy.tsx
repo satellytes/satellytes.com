@@ -4,17 +4,10 @@ import { graphql, PageProps } from 'gatsby';
 import { Layout } from '../components/layout/layout';
 import { ContentBlockContainer } from '../components/layout/content-block-container';
 import { ContentfulRichText } from '../components/content/rich-text/rich-text';
-import {
-  ContentfulRichTextGatsbyReference,
-  RenderRichTextData,
-} from 'gatsby-source-contentful/rich-text';
+import { ContentfulPage, ContentfulRichTextType } from '../types';
 
 interface DataPrivacyPageQueryProps {
-  contentfulPage: {
-    title: string;
-    content: RenderRichTextData<ContentfulRichTextGatsbyReference>;
-    seoMetaText: string;
-  };
+  contentfulPage: ContentfulPage;
 }
 
 const DataPrivacyPage = ({
@@ -30,7 +23,9 @@ const DataPrivacyPage = ({
         noIndex={true}
       />
       <ContentBlockContainer>
-        <ContentfulRichText data={data.contentfulPage.content} />
+        <ContentfulRichText
+          data={data.contentfulPage.content as ContentfulRichTextType}
+        />
       </ContentBlockContainer>
     </Layout>
   );

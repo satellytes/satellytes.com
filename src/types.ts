@@ -4,6 +4,9 @@ import {
   RenderRichTextData,
 } from 'gatsby-source-contentful/rich-text';
 
+export type ContentfulRichTextType =
+  RenderRichTextData<ContentfulRichTextGatsbyReference>;
+
 export interface BlogPostTeaser {
   fields: {
     path: string;
@@ -15,6 +18,17 @@ export interface BlogPostTeaser {
   publicationDate: string;
   teaserText: string;
   title: string;
+}
+
+export interface ContentfulPage {
+  title: string;
+  slug: string;
+  description?: {
+    description: string;
+  };
+  content?: ContentfulRichTextType;
+  seoMetaText: string;
+  noIndex?: boolean;
 }
 
 export interface SyTeamMember {
@@ -56,7 +70,7 @@ export interface ContentfulBlogPost {
   introRichText?: {
     raw: string;
   };
-  content: RenderRichTextData<ContentfulRichTextGatsbyReference>;
+  content: ContentfulRichTextType;
   heroImage: ContentfulBlogPostHero;
   id: string;
   leadBoxText: string;
@@ -71,7 +85,7 @@ export interface ContentfulVacancy {
   id: string;
   name: string;
   slug: string;
-  content: RenderRichTextData<ContentfulRichTextGatsbyReference>;
+  content: ContentfulRichTextType;
   schedule: string;
   createdAt: string;
   shortDescription: {

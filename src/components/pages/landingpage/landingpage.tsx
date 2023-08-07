@@ -2,7 +2,6 @@ import { AuroraHero } from '../../content/heroes';
 import React from 'react';
 import { Layout } from '../../layout/layout';
 import { ContentBlockContainer } from '../../layout/content-block-container';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Career } from './career';
 import { Service } from './service';
 import { Blog } from './blog';
@@ -21,25 +20,25 @@ interface OfficeImage {
 type OfficeImages = { [relativePath: string]: OfficeImage };
 
 interface LandingpageProps {
+  title: string;
+  description: string;
   positions: ContentfulVacancy[];
   posts: BlogPostTeaser[];
   officeImages: OfficeImages;
 }
 
 export const Landingpage = ({
+  title,
+  description,
   positions,
   posts,
   officeImages,
 }: LandingpageProps) => {
-  const { t } = useTranslation();
-
   return (
     <Layout
       transparentHeader={true}
       light={true}
-      hero={
-        <AuroraHero title={t('main.title')}>{t('main.description')}</AuroraHero>
-      }
+      hero={<AuroraHero title={title}>{description}</AuroraHero>}
     >
       <ContentBlockContainer>
         <Service />

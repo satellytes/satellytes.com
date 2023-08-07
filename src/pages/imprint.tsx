@@ -4,17 +4,10 @@ import { graphql, PageProps } from 'gatsby';
 import { Layout } from '../components/layout/layout';
 import { ContentBlockContainer } from '../components/layout/content-block-container';
 import { ContentfulRichText } from '../components/content/rich-text/rich-text';
-import {
-  ContentfulRichTextGatsbyReference,
-  RenderRichTextData,
-} from 'gatsby-source-contentful/rich-text';
+import { ContentfulPage, ContentfulRichTextType } from '../types';
 
 interface ImprintPageQueryProps {
-  contentfulPage: {
-    title: string;
-    content: RenderRichTextData<ContentfulRichTextGatsbyReference>;
-    seoMetaText: string;
-  };
+  contentfulPage: ContentfulPage;
 }
 
 const ImprintPage = ({ data, location }: PageProps<ImprintPageQueryProps>) => {
@@ -27,7 +20,9 @@ const ImprintPage = ({ data, location }: PageProps<ImprintPageQueryProps>) => {
         noIndex={true}
       />
       <ContentBlockContainer>
-        <ContentfulRichText data={data.contentfulPage.content} />
+        <ContentfulRichText
+          data={data.contentfulPage.content as ContentfulRichTextType}
+        />
       </ContentBlockContainer>
     </Layout>
   );

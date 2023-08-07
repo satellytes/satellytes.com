@@ -2,7 +2,7 @@ import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import SEO from '../components/layout/seo';
 import { Landingpage } from '../components/pages/landingpage/landingpage';
-import { BlogPostTeaser, ContentfulVacancy } from '../types';
+import { BlogPostTeaser, ContentfulPage, ContentfulVacancy } from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { StructuredOrganizationData } from '../components/pages/landingpage/structured-organization-data';
 
@@ -14,6 +14,7 @@ export interface OfficeImage {
 }
 
 interface IndexPageQueryProps {
+  contentfulPage: ContentfulPage;
   allContentfulVacancy: {
     nodes: ContentfulVacancy[];
   };
@@ -25,21 +26,23 @@ interface IndexPageQueryProps {
   };
 }
 
-const IndexPage = (props: PageProps<IndexPageQueryProps>) => {
-  const jobPositions = props.data.allContentfulVacancy.nodes;
-  const blogPosts = props.data.allContentfulBlogPost.nodes;
-  const officeImages = props.data.officeImages.nodes.reduce((memo, image) => {
+const IndexPage = ({ data, location }: PageProps<IndexPageQueryProps>) => {
+  const jobPositions = data.allContentfulVacancy.nodes;
+  const blogPosts = data.allContentfulBlogPost.nodes;
+  const officeImages = data.officeImages.nodes.reduce((memo, image) => {
     memo[image.relativePath] = image;
     return memo;
   }, {});
 
   return (
     <>
-      <SEO title="Satellytes" location={props.location} rssLink />
+      <SEO title={data.contentfulPage.title} location={location} rssLink />
 
       <StructuredOrganizationData />
 
       <Landingpage
+        title={data.contentfulPage.title}
+        description={data.contentfulPage.description?.description as string}
         officeImages={officeImages}
         positions={jobPositions}
         posts={blogPosts}
@@ -60,6 +63,17 @@ export const IndexPageQuery = graphql`
           gatsbyImageData(layout: FULL_WIDTH)
         }
       }
+    }
+
+    contentfulPage(
+      slug: { eq: "landingpage" }
+      node_locale: { eq: $language }
+    ) {
+      title
+      description {
+        description
+      }
+      seoMetaText
     }
 
     allContentfulVacancy(filter: { node_locale: { eq: $language } }, limit: 4) {
