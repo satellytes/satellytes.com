@@ -2,7 +2,6 @@ import React from 'react';
 import SEO from '../components/layout/seo';
 import { graphql, PageProps } from 'gatsby';
 import { Layout } from '../components/layout/layout';
-import { SectionHeader } from '../components/content/section-header/section-header';
 import { ContentBlockContainer } from '../components/layout/content-block-container';
 import { ContentfulRichText } from '../components/content/rich-text/rich-text';
 import {
@@ -31,7 +30,6 @@ const DataPrivacyPage = ({
         noIndex={true}
       />
       <ContentBlockContainer>
-        <SectionHeader large as={'h1'} headline={data.contentfulPage.title} />
         <ContentfulRichText data={data.contentfulPage.content} />
       </ContentBlockContainer>
     </Layout>
@@ -51,6 +49,16 @@ export const DataPrivacyPageQuery = graphql`
         raw
       }
       seoMetaText
+    }
+
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
     }
   }
 `;
