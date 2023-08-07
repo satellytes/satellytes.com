@@ -100,6 +100,20 @@ export interface ContentfulVacancy {
   };
 }
 
+interface ContentfulSectionHeaderParagraph {
+  slug: string;
+  paragraph: {
+    paragraph: string;
+  };
+}
+
+export interface ContentfulSectionHeader {
+  slug: string;
+  kicker?: string;
+  headline?: string;
+  paragraphs?: ContentfulSectionHeaderParagraph[];
+}
+
 export interface BreadcrumbEntry {
   pathname: string;
   label: string;

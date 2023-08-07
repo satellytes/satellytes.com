@@ -2,16 +2,19 @@ import React from 'react';
 import {
   AboutUsImpressionTileSize,
   ContentfulAboutUsImpression,
+  ContentfulSectionHeader,
 } from '../../../types';
 import { SectionHeader } from '../../content/section-header/section-header';
 import styled from 'styled-components';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { up } from '../../support/breakpoint';
 import { MobileOnlyText } from '../../content/heroes/support';
-import { useTranslationParagraphs } from '../../i18n-helpers';
+import { Text } from '../../legacy/typography';
 
 interface ImpressionsProps {
   impressions: ContentfulAboutUsImpression[];
+  description: string;
+  sectionHeader: ContentfulSectionHeader;
 }
 
 const GalleryGrid = styled.div`
@@ -49,17 +52,21 @@ const GalleryImage = styled(GatsbyImage)`
   min-height: 100%;
 `;
 
-export const Impressions = ({ impressions }: ImpressionsProps) => {
-  const { t, tWithParagraphs } = useTranslationParagraphs();
-
+export const Impressions = ({
+  impressions,
+  description,
+  sectionHeader,
+}: ImpressionsProps) => {
   return (
     <>
       <SectionHeader
-        headline={t<string>('about-us.impressions.heading')}
-        kicker={t<string>('about-us.impressions.title')}
+        headline={sectionHeader.headline as string}
+        kicker={sectionHeader.kicker as string}
       >
-        <MobileOnlyText>{t('about-us.description')}</MobileOnlyText>
-        {tWithParagraphs('about-us.impressions.text')}
+        <MobileOnlyText>{description}</MobileOnlyText>
+        <Text>
+          {sectionHeader.paragraphs?.[0]?.paragraph?.paragraph as string}
+        </Text>
       </SectionHeader>
 
       <GalleryGrid>

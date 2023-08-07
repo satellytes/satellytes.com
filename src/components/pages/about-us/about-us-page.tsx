@@ -1,28 +1,33 @@
 import React from 'react';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Layout } from '../../layout/layout';
 import { LeadboxProps } from '../../content/leadbox/leadbox';
 import { ContentBlockContainer } from '../../layout/content-block-container';
 import { Team } from './team';
-import { ContentfulAboutUsImpression, SyTeamMember } from '../../../types';
+import {
+  ContentfulAboutUsImpression,
+  ContentfulSectionHeader,
+  SyTeamMember,
+} from '../../../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { ImageHero } from '../../content/heroes';
 import { Impressions } from './impressions';
 
 interface AboutUsPageProps {
+  title: string;
+  description: string;
   team: SyTeamMember[];
   heroImageData: IGatsbyImageData;
   impressions: ContentfulAboutUsImpression[];
+  sectionHeader: ContentfulSectionHeader;
+  leadboxHeader: ContentfulSectionHeader;
 }
 
 export const AboutUsPage = (props: AboutUsPageProps) => {
-  const { t } = useTranslation();
-
   const leadbox: LeadboxProps = {
     illustration: 'astronaut_020',
-    title: t('about-us.leadbox.title'),
+    title: props.leadboxHeader.headline as string,
     link: {
-      title: t('about-us.leadbox.link'),
+      title: props.leadboxHeader.kicker as string,
       href: '/career',
     },
   };
@@ -35,16 +40,20 @@ export const AboutUsPage = (props: AboutUsPageProps) => {
       hero={
         <ImageHero
           hideMobileText
-          title={t<string>('about-us.title')}
+          title={props.title}
           image={props.heroImageData}
         >
           {' '}
-          {t('about-us.description')}{' '}
+          {props.description}{' '}
         </ImageHero>
       }
     >
       <ContentBlockContainer>
-        <Impressions impressions={props.impressions} />
+        <Impressions
+          impressions={props.impressions}
+          description={props.description}
+          sectionHeader={props.sectionHeader}
+        />
       </ContentBlockContainer>
 
       <ContentBlockContainer>

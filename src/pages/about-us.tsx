@@ -1,13 +1,20 @@
 import { graphql, PageProps } from 'gatsby';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import SEO from '../components/layout/seo';
 import { AboutUsPage } from '../components/pages/about-us/about-us-page';
-import { ContentfulAboutUsImpression, SyTeamMember } from '../types';
+import {
+  ContentfulAboutUsImpression,
+  ContentfulPage,
+  ContentfulSectionHeader,
+  SyTeamMember,
+} from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 interface AboutUsQueryProps {
   hero: IGatsbyImageData;
+  contentfulPage: ContentfulPage;
+  sectionHeader: ContentfulSectionHeader;
+  leadbox: ContentfulSectionHeader;
   allContentfulTeamMember: {
     nodes: SyTeamMember[];
   };
@@ -16,18 +23,21 @@ interface AboutUsQueryProps {
   };
 }
 
-const AboutUs = (props: PageProps<AboutUsQueryProps>) => {
-  const { t } = useTranslation();
+const AboutUs = ({ data, location }: PageProps<AboutUsQueryProps>) => {
   return (
     <>
       <SEO
-        title={`${t('about-us.title')} | Satellytes`}
-        location={props.location}
+        title={`${data.contentfulPage.title} | Satellytes`}
+        location={location}
       />
       <AboutUsPage
-        heroImageData={props.data.hero}
-        impressions={props.data.allContentfulAboutUsImpressions.nodes}
-        team={props.data.allContentfulTeamMember.nodes}
+        title={data.contentfulPage.title}
+        description={data.contentfulPage.description?.description as string}
+        heroImageData={data.hero}
+        impressions={data.allContentfulAboutUsImpressions.nodes}
+        team={data.allContentfulTeamMember.nodes}
+        sectionHeader={data.sectionHeader}
+        leadboxHeader={data.leadbox}
       />
     </>
   );
@@ -39,6 +49,41 @@ export const AboutUsPageQuery = graphql`
     hero: file(relativePath: { eq: "office/sy-office-02.jpg" }) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
+      }
+    }
+
+    contentfulPage(slug: { eq: "about-us" }, node_locale: { eq: $language }) {
+      title
+      description {
+        description
+      }
+    }
+
+    sectionHeader: contentfulSectionHeader(
+      slug: { eq: "about-impression" }
+      node_locale: { eq: $language }
+    ) {
+      slug
+      kicker
+      headline
+      paragraphs {
+        paragraph {
+          paragraph
+        }
+      }
+    }
+
+    leadbox: contentfulSectionHeader(
+      slug: { eq: "about-leadbox" }
+      node_locale: { eq: $language }
+    ) {
+      slug
+      kicker
+      headline
+      paragraphs {
+        paragraph {
+          paragraph
+        }
       }
     }
 
