@@ -18,46 +18,43 @@ interface AboutUsPageProps {
   team: SyTeamMember[];
   heroImageData: IGatsbyImageData;
   impressions: ContentfulAboutUsImpression[];
-  sectionHeader: ContentfulSectionHeader;
-  leadboxHeader: ContentfulSectionHeader;
+  sectionHeaderImpressions: ContentfulSectionHeader;
+  sectionHeaderTeam: ContentfulSectionHeader;
+  leadbox: LeadboxProps;
 }
 
-export const AboutUsPage = (props: AboutUsPageProps) => {
-  const leadbox: LeadboxProps = {
-    illustration: 'astronaut_020',
-    title: props.leadboxHeader.headline as string,
-    link: {
-      title: props.leadboxHeader.kicker as string,
-      href: '/career',
-    },
-  };
-
+export const AboutUsPage = ({
+  title,
+  description,
+  team,
+  heroImageData,
+  impressions,
+  sectionHeaderImpressions,
+  sectionHeaderTeam,
+  leadbox,
+}: AboutUsPageProps) => {
   return (
     <Layout
       transparentHeader={true}
       light={true}
       leadbox={leadbox}
       hero={
-        <ImageHero
-          hideMobileText
-          title={props.title}
-          image={props.heroImageData}
-        >
+        <ImageHero hideMobileText title={title} image={heroImageData}>
           {' '}
-          {props.description}{' '}
+          {description}{' '}
         </ImageHero>
       }
     >
       <ContentBlockContainer>
         <Impressions
-          impressions={props.impressions}
-          description={props.description}
-          sectionHeader={props.sectionHeader}
+          impressions={impressions}
+          description={description}
+          sectionHeader={sectionHeaderImpressions}
         />
       </ContentBlockContainer>
 
       <ContentBlockContainer>
-        <Team team={props.team} />
+        <Team team={team} sectionHeader={sectionHeaderTeam} />
       </ContentBlockContainer>
     </Layout>
   );

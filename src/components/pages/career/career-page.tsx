@@ -8,7 +8,11 @@ import { Culture } from './culture';
 import { Perks } from './perks';
 import { LeadboxProps } from '../../content/leadbox/leadbox';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { ContentfulVacancy } from '../../../types';
+import {
+  ContentfulPage,
+  ContentfulSectionHeader,
+  ContentfulVacancy,
+} from '../../../types';
 import { ImageHero } from '../../content/heroes';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { ImageSpacer } from '../../ui/image/image-spacer';
@@ -19,6 +23,9 @@ interface CareerPageProps {
   positions: ContentfulVacancy[];
   heroImageData: IGatsbyImageData;
   officeImages: OfficeImages;
+  page: ContentfulPage;
+  leadbox: LeadboxProps;
+  careerIntroduction: ContentfulSectionHeader;
 }
 
 type OfficeImages = { [relativePath: string]: OfficeImage };
@@ -27,18 +34,11 @@ export const CareerPage = ({
   positions,
   heroImageData,
   officeImages,
+  page,
+  leadbox,
+  careerIntroduction,
 }: CareerPageProps) => {
   const { t } = useTranslation();
-
-  const leadbox: LeadboxProps = {
-    title: t('career.leadbox.title'),
-    illustration: 'astronaut_012',
-    contact: {
-      headline: t('career.leadbox.subtitle'),
-      title: t('career.leadbox.text'),
-      email: t('career.leadbox.mail'),
-    },
-  };
 
   return (
     <Layout
@@ -46,23 +46,21 @@ export const CareerPage = ({
       transparentHeader={true}
       light={true}
       hero={
-        <ImageHero
-          hideMobileText
-          title={t<string>('career.title')}
-          image={heroImageData}
-        >
+        <ImageHero hideMobileText title={page.title} image={heroImageData}>
           {' '}
-          {t('career.description')}{' '}
+          {page.description as unknown as string}{' '}
         </ImageHero>
       }
     >
       <ContentBlockContainer>
         <SectionHeader
-          kicker={t<string>('career.introduction.kicker')}
-          headline={t<string>('career.introduction.headline')}
+          kicker={careerIntroduction.kicker as string}
+          headline={careerIntroduction.headline as string}
         >
-          <MobileOnlyText>{t('career.description')}</MobileOnlyText>
-          {t('career.introduction.paragraphs.0')}
+          <MobileOnlyText>
+            {page.description as unknown as string}
+          </MobileOnlyText>
+          {careerIntroduction.paragraphs?.[0]?.paragraph?.paragraph as string}{' '}
         </SectionHeader>
         <ApplicationProcess />
       </ContentBlockContainer>

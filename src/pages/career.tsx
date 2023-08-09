@@ -1,9 +1,13 @@
 import React from 'react';
 import SEO from '../components/layout/seo';
 import { graphql, PageProps } from 'gatsby';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { CareerPage } from '../components/pages/career/career-page';
-import { ContentfulVacancy } from '../types';
+import {
+  ContentfulLeadBox,
+  ContentfulPage,
+  ContentfulSectionHeader,
+  ContentfulVacancy,
+} from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { OfficeImage } from './index';
 
@@ -12,16 +16,16 @@ interface CareerPageQueryProps {
     nodes: OfficeImage[];
   };
   hero: IGatsbyImageData;
-
+  contentfulPage: ContentfulPage;
+  contentfulLeadbox: ContentfulLeadBox;
+  careerIntroduction: ContentfulSectionHeader;
   allContentfulVacancy: {
     nodes: ContentfulVacancy[];
   };
 }
 
-const Career = (props: PageProps<CareerPageQueryProps>) => {
-  const { t } = useTranslation();
-
-  const officeImages = props.data.officeImages.nodes.reduce((memo, image) => {
+const Career = ({ data, location }: PageProps<CareerPageQueryProps>) => {
+  const officeImages = data.officeImages.nodes.reduce((memo, image) => {
     memo[image.relativePath] = image;
     return memo;
   }, {});
@@ -29,14 +33,17 @@ const Career = (props: PageProps<CareerPageQueryProps>) => {
   return (
     <>
       <SEO
-        title={`${t('career.title')} | Satellytes`}
-        description={t<string>('career.seo.description')}
-        location={props.location}
+        title={`${data.contentfulPage.title} | Satellytes`}
+        description={data.contentfulPage.seoMetaText}
+        location={location}
       />
       <CareerPage
-        heroImageData={props.data.hero}
-        positions={props.data.allContentfulVacancy.nodes}
+        heroImageData={data.hero}
+        positions={data.allContentfulVacancy.nodes}
         officeImages={officeImages}
+        page={data.contentfulPage}
+        leadbox={data.contentfulLeadbox}
+        careerIntroduction={data.careerIntroduction}
       />
     </>
   );
@@ -59,6 +66,37 @@ export const CareerPageQuery = graphql`
     hero: file(relativePath: { eq: "office/sy-office-01.jpg" }) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
+      }
+    }
+
+    contentfulPage(slug: { eq: "career" }, node_locale: { eq: $language }) {
+      title
+      seoMetaText
+    }
+
+    contentfulLeadbox(
+      slug: { eq: "career-leadbox" }
+      node_locale: { eq: $language }
+    ) {
+      title
+      illustration
+      contact {
+        headline
+        title
+        email
+      }
+    }
+
+    careerIntroduction: contentfulSectionHeader(
+      slug: { eq: "career-introduction" }
+      node_locale: { eq: $language }
+    ) {
+      kicker
+      headline
+      paragraphs {
+        paragraph {
+          paragraph
+        }
       }
     }
 

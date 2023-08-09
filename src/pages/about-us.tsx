@@ -4,6 +4,7 @@ import SEO from '../components/layout/seo';
 import { AboutUsPage } from '../components/pages/about-us/about-us-page';
 import {
   ContentfulAboutUsImpression,
+  ContentfulLeadBox,
   ContentfulPage,
   ContentfulSectionHeader,
   SyTeamMember,
@@ -13,8 +14,9 @@ import { IGatsbyImageData } from 'gatsby-plugin-image';
 interface AboutUsQueryProps {
   hero: IGatsbyImageData;
   contentfulPage: ContentfulPage;
-  sectionHeader: ContentfulSectionHeader;
-  leadbox: ContentfulSectionHeader;
+  contentfulLeadbox: ContentfulLeadBox;
+  sectionHeaderImpressions: ContentfulSectionHeader;
+  sectionHeaderTeam: ContentfulSectionHeader;
   allContentfulTeamMember: {
     nodes: SyTeamMember[];
   };
@@ -36,8 +38,9 @@ const AboutUs = ({ data, location }: PageProps<AboutUsQueryProps>) => {
         heroImageData={data.hero}
         impressions={data.allContentfulAboutUsImpressions.nodes}
         team={data.allContentfulTeamMember.nodes}
-        sectionHeader={data.sectionHeader}
-        leadboxHeader={data.leadbox}
+        sectionHeaderImpressions={data.sectionHeaderImpressions}
+        sectionHeaderTeam={data.sectionHeaderTeam}
+        leadbox={data.contentfulLeadbox}
       />
     </>
   );
@@ -59,7 +62,7 @@ export const AboutUsPageQuery = graphql`
       }
     }
 
-    sectionHeader: contentfulSectionHeader(
+    sectionHeaderImpressions: contentfulSectionHeader(
       slug: { eq: "about-impression" }
       node_locale: { eq: $language }
     ) {
@@ -73,8 +76,8 @@ export const AboutUsPageQuery = graphql`
       }
     }
 
-    leadbox: contentfulSectionHeader(
-      slug: { eq: "about-leadbox" }
+    sectionHeaderTeam: contentfulSectionHeader(
+      slug: { eq: "about-team" }
       node_locale: { eq: $language }
     ) {
       slug
@@ -84,6 +87,18 @@ export const AboutUsPageQuery = graphql`
         paragraph {
           paragraph
         }
+      }
+    }
+
+    contentfulLeadbox(
+      slug: { eq: "about-leadbox" }
+      node_locale: { eq: $language }
+    ) {
+      title
+      illustration
+      link {
+        title
+        href
       }
     }
 

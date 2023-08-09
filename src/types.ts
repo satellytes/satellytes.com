@@ -3,6 +3,7 @@ import {
   ContentfulRichTextGatsbyReference,
   RenderRichTextData,
 } from 'gatsby-source-contentful/rich-text';
+import { LeadboxProps } from './components/content/leadbox/leadbox';
 
 export type ContentfulRichTextType =
   RenderRichTextData<ContentfulRichTextGatsbyReference>;
@@ -113,6 +114,8 @@ export interface ContentfulSectionHeader {
   headline?: string;
   paragraphs?: ContentfulSectionHeaderParagraph[];
 }
+
+export type ContentfulLeadBox = LeadboxProps;
 
 export interface BreadcrumbEntry {
   pathname: string;
