@@ -2,7 +2,13 @@ import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import SEO from '../components/layout/seo';
 import { Landingpage } from '../components/pages/landingpage/landingpage';
-import { BlogPostTeaser, ContentfulPage, ContentfulVacancy } from '../types';
+import {
+  BlogPostTeaser,
+  ContentfulPage,
+  ContentfulSectionHeader,
+  ContentfulTeaser,
+  ContentfulVacancy,
+} from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { StructuredOrganizationData } from '../components/pages/landingpage/structured-organization-data';
 
@@ -24,6 +30,10 @@ interface IndexPageQueryProps {
   officeImages: {
     nodes: OfficeImage[];
   };
+  servicesHeader: ContentfulSectionHeader;
+  careerHeader: ContentfulSectionHeader;
+  servicesTeaser: ContentfulTeaser;
+  blogHeader: ContentfulSectionHeader;
 }
 
 const IndexPage = ({ data, location }: PageProps<IndexPageQueryProps>) => {
@@ -46,6 +56,10 @@ const IndexPage = ({ data, location }: PageProps<IndexPageQueryProps>) => {
         officeImages={officeImages}
         positions={jobPositions}
         posts={blogPosts}
+        serviceHeader={data.servicesHeader}
+        serviceTeaser={data.servicesTeaser.gridItems}
+        careerHeader={data.careerHeader}
+        blogHeader={data.blogHeader}
       />
     </>
   );
@@ -110,6 +124,59 @@ export const IndexPageQuery = graphql`
               formats: [AUTO, WEBP, AVIF]
             )
           }
+        }
+      }
+    }
+
+    servicesHeader: contentfulSectionHeader(
+      slug: { eq: "services-introduction" }
+      node_locale: { eq: $language }
+    ) {
+      kicker
+      headline
+      paragraphs {
+        paragraph {
+          paragraph
+        }
+      }
+    }
+
+    careerHeader: contentfulSectionHeader(
+      slug: { eq: "index-career" }
+      node_locale: { eq: $language }
+    ) {
+      kicker
+      headline
+      paragraphs {
+        paragraph {
+          paragraph
+        }
+      }
+    }
+
+    blogHeader: contentfulSectionHeader(
+      slug: { eq: "index-blog" }
+      node_locale: { eq: $language }
+    ) {
+      kicker
+      headline
+      paragraphs {
+        paragraph {
+          paragraph
+        }
+      }
+    }
+
+    servicesTeaser: contentfulTeaserGrid(
+      slug: { eq: "index-services" }
+      node_locale: { eq: $language }
+    ) {
+      gridItems {
+        title
+        as
+        illustration
+        description {
+          description
         }
       }
     }
