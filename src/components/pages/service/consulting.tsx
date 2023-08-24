@@ -1,27 +1,28 @@
 import React from 'react';
 import { ContentBlockContainer } from '../../layout/content-block-container';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Intro, UnorderedList } from './support';
+import { ContentfulList, ContentfulSectionHeader } from '../../../types';
 
-export const Consulting = () => {
-  const { t } = useTranslation();
+interface ConsultingProps {
+  header: ContentfulSectionHeader;
+  list: ContentfulList;
+}
 
+export const Consulting = ({ header, list }: ConsultingProps) => {
   return (
     <ContentBlockContainer>
       <Intro
-        illustration="consulting_054"
-        headline={t('services.consulting.title')}
-        kicker={t('services.consulting.kicker')}
+        illustration={header.illustration}
+        headline={header.headline}
+        kicker={header.kicker}
       >
-        <p>{t('services.consulting.text')}</p>
+        <p>{header.paragraphs?.[0]?.paragraph?.paragraph as string}</p>
       </Intro>
 
       <UnorderedList>
-        <li>{t('services.consulting.1.list')}</li>
-        <li>{t('services.consulting.2.list')}</li>
-        <li>{t('services.consulting.3.list')}</li>
-        <li>{t('services.consulting.4.list')}</li>
-        <li>{t('services.consulting.5.list')}</li>
+        {list.listItems?.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
       </UnorderedList>
     </ContentBlockContainer>
   );

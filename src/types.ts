@@ -114,6 +114,7 @@ export interface ContentfulSectionHeader {
   slug: string;
   kicker?: string;
   headline?: string;
+  illustration?: IllustrationType;
   paragraphs?: ContentfulSectionHeaderParagraph[];
 }
 
@@ -142,6 +143,10 @@ export interface ContentfulAccordionItem {
 }
 
 export type ContentfulLeadBox = LeadboxProps;
+
+export interface ContentfulList {
+  listItems: string[];
+}
 
 export interface BreadcrumbEntry {
   pathname: string;

@@ -1,27 +1,28 @@
 import React from 'react';
 import { ContentBlockContainer } from '../../layout/content-block-container';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Intro, UnorderedList } from './support';
+import { ContentfulList, ContentfulSectionHeader } from '../../../types';
 
-export const Platforms = () => {
-  const { t } = useTranslation();
+interface PlatformsProps {
+  header: ContentfulSectionHeader;
+  list: ContentfulList;
+}
 
+export const Platforms = ({ header, list }: PlatformsProps) => {
   return (
     <ContentBlockContainer>
       <Intro
-        illustration="digital_platform_056"
-        headline={t('services.platform.title')}
-        kicker={t('services.platform.kicker')}
+        illustration={header.illustration}
+        headline={header.headline}
+        kicker={header.kicker}
       >
-        <p>{t('services.platform.text')}</p>
+        <p>{header.paragraphs?.[0]?.paragraph?.paragraph as string}</p>
       </Intro>
 
       <UnorderedList>
-        <li>{t('services.platform.1.list')}</li>
-        <li>{t('services.platform.2.list')}</li>
-        <li>{t('services.platform.3.list')}</li>
-        <li>{t('services.platform.4.list')}</li>
-        <li>{t('services.platform.5.list')}</li>
+        {list.listItems?.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
       </UnorderedList>
     </ContentBlockContainer>
   );

@@ -2,51 +2,71 @@ import React from 'react';
 import { Layout } from '../../layout/layout';
 import { ContentBlockContainer } from '../../layout/content-block-container';
 import { SectionHeader } from '../../content/section-header/section-header';
-import { LeadboxProps } from '../../content/leadbox/leadbox';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Consulting } from './consulting';
 import { Platforms } from './platforms';
 import { ProductsServices } from './products-services';
 import { AuroraHero } from '../../content/heroes';
 import { ProductDesign } from './product-design';
+import {
+  ContentfulLeadBox,
+  ContentfulList,
+  ContentfulPage,
+  ContentfulSectionHeader,
+} from '../../../types';
 
-export const Service = () => {
-  const { t } = useTranslation();
+interface ServiceProps {
+  page: ContentfulPage;
+  leadbox: ContentfulLeadBox;
+  servicesHeader: ContentfulSectionHeader;
+  platformsHeader: ContentfulSectionHeader;
+  productsServicesHeader: ContentfulSectionHeader;
+  consultingHeader: ContentfulSectionHeader;
+  productDesignHeader: ContentfulSectionHeader;
+  platformsList: ContentfulList;
+  productsServicesList: ContentfulList;
+  consultingList: ContentfulList;
+}
 
-  const leadbox: LeadboxProps = {
-    title: t('services.leadbox.title'),
-    illustration: 'space_shuttle_043',
-    contact: {
-      headline: t('services.leadbox.subtitle'),
-      title: t('services.leadbox.text'),
-      email: t('services.leadbox.mail'),
-    },
-  };
-
+export const Service = ({
+  page,
+  leadbox,
+  servicesHeader,
+  platformsHeader,
+  productsServicesHeader,
+  consultingHeader,
+  productDesignHeader,
+  platformsList,
+  productsServicesList,
+  consultingList,
+}: ServiceProps) => {
   return (
     <Layout
       transparentHeader={true}
       light={true}
       leadbox={leadbox}
       hero={
-        <AuroraHero title={t('services.hero')}>
-          {t('services.hero.description')}{' '}
+        <AuroraHero title={page.title}>
+          {page.description?.description}{' '}
         </AuroraHero>
       }
     >
       <ContentBlockContainer>
         <SectionHeader
-          headline={t<string>('services.title')}
-          kicker={t<string>('services.kicker')}
+          headline={servicesHeader.headline as string}
+          kicker={servicesHeader.kicker}
         >
-          {t('services.text')}
+          {servicesHeader.paragraphs?.[0].paragraph.paragraph}
+          {''}
         </SectionHeader>
       </ContentBlockContainer>
 
-      <Platforms />
-      <ProductsServices />
-      <Consulting />
-      <ProductDesign />
+      <Platforms header={platformsHeader} list={platformsList} />
+      <ProductsServices
+        header={productsServicesHeader}
+        list={productsServicesList}
+      />
+      <Consulting header={consultingHeader} list={consultingList} />
+      <ProductDesign header={productDesignHeader} />
     </Layout>
   );
 };
