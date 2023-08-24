@@ -2,7 +2,7 @@ import { navigate } from 'gatsby';
 import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import styled from 'styled-components';
-import { BlogPostTeaser } from '../../../types';
+import { BlogPostTeaser, ContentfulSectionHeader } from '../../../types';
 import { SectionHeader } from '../../content/section-header/section-header';
 import { ContentBlockContainer } from '../../layout/content-block-container';
 import { Layout } from '../../layout/layout';
@@ -13,6 +13,7 @@ import { Posts } from './posts';
 
 interface BlogPageProps {
   posts: BlogPostTeaser[];
+  header: ContentfulSectionHeader;
   pagination: {
     numberOfPages: number;
     currentPage: number;
@@ -28,7 +29,7 @@ const StyledPagination = styled(Pagination)`
   margin-top: 80px;
 `;
 
-export const BlogPage = ({ posts, pagination }: BlogPageProps) => {
+export const BlogPage = ({ posts, header, pagination }: BlogPageProps) => {
   const { t } = useTranslation();
   const { language } = useI18next();
 
@@ -48,7 +49,7 @@ export const BlogPage = ({ posts, pagination }: BlogPageProps) => {
     <Layout light showLanguageSwitch={false} breadcrumb={BREADCRUMB}>
       <ContentBlockContainer>
         <SectionHeader as={'h1'} headline={t('navigation.blog')}>
-          {t('blog.info')}
+          {header.paragraphs?.[0]?.paragraph?.paragraph}
 
           {language != 'en' && <NotAvailableInGerman />}
         </SectionHeader>
