@@ -7,10 +7,11 @@ import { ContentBlockContainer } from '../../layout/content-block-container';
 import { Culture } from './culture';
 import { Perks } from './perks';
 import { LeadboxProps } from '../../content/leadbox/leadbox';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import {
+  ContentfulAccordionItem,
   ContentfulPage,
   ContentfulSectionHeader,
+  ContentfulTeaserItem,
   ContentfulVacancy,
 } from '../../../types';
 import { ImageHero } from '../../content/heroes';
@@ -25,7 +26,14 @@ interface CareerPageProps {
   officeImages: OfficeImages;
   page: ContentfulPage;
   leadbox: LeadboxProps;
-  careerIntroduction: ContentfulSectionHeader;
+  introductionHeader: ContentfulSectionHeader;
+  applicationProcessHeader: ContentfulSectionHeader;
+  openingsHeader: ContentfulSectionHeader;
+  cultureHeader: ContentfulSectionHeader;
+  perksHeader: ContentfulSectionHeader;
+  cultureTeaser: ContentfulTeaserItem[];
+  perksTeaser: ContentfulTeaserItem[];
+  applicationProcessAccordion: ContentfulAccordionItem[];
 }
 
 type OfficeImages = { [relativePath: string]: OfficeImage };
@@ -36,10 +44,15 @@ export const CareerPage = ({
   officeImages,
   page,
   leadbox,
-  careerIntroduction,
+  introductionHeader,
+  applicationProcessHeader,
+  openingsHeader,
+  cultureHeader,
+  perksHeader,
+  cultureTeaser,
+  perksTeaser,
+  applicationProcessAccordion,
 }: CareerPageProps) => {
-  const { t } = useTranslation();
-
   return (
     <Layout
       leadbox={leadbox}
@@ -54,31 +67,37 @@ export const CareerPage = ({
     >
       <ContentBlockContainer>
         <SectionHeader
-          kicker={careerIntroduction.kicker as string}
-          headline={careerIntroduction.headline as string}
+          kicker={introductionHeader.kicker as string}
+          headline={introductionHeader.headline as string}
         >
           <MobileOnlyText>
             {page.description as unknown as string}
           </MobileOnlyText>
-          {careerIntroduction.paragraphs?.[0]?.paragraph?.paragraph as string}{' '}
+          {introductionHeader.paragraphs?.[0]?.paragraph?.paragraph as string}{' '}
         </SectionHeader>
-        <ApplicationProcess />
+        <ApplicationProcess
+          header={applicationProcessHeader}
+          accordion={applicationProcessAccordion}
+        />
       </ContentBlockContainer>
 
       <ContentBlockContainer>
-        <Openings jobs={positions} />
+        <Openings
+          jobs={positions}
+          headline={openingsHeader.headline as string}
+        />
       </ContentBlockContainer>
 
       <ImageSpacer image={officeImages['office/sy-office-05.jpg']} />
 
       <ContentBlockContainer>
-        <Culture />
+        <Culture header={cultureHeader} teaserItems={cultureTeaser} />
       </ContentBlockContainer>
 
       <ImageSpacer image={officeImages['office/sy-office-06.jpg']} />
 
       <ContentBlockContainer>
-        <Perks />
+        <Perks header={perksHeader} teaserItems={perksTeaser} />
       </ContentBlockContainer>
     </Layout>
   );

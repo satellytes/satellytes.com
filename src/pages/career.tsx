@@ -3,9 +3,11 @@ import SEO from '../components/layout/seo';
 import { graphql, PageProps } from 'gatsby';
 import { CareerPage } from '../components/pages/career/career-page';
 import {
+  ContentfulAccordion,
   ContentfulLeadBox,
   ContentfulPage,
   ContentfulSectionHeader,
+  ContentfulTeaser,
   ContentfulVacancy,
 } from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
@@ -18,10 +20,17 @@ interface CareerPageQueryProps {
   hero: IGatsbyImageData;
   contentfulPage: ContentfulPage;
   contentfulLeadbox: ContentfulLeadBox;
-  careerIntroduction: ContentfulSectionHeader;
   allContentfulVacancy: {
     nodes: ContentfulVacancy[];
   };
+  introductionHeader: ContentfulSectionHeader;
+  applicationProcessHeader: ContentfulSectionHeader;
+  openingsHeader: ContentfulSectionHeader;
+  cultureHeader: ContentfulSectionHeader;
+  perksHeader: ContentfulSectionHeader;
+  cultureTeaser: ContentfulTeaser;
+  perksTeaser: ContentfulTeaser;
+  applicationProcessAccordion: ContentfulAccordion;
 }
 
 const Career = ({ data, location }: PageProps<CareerPageQueryProps>) => {
@@ -43,7 +52,16 @@ const Career = ({ data, location }: PageProps<CareerPageQueryProps>) => {
         officeImages={officeImages}
         page={data.contentfulPage}
         leadbox={data.contentfulLeadbox}
-        careerIntroduction={data.careerIntroduction}
+        introductionHeader={data.introductionHeader}
+        applicationProcessHeader={data.applicationProcessHeader}
+        openingsHeader={data.openingsHeader}
+        cultureHeader={data.cultureHeader}
+        perksHeader={data.perksHeader}
+        cultureTeaser={data.cultureTeaser.gridItems}
+        perksTeaser={data.perksTeaser.gridItems}
+        applicationProcessAccordion={
+          data.applicationProcessAccordion.accordionItems
+        }
       />
     </>
   );
@@ -87,7 +105,18 @@ export const CareerPageQuery = graphql`
       }
     }
 
-    careerIntroduction: contentfulSectionHeader(
+    allContentfulVacancy(filter: { node_locale: { eq: $language } }) {
+      nodes {
+        id
+        name
+        shortDescription {
+          shortDescription
+        }
+        slug
+      }
+    }
+
+    introductionHeader: contentfulSectionHeader(
       slug: { eq: "career-introduction" }
       node_locale: { eq: $language }
     ) {
@@ -100,14 +129,95 @@ export const CareerPageQuery = graphql`
       }
     }
 
-    allContentfulVacancy(filter: { node_locale: { eq: $language } }) {
-      nodes {
-        id
-        name
-        shortDescription {
-          shortDescription
+    applicationProcessHeader: contentfulSectionHeader(
+      slug: { eq: "career-application" }
+      node_locale: { eq: $language }
+    ) {
+      kicker
+      headline
+      paragraphs {
+        paragraph {
+          paragraph
         }
-        slug
+      }
+    }
+
+    openingsHeader: contentfulSectionHeader(
+      slug: { eq: "career-openings" }
+      node_locale: { eq: $language }
+    ) {
+      kicker
+      headline
+      paragraphs {
+        paragraph {
+          paragraph
+        }
+      }
+    }
+
+    cultureHeader: contentfulSectionHeader(
+      slug: { eq: "career-culture" }
+      node_locale: { eq: $language }
+    ) {
+      kicker
+      headline
+      paragraphs {
+        paragraph {
+          paragraph
+        }
+      }
+    }
+
+    perksHeader: contentfulSectionHeader(
+      slug: { eq: "career-perks" }
+      node_locale: { eq: $language }
+    ) {
+      kicker
+      headline
+      paragraphs {
+        paragraph {
+          paragraph
+        }
+      }
+    }
+
+    cultureTeaser: contentfulTeaserGrid(
+      slug: { eq: "career-culture" }
+      node_locale: { eq: $language }
+    ) {
+      gridItems {
+        title
+        as
+        illustration
+        description {
+          description
+        }
+      }
+    }
+
+    perksTeaser: contentfulTeaserGrid(
+      slug: { eq: "career-perks" }
+      node_locale: { eq: $language }
+    ) {
+      gridItems {
+        title
+        as
+        illustration
+        description {
+          description
+        }
+      }
+    }
+
+    applicationProcessAccordion: contentfulAccordion(
+      slug: { eq: "career-application-process" }
+      node_locale: { eq: $language }
+    ) {
+      accordionItems {
+        title
+        paragraph {
+          paragraph
+        }
       }
     }
 

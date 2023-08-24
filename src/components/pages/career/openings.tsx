@@ -3,7 +3,6 @@ import { Teaser } from '../../content/teaser/teaser';
 import styled from 'styled-components';
 import { TextStyles } from '../../typography';
 import { ContentfulVacancy } from '../../../types';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { up } from '../../support/breakpoint';
 import { CareerTeaserGrid } from './career-teaser-grid';
 import { textEllipsis } from '../../support/text-ellipsis';
@@ -29,16 +28,15 @@ const OpeningsTeaseGrid = styled(CareerTeaserGrid)`
 
 interface OpeningsProps {
   jobs: ContentfulVacancy[];
+  headline: string;
 }
 
-export const Openings = (props: OpeningsProps) => {
-  const { t } = useTranslation();
-
+export const Openings = ({ jobs, headline }: OpeningsProps) => {
   return (
     <div>
-      <SectionHeadline>{t('career.openings.headline')}</SectionHeadline>
+      <SectionHeadline>{headline}</SectionHeadline>
       <OpeningsTeaseGrid>
-        {props.jobs.map((item) => (
+        {jobs.map((item) => (
           <Teaser
             preventStretching
             title={item.name}

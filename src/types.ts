@@ -4,6 +4,8 @@ import {
   RenderRichTextData,
 } from 'gatsby-source-contentful/rich-text';
 import { LeadboxProps } from './components/content/leadbox/leadbox';
+import { TeaserProps } from './components/content/teaser/teaser';
+import { IllustrationType } from './components/ui/illustration/illustration-set';
 
 export type ContentfulRichTextType =
   RenderRichTextData<ContentfulRichTextGatsbyReference>;
@@ -113,6 +115,30 @@ export interface ContentfulSectionHeader {
   kicker?: string;
   headline?: string;
   paragraphs?: ContentfulSectionHeaderParagraph[];
+}
+
+export interface ContentfulTeaser {
+  slug: string;
+  gridItems: ContentfulTeaserItem[];
+}
+
+export interface ContentfulTeaserItem extends TeaserProps {
+  description: {
+    description: string;
+  };
+}
+
+export interface ContentfulAccordion {
+  slug: string;
+  accordionItems: ContentfulAccordionItem[];
+}
+
+export interface ContentfulAccordionItem {
+  title: string;
+  paragraph: {
+    paragraph: string;
+  };
+  illustration?: IllustrationType;
 }
 
 export type ContentfulLeadBox = LeadboxProps;
