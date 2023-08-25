@@ -202,9 +202,8 @@ const feedOptions = {
     {
       serialize: ({ query: { site, allContentfulBlogPost } }) => {
         return allContentfulBlogPost.nodes.map((node) => {
-          const imageUrl = `${BASE_URL}${
-            node.heroImage.image?.resize?.src ?? DEFAULT_META_IMAGE_URL_PATH
-          }`;
+          const imageUrl = node.heroImage.image?.url;
+
           const coverImage =
             node.heroImage && node.heroImage.creator
               ? toHtml(
@@ -372,9 +371,6 @@ const feedOptions = {
                 heroImage {
                   image {
                     url
-                    resize(width: 1440, height: 760) {
-                      src
-                    }
                   }
                   creator
                   source

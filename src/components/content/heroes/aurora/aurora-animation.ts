@@ -1,8 +1,8 @@
 import { keyframes } from 'styled-components';
 /**
- * The `FRAMES` content has been created manually by running `transformMapToCssKeyframes` on the set of relative movement (0,1 etc) from the `animation-tool.ts` file.
+ * The `FRAMES` content has been created manually by running `transformMapToCssKeyframes` on the set of relative movement (0,1 etc.) from the `animation-tool.ts` file.
  * The map is roughly this pattern. I drew the ascii pattern and then manually transcribed it
- * as I didn't want to spend time processing it although it's fun, but it's distracting fun.
+ * as I didn't want to spend time processing it, although it's fun, but it's distracting fun.
  * xxxxx
  * x    x   xx
  * xx    x x  x

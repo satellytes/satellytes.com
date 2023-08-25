@@ -40,21 +40,16 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
 
   setPostBodyComponents([
     <script
-      key="panelbear-analytics-src"
+      key="cronitor-rum-src"
       async
-      src={'https://cdn.panelbear.com/analytics.js?site=Lc6SV3veva9'}
+      src="https://rum.cronitor.io/script.js"
     />,
     <script
-      key="panelbear-analytics-code"
-      async
+      key="cronitor-rum-code"
       dangerouslySetInnerHTML={{
         __html: `
-          window.panelbear = window.panelbear || function() { (window.panelbear.q = window.panelbear.q || []).push(arguments); };
-          panelbear('config', {
-              site: 'Lc6SV3veva9',
-              spaMode: 'history',
-              debug: false,
-          });
+          window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
+          cronitor('config', { clientKey: '1738c097c114938b168dfd91d5253e22' });
         `,
       }}
     />,

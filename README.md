@@ -7,7 +7,7 @@ This repository contains the https://satellytes.com website.
 To run the project all you need is:
 
 - Yarn
-- Node >= 16
+- Node >= 18
 
 ### Additional setup on Apple Silicon
 
@@ -48,28 +48,6 @@ yarn serve
 
 A production build of the website gets created for every pull request. You will get the link as pull request comment.
 
-## Component development with Storybook
-
-This repository comes with [Storybook](https://storybook.js.org/). Storybook helps to develop and understand the single components of the website by showing them in isolation.
-
-Use the following commands to start working with Storybook:
-
-```sh
-# install dependencies
-yarn
-
-# start storybook
-yarn storybook
-
-# create a production build
-yarn storybook:build
-
-# serve the production buiöd
-yarn storybook:serve
-```
-
-A production build of Storybook gets be created for every pull request. You will get the link as pull request comment.
-For the `main` branch, the build can be found here: https://satellytes-website-storybook.netlify.app
 
 ## Writing a blog post
 
