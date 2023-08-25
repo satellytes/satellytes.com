@@ -4,49 +4,38 @@ import React from 'react';
 import { getAnchorLinkFromTitle, HomePageHeaderBlock } from './support';
 import { Button } from '../../ui/buttons/button';
 import { LandingPageTeaserGrid } from './landing-page-teaser-grid';
+import { ContentfulSectionHeader, ContentfulTeaserItem } from '../../../types';
 
-export const Service = () => {
+interface ServiceProps {
+  header: ContentfulSectionHeader;
+  teaser: ContentfulTeaserItem[];
+}
+
+export const Service = ({ header, teaser }: ServiceProps) => {
   const { t } = useTranslation();
 
   return (
     <>
       <HomePageHeaderBlock
-        topline={t('main.services.kicker')}
-        headline={t('main.services.title')}
+        topline={header.kicker as string}
+        headline={header.headline as string}
         large={true}
       >
-        {t('main.services.text')}
+        {header.paragraphs?.[0]?.paragraph?.paragraph}
       </HomePageHeaderBlock>
 
       <LandingPageTeaserGrid>
-        <Teaser
-          title={t('services.platform.title')}
-          linkTo={getAnchorLinkFromTitle(t('services.platform.title'))}
-          illustration="digital_platform_056"
-        >
-          {t('services.platform.teaser')}
-        </Teaser>
-        <Teaser
-          title={t('services.products_services.title')}
-          linkTo={getAnchorLinkFromTitle(t('services.products_services.title'))}
-          illustration="software_057"
-        >
-          {t('services.products_services.teaser')}
-        </Teaser>
-        <Teaser
-          title={t('services.consulting.title')}
-          linkTo={getAnchorLinkFromTitle(t('services.consulting.title'))}
-          illustration="consulting_054"
-        >
-          {t('services.consulting.teaser')}
-        </Teaser>
-        <Teaser
-          title={t('services.product_design.title')}
-          linkTo={getAnchorLinkFromTitle(t('services.product_design.title'))}
-          illustration="product_design_055"
-        >
-          {t('services.product_design.teaser')}
-        </Teaser>
+        {teaser.map((teaserItem, index) => (
+          <Teaser
+            key={index}
+            title={teaserItem.title as string}
+            linkTo={getAnchorLinkFromTitle(teaserItem.title as string)}
+            illustration={teaserItem.illustration}
+          >
+            {teaserItem.description.description}
+            {''}
+          </Teaser>
+        ))}
       </LandingPageTeaserGrid>
       <Button to={'/services'}>{t('main.services.button')}</Button>
     </>

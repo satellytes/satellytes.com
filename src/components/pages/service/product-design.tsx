@@ -1,19 +1,23 @@
 import React from 'react';
 import { ContentBlockContainer } from '../../layout/content-block-container';
 import { Intro } from './support';
-import { useTranslationParagraphs } from '../../i18n-helpers';
+import { ContentfulSectionHeader } from '../../../types';
 
-export const ProductDesign = () => {
-  const { t, tWithParagraphs } = useTranslationParagraphs();
+interface ProductDesignProps {
+  header: ContentfulSectionHeader;
+}
 
+export const ProductDesign = ({ header }: ProductDesignProps) => {
   return (
     <ContentBlockContainer>
       <Intro
-        illustration="product_design_055"
-        headline={t('services.product_design.title')}
-        kicker={t('services.product_design.kicker')}
+        illustration={header.illustration}
+        headline={header.headline}
+        kicker={header.kicker}
       >
-        {tWithParagraphs('services.product_design.text')}
+        <p style={{ whiteSpace: 'pre-line' }}>
+          {header.paragraphs?.[0]?.paragraph?.paragraph as string}
+        </p>
       </Intro>
     </ContentBlockContainer>
   );

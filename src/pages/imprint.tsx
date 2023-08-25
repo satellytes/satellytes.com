@@ -1,40 +1,28 @@
 import React from 'react';
 import SEO from '../components/layout/seo';
 import { graphql, PageProps } from 'gatsby';
-import styled from 'styled-components';
-import { MarkdownAst } from '../components/legacy/markdown/markdown-ast';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Layout } from '../components/layout/layout';
-import { SectionHeader } from '../components/content/section-header/section-header';
 import { ContentBlockContainer } from '../components/layout/content-block-container';
-import { Text } from '../components/legacy/typography';
-
-const BottomNote = styled(Text)`
-  margin-top: 80px;
-  margin-bottom: 16px;
-  opacity: 0.8;
-`;
+import { ContentfulRichText } from '../components/content/rich-text/rich-text';
+import { ContentfulPage, ContentfulRichTextType } from '../types';
 
 interface ImprintPageQueryProps {
-  markdownRemark: {
-    htmlAst: string;
-  };
+  contentfulPage: ContentfulPage;
 }
 
 const ImprintPage = ({ data, location }: PageProps<ImprintPageQueryProps>) => {
-  const { t } = useTranslation();
   return (
     <Layout light={true}>
       <SEO
-        title={`${t('imprint.title')} | Satellytes`}
-        description={t<string>('imprint.info')}
+        title={`${data.contentfulPage.title} | Satellytes`}
+        description={data.contentfulPage.seoMetaText}
         location={location}
         noIndex={true}
       />
       <ContentBlockContainer>
-        <SectionHeader large as={'h1'} headline={t('navigation.imprint')} />
-        <MarkdownAst htmlAst={data.markdownRemark.htmlAst} />
-        <BottomNote>{t('imprint.updated')}</BottomNote>
+        <ContentfulRichText
+          data={data.contentfulPage.content as ContentfulRichTextType}
+        />
       </ContentBlockContainer>
     </Layout>
   );
@@ -44,11 +32,12 @@ export default ImprintPage;
 
 export const ImprintPageQuery = graphql`
   query ($language: String!) {
-    markdownRemark(
-      fileAbsolutePath: { regex: "/(pages/imprint)/" }
-      frontmatter: { language: { eq: $language } }
-    ) {
-      htmlAst
+    contentfulPage(slug: { eq: "imprint" }, node_locale: { eq: $language }) {
+      title
+      content {
+        raw
+      }
+      seoMetaText
     }
 
     locales: allLocale(filter: { language: { eq: $language } }) {

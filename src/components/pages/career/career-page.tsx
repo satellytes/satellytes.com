@@ -7,8 +7,13 @@ import { ContentBlockContainer } from '../../layout/content-block-container';
 import { Culture } from './culture';
 import { Perks } from './perks';
 import { LeadboxProps } from '../../content/leadbox/leadbox';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { ContentfulVacancy } from '../../../types';
+import {
+  ContentfulAccordionItem,
+  ContentfulPage,
+  ContentfulSectionHeader,
+  ContentfulTeaserItem,
+  ContentfulVacancy,
+} from '../../../types';
 import { ImageHero } from '../../content/heroes';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { ImageSpacer } from '../../ui/image/image-spacer';
@@ -19,6 +24,16 @@ interface CareerPageProps {
   positions: ContentfulVacancy[];
   heroImageData: IGatsbyImageData;
   officeImages: OfficeImages;
+  page: ContentfulPage;
+  leadbox: LeadboxProps;
+  introductionHeader: ContentfulSectionHeader;
+  applicationProcessHeader: ContentfulSectionHeader;
+  openingsHeader: ContentfulSectionHeader;
+  cultureHeader: ContentfulSectionHeader;
+  perksHeader: ContentfulSectionHeader;
+  cultureTeaser: ContentfulTeaserItem[];
+  perksTeaser: ContentfulTeaserItem[];
+  applicationProcessAccordion: ContentfulAccordionItem[];
 }
 
 type OfficeImages = { [relativePath: string]: OfficeImage };
@@ -27,60 +42,62 @@ export const CareerPage = ({
   positions,
   heroImageData,
   officeImages,
+  page,
+  leadbox,
+  introductionHeader,
+  applicationProcessHeader,
+  openingsHeader,
+  cultureHeader,
+  perksHeader,
+  cultureTeaser,
+  perksTeaser,
+  applicationProcessAccordion,
 }: CareerPageProps) => {
-  const { t } = useTranslation();
-
-  const leadbox: LeadboxProps = {
-    title: t('career.leadbox.title'),
-    illustration: 'astronaut_012',
-    contact: {
-      headline: t('career.leadbox.subtitle'),
-      title: t('career.leadbox.text'),
-      email: t('career.leadbox.mail'),
-    },
-  };
-
   return (
     <Layout
       leadbox={leadbox}
       transparentHeader={true}
       light={true}
       hero={
-        <ImageHero
-          hideMobileText
-          title={t<string>('career.title')}
-          image={heroImageData}
-        >
+        <ImageHero hideMobileText title={page.title} image={heroImageData}>
           {' '}
-          {t('career.description')}{' '}
+          {page.description as unknown as string}{' '}
         </ImageHero>
       }
     >
       <ContentBlockContainer>
         <SectionHeader
-          kicker={t<string>('career.introduction.kicker')}
-          headline={t<string>('career.introduction.headline')}
+          kicker={introductionHeader.kicker as string}
+          headline={introductionHeader.headline as string}
         >
-          <MobileOnlyText>{t('career.description')}</MobileOnlyText>
-          {t('career.introduction.paragraphs.0')}
+          <MobileOnlyText>
+            {page.description as unknown as string}
+          </MobileOnlyText>
+          {introductionHeader.paragraphs?.[0]?.paragraph?.paragraph as string}{' '}
         </SectionHeader>
-        <ApplicationProcess />
+        <ApplicationProcess
+          header={applicationProcessHeader}
+          accordion={applicationProcessAccordion}
+        />
       </ContentBlockContainer>
 
       <ContentBlockContainer>
-        <Openings jobs={positions} />
+        <Openings
+          jobs={positions}
+          headline={openingsHeader.headline as string}
+        />
       </ContentBlockContainer>
 
       <ImageSpacer image={officeImages['office/sy-office-05.jpg']} />
 
       <ContentBlockContainer>
-        <Culture />
+        <Culture header={cultureHeader} teaserItems={cultureTeaser} />
       </ContentBlockContainer>
 
       <ImageSpacer image={officeImages['office/sy-office-06.jpg']} />
 
       <ContentBlockContainer>
-        <Perks />
+        <Perks header={perksHeader} teaserItems={perksTeaser} />
       </ContentBlockContainer>
     </Layout>
   );

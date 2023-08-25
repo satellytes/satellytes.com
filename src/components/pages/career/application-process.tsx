@@ -1,10 +1,13 @@
 import React from 'react';
 import { Accordion, AccordionSection } from '../../ui/accordion/accordion';
 import styled from 'styled-components';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { up } from '../../support/breakpoint';
 import { TextStyles } from '../../typography';
 import { Teaser } from '../../content/teaser/teaser';
+import {
+  ContentfulAccordionItem,
+  ContentfulSectionHeader,
+} from '../../../types';
 
 const Spacer = styled.div`
   margin-bottom: 32px;
@@ -36,49 +39,30 @@ const ApplicationProcessWrapper = styled.div`
   }
 `;
 
-export const ApplicationProcess = () => {
-  const { t } = useTranslation();
+interface ApplicationProcessProps {
+  header: ContentfulSectionHeader;
+  accordion: ContentfulAccordionItem[];
+}
+
+export const ApplicationProcess = ({
+  header,
+  accordion,
+}: ApplicationProcessProps) => {
   return (
     <ApplicationProcessWrapper>
-      <Teaser title={t('career.application-process.headline')}>
-        {t('career.application-process.paragraph')}
+      <Teaser title={header.headline as string}>
+        {header.paragraphs?.[0]?.paragraph?.paragraph as string}
       </Teaser>
 
       <Spacer />
 
       <AccordionWrapper>
         <Accordion defaultIndex={0}>
-          <AccordionSection
-            title={t('career.application-process.accordion.0.title')}
-          >
-            <AccordionText>
-              {t('career.application-process.accordion.0.paragraph')}
-            </AccordionText>
-          </AccordionSection>
-
-          <AccordionSection
-            title={t('career.application-process.accordion.1.title')}
-          >
-            <AccordionText>
-              {t('career.application-process.accordion.1.paragraph')}
-            </AccordionText>
-          </AccordionSection>
-
-          <AccordionSection
-            title={t('career.application-process.accordion.2.title')}
-          >
-            <AccordionText>
-              {t('career.application-process.accordion.2.paragraph')}
-            </AccordionText>
-          </AccordionSection>
-
-          <AccordionSection
-            title={t('career.application-process.accordion.3.title')}
-          >
-            <AccordionText>
-              {t('career.application-process.accordion.3.paragraph')}
-            </AccordionText>
-          </AccordionSection>
+          {accordion.map((item, index) => (
+            <AccordionSection key={index} title={item.title}>
+              <AccordionText>{item.paragraph.paragraph}</AccordionText>
+            </AccordionSection>
+          ))}
         </Accordion>
       </AccordionWrapper>
     </ApplicationProcessWrapper>
