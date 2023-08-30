@@ -1,50 +1,42 @@
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { TeaserGrid } from '../../content/teaser/teaser-grid';
 import { Teaser } from '../../content/teaser/teaser';
 import React from 'react';
 import { HomePageHeaderBlock } from './support';
-import { ContentfulVacancy } from '../../../types';
-import styled from 'styled-components';
+import { ContentfulSectionHeader, ContentfulVacancy } from '../../../types';
 import { Button } from '../../ui/buttons/button';
+import { LandingPageTeaserGrid } from './landing-page-teaser-grid';
+import { textEllipsis } from '../../support/text-ellipsis';
 
 interface CareerProps {
   positions: ContentfulVacancy[];
+  header: ContentfulSectionHeader;
 }
 
-const Spacer = styled.div`
-  height: 40px;
-`;
-
-const textEllipsis = (text, maxLength) => {
-  const truncatedText = text.substring(0, maxLength);
-  if (truncatedText.length < text.length) {
-    return truncatedText + '...';
-  }
-
-  return truncatedText;
-};
-
-export const Career = ({ positions }: CareerProps) => {
+export const Career = ({ positions, header }: CareerProps) => {
   const { t } = useTranslation();
 
   return (
     <>
       <HomePageHeaderBlock
-        topline={t('main.career.kicker')}
-        headline={t('main.career.title')}
+        topline={header.kicker as string}
+        headline={header.headline as string}
         large={true}
       >
-        {t('main.career.text')}
+        {header.paragraphs?.[0]?.paragraph?.paragraph}
       </HomePageHeaderBlock>
 
-      <TeaserGrid>
+      <LandingPageTeaserGrid>
         {positions.map((item) => (
-          <Teaser key={item.id} title={item.name} linkTo={item.slug}>
+          <Teaser
+            preventStretching
+            key={item.id}
+            title={item.name}
+            linkTo={item.slug}
+          >
             {textEllipsis(item.shortDescription.shortDescription, 200)}
           </Teaser>
         ))}
-      </TeaserGrid>
-      <Spacer />
+      </LandingPageTeaserGrid>
       <Button to={'/career'}>{t('main.career.button')}</Button>
     </>
   );

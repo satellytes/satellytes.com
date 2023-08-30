@@ -1,21 +1,20 @@
-import styled from 'styled-components';
-import { up } from '../../support/breakpoint';
+import styled, { css } from 'styled-components';
+import { down, up } from '../../support/breakpoint';
 import { TextStyles } from '../../typography';
 import React from 'react';
 import { ReactNode } from 'react';
 
 export interface HeroWithText {
   title: string;
-  kicker?: string;
+  hideMobileText?: boolean;
   children?: ReactNode;
 }
 
-export const HeroText = ({ title, children, kicker }: HeroWithText) => {
+export const HeroText = ({ title, children, hideMobileText }: HeroWithText) => {
   return (
     <HeroTextStyled>
-      {kicker && <Kicker>{kicker}</Kicker>}
       <Headline>{title}</Headline>
-      <Text>{children}</Text>
+      <Text hideMobileText={hideMobileText}>{children}</Text>
     </HeroTextStyled>
   );
 };
@@ -25,15 +24,8 @@ const HeroTextStyled = styled.div`
   color: #fff;
 
   ${up('md')} {
-    padding: 108px 0;
+    padding: 160px 0;
   }
-`;
-
-const Kicker = styled.span`
-  ${TextStyles.toplineR}
-  display: block;
-  margin-bottom: 16px;
-  text-transform: capitalize;
 `;
 
 const Headline = styled.h1`
@@ -47,10 +39,18 @@ const Headline = styled.h1`
   }
 `;
 
-const Text = styled.div`
+const Text = styled.div<{ hideMobileText?: boolean }>`
   ${TextStyles.textR}
 
   ${up('md')} {
     ${TextStyles.textL}
   }
+
+  ${({ hideMobileText }) =>
+    hideMobileText &&
+    css`
+      ${down('md')} {
+        display: none;
+      }
+    `}
 `;

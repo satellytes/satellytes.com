@@ -1,17 +1,19 @@
 import React from 'react';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { graphql, PageProps } from 'gatsby';
 import { ContactPage } from '../components/pages/contact/contact-page';
 import SEO from '../components/layout/seo';
+import { ContentfulPage } from '../types';
 
-const Contact = ({ location }: PageProps) => {
-  const { t } = useTranslation();
+interface ContactPageQueryProps {
+  contentfulPage: ContentfulPage;
+}
 
+const Contact = ({ data, location }: PageProps<ContactPageQueryProps>) => {
   return (
     <>
       <SEO
-        title={`${t('contact.title')} | Satellytes`}
-        description={t<string>('contact.info')}
+        title={`${data.contentfulPage.title} | Satellytes`}
+        description={data.contentfulPage.description?.description}
         location={location}
       />
       <ContactPage />
@@ -23,6 +25,13 @@ export default Contact;
 
 export const ContactPageQuery = graphql`
   query ($language: String!) {
+    contentfulPage(slug: { eq: "contact" }, node_locale: { eq: $language }) {
+      title
+      description {
+        description
+      }
+    }
+
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {
         node {

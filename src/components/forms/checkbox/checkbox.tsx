@@ -5,6 +5,7 @@ import { theme } from '../../layout/theme';
 import { TextStyles } from '../../typography';
 import { Icon } from '../../ui/icon/icon';
 import { StyledErrorMessage } from '../text-input/text-input';
+import { up } from '../../support/breakpoint';
 
 const CheckboxLabel = styled.label`
   display: inline-flex;
@@ -12,10 +13,14 @@ const CheckboxLabel = styled.label`
 `;
 
 const CheckboxLabelText = styled.span`
-  ${TextStyles.textR}
+  ${TextStyles.textSR}
 
   color: #202840;
   margin-left: 12px;
+
+  ${up('sm')} {
+    ${TextStyles.textR}
+  }
 `;
 
 const StyledCheckbox = styled.div<{ checked: boolean; hasError: boolean }>`

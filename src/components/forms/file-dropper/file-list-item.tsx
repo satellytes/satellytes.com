@@ -32,7 +32,7 @@ const FileListItemContainer = styled.div`
 `;
 
 const FileName = styled.p`
-  ${TextStyles.headlineXS};
+  ${TextStyles.headlineXXS};
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
