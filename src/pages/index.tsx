@@ -2,7 +2,13 @@ import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import SEO from '../components/layout/seo';
 import { Landingpage } from '../components/pages/landingpage/landingpage';
-import { BlogPostTeaser, ContentfulVacancy } from '../types';
+import {
+  BlogPostTeaser,
+  ContentfulPage,
+  ContentfulSectionHeader,
+  ContentfulTeaser,
+  ContentfulVacancy,
+} from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { StructuredOrganizationData } from '../components/pages/landingpage/structured-organization-data';
 
@@ -14,6 +20,7 @@ export interface OfficeImage {
 }
 
 interface IndexPageQueryProps {
+  contentfulPage: ContentfulPage;
   allContentfulVacancy: {
     nodes: ContentfulVacancy[];
   };
@@ -23,26 +30,36 @@ interface IndexPageQueryProps {
   officeImages: {
     nodes: OfficeImage[];
   };
+  servicesHeader: ContentfulSectionHeader;
+  careerHeader: ContentfulSectionHeader;
+  servicesTeaser: ContentfulTeaser;
+  blogHeader: ContentfulSectionHeader;
 }
 
-const IndexPage = (props: PageProps<IndexPageQueryProps>) => {
-  const jobPositions = props.data.allContentfulVacancy.nodes;
-  const blogPosts = props.data.allContentfulBlogPost.nodes;
-  const officeImages = props.data.officeImages.nodes.reduce((memo, image) => {
+const IndexPage = ({ data, location }: PageProps<IndexPageQueryProps>) => {
+  const jobPositions = data.allContentfulVacancy.nodes;
+  const blogPosts = data.allContentfulBlogPost.nodes;
+  const officeImages = data.officeImages.nodes.reduce((memo, image) => {
     memo[image.relativePath] = image;
     return memo;
   }, {});
 
   return (
     <>
-      <SEO title="Satellytes" location={props.location} rssLink />
+      <SEO title={data.contentfulPage.title} location={location} rssLink />
 
       <StructuredOrganizationData />
 
       <Landingpage
+        title={data.contentfulPage.title}
+        description={data.contentfulPage.description?.description as string}
         officeImages={officeImages}
         positions={jobPositions}
         posts={blogPosts}
+        serviceHeader={data.servicesHeader}
+        serviceTeaser={data.servicesTeaser.gridItems}
+        careerHeader={data.careerHeader}
+        blogHeader={data.blogHeader}
       />
     </>
   );
@@ -62,7 +79,18 @@ export const IndexPageQuery = graphql`
       }
     }
 
-    allContentfulVacancy(filter: { node_locale: { eq: $language } }, limit: 3) {
+    contentfulPage(
+      slug: { eq: "landingpage" }
+      node_locale: { eq: $language }
+    ) {
+      title
+      description {
+        description
+      }
+      seoMetaText
+    }
+
+    allContentfulVacancy(filter: { node_locale: { eq: $language } }, limit: 4) {
       nodes {
         id
         name
@@ -76,7 +104,7 @@ export const IndexPageQuery = graphql`
     allContentfulBlogPost(
       filter: { node_locale: { eq: "en" } }
       sort: { publicationDate: DESC }
-      limit: 3
+      limit: 4
     ) {
       nodes {
         fields {
@@ -96,6 +124,59 @@ export const IndexPageQuery = graphql`
               formats: [AUTO, WEBP, AVIF]
             )
           }
+        }
+      }
+    }
+
+    servicesHeader: contentfulSectionHeader(
+      slug: { eq: "services-introduction" }
+      node_locale: { eq: $language }
+    ) {
+      kicker
+      headline
+      paragraphs {
+        paragraph {
+          paragraph
+        }
+      }
+    }
+
+    careerHeader: contentfulSectionHeader(
+      slug: { eq: "index-career" }
+      node_locale: { eq: $language }
+    ) {
+      kicker
+      headline
+      paragraphs {
+        paragraph {
+          paragraph
+        }
+      }
+    }
+
+    blogHeader: contentfulSectionHeader(
+      slug: { eq: "index-blog" }
+      node_locale: { eq: $language }
+    ) {
+      kicker
+      headline
+      paragraphs {
+        paragraph {
+          paragraph
+        }
+      }
+    }
+
+    servicesTeaser: contentfulTeaserGrid(
+      slug: { eq: "index-services" }
+      node_locale: { eq: $language }
+    ) {
+      gridItems {
+        title
+        as
+        illustration
+        description {
+          description
         }
       }
     }

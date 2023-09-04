@@ -7,12 +7,14 @@ const ImageContainer = styled.div`
   grid-column: 1 / 4;
 
   display: grid;
-  height: 210px;
+  height: 240px;
   margin-top: 80px;
 
   ${up('md')} {
-    height: 360px;
+    height: 620px;
     margin-top: 180px;
+    height: 620px;
+    margin-top: 120px;
   }
 `;
 

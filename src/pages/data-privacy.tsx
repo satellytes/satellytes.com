@@ -1,34 +1,31 @@
 import React from 'react';
 import SEO from '../components/layout/seo';
 import { graphql, PageProps } from 'gatsby';
-import { MarkdownAst } from '../components/legacy/markdown/markdown-ast';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Layout } from '../components/layout/layout';
-import { SectionHeader } from '../components/content/section-header/section-header';
 import { ContentBlockContainer } from '../components/layout/content-block-container';
+import { ContentfulRichText } from '../components/content/rich-text/rich-text';
+import { ContentfulPage, ContentfulRichTextType } from '../types';
 
 interface DataPrivacyPageQueryProps {
-  markdownRemark: {
-    htmlAst: string;
-  };
+  contentfulPage: ContentfulPage;
 }
 
 const DataPrivacyPage = ({
   data,
   location,
 }: PageProps<DataPrivacyPageQueryProps>): JSX.Element => {
-  const { t } = useTranslation();
   return (
     <Layout light={true}>
       <SEO
-        title={`${t('data-privacy.title')} | Satellytes`}
-        description={t<string>('data-privacy.info')}
+        title={`${data.contentfulPage.title} | Satellytes`}
+        description={data.contentfulPage.seoMetaText}
         location={location}
         noIndex={true}
       />
       <ContentBlockContainer>
-        <SectionHeader as={'h1'} headline={t('navigation.data-privacy')} />
-        <MarkdownAst htmlAst={data.markdownRemark.htmlAst} />
+        <ContentfulRichText
+          data={data.contentfulPage.content as ContentfulRichTextType}
+        />
       </ContentBlockContainer>
     </Layout>
   );
@@ -38,11 +35,15 @@ export default DataPrivacyPage;
 
 export const DataPrivacyPageQuery = graphql`
   query ($language: String!) {
-    markdownRemark(
-      fileAbsolutePath: { regex: "/(pages/data-privacy)/" }
-      frontmatter: { language: { eq: $language } }
+    contentfulPage(
+      slug: { eq: "data-privacy" }
+      node_locale: { eq: $language }
     ) {
-      htmlAst
+      title
+      content {
+        raw
+      }
+      seoMetaText
     }
 
     locales: allLocale(filter: { language: { eq: $language } }) {

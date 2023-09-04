@@ -11,7 +11,7 @@ interface CalloutProps {
 }
 
 const CalloutLayout = styled.div`
-  ${TextStyles.headlineXS}
+  ${TextStyles.headlineXXS}
 
   padding: 16px 20px;
   color: #3e61ee;

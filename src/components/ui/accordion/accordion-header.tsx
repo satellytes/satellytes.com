@@ -17,7 +17,7 @@ interface StyledIconProps {
 }
 
 const AccordionTitleHeadline = styled.span`
-  ${TextStyles.headlineXS}
+  ${TextStyles.headlineXXS}
   ${ellipsis()}
   padding-right: 20px;
   color: inherit;

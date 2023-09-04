@@ -70,6 +70,10 @@ const Content = styled.div`
   max-width: 320px;
   margin: auto;
   text-align: center;
+
+  ${up('md')} {
+    max-width: 450px;
+  }
 `;
 
 const Headline = styled.h2`

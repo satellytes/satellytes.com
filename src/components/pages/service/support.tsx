@@ -8,6 +8,7 @@ import { Expandable } from '../../ui/expandable/expandable';
 import { TextStyles } from '../../typography';
 import { up } from '../../support/breakpoint';
 import { WithAnchorHOC } from '../../layout/with-anchor-hoc';
+import { theme } from '../../layout/theme';
 
 export const IntroLayout = styled.div`
   ${up('md')} {
@@ -15,9 +16,11 @@ export const IntroLayout = styled.div`
   }
 `;
 export const IllustrationStyled = styled(Illustration)`
-  margin-left: auto;
+  display: none;
 
   ${up('md')} {
+    margin-left: auto;
+    display: block;
     flex: 0 0 auto;
     padding-left: 108px;
     box-sizing: content-box;
@@ -32,20 +35,39 @@ const HeadlineStyled = styled.h3`
 `;
 
 const ContentStyled = styled.div`
-  margin-top: 24px;
-  ${TextStyles.textR}
+  margin-top: 16px;
+  ${TextStyles.textSR};
+
+  ${up('md')} {
+    margin-top: 24px;
+    ${TextStyles.textR};
+  }
 `;
 
-export const Intro = ({ illustration, headline, children }: any) => {
+const Kicker = styled.span`
+  ${TextStyles.toplineS}
+  display: block;
+  margin-bottom: 12px;
+  color: ${theme.palette.text.topline};
+  ${up('md')} {
+    ${TextStyles.toplineR}
+    margin-bottom: 16px;
+  }
+`;
+
+export const Intro = ({ illustration, headline, children, kicker }: any) => {
   const HeadlineStyledWithAnchor = WithAnchorHOC(HeadlineStyled);
   return (
-    <IntroLayout>
-      <IllustrationStyled size={IllustrationSize.LARGE} show={illustration} />
-      <div>
-        <HeadlineStyledWithAnchor>{headline}</HeadlineStyledWithAnchor>
-        <ContentStyled>{children}</ContentStyled>
-      </div>
-    </IntroLayout>
+    <>
+      <IntroLayout>
+        <IllustrationStyled size={IllustrationSize.LARGE} show={illustration} />
+        <div>
+          {kicker && <Kicker>{kicker}</Kicker>}
+          <HeadlineStyledWithAnchor>{headline}</HeadlineStyledWithAnchor>
+          <ContentStyled>{children}</ContentStyled>
+        </div>
+      </IntroLayout>
+    </>
   );
 };
 
@@ -64,11 +86,15 @@ export const ExpandableStyled = styled(Expandable)`
 export const UnorderedList = styled.ul`
   line-height: 150%;
   margin: 0;
-  padding-left: 0;
+  padding-left: 12px;
   list-style-type: none;
 
+  ${up('md')} {
+    ${TextStyles.textR};
+  }
+
   > li:before {
-    content: '-';
+    content: '•';
     position: absolute;
     top: 0;
     bottom: 0;
