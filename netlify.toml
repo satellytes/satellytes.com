@@ -1,2 +1,0 @@
-[build]
-  ignore = "node ignore_build.ts"
