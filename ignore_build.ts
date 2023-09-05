@@ -2,7 +2,7 @@
 // 0 -> stop build
 
 console.log(process.env);
-if (process.env.CONTEXT !== 'branch.preview') {
+if (process.env.CONTEXT !== 'deploy-preview') {
   process.exitCode = 1;
 } else {
   const pull_number = process.env.REVIEW_ID;
