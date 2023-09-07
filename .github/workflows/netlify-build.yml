@@ -1,16 +1,28 @@
-name: Netlify Build
+name: Build and Deploy to Netlify
 
 on:
   pull_request:
     types: [ labeled, opened, synchronize, reopened ]
 
 jobs:
-  deploy:
-    if: github.event.label.name == 'deploy-me'
+  build:
     runs-on: ubuntu-latest
-    env:
-      NETLIFY_BUILD_WEBHOOK_URL: ${{ secrets.NETLIFY_BUILD_WEBHOOK_URL }}
-      PR_TITLE: ${{ github.event.pull_request.title }}
+    if: contains( github.event.pull_request.labels.*.name, 'deploy-me')
     steps:
-      - name: Trigger build and deployment
-        run: curl -X POST -d {} '$NETLIFY_BUILD_WEBHOOK_URL?trigger_branch=$PR_TITLE'
+      - uses: actions/checkout@v3
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v2.0
+        with:
+          publish-dir: './dist'
+          production-branch: main
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy from GitHub Actions"
+          enable-pull-request-comment: true
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+          functions-dir: './netlify/functions'
+          enable-github-deployment: false
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1
