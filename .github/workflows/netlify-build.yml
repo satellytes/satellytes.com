@@ -11,6 +11,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Get Head Commit Message
+        id: get_head_commit_message
+        run: echo "HEAD_COMMIT_MESSAGE=$(git show -s --format=%s)" >> "$GITHUB_OUTPUT"
       - name: Setup
         uses: actions/setup-node@v3
         with:
@@ -29,7 +34,7 @@ jobs:
           publish-dir: './public'
           production-branch: main
           github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          deploy-message: ${{ github.event.pull_request.title }}
+          deploy-message: '#${{ github.event.number }} ${{ github.event.pull_request.title }}: ${{ steps.get_head_commit_message.outputs.HEAD_COMMIT_MESSAGE }}'
           enable-pull-request-comment: true
           enable-commit-comment: true
           overwrites-pull-request-comment: true
