@@ -104,10 +104,9 @@ export const BlogPostPageQuery = graphql`
     ) {
       title
       illustration
-      contact {
-        headline
+      link {
         title
-        email
+        href
       }
     }
 
