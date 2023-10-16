@@ -49,7 +49,7 @@ const AboutUs = ({ data, location }: PageProps<AboutUsQueryProps>) => {
 export default AboutUs;
 export const AboutUsPageQuery = graphql`
   query ($language: String!) {
-    hero: file(relativePath: { eq: "office/sy-office-02.jpg" }) {
+    hero: file(relativePath: { eq: "office/sy-office-05.jpg" }) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
