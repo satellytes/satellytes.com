@@ -56,7 +56,7 @@ export const CareerPageQuery = graphql`
       }
     }
 
-    hero: file(relativePath: { eq: "office/sy-office-01.jpg" }) {
+    hero: file(relativePath: { eq: "office/sy-office-07.jpg" }) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
