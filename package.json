@@ -41,7 +41,7 @@
     "canvas": "^2.11.2",
     "date-fns": "^2.30.0",
     "fast-xml-parser": "^4.3.2",
-    "gatsby": "^5.10.0",
+    "gatsby": "^5.12.9",
     "gatsby-background-image": "^1.6.0",
     "gatsby-plugin-canonical-urls": "^5.10.0",
     "gatsby-plugin-catch-links": "^5.10.0",
