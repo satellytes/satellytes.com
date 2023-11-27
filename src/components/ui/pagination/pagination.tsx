@@ -29,7 +29,7 @@ const PaginationDropdown = styled(Dropdown)`
   cursor: pointer;
 `;
 
-const StyledLink = styled.a<{ disabled: boolean }>`
+const StyledLink = styled.a<{ $disabled: boolean }>`
   padding: 8px;
   border: none;
   background: linear-gradient(275.41deg, #543fd7 0%, #2756fd 100%);
@@ -38,8 +38,8 @@ const StyledLink = styled.a<{ disabled: boolean }>`
   display: flex;
   color: white;
 
-  ${({ disabled }) =>
-    disabled &&
+  ${({ $disabled }) =>
+    $disabled &&
     css`
       opacity: 50%;
       cursor: default;
@@ -82,7 +82,7 @@ export const Pagination = ({
     <PaginationContainer className={className}>
       <StyledLink
         onClick={onPreviousClick}
-        disabled={currentPage === 1}
+        $disabled={currentPage === 1}
         aria-label="Next Page"
       >
         <Icon show={'arrow_left'} />
@@ -100,7 +100,7 @@ export const Pagination = ({
       )}
       <StyledLink
         onClick={onNextClick}
-        disabled={currentPage === amountOfPages}
+        $disabled={currentPage === amountOfPages}
         aria-label="Previous Page"
       >
         <Icon show={'arrow_right'} />

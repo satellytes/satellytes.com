@@ -4,7 +4,7 @@ const BACKGROUND_LAYER_Z = -2;
 const FOREGROUND_LAYER_Z = -1;
 
 interface AuroraBackgroundProps {
-  source: string;
+  $source: string;
   overwriteBackground?: string;
 }
 
@@ -22,7 +22,7 @@ export const AuroraBackground = styled.div<AuroraBackgroundProps>`
   ${(props) =>
     props.overwriteBackground === undefined
       ? css`
-          background-image: url(${props.source});
+          background-image: url(${props.$source});
           background-repeat: no-repeat;
           background-size: cover;
           background-position: center -20vw;

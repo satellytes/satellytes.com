@@ -19,7 +19,7 @@ export const Address = () => {
   return (
     <SectionHeader
       headline={t('contact.address')}
-      kicker={t<string>('contact.title')}
+      kicker={t('contact.title')}
       kickerAs={'h1'}
     >
       Satellytes Digital Consulting GmbH

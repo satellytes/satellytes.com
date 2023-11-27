@@ -22,7 +22,7 @@ export const FirstName = ({ control }) => {
         name={'first_name'}
         label={t('contact.name')}
         control={control}
-        rules={{ required: t<string>('contact.error.name') }}
+        rules={{ required: t('contact.error.name') }}
       />
     </TextInputContainer>
   );
@@ -37,10 +37,10 @@ export const Email = ({ control }) => {
         label={t('contact.email')}
         control={control}
         rules={{
-          required: t<string>('contact.error.email'),
+          required: t('contact.error.email'),
           pattern: {
             value: SIMPLE_EMAIL_PATTERN,
-            message: t<string>('contact.error.email-undefined'),
+            message: t('contact.error.email-undefined'),
           },
         }}
       />
@@ -60,7 +60,7 @@ export const MessageArea = ({ control }) => {
         name={'message'}
         label={t('contact.message')}
         control={control}
-        rules={{ required: t<string>('contact.error.message') }}
+        rules={{ required: t('contact.error.message') }}
       />
     </MessageContainer>
   );

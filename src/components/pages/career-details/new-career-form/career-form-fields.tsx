@@ -32,9 +32,7 @@ export const CareerDetailsSubmitButton = ({ isSubmitting, errors }) => {
   const { t } = useTranslation();
   return (
     <Button type="submit" disabled={isSubmitting}>
-      {!errors?.api
-        ? t<string>('career.action.send')
-        : t<string>('career.action.again')}
+      {!errors?.api ? t('career.action.send') : t('career.action.again')}
     </Button>
   );
 };
@@ -71,7 +69,7 @@ export const CareerDetailsCheckbox = ({ control }) => {
         </Trans>
       }
       control={control}
-      rules={{ required: t<string>('career.error.approval') }}
+      rules={{ required: t('career.error.approval') }}
     />
   );
 };
@@ -88,22 +86,22 @@ export const CareerDetailsFileUpload = ({
   const fileCategories = [
     {
       value: 'cv',
-      label: t<string>('career.cv'),
+      label: t('career.cv'),
     },
     {
       value: 'cover-letter',
-      label: t<string>('career.cover-letter'),
+      label: t('career.cover-letter'),
     },
     {
       value: 'other',
-      label: t<string>('career.other'),
+      label: t('career.other'),
     },
   ];
 
   const fileValidator = (file: File): FileError | null => {
     if (file.size > MAX_SIZE)
       return {
-        message: t<string>('career.error.max-size'),
+        message: t('career.error.max-size'),
         code: ErrorCode.FileTooLarge,
       };
 
@@ -135,12 +133,12 @@ export const CareerDetailsSuccess = () => {
   return (
     <ContentBlockContainer>
       <SectionHeader
-        kicker={t<string>('career.thank')}
-        headline={t<string>('career.email-confirmation')}
+        kicker={t('career.thank')}
+        headline={t('career.email-confirmation')}
       >
-        {t<string>('career.success-text')}
+        {t('career.success-text')}
       </SectionHeader>
-      <StyledButton to="/">{t<string>('career.action.home')}</StyledButton>
+      <StyledButton to="/">{t('career.action.home')}</StyledButton>
     </ContentBlockContainer>
   );
 };

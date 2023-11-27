@@ -34,7 +34,7 @@ export const Aurora = ({ type, className }: AuroraProps) => {
   return (
     <AuroraContainer className={className}>
       <AuroraBackground
-        source={getSource(type)}
+        $source={getSource(type)}
         overwriteBackground={weatherBackground}
       />
       <AuroraForeground>
