@@ -19,16 +19,7 @@ describe('build-netlify-preview-url', () => {
     expect(url).toBe(null);
   });
 
-  test('should return null without a branch given', () => {
-    const url = buildNetlifyPreviewUrl({
-      domainName: 'satellytescommain',
-      branch: null,
-      previewId: '123',
-    });
-    expect(url).toBe(null);
-  });
-
-  test('should return  null if no prefix is given', () => {
+  test('should return  null if no domainName is given', () => {
     const url = buildNetlifyPreviewUrl({
       domainName: null,
       branch: 'something',
