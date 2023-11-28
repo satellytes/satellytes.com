@@ -64,7 +64,7 @@ export const SharePanel: React.FC<ShareProps> = ({ title }) => {
       <SharePanelText>{t('blog.share')}</SharePanelText>
       <SocialLinks>
         <SocialLinkItem data-testid="facebook">
-          <FacebookShareButton url={shareUrl} quote={title}>
+          <FacebookShareButton url={shareUrl}>
             <Icon show="facebook" />
           </FacebookShareButton>
         </SocialLinkItem>
