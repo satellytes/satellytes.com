@@ -5,7 +5,7 @@ describe('build-netlify-preview-url', () => {
     const url = buildNetlifyPreviewUrl({
       domainName: 'satellytes',
       branch: 'feature-branch-1',
-      previewId: '123',
+      reviewId: '123',
     });
     expect(url).toBe('https://deploy-preview-123--satellytes.netlify.app/');
   });
@@ -14,7 +14,7 @@ describe('build-netlify-preview-url', () => {
     const url = buildNetlifyPreviewUrl({
       domainName: 'satellytescommain',
       branch: 'main',
-      previewId: '123',
+      reviewId: '123',
     });
     expect(url).toBe(null);
   });
@@ -23,7 +23,7 @@ describe('build-netlify-preview-url', () => {
     const url = buildNetlifyPreviewUrl({
       domainName: null,
       branch: 'something',
-      previewId: '123',
+      reviewId: '123',
     });
     expect(url).toBe(null);
   });

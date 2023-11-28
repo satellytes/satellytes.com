@@ -5,7 +5,7 @@ export const NETLIFY_DOMAIN_NAME = process.env.GATSBY_NETLIFY_DOMAIN_NAME || '';
 export const BRANCH_PREVIEW_URL = buildNetlifyPreviewUrl({
   domainName: NETLIFY_DOMAIN_NAME,
   branch: process.env.BRANCH,
-  previewId: process.env.PREVIEW_ID,
+  reviewId: process.env.REVIEW_ID,
 });
 
 // either use a branch preview url if any

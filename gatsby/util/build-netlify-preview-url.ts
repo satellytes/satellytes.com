@@ -8,10 +8,10 @@
  */
 
 const PRODUCTION_BRANCH = 'main';
-export const buildNetlifyPreviewUrl = ({ domainName, previewId, branch }) => {
-  if (!domainName || !previewId || branch === PRODUCTION_BRANCH) {
+export const buildNetlifyPreviewUrl = ({ domainName, reviewId, branch }) => {
+  if (!domainName || !reviewId || branch === PRODUCTION_BRANCH) {
     return null;
   }
 
-  return `https://deploy-preview-${previewId}--${domainName}.netlify.app/`;
+  return `https://deploy-preview-${reviewId}--${domainName}.netlify.app/`;
 };
