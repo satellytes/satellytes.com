@@ -28,31 +28,36 @@ interface BlogPageQueryProps {
 
 const Blog = ({
   data,
-  location,
   pageContext,
 }: PageProps<BlogPageQueryProps, BlogOverviewPageContext>) => {
   const blogPosts = data.allContentfulBlogPost.nodes;
 
   return (
-    <>
-      <SEO
-        title="Blog | Satellytes"
-        location={location}
-        rssLink
-        noIndex={pageContext.currentPage !== 1}
-      />
-      <BlogPage
-        posts={blogPosts}
-        header={data.blogHeader}
-        pagination={{
-          ...pageContext,
-        }}
-      />
-    </>
+    <BlogPage
+      posts={blogPosts}
+      header={data.blogHeader}
+      pagination={{
+        ...pageContext,
+      }}
+    />
   );
 };
 
 export default Blog;
+
+export const Head = ({
+  pageContext,
+  location,
+}: PageProps<BlogPageQueryProps, BlogOverviewPageContext>) => {
+  return (
+    <SEO
+      title="Blog | Satellytes"
+      location={location}
+      rssLink
+      noIndex={pageContext.currentPage !== 1}
+    />
+  );
+};
 
 export const BlogPageQuery = graphql`
   query ($language: String!, $skip: Int!, $limit: Int!) {

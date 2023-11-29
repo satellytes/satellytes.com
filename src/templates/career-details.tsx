@@ -24,6 +24,18 @@ interface CareerPageProps {
 const CareerPage = (props: CareerPageProps): JSX.Element => {
   const { pageContext } = props;
   const position = props.data.contentfulVacancy;
+
+  return (
+    <CareerDetails
+      originalPath={pageContext.i18n.originalPath}
+      position={position}
+      complementPath={pageContext.translation}
+    />
+  );
+};
+
+export const Head = (props: CareerPageProps) => {
+  const position = props.data.contentfulVacancy;
   const socialCardPath =
     position.socialCardFile.childImageSharp.gatsbyImageData.images.fallback
       ?.src;
@@ -39,16 +51,9 @@ const CareerPage = (props: CareerPageProps): JSX.Element => {
         description={t('career.seo.description-detail', {
           name: position.name,
         })}
-        location={props.location}
+        location={location}
       />
-
       <CareerDetailsStructuredData position={position} />
-
-      <CareerDetails
-        originalPath={pageContext.i18n.originalPath}
-        position={position}
-        complementPath={pageContext.translation}
-      />
     </>
   );
 };

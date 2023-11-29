@@ -10,21 +10,26 @@ interface ImprintPageQueryProps {
   contentfulPage: ContentfulPage;
 }
 
-const ImprintPage = ({ data, location }: PageProps<ImprintPageQueryProps>) => {
+const ImprintPage = ({ data }: PageProps<ImprintPageQueryProps>) => {
   return (
     <Layout light={true}>
-      <SEO
-        title={`${data.contentfulPage.title} | Satellytes`}
-        description={data.contentfulPage.seoMetaText}
-        location={location}
-        noIndex={true}
-      />
       <ContentBlockContainer>
         <ContentfulRichText
           data={data.contentfulPage.content as ContentfulRichTextType}
         />
       </ContentBlockContainer>
     </Layout>
+  );
+};
+
+export const Head = ({ data, location }: PageProps<ImprintPageQueryProps>) => {
+  return (
+    <SEO
+      title={`${data.contentfulPage.title} | Satellytes`}
+      description={data.contentfulPage.seoMetaText}
+      location={location}
+      noIndex={true}
+    />
   );
 };
 

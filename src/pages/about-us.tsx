@@ -25,28 +25,32 @@ interface AboutUsQueryProps {
   };
 }
 
-const AboutUs = ({ data, location }: PageProps<AboutUsQueryProps>) => {
+const AboutUs = ({ data }: PageProps<AboutUsQueryProps>) => {
   return (
-    <>
-      <SEO
-        title={`${data.contentfulPage.title} | Satellytes`}
-        location={location}
-      />
-      <AboutUsPage
-        title={data.contentfulPage.title}
-        description={data.contentfulPage.description?.description as string}
-        heroImageData={data.hero}
-        impressions={data.allContentfulAboutUsImpressions.nodes}
-        team={data.allContentfulTeamMember.nodes}
-        sectionHeaderImpressions={data.sectionHeaderImpressions}
-        sectionHeaderTeam={data.sectionHeaderTeam}
-        leadbox={data.contentfulLeadbox}
-      />
-    </>
+    <AboutUsPage
+      title={data.contentfulPage.title}
+      description={data.contentfulPage.description?.description as string}
+      heroImageData={data.hero}
+      impressions={data.allContentfulAboutUsImpressions.nodes}
+      team={data.allContentfulTeamMember.nodes}
+      sectionHeaderImpressions={data.sectionHeaderImpressions}
+      sectionHeaderTeam={data.sectionHeaderTeam}
+      leadbox={data.contentfulLeadbox}
+    />
   );
 };
 
 export default AboutUs;
+
+export const Head = ({ data, location }: PageProps<AboutUsQueryProps>) => {
+  return (
+    <SEO
+      title={`${data.contentfulPage.title} | Satellytes`}
+      location={location}
+    />
+  );
+};
+
 export const AboutUsPageQuery = graphql`
   query ($language: String!) {
     hero: file(relativePath: { eq: "office/sy-office-05.jpg" }) {

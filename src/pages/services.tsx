@@ -22,33 +22,33 @@ interface ServicesPageQueryProps {
   consultingList: ContentfulList;
 }
 
-const ServicesPage = ({
-  data,
-  location,
-}: PageProps<ServicesPageQueryProps>) => {
+const ServicesPage = ({ data }: PageProps<ServicesPageQueryProps>) => {
   return (
-    <>
-      <SEO
-        title={`${data.contentfulPage.title} | Satellytes`}
-        location={location}
-      />
-      <Service
-        page={data.contentfulPage}
-        leadbox={data.contentfulLeadbox}
-        servicesHeader={data.servicesHeader}
-        platformsHeader={data.platformsHeader}
-        productsServicesHeader={data.productsServicesHeader}
-        consultingHeader={data.consultingHeader}
-        productDesignHeader={data.productDesignHeader}
-        platformsList={data.platformsList}
-        productsServicesList={data.productsServicesList}
-        consultingList={data.consultingList}
-      />
-    </>
+    <Service
+      page={data.contentfulPage}
+      leadbox={data.contentfulLeadbox}
+      servicesHeader={data.servicesHeader}
+      platformsHeader={data.platformsHeader}
+      productsServicesHeader={data.productsServicesHeader}
+      consultingHeader={data.consultingHeader}
+      productDesignHeader={data.productDesignHeader}
+      platformsList={data.platformsList}
+      productsServicesList={data.productsServicesList}
+      consultingList={data.consultingList}
+    />
   );
 };
 
 export default ServicesPage;
+
+export const Head = ({ data, location }: PageProps<ServicesPageQueryProps>) => {
+  return (
+    <SEO
+      title={`${data.contentfulPage.title} | Satellytes`}
+      location={location}
+    />
+  );
+};
 
 export const ServicesPageQuery = graphql`
   query ($language: String!) {

@@ -12,22 +12,29 @@ interface DataPrivacyPageQueryProps {
 
 const DataPrivacyPage = ({
   data,
-  location,
 }: PageProps<DataPrivacyPageQueryProps>): JSX.Element => {
   return (
     <Layout light={true}>
-      <SEO
-        title={`${data.contentfulPage.title} | Satellytes`}
-        description={data.contentfulPage.seoMetaText}
-        location={location}
-        noIndex={true}
-      />
       <ContentBlockContainer>
         <ContentfulRichText
           data={data.contentfulPage.content as ContentfulRichTextType}
         />
       </ContentBlockContainer>
     </Layout>
+  );
+};
+
+export const Head = ({
+  data,
+  location,
+}: PageProps<DataPrivacyPageQueryProps>) => {
+  return (
+    <SEO
+      title={`${data.contentfulPage.title} | Satellytes`}
+      description={data.contentfulPage.seoMetaText}
+      location={location}
+      noIndex={true}
+    />
   );
 };
 

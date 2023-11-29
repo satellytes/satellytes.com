@@ -1,6 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { I18nNextData } from '../../types';
@@ -92,12 +91,9 @@ const SEO = ({
   );
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang: i18n.language,
-      }}
-      title={title}
-    >
+    <>
+      <html lang={i18n.language} />
+      <title>{title}</title>
       {/* Standard Tags */}
       <meta property="og:title" name="title" content={title} />
       <meta
@@ -138,7 +134,7 @@ const SEO = ({
           href={RSS_URL}
         />
       )}
-    </Helmet>
+    </>
   );
 };
 

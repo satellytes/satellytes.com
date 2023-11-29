@@ -12,26 +12,28 @@ interface NotFoundPageQueryProps {
 
 const NotFoundPage = ({
   data,
-  location,
 }: PageProps<NotFoundPageQueryProps>): JSX.Element => {
   return (
-    <>
-      <SEO
-        title={`${data.contentfulPage.title} | Satellytes`}
-        location={location}
-      />
-      <Layout light={true}>
-        <ContentBlockContainer>
-          <SectionHeader headline={'404'}>
-            {data.contentfulPage.description?.description as string}
-          </SectionHeader>
-        </ContentBlockContainer>
-      </Layout>
-    </>
+    <Layout light={true}>
+      <ContentBlockContainer>
+        <SectionHeader headline={'404'}>
+          {data.contentfulPage.description?.description as string}
+        </SectionHeader>
+      </ContentBlockContainer>
+    </Layout>
   );
 };
 
 export default NotFoundPage;
+
+export const Head = ({ data, location }: PageProps<NotFoundPageQueryProps>) => {
+  return (
+    <SEO
+      title={`${data.contentfulPage.title} | Satellytes`}
+      location={location}
+    />
+  );
+};
 
 export const NotFoundPageQuery = graphql`
   query ($language: String!) {

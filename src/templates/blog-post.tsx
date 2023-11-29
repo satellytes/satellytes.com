@@ -19,17 +19,34 @@ const BlogArticleTemplate = ({
   data,
   location,
 }: PageProps<BlogArticleTemplateQueryProps>): JSX.Element => {
-  const { author, seoMetaText, title, publicationDate, heroImage } =
-    data.contentfulBlogPost;
+  const { title } = data.contentfulBlogPost;
   const { t } = useTranslation();
-
-  const shareImagePath = heroImage.shareImage.resize.src;
 
   const breadcrumb: BreadcrumbEntry[] = [
     { pathname: '/', label: 'Satellytes' },
     { pathname: '/blog', label: t('navigation.blog') },
     { pathname: location.pathname, label: title },
   ];
+
+  return (
+    <>
+      <BlogPostPage
+        blogPost={data.contentfulBlogPost}
+        breadcrumb={breadcrumb}
+        contentfulLeadbox={data.contentfulLeadbox}
+      />
+    </>
+  );
+};
+
+export const Head = ({
+  data,
+  location,
+}: PageProps<BlogArticleTemplateQueryProps>) => {
+  const { author, seoMetaText, title, publicationDate, heroImage } =
+    data.contentfulBlogPost;
+
+  const shareImagePath = heroImage.shareImage.resize.src;
 
   return (
     <>
@@ -49,12 +66,6 @@ const BlogArticleTemplate = ({
         description={seoMetaText}
         location={location}
         rssLink
-      />
-
-      <BlogPostPage
-        blogPost={data.contentfulBlogPost}
-        breadcrumb={breadcrumb}
-        contentfulLeadbox={data.contentfulLeadbox}
       />
     </>
   );

@@ -8,7 +8,10 @@ interface ContactPageQueryProps {
   contentfulPage: ContentfulPage;
 }
 
-const Contact = ({ data, location }: PageProps<ContactPageQueryProps>) => {
+const Contact = () => <ContactPage />;
+export default Contact;
+
+export const Head = ({ data, location }: PageProps<ContactPageQueryProps>) => {
   return (
     <>
       <SEO
@@ -16,12 +19,22 @@ const Contact = ({ data, location }: PageProps<ContactPageQueryProps>) => {
         description={data.contentfulPage.description?.description}
         location={location}
       />
-      <ContactPage />
+      {/*
+       * Styles and Script for Leaflet Hero Map
+       */}
+      <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+      />
+      <link
+        rel="stylesheet"
+        href="//unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css"
+        type="text/css"
+      />
+      <script src="//unpkg.com/leaflet-gesture-handling"></script>
     </>
   );
 };
-
-export default Contact;
 
 export const ContactPageQuery = graphql`
   query ($language: String!) {

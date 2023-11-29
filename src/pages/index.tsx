@@ -36,7 +36,7 @@ interface IndexPageQueryProps {
   blogHeader: ContentfulSectionHeader;
 }
 
-const IndexPage = ({ data, location }: PageProps<IndexPageQueryProps>) => {
+const IndexPage = ({ data }: PageProps<IndexPageQueryProps>) => {
   const jobPositions = data.allContentfulVacancy.nodes;
   const blogPosts = data.allContentfulBlogPost.nodes;
   const officeImages = data.officeImages.nodes.reduce((memo, image) => {
@@ -45,27 +45,30 @@ const IndexPage = ({ data, location }: PageProps<IndexPageQueryProps>) => {
   }, {});
 
   return (
-    <>
-      <SEO title={data.contentfulPage.title} location={location} rssLink />
-
-      <StructuredOrganizationData />
-
-      <Landingpage
-        title={data.contentfulPage.title}
-        description={data.contentfulPage.description?.description as string}
-        officeImages={officeImages}
-        positions={jobPositions}
-        posts={blogPosts}
-        serviceHeader={data.servicesHeader}
-        serviceTeaser={data.servicesTeaser.gridItems}
-        careerHeader={data.careerHeader}
-        blogHeader={data.blogHeader}
-      />
-    </>
+    <Landingpage
+      title={data.contentfulPage.title}
+      description={data.contentfulPage.description?.description as string}
+      officeImages={officeImages}
+      positions={jobPositions}
+      posts={blogPosts}
+      serviceHeader={data.servicesHeader}
+      serviceTeaser={data.servicesTeaser.gridItems}
+      careerHeader={data.careerHeader}
+      blogHeader={data.blogHeader}
+    />
   );
 };
 
 export default IndexPage;
+
+export const Head = ({ data, location }: PageProps<IndexPageQueryProps>) => {
+  return (
+    <>
+      <SEO title={data.contentfulPage.title} location={location} rssLink />
+      <StructuredOrganizationData />
+    </>
+  );
+};
 
 export const IndexPageQuery = graphql`
   query ($language: String!) {

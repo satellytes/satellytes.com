@@ -2,7 +2,6 @@ import * as L from 'leaflet';
 import { LatLngExpression } from 'leaflet';
 import { GestureHandling } from 'leaflet-gesture-handling';
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import {
   CircleMarker,
@@ -140,21 +139,5 @@ export const Leaflet = () => {
     </MapContainerWithHeight>
   );
 
-  return (
-    <MapWrapper>
-      <Helmet>
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
-        />
-        <link
-          rel="stylesheet"
-          href="//unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css"
-          type="text/css"
-        />
-        <script src="//unpkg.com/leaflet-gesture-handling"></script>
-      </Helmet>
-      {MapView}
-    </MapWrapper>
-  );
+  return <MapWrapper>{MapView}</MapWrapper>;
 };
