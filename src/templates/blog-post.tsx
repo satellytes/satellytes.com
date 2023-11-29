@@ -4,10 +4,15 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import SEO from '../components/layout/seo';
 import { BlogPostPage } from '../components/pages/blog-post/blog-post';
-import { BreadcrumbEntry, ContentfulBlogPost } from '../types';
+import {
+  BreadcrumbEntry,
+  ContentfulBlogPost,
+  ContentfulLeadBox,
+} from '../types';
 
 interface BlogArticleTemplateQueryProps {
   contentfulBlogPost: BlogArticleQueryData;
+  contentfulLeadbox: ContentfulLeadBox;
 }
 
 const BlogArticleTemplate = ({
@@ -49,6 +54,7 @@ const BlogArticleTemplate = ({
       <BlogPostPage
         blogPost={data.contentfulBlogPost}
         breadcrumb={breadcrumb}
+        contentfulLeadbox={data.contentfulLeadbox}
       />
     </>
   );
@@ -90,6 +96,18 @@ export const BlogPostPageQuery = graphql`
       seoMetaText
       teaserText
       leadBoxText
+    }
+
+    contentfulLeadbox(
+      slug: { eq: "blog-leadbox" }
+      node_locale: { eq: $language }
+    ) {
+      title
+      illustration
+      link {
+        title
+        href
+      }
     }
 
     locales: allLocale(filter: { language: { eq: $language } }) {

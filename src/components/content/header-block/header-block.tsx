@@ -41,19 +41,24 @@ const IconWrapper = styled.div`
 `;
 
 const Topline = styled.p`
-  ${TextStyles.toplineR}
+  ${TextStyles.toplineS}
   color: #3e61ee;
   margin: 0;
+
+  ${up('md')} {
+    ${TextStyles.toplineR}
+  }
 `;
 
-const Headline = styled.h2<LargeProps>`
-  ${TextStyles.headlineL}
+const Headline = styled.h2`
+  ${TextStyles.headlineM}
   letter-spacing: -0.01em;
   color: #202840;
-  margin-top: 16px;
-  margin-bottom: ${({ large }) => (large ? '32px' : '16px')};
+  margin: 12px 0 16px;
+
   ${up('md')} {
-    ${TextStyles.headlineXL}
+    margin: 16px 0 24px;
+    ${TextStyles.headlineL}
   }
 `;
 
@@ -65,14 +70,17 @@ const Metaline = styled.p<LargeProps>`
 `;
 
 const HeaderBlockText = styled.p<LargeProps>`
-  ${({ large }) => (large ? TextStyles.textL : TextStyles.textR)};
+  ${({ large }) => (large ? TextStyles.textSR : TextStyles.textS)};
 
+  ${up('md')} {
+    ${({ large }) => (large ? TextStyles.textR : TextStyles.textSR)};
+  }
+  margin: 16px 0 0;
   letter-spacing: -0.01em;
   color: #202840;
-  margin-top: 32px;
 
-  ${down('sm')} {
-    margin-top: 24px;
+  ${up('md')} {
+    margin: 24px 0 0;
   }
 `;
 
@@ -81,7 +89,7 @@ export const HeaderBlock = (props: HeaderBlockProps) => {
     <BlockWrapper className={props.className}>
       <TextWrapper>
         <Topline>{props.topline}</Topline>
-        <Headline large={props.large}>{props.headline}</Headline>
+        <Headline>{props.headline}</Headline>
         {props.metaline && (
           <Metaline large={props.large}>{props.metaline}</Metaline>
         )}

@@ -4,15 +4,22 @@ import styled from 'styled-components';
 import { BlogPostTeaser } from '../../../types';
 import { Teaser } from '../../content/teaser/teaser';
 import { LONG_DATE_FORMAT, useLocaleFormat } from '../../i18n-helpers';
+import { up } from '../../support/breakpoint';
 
 const BlogTeaserGrid = styled.div`
   display: grid;
-  gap: 24px;
+  gap: 48px;
+
+  ${up('md')} {
+    row-gap: 60px;
+    column-gap: 24px;
+  }
+
   justify-items: stretch;
   // we fetch teaser of size 600px
   // this means we can search for a column size of 300px - 12px (half gap) = 288px
   // to auto fit our teasers
-  grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(278px, 1fr));
 `;
 
 interface PostsProps {

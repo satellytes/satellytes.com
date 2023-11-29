@@ -53,9 +53,9 @@ const Attribution = ({ attribution }: { attribution?: BlogAttribution }) => {
 export const BlogHero = ({
   image,
   attribution,
+  hideMobileText,
   title,
   children,
-  kicker,
   naturalHeight,
 }: ImageHeroProps) => {
   const gatsbyImageData = getImage(image);
@@ -68,7 +68,7 @@ export const BlogHero = ({
 
       {title && (
         <TextContainer dimmed>
-          <HeroText title={title} kicker={kicker}>
+          <HeroText hideMobileText={hideMobileText} title={title}>
             {children}
           </HeroText>
         </TextContainer>

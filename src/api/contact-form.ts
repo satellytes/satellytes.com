@@ -2,6 +2,7 @@ import { WebClient, LogLevel } from '@slack/web-api';
 import { GatsbyFunctionRequest, GatsbyFunctionResponse } from 'gatsby';
 
 const TOKEN = process.env.SLACK_BOT_SY_TOKEN;
+const CHANNEL_ID = 'C05PQTZAW8M'; // our contact form channel
 
 /**
  * Easily build this block structure via https://app.slack.com/block-kit-builder
@@ -81,14 +82,13 @@ export default async function handler(
     return res.status(500).json({ error: `no slack token given` });
   }
 
-  const channelId = 'website';
   const client = new WebClient(TOKEN, {
     logLevel: LogLevel.DEBUG,
   });
 
   try {
     await client.chat.postMessage({
-      channel: channelId,
+      channel: CHANNEL_ID,
       // raw text as the fallback content for notifications.
       text: `${first_name} (${email}) sent the following message:\n ${message}`,
       blocks: createSlackMessage({ first_name, email, message }),

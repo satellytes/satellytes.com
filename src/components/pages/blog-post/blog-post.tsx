@@ -1,8 +1,7 @@
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import styled from 'styled-components';
 import { BlogArticleQueryData } from '../../../templates/blog-post';
-import { BreadcrumbEntry } from '../../../types';
+import { BreadcrumbEntry, ContentfulLeadBox } from '../../../types';
 import { BlogHeader } from '../../content/blog-header/blog-header';
 import { BlogHero } from '../../content/heroes/blog-hero';
 import { LeadboxProps } from '../../content/leadbox/leadbox';
@@ -17,6 +16,7 @@ import { TextStyles } from '../../typography';
 interface BlogPostPageProps {
   blogPost: BlogArticleQueryData;
   breadcrumb: BreadcrumbEntry[];
+  contentfulLeadbox: ContentfulLeadBox;
 }
 
 const PanelContainer = styled.div`
@@ -38,16 +38,19 @@ const RichTextContainer = styled.div`
   }
 `;
 
-export const BlogPostPage = ({ blogPost, breadcrumb }: BlogPostPageProps) => {
-  const { t } = useTranslation();
+export const BlogPostPage = ({
+  blogPost,
+  breadcrumb,
+  contentfulLeadbox,
+}: BlogPostPageProps) => {
   const dateFormatter = useLocaleFormat(LONG_DATE_FORMAT);
 
   const leadbox: LeadboxProps = {
-    title: blogPost.leadBoxText ?? t('blogpost.leadbox.title'),
-    illustration: 'astronaut_012',
+    title: blogPost.leadBoxText ?? contentfulLeadbox.title,
+    illustration: contentfulLeadbox.illustration,
     link: {
-      title: t('blogpost.leadbox.link'),
-      href: '/career/',
+      title: contentfulLeadbox.link?.title as string,
+      href: contentfulLeadbox.link?.href as string,
     },
   };
 

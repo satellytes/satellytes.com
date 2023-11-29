@@ -16,10 +16,10 @@ export const HeroContainer = styled.div<{ naturalHeight?: boolean }>`
   ${({ naturalHeight }) =>
     !naturalHeight &&
     css`
-      height: 520px;
+      height: 640px;
 
       ${up('md')} {
-        height: 640px;
+        height: 740px;
       }
     `}
 
@@ -46,7 +46,7 @@ export const TextContainer = styled.div<TextContainerProps>`
   display: grid;
   grid-template-columns:
     [main-start] minmax(24px, 1fr)
-    [content-start] minmax(0, 820px) [content-end]
+    [content-start] minmax(0, 1184px) [content-end]
     minmax(24px, 1fr) [main-end];
 
   > * {
@@ -60,4 +60,9 @@ export const TextContainer = styled.div<TextContainerProps>`
     css`
       background-color: ${rgba('#000000', 0.2)};
     `}
+`;
+export const MobileOnlyText = styled.p`
+  ${up('md')} {
+    display: none;
+  }
 `;

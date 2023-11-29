@@ -9,8 +9,12 @@ import {
 } from '../../ui/illustration/illustration';
 import { Icon } from '../../ui/icon/icon';
 import { TextStyles } from '../../typography';
+import { up } from '../../support/breakpoint';
 
-const TeaserContainer = styled.div<{ hover: boolean }>`
+const TeaserContainer = styled.div<{
+  hover: boolean;
+  preventStretching?: boolean;
+}>`
   overflow: hidden;
 
   ${(props) =>
@@ -19,6 +23,16 @@ const TeaserContainer = styled.div<{ hover: boolean }>`
       color: ${theme.palette.text.topline};
       cursor: pointer;
     `};
+
+  ${up('md')} {
+    ${(props) =>
+      props.preventStretching &&
+      css`
+        &:only-child {
+          max-width: 50%;
+        }
+      `};
+  }
 `;
 
 const StyledIllustration = styled(Illustration)<{ hover: boolean }>`
@@ -61,16 +75,25 @@ const Timestamp = styled.p<{ hover: boolean }>`
 `;
 
 const TeaserText = styled.div`
-  ${TextStyles.textR};
+  ${TextStyles.textSR};
   margin: 0;
+
+  ${up('md')} {
+    ${TextStyles.textR};
+  }
 `;
 
 const StyledTeaserTitle = styled.h3<{
   large: boolean;
   hasTopline: boolean;
 }>`
-  ${TextStyles.headlineS}
-  ${(props) => props.large && TextStyles.headlineM};
+  ${TextStyles.headlineXS}
+
+  ${(props) => props.large && TextStyles.headlineXS};
+
+  ${up('md')} {
+    ${(props) => props.large && TextStyles.headlineM};
+  }
 
   margin-top: 0;
   margin-bottom: ${(props) => (props.hasTopline ? '8px' : '16px')};
@@ -114,6 +137,10 @@ export interface TeaserProps {
    * Adds a link to another page and makes the whole teaser clickable
    */
   linkTo?: string;
+  /**
+   * Prevents the teaser from stretching across the whole width if there is exactly one teaser
+   */
+  preventStretching?: boolean;
   className?: string;
   /**
    * The main text of the teaser is entered as child
@@ -149,6 +176,7 @@ export const Teaser = ({
   image,
   linkTo,
   illustration,
+  preventStretching,
   className,
   children,
 }: TeaserProps): JSX.Element => {
@@ -156,7 +184,11 @@ export const Teaser = ({
   const hasToplineContainer = Boolean(topline || dateFormatted);
 
   return (
-    <TeaserContainer className={className} hover={hoverActive}>
+    <TeaserContainer
+      className={className}
+      hover={hoverActive}
+      preventStretching={preventStretching}
+    >
       <ConditionalLink
         language={language}
         onHover={(hasHover) => setIsHoverActive(hasHover)}

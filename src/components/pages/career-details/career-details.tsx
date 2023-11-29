@@ -48,6 +48,7 @@ export const CareerDetails = ({
     >
       <StyledContentBlockContainer>
         <SectionHeader
+          large
           as={'h1'}
           headline={position.name}
           kicker={t<string>('career.position')}

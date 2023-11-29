@@ -4,6 +4,7 @@ import { BlogOverviewPageContext } from '../../gatsby/create-pages/create-blog-p
 import SEO from '../components/layout/seo';
 import { BlogPage } from '../components/pages/blog/blog-page';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
+import { ContentfulSectionHeader } from '../types';
 
 interface AllBlogPostsQuery {
   nodes: {
@@ -22,6 +23,7 @@ interface AllBlogPostsQuery {
 
 interface BlogPageQueryProps {
   allContentfulBlogPost: AllBlogPostsQuery;
+  blogHeader: ContentfulSectionHeader;
 }
 
 const Blog = ({
@@ -41,6 +43,7 @@ const Blog = ({
       />
       <BlogPage
         posts={blogPosts}
+        header={data.blogHeader}
         pagination={{
           ...pageContext,
         }}
@@ -78,6 +81,19 @@ export const BlogPageQuery = graphql`
               cropFocus: CENTER
             )
           }
+        }
+      }
+    }
+
+    blogHeader: contentfulSectionHeader(
+      slug: { eq: "blog-introduction" }
+      node_locale: { eq: $language }
+    ) {
+      kicker
+      headline
+      paragraphs {
+        paragraph {
+          paragraph
         }
       }
     }
