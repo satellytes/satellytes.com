@@ -16,20 +16,20 @@ export interface FlareProps {
    * we can use an existing css property to scale that value into a size we can see
    * The bigger the value, the bigger the area being walked on.
    */
-  stepSize?: number;
+  $stepSize?: number;
   /**
    * The human eye spots similar animations really quickly
    * that's why we want to allow to rotate the entire animation with this value
    * This creates enough noise, so it looks like a distinct animation.
    */
-  rotation?: number;
+  $rotation?: number;
   /**
    * The actual animation has a fixed duration (currently 240s) to appear
    * very slowly. This multiplier allows to scale the value. A value of 2 means
    * half the time (120s) which makes the animation twice as fast. If you pass 0.5
    * the animation will run 480s (half the speed)
    */
-  speedMultiplier?: number;
+  $speedMultiplier?: number;
   /**
    * the actual center of the animation give by x & y
    * This again involves a custom CSS property which is made available
@@ -41,7 +41,7 @@ export interface FlareProps {
   /**
    * we have two types of flares. One is light and one is dark.
    */
-  flareType?: FlareType;
+  $flareType?: FlareType;
   /**
    * This is again to add more noise to the human eye
    * not to spot the fact that the actual animation is shared between all flares
@@ -49,7 +49,7 @@ export interface FlareProps {
    * into a negative animation-delay (in seconds) which will cause the animation to start in-between.
    * The negative value is required to prevent any pause in the beginning.
    */
-  animationOffset?: number;
+  $animationOffset?: number;
   opacity?: number;
   background?: string;
   blur?: number;
@@ -74,9 +74,9 @@ function getFlareImage(type: FlareType) {
 }
 
 export const Flare = styled.div<FlareProps>`
-  --flare-step-size: ${(props) => props.stepSize ?? 20}px;
+  --flare-step-size: ${(props) => props.$stepSize ?? 20}px;
   --flare-size: ${(props) => props.size ?? 100}px;
-  --flare-rotate: ${(props) => props.rotation ?? 0}deg;
+  --flare-rotate: ${(props) => props.$rotation ?? 0}deg;
   --flare-x: ${(props) => props.x ?? 0};
   --flare-y: ${(props) => props.y ?? 0};
   --flare-opacity: ${(props) => props.opacity ?? 1};
@@ -96,12 +96,13 @@ export const Flare = styled.div<FlareProps>`
   ${(props) =>
     props.background
       ? `background: ${props.background}; border-radius: 1000px;`
-      : getFlareImage(props.flareType ?? FlareType.LIGHT)}
+      : getFlareImage(props.$flareType ?? FlareType.LIGHT)}
   filter: blur(${(props) => props.blur ?? 0}px);
   animation: ${WanderAnimation}
-    ${(props) => FLARE_ANIMATION_DURATION * (1 / (props.speedMultiplier ?? 1))}s
+    ${(props) =>
+      FLARE_ANIMATION_DURATION * (1 / (props.$speedMultiplier ?? 1))}s
     infinite linear;
-  animation-delay: ${(props) => -1 * (props.animationOffset ?? 0)}s;
+  animation-delay: ${(props) => -1 * (props.$animationOffset ?? 0)}s;
   ${(props) => (props.noAnimation ? 'animation: none;' : '')}
 
   transform: translate(var(--flare-x, 0), var(--flare-y, 0))

@@ -12,7 +12,7 @@ export const BurgerMenu = ({
   setHoverTransition,
 }: BurgerMenuProps) => {
   return (
-    <Wrapper transition={transition} onMouseLeave={() => setHoverTransition()}>
+    <Wrapper $transition={transition} onMouseLeave={() => setHoverTransition()}>
       <div className="bar" />
       <div className="bar" />
       <div className="bar" />
@@ -20,7 +20,7 @@ export const BurgerMenu = ({
   );
 };
 
-const Wrapper = styled.div<{ transition: boolean }>`
+const Wrapper = styled.div<{ $transition: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -69,18 +69,18 @@ const Wrapper = styled.div<{ transition: boolean }>`
 
     &:hover {
       .bar:nth-child(1) {
-        ${({ transition }) =>
-          transition ? `transition: all 0.1s;` : `transition: none;`}
+        ${({ $transition }) =>
+          $transition ? `transition: all 0.1s;` : `transition: none;`}
         width: 18px;
       }
       .bar:nth-child(2) {
-        ${({ transition }) =>
-          transition ? `transition: all 0.1s 0.1s;` : `transition: none;`}
+        ${({ $transition }) =>
+          $transition ? `transition: all 0.1s 0.1s;` : `transition: none;`}
         width: 14px;
       }
       .bar:nth-child(3) {
-        ${({ transition }) =>
-          transition ? `transition: all 0.1s 0.2s;` : `transition: none;`}
+        ${({ $transition }) =>
+          $transition ? `transition: all 0.1s 0.2s;` : `transition: none;`}
         width: 10px;
       }
     }

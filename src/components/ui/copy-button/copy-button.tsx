@@ -28,7 +28,7 @@ const CheckmarkContainer = styled.span`
   padding: 0;
 `;
 
-const CopyWrapper = styled.div<{ clicked: boolean }>`
+const CopyWrapper = styled.div<{ $clicked: boolean }>`
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -37,7 +37,7 @@ const CopyWrapper = styled.div<{ clicked: boolean }>`
   padding: 0;
 
   ${(props) =>
-    props.clicked &&
+    props.$clicked &&
     css`
       padding: 8px;
       border-radius: 3px;
@@ -65,7 +65,7 @@ export const Copy = ({
   };
 
   return (
-    <CopyWrapper clicked={clicked} className={className}>
+    <CopyWrapper $clicked={clicked} className={className}>
       {clicked ? (
         <>
           <span>{t('blog.copied')}</span>

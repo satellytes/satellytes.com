@@ -45,10 +45,7 @@ export const LanguageSwitch = ({
   const { languages, language, t, changeLanguage } = useI18next();
 
   return (
-    <StyledNav
-      aria-label={t<string>('navigation.language-aria')}
-      className={className}
-    >
+    <StyledNav aria-label={t('navigation.language-aria')} className={className}>
       <StyledChevron isEnglish={language === 'en'} show="caret_squared_down" />
       <StyledSelection
         onChange={(event) => {

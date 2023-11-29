@@ -68,8 +68,9 @@ const HeaderStickyContainer = styled.div`
   z-index: 100;
 `;
 
-const BreadcrumbContainer = styled.div<{ hero: boolean }>`
-  margin: ${(props) => !props.hero && `calc(${HEADER_HEIGHT} + 16px)`} 24px 16px;
+const BreadcrumbContainer = styled.div<{ $hero: boolean }>`
+  margin: ${(props) => !props.$hero && `calc(${HEADER_HEIGHT} + 16px)`} 24px
+    16px;
 `;
 
 interface LayoutProps {
@@ -135,7 +136,7 @@ export const Layout = ({
       </HeaderStickyContainer>
       {hero}
       {breadcrumb && (
-        <BreadcrumbContainer hero={Boolean(hero)}>
+        <BreadcrumbContainer $hero={Boolean(hero)}>
           <Breadcrumb breadcrumbEntries={breadcrumb} />
         </BreadcrumbContainer>
       )}

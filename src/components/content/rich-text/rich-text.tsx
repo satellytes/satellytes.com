@@ -129,8 +129,6 @@ export const ContentfulRichText = ({ data }: ContentfulRichTextProps) => {
         customComponents.h5({ children }),
       [BLOCKS.HEADING_6]: (props, children) =>
         customComponents.h6({ children }),
-      [BLOCKS.HEADING_6]: (props, children) =>
-        customComponents.h6({ children }),
       [BLOCKS.OL_LIST]: (props, children) => customComponents.ol({ children }),
       [BLOCKS.UL_LIST]: (props, children) => customComponents.ul({ children }),
       [BLOCKS.QUOTE]: (props, children) =>

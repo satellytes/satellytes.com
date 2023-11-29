@@ -82,7 +82,9 @@ const TableStyled = styled.table`
   border: solid 1px #ddeeee;
   border-collapse: collapse;
   border-spacing: 0;
-  font: normal 13px Arial, sans-serif;
+  font:
+    normal 13px Arial,
+    sans-serif;
 
   thead th {
     border: solid 1px #ddeeee;

@@ -61,13 +61,13 @@ export const BlogHero = ({
   const gatsbyImageData = getImage(image);
 
   return (
-    <HeroContainer naturalHeight={naturalHeight}>
+    <HeroContainer $naturalHeight={naturalHeight}>
       {gatsbyImageData && (
         <GatsbyImage style={coverContainerCss} alt="" image={gatsbyImageData} />
       )}
 
       {title && (
-        <TextContainer dimmed>
+        <TextContainer $dimmed>
           <HeroText hideMobileText={hideMobileText} title={title}>
             {children}
           </HeroText>
