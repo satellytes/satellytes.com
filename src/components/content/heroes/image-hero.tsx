@@ -34,7 +34,7 @@ export const ImageHero = ({
       )}
 
       {title && (
-        <TextContainer dimmed>
+        <TextContainer $dimmed>
           <HeroText hideMobileText={hideMobileText} title={title}>
             {children}
           </HeroText>

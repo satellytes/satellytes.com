@@ -29,15 +29,15 @@ const LogoLine = styled.div`
 `;
 
 const CustomerLogoLayout = styled.div<{
-  mobileWidth: number;
-  desktopWidth: number;
+  $mobileWidth: number;
+  $desktopWidth: number;
 }>`
   display: flex;
   align-items: center;
 
-  width: ${({ mobileWidth }) => mobileWidth}px;
+  width: ${({ $mobileWidth }) => $mobileWidth}px;
   ${up('md')} {
-    width: ${({ desktopWidth }) => desktopWidth}px;
+    width: ${({ $desktopWidth }) => $desktopWidth}px;
   }
 
   svg {
@@ -60,7 +60,7 @@ const CustomerLogo = ({
   const CustomerLogoSVG = LogoSet[show];
 
   return (
-    <CustomerLogoLayout mobileWidth={mobileWidth} desktopWidth={desktopWidth}>
+    <CustomerLogoLayout $mobileWidth={mobileWidth} $desktopWidth={desktopWidth}>
       <CustomerLogoSVG />
     </CustomerLogoLayout>
   );

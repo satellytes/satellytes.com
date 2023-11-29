@@ -67,19 +67,17 @@ const SEO = ({
   location,
   rssLink,
 }: SeoProps) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            author
-            siteUrl
-          }
+  const { site } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          author
+          siteUrl
         }
       }
-    `,
-  );
+    }
+  `);
   const { t } = useTranslation();
   const i18n = useI18next();
 

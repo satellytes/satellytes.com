@@ -12,13 +12,13 @@ import { TextStyles } from '../../typography';
 import { up } from '../../support/breakpoint';
 
 const TeaserContainer = styled.div<{
-  hover: boolean;
-  preventStretching?: boolean;
+  $hover: boolean;
+  $preventStretching?: boolean;
 }>`
   overflow: hidden;
 
   ${(props) =>
-    props.hover &&
+    props.$hover &&
     css`
       color: ${theme.palette.text.topline};
       cursor: pointer;
@@ -26,7 +26,7 @@ const TeaserContainer = styled.div<{
 
   ${up('md')} {
     ${(props) =>
-      props.preventStretching &&
+      props.$preventStretching &&
       css`
         &:only-child {
           max-width: 50%;
@@ -35,10 +35,10 @@ const TeaserContainer = styled.div<{
   }
 `;
 
-const StyledIllustration = styled(Illustration)<{ hover: boolean }>`
+const StyledIllustration = styled(Illustration)<{ $hover: boolean }>`
   margin-bottom: 24px;
   ${(props) =>
-    props.hover &&
+    props.$hover &&
     css`
       svg path {
         fill: ${theme.palette.text.topline};
@@ -46,12 +46,12 @@ const StyledIllustration = styled(Illustration)<{ hover: boolean }>`
     `}
 `;
 
-const ImageContainer = styled.div<{ hover: boolean }>`
+const ImageContainer = styled.div<{ $hover: boolean }>`
   overflow: hidden;
   margin-bottom: 16px;
 
   transition: transform 0.2s;
-  ${(props) => props.hover && 'transform: scale(1.05)'};
+  ${(props) => props.$hover && 'transform: scale(1.05)'};
 `;
 
 const ToplineContainer = styled.div`
@@ -67,10 +67,10 @@ const Topline = styled.p`
   margin: 0;
 `;
 
-const Timestamp = styled.p<{ hover: boolean }>`
+const Timestamp = styled.p<{ $hover: boolean }>`
   ${TextStyles.timestamp};
   color: ${(props) =>
-    props.hover ? theme.palette.text.topline : theme.palette.text.timestamp};
+    props.$hover ? theme.palette.text.topline : theme.palette.text.timestamp};
   margin: 0;
 `;
 
@@ -84,19 +84,19 @@ const TeaserText = styled.div`
 `;
 
 const StyledTeaserTitle = styled.h3<{
-  large: boolean;
-  hasTopline: boolean;
+  $large: boolean;
+  $hasTopline: boolean;
 }>`
   ${TextStyles.headlineXS}
 
-  ${(props) => props.large && TextStyles.headlineXS};
+  ${(props) => props.$large && TextStyles.headlineXS};
 
   ${up('md')} {
-    ${(props) => props.large && TextStyles.headlineM};
+    ${(props) => props.$large && TextStyles.headlineM};
   }
 
   margin-top: 0;
-  margin-bottom: ${(props) => (props.hasTopline ? '8px' : '16px')};
+  margin-bottom: ${(props) => (props.$hasTopline ? '8px' : '16px')};
 `;
 
 const StyledIcon = styled(Icon)`
@@ -186,8 +186,8 @@ export const Teaser = ({
   return (
     <TeaserContainer
       className={className}
-      hover={hoverActive}
-      preventStretching={preventStretching}
+      $hover={hoverActive}
+      $preventStretching={preventStretching}
     >
       <ConditionalLink
         language={language}
@@ -195,27 +195,27 @@ export const Teaser = ({
         to={linkTo}
       >
         {!illustration && image && (
-          <ImageContainer hover={hoverActive}>{image}</ImageContainer>
+          <ImageContainer $hover={hoverActive}>{image}</ImageContainer>
         )}
         {illustration && (
           <StyledIllustration
             show={illustration}
             size={IllustrationSize.MEDIUM}
-            hover={hoverActive}
+            $hover={hoverActive}
           />
         )}
         {hasToplineContainer && (
           <ToplineContainer>
             {topline && <Topline>{topline}</Topline>}
             {dateFormatted && (
-              <Timestamp hover={hoverActive}>{dateFormatted}</Timestamp>
+              <Timestamp $hover={hoverActive}>{dateFormatted}</Timestamp>
             )}
           </ToplineContainer>
         )}
         <StyledTeaserTitle
           as={as}
-          large={!(image || illustration)}
-          hasTopline={hasToplineContainer}
+          $large={!(image || illustration)}
+          $hasTopline={hasToplineContainer}
         >
           {title}
         </StyledTeaserTitle>

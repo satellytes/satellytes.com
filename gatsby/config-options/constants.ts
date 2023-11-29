@@ -1,10 +1,11 @@
-import { buildGatsbyCloudPreviewUrl } from '../util/build-gatsby-cloud-preview-url';
+import { buildNetlifyPreviewUrl } from '../util/build-netlify-preview-url';
 export const RSS_FEED_URL = '/blog/rss.xml';
 export const DEFAULT_META_IMAGE_URL_PATH = '/sy-share-image.jpg';
-export const GATSBY_SITE_PREFIX = process.env.GATSBY_SITE_PREFIX || '';
-export const BRANCH_PREVIEW_URL = buildGatsbyCloudPreviewUrl({
-  prefix: GATSBY_SITE_PREFIX,
+export const NETLIFY_DOMAIN_NAME = process.env.GATSBY_NETLIFY_DOMAIN_NAME || '';
+export const BRANCH_PREVIEW_URL = buildNetlifyPreviewUrl({
+  domainName: NETLIFY_DOMAIN_NAME,
   branch: process.env.BRANCH,
+  reviewId: process.env.REVIEW_ID,
 });
 
 // either use a branch preview url if any
