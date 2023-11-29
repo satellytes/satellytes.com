@@ -9,7 +9,7 @@
     "url": "git@github.com:satellytes/satellytes.com.git"
   },
   "engines": {
-    "node": ">=18.12.0",
+    "node": ">=18",
     "npm": "please-use-yarn",
     "yarn": "^1.0.0"
   },
@@ -69,7 +69,7 @@
     "gatsby-transformer-remark": "^6.12.3",
     "gatsby-transformer-sharp": "^5.12.3",
     "html-entities": "^2.3.2",
-    "i18next": "^23.7.6",
+    "i18next": "^23.7.7",
     "leaflet": "^1.9.4",
     "leaflet-gesture-handling": "^1.2.2",
     "modern-normalize": "^2.0.0",
@@ -85,7 +85,7 @@
     "react-medium-image-zoom": "^5.1.6",
     "react-share": "^5.0.2",
     "react-spring": "^9.7.3",
-    "react-use": "^17.4.0",
+    "react-use": "^17.4.1",
     "rehype-react": "^7.2.0",
     "sass": "^1.62.1",
     "schema-dts": "^1.1.2",
@@ -112,8 +112,8 @@
     "@types/react-syntax-highlighter": "^15.5.10",
     "@types/showdown": "^2.0.6",
     "@types/styled-components": "^5.1.32",
-    "@typescript-eslint/eslint-plugin": "^6.13.0",
-    "@typescript-eslint/parser": "^6.13.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
     "babel-loader": "^9.1.2",
     "eslint": "^8.41.0",
     "eslint-config-prettier": "^9.0.0",
