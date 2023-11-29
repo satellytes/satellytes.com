@@ -43,8 +43,8 @@ const getSpan = (tileSize: AboutUsImpressionTileSize) => {
   }
 };
 
-const GalleryItem = styled.div<{ tileSize: AboutUsImpressionTileSize }>`
-  grid-area: ${({ tileSize }) => getSpan(tileSize)};
+const GalleryItem = styled.div<{ $tileSize: AboutUsImpressionTileSize }>`
+  grid-area: ${({ $tileSize }) => getSpan($tileSize)};
 `;
 
 const GalleryImage = styled(GatsbyImage)`
@@ -73,7 +73,7 @@ export const Impressions = ({
         {impressions.map((item) => {
           const imageData = getImage(item.image);
           return (
-            <GalleryItem tileSize={item.tileSize} key={item.id}>
+            <GalleryItem $tileSize={item.tileSize} key={item.id}>
               {imageData && <GalleryImage alt="" image={imageData} />}
             </GalleryItem>
           );

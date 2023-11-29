@@ -20,9 +20,7 @@ export const Platforms = ({ header, list }: PlatformsProps) => {
       </Intro>
 
       <UnorderedList>
-        {list.listItems?.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
+        {list.listItems?.map((item, index) => <li key={index}>{item}</li>)}
       </UnorderedList>
     </ContentBlockContainer>
   );

@@ -45,7 +45,7 @@ const KickerStyled = styled.span`
   }
 `;
 
-const HeadlineStyled = styled.h2<{ large?: boolean }>`
+const HeadlineStyled = styled.h2<{ $large?: boolean }>`
   ${TextStyles.headlineM}
   margin: 0;
   color: #202840;
@@ -56,8 +56,8 @@ const HeadlineStyled = styled.h2<{ large?: boolean }>`
     ${TextStyles.headlineL}
   }
 
-  ${({ large }) =>
-    large &&
+  ${({ $large }) =>
+    $large &&
     css`
       ${TextStyles.headlineL}
       ${up('md')} {
@@ -80,7 +80,7 @@ export const SectionHeader = (props: SectionHeaderProps) => {
       {props.kicker && (
         <KickerStyled as={props.kickerAs}>{props.kicker}</KickerStyled>
       )}
-      <HeadlineStyled large={props.large} as={props.as}>
+      <HeadlineStyled $large={props.large} as={props.as}>
         {props.headline}
       </HeadlineStyled>
       <ContentStyled>{props.children}</ContentStyled>

@@ -29,8 +29,8 @@ const StyledHeader = styled.header<{
         ? props.theme.palette.background.headerTransparent
         : 'none'
       : props.$lightTheme
-      ? props.theme.palette.background.bodyLight
-      : props.theme.palette.background.body};
+        ? props.theme.palette.background.bodyLight
+        : props.theme.palette.background.body};
 
   height: ${HEADER_HEIGHT};
   display: flex;

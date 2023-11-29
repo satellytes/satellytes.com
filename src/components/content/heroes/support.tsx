@@ -10,11 +10,11 @@ import { rgba } from 'polished';
  * to spread the content over the full available width.
  * That way we don't need any position absolute & friends.
  * */
-export const HeroContainer = styled.div<{ naturalHeight?: boolean }>`
+export const HeroContainer = styled.div<{ $naturalHeight?: boolean }>`
   display: grid;
 
-  ${({ naturalHeight }) =>
-    !naturalHeight &&
+  ${({ $naturalHeight }) =>
+    !$naturalHeight &&
     css`
       height: 640px;
 
@@ -33,7 +33,7 @@ export const HeroContainer = styled.div<{ naturalHeight?: boolean }>`
 `;
 
 interface TextContainerProps {
-  dimmed?: boolean;
+  $dimmed?: boolean;
 }
 
 /**
@@ -55,8 +55,8 @@ export const TextContainer = styled.div<TextContainerProps>`
 
   align-items: end;
 
-  ${({ dimmed }) =>
-    dimmed &&
+  ${({ $dimmed }) =>
+    $dimmed &&
     css`
       background-color: ${rgba('#000000', 0.2)};
     `}

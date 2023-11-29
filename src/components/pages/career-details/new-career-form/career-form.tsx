@@ -67,8 +67,8 @@ export const Form = (props: CareerFormProps) => {
 
   const { t } = useTranslation();
   const submitErrorMessages = {
-    cv: t<string>('career.error.cv'),
-    category: t<string>('career.error.category'),
+    cv: t('career.error.cv'),
+    category: t('career.error.category'),
   };
 
   const selectedFiles = watch('documents');
@@ -78,7 +78,7 @@ export const Form = (props: CareerFormProps) => {
     if (selectedFiles?.length === 0 || !selectedFiles) {
       setError(
         'documents',
-        { type: 'manual', message: t<string>('career.error.cv') },
+        { type: 'manual', message: t('career.error.cv') },
         { shouldFocus: true },
       );
     }
@@ -87,7 +87,7 @@ export const Form = (props: CareerFormProps) => {
       if (!selectedFiles[i].fileCategory)
         setError('documents', {
           type: 'manual',
-          message: t<string>('career.error.category'),
+          message: t('career.error.category'),
         });
     }
   };
@@ -117,54 +117,54 @@ export const Form = (props: CareerFormProps) => {
         <FormLayout>
           <TextInput
             name="first_name"
-            label={t<string>('career.first-name')}
+            label={t('career.first-name')}
             control={control}
-            rules={{ required: t<string>('career.error.first-name') }}
+            rules={{ required: t('career.error.first-name') }}
           />
           <TextInput
             name="last_name"
-            label={t<string>('career.last-name')}
+            label={t('career.last-name')}
             control={control}
-            rules={{ required: t<string>('career.error.last-name') }}
+            rules={{ required: t('career.error.last-name') }}
           />
 
           <TextInput
             name="email"
-            label={t<string>('career.email')}
+            label={t('career.email')}
             control={control}
             rules={{
-              required: t<string>('career.error.email'),
+              required: t('career.error.email'),
               pattern: {
                 value: SIMPLE_EMAIL_PATTERN,
-                message: t<string>('career.error.email-undefined'),
+                message: t('career.error.email-undefined'),
               },
             }}
           />
           <TextInput
             name="location"
-            label={t<string>('career.location')}
+            label={t('career.location')}
             control={control}
           />
           <TextInput
             name="available_from"
-            label={t<string>('career.available-from')}
+            label={t('career.available-from')}
             control={control}
           />
           <TextInput
             name="salary_expectations"
-            label={t<string>('career.salary-expectations')}
+            label={t('career.salary-expectations')}
             control={control}
           />
         </FormLayout>
         <TextArea
           name="message"
-          label={t<string>('career.cover-letter')}
+          label={t('career.cover-letter')}
           control={control}
           rules={{
-            required: t<string>('career.error.cover-letter'),
+            required: t('career.error.cover-letter'),
             minLength: {
               value: 100,
-              message: t<string>('career.error.cover-letter-length'),
+              message: t('career.error.cover-letter-length'),
             },
           }}
         />

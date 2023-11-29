@@ -35,7 +35,7 @@ export const useLocaleFormat = (dateFormat) => {
 
 export const useTranslationParagraphs = (
   ns?: string,
-  options?: UseTranslationOptions,
+  options?: UseTranslationOptions<string>,
 ) => {
   const { t, ...useTranslationResponse } = useTranslation(ns, options);
 

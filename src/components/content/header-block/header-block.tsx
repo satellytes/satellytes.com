@@ -19,7 +19,7 @@ interface HeaderBlockProps {
 }
 
 interface LargeProps {
-  large?: boolean;
+  $large?: boolean;
 }
 
 const BlockWrapper = styled.div`
@@ -66,14 +66,14 @@ const Metaline = styled.p<LargeProps>`
   ${TextStyles.textS}
   letter-spacing: -0.01em;
   color: rgba(0, 0, 0, 0.5);
-  margin-top: ${({ large }) => (large ? '32px' : '16px')};
+  margin-top: ${({ $large }) => ($large ? '32px' : '16px')};
 `;
 
 const HeaderBlockText = styled.p<LargeProps>`
-  ${({ large }) => (large ? TextStyles.textSR : TextStyles.textS)};
+  ${({ $large }) => ($large ? TextStyles.textSR : TextStyles.textS)};
 
   ${up('md')} {
-    ${({ large }) => (large ? TextStyles.textR : TextStyles.textSR)};
+    ${({ $large }) => ($large ? TextStyles.textR : TextStyles.textSR)};
   }
   margin: 16px 0 0;
   letter-spacing: -0.01em;
@@ -91,9 +91,9 @@ export const HeaderBlock = (props: HeaderBlockProps) => {
         <Topline>{props.topline}</Topline>
         <Headline>{props.headline}</Headline>
         {props.metaline && (
-          <Metaline large={props.large}>{props.metaline}</Metaline>
+          <Metaline $large={props.large}>{props.metaline}</Metaline>
         )}
-        <HeaderBlockText large={props.large}>{props.children}</HeaderBlockText>
+        <HeaderBlockText $large={props.large}>{props.children}</HeaderBlockText>
       </TextWrapper>
       {props.illustration && (
         <IconWrapper>

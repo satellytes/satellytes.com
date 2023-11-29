@@ -72,9 +72,9 @@ const Highlight = styled.span`
 `;
 
 const FileDropperContainer = styled.div<{
-  isDragActive: boolean;
-  hasFiles: boolean;
-  hasErrors: boolean;
+  $isDragActive: boolean;
+  $hasFiles: boolean;
+  $hasErrors: boolean;
 }>`
   position: relative;
   display: flex;
@@ -86,18 +86,18 @@ const FileDropperContainer = styled.div<{
   cursor: pointer;
   border: 1px solid
     ${(props) =>
-      props.isDragActive
+      props.$isDragActive
         ? theme.palette.text.default
         : theme.palette.background.leadbox};
 
   ${(props) =>
-    props.hasErrors &&
+    props.$hasErrors &&
     css`
       border: 2px solid ${theme.palette.text.errorMessage};
     `}
 
   ${(props) =>
-    props.hasFiles &&
+    props.$hasFiles &&
     css`
       align-items: flex-start;
       padding: 12px 16px;
@@ -151,7 +151,7 @@ export const FileDropper = ({
     if (maxFiles && currentFiles.length + acceptedFiles.length > maxFiles) {
       setError(name, {
         type: 'manual',
-        message: t<string>('career.error.max-number'),
+        message: t('career.error.max-number'),
       });
       return;
     }
@@ -206,9 +206,9 @@ export const FileDropper = ({
       {label && <Label>{label}</Label>}
       <FileDropperContainer
         {...getRootProps()}
-        isDragActive={isDragActive}
-        hasFiles={hasFiles}
-        hasErrors={errors?.documents}
+        $isDragActive={isDragActive}
+        $hasFiles={hasFiles}
+        $hasErrors={Boolean(errors?.documents)}
       >
         <StyledLabel>
           <input {...getInputProps({ ...register(name) })} />
