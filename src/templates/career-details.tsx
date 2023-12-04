@@ -6,7 +6,7 @@ import { CareerDetails } from '../components/pages/career-details/career-details
 import { ContentfulVacancy } from '../types';
 import { CareerDetailsStructuredData } from '../components/pages/career-details/career-details-structured-data';
 
-interface CareerPageProps {
+interface CareerDetailsPageQueryProps {
   pageContext: {
     language: string;
     translation: string;
@@ -21,9 +21,11 @@ interface CareerPageProps {
   };
 }
 
-const CareerPage = (props: CareerPageProps): JSX.Element => {
-  const { pageContext } = props;
-  const position = props.data.contentfulVacancy;
+const CareerPage = ({
+  pageContext,
+  data,
+}: CareerDetailsPageQueryProps): JSX.Element => {
+  const position = data.contentfulVacancy;
 
   return (
     <CareerDetails
@@ -34,8 +36,8 @@ const CareerPage = (props: CareerPageProps): JSX.Element => {
   );
 };
 
-export const Head = (props: CareerPageProps) => {
-  const position = props.data.contentfulVacancy;
+export const Head = ({ location, data }: CareerDetailsPageQueryProps) => {
+  const position = data.contentfulVacancy;
   const socialCardPath =
     position.socialCardFile.childImageSharp.gatsbyImageData.images.fallback
       ?.src;
