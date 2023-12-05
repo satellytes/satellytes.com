@@ -1,6 +1,6 @@
 import { graphql, PageProps } from 'gatsby';
 import React from 'react';
-import SEO from '../components/layout/seo';
+import SEO, { LocalesQueryProps } from '../components/layout/seo';
 import { AboutUsPage } from '../components/pages/about-us/about-us-page';
 import {
   ContentfulAboutUsImpression,
@@ -23,6 +23,7 @@ interface AboutUsQueryProps {
   allContentfulAboutUsImpressions: {
     nodes: ContentfulAboutUsImpression[];
   };
+  locales: LocalesQueryProps;
 }
 
 const AboutUs = ({ data }: PageProps<AboutUsQueryProps>) => {
@@ -47,6 +48,7 @@ export const Head = ({ data, location }: PageProps<AboutUsQueryProps>) => {
     <SEO
       title={`${data.contentfulPage.title} | Satellytes`}
       location={location}
+      locales={data.locales}
     />
   );
 };

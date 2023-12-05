@@ -1,5 +1,5 @@
 import React from 'react';
-import SEO from '../components/layout/seo';
+import SEO, { LocalesQueryProps } from '../components/layout/seo';
 import { graphql, PageProps } from 'gatsby';
 import { Layout } from '../components/layout/layout';
 import { ContentBlockContainer } from '../components/layout/content-block-container';
@@ -8,6 +8,7 @@ import { ContentfulPage, ContentfulRichTextType } from '../types';
 
 interface DataPrivacyPageQueryProps {
   contentfulPage: ContentfulPage;
+  locales: LocalesQueryProps;
 }
 
 const DataPrivacyPage = ({
@@ -34,6 +35,7 @@ export const Head = ({
       description={data.contentfulPage.seoMetaText}
       location={location}
       noIndex={true}
+      locales={data.locales}
     />
   );
 };

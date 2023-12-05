@@ -1,11 +1,12 @@
 import React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import { ContactPage } from '../components/pages/contact/contact-page';
-import SEO from '../components/layout/seo';
+import SEO, { LocalesQueryProps } from '../components/layout/seo';
 import { ContentfulPage } from '../types';
 
 interface ContactPageQueryProps {
   contentfulPage: ContentfulPage;
+  locales: LocalesQueryProps;
 }
 
 const Contact = () => <ContactPage />;
@@ -18,6 +19,7 @@ export const Head = ({ data, location }: PageProps<ContactPageQueryProps>) => {
         title={`${data.contentfulPage.title} | Satellytes`}
         description={data.contentfulPage.description?.description}
         location={location}
+        locales={data.locales}
       />
       {/*
        * Styles and Script for Leaflet Hero Map

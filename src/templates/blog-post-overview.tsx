@@ -1,7 +1,7 @@
 import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import { BlogOverviewPageContext } from '../../gatsby/create-pages/create-blog-post-overview-pages';
-import SEO from '../components/layout/seo';
+import SEO, { LocalesQueryProps } from '../components/layout/seo';
 import { BlogPage } from '../components/pages/blog/blog-page';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { ContentfulSectionHeader } from '../types';
@@ -24,6 +24,7 @@ interface AllBlogPostsQuery {
 interface BlogPageQueryProps {
   allContentfulBlogPost: AllBlogPostsQuery;
   blogHeader: ContentfulSectionHeader;
+  locales: LocalesQueryProps;
 }
 
 const Blog = ({
@@ -48,6 +49,7 @@ export default Blog;
 export const Head = ({
   pageContext,
   location,
+  data,
 }: PageProps<BlogPageQueryProps, BlogOverviewPageContext>) => {
   return (
     <SEO
@@ -55,6 +57,7 @@ export const Head = ({
       location={location}
       rssLink
       noIndex={pageContext.currentPage !== 1}
+      locales={data.locales}
     />
   );
 };

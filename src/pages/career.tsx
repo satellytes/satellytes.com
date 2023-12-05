@@ -1,5 +1,5 @@
 import React from 'react';
-import SEO from '../components/layout/seo';
+import SEO, { LocalesQueryProps } from '../components/layout/seo';
 import { graphql, PageProps } from 'gatsby';
 import { CareerPage } from '../components/pages/career/career-page';
 import {
@@ -31,6 +31,7 @@ interface CareerPageQueryProps {
   cultureTeaser: ContentfulTeaser;
   perksTeaser: ContentfulTeaser;
   applicationProcessAccordion: ContentfulAccordion;
+  locales: LocalesQueryProps;
 }
 
 const Career = ({ data }: PageProps<CareerPageQueryProps>) => {
@@ -68,6 +69,7 @@ export const Head = ({ data, location }: PageProps<CareerPageQueryProps>) => {
       title={`${data.contentfulPage.title} | Satellytes`}
       description={data.contentfulPage.seoMetaText}
       location={location}
+      locales={data.locales}
     />
   );
 };

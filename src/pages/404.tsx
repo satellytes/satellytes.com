@@ -3,11 +3,12 @@ import { graphql, PageProps } from 'gatsby';
 import { SectionHeader } from '../components/content/section-header/section-header';
 import { ContentBlockContainer } from '../components/layout/content-block-container';
 import { Layout } from '../components/layout/layout';
-import SEO from '../components/layout/seo';
+import SEO, { LocalesQueryProps } from '../components/layout/seo';
 import { ContentfulPage } from '../types';
 
 interface NotFoundPageQueryProps {
   contentfulPage: ContentfulPage;
+  locales: LocalesQueryProps;
 }
 
 const NotFoundPage = ({
@@ -31,6 +32,7 @@ export const Head = ({ data, location }: PageProps<NotFoundPageQueryProps>) => {
     <SEO
       title={`${data.contentfulPage.title} | Satellytes`}
       location={location}
+      locales={data.locales}
     />
   );
 };

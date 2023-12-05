@@ -1,6 +1,6 @@
 import { graphql, PageProps } from 'gatsby';
 import React from 'react';
-import SEO from '../components/layout/seo';
+import SEO, { LocalesQueryProps } from '../components/layout/seo';
 import { Landingpage } from '../components/pages/landingpage/landingpage';
 import {
   BlogPostTeaser,
@@ -34,6 +34,7 @@ interface IndexPageQueryProps {
   careerHeader: ContentfulSectionHeader;
   servicesTeaser: ContentfulTeaser;
   blogHeader: ContentfulSectionHeader;
+  locales: LocalesQueryProps;
 }
 
 const IndexPage = ({ data }: PageProps<IndexPageQueryProps>) => {
@@ -64,7 +65,12 @@ export default IndexPage;
 export const Head = ({ data, location }: PageProps<IndexPageQueryProps>) => {
   return (
     <>
-      <SEO title={data.contentfulPage.title} location={location} rssLink />
+      <SEO
+        title={data.contentfulPage.title}
+        location={location}
+        rssLink
+        locales={data.locales}
+      />
       <StructuredOrganizationData />
     </>
   );

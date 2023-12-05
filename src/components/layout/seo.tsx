@@ -1,8 +1,11 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { I18nNextData } from '../../types';
+import {
+  DEFAULT_LANGUAGE,
+  LANGUAGES,
+} from '../../../gatsby/config-options/constants';
 
 const DEFAULT_META_IMAGE_URL_PATH = '/sy-share-image.jpg';
 const RSS_URL = 'https://satellytes.com/blog/rss.xml';
@@ -18,6 +21,17 @@ interface SeoProps {
   noIndex?: boolean;
   location: Location;
   rssLink?: boolean;
+  locales: LocalesQueryProps;
+}
+
+export interface LocalesQueryProps {
+  edges: {
+    node: {
+      language: string;
+      ns: string;
+      data: string;
+    };
+  }[];
 }
 
 /**
@@ -65,6 +79,7 @@ const SEO = ({
   noIndex,
   location,
   rssLink,
+  locales,
 }: SeoProps) => {
   const { site } = useStaticQuery(graphql`
     query {
@@ -77,16 +92,25 @@ const SEO = ({
       }
     }
   `);
-  const { t } = useTranslation();
   const i18n = useI18next();
 
-  const metaDescription = description || t('main.description');
+  // Get translation
+  const dataNode = locales.edges.find((e) => e.node.ns === 'translations')
+    ?.node;
+  const t = JSON.parse(dataNode?.data || '{}');
+  const metaDescription = description || t['main.description'];
   const typeOfSite = siteType || 'website';
 
   const metaImageUrl =
     site.siteMetadata.siteUrl + (shareImagePath ?? DEFAULT_META_IMAGE_URL_PATH);
   const alternateLanguagesMetaTags = buildAlternateMetaTags(
-    i18n,
+    {
+      languages: LANGUAGES,
+      language: (dataNode?.language as string) || DEFAULT_LANGUAGE,
+      originalPath: location.pathname.replace('/de/', '/'),
+      defaultLanguage: DEFAULT_LANGUAGE,
+      path: location.pathname,
+    },
     location.origin,
   );
 
