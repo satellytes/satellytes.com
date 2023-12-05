@@ -113,6 +113,10 @@ const LegalLink = styled(Link)<{ $isSelected: boolean }>`
   &:hover {
     color: ${theme.palette.text.defaultLight};
   }
+
+  @media (max-width: 768px) {
+    ${TextStyles.menuMetaMobile}
+  }
 `;
 
 /**
