@@ -60,12 +60,8 @@ const CustomerLogo = ({
   const CustomerLogoSVG = LogoSet[show];
 
   return (
-    <CustomerLogoLayout
-      $mobileWidth={mobileWidth}
-      $desktopWidth={desktopWidth}
-      aria-label={`Customer Logo: ${show}`}
-    >
-      <CustomerLogoSVG />
+    <CustomerLogoLayout $mobileWidth={mobileWidth} $desktopWidth={desktopWidth}>
+      <CustomerLogoSVG aria-label={`Customer Logo: ${show}`} tabIndex={0} />
     </CustomerLogoLayout>
   );
 };
