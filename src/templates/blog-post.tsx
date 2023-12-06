@@ -31,13 +31,11 @@ const BlogArticleTemplate = ({
   ];
 
   return (
-    <>
-      <BlogPostPage
-        blogPost={data.contentfulBlogPost}
-        breadcrumb={breadcrumb}
-        contentfulLeadbox={data.contentfulLeadbox}
-      />
-    </>
+    <BlogPostPage
+      blogPost={data.contentfulBlogPost}
+      breadcrumb={breadcrumb}
+      contentfulLeadbox={data.contentfulLeadbox}
+    />
   );
 };
 
@@ -50,28 +48,26 @@ export const Head = ({
 
   const shareImagePath = heroImage.shareImage.resize.src;
 
+  /*
+   * SEO Notes:
+   * Recommended meta description length these days is 120 - 158 characters. The lower number is relevant for mobile devices.
+   * This means authored blog posts should always come with an explicit 120 character summary (`seoMetaText`). In case an author doesn't provide such a summary
+   * we will fallback to a generated excerpt fixed to the 158 characters to provide a little bit more text as the automatic extraction is usually
+   * less condense in terms of content.
+   */
   return (
-    <>
-      {/*
-       * SEO Notes:
-       * Recommended meta description length these days is 120 - 158 characters. The lower number is relevant for mobile devices.
-       * This means authored blog posts should always come with an explicit 120 character summary (`seoMetaText`). In case an author doesn't provide such a summary
-       * we will fallback to a generated excerpt fixed to the 158 characters to provide a little bit more text as the automatic extraction is usually
-       * less condense in terms of content.
-       */}
-      <SEO
-        title={`${title} | Satellytes`}
-        author={author.fullName}
-        publishDate={publicationDate}
-        shareImagePath={shareImagePath}
-        siteType="article"
-        description={seoMetaText}
-        location={location}
-        rssLink
-        locales={data.locales}
-        languages={[DEFAULT_LANGUAGE]}
-      />
-    </>
+    <SEO
+      title={`${title} | Satellytes`}
+      author={author.fullName}
+      publishDate={publicationDate}
+      shareImagePath={shareImagePath}
+      siteType="article"
+      description={seoMetaText}
+      location={location}
+      rssLink
+      locales={data.locales}
+      languages={[DEFAULT_LANGUAGE]}
+    />
   );
 };
 

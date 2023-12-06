@@ -42,21 +42,27 @@ export const Head = ({ location, data }: CareerDetailsPageQueryProps) => {
     position.socialCardFile.childImageSharp.gatsbyImageData.images.fallback
       ?.src;
 
-  // Get translation
+  // Get translations
   const dataLanguage = data.locales.edges.find(
     (e) => e.node.ns === 'translations',
   )?.node.data;
   const t = JSON.parse(dataLanguage || '{}');
 
+  const seoTitleDetails = t['career.seo.title-detail'].replace(
+    '{{name}}',
+    position.name,
+  );
+  const seoDescriptionDetails = t['career.seo.description-detail'].replace(
+    '{{name}}',
+    position.name,
+  );
+
   return (
     <>
       <SEO
         shareImagePath={socialCardPath}
-        title={t['career.seo.title-detail'].replace('{{name}}', position.name)}
-        description={t['career.seo.description-detail'].replace(
-          '{{name}}',
-          position.name,
-        )}
+        title={seoTitleDetails}
+        description={seoDescriptionDetails}
         location={location}
         locales={data.locales}
       />
