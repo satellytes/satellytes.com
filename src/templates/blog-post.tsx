@@ -2,7 +2,8 @@ import { graphql, PageProps } from 'gatsby';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
-import SEO from '../components/layout/seo';
+import { DEFAULT_LANGUAGE } from '../../gatsby/config-options/constants';
+import SEO, { LocalesQueryProps } from '../components/layout/seo';
 import { BlogPostPage } from '../components/pages/blog-post/blog-post';
 import {
   BreadcrumbEntry,
@@ -13,17 +14,15 @@ import {
 interface BlogArticleTemplateQueryProps {
   contentfulBlogPost: BlogArticleQueryData;
   contentfulLeadbox: ContentfulLeadBox;
+  locales: LocalesQueryProps;
 }
 
 const BlogArticleTemplate = ({
   data,
   location,
 }: PageProps<BlogArticleTemplateQueryProps>): JSX.Element => {
-  const { author, seoMetaText, title, publicationDate, heroImage } =
-    data.contentfulBlogPost;
+  const { title } = data.contentfulBlogPost;
   const { t } = useTranslation();
-
-  const shareImagePath = heroImage.shareImage.resize.src;
 
   const breadcrumb: BreadcrumbEntry[] = [
     { pathname: '/', label: 'Satellytes' },
@@ -32,31 +31,43 @@ const BlogArticleTemplate = ({
   ];
 
   return (
-    <>
-      {/*
-       * SEO Notes:
-       * Recommended meta description length these days is 120 - 158 characters. The lower number is relevant for mobile devices.
-       * This means authored blog posts should always come with an explicit 120 character summary (`seoMetaText`). In case an author doesn't provide such a summary
-       * we will fallback to a generated excerpt fixed to the 158 characters to provide a little bit more text as the automatic extraction is usually
-       * less condense in terms of content.
-       */}
-      <SEO
-        title={`${title} | Satellytes`}
-        author={author.fullName}
-        publishDate={publicationDate}
-        shareImagePath={shareImagePath}
-        siteType="article"
-        description={seoMetaText}
-        location={location}
-        rssLink
-      />
+    <BlogPostPage
+      blogPost={data.contentfulBlogPost}
+      breadcrumb={breadcrumb}
+      contentfulLeadbox={data.contentfulLeadbox}
+    />
+  );
+};
 
-      <BlogPostPage
-        blogPost={data.contentfulBlogPost}
-        breadcrumb={breadcrumb}
-        contentfulLeadbox={data.contentfulLeadbox}
-      />
-    </>
+export const Head = ({
+  data,
+  location,
+}: PageProps<BlogArticleTemplateQueryProps>) => {
+  const { author, seoMetaText, title, publicationDate, heroImage } =
+    data.contentfulBlogPost;
+
+  const shareImagePath = heroImage.shareImage.resize.src;
+
+  /*
+   * SEO Notes:
+   * Recommended meta description length these days is 120 - 158 characters. The lower number is relevant for mobile devices.
+   * This means authored blog posts should always come with an explicit 120 character summary (`seoMetaText`). In case an author doesn't provide such a summary
+   * we will fallback to a generated excerpt fixed to the 158 characters to provide a little bit more text as the automatic extraction is usually
+   * less condense in terms of content.
+   */
+  return (
+    <SEO
+      title={`${title} | Satellytes`}
+      author={author.fullName}
+      publishDate={publicationDate}
+      shareImagePath={shareImagePath}
+      siteType="article"
+      description={seoMetaText}
+      location={location}
+      rssLink
+      locales={data.locales}
+      languages={[DEFAULT_LANGUAGE]}
+    />
   );
 };
 

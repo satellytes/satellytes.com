@@ -1,6 +1,6 @@
 import { graphql, PageProps } from 'gatsby';
 import React from 'react';
-import SEO from '../components/layout/seo';
+import SEO, { LocalesQueryProps } from '../components/layout/seo';
 import { Service } from '../components/pages/service/service';
 import {
   ContentfulLeadBox,
@@ -20,35 +20,37 @@ interface ServicesPageQueryProps {
   platformsList: ContentfulList;
   productsServicesList: ContentfulList;
   consultingList: ContentfulList;
+  locales: LocalesQueryProps;
 }
 
-const ServicesPage = ({
-  data,
-  location,
-}: PageProps<ServicesPageQueryProps>) => {
+const ServicesPage = ({ data }: PageProps<ServicesPageQueryProps>) => {
   return (
-    <>
-      <SEO
-        title={`${data.contentfulPage.title} | Satellytes`}
-        location={location}
-      />
-      <Service
-        page={data.contentfulPage}
-        leadbox={data.contentfulLeadbox}
-        servicesHeader={data.servicesHeader}
-        platformsHeader={data.platformsHeader}
-        productsServicesHeader={data.productsServicesHeader}
-        consultingHeader={data.consultingHeader}
-        productDesignHeader={data.productDesignHeader}
-        platformsList={data.platformsList}
-        productsServicesList={data.productsServicesList}
-        consultingList={data.consultingList}
-      />
-    </>
+    <Service
+      page={data.contentfulPage}
+      leadbox={data.contentfulLeadbox}
+      servicesHeader={data.servicesHeader}
+      platformsHeader={data.platformsHeader}
+      productsServicesHeader={data.productsServicesHeader}
+      consultingHeader={data.consultingHeader}
+      productDesignHeader={data.productDesignHeader}
+      platformsList={data.platformsList}
+      productsServicesList={data.productsServicesList}
+      consultingList={data.consultingList}
+    />
   );
 };
 
 export default ServicesPage;
+
+export const Head = ({ data, location }: PageProps<ServicesPageQueryProps>) => {
+  return (
+    <SEO
+      title={`${data.contentfulPage.title} | Satellytes`}
+      location={location}
+      locales={data.locales}
+    />
+  );
+};
 
 export const ServicesPageQuery = graphql`
   query ($language: String!) {
