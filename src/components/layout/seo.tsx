@@ -1,6 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import { useI18next } from 'gatsby-plugin-react-i18next';
 import { I18nNextData } from '../../types';
 import {
   DEFAULT_LANGUAGE,
@@ -92,7 +91,6 @@ const SEO = ({
       }
     }
   `);
-  const i18n = useI18next();
 
   // Get translation
   const dataNode = locales.edges.find((e) => e.node.ns === 'translations')
@@ -111,12 +109,12 @@ const SEO = ({
       defaultLanguage: DEFAULT_LANGUAGE,
       path: location.pathname,
     },
-    location.origin,
+    site.siteMetadata.siteUrl,
   );
 
   return (
     <>
-      <html lang={i18n.language} />
+      <html lang={dataNode?.language} />
       <title>{title}</title>
       {/* Standard Tags */}
       <meta property="og:title" name="title" content={title} />
