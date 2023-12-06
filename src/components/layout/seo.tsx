@@ -21,7 +21,7 @@ interface SeoProps {
   location: Location;
   rssLink?: boolean;
   locales: LocalesQueryProps;
-  languages: string[];
+  languages?: string[];
 }
 
 export interface LocalesQueryProps {
