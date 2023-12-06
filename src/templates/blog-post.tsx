@@ -2,6 +2,7 @@ import { graphql, PageProps } from 'gatsby';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
+import { DEFAULT_LANGUAGE } from '../../gatsby/config-options/constants';
 import SEO, { LocalesQueryProps } from '../components/layout/seo';
 import { BlogPostPage } from '../components/pages/blog-post/blog-post';
 import {
@@ -68,6 +69,7 @@ export const Head = ({
         location={location}
         rssLink
         locales={data.locales}
+        languages={[DEFAULT_LANGUAGE]}
       />
     </>
   );

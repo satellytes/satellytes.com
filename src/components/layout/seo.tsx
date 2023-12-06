@@ -21,6 +21,7 @@ interface SeoProps {
   location: Location;
   rssLink?: boolean;
   locales: LocalesQueryProps;
+  languages: string[];
 }
 
 export interface LocalesQueryProps {
@@ -79,6 +80,7 @@ const SEO = ({
   location,
   rssLink,
   locales,
+  languages = LANGUAGES,
 }: SeoProps) => {
   const { site } = useStaticQuery(graphql`
     query {
@@ -92,7 +94,14 @@ const SEO = ({
     }
   `);
 
-  // Get translation
+  /**
+   * Gatsby Head API is not yet compatible to gatsby-plugin-react-i18next.
+   * Reference to solution/workaround to use translation in Head:
+   * https://github.com/gatsbyjs/gatsby/issues/36458
+   *
+   * The i18n object (languages, language, originalPath, defaultLanguage)
+   * is replaced with constants and locales data for building the alternate meta tag.
+   */
   const dataNode = locales.edges.find((e) => e.node.ns === 'translations')
     ?.node;
   const t = JSON.parse(dataNode?.data || '{}');
@@ -103,7 +112,7 @@ const SEO = ({
     site.siteMetadata.siteUrl + (shareImagePath ?? DEFAULT_META_IMAGE_URL_PATH);
   const alternateLanguagesMetaTags = buildAlternateMetaTags(
     {
-      languages: LANGUAGES,
+      languages,
       language: (dataNode?.language as string) || DEFAULT_LANGUAGE,
       originalPath: location.pathname.replace('/de/', '/'),
       defaultLanguage: DEFAULT_LANGUAGE,
