@@ -85,6 +85,7 @@ export const Pagination = ({
         onClick={onPreviousClick}
         $disabled={currentPage === 1}
         aria-label="Previous Page"
+        tabIndex={currentPage === 1 ? -1 : 0}
       >
         <Icon show={'arrow_left'} />
       </StyledLink>
@@ -103,6 +104,7 @@ export const Pagination = ({
         onClick={onNextClick}
         $disabled={currentPage === amountOfPages}
         aria-label="Next Page"
+        tabIndex={currentPage === amountOfPages ? -1 : 0}
       >
         <Icon show={'arrow_right'} />
       </StyledLink>
