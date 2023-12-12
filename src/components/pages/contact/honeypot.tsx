@@ -6,6 +6,7 @@ import { FormData } from './form';
 
 const HoneypotFieldContainer = styled.div`
   ${hideVisually()}
+  aria-hidden: true;
 `;
 
 export const HoneypotField = (
@@ -14,7 +15,7 @@ export const HoneypotField = (
   const { field } = useController(props);
   return (
     <HoneypotFieldContainer>
-      <label>
+      <label aria-hidden={true}>
         {props.label}
         <input
           id={props.name}
@@ -22,6 +23,7 @@ export const HoneypotField = (
           {...field}
           tabIndex={-1}
           autoComplete="false"
+          aria-hidden={true}
         />
       </label>
     </HoneypotFieldContainer>
