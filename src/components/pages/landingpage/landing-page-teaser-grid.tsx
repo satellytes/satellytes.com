@@ -14,8 +14,7 @@ export const LandingPageTeaserGrid = styled.div`
     grid-auto-flow: row;
     grid-template-columns: repeat(auto-fit, minmax(242px, 1fr));
     gap: 72px;
-    margin: 0;
-    margin-bottom: 60px;
+    margin: 0 0 60px;
     padding: 0;
     overflow-x: hidden;
   }
