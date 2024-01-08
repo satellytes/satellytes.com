@@ -24,7 +24,8 @@ export const getNighttimePercentage = (
   sunsetTime: number,
   time: number,
 ) => {
-  const totalNighttimeMinutes = sunriseTime - sunsetTime;
+  const totalDaylightMinutes = sunsetTime - sunriseTime;
+  const totalNighttimeMinutes = 86400000 - totalDaylightMinutes;
   if (totalNighttimeMinutes <= 0) {
     return 0;
   }
