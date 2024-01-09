@@ -7,7 +7,7 @@ export const getSunlightPercentage = (
   if (totalDaylightMinutes <= 0) {
     return 20;
   }
-  const currentMinutes = time - sunriseTime;
+  const currentMinutes = time - sunriseTime + 86400000;
   const sunlightPercentage = (currentMinutes / totalDaylightMinutes) * 100;
 
   if (sunlightPercentage < 0) {
@@ -29,7 +29,7 @@ export const getNighttimePercentage = (
   if (totalNighttimeMinutes <= 0) {
     return 0;
   }
-  const currentMinutes = time - sunsetTime;
+  const currentMinutes = time - sunsetTime + 86400000;
   const nighttimePercentage = (currentMinutes / totalNighttimeMinutes) * 100;
 
   if (nighttimePercentage < 0) {
