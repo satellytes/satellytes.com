@@ -179,18 +179,22 @@ export const Sun = () => {
       setSunrise(sunriseTime);
       setSunset(sunsetTime);
       setTimePercent(
-        getSunlightPercentage(sunriseTime, sunsetTime, +new Date()),
+        getSunlightPercentage(sunriseTime, sunsetTime, +new Date() + 86400000),
       );
       setNightTimePercent(
-        getNighttimePercentage(sunriseTime, sunsetTime, +new Date()),
+        getNighttimePercentage(sunriseTime, sunsetTime, +new Date() + 86400000),
       );
     };
 
     fetchData();
 
     const interval = setInterval(() => {
-      setTimePercent(getSunlightPercentage(sunrise, sunset, +new Date()));
-      setNightTimePercent(getNighttimePercentage(sunrise, sunset, +new Date()));
+      setTimePercent(
+        getSunlightPercentage(sunrise, sunset, +new Date() + 86400000),
+      );
+      setNightTimePercent(
+        getNighttimePercentage(sunrise, sunset, +new Date() + 86400000),
+      );
     }, 10000);
 
     return () => {
