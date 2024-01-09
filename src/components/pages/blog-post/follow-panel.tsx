@@ -19,7 +19,7 @@ const FollowPanelContainer = styled.div`
   font-size: 16px;
 
   ${up('md')} {
-    margin-top: 0px;
+    margin-top: 0;
     min-width: 240px;
   }
 `;
@@ -31,7 +31,7 @@ export const PanelText = styled.p`
   color: ${({ theme }) => theme.palette.text.default};
 `;
 
-const SocialLinks = styled.ul`
+const SocialLinks = styled.div`
   all: unset;
   order: 2;
   color: ${({ theme }) => theme.palette.text.link.default};
@@ -64,10 +64,10 @@ export const FollowPanel = ({ className }: FollowProps) => {
 
   return (
     <FollowPanelContainer className={className}>
-      <PanelText>{t('blog.follow')}</PanelText>
+      <PanelText aria-hidden={true}>{t('blog.follow')}</PanelText>
       <SocialLinks>
         <SocialLinkItem data-testid="rss-feed">
-          <Link to={rssUrl}>
+          <Link to={rssUrl} aria-label={t('blog.follow')}>
             <Icon show="rss" />
           </Link>
         </SocialLinkItem>
