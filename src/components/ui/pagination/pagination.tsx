@@ -42,7 +42,8 @@ const StyledLink = styled.a<{ $disabled: boolean }>`
     $disabled &&
     css`
       opacity: 50%;
-      cursor: default;
+      cursor: not-allowed;
+      pointer-events: none;
     `}
 
   &:hover {
@@ -83,7 +84,8 @@ export const Pagination = ({
       <StyledLink
         onClick={onPreviousClick}
         $disabled={currentPage === 1}
-        aria-label="Next Page"
+        aria-label="Previous Page"
+        tabIndex={currentPage === 1 ? -1 : 0}
       >
         <Icon show={'arrow_left'} />
       </StyledLink>
@@ -101,7 +103,8 @@ export const Pagination = ({
       <StyledLink
         onClick={onNextClick}
         $disabled={currentPage === amountOfPages}
-        aria-label="Previous Page"
+        aria-label="Next Page"
+        tabIndex={currentPage === amountOfPages ? -1 : 0}
       >
         <Icon show={'arrow_right'} />
       </StyledLink>
