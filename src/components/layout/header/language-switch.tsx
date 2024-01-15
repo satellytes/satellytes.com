@@ -31,6 +31,10 @@ const StyledSelection = styled.select`
 
   appearance: none;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    ${TextStyles.menuMetaMobile}
+  }
 `;
 
 export const StyledChevron = styled(Icon)<{ isEnglish: boolean }>`
