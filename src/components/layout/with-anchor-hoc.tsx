@@ -51,6 +51,7 @@ export const WithAnchorHOC =
           href={'#' + generateAnchorId(props.children)}
           id={generateAnchorId(props.children)}
           $visible={hoverActive}
+          aria-hidden={true}
         >
           <Icon show={'anchor'} />
         </ShareSymbol>
