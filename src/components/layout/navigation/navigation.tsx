@@ -244,7 +244,7 @@ const Navigation: React.FC<NavigationProps> = ({
             {t('navigation.imprint')}
           </LegalLink>
         </li>
-        <span>·</span>
+        <li>·</li>
         <li>
           <LegalLink
             to="/data-privacy"
