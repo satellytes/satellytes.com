@@ -35,8 +35,7 @@ const NavigationBackground = styled.div`
 const LegalLinks = styled.ul`
   list-style-type: none;
   align-self: end;
-  margin: 0;
-  margin-top: 24px;
+  margin: 24px 0 0;
   padding: 0;
 
   display: flex;
@@ -113,6 +112,10 @@ const LegalLink = styled(Link)<{ $isSelected: boolean }>`
 
   &:hover {
     color: ${theme.palette.text.defaultLight};
+  }
+
+  @media (max-width: 768px) {
+    ${TextStyles.menuMetaMobile}
   }
 `;
 
