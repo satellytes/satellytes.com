@@ -49,13 +49,14 @@ export const LanguageSwitch = ({
   const { languages, language, t, changeLanguage } = useI18next();
 
   return (
-    <StyledNav aria-label={t('navigation.language-aria')} className={className}>
+    <StyledNav className={className}>
       <StyledChevron isEnglish={language === 'en'} show="caret_squared_down" />
       <StyledSelection
         onChange={(event) => {
           changeLanguage(event.target.value);
         }}
         value={language}
+        aria-label={t('navigation.language-aria')}
       >
         {languages.map((languageOfLink) => (
           <option value={languageOfLink} key={languageOfLink}>
