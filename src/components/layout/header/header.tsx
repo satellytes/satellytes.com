@@ -173,6 +173,7 @@ const Header: React.FC<HeaderProps> = (props) => {
       <SiteTitle
         to={props.siteTitleUrl || '/'}
         $lightTheme={Boolean(props.$lightTheme && !isHeaderTransparent)}
+        aria-label={'Link to ' + props.siteTitle + ' homepage'}
       >
         <HeaderSwoosh />
         {props.siteTitle}
