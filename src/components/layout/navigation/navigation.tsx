@@ -215,7 +215,7 @@ const Navigation: React.FC<NavigationProps> = ({
             target="_blank"
             rel="noopener noreferrer"
             href="https://www.linkedin.com/company/satellytes"
-            title="Go to the Satellytes LinkedIn profile"
+            title="Open Satellytes LinkedIn profile in a new tab"
           >
             <IconWrapper>
               <Icon show="linked_in" />
@@ -224,7 +224,7 @@ const Navigation: React.FC<NavigationProps> = ({
         </SocialLinkItem>
         <SocialLinkItem>
           <SocialLink
-            title="Go to the Satellytes Github profile"
+            title="Open Satellytes GitHub profile in a new tab"
             target="_blank"
             rel="noopener noreferrer"
             href="https://github.com/satellytes"
