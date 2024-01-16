@@ -1,4 +1,4 @@
-import { getSunlightPercentage } from './sun-percentage-calculator';
+import { getSunlightPercentage } from './daylight-percentage-calculator';
 
 describe('getSunlightPercentage', () => {
   const sunriseTime = new Date('2023-07-14T06:00:00Z').getTime();
