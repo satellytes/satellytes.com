@@ -47,6 +47,7 @@ export const Link = (props: LinkProps): JSX.Element => {
     <InternalLink
       to={to}
       className={isAnchorLink ? undefined : className}
+      placeholder={to}
       {...rest}
     >
       {children}

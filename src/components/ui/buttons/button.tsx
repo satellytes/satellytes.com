@@ -60,7 +60,7 @@ export const Button = (props: RegularButtonProps) => {
     );
   } else {
     return (
-      <StyledButton as="button" {...props}>
+      <StyledButton as="button" {...props} to={''}>
         <ButtonText>{props.children}</ButtonText>
         <StyledIcon show={'chevron_right'} size={IconSize.NORMAL} />
       </StyledButton>

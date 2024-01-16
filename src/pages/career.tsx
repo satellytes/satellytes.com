@@ -1,5 +1,5 @@
 import React from 'react';
-import SEO from '../components/layout/seo';
+import SEO, { LocalesQueryProps } from '../components/layout/seo';
 import { graphql, PageProps } from 'gatsby';
 import { CareerPage } from '../components/pages/career/career-page';
 import {
@@ -31,43 +31,48 @@ interface CareerPageQueryProps {
   cultureTeaser: ContentfulTeaser;
   perksTeaser: ContentfulTeaser;
   applicationProcessAccordion: ContentfulAccordion;
+  locales: LocalesQueryProps;
 }
 
-const Career = ({ data, location }: PageProps<CareerPageQueryProps>) => {
+const Career = ({ data }: PageProps<CareerPageQueryProps>) => {
   const officeImages = data.officeImages.nodes.reduce((memo, image) => {
     memo[image.relativePath] = image;
     return memo;
   }, {});
 
   return (
-    <>
-      <SEO
-        title={`${data.contentfulPage.title} | Satellytes`}
-        description={data.contentfulPage.seoMetaText}
-        location={location}
-      />
-      <CareerPage
-        heroImageData={data.hero}
-        positions={data.allContentfulVacancy.nodes}
-        officeImages={officeImages}
-        page={data.contentfulPage}
-        leadbox={data.contentfulLeadbox}
-        introductionHeader={data.introductionHeader}
-        applicationProcessHeader={data.applicationProcessHeader}
-        openingsHeader={data.openingsHeader}
-        cultureHeader={data.cultureHeader}
-        perksHeader={data.perksHeader}
-        cultureTeaser={data.cultureTeaser.gridItems}
-        perksTeaser={data.perksTeaser.gridItems}
-        applicationProcessAccordion={
-          data.applicationProcessAccordion.accordionItems
-        }
-      />
-    </>
+    <CareerPage
+      heroImageData={data.hero}
+      positions={data.allContentfulVacancy.nodes}
+      officeImages={officeImages}
+      page={data.contentfulPage}
+      leadbox={data.contentfulLeadbox}
+      introductionHeader={data.introductionHeader}
+      applicationProcessHeader={data.applicationProcessHeader}
+      openingsHeader={data.openingsHeader}
+      cultureHeader={data.cultureHeader}
+      perksHeader={data.perksHeader}
+      cultureTeaser={data.cultureTeaser.gridItems}
+      perksTeaser={data.perksTeaser.gridItems}
+      applicationProcessAccordion={
+        data.applicationProcessAccordion.accordionItems
+      }
+    />
   );
 };
 
 export default Career;
+
+export const Head = ({ data, location }: PageProps<CareerPageQueryProps>) => {
+  return (
+    <SEO
+      title={`${data.contentfulPage.title} | Satellytes`}
+      description={data.contentfulPage.seoMetaText}
+      location={location}
+      locales={data.locales}
+    />
+  );
+};
 
 export const CareerPageQuery = graphql`
   query ($language: String!) {

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 
 /**
  * This adds Structured Data for the Satellytes Organization based on https://schema.org/Organization
@@ -30,9 +29,5 @@ export const StructuredOrganizationData = () => {
     ],
   };
 
-  return (
-    <Helmet>
-      <script type="application/ld+json">{JSON.stringify(data)}</script>
-    </Helmet>
-  );
+  return <script type="application/ld+json">{JSON.stringify(data)}</script>;
 };

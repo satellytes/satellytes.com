@@ -5,11 +5,11 @@ import Navigation from '../navigation/navigation';
 export const FLYOUT_Z_INDEX = 999;
 const BACKGROUND_Z_INDEX = 900;
 
-const FullscreenOverlay = styled.div<{ visible: boolean }>`
+const FullscreenOverlay = styled.div<{ $visible: boolean }>`
   position: fixed;
   z-index: ${FLYOUT_Z_INDEX};
 
-  bottom: ${(props) => (props.visible ? 0 : '-1000px')};
+  bottom: ${(props) => (props.$visible ? 0 : '-1000px')};
   left: 0;
   min-width: 100%;
 
@@ -17,19 +17,23 @@ const FullscreenOverlay = styled.div<{ visible: boolean }>`
   flex-direction: column;
   justify-content: flex-end;
 
-  visibility: ${(props) => (props.visible ? 'visible' : 'hidden')};
-  transition: bottom 0.3s ease-out, visibility 0.3s ease-out;
+  visibility: ${(props) => (props.$visible ? 'visible' : 'hidden')};
+  transition:
+    bottom 0.3s ease-out,
+    visibility 0.3s ease-out;
 `;
 
-const BackgroundOverlay = styled.div<{ visible: boolean }>`
+const BackgroundOverlay = styled.div<{ $visible: boolean }>`
   position: fixed;
   z-index: ${BACKGROUND_Z_INDEX};
   top: 0;
   left: 0;
   background-color: ${(props) =>
-    props.visible ? 'rgba(0, 0, 0, 0.3)' : 'none'};
-  visibility: ${(props) => (props.visible ? 'visible' : 'hidden')};
-  transition: background-color 0.3s, visibility 0.3s ease-out;
+    props.$visible ? 'rgba(0, 0, 0, 0.3)' : 'none'};
+  visibility: ${(props) => (props.$visible ? 'visible' : 'hidden')};
+  transition:
+    background-color 0.3s,
+    visibility 0.3s ease-out;
 
   width: 100%;
   height: 100%;
@@ -61,7 +65,7 @@ interface NavigationFlyoutProp {
 export const NavigationFlyout: React.FC<NavigationFlyoutProp> = (props) => {
   return (
     <>
-      <FullscreenOverlay visible={props.visible} onClick={props.onClick}>
+      <FullscreenOverlay $visible={props.visible} onClick={props.onClick}>
         <ScrollContainer>
           <FullHeightNavigation
             translation={props.translation}
@@ -71,7 +75,7 @@ export const NavigationFlyout: React.FC<NavigationFlyoutProp> = (props) => {
         {props.visible && <NoScrollBody />}
       </FullscreenOverlay>
       <BackgroundOverlay
-        visible={props.visible}
+        $visible={props.visible}
         onClick={() => props.setIsNavigationVisible(false)}
       />
     </>

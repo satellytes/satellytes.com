@@ -20,9 +20,7 @@ export const Consulting = ({ header, list }: ConsultingProps) => {
       </Intro>
 
       <UnorderedList>
-        {list.listItems?.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
+        {list.listItems?.map((item, index) => <li key={index}>{item}</li>)}
       </UnorderedList>
     </ContentBlockContainer>
   );

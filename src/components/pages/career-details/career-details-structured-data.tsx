@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import { ContentfulVacancy } from '../../../types';
 import { JobPosting, WithContext } from 'schema-dts';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
@@ -78,10 +77,6 @@ export const CareerDetailsStructuredData = ({
   };
 
   return (
-    <Helmet>
-      <script type="application/ld+json">
-        {JSON.stringify(structuredData)}
-      </script>
-    </Helmet>
+    <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
   );
 };

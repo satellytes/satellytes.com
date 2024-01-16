@@ -14,7 +14,7 @@ export const HeroText = ({ title, children, hideMobileText }: HeroWithText) => {
   return (
     <HeroTextStyled>
       <Headline>{title}</Headline>
-      <Text hideMobileText={hideMobileText}>{children}</Text>
+      <Text $hideMobileText={hideMobileText}>{children}</Text>
     </HeroTextStyled>
   );
 };
@@ -39,15 +39,15 @@ const Headline = styled.h1`
   }
 `;
 
-const Text = styled.div<{ hideMobileText?: boolean }>`
+const Text = styled.div<{ $hideMobileText?: boolean }>`
   ${TextStyles.textR}
 
   ${up('md')} {
     ${TextStyles.textL}
   }
 
-  ${({ hideMobileText }) =>
-    hideMobileText &&
+  ${({ $hideMobileText }) =>
+    $hideMobileText &&
     css`
       ${down('md')} {
         display: none;

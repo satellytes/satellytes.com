@@ -5,7 +5,7 @@ import { theme } from '../../layout/theme';
 import { useController, UseControllerProps } from 'react-hook-form';
 import { FormDataProps } from '../../pages/career-details/new-career-form/career-form';
 
-const Input = styled.input<{ hasError?: boolean }>`
+const Input = styled.input<{ $hasError?: boolean }>`
   width: 100%;
   height: 48px;
 
@@ -22,7 +22,7 @@ const Input = styled.input<{ hasError?: boolean }>`
   }
 
   ${(props) =>
-    props.hasError &&
+    props.$hasError &&
     css`
       border: 2px solid ${theme.palette.text.errorMessage};
     `};
@@ -63,7 +63,7 @@ export const TextInput = (
       <Input
         type={'text'}
         aria-required={true}
-        hasError={Boolean(errorMessage)}
+        $hasError={Boolean(errorMessage)}
         disabled={formState.isSubmitting}
         id={props.name}
         {...field}

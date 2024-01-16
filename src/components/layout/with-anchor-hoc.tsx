@@ -22,13 +22,13 @@ export const generateAnchorId = (children) => {
     .toLowerCase();
 };
 
-const ShareSymbol = styled.a<{ visible }>`
+const ShareSymbol = styled.a<{ $visible }>`
   scroll-margin-top: ${SCROLLING_OFFSET}px;
   color: ${theme.palette.text.default};
   opacity: 0.3;
 
   ${up('md')} {
-    visibility: ${(props) => (props.visible ? 'visible' : 'hidden')};
+    visibility: ${(props) => (props.$visible ? 'visible' : 'hidden')};
   }
 
   &:hover {
@@ -50,7 +50,7 @@ export const WithAnchorHOC =
         <ShareSymbol
           href={'#' + generateAnchorId(props.children)}
           id={generateAnchorId(props.children)}
-          visible={hoverActive}
+          $visible={hoverActive}
         >
           <Icon show={'anchor'} />
         </ShareSymbol>

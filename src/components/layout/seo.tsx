@@ -1,9 +1,10 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import { Helmet } from 'react-helmet';
-import { useI18next } from 'gatsby-plugin-react-i18next';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { I18nNextData } from '../../types';
+import {
+  DEFAULT_LANGUAGE,
+  LANGUAGES,
+} from '../../../gatsby/config-options/constants';
 
 const DEFAULT_META_IMAGE_URL_PATH = '/sy-share-image.jpg';
 const RSS_URL = 'https://satellytes.com/blog/rss.xml';
@@ -19,6 +20,18 @@ interface SeoProps {
   noIndex?: boolean;
   location: Location;
   rssLink?: boolean;
+  locales: LocalesQueryProps;
+  languages?: string[];
+}
+
+export interface LocalesQueryProps {
+  edges: {
+    node: {
+      language: string;
+      ns: string;
+      data: string;
+    };
+  }[];
 }
 
 /**
@@ -66,40 +79,52 @@ const SEO = ({
   noIndex,
   location,
   rssLink,
+  locales,
+  languages = LANGUAGES,
 }: SeoProps) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            author
-            siteUrl
-          }
+  const { site } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          author
+          siteUrl
         }
       }
-    `,
-  );
-  const { t } = useTranslation();
-  const i18n = useI18next();
+    }
+  `);
 
-  const metaDescription = description || t('main.description');
+  /**
+   * Gatsby Head API is not yet compatible to gatsby-plugin-react-i18next.
+   * Reference to solution/workaround to use translation in Head:
+   * https://github.com/gatsbyjs/gatsby/issues/36458
+   *
+   * The i18n object (languages, language, originalPath, defaultLanguage)
+   * is replaced with constants and locales data for building the alternate meta tag.
+   */
+  const dataNode = locales.edges.find((e) => e.node.ns === 'translations')
+    ?.node;
+  const t = JSON.parse(dataNode?.data || '{}');
+  const metaDescription = description || t['main.description'];
   const typeOfSite = siteType || 'website';
 
   const metaImageUrl =
     site.siteMetadata.siteUrl + (shareImagePath ?? DEFAULT_META_IMAGE_URL_PATH);
   const alternateLanguagesMetaTags = buildAlternateMetaTags(
-    i18n,
-    location.origin,
+    {
+      languages,
+      language: (dataNode?.language as string) || DEFAULT_LANGUAGE,
+      originalPath: location.pathname.replace('/de/', '/'),
+      defaultLanguage: DEFAULT_LANGUAGE,
+      path: location.pathname,
+    },
+    site.siteMetadata.siteUrl,
   );
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang: i18n.language,
-      }}
-      title={title}
-    >
+    <>
+      <html lang={dataNode?.language} />
+      <title>{title}</title>
       {/* Standard Tags */}
       <meta property="og:title" name="title" content={title} />
       <meta
@@ -140,7 +165,7 @@ const SEO = ({
           href={RSS_URL}
         />
       )}
-    </Helmet>
+    </>
   );
 };
 

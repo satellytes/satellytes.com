@@ -1,5 +1,5 @@
 import React from 'react';
-import SEO from '../components/layout/seo';
+import SEO, { LocalesQueryProps } from '../components/layout/seo';
 import { graphql, PageProps } from 'gatsby';
 import { Layout } from '../components/layout/layout';
 import { ContentBlockContainer } from '../components/layout/content-block-container';
@@ -8,26 +8,35 @@ import { ContentfulPage, ContentfulRichTextType } from '../types';
 
 interface DataPrivacyPageQueryProps {
   contentfulPage: ContentfulPage;
+  locales: LocalesQueryProps;
 }
 
 const DataPrivacyPage = ({
   data,
-  location,
 }: PageProps<DataPrivacyPageQueryProps>): JSX.Element => {
   return (
     <Layout light={true}>
-      <SEO
-        title={`${data.contentfulPage.title} | Satellytes`}
-        description={data.contentfulPage.seoMetaText}
-        location={location}
-        noIndex={true}
-      />
       <ContentBlockContainer>
         <ContentfulRichText
           data={data.contentfulPage.content as ContentfulRichTextType}
         />
       </ContentBlockContainer>
     </Layout>
+  );
+};
+
+export const Head = ({
+  data,
+  location,
+}: PageProps<DataPrivacyPageQueryProps>) => {
+  return (
+    <SEO
+      title={`${data.contentfulPage.title} | Satellytes`}
+      description={data.contentfulPage.seoMetaText}
+      location={location}
+      noIndex={true}
+      locales={data.locales}
+    />
   );
 };
 
