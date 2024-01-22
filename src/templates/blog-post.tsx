@@ -46,7 +46,6 @@ export const Head = ({
   const { author, seoMetaText, title, publicationDate, heroImage } =
     data.contentfulBlogPost;
 
-
   const shareImagePath = heroImage.shareImage?.resize.src;
 
   /*
