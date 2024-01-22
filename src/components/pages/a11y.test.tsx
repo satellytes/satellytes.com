@@ -6,6 +6,7 @@ import { Service } from './service/service';
 import { ILLUSTRATION_NAMES } from '../ui/illustration/illustration-set';
 import { CareerPage } from './career/career-page';
 import { Layout } from 'gatsby-plugin-image';
+import { AboutUsPage } from './about-us/about-us-page';
 
 const mockProps = {
   string: 'Test',
@@ -99,6 +100,24 @@ describe('Accessibility Tests', () => {
         cultureTeaser={mockProps.empty_list}
         perksTeaser={mockProps.empty_list}
         applicationProcessAccordion={mockProps.empty_list}
+      />,
+    );
+    const results = await axe(container);
+
+    expect(results).toHaveNoViolations();
+  });
+
+  it("The about page shouldn't have a11y problems", async () => {
+    const { container } = render(
+      <AboutUsPage
+        title={mockProps.string}
+        description={mockProps.string}
+        team={mockProps.empty_list}
+        heroImageData={mockProps.gatsbyImageData}
+        impressions={mockProps.empty_list}
+        sectionHeaderImpressions={mockProps.one_slug}
+        sectionHeaderTeam={mockProps.one_slug}
+        leadbox={mockProps.leadbox}
       />,
     );
     const results = await axe(container);
