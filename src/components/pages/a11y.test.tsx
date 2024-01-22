@@ -7,6 +7,7 @@ import { ILLUSTRATION_NAMES } from '../ui/illustration/illustration-set';
 import { CareerPage } from './career/career-page';
 import { Layout } from 'gatsby-plugin-image';
 import { AboutUsPage } from './about-us/about-us-page';
+import { BlogPage } from './blog/blog-page';
 
 const mockProps = {
   string: 'Test',
@@ -118,6 +119,22 @@ describe('Accessibility Tests', () => {
         sectionHeaderImpressions={mockProps.one_slug}
         sectionHeaderTeam={mockProps.one_slug}
         leadbox={mockProps.leadbox}
+      />,
+    );
+    const results = await axe(container);
+
+    expect(results).toHaveNoViolations();
+  });
+
+  it("The blog page shouldn't have a11y problems", async () => {
+    const { container } = render(
+      <BlogPage
+        posts={mockProps.empty_list}
+        header={mockProps.one_slug}
+        pagination={{
+          numberOfPages: 1,
+          currentPage: 1,
+        }}
       />,
     );
     const results = await axe(container);
