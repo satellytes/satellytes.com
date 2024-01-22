@@ -4,6 +4,8 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 import { Landingpage } from './landingpage/landingpage';
 import { Service } from './service/service';
 import { ILLUSTRATION_NAMES } from '../ui/illustration/illustration-set';
+import { CareerPage } from './career/career-page';
+import { Layout } from 'gatsby-plugin-image';
 
 const mockProps = {
   string: 'Test',
@@ -24,6 +26,18 @@ const mockProps = {
   },
   contentfulList: {
     listItems: ['1', '2', '3'],
+  },
+  gatsbyImageData: {
+    layout: 'fixed' as Layout,
+    width: 100,
+    height: 100,
+    images: {
+      fallback: {
+        src: 'test',
+        srcSet: 'test',
+        sizes: 'test',
+      },
+    },
   },
 };
 
@@ -62,6 +76,29 @@ describe('Accessibility Tests', () => {
         platformsList={mockProps.contentfulList}
         productsServicesList={mockProps.contentfulList}
         consultingList={mockProps.contentfulList}
+      />,
+    );
+    const results = await axe(container);
+
+    expect(results).toHaveNoViolations();
+  });
+
+  it("The career page shouldn't have a11y problems", async () => {
+    const { container } = render(
+      <CareerPage
+        positions={mockProps.empty_list}
+        heroImageData={mockProps.gatsbyImageData}
+        officeImages={mockProps.empty_map}
+        page={mockProps.page}
+        leadbox={mockProps.leadbox}
+        introductionHeader={mockProps.one_slug}
+        applicationProcessHeader={mockProps.one_slug}
+        openingsHeader={mockProps.one_slug}
+        cultureHeader={mockProps.one_slug}
+        perksHeader={mockProps.one_slug}
+        cultureTeaser={mockProps.empty_list}
+        perksTeaser={mockProps.empty_list}
+        applicationProcessAccordion={mockProps.empty_list}
       />,
     );
     const results = await axe(container);
