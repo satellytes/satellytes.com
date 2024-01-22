@@ -97,32 +97,22 @@ const AriaCustomerLogo = () => {
 
 export const Customers = () => {
   return (
-    <>
-      <LogosContainer aria-hidden={true}>
-        <LogoLine>
-          <CustomerLogo desktopWidth={330} mobileWidth={127} show="allianz" />
-          <CustomerLogo
-            desktopWidth={451}
-            mobileWidth={176}
-            show="rosenbauer"
-          />
-        </LogoLine>
-        <LogoLine>
-          <CustomerLogo
-            desktopWidth={403}
-            mobileWidth={170}
-            show="mediamarkt"
-          />
-          <CustomerLogo desktopWidth={285} mobileWidth={121} show="saturn" />
-          <CustomerLogo desktopWidth={337} mobileWidth={156} show="greencity" />
-        </LogoLine>
-        <LogoLine>
-          <CustomerLogo desktopWidth={112} mobileWidth={48} show="fcbayern" />
-          <CustomerLogo desktopWidth={92} mobileWidth={39} show="zeiss" />
-          <CustomerLogo desktopWidth={324} mobileWidth={138} show="adac" />
-        </LogoLine>
-      </LogosContainer>
+    <LogosContainer>
       <AriaCustomerLogo />
-    </>
+      <LogoLine aria-hidden={true}>
+        <CustomerLogo desktopWidth={330} mobileWidth={127} show="allianz" />
+        <CustomerLogo desktopWidth={451} mobileWidth={176} show="rosenbauer" />
+      </LogoLine>
+      <LogoLine aria-hidden={true}>
+        <CustomerLogo desktopWidth={403} mobileWidth={170} show="mediamarkt" />
+        <CustomerLogo desktopWidth={285} mobileWidth={121} show="saturn" />
+        <CustomerLogo desktopWidth={337} mobileWidth={156} show="greencity" />
+      </LogoLine>
+      <LogoLine aria-hidden={true}>
+        <CustomerLogo desktopWidth={112} mobileWidth={48} show="fcbayern" />
+        <CustomerLogo desktopWidth={92} mobileWidth={39} show="zeiss" />
+        <CustomerLogo desktopWidth={324} mobileWidth={138} show="adac" />
+      </LogoLine>
+    </LogosContainer>
   );
 };
