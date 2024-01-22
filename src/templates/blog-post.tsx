@@ -46,10 +46,8 @@ export const Head = ({
   const { author, seoMetaText, title, publicationDate, heroImage } =
     data.contentfulBlogPost;
 
-  let shareImagePath = '';
-  if (heroImage && heroImage.shareImage && heroImage.shareImage.resize) {
-    shareImagePath = heroImage.shareImage.resize.src;
-  }
+  const shareImagePath = heroImage.shareImage?.resize.src;
+  
   /*
    * SEO Notes:
    * Recommended meta description length these days is 120 - 158 characters. The lower number is relevant for mobile devices.
