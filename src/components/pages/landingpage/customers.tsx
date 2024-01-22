@@ -66,6 +66,7 @@ const CustomerLogo = ({
   );
 };
 
+// This is a visually hidden list of customers for screen readers
 const AriaCustomerLogo = () => {
   return (
     <ul
