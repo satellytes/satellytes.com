@@ -83,6 +83,7 @@ export const Pagination = ({
     <PaginationContainer className={className}>
       <StyledLink
         onClick={onPreviousClick}
+        aria-hidden={currentPage === 1}
         $disabled={currentPage === 1}
         aria-label="Previous Page"
         tabIndex={currentPage === 1 ? -1 : 0}
@@ -103,6 +104,7 @@ export const Pagination = ({
       <StyledLink
         onClick={onNextClick}
         $disabled={currentPage === amountOfPages}
+        aria-hidden={currentPage === amountOfPages}
         aria-label="Next Page"
         tabIndex={currentPage === amountOfPages ? -1 : 0}
       >
