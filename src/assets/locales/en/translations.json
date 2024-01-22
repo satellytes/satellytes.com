@@ -50,7 +50,7 @@
   "contact.name": "Name",
   "contact.name-placeholder": "e.g. John Doe",
   "contact.email": "E-mail address",
-  "contact.email-placeholder": "e.g. your-email@adress.com",
+  "contact.email-placeholder": "e.g. your-email-address@example.com",
   "contact.message": "Your message to us",
   "contact.message-placeholder": "e.g. Hello Satellytes, ...",
   "contact.mandatory-field": "Mandatory field",

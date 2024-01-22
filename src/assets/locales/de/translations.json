@@ -50,7 +50,7 @@
   "contact.name": "Name",
   "contact.name-placeholder": "z.B. Max Mustermann",
   "contact.email": "E-Mail Adresse",
-  "contact.email-placeholder": "z.B. deine-email@adresse.com",
+  "contact.email-placeholder": "z.B. deine-email-adresse@example.com",
   "contact.message": "Deine Nachricht an uns",
   "contact.message-placeholder": "z.B. Hallo Satellytes, ...",
   "contact.mandatory-field": "Pflichtfeld",
