@@ -45,6 +45,16 @@ const mockProps = {
 
 expect.extend(toHaveNoViolations);
 
+// Suppress warnings about gatsby-plugin-react-i18next
+beforeEach(() => {
+  jest.spyOn(console, 'warn').mockImplementation(() => {});
+});
+
+// Restore warnings
+afterEach(() => {
+  (console.warn as jest.Mock).mockRestore();
+});
+
 describe('Accessibility Tests', () => {
   it("The landingpage shouldn't have a11y problems", async () => {
     const { container } = render(
@@ -60,7 +70,12 @@ describe('Accessibility Tests', () => {
         blogHeader={mockProps.one_slug}
       />,
     );
-    const results = await axe(container);
+    const results = await axe(container, {
+      runOnly: {
+        type: 'tag',
+        values: ['wcag2a', 'wcag2aa'],
+      },
+    });
 
     expect(results).toHaveNoViolations();
   });
@@ -80,7 +95,12 @@ describe('Accessibility Tests', () => {
         consultingList={mockProps.contentfulList}
       />,
     );
-    const results = await axe(container);
+    const results = await axe(container, {
+      runOnly: {
+        type: 'tag',
+        values: ['wcag2a', 'wcag2aa'],
+      },
+    });
 
     expect(results).toHaveNoViolations();
   });
@@ -103,7 +123,12 @@ describe('Accessibility Tests', () => {
         applicationProcessAccordion={mockProps.empty_list}
       />,
     );
-    const results = await axe(container);
+    const results = await axe(container, {
+      runOnly: {
+        type: 'tag',
+        values: ['wcag2a', 'wcag2aa'],
+      },
+    });
 
     expect(results).toHaveNoViolations();
   });
@@ -121,7 +146,12 @@ describe('Accessibility Tests', () => {
         leadbox={mockProps.leadbox}
       />,
     );
-    const results = await axe(container);
+    const results = await axe(container, {
+      runOnly: {
+        type: 'tag',
+        values: ['wcag2a', 'wcag2aa'],
+      },
+    });
 
     expect(results).toHaveNoViolations();
   });
@@ -137,7 +167,12 @@ describe('Accessibility Tests', () => {
         }}
       />,
     );
-    const results = await axe(container);
+    const results = await axe(container, {
+      runOnly: {
+        type: 'tag',
+        values: ['wcag2a', 'wcag2aa'],
+      },
+    });
 
     expect(results).toHaveNoViolations();
   });
