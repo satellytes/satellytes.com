@@ -21,7 +21,6 @@ export const FirstName = ({ control }) => {
       <TextInput
         name={'first_name'}
         label={t('contact.name')}
-        placeholder={t('contact.name-placeholder')}
         control={control}
         rules={{ required: t('contact.error.name') }}
       />
@@ -36,7 +35,6 @@ export const Email = ({ control }) => {
       <TextInput
         name={'email'}
         label={t('contact.email')}
-        placeholder={t('contact.email-placeholder')}
         control={control}
         rules={{
           required: t('contact.error.email'),
@@ -61,7 +59,6 @@ export const MessageArea = ({ control }) => {
       <TextArea
         name={'message'}
         label={t('contact.message')}
-        placeholder={t('contact.message-placeholder')}
         control={control}
         rules={{ required: t('contact.error.message') }}
       />
