@@ -8,40 +8,179 @@ import { CareerPage } from './career/career-page';
 import { Layout } from 'gatsby-plugin-image';
 import { AboutUsPage } from './about-us/about-us-page';
 import { BlogPage } from './blog/blog-page';
+import { AboutUsImpressionTileSize } from '../../types';
 
-const mockProps = {
-  string: 'Test',
-  empty_list: [],
-  empty_map: {},
-  one_slug: {
-    slug: 'test-service-header',
-  },
-  page: {
-    title: 'Test Page Title',
-    seoMetaText: 'Test Page Description',
-    slug: 'test-page-slug',
-  },
-  leadbox: {
-    title: 'Test Leadbox Title',
-    illustration: ILLUSTRATION_NAMES[0],
-    slug: 'test-leadbox',
-  },
-  contentfulList: {
-    listItems: ['1', '2', '3'],
-  },
-  gatsbyImageData: {
-    layout: 'fixed' as Layout,
-    width: 100,
-    height: 100,
-    images: {
-      fallback: {
-        src: 'test',
-        srcSet: 'test',
-        sizes: 'test',
-      },
+const testContentfulList = {
+  listItems: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+};
+const testIGatsbyImageData = {
+  layout: 'fixed' as Layout,
+  width: 100,
+  height: 100,
+  images: {
+    fallback: {
+      src: 'test',
+      srcSet: 'test',
+      sizes: 'test',
     },
   },
 };
+const testContentfulVacancy = {
+  id: 'test-id',
+  name: 'Test Title',
+  slug: 'test-slug',
+  content: {
+    raw: JSON.stringify({
+      nodeType: 'document',
+      data: {},
+      content: [
+        {
+          nodeType: 'paragraph',
+          data: {},
+          content: [
+            {
+              nodeType: 'text',
+              value: 'Test Content',
+              marks: [],
+              data: {},
+            },
+          ],
+        },
+      ],
+    }),
+  },
+  schedule: 'Test Schedule',
+  createdAt: '01-01-0001',
+  shortDescription: {
+    shortDescription: 'Test short description',
+  },
+  socialCardFile: {
+    childImageSharp: {
+      gatsbyImageData: testIGatsbyImageData,
+    },
+  },
+};
+const testContentfulVacancyList = [
+  { ...testContentfulVacancy, id: 'test-id-1' },
+  { ...testContentfulVacancy, id: 'test-id-2' },
+  { ...testContentfulVacancy, id: 'test-id-3' },
+];
+const testTitle = 'Test Title';
+const testDescription =
+  'Test Description lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua';
+const testBlogPostTeaser = {
+  fields: {
+    path: '/blog/test',
+  },
+  heroImage: {
+    image: testIGatsbyImageData,
+  },
+  id: 'test-id-2',
+  publicationDate: '01-01-0001',
+  teaserText:
+    'Test teaser text lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+  title: testTitle,
+};
+const testBlogPostTeaserList = [
+  { ...testBlogPostTeaser, id: 'test-id-4' },
+  { ...testBlogPostTeaser, id: 'test-id-5' },
+  { ...testBlogPostTeaser, id: 'test-id-6' },
+];
+const testOfficeImage = {
+  relativePath: '../../assets/images/office/sy-office-01.jpg',
+  childImageSharp: {
+    gatsbyImageData: testIGatsbyImageData,
+  },
+};
+const testOfficeImages = { [testOfficeImage.relativePath]: testOfficeImage };
+const testContentfulSectionHeader = {
+  kicker: 'Test kicker',
+  headline: 'Test headline',
+  illustration: ILLUSTRATION_NAMES[0],
+  slug: 'test-slug',
+};
+const testContentfulTeaserItem = {
+  description: {
+    description: testDescription,
+  },
+  title: testTitle,
+  children: [<p key={'test-key'}>{testDescription}</p>],
+};
+const testContentfulTeaserItemList = [
+  testContentfulTeaserItem,
+  testContentfulTeaserItem,
+  testContentfulTeaserItem,
+];
+const testContentfulAccordionItem = {
+  title: testTitle,
+  paragraph: {
+    paragraph: testDescription,
+  },
+  illustration: ILLUSTRATION_NAMES[0],
+};
+const testContentfulAccordionItemList = [
+  testContentfulAccordionItem,
+  testContentfulAccordionItem,
+  testContentfulAccordionItem,
+];
+const testContentfulPage = {
+  title: testTitle,
+  seoMetaText: testDescription,
+  slug: 'test-page-slug',
+  description: {
+    description: testDescription,
+  },
+  content: {
+    raw: JSON.stringify({
+      nodeType: 'document',
+      data: {},
+      content: [
+        {
+          nodeType: 'paragraph',
+          data: {},
+          content: [
+            {
+              nodeType: 'text',
+              value: 'Test Content',
+              marks: [],
+              data: {},
+            },
+          ],
+        },
+      ],
+    }),
+  },
+};
+const testLeadbox = {
+  title: testTitle,
+  illustration: ILLUSTRATION_NAMES[0],
+  slug: 'test-leadbox',
+  contact: {
+    headline: testTitle,
+    title: testTitle,
+    email: 'test@example.com',
+  },
+};
+const SyTeamMember = {
+  id: 'test-id-3',
+  name: 'Test Name',
+  image: testIGatsbyImageData,
+};
+const testSyTeamMemberList = [
+  { ...SyTeamMember, id: 'test-id-7' },
+  { ...SyTeamMember, id: 'test-id-8' },
+  { ...SyTeamMember, id: 'test-id-9' },
+];
+const testContentfulAboutUsImpression = {
+  tileSize: 'portrait' as AboutUsImpressionTileSize,
+  id: 'test-id-4',
+  image: testIGatsbyImageData,
+};
+const testContentfulAboutUsImpressionList = [
+  { ...testContentfulAboutUsImpression, id: 'test-id-10' },
+  { ...testContentfulAboutUsImpression, id: 'test-id-11' },
+  { ...testContentfulAboutUsImpression, id: 'test-id-12' },
+];
 
 expect.extend(toHaveNoViolations);
 
@@ -59,15 +198,15 @@ describe('Accessibility Tests', () => {
   it("The landingpage shouldn't have a11y problems", async () => {
     const { container } = render(
       <Landingpage
-        title={mockProps.string}
-        description={mockProps.string}
-        positions={mockProps.empty_list}
-        posts={mockProps.empty_list}
-        officeImages={mockProps.empty_map}
-        serviceHeader={mockProps.one_slug}
-        serviceTeaser={mockProps.empty_list}
-        careerHeader={mockProps.one_slug}
-        blogHeader={mockProps.one_slug}
+        title={testTitle}
+        description={testDescription}
+        positions={testContentfulVacancyList}
+        posts={testBlogPostTeaserList}
+        officeImages={testOfficeImages}
+        serviceHeader={testContentfulSectionHeader}
+        serviceTeaser={testContentfulTeaserItemList}
+        careerHeader={testContentfulSectionHeader}
+        blogHeader={testContentfulSectionHeader}
       />,
     );
     const results = await axe(container, {
@@ -83,16 +222,16 @@ describe('Accessibility Tests', () => {
   it("The service page shouldn't have a11y problems", async () => {
     const { container } = render(
       <Service
-        page={mockProps.page}
-        leadbox={mockProps.leadbox}
-        servicesHeader={mockProps.one_slug}
-        platformsHeader={mockProps.one_slug}
-        productsServicesHeader={mockProps.one_slug}
-        consultingHeader={mockProps.one_slug}
-        productDesignHeader={mockProps.one_slug}
-        platformsList={mockProps.contentfulList}
-        productsServicesList={mockProps.contentfulList}
-        consultingList={mockProps.contentfulList}
+        page={testContentfulPage}
+        leadbox={testLeadbox}
+        servicesHeader={testContentfulSectionHeader}
+        platformsHeader={testContentfulSectionHeader}
+        productsServicesHeader={testContentfulSectionHeader}
+        consultingHeader={testContentfulSectionHeader}
+        productDesignHeader={testContentfulSectionHeader}
+        platformsList={testContentfulList}
+        productsServicesList={testContentfulList}
+        consultingList={testContentfulList}
       />,
     );
     const results = await axe(container, {
@@ -108,19 +247,19 @@ describe('Accessibility Tests', () => {
   it("The career page shouldn't have a11y problems", async () => {
     const { container } = render(
       <CareerPage
-        positions={mockProps.empty_list}
-        heroImageData={mockProps.gatsbyImageData}
-        officeImages={mockProps.empty_map}
-        page={mockProps.page}
-        leadbox={mockProps.leadbox}
-        introductionHeader={mockProps.one_slug}
-        applicationProcessHeader={mockProps.one_slug}
-        openingsHeader={mockProps.one_slug}
-        cultureHeader={mockProps.one_slug}
-        perksHeader={mockProps.one_slug}
-        cultureTeaser={mockProps.empty_list}
-        perksTeaser={mockProps.empty_list}
-        applicationProcessAccordion={mockProps.empty_list}
+        positions={testContentfulVacancyList}
+        heroImageData={testIGatsbyImageData}
+        officeImages={testOfficeImages}
+        page={testContentfulPage}
+        leadbox={testLeadbox}
+        introductionHeader={testContentfulSectionHeader}
+        applicationProcessHeader={testContentfulSectionHeader}
+        openingsHeader={testContentfulSectionHeader}
+        cultureHeader={testContentfulSectionHeader}
+        perksHeader={testContentfulSectionHeader}
+        cultureTeaser={testContentfulTeaserItemList}
+        perksTeaser={testContentfulTeaserItemList}
+        applicationProcessAccordion={testContentfulAccordionItemList}
       />,
     );
     const results = await axe(container, {
@@ -136,14 +275,14 @@ describe('Accessibility Tests', () => {
   it("The about page shouldn't have a11y problems", async () => {
     const { container } = render(
       <AboutUsPage
-        title={mockProps.string}
-        description={mockProps.string}
-        team={mockProps.empty_list}
-        heroImageData={mockProps.gatsbyImageData}
-        impressions={mockProps.empty_list}
-        sectionHeaderImpressions={mockProps.one_slug}
-        sectionHeaderTeam={mockProps.one_slug}
-        leadbox={mockProps.leadbox}
+        title={testTitle}
+        description={testDescription}
+        team={testSyTeamMemberList}
+        heroImageData={testIGatsbyImageData}
+        impressions={testContentfulAboutUsImpressionList}
+        sectionHeaderImpressions={testContentfulSectionHeader}
+        sectionHeaderTeam={testContentfulSectionHeader}
+        leadbox={testLeadbox}
       />,
     );
     const results = await axe(container, {
@@ -159,8 +298,8 @@ describe('Accessibility Tests', () => {
   it("The blog page shouldn't have a11y problems", async () => {
     const { container } = render(
       <BlogPage
-        posts={mockProps.empty_list}
-        header={mockProps.one_slug}
+        posts={testBlogPostTeaserList}
+        header={testContentfulSectionHeader}
         pagination={{
           numberOfPages: 1,
           currentPage: 1,
