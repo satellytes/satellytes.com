@@ -102,8 +102,9 @@ const SEO = ({
    * The i18n object (languages, language, originalPath, defaultLanguage)
    * is replaced with constants and locales data for building the alternate meta tag.
    */
-  const dataNode = locales.edges.find((e) => e.node.ns === 'translations')
-    ?.node;
+  const dataNode = locales.edges.find(
+    (e) => e.node.ns === 'translations',
+  )?.node;
   const t = JSON.parse(dataNode?.data || '{}');
   const metaDescription = description || t['main.description'];
   const typeOfSite = siteType || 'website';
