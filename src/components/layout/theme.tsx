@@ -18,7 +18,7 @@ export const theme: DefaultTheme = {
       defaultDark: '#FFFFFF',
       secondary: 'rgba(32,40,64,0.5)',
       topline: '#3E61EE',
-      timestamp: 'rgba(0, 0, 0, 0.5)',
+      timestamp: 'rgba(0, 0, 0, 0.65)',
       errorMessage: '#EB0027',
       header: {
         default: '#FFFFFF',
