@@ -19,7 +19,7 @@ const testIGatsbyImageData = {
   height: 100,
   images: {
     fallback: {
-      src: 'test',
+      src: '../../assets/images/office/sy-office-01.jpg',
       srcSet: 'test',
       sizes: 'test',
     },
@@ -127,9 +127,6 @@ const testContentfulPage = {
   title: testTitle,
   seoMetaText: testDescription,
   slug: 'test-page-slug',
-  description: {
-    description: testDescription,
-  },
   content: {
     raw: JSON.stringify({
       nodeType: 'document',
@@ -245,6 +242,12 @@ describe('Accessibility Tests', () => {
   });
 
   it("The career page shouldn't have a11y problems", async () => {
+    window.ResizeObserver = jest.fn().mockImplementation(() => ({
+      observe: jest.fn(),
+      unobserve: jest.fn(),
+      disconnect: jest.fn(),
+    }));
+
     const { container } = render(
       <CareerPage
         positions={testContentfulVacancyList}
