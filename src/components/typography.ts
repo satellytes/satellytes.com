@@ -123,10 +123,15 @@ export const TextStyles = {
 
     letter-spacing: -0.01em;
   `,
-  // MenuLaguage has the exact same configuration as MenuMeta
+  // MenuLanguage has the exact same configuration as MenuMeta
   menuMeta: css`
     font-weight: bold;
     font-size: 14px;
+    line-height: 110%;
+  `,
+  menuMetaMobile: css`
+    font-weight: bold;
+    font-size: 18px;
     line-height: 110%;
   `,
   label: css`
