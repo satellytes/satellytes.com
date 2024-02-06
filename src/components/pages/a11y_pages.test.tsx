@@ -93,11 +93,13 @@ const testOfficeImage = {
   },
 };
 const testOfficeImages = { [testOfficeImage.relativePath]: testOfficeImage };
-const testContentfulSectionHeader = {
-  kicker: 'Test kicker',
-  headline: 'Test headline',
-  illustration: ILLUSTRATION_NAMES[0],
-  slug: 'test-slug',
+const testContentfulSectionHeader = (id: number) => {
+  return {
+    kicker: 'Test kicker ' + id,
+    headline: 'Test headline' + id,
+    illustration: ILLUSTRATION_NAMES[0],
+    slug: 'test-slug',
+  };
 };
 const testContentfulTeaserItem = {
   description: {
@@ -200,10 +202,10 @@ describe('Accessibility Tests', () => {
         positions={testContentfulVacancyList}
         posts={testBlogPostTeaserList}
         officeImages={testOfficeImages}
-        serviceHeader={testContentfulSectionHeader}
+        serviceHeader={testContentfulSectionHeader(1)}
         serviceTeaser={testContentfulTeaserItemList}
-        careerHeader={testContentfulSectionHeader}
-        blogHeader={testContentfulSectionHeader}
+        careerHeader={testContentfulSectionHeader(2)}
+        blogHeader={testContentfulSectionHeader(3)}
       />,
     );
     const results = await axe(container, {
@@ -221,11 +223,11 @@ describe('Accessibility Tests', () => {
       <Service
         page={testContentfulPage}
         leadbox={testLeadbox}
-        servicesHeader={testContentfulSectionHeader}
-        platformsHeader={testContentfulSectionHeader}
-        productsServicesHeader={testContentfulSectionHeader}
-        consultingHeader={testContentfulSectionHeader}
-        productDesignHeader={testContentfulSectionHeader}
+        servicesHeader={testContentfulSectionHeader(1)}
+        platformsHeader={testContentfulSectionHeader(2)}
+        productsServicesHeader={testContentfulSectionHeader(3)}
+        consultingHeader={testContentfulSectionHeader(4)}
+        productDesignHeader={testContentfulSectionHeader(5)}
         platformsList={testContentfulList}
         productsServicesList={testContentfulList}
         consultingList={testContentfulList}
@@ -255,11 +257,11 @@ describe('Accessibility Tests', () => {
         officeImages={testOfficeImages}
         page={testContentfulPage}
         leadbox={testLeadbox}
-        introductionHeader={testContentfulSectionHeader}
-        applicationProcessHeader={testContentfulSectionHeader}
-        openingsHeader={testContentfulSectionHeader}
-        cultureHeader={testContentfulSectionHeader}
-        perksHeader={testContentfulSectionHeader}
+        introductionHeader={testContentfulSectionHeader(1)}
+        applicationProcessHeader={testContentfulSectionHeader(2)}
+        openingsHeader={testContentfulSectionHeader(3)}
+        cultureHeader={testContentfulSectionHeader(4)}
+        perksHeader={testContentfulSectionHeader(5)}
         cultureTeaser={testContentfulTeaserItemList}
         perksTeaser={testContentfulTeaserItemList}
         applicationProcessAccordion={testContentfulAccordionItemList}
@@ -283,8 +285,8 @@ describe('Accessibility Tests', () => {
         team={testSyTeamMemberList}
         heroImageData={testIGatsbyImageData}
         impressions={testContentfulAboutUsImpressionList}
-        sectionHeaderImpressions={testContentfulSectionHeader}
-        sectionHeaderTeam={testContentfulSectionHeader}
+        sectionHeaderImpressions={testContentfulSectionHeader(1)}
+        sectionHeaderTeam={testContentfulSectionHeader(2)}
         leadbox={testLeadbox}
       />,
     );
@@ -302,7 +304,7 @@ describe('Accessibility Tests', () => {
     const { container } = render(
       <BlogPage
         posts={testBlogPostTeaserList}
-        header={testContentfulSectionHeader}
+        header={testContentfulSectionHeader(1)}
         pagination={{
           numberOfPages: 1,
           currentPage: 1,
