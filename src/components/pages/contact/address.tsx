@@ -29,7 +29,10 @@ export const Address = () => {
       80331 München
       <br />
       <br />
-      <StyledLink to="https://g.page/satellytes?share">
+      <StyledLink
+        to="https://g.page/satellytes?share"
+        aria-label={'Open Satellytes Google Maps profile in a new tab'}
+      >
         Google Maps &gt;
       </StyledLink>
     </SectionHeader>

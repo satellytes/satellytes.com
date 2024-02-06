@@ -14,7 +14,7 @@ export const HoneypotField = (
   const { field } = useController(props);
   return (
     <HoneypotFieldContainer>
-      <label>
+      <label aria-hidden={true}>
         {props.label}
         <input
           id={props.name}

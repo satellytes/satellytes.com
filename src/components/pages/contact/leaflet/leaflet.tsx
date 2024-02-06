@@ -130,7 +130,7 @@ export const Leaflet = () => {
         Lost?{' '}
         <span
           role={'img'}
-          aria-label={"see no evil monkey emoji, because it's embarassing"}
+          aria-label={"see no evil monkey emoji, because it's embarrassing"}
         >
           🙈
         </span>{' '}

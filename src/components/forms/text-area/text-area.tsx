@@ -29,7 +29,10 @@ const StyledTextArea = styled.textarea<{ $hasError?: boolean }>`
 `;
 
 export const TextArea = (
-  props: UseControllerProps<FormDataProps> & { label: string },
+  props: UseControllerProps<FormDataProps> & {
+    label: string;
+    placeholder?: string;
+  },
 ) => {
   const { field, fieldState, formState } = useController(props);
   const errorMessage = fieldState?.error?.message;
@@ -50,6 +53,7 @@ export const TextArea = (
         value={(field?.value as string) || ''}
         name={props.name}
         id={props.name}
+        placeholder={props.placeholder}
       />
 
       {errorMessage && <StyledErrorMessage>{errorMessage}</StyledErrorMessage>}
