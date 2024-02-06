@@ -95,18 +95,18 @@ const IllustrationStyled = styled(Illustration)`
 `;
 
 const ContactHeadline = styled.h3`
-  ${TextStyles.textS}
+  ${TextStyles.textR}
   margin: 0;
   font-weight: bold;
 `;
 
 const ContactTitle = styled.p`
-  ${TextStyles.textXS}
+  ${TextStyles.textS}
   margin: 0;
 `;
 
 const ContactMail = styled(Link)`
-  ${TextStyles.textS}
+  ${TextStyles.textR}
   color: ${theme.palette.text.link.default};
 
   &:hover {
