@@ -5,8 +5,8 @@ on:
   workflow_dispatch:
 
   # every monday at 02:00
-  schedule:
-    - cron: '0 2 * * 1'
+  # schedule:
+  #  - cron: '0 2 * * 1'
 
 jobs:
   dependency-update:
