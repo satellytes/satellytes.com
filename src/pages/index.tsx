@@ -11,7 +11,7 @@ import {
 } from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { StructuredOrganizationData } from '../components/pages/landingpage/structured-organization-data';
-import LeadfeederScript from '../components/layout/leadfeeder-script'; // Import the new component
+import LeadinfoScript from '../components/layout/leadinfo-script'; // Import the new component
 
 export interface OfficeImage {
   relativePath: string;
@@ -73,7 +73,7 @@ export const Head = ({ data, location }: PageProps<IndexPageQueryProps>) => {
         locales={data.locales}
       />
       <StructuredOrganizationData />
-      <LeadfeederScript />
+      <LeadinfoScript />
     </>
   );
 };
