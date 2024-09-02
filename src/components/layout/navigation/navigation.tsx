@@ -237,21 +237,25 @@ const Navigation: React.FC<NavigationProps> = ({
       </SocialLinks>
       <LegalLinks>
         <li>
-          <LegalLink
-            to="/imprint"
-            $isSelected={activePath.includes('/imprint')}
-          >
-            {t('navigation.imprint')}
-          </LegalLink>
+          <nav>
+            <LegalLink
+              to="/imprint"
+              $isSelected={activePath.includes('/imprint')}
+            >
+              {t('navigation.imprint')}
+            </LegalLink>
+          </nav>
         </li>
         <li aria-hidden={true}>·</li>
         <li>
-          <LegalLink
-            to="/data-privacy"
-            $isSelected={activePath.includes('/data-privacy')}
-          >
-            {t('navigation.data-privacy')}
-          </LegalLink>
+          <nav>
+            <LegalLink
+              to="/data-privacy"
+              $isSelected={activePath.includes('/data-privacy')}
+            >
+              {t('navigation.data-privacy')}
+            </LegalLink>
+          </nav>
         </li>
       </LegalLinks>
       <SiteNavigation>
