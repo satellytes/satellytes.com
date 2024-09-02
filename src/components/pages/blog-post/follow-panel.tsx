@@ -42,7 +42,7 @@ const SocialLinks = styled.div`
   }
 `;
 
-const SocialLinkItem = styled.li`
+const SocialLinkItem = styled.div`
   display: inline-block;
   margin-right: 16px;
   cursor: pointer;
