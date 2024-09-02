@@ -8,7 +8,6 @@ const BreadcrumbContainer = styled.ol`
   list-style: none;
   display: flex;
   flex-wrap: nowrap;
-  overflow: hidden;
   padding: 0;
 `;
 
@@ -45,7 +44,7 @@ export const Breadcrumb = ({
   breadcrumbEntries,
 }: BreadcrumbProps): JSX.Element => {
   return (
-    <BreadcrumbContainer>
+    <BreadcrumbContainer aria-label="breadcumbs" role="navigation">
       {breadcrumbEntries.map((breadcrumbEntry) => {
         return (
           <BreadcrumbListItem key={breadcrumbEntry.label}>
