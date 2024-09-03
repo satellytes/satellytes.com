@@ -29,7 +29,7 @@ const PaginationDropdown = styled(Dropdown)`
   cursor: pointer;
 `;
 
-const StyledLink = styled.a<{ $disabled: boolean }>`
+const StyledLink = styled.button<{ $disabled: boolean }>`
   padding: 8px;
   border: none;
   background: linear-gradient(275.41deg, #543fd7 0%, #2756fd 100%);
@@ -74,7 +74,7 @@ export const Pagination = ({
       )} ${index + 1}`}</DropdownOption>
     ));
 
-  const handleDropdownChange = (selectedOption) => {
+  const handleDropdownChange = (selectedOption: string) => {
     const selectedPage = parseInt(selectedOption);
     onDropdownSelect?.(selectedPage);
   };
