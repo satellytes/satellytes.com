@@ -65,7 +65,11 @@ interface NavigationFlyoutProp {
 export const NavigationFlyout: React.FC<NavigationFlyoutProp> = (props) => {
   return (
     <>
-      <FullscreenOverlay $visible={props.visible} onClick={props.onClick}>
+      <FullscreenOverlay
+        $visible={props.visible}
+        onClick={props.onClick}
+        aria-hidden={!props.visible}
+      >
         <ScrollContainer>
           <FullHeightNavigation
             translation={props.translation}
@@ -77,6 +81,7 @@ export const NavigationFlyout: React.FC<NavigationFlyoutProp> = (props) => {
       <BackgroundOverlay
         $visible={props.visible}
         onClick={() => props.setIsNavigationVisible(false)}
+        aria-hidden={!props.visible}
       />
     </>
   );
