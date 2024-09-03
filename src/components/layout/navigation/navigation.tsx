@@ -84,6 +84,8 @@ const SocialLink = styled.a`
   svg {
     vertical-align: middle;
   }
+
+  display: inline-block;
 `;
 
 const LegalLink = styled(Link)<{ $isSelected: boolean }>`
