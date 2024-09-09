@@ -192,6 +192,10 @@ const IconWrapper = styled.div`
   }
 `;
 
+const NavLandmark = styled.nav`
+  display: contents;
+`;
+
 interface NavigationProps {
   showLanguageSwitch?: boolean;
   translation?: string;
@@ -209,55 +213,55 @@ const Navigation: React.FC<NavigationProps> = ({
 
   return (
     <NavigationBackground>
-      <SocialLinks>
-        <SocialLinkItem>
-          <SocialLink
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.linkedin.com/company/satellytes"
-            title="Open Satellytes LinkedIn profile in a new tab"
-          >
-            <IconWrapper>
-              <Icon show="linked_in" />
-            </IconWrapper>
-          </SocialLink>
-        </SocialLinkItem>
-        <SocialLinkItem>
-          <SocialLink
-            title="Open Satellytes GitHub profile in a new tab"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://github.com/satellytes"
-          >
-            <IconWrapper>
-              <Icon show="github" />
-            </IconWrapper>
-          </SocialLink>
-        </SocialLinkItem>
-      </SocialLinks>
-      <LegalLinks>
-        <li>
-          <nav>
+      <NavLandmark aria-label={t('navigation.social-links')}>
+        <SocialLinks>
+          <SocialLinkItem>
+            <SocialLink
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.linkedin.com/company/satellytes"
+              title="Open Satellytes LinkedIn profile in a new tab"
+            >
+              <IconWrapper>
+                <Icon show="linked_in" />
+              </IconWrapper>
+            </SocialLink>
+          </SocialLinkItem>
+          <SocialLinkItem>
+            <SocialLink
+              title="Open Satellytes GitHub profile in a new tab"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/satellytes"
+            >
+              <IconWrapper>
+                <Icon show="github" />
+              </IconWrapper>
+            </SocialLink>
+          </SocialLinkItem>
+        </SocialLinks>
+      </NavLandmark>
+      <NavLandmark aria-label={t('navigation.legal-links')}>
+        <LegalLinks>
+          <li>
             <LegalLink
               to="/imprint"
               $isSelected={activePath.includes('/imprint')}
             >
               {t('navigation.imprint')}
             </LegalLink>
-          </nav>
-        </li>
-        <li aria-hidden={true}>·</li>
-        <li>
-          <nav>
+          </li>
+          <li aria-hidden={true}>·</li>
+          <li>
             <LegalLink
               to="/data-privacy"
               $isSelected={activePath.includes('/data-privacy')}
             >
               {t('navigation.data-privacy')}
             </LegalLink>
-          </nav>
-        </li>
-      </LegalLinks>
+          </li>
+        </LegalLinks>
+      </NavLandmark>
       <SiteNavigation>
         {showLanguageSwitch && (
           <LanguageSwitchWrapper
