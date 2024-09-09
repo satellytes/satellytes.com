@@ -44,14 +44,16 @@ export const Breadcrumb = ({
   breadcrumbEntries,
 }: BreadcrumbProps): JSX.Element => {
   return (
-    <BreadcrumbContainer aria-label="breadcumbs" role="navigation">
-      {breadcrumbEntries.map((breadcrumbEntry) => {
-        return (
-          <BreadcrumbListItem key={breadcrumbEntry.label}>
-            <Link to={breadcrumbEntry.pathname}>{breadcrumbEntry.label}</Link>
-          </BreadcrumbListItem>
-        );
-      })}
-    </BreadcrumbContainer>
+    <nav aria-label="breadcrumbs">
+      <BreadcrumbContainer aria-label="breadcumbs">
+        {breadcrumbEntries.map((breadcrumbEntry) => {
+          return (
+            <BreadcrumbListItem key={breadcrumbEntry.label}>
+              <Link to={breadcrumbEntry.pathname}>{breadcrumbEntry.label}</Link>
+            </BreadcrumbListItem>
+          );
+        })}
+      </BreadcrumbContainer>
+    </nav>
   );
 };
