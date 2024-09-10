@@ -81,7 +81,6 @@ export const NavigationFlyout: React.FC<NavigationFlyoutProp> = (props) => {
       <BackgroundOverlay
         $visible={props.visible}
         onClick={() => props.setIsNavigationVisible(false)}
-        aria-hidden={!props.visible}
       />
     </>
   );
