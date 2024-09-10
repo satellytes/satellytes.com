@@ -6,6 +6,7 @@ import { TextStyles } from '../../typography';
 import { Icon } from '../../ui/icon/icon';
 import { StyledErrorMessage } from '../text-input/text-input';
 import { up } from '../../support/breakpoint';
+import { FormErrors } from '../../pages/career-details/new-career-form/career-form';
 
 const CheckboxLabel = styled.label`
   display: inline-flex;
@@ -66,7 +67,10 @@ const CheckboxLabelTextWrapper = ({ label, required }) => {
 };
 
 export const Checkbox = (
-  props: UseControllerProps<any> & { label: string | JSX.Element },
+  props: UseControllerProps<any> & {
+    label: string | JSX.Element;
+    errors: FormErrors;
+  },
 ) => {
   const { field, fieldState, formState } = useController(props);
   const errorMessage = fieldState?.error?.message;
@@ -89,6 +93,7 @@ export const Checkbox = (
           {...props}
           id={props.name}
           onChange={handleChange}
+          aria-invalid={Boolean(props.errors?.[props.name])}
         />
         <StyledCheckbox checked={checked} hasError={Boolean(fieldState?.error)}>
           <Icon show="checkmark_bold" />

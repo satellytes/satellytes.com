@@ -211,7 +211,10 @@ export const FileDropper = ({
         $hasErrors={Boolean(errors?.documents)}
       >
         <StyledLabel>
-          <input {...getInputProps({ ...register(name) })} />
+          <input
+            {...getInputProps({ ...register(name) })}
+            aria-invalid={Boolean(errors?.documents)}
+          />
         </StyledLabel>
         {!hasFiles && illustration && (
           <Illustration show={illustration} size={IllustrationSize.NORMAL} />
