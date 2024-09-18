@@ -5,10 +5,11 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { TextStyles } from '../../typography';
 import { Dropdown, DropdownOption } from '../../forms/dropdown/dropdown';
 import { Icon } from '../icon/icon';
+import { Link } from 'gatsby';
 
 interface PaginationProps {
-  onPreviousClick: () => any;
-  onNextClick: () => any;
+  nextLink: string;
+  previousLink: string;
   onDropdownSelect?: (selectedPage: number) => any;
   amountOfPages: number;
   currentPage: number;
@@ -29,7 +30,7 @@ const PaginationDropdown = styled(Dropdown)`
   cursor: pointer;
 `;
 
-const StyledLink = styled.a<{ $disabled: boolean }>`
+const StyledLink = styled(Link)<{ $disabled: boolean }>`
   padding: 8px;
   border: none;
   background: linear-gradient(275.41deg, #543fd7 0%, #2756fd 100%);
@@ -57,8 +58,8 @@ const PageText = styled.span`
 `;
 
 export const Pagination = ({
-  onPreviousClick,
-  onNextClick,
+  nextLink,
+  previousLink,
   amountOfPages,
   onDropdownSelect,
   currentPage,
@@ -74,7 +75,7 @@ export const Pagination = ({
       )} ${index + 1}`}</DropdownOption>
     ));
 
-  const handleDropdownChange = (selectedOption) => {
+  const handleDropdownChange = (selectedOption: string) => {
     const selectedPage = parseInt(selectedOption);
     onDropdownSelect?.(selectedPage);
   };
@@ -82,7 +83,7 @@ export const Pagination = ({
   return (
     <PaginationContainer className={className}>
       <StyledLink
-        onClick={onPreviousClick}
+        to={previousLink}
         aria-hidden={currentPage === 1}
         $disabled={currentPage === 1}
         aria-label="Previous Page"
@@ -102,7 +103,7 @@ export const Pagination = ({
         <PageText>{`Page ${currentPage} of ${amountOfPages}`}</PageText>
       )}
       <StyledLink
-        onClick={onNextClick}
+        to={nextLink}
         $disabled={currentPage === amountOfPages}
         aria-hidden={currentPage === amountOfPages}
         aria-label="Next Page"
