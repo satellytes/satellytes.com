@@ -86,7 +86,7 @@ export const Checkbox = (
         <HiddenCheckbox
           aria-required={true}
           aria-describedby={errorMessage && `${props.name}-error`}
-          aria-labelledby={`${props.name}-label`}
+          aria-labelledby={props.label && `${props.name}-label`}
           aria-invalid={Boolean(errorMessage)}
           disabled={formState.isSubmitting}
           {...field}
