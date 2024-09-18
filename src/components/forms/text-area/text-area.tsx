@@ -47,6 +47,7 @@ export const TextArea = (
       )}
       <StyledTextArea
         aria-required={true}
+        aria-describedby={errorMessage && `${props.name}-error`}
         aria-invalid={Boolean(errorMessage)}
         $hasError={Boolean(errorMessage)}
         disabled={formState.isSubmitting}
@@ -57,7 +58,11 @@ export const TextArea = (
         placeholder={props.placeholder}
       />
 
-      {errorMessage && <StyledErrorMessage>{errorMessage}</StyledErrorMessage>}
+      {errorMessage && (
+        <StyledErrorMessage id={`${props.name}-error`}>
+          {errorMessage}
+        </StyledErrorMessage>
+      )}
     </div>
   );
 };

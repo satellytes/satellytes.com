@@ -214,6 +214,7 @@ export const FileDropper = ({
           <input
             {...getInputProps({ ...register(name) })}
             aria-invalid={Boolean(errors?.documents)}
+            aria-describedby={errors?.documents && `${name}-error`}
           />
         </StyledLabel>
         {!hasFiles && illustration && (
@@ -238,7 +239,7 @@ export const FileDropper = ({
       ))}
 
       {errors?.documents && (
-        <StyledErrorMessage>
+        <StyledErrorMessage id={`${name}-error`}>
           {errors.documents.message as unknown as string}
         </StyledErrorMessage>
       )}
