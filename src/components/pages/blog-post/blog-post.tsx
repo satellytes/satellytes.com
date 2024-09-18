@@ -12,6 +12,7 @@ import FollowPanel from './follow-panel';
 import SharePanel from './share-panel';
 import { ContentfulRichText } from '../../content/rich-text/rich-text';
 import { TextStyles } from '../../typography';
+import { YouTubeConsentProvider } from '../../../context/youtube-consent-context';
 
 interface BlogPostPageProps {
   blogPost: BlogArticleQueryData;
@@ -63,41 +64,43 @@ export const BlogPostPage = ({
   const heroByLine = `${formattedDate} • ${readingTime} • ${byLine}`;
 
   return (
-    <Layout
-      transparentHeader
-      siteTitleUrl={'/blog'}
-      light
-      contentAs={'article'}
-      hero={
-        <BlogHero
-          attribution={blogPost.heroImage}
-          image={blogPost.heroImage.fullImage}
-          naturalHeight={blogPost.heroImage.naturalHeight}
-        />
-      }
-      leadbox={leadbox}
-      showLanguageSwitch={false}
-      breadcrumb={breadcrumb}
-    >
-      <BlogHeader headline={blogPost.title} byline={heroByLine}>
-        {blogPost.introRichText && (
-          <RichTextContainer>
-            <ContentfulRichText
-              data={{
-                ...blogPost.introRichText,
-                references: [],
-              }}
-            />
-          </RichTextContainer>
-        )}
-      </BlogHeader>
+    <YouTubeConsentProvider>
+      <Layout
+        transparentHeader
+        siteTitleUrl={'/blog'}
+        light
+        contentAs={'article'}
+        hero={
+          <BlogHero
+            attribution={blogPost.heroImage}
+            image={blogPost.heroImage.fullImage}
+            naturalHeight={blogPost.heroImage.naturalHeight}
+          />
+        }
+        leadbox={leadbox}
+        showLanguageSwitch={false}
+        breadcrumb={breadcrumb}
+      >
+        <BlogHeader headline={blogPost.title} byline={heroByLine}>
+          {blogPost.introRichText && (
+            <RichTextContainer>
+              <ContentfulRichText
+                data={{
+                  ...blogPost.introRichText,
+                  references: [],
+                }}
+              />
+            </RichTextContainer>
+          )}
+        </BlogHeader>
 
-      <ContentfulRichText data={blogPost.content} />
+        <ContentfulRichText data={blogPost.content} />
 
-      <PanelContainer>
-        <SharePanel title={blogPost.title} />
-        <FollowPanel />
-      </PanelContainer>
-    </Layout>
+        <PanelContainer>
+          <SharePanel title={blogPost.title} />
+          <FollowPanel />
+        </PanelContainer>
+      </Layout>
+    </YouTubeConsentProvider>
   );
 };
