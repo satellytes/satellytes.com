@@ -25,7 +25,7 @@ const CheckboxLabelText = styled.span`
 
 const StyledCheckbox = styled.input.attrs({
   type: 'checkbox',
-})<{ hasError: boolean }>`
+})<{ $hasError: boolean }>`
   display: inline-block;
   width: 24px;
   height: 24px;
@@ -38,8 +38,8 @@ const StyledCheckbox = styled.input.attrs({
   -moz-appearance: none;
   cursor: pointer;
 
-  ${({ hasError }) =>
-    hasError &&
+  ${({ $hasError }) =>
+    $hasError &&
     css`
       border: 2px solid ${theme.palette.text.errorMessage};
     `}
@@ -77,7 +77,7 @@ export const Checkbox = (
           {...field}
           {...props}
           id={props.name}
-          hasError={Boolean(fieldState?.error)}
+          $hasError={Boolean(fieldState?.error)}
         />
         {field.value && <StyledIcon show="checkmark_bold" />}
         {props.label && (
