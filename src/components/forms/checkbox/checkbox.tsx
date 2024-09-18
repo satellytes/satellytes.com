@@ -75,7 +75,6 @@ export const Checkbox = (
           aria-required={true}
           disabled={formState.isSubmitting}
           {...field}
-          {...props}
           id={props.name}
           $hasError={Boolean(fieldState?.error)}
         />
