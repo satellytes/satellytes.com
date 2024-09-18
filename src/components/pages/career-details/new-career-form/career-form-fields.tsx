@@ -53,7 +53,7 @@ export const CareerDetailsFileText = () => {
   );
 };
 
-export const CareerDetailsCheckbox = ({ control, errors }) => {
+export const CareerDetailsCheckbox = ({ control }) => {
   const { t } = useTranslation();
 
   return (
@@ -70,7 +70,6 @@ export const CareerDetailsCheckbox = ({ control, errors }) => {
       }
       control={control}
       rules={{ required: t('career.error.approval') }}
-      errors={errors}
     />
   );
 };

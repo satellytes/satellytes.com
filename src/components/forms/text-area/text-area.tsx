@@ -2,11 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { TextStyles } from '../../typography';
 import { theme } from '../../layout/theme';
-import {
-  FieldErrors,
-  useController,
-  UseControllerProps,
-} from 'react-hook-form';
+import { useController, UseControllerProps } from 'react-hook-form';
 import { StyledErrorMessage, Label } from '../text-input/text-input';
 import { FormDataProps } from '../../pages/career-details/new-career-form/career-form';
 
@@ -36,7 +32,6 @@ export const TextArea = (
   props: UseControllerProps<FormDataProps> & {
     label: string;
     placeholder?: string;
-    errors?: FieldErrors;
   },
 ) => {
   const { field, fieldState, formState } = useController(props);
@@ -52,7 +47,7 @@ export const TextArea = (
       )}
       <StyledTextArea
         aria-required={true}
-        aria-invalid={Boolean(props.errors?.[props.name])}
+        aria-invalid={Boolean(errorMessage)}
         $hasError={Boolean(errorMessage)}
         disabled={formState.isSubmitting}
         {...field}

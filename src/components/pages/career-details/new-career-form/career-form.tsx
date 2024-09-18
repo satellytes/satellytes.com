@@ -120,14 +120,12 @@ export const Form = (props: CareerFormProps) => {
             label={t('career.first-name')}
             control={control}
             rules={{ required: t('career.error.first-name') }}
-            errors={errors}
           />
           <TextInput
             name="last_name"
             label={t('career.last-name')}
             control={control}
             rules={{ required: t('career.error.last-name') }}
-            errors={errors}
           />
 
           <TextInput
@@ -141,25 +139,21 @@ export const Form = (props: CareerFormProps) => {
                 message: t('career.error.email-undefined'),
               },
             }}
-            errors={errors}
           />
           <TextInput
             name="location"
             label={t('career.location')}
             control={control}
-            errors={errors}
           />
           <TextInput
             name="available_from"
             label={t('career.available-from')}
             control={control}
-            errors={errors}
           />
           <TextInput
             name="salary_expectations"
             label={t('career.salary-expectations')}
             control={control}
-            errors={errors}
           />
         </FormLayout>
         <TextArea
@@ -173,7 +167,6 @@ export const Form = (props: CareerFormProps) => {
               message: t('career.error.cover-letter-length'),
             },
           }}
-          errors={errors}
         />
 
         <br />
@@ -186,7 +179,7 @@ export const Form = (props: CareerFormProps) => {
         />
         <CareerDetailsFileText />
         <br />
-        <CareerDetailsCheckbox control={control} errors={errors} />
+        <CareerDetailsCheckbox control={control} />
         <br />
         <CareerDetailsSubmitButton
           errors={errors}
