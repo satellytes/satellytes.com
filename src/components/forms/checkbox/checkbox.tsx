@@ -49,7 +49,7 @@ const StyledCheckbox = styled.input.attrs({
   }
 `;
 
-const StyledIcon = styled(Icon)`
+const StyledIcon = styled(Icon).attrs({ ariaHidden: true })`
   position: absolute;
   pointer-events: none;
 `;
