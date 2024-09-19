@@ -1,4 +1,3 @@
-import { navigate } from 'gatsby';
 import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import styled from 'styled-components';
@@ -40,10 +39,8 @@ export const BlogPage = ({ posts, header, pagination }: BlogPageProps) => {
     { pathname: '/blog', label: t('navigation.blog') },
   ];
 
-  const onNextClick = () => navigate(`/blog/page/${currentPage + 1}`);
-  const onPreviousClick = () => {
-    navigate(`/blog/${currentPage !== 2 ? `page/${currentPage - 1}` : ''}`);
-  };
+  const nextLink = `/blog/page/${currentPage + 1}`;
+  const previousLink = `/blog/${currentPage !== 2 ? `page/${currentPage - 1}` : ''}`;
 
   return (
     <Layout light showLanguageSwitch={false} breadcrumb={BREADCRUMB}>
@@ -61,8 +58,8 @@ export const BlogPage = ({ posts, header, pagination }: BlogPageProps) => {
             <StyledPagination
               amountOfPages={numberOfPages}
               currentPage={currentPage}
-              onPreviousClick={onPreviousClick}
-              onNextClick={onNextClick}
+              nextLink={nextLink}
+              previousLink={previousLink}
             />
           </>
         )}

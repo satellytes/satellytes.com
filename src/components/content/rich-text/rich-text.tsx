@@ -76,13 +76,19 @@ export const ContentfulRichText = ({ data }: ContentfulRichTextProps) => {
       [MARKS.CODE]: (text) => <code className="language-text">{text}</code>,
     },
     renderNode: {
-      [INLINES.HYPERLINK]: (props, children) =>
-        customComponents.a({
+      [INLINES.HYPERLINK]: (props, children) => {
+        const uri = props.data.uri;
+        if (uri.startsWith('youtube://')) {
+          const videoId = uri.split('//')[1];
+          return customComponents.youtube({ videoId });
+        }
+        return customComponents.a({
           children,
-          href: props.data.uri,
+          href: uri,
           target: '_blank',
           rel: 'nofollow noopener noreferrer',
-        }),
+        });
+      },
       [INLINES.EMBEDDED_ENTRY]: (node) => {
         const { __typename } = node.data.target;
         switch (__typename) {

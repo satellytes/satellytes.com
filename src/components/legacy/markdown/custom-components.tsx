@@ -8,6 +8,7 @@ import { TextStyles } from '../../typography';
 import { Quote } from '../../ui/quote/quote';
 import { Link } from '../links/links';
 import { WithAnchorHOC } from '../../layout/with-anchor-hoc';
+import { YoutubeEmbed } from './youtube-embed';
 
 /**
  * Override markdown generated html content with custom React components (for us mostly to pass in custom styling)
@@ -234,6 +235,9 @@ const customSatellytesComponents = {
   figcaption(props) {
     const { children, ...rest } = props;
     return <Figcaption {...rest}>{children}</Figcaption>;
+  },
+  youtube(props) {
+    return <YoutubeEmbed {...props} />;
   },
 };
 
