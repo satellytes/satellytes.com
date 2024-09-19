@@ -87,11 +87,11 @@ pre[class*="language-"].line-numbers .line-numbers-rows {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: slategray;
+  color: #547290;
 }
 
 .token.punctuation {
-  color: #999;
+  color: #95625E;
 }
 
 .token.namespace {
@@ -114,7 +114,7 @@ pre[class*="language-"].line-numbers .line-numbers-rows {
 .token.char,
 .token.builtin,
 .token.inserted {
-  color: #690;
+  color: #657546;
 }
 
 .token.operator,
@@ -130,18 +130,18 @@ pre[class*="language-"].line-numbers .line-numbers-rows {
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  color: #07a;
+  color: #05789E;
 }
 
 .token.function,
 .token.class-name {
-  color: #DD4A68;
+  color: #dd102d;
 }
 
 .token.regex,
 .token.important,
 .token.variable {
-  color: #e90;
+  color: #9F6105;
 }
 
 .token.important,
