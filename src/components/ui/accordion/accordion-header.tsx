@@ -60,7 +60,7 @@ export const AccordionHeader = (props: AccordionHeaderProps) => {
   return (
     <AccordionButton>
       <AccordionTitleHeadline>{props.children}</AccordionTitleHeadline>
-      <StyledIcon open={isExpanded} show="chevron_up" />
+      <StyledIcon open={isExpanded} show="chevron_up" ariaHidden={true} />
     </AccordionButton>
   );
 };
