@@ -8,7 +8,9 @@ const BreadcrumbContainer = styled.ol`
   list-style: none;
   display: flex;
   flex-wrap: nowrap;
-  padding: 0;
+  overflow-x: clip;
+  padding-left: 4px;
+  transform: translateX(-4px);
 `;
 
 const BreadcrumbListItem = styled.li`
@@ -31,6 +33,10 @@ const BreadcrumbListItem = styled.li`
   }
 `;
 
+const BreadcrumbLink = styled(Link)`
+  display: inline-block;
+`;
+
 interface BreadcrumbProps {
   breadcrumbEntries: BreadcrumbEntry[];
 }
@@ -49,7 +55,9 @@ export const Breadcrumb = ({
         {breadcrumbEntries.map((breadcrumbEntry) => {
           return (
             <BreadcrumbListItem key={breadcrumbEntry.label}>
-              <Link to={breadcrumbEntry.pathname}>{breadcrumbEntry.label}</Link>
+              <BreadcrumbLink to={breadcrumbEntry.pathname}>
+                {breadcrumbEntry.label}
+              </BreadcrumbLink>
             </BreadcrumbListItem>
           );
         })}
