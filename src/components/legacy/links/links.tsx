@@ -31,6 +31,7 @@ export const Link = (props: LinkProps): JSX.Element => {
         target="_blank"
         rel="noopener"
         className={className}
+        aria-label={`${children} (opens in a new tab)`}
         {...rest}
       >
         {children}
