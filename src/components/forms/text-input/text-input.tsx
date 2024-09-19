@@ -65,7 +65,7 @@ export const TextInput = (
       )}
       <Input
         type={'text'}
-        aria-required={true}
+        aria-required={Boolean(props.rules?.required)}
         aria-describedby={errorMessage && `${props.name}-error`}
         aria-invalid={Boolean(errorMessage)}
         $hasError={Boolean(errorMessage)}

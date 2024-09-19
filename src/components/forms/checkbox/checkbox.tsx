@@ -84,7 +84,7 @@ export const Checkbox = (
     <div>
       <CheckboxLabel>
         <HiddenCheckbox
-          aria-required={true}
+          aria-required={Boolean(props.rules?.required)}
           aria-describedby={errorMessage && `${props.name}-error`}
           aria-labelledby={props.label && `${props.name}-label`}
           aria-invalid={Boolean(errorMessage)}
