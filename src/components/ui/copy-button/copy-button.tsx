@@ -74,7 +74,11 @@ export const Copy = ({
           </CheckmarkContainer>
         </>
       ) : (
-        <IconButton icon={'clone'} onClick={handleClick}></IconButton>
+        <IconButton
+          icon={'clone'}
+          onClick={handleClick}
+          aria-label={t('blog.copy')}
+        ></IconButton>
       )}
     </CopyWrapper>
   );

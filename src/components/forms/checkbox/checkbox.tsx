@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useController, UseControllerProps } from 'react-hook-form';
 import styled, { css } from 'styled-components';
 import { theme } from '../../layout/theme';
@@ -23,16 +23,23 @@ const CheckboxLabelText = styled.span`
   }
 `;
 
-const StyledCheckbox = styled.div<{ checked: boolean; hasError: boolean }>`
+const StyledCheckbox = styled.input.attrs({
+  type: 'checkbox',
+})<{ $hasError: boolean }>`
   display: inline-block;
   width: 24px;
   height: 24px;
-
+  margin: 0;
+  padding: 0;
   background: #f7f8fa;
   border-radius: 4px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
 
-  ${({ hasError }) =>
-    hasError &&
+  ${({ $hasError }) =>
+    $hasError &&
     css`
       border: 2px solid ${theme.palette.text.errorMessage};
     `}
@@ -40,21 +47,11 @@ const StyledCheckbox = styled.div<{ checked: boolean; hasError: boolean }>`
   &:hover {
     border: 1px solid ${theme.palette.text.default};
   }
-
-  svg {
-    visibility: ${({ checked }) => (checked ? 'visible' : 'hidden')};
-  }
 `;
 
-const HiddenCheckbox = styled.input.attrs({
-  type: 'checkbox',
-})`
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  overflow: hidden;
+const StyledIcon = styled(Icon)`
   position: absolute;
-  visibility: hidden;
+  pointer-events: none;
 `;
 
 const CheckboxLabelTextWrapper = ({ label, required }) => {
@@ -70,29 +67,18 @@ export const Checkbox = (
 ) => {
   const { field, fieldState, formState } = useController(props);
   const errorMessage = fieldState?.error?.message;
-  const [checked, setChecked] = useState(field?.value || false);
-
-  const handleChange = () => {
-    const newChecked = !checked;
-    setChecked(newChecked);
-    field.onChange(newChecked);
-  };
 
   return (
-    <div>
+    <div style={{ position: 'relative' }}>
       <CheckboxLabel>
-        <HiddenCheckbox
+        <StyledCheckbox
           aria-required={true}
           disabled={formState.isSubmitting}
           {...field}
-          value={field?.value || false}
-          {...props}
           id={props.name}
-          onChange={handleChange}
+          $hasError={Boolean(fieldState?.error)}
         />
-        <StyledCheckbox checked={checked} hasError={Boolean(fieldState?.error)}>
-          <Icon show="checkmark_bold" />
-        </StyledCheckbox>
+        {field.value && <StyledIcon show="checkmark_bold" />}
         {props.label && (
           <CheckboxLabelTextWrapper
             label={props.label}

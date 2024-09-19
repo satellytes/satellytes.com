@@ -43,6 +43,7 @@ interface IconProps {
    * Let's support styled components and friends by accepting this property
    */
   className?: string;
+  ariaHidden?: boolean;
 }
 
 const transformSizeToDimension = (size: IconSize) => {
@@ -67,6 +68,7 @@ export const Icon = (props: IconProps) => {
     <IconContainer
       size={props.size ?? DEFAULT_ICON_SIZE}
       className={props.className}
+      aria-hidden={props.ariaHidden}
     >
       <IconSvg />
     </IconContainer>

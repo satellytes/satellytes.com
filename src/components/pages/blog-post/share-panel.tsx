@@ -64,27 +64,48 @@ export const SharePanel: React.FC<ShareProps> = ({ title }) => {
       <SharePanelText>{t('blog.share')}</SharePanelText>
       <SocialLinks>
         <SocialLinkItem data-testid="facebook">
-          <FacebookShareButton url={shareUrl}>
+          <FacebookShareButton
+            url={shareUrl}
+            aria-label={t('blog.share.facebook')}
+          >
             <Icon show="facebook" />
           </FacebookShareButton>
         </SocialLinkItem>
         <SocialLinkItem data-testid="whatsapp">
-          <WhatsappShareButton url={shareUrl} title={title}>
+          <WhatsappShareButton
+            url={shareUrl}
+            title={title}
+            aria-label={t('blog.share.whatsapp')}
+          >
             <Icon show="whatsapp" />
           </WhatsappShareButton>
         </SocialLinkItem>
         <SocialLinkItem data-testid="email">
-          <EmailShareButton url={shareUrl} subject={title} body="body">
+          <EmailShareButton
+            url={shareUrl}
+            subject={title}
+            body="body"
+            aria-label={t('blog.share.email')}
+          >
             <Icon show="email" />
           </EmailShareButton>
         </SocialLinkItem>
         <SocialLinkItem data-testid="twitter">
-          <TwitterShareButton url={shareUrl} title={title} hashtags={hashtags}>
+          <TwitterShareButton
+            url={shareUrl}
+            title={title}
+            hashtags={hashtags}
+            aria-label={t('blog.share.twitter')}
+          >
             <Icon show="twitter" />
           </TwitterShareButton>
         </SocialLinkItem>
         <SocialLinkItem data-testid="linkedin">
-          <LinkedinShareButton title={title} url={shareUrl}>
+          <LinkedinShareButton
+            title={title}
+            url={shareUrl}
+            aria-label={t('blog.share.linkedin')}
+          >
             <Icon show="linked_in" />
           </LinkedinShareButton>
         </SocialLinkItem>
