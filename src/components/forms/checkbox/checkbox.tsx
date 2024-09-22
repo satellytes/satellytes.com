@@ -49,14 +49,14 @@ const StyledCheckbox = styled.input.attrs({
   }
 `;
 
-const StyledIcon = styled(Icon)`
+const StyledIcon = styled(Icon).attrs({ ariaHidden: true })`
   position: absolute;
   pointer-events: none;
 `;
 
-const CheckboxLabelTextWrapper = ({ label, required }) => {
+const CheckboxLabelTextWrapper = ({ label, required, id }) => {
   return (
-    <CheckboxLabelText>
+    <CheckboxLabelText id={id}>
       {label} {required && <span aria-hidden={true}>*</span>}
     </CheckboxLabelText>
   );
@@ -72,7 +72,10 @@ export const Checkbox = (
     <div style={{ position: 'relative' }}>
       <CheckboxLabel>
         <StyledCheckbox
-          aria-required={true}
+          aria-required={Boolean(props.rules?.required)}
+          aria-describedby={errorMessage && `${props.name}-error`}
+          aria-labelledby={props.label && `${props.name}-label`}
+          aria-invalid={Boolean(errorMessage)}
           disabled={formState.isSubmitting}
           {...field}
           id={props.name}
@@ -81,12 +84,17 @@ export const Checkbox = (
         {field.value && <StyledIcon show="checkmark_bold" />}
         {props.label && (
           <CheckboxLabelTextWrapper
+            id={`${props.name}-label`}
             label={props.label}
             required={props.rules?.required}
           />
         )}
       </CheckboxLabel>
-      {errorMessage && <StyledErrorMessage>{errorMessage}</StyledErrorMessage>}
+      {errorMessage && (
+        <StyledErrorMessage id={`${props.name}-error`}>
+          {errorMessage}
+        </StyledErrorMessage>
+      )}
     </div>
   );
 };

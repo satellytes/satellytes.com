@@ -65,7 +65,9 @@ export const TextInput = (
       )}
       <Input
         type={'text'}
-        aria-required={true}
+        aria-required={Boolean(props.rules?.required)}
+        aria-describedby={errorMessage && `${props.name}-error`}
+        aria-invalid={Boolean(errorMessage)}
         $hasError={Boolean(errorMessage)}
         disabled={formState.isSubmitting}
         id={props.name}
@@ -73,7 +75,11 @@ export const TextInput = (
         {...field}
         value={(field?.value as string) || ''}
       />
-      {errorMessage && <StyledErrorMessage>{errorMessage}</StyledErrorMessage>}
+      {errorMessage && (
+        <StyledErrorMessage id={`${props.name}-error`}>
+          {errorMessage}
+        </StyledErrorMessage>
+      )}
     </div>
   );
 };
