@@ -1,5 +1,5 @@
 import { graphql, PageProps } from 'gatsby';
-import React from 'react';
+import React, { useState } from 'react';
 import SEO, { LocalesQueryProps } from '../components/layout/seo';
 import { Landingpage } from '../components/pages/landingpage/landingpage';
 import {
@@ -11,7 +11,8 @@ import {
 } from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { StructuredOrganizationData } from '../components/pages/landingpage/structured-organization-data';
-import LeadinfoScript from '../components/layout/leadinfo-script'; // Import the new component
+import CookieConsent from 'react-cookie-consent';
+import LeadinfoScript from '../components/layout/leadinfo-script';
 
 export interface OfficeImage {
   relativePath: string;
@@ -46,18 +47,40 @@ const IndexPage = ({ data }: PageProps<IndexPageQueryProps>) => {
     return memo;
   }, {});
 
+  const [cookiesEnabled, setCookiesEnabled] = useState(false);
+
+  const handleAcceptCookies = () => {
+    const expires = new Date();
+    expires.setFullYear(expires.getFullYear() + 2);
+    document.cookie = `_li_id=unique_id; expires=${expires.toUTCString()}; path=/`;
+    document.cookie = '_li_ses=; max-age=0; path=/';
+    setCookiesEnabled(true);
+  };
+
   return (
-    <Landingpage
-      title={data.contentfulPage.title}
-      description={data.contentfulPage.description?.description as string}
-      officeImages={officeImages}
-      positions={jobPositions}
-      posts={blogPosts}
-      serviceHeader={data.servicesHeader}
-      serviceTeaser={data.servicesTeaser.gridItems}
-      careerHeader={data.careerHeader}
-      blogHeader={data.blogHeader}
-    />
+    <>
+      <Landingpage
+        title={data.contentfulPage.title}
+        description={data.contentfulPage.description?.description as string}
+        officeImages={officeImages}
+        positions={jobPositions}
+        posts={blogPosts}
+        serviceHeader={data.servicesHeader}
+        serviceTeaser={data.servicesTeaser.gridItems}
+        careerHeader={data.careerHeader}
+        blogHeader={data.blogHeader}
+      />
+
+      <CookieConsent
+        location="bottom"
+        buttonText="I agree"
+        onAccept={handleAcceptCookies}
+      >
+        We use cookies to enhance your browsing experience and analyze site
+        traffic. Learn more in our privacy policy.
+      </CookieConsent>
+      <LeadinfoScript enableCookies={cookiesEnabled} />
+    </>
   );
 };
 
@@ -73,7 +96,6 @@ export const Head = ({ data, location }: PageProps<IndexPageQueryProps>) => {
         locales={data.locales}
       />
       <StructuredOrganizationData />
-      <LeadinfoScript />
     </>
   );
 };
