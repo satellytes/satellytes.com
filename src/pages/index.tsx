@@ -11,7 +11,6 @@ import {
 } from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { StructuredOrganizationData } from '../components/pages/landingpage/structured-organization-data';
-import LeadinfoScript from '../components/layout/leadinfo-script'; // Import the new component
 
 export interface OfficeImage {
   relativePath: string;
@@ -73,7 +72,43 @@ export const Head = ({ data, location }: PageProps<IndexPageQueryProps>) => {
         locales={data.locales}
       />
       <StructuredOrganizationData />
-      <LeadinfoScript />
+      <script
+        id="Cookiebot"
+        src="https://consent.cookiebot.com/uc.js"
+        data-cbid="422b90b3-20ea-49d6-9658-9c722c5b4d97"
+        data-blockingmode="auto"
+        type="text/javascript"
+      />
+      <script
+        type="text/javascript"
+        dangerouslySetInnerHTML={{
+          __html: `
+            function loadLeadinfo() {
+              (function(l,e,a,d,i,n,f,o){
+                if(!l[i]){
+                  l.GlobalLeadinfoNamespace=l.GlobalLeadinfoNamespace||[];
+                  l.GlobalLeadinfoNamespace.push(i);
+                  l[i]=function(){(l[i].q=l[i].q||[]).push(arguments)};
+                  l[i].t=l[i].t||n;
+                  l[i].q=l[i].q||[];
+                  o=e.createElement(a);
+                  f=e.getElementsByTagName(a)[0];
+                  o.async=1;
+                  o.src=d;
+                  f.parentNode.insertBefore(o,f);
+                }
+              }(window,document,'script','https://cdn.leadinfo.eu/ping.js','leadinfo','LI-66D184CC97CFD'));
+            }
+            
+            window.addEventListener("CookieConsentDeclaration", function() {
+              var consent = window.CookieConsent.getConsent();
+              if (consent && consent.marketing) {
+                loadLeadinfo();
+              }
+            });
+          `,
+        }}
+      />
     </>
   );
 };
