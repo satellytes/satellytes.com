@@ -95,6 +95,7 @@
     "stylis": "^4.3.1",
     "unified": "^10.1.1",
     "util": "^0.12.5",
+    "vanilla-cookieconsent": "3.0.1",
     "webpack": "^5.84.1",
     "what-input": "^5.2.12"
   },
