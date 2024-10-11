@@ -3040,6 +3040,13 @@
   resolved "https://registry.yarnpkg.com/@types/cookie/-/cookie-0.4.1.tgz#bfd02c1f2224567676c1545199f87c3a861d878d"
   integrity sha512-XW/Aa8APYr6jSVVA1y/DEIZX0/GMKLEVekNG727R8cs56ahETkRAy/3DR7+fJyh7oUgGwNQaRfXCun0+KbWY7Q==
 
+"@types/cookieconsent@^3.1.3":
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/@types/cookieconsent/-/cookieconsent-3.1.3.tgz#9c4db317fba44eec32f9d8858b8860b31eff2262"
+  integrity sha512-fWEDj/bX5V1uXtpINNXkDspgWp8756PgaDaFzOYrFox2dRadkOCSMnUnUIBmYI+oYO2w4x6DhS8NICD8oVO/FA==
+  dependencies:
+    csstype "^3.0.2"
+
 "@types/cors@^2.8.12":
   version "2.8.17"
   resolved "https://registry.yarnpkg.com/@types/cors/-/cors-2.8.17.tgz#5d718a5e494a8166f569d986794e49c48b216b2b"
