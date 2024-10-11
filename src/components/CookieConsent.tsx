@@ -9,10 +9,6 @@ const CookieConsentComponentV3 = () => {
   useEffect(() => {
     CookieConsent.run({
       categories: {
-        necessary: {
-          enabled: true,
-          readOnly: true,
-        },
         analytics: {
           enabled: false,
         },
@@ -32,16 +28,10 @@ const CookieConsentComponentV3 = () => {
             preferencesModal: {
               title: 'Manage Cookie Preferences',
               acceptAllBtn: 'Accept all',
-              acceptNecessaryBtn: 'Accept necessary only',
+              acceptNecessaryBtn: 'Reject all',
               savePreferencesBtn: 'Save preferences',
               closeIconLabel: 'Close',
               sections: [
-                {
-                  title: 'Strictly Necessary Cookies',
-                  description:
-                    'These cookies are essential for website functionality and cannot be disabled.',
-                  linkedCategory: 'necessary',
-                },
                 {
                   title: 'Analytics Cookies',
                   description:
@@ -54,9 +44,6 @@ const CookieConsentComponentV3 = () => {
         },
       },
       onFirstConsent: (param) => {
-        handleConsent(param.cookie.categories);
-      },
-      onConsentChange: (param) => {
         handleConsent(param.cookie.categories);
       },
     });
