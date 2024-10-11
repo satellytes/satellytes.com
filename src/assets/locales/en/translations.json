@@ -88,5 +88,19 @@
   "blog.copied": "Copied",
   "blog.follow": "Subscribe to blog",
   "blog.pagination": "Page",
-  "image.attribution": "Photo by "
+  "image.attribution": "Photo by ",
+  "consentModal.title": "We use cookies",
+  "consentModal.description": "This website uses cookies to ensure the best user experience.",
+  "consentModal.acceptAllBtn": "Accept all",
+  "consentModal.acceptNecessaryBtn": "Reject all",
+  "consentModal.showPreferencesBtn": "Manage preferences",
+  "preferencesModal.title": "Manage Cookie Preferences",
+  "preferencesModal.acceptAllBtn": "Accept all",
+  "preferencesModal.acceptNecessaryBtn": "Accept necessary only",
+  "preferencesModal.savePreferencesBtn": "Save preferences",
+  "preferencesModal.closeIconLabel": "Close",
+  "preferencesModal.sections.necessary.title": "Strictly Necessary Cookies",
+  "preferencesModal.sections.necessary.description": "These cookies are essential for website functionality and cannot be disabled.",
+  "preferencesModal.sections.analytics.title": "Analytics Cookies",
+  "preferencesModal.sections.analytics.description": "We use analytics cookies to analyze website usage and improve our services."
 }

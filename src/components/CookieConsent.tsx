@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import 'vanilla-cookieconsent/dist/cookieconsent.css';
 import * as CookieConsent from 'vanilla-cookieconsent';
 import LeadinfoScript from '../components/layout/leadinfo-script';
+import { useTranslation } from 'react-i18next';
 
 const CookieConsentComponentV3 = () => {
+  const { t } = useTranslation();
   const [analyticsEnabled, setAnalyticsEnabled] = useState(false);
 
   useEffect(() => {
@@ -18,24 +20,31 @@ const CookieConsentComponentV3 = () => {
         translations: {
           en: {
             consentModal: {
-              title: 'We use cookies',
-              description:
-                'This website uses cookies to ensure the best user experience.',
-              acceptAllBtn: 'Accept all',
-              acceptNecessaryBtn: 'Reject all',
-              showPreferencesBtn: 'Manage preferences',
+              title: t('consentModal.title'),
+              description: t('consentModal.description'),
+              acceptAllBtn: t('consentModal.acceptAllBtn'),
+              acceptNecessaryBtn: t('consentModal.acceptNecessaryBtn'),
+              showPreferencesBtn: t('consentModal.showPreferencesBtn'),
             },
             preferencesModal: {
-              title: 'Manage Cookie Preferences',
-              acceptAllBtn: 'Accept all',
-              acceptNecessaryBtn: 'Reject all',
-              savePreferencesBtn: 'Save preferences',
-              closeIconLabel: 'Close',
+              title: t('preferencesModal.title'),
+              acceptAllBtn: t('preferencesModal.acceptAllBtn'),
+              acceptNecessaryBtn: t('preferencesModal.acceptNecessaryBtn'),
+              savePreferencesBtn: t('preferencesModal.savePreferencesBtn'),
+              closeIconLabel: t('preferencesModal.closeIconLabel'),
               sections: [
                 {
-                  title: 'Analytics Cookies',
-                  description:
-                    'We use analytics cookies to analyze website usage and improve our services.',
+                  title: t('preferencesModal.sections.necessary.title'),
+                  description: t(
+                    'preferencesModal.sections.necessary.description',
+                  ),
+                  linkedCategory: 'necessary',
+                },
+                {
+                  title: t('preferencesModal.sections.analytics.title'),
+                  description: t(
+                    'preferencesModal.sections.analytics.description',
+                  ),
                   linkedCategory: 'analytics',
                 },
               ],
@@ -47,7 +56,7 @@ const CookieConsentComponentV3 = () => {
         handleConsent(param.cookie.categories);
       },
     });
-  }, []);
+  }, [t]);
 
   const handleConsent = (categories) => {
     const isAnalyticsAccepted = categories.includes('analytics');

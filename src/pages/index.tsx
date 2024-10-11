@@ -47,17 +47,20 @@ const IndexPage = ({ data }: PageProps<IndexPageQueryProps>) => {
   }, {});
 
   return (
-    <Landingpage
-      title={data.contentfulPage.title}
-      description={data.contentfulPage.description?.description as string}
-      officeImages={officeImages}
-      positions={jobPositions}
-      posts={blogPosts}
-      serviceHeader={data.servicesHeader}
-      serviceTeaser={data.servicesTeaser.gridItems}
-      careerHeader={data.careerHeader}
-      blogHeader={data.blogHeader}
-    />
+    <>
+      <Landingpage
+        title={data.contentfulPage.title}
+        description={data.contentfulPage.description?.description as string}
+        officeImages={officeImages}
+        positions={jobPositions}
+        posts={blogPosts}
+        serviceHeader={data.servicesHeader}
+        serviceTeaser={data.servicesTeaser.gridItems}
+        careerHeader={data.careerHeader}
+        blogHeader={data.blogHeader}
+      />
+      <CookieConsentComponentV3 />
+    </>
   );
 };
 
@@ -72,7 +75,6 @@ export const Head = ({ data, location }: PageProps<IndexPageQueryProps>) => {
         rssLink
         locales={data.locales}
       />
-      <CookieConsentComponentV3 />
       <StructuredOrganizationData />
     </>
   );
