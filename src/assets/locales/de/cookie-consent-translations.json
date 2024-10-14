@@ -1,20 +1,36 @@
 {
   "consentModal": {
-    "title": "Wir verwenden Cookies",
-    "description": "Diese Website verwendet Cookies, um die beste Benutzererfahrung zu gewährleisten.",
-    "acceptAllBtn": "Alle akzeptieren",
-    "showPreferencesBtn": "Präferenzen verwalten"
+    "title": "Ihre Datenschutzoptionen",
+    "description": "Wir verwenden Cookies, um Ihre Erfahrung zu verbessern, den Datenverkehr zu analysieren und personalisierte Inhalte bereitzustellen. Sie können entweder alle Cookies akzeptieren oder Ihre Präferenzen für verschiedene Kategorien verwalten.",
+    "acceptAllBtn": "Alle Cookies akzeptieren",
+    "acceptNecessaryBtn": "Alle ablehnen",
+    "showPreferencesBtn": "Cookie-Präferenzen verwalten"
   },
   "preferencesModal": {
-    "title": "Cookie-Präferenzen verwalten",
-    "acceptAllBtn": "Alle akzeptieren",
+    "title": "Verwalten Sie Ihre Cookie-Präferenzen",
+    "acceptAllBtn": "Alle Cookies akzeptieren",
+    "acceptNecessaryBtn": "Alle ablehnen",
     "savePreferencesBtn": "Präferenzen speichern",
     "closeIconLabel": "Schließen",
     "sections": [
       {
-        "title": "Analytische Cookies",
-        "description": "Wir verwenden analytische Cookies, um die Nutzung der Website zu analysieren und unsere Dienste zu verbessern.",
-        "linkedCategory": "analytik"
+        "title": "Cookie-Nutzung",
+        "description": "Unsere Website verwendet Cookies, um wesentliche Funktionen sicherzustellen, Ihr Surferlebnis zu verbessern und personalisierte Inhalte bereitzustellen. Einige Cookies sind erforderlich, während andere uns helfen, unsere Dienste zu verbessern."
+      },
+      {
+        "title": "Leistungs- und Analyse-Cookies",
+        "description": "Diese Cookies helfen uns, zu analysieren, wie Besucher mit unserer Website interagieren, und ermöglichen es uns, die Leistung zu messen und zu verbessern. Sie sammeln Informationen in anonymer Form.",
+        "linkedCategory": "analytics"
+      },
+      {
+        "title": "Funktionalitäts-Cookies",
+        "description": "Diese Cookies ermöglichen es der Website, sich an Ihre Entscheidungen zu erinnern, wie z.B. Ihren Benutzernamen, die Sprache oder die Region, in der Sie sich befinden, und bieten erweiterte, persönlichere Funktionen.",
+        "linkedCategory": "functionality"
+      },
+      {
+        "title": "Zielgerichtete und Werbe-Cookies",
+        "description": "Diese Cookies können von unseren Werbepartnern über unsere Website gesetzt werden. Sie können verwendet werden, um ein Profil Ihrer Interessen zu erstellen und Ihnen relevante Werbung auf anderen Websites anzuzeigen. Sie speichern keine direkten personenbezogenen Daten, basieren jedoch auf der eindeutigen Identifizierung Ihres Browsers und Ihres Internetgeräts.",
+        "linkedCategory": "advertising"
       }
     ]
   }
