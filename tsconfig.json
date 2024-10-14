@@ -11,7 +11,9 @@
     "noUnusedLocals": false,
     "skipLibCheck": true,
     "allowJs": true,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true
   },
   "exclude": ["node_modules", "public", ".cache"]
 }

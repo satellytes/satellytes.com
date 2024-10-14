@@ -3,9 +3,10 @@ import 'vanilla-cookieconsent/dist/cookieconsent.css';
 import * as CookieConsent from 'vanilla-cookieconsent';
 import LeadinfoScript from '../components/layout/leadinfo-script';
 import { useTranslation } from 'react-i18next';
+import { getCookieConsentLocale } from '../components/i18n-helpers';
 
 const CookieConsentComponentV3 = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [analyticsEnabled, setAnalyticsEnabled] = useState(false);
 
   useEffect(() => {
@@ -18,38 +19,8 @@ const CookieConsentComponentV3 = () => {
       language: {
         default: 'en',
         translations: {
-          en: {
-            consentModal: {
-              title: t('consentModal.title'),
-              description: t('consentModal.description'),
-              acceptAllBtn: t('consentModal.acceptAllBtn'),
-              acceptNecessaryBtn: t('consentModal.acceptNecessaryBtn'),
-              showPreferencesBtn: t('consentModal.showPreferencesBtn'),
-            },
-            preferencesModal: {
-              title: t('preferencesModal.title'),
-              acceptAllBtn: t('preferencesModal.acceptAllBtn'),
-              acceptNecessaryBtn: t('preferencesModal.acceptNecessaryBtn'),
-              savePreferencesBtn: t('preferencesModal.savePreferencesBtn'),
-              closeIconLabel: t('preferencesModal.closeIconLabel'),
-              sections: [
-                {
-                  title: t('preferencesModal.sections.necessary.title'),
-                  description: t(
-                    'preferencesModal.sections.necessary.description',
-                  ),
-                  linkedCategory: 'necessary',
-                },
-                {
-                  title: t('preferencesModal.sections.analytics.title'),
-                  description: t(
-                    'preferencesModal.sections.analytics.description',
-                  ),
-                  linkedCategory: 'analytics',
-                },
-              ],
-            },
-          },
+          en: getCookieConsentLocale(i18n.language),
+          de: getCookieConsentLocale(i18n.language),
         },
       },
       onFirstConsent: (param) => {

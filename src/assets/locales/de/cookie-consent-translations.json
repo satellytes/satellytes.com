@@ -1,0 +1,21 @@
+{
+  "consentModal": {
+    "title": "Wir verwenden Cookies",
+    "description": "Diese Website verwendet Cookies, um die beste Benutzererfahrung zu gewährleisten.",
+    "acceptAllBtn": "Alle akzeptieren",
+    "showPreferencesBtn": "Präferenzen verwalten"
+  },
+  "preferencesModal": {
+    "title": "Cookie-Präferenzen verwalten",
+    "acceptAllBtn": "Alle akzeptieren",
+    "savePreferencesBtn": "Präferenzen speichern",
+    "closeIconLabel": "Schließen",
+    "sections": [
+      {
+        "title": "Analytische Cookies",
+        "description": "Wir verwenden analytische Cookies, um die Nutzung der Website zu analysieren und unsere Dienste zu verbessern.",
+        "linkedCategory": "analytik"
+      }
+    ]
+  }
+}

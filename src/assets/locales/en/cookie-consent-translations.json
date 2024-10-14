@@ -1,0 +1,21 @@
+{
+  "consentModal": {
+    "title": "We use Cookies",
+    "description": "This website uses cookies to ensure the best user experience.",
+    "acceptAllBtn": "Accept All",
+    "showPreferencesBtn": "Manage Preferences"
+  },
+  "preferencesModal": {
+    "title": "Manage Cookie Preferences",
+    "acceptAllBtn": "Accept All",
+    "savePreferencesBtn": "Save Preferences",
+    "closeIconLabel": "Close",
+    "sections": [
+      {
+        "title": "Analytical Cookies",
+        "description": "We use analytical cookies to analyze the usage of the website and improve our services.",
+        "linkedCategory": "analytics"
+      }
+    ]
+  }
+}
