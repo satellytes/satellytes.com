@@ -1,36 +1,52 @@
 {
   "consentModal": {
-    "title": "Ihre Datenschutzoptionen",
-    "description": "Wir verwenden Cookies, um Ihre Erfahrung zu verbessern, den Datenverkehr zu analysieren und personalisierte Inhalte bereitzustellen. Sie können entweder alle Cookies akzeptieren oder Ihre Präferenzen für verschiedene Kategorien verwalten.",
+    "title": "Ihre Datenschutzeinstellungen",
+    "description": "Wir verwenden Cookies, um Ihr Erlebnis zu verbessern, den Verkehr zu analysieren und personalisierte Inhalte bereitzustellen. Sie können entweder alle Cookies akzeptieren oder Ihre Präferenzen für verschiedene Kategorien verwalten.",
     "acceptAllBtn": "Alle Cookies akzeptieren",
     "acceptNecessaryBtn": "Alle ablehnen",
-    "showPreferencesBtn": "Cookie-Präferenzen verwalten"
+    "showPreferencesBtn": "Cookie-Einstellungen verwalten"
   },
   "preferencesModal": {
-    "title": "Verwalten Sie Ihre Cookie-Präferenzen",
+    "title": "Verwalten Sie Ihre Cookie-Einstellungen",
     "acceptAllBtn": "Alle Cookies akzeptieren",
     "acceptNecessaryBtn": "Alle ablehnen",
-    "savePreferencesBtn": "Präferenzen speichern",
+    "savePreferencesBtn": "Einstellungen speichern",
     "closeIconLabel": "Schließen",
     "sections": [
       {
-        "title": "Cookie-Nutzung",
-        "description": "Unsere Website verwendet Cookies, um wesentliche Funktionen sicherzustellen, Ihr Surferlebnis zu verbessern und personalisierte Inhalte bereitzustellen. Einige Cookies sind erforderlich, während andere uns helfen, unsere Dienste zu verbessern."
+        "title": "Verwendung von Cookies",
+        "description": "Unsere Website verwendet Cookies, um die wesentliche Funktionalität zu gewährleisten, Ihr Browser-Erlebnis zu verbessern und personalisierte Inhalte bereitzustellen. Einige Cookies sind erforderlich, während andere uns helfen, unsere Dienstleistungen zu verbessern."
       },
       {
         "title": "Leistungs- und Analyse-Cookies",
-        "description": "Diese Cookies helfen uns, zu analysieren, wie Besucher mit unserer Website interagieren, und ermöglichen es uns, die Leistung zu messen und zu verbessern. Sie sammeln Informationen in anonymer Form.",
-        "linkedCategory": "analytics"
+        "description": "Diese Cookies helfen uns, zu analysieren, wie Besucher mit unserer Website interagieren, und ermöglichen es uns, die Leistung zu messen und zu verbessern. Sie sammeln Informationen in anonymisierter Form.",
+        "linkedCategory": "analytics",
+        "cookieTable": {
+          "headers": {
+            "name": "Name",
+            "domain": "Dienst",
+            "description": "Beschreibung",
+            "expiration": "Ablauf"
+          },
+          "body": [
+            {
+              "name": "_li_id",
+              "domain": "Leadinfo.com",
+              "description": "Datenschutzerklärung von <a href=\"https://www.leadinfo.com/en/privacy/\">Leadinfo</a>",
+              "expiration": "_li_id wird für zwei Jahre gespeichert"
+            },
+            {
+              "name": "_li_ses",
+              "domain": "Leadinfo.com",
+              "description": "Datenschutzerklärung von <a href=\"https://www.leadinfo.com/en/privacy/\">Leadinfo</a>",
+              "expiration": "_li_ses wird nur für die aktuelle Sitzung verwendet"
+            }
+          ]
+        }
       },
       {
-        "title": "Funktionalitäts-Cookies",
-        "description": "Diese Cookies ermöglichen es der Website, sich an Ihre Entscheidungen zu erinnern, wie z.B. Ihren Benutzernamen, die Sprache oder die Region, in der Sie sich befinden, und bieten erweiterte, persönlichere Funktionen.",
-        "linkedCategory": "functionality"
-      },
-      {
-        "title": "Zielgerichtete und Werbe-Cookies",
-        "description": "Diese Cookies können von unseren Werbepartnern über unsere Website gesetzt werden. Sie können verwendet werden, um ein Profil Ihrer Interessen zu erstellen und Ihnen relevante Werbung auf anderen Websites anzuzeigen. Sie speichern keine direkten personenbezogenen Daten, basieren jedoch auf der eindeutigen Identifizierung Ihres Browsers und Ihres Internetgeräts.",
-        "linkedCategory": "advertising"
+        "title": "Weitere Informationen",
+        "description": "Bei Fragen zu unserer Cookie-Richtlinie und Ihren Wahlmöglichkeiten kontaktieren Sie uns bitte über <a class=\"cc-link\" href=\"contact/\">kontaktieren Sie uns</a>."
       }
     ]
   }
