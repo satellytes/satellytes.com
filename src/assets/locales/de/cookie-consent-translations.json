@@ -1,25 +1,25 @@
 {
   "consentModal": {
-    "title": "Ihre Datenschutzeinstellungen",
-    "description": "Wir verwenden Cookies, um Ihr Erlebnis zu verbessern, den Verkehr zu analysieren und personalisierte Inhalte bereitzustellen. Sie können entweder alle Cookies akzeptieren oder Ihre Präferenzen für verschiedene Kategorien verwalten.",
+    "title": "Ihre Datenschutzoptionen",
+    "description": "Wir verwenden Cookies, um Ihre Erfahrung zu verbessern, den Datenverkehr zu analysieren und personalisierte Inhalte bereitzustellen. Sie können entweder alle Cookies akzeptieren oder Ihre Präferenzen für verschiedene Kategorien verwalten.",
     "acceptAllBtn": "Alle Cookies akzeptieren",
-    "acceptNecessaryBtn": "Alle ablehnen",
-    "showPreferencesBtn": "Cookie-Einstellungen verwalten"
+    "acceptNecessaryBtn": "Nur notwendige Cookies akzeptieren",
+    "showPreferencesBtn": "Cookie-Präferenzen verwalten"
   },
   "preferencesModal": {
-    "title": "Verwalten Sie Ihre Cookie-Einstellungen",
+    "title": "Verwalten Sie Ihre Cookie-Präferenzen",
     "acceptAllBtn": "Alle Cookies akzeptieren",
-    "acceptNecessaryBtn": "Alle ablehnen",
-    "savePreferencesBtn": "Einstellungen speichern",
+    "acceptNecessaryBtn": "Nur notwendige Cookies akzeptieren",
+    "savePreferencesBtn": "Präferenzen speichern",
     "closeIconLabel": "Schließen",
     "sections": [
       {
         "title": "Verwendung von Cookies",
-        "description": "Unsere Website verwendet Cookies, um die wesentliche Funktionalität zu gewährleisten, Ihr Browser-Erlebnis zu verbessern und personalisierte Inhalte bereitzustellen. Einige Cookies sind erforderlich, während andere uns helfen, unsere Dienstleistungen zu verbessern."
+        "description": "Unsere Website verwendet Cookies, um wesentliche Funktionen sicherzustellen, Ihr Surferlebnis zu verbessern und personalisierte Inhalte bereitzustellen. Einige Cookies sind erforderlich, während andere uns helfen, unsere Dienste zu verbessern."
       },
       {
         "title": "Leistungs- und Analyse-Cookies",
-        "description": "Diese Cookies helfen uns, zu analysieren, wie Besucher mit unserer Website interagieren, und ermöglichen es uns, die Leistung zu messen und zu verbessern. Sie sammeln Informationen in anonymisierter Form.",
+        "description": "Diese Cookies helfen uns zu analysieren, wie Besucher mit unserer Website interagieren, und ermöglichen es uns, die Leistung zu messen und zu verbessern. Sie sammeln Informationen in anonymer Form.",
         "linkedCategory": "analytics",
         "cookieTable": {
           "headers": {
@@ -32,13 +32,13 @@
             {
               "name": "_li_id",
               "domain": "Leadinfo.com",
-              "description": "Datenschutzerklärung von <a href=\"https://www.leadinfo.com/en/privacy/\">Leadinfo</a>",
+              "description": "Leadinfo platziert zwei Cookies, die Satellytes nur Einblicke in das Verhalten auf der Website geben. Diese Cookies werden nicht mit anderen Parteien geteilt. Datenschutzerklärung von <a href=\"https://www.leadinfo.com/de/rechtliches/datenschutz/\">Leadinfo</a>",
               "expiration": "_li_id wird für zwei Jahre gespeichert"
             },
             {
               "name": "_li_ses",
               "domain": "Leadinfo.com",
-              "description": "Datenschutzerklärung von <a href=\"https://www.leadinfo.com/en/privacy/\">Leadinfo</a>",
+              "description": "Leadinfo platziert zwei Cookies, die Satellytes nur Einblicke in das Verhalten auf der Website geben. Diese Cookies werden nicht mit anderen Parteien geteilt. Datenschutzerklärung von <a href=\"https://www.leadinfo.com/de/rechtliches/datenschutz/\">Leadinfo</a>",
               "expiration": "_li_ses wird nur für die aktuelle Sitzung verwendet"
             }
           ]
@@ -46,7 +46,7 @@
       },
       {
         "title": "Weitere Informationen",
-        "description": "Bei Fragen zu unserer Cookie-Richtlinie und Ihren Wahlmöglichkeiten kontaktieren Sie uns bitte über <a class=\"cc-link\" href=\"contact/\">kontaktieren Sie uns</a>."
+        "description": "Bei Fragen zu unserer Cookie-Richtlinie oder Ihren Auswahlmöglichkeiten wenden Sie sich bitte an <a class=\"cc-link\" href=\"contact/\">uns</a>."
       }
     ]
   }

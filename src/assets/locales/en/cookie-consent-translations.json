@@ -32,13 +32,13 @@
             {
               "name": "_li_id",
               "domain": "Leadinfo.com",
-              "description": "Privacy statement of <a href=\"https://www.leadinfo.com/en/privacy/\">Leadinfo</a>",
+              "description": "Leadinfo places two cookies that only provides Satellytes insights into the behaviour on the website. These cookies will not be shared with other parties. Privacy statement of <a href=\"https://www.leadinfo.com/en/privacy/\">Leadinfo</a>",
               "expiration": "_li_id will be saved for two years"
             },
             {
               "name": "_li_ses",
               "domain": "Leadinfo.com",
-              "description": "Privacy statement of <a href=\"https://www.leadinfo.com/en/privacy/\">Leadinfo</a>",
+              "description": "Leadinfo places two cookies that only provides Satellytes insights into the behaviour on the website. These cookies will not be shared with other parties. Privacy statement of <a href=\"https://www.leadinfo.com/en/privacy/\">Leadinfo</a>",
               "expiration": "_li_ses is only used for the current session"
             }
           ]
