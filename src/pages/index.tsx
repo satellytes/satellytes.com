@@ -59,7 +59,6 @@ const IndexPage = ({ data }: PageProps<IndexPageQueryProps>) => {
         careerHeader={data.careerHeader}
         blogHeader={data.blogHeader}
       />
-      <CookieConsentComponentV3 />
     </>
   );
 };
@@ -76,6 +75,7 @@ export const Head = ({ data, location }: PageProps<IndexPageQueryProps>) => {
         locales={data.locales}
       />
       <StructuredOrganizationData />
+      <CookieConsentComponentV3 />
     </>
   );
 };
