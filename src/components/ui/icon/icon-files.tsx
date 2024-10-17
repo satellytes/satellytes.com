@@ -16,7 +16,6 @@ export { ReactComponent as arrow_right } from '../../../assets/icons/arrow-right
 export { ReactComponent as caret_squared_down } from '../../../assets/icons/caret-squared-down-24.svg';
 export { ReactComponent as caret_squared_up } from '../../../assets/icons/caret-squared-up-24.svg';
 export { ReactComponent as email } from '../../../assets/icons/email-24.svg';
-export { ReactComponent as facebook } from '../../../assets/icons/facebook-24.svg';
 export { ReactComponent as linked_in } from '../../../assets/icons/linked-in-24.svg';
 export { ReactComponent as rss } from '../../../assets/icons/rss-24.svg';
 export { ReactComponent as x } from '../../../assets/icons/x-24.svg';
