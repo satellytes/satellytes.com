@@ -97,7 +97,7 @@ export const SharePanel: React.FC<ShareProps> = ({ title }) => {
             hashtags={hashtags}
             aria-label={t('blog.share.x')}
           >
-            <Icon show="twitter" /> {/* TODO: Replace with X icon */}
+            <Icon show="x" />
           </TwitterShareButton>
         </SocialLinkItem>
         <SocialLinkItem data-testid="linkedin">
