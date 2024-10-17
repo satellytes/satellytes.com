@@ -81,7 +81,7 @@
     "react-i18next": "^14.0.0",
     "react-leaflet": "^4.2.1",
     "react-medium-image-zoom": "^5.1.10",
-    "react-share": "^5.0.3",
+    "react-share": "^5.1.0",
     "react-spring": "^9.7.3",
     "react-use": "^17.4.3",
     "rehype-react": "^7.2.0",

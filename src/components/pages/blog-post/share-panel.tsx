@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
   EmailShareButton,
-  FacebookShareButton,
   LinkedinShareButton,
   TwitterShareButton,
   WhatsappShareButton,
@@ -63,14 +62,6 @@ export const SharePanel: React.FC<ShareProps> = ({ title }) => {
     <SharePanelContainer>
       <SharePanelText>{t('blog.share')}</SharePanelText>
       <SocialLinks>
-        <SocialLinkItem data-testid="facebook">
-          <FacebookShareButton
-            url={shareUrl}
-            aria-label={t('blog.share.facebook')}
-          >
-            <Icon show="facebook" />
-          </FacebookShareButton>
-        </SocialLinkItem>
         <SocialLinkItem data-testid="whatsapp">
           <WhatsappShareButton
             url={shareUrl}
@@ -90,14 +81,14 @@ export const SharePanel: React.FC<ShareProps> = ({ title }) => {
             <Icon show="email" />
           </EmailShareButton>
         </SocialLinkItem>
-        <SocialLinkItem data-testid="twitter">
+        <SocialLinkItem data-testid="x">
           <TwitterShareButton
             url={shareUrl}
             title={title}
             hashtags={hashtags}
-            aria-label={t('blog.share.twitter')}
+            aria-label={t('blog.share.x')}
           >
-            <Icon show="twitter" />
+            <Icon show="x" />
           </TwitterShareButton>
         </SocialLinkItem>
         <SocialLinkItem data-testid="linkedin">

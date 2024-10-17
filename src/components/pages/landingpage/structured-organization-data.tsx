@@ -25,7 +25,7 @@ export const StructuredOrganizationData = () => {
     sameAs: [
       'https://www.linkedin.com/company/satellytes',
       'https://github.com/satellytes',
-      'https://twitter.com/satellytes_beep',
+      'https://x.com/satellytes_beep',
     ],
   };
 
