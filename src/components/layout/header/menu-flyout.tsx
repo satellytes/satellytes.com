@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import Navigation from '../navigation/navigation';
 
@@ -60,12 +60,74 @@ interface NavigationFlyoutProp {
   translation?: string;
   showLanguageSwitch?: boolean;
   setIsNavigationVisible: (b: boolean) => void;
+  burgerRef: React.RefObject<HTMLButtonElement>;
 }
 
 export const NavigationFlyout: React.FC<NavigationFlyoutProp> = (props) => {
+  const overlayRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleFocusOutside = (visible: boolean) => {
+      const focusableElements = overlayRef.current?.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+      ) as NodeListOf<HTMLElement>;
+
+      const firstFocusableElement = focusableElements?.[0];
+      const lastFocusableElement =
+        focusableElements?.[focusableElements.length - 1];
+
+      const handleFocus = (event: KeyboardEvent) => {
+        if (event.key !== 'Tab') {
+          return;
+        }
+        if (
+          event.shiftKey &&
+          document.activeElement === props.burgerRef.current
+        ) {
+          lastFocusableElement?.focus();
+          event.preventDefault();
+        }
+        if (
+          !event.shiftKey &&
+          document.activeElement === props.burgerRef.current
+        ) {
+          firstFocusableElement?.focus();
+          event.preventDefault();
+        }
+        if (
+          event.shiftKey &&
+          document.activeElement === firstFocusableElement
+        ) {
+          props.burgerRef.current?.focus();
+          event.preventDefault();
+        }
+        if (
+          !event.shiftKey &&
+          document.activeElement === lastFocusableElement
+        ) {
+          props.burgerRef.current?.focus();
+          event.preventDefault();
+        }
+      };
+
+      if (visible) {
+        document.addEventListener('keydown', handleFocus);
+      } else {
+        document.removeEventListener('keydown', handleFocus);
+      }
+
+      return () => {
+        document.removeEventListener('keydown', handleFocus);
+      };
+    };
+
+    handleFocusOutside(props.visible);
+  }, [props.visible]);
+
   return (
     <>
       <FullscreenOverlay
+        ref={overlayRef}
         $visible={props.visible}
         onClick={props.onClick}
         aria-hidden={!props.visible}

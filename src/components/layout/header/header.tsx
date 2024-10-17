@@ -137,6 +137,7 @@ const Header: React.FC<HeaderProps> = (props) => {
     Boolean(props.transparent),
   );
   const [hoverWithTransition, setHoverWithTransition] = useState(true);
+  const burgerMenuRef = React.createRef<HTMLButtonElement>();
 
   const transparent = Boolean(props.transparent);
 
@@ -186,6 +187,7 @@ const Header: React.FC<HeaderProps> = (props) => {
             setIsNavigationVisible(!isNavigationVisible);
             setHoverWithTransition(false);
           }}
+          ref={burgerMenuRef}
         >
           {!isNavigationVisible ? (
             <BurgerMenu
@@ -204,6 +206,7 @@ const Header: React.FC<HeaderProps> = (props) => {
         )}
         translation={props.translation}
         setIsNavigationVisible={setIsNavigationVisible}
+        burgerRef={burgerMenuRef}
       />
     </StyledHeader>
   );
