@@ -90,14 +90,14 @@ export const SharePanel: React.FC<ShareProps> = ({ title }) => {
             <Icon show="email" />
           </EmailShareButton>
         </SocialLinkItem>
-        <SocialLinkItem data-testid="twitter">
+        <SocialLinkItem data-testid="x">
           <TwitterShareButton
             url={shareUrl}
             title={title}
             hashtags={hashtags}
-            aria-label={t('blog.share.twitter')}
+            aria-label={t('blog.share.x')}
           >
-            <Icon show="twitter" />
+            <Icon show="twitter" /> {/* TODO: Replace with X icon */}
           </TwitterShareButton>
         </SocialLinkItem>
         <SocialLinkItem data-testid="linkedin">
