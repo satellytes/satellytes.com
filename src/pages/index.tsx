@@ -11,7 +11,7 @@ import {
 } from '../types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { StructuredOrganizationData } from '../components/pages/landingpage/structured-organization-data';
-import LeadinfoScript from '../components/layout/leadinfo-script'; // Import the new component
+import CookieConsentComponentV3 from '../components/CookieConsent';
 
 export interface OfficeImage {
   relativePath: string;
@@ -47,17 +47,19 @@ const IndexPage = ({ data }: PageProps<IndexPageQueryProps>) => {
   }, {});
 
   return (
-    <Landingpage
-      title={data.contentfulPage.title}
-      description={data.contentfulPage.description?.description as string}
-      officeImages={officeImages}
-      positions={jobPositions}
-      posts={blogPosts}
-      serviceHeader={data.servicesHeader}
-      serviceTeaser={data.servicesTeaser.gridItems}
-      careerHeader={data.careerHeader}
-      blogHeader={data.blogHeader}
-    />
+    <>
+      <Landingpage
+        title={data.contentfulPage.title}
+        description={data.contentfulPage.description?.description as string}
+        officeImages={officeImages}
+        positions={jobPositions}
+        posts={blogPosts}
+        serviceHeader={data.servicesHeader}
+        serviceTeaser={data.servicesTeaser.gridItems}
+        careerHeader={data.careerHeader}
+        blogHeader={data.blogHeader}
+      />
+    </>
   );
 };
 
@@ -73,7 +75,7 @@ export const Head = ({ data, location }: PageProps<IndexPageQueryProps>) => {
         locales={data.locales}
       />
       <StructuredOrganizationData />
-      <LeadinfoScript />
+      <CookieConsentComponentV3 />
     </>
   );
 };

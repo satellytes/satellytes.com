@@ -3,6 +3,8 @@ import { format, parseISO } from 'date-fns';
 import { enGB, de } from 'date-fns/locale';
 import React from 'react';
 import { UseTranslationOptions } from 'react-i18next';
+import enCookieConsentTranslations from '../assets/locales/en/cookie-consent-translations.json';
+import deCookieConsentTranslations from '../assets/locales/de/cookie-consent-translations.json';
 
 export const LONG_DATE_FORMAT = 'dd. MMMM yyyy';
 
@@ -52,4 +54,11 @@ export const useTranslationParagraphs = (
   };
 
   return { t, tWithParagraphs, useTranslationResponse };
+};
+
+export const getCookieConsentLocale = (language) => {
+  if (language === 'de') {
+    return deCookieConsentTranslations;
+  }
+  return enCookieConsentTranslations;
 };
