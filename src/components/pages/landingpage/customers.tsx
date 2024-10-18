@@ -59,6 +59,10 @@ const CustomerLogo = ({
 }: CustomerLogoProps) => {
   const CustomerLogoSVG = LogoSet[show];
 
+  if (!CustomerLogoSVG) {
+    return null;
+  }
+
   return (
     <CustomerLogoLayout $mobileWidth={mobileWidth} $desktopWidth={desktopWidth}>
       <CustomerLogoSVG />
