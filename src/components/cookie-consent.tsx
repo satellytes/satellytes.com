@@ -6,6 +6,7 @@ import * as CookieConsentLib from 'vanilla-cookieconsent';
 import enCookieConsentTranslations from '../assets/locales/en/cookie-consent-translations.json';
 import deCookieConsentTranslations from '../assets/locales/de/cookie-consent-translations.json';
 import { useTranslation } from 'react-i18next';
+import LeadinfoScript from './layout/leadinfo-script';
 
 export const CookieConsent = () => {
   const { t, i18n } = useTranslation();
@@ -43,10 +44,9 @@ export const CookieConsent = () => {
               loadAllBtn: t('iframemanager.youtube.load-all-button'),
             },
             de: {
-              notice:
-                'Dieser Inhalt wird von einer externen Quelle gehostet. Durch das Laden des Inhalts akzeptieren Sie die <a rel="noreferrer noopener" href="https://www.youtube.com/t/terms" target="_blank">Nutzungsbedingungen</a> von youtube.com.',
-              loadBtn: 'Video laden',
-              loadAllBtn: 'Video laden und nicht mehr fragen',
+              notice: t('iframemanager.youtube.notice'),
+              loadBtn: t('iframemanager.youtube.load-button'),
+              loadAllBtn: t('iframemanager.youtube.load-all-button'),
             },
           },
         },
@@ -77,5 +77,5 @@ export const CookieConsent = () => {
     }).then();
   }, [i18n.language]);
 
-  return null;
+  return <LeadinfoScript />;
 };

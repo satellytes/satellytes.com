@@ -20,7 +20,29 @@
       {
         "title": "Leistungs- und Analyse-Cookies",
         "description": "Diese Cookies helfen uns zu analysieren, wie Besucher mit unserer Website interagieren, und ermöglichen es uns, die Leistung zu messen und zu verbessern. Sie sammeln Informationen in anonymer Form.",
-        "linkedCategory": "analytics"
+        "linkedCategory": "analytics",
+        "cookieTable": {
+          "headers": {
+            "name": "Name",
+            "domain": "Dienst",
+            "description": "Beschreibung",
+            "expiration": "Ablauf"
+          },
+          "body": [
+            {
+              "name": "_li_id",
+              "domain": "Leadinfo.com",
+              "description": "Leadinfo platziert zwei Cookies, die Satellytes nur Einblicke in das Verhalten auf der Website geben. Diese Cookies werden nicht mit anderen Parteien geteilt. Datenschutzerklärung von <a href=\"https://www.leadinfo.com/de/rechtliches/datenschutz/\">Leadinfo</a>",
+              "expiration": "_li_id wird für zwei Jahre gespeichert"
+            },
+            {
+              "name": "_li_ses",
+              "domain": "Leadinfo.com",
+              "description": "Leadinfo platziert zwei Cookies, die Satellytes nur Einblicke in das Verhalten auf der Website geben. Diese Cookies werden nicht mit anderen Parteien geteilt. Datenschutzerklärung von <a href=\"https://www.leadinfo.com/de/rechtliches/datenschutz/\">Leadinfo</a>",
+              "expiration": "_li_ses wird nur für die aktuelle Sitzung verwendet"
+            }
+          ]
+        }
       },
       {
         "title": "Weitere Informationen",
