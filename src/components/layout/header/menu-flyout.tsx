@@ -67,7 +67,7 @@ export const NavigationFlyout: React.FC<NavigationFlyoutProp> = (props) => {
   const overlayRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleFocusOutside = (visible: boolean) => {
+    const preventFocusOfNonFlyoutContent = (visible: boolean) => {
       const focusableElements = overlayRef.current?.querySelectorAll(
         'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
       ) as NodeListOf<HTMLElement>;
@@ -80,31 +80,22 @@ export const NavigationFlyout: React.FC<NavigationFlyoutProp> = (props) => {
         if (event.key !== 'Tab') {
           return;
         }
-        if (
-          event.shiftKey &&
-          document.activeElement === props.burgerRef.current
-        ) {
+        const shiftKeyPressed = event.shiftKey;
+        const activeElement = document.activeElement;
+        const burgerElement = props.burgerRef.current;
+        if (shiftKeyPressed && activeElement === burgerElement) {
           lastFocusableElement?.focus();
           event.preventDefault();
         }
-        if (
-          !event.shiftKey &&
-          document.activeElement === props.burgerRef.current
-        ) {
+        if (!shiftKeyPressed && activeElement === burgerElement) {
           firstFocusableElement?.focus();
           event.preventDefault();
         }
-        if (
-          event.shiftKey &&
-          document.activeElement === firstFocusableElement
-        ) {
+        if (shiftKeyPressed && activeElement === firstFocusableElement) {
           props.burgerRef.current?.focus();
           event.preventDefault();
         }
-        if (
-          !event.shiftKey &&
-          document.activeElement === lastFocusableElement
-        ) {
+        if (!shiftKeyPressed && activeElement === lastFocusableElement) {
           props.burgerRef.current?.focus();
           event.preventDefault();
         }
@@ -121,7 +112,7 @@ export const NavigationFlyout: React.FC<NavigationFlyoutProp> = (props) => {
       };
     };
 
-    handleFocusOutside(props.visible);
+    preventFocusOfNonFlyoutContent(props.visible);
   }, [props.visible]);
 
   return (
