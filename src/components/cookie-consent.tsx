@@ -8,7 +8,7 @@ import deCookieConsentTranslations from '../assets/locales/de/cookie-consent-tra
 import { useTranslation } from 'react-i18next';
 
 export const CookieConsent = () => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   // @ts-expect-error - iframemanager is defined at runtime
   const im = iframemanager();
 
@@ -38,17 +38,16 @@ export const CookieConsent = () => {
           },
           languages: {
             en: {
-              notice:
-                'This content is hosted by a third party. By showing the external content you accept the <a rel="noreferrer noopener" href="https://www.youtube.com/t/terms" target="_blank">terms and conditions</a> of youtube.com.',
-              loadBtn: 'Load video',
-              loadAllBtn: "Load video and don't ask again",
+              notice: t('iframemanager.youtube.notice'),
+              loadBtn: t('iframemanager.youtube.load-button'),
+              loadAllBtn: t('iframemanager.youtube.load-all-button'),
             },
             de: {
               notice:
                 'Dieser Inhalt wird von einer externen Quelle gehostet. Durch das Laden des Inhalts akzeptieren Sie die <a rel="noreferrer noopener" href="https://www.youtube.com/t/terms" target="_blank">Nutzungsbedingungen</a> von youtube.com.',
               loadBtn: 'Video laden',
               loadAllBtn: 'Video laden und nicht mehr fragen',
-            }, // TODO: Move translations to i18n
+            },
           },
         },
       },
