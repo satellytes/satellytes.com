@@ -13,10 +13,11 @@ import { up } from '../support/breakpoint';
 import { Breadcrumb, BreadcrumbEntry } from './breadcrumb/breadcrumb';
 import { setPolarityBodyClass } from './set-polarity';
 import { useAnchorTagScrolling } from './use-anchor-tag-scrolling';
+import { CookieConsent } from '../cookie-consent';
 
 /**
  * this container is used to push the footer to the bottom
- * if the page content is to short
+ * if the page content is too short
  */
 const FullHeightContainer = styled.div`
   display: flex;
@@ -123,6 +124,7 @@ export const Layout = ({
 
   return (
     <ThemeProvider theme={theme}>
+      <CookieConsent />
       <GlobalStyle $lightTheme={isLight} />
       <HeaderStickyContainer>
         <Header
