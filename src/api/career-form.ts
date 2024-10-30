@@ -148,7 +148,7 @@ export default async function handler(
     });
 
     for (const file of files) {
-      await client.files.upload({
+      await client.files.uploadV2({
         channels: CHANNEL_ID,
         thread_ts: postMessageResult.ts,
         file: file.buffer,
