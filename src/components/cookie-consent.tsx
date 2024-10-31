@@ -17,6 +17,7 @@ export const CookieConsent = () => {
     if (!im) {
       return;
     }
+    im.reset();
     im.run({
       currLang: i18n.language,
       onChange: ({ changedServices, eventSource }) => {
