@@ -1,5 +1,5 @@
 import React from 'react';
-import '@orestbida/iframemanager/dist/iframeManager.css';
+import '@orestbida/iframemanager/dist/iframemanager.css';
 import '@orestbida/iframemanager/dist/iframemanager.js';
 import 'vanilla-cookieconsent/dist/cookieconsent.css';
 import * as CookieConsentLib from 'vanilla-cookieconsent';
