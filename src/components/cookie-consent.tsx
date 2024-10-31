@@ -11,9 +11,12 @@ import LeadinfoScript from './layout/leadinfo-script';
 export const CookieConsent = () => {
   const { t, i18n } = useTranslation();
   // @ts-expect-error - iframemanager is defined at runtime
-  const im = iframemanager();
+  const im = typeof iframemanager !== 'undefined' ? iframemanager() : null;
 
   React.useEffect(() => {
+    if (!im) {
+      return;
+    }
     im.run({
       currLang: i18n.language,
       onChange: ({ changedServices, eventSource }) => {
@@ -55,6 +58,9 @@ export const CookieConsent = () => {
   }, [i18n.language]);
 
   React.useEffect(() => {
+    if (!im) {
+      return;
+    }
     CookieConsentLib.run({
       categories: {
         analytics: {
