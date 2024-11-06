@@ -1,5 +1,5 @@
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { Icon } from '../../ui/icon/icon';
 import { theme } from '../theme';
@@ -11,6 +11,7 @@ interface LanguageSwitchProps {
 }
 
 const StyledNav = styled.nav`
+  position: relative;
   transition: color 0.2s;
   color: ${theme.palette.text.default};
   &:hover {
@@ -18,52 +19,109 @@ const StyledNav = styled.nav`
   }
 `;
 
-const StyledSelection = styled.select`
+const DropdownButton = styled.button`
   ${TextStyles.menuMeta};
   background: none;
   border: none;
-
   color: inherit;
   padding-left: 18px;
   text-align: right;
-  /*"direction: rlt" aligns the text right in Safari*/
   direction: rtl;
-
-  appearance: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 
   @media (max-width: 768px) {
     ${TextStyles.menuMetaMobile}
   }
 `;
 
-export const StyledChevron = styled(Icon)<{ isEnglish: boolean }>`
+const DropdownMenu = styled.ul<{ $isopen: boolean }>`
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border-radius: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  width: 124px;
+  display: ${(props) => (props.$isopen ? 'flex' : 'none')};
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const DropdownOption = styled.li`
+  padding: 8px 12px;
   cursor: pointer;
-  /*margin-right: negative margin makes the Chevron clickable*/
-  margin-right: ${(props) => (props.isEnglish ? '-26px' : '-22px')};
+  color: #202840;
+  text-align: left;
+  width: 100%;
+  border-radius: 4px;
+  &:hover {
+    background-color: #f9f9f9;
+    color: #3e61ee;
+  }
+`;
+
+export const StyledChevron = styled(Icon)`
+  cursor: pointer;
 `;
 
 export const LanguageSwitch = ({
   className = 'language-switch',
 }: LanguageSwitchProps) => {
   const { languages, language, t, changeLanguage } = useI18next();
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const handleLanguageChange = (languageOfLink: string) => {
+    changeLanguage(languageOfLink);
+    setDropdownOpen(false);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setDropdownOpen(false);
+      }
+    };
+    if (isDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isDropdownOpen]);
 
   return (
-    <StyledNav className={className}>
-      <StyledChevron isEnglish={language === 'en'} show="caret_squared_down" />
-      <StyledSelection
-        onChange={(event) => {
-          changeLanguage(event.target.value);
-        }}
-        value={language}
+    <StyledNav className={className} ref={dropdownRef}>
+      <DropdownButton
+        onClick={() => setDropdownOpen(!isDropdownOpen)}
         aria-label={t('navigation.language-aria')}
       >
+        {language === 'en' ? t('navigation.en') : t('navigation.de')}
+        <StyledChevron show="caret_squared_down" />
+      </DropdownButton>
+
+      <DropdownMenu $isopen={isDropdownOpen}>
         {languages.map((languageOfLink) => (
-          <option value={languageOfLink} key={languageOfLink}>
+          <DropdownOption
+            key={languageOfLink}
+            onClick={() => handleLanguageChange(languageOfLink)}
+          >
             {languageOfLink === 'en' ? t('navigation.en') : t('navigation.de')}
-          </option>
+          </DropdownOption>
         ))}
-      </StyledSelection>
+      </DropdownMenu>
     </StyledNav>
   );
 };
