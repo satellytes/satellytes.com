@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 interface RaindropProps {
   color: string;
@@ -13,12 +13,12 @@ interface RaindropProps {
 interface SnowflakeProps {
   fallDuration: number;
   size: number;
-  animation: any;
   blur: number;
   transparency: number;
   left: number;
   top: number;
   animation_delay: number;
+  snowflake?: PrecipitationData;
 }
 
 interface SnowflakeContainerProps {
@@ -50,47 +50,55 @@ interface SplashData {
 }
 
 const fallAnimation = keyframes`
-  0% {
-    transform: translateY(-75px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(150vh);
-    opacity: 1;
-  }
+    0% {
+        transform: translateY(-75px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(150vh);
+        opacity: 1;
+    }
 `;
 
 const splashAnimation = keyframes`
-  0% {
-    opacity: 1;
-    transform: scale(0);
-  }
-  80% {
-    opacity: 1;
-    transform: scale(0);
-  }
-  90% {
-    opacity: 0.5;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.5);
-  }
+    0% {
+        opacity: 1;
+        transform: scale(0);
+    }
+    80% {
+        opacity: 1;
+        transform: scale(0);
+    }
+    90% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.5);
+    }
 `;
 
 const generateSwayAnimation = (initialX: number, range: number) => keyframes`
-  0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(${initialX + Math.random() * range - range / 2}px);
-  }
-  100% {
-    transform: translateX(${
-      initialX + (Math.random() * range) / 2 - range / 4
-    }px);
-  }
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(${initialX + Math.random() * range - range / 2}px);
+    }
+    100% {
+        transform: translateX(${
+          initialX + (Math.random() * range) / 2 - range / 4
+        }px);
+    }
+`;
+
+const swayAnimation = (snowflake: {
+  left: number;
+  fallDuration: number;
+}) => css`
+  ${generateSwayAnimation(snowflake.left, 400)} ${snowflake.fallDuration /
+  3}s ease-in-out infinite alternate;
 `;
 
 const Splash = styled.div<SplashProps>`
@@ -128,8 +136,7 @@ const Snowflake = styled.div<SnowflakeProps>`
   width: ${(props) => props.size}px;
   height: ${(props) => props.size}px;
   border-radius: 150%;
-  animation: ${(props) => props.animation} ${(props) => props.fallDuration / 3}s
-    ease-in-out infinite alternate;
+  animation: ${swayAnimation};
   background: radial-gradient(
     50% 50% at 50% 50%,
     rgba(255, 255, 255, ${(props) => props.transparency}) 0%,
@@ -222,7 +229,6 @@ const PrecipitationEffect = ({
     return (
       <>
         {snowflakes.map((snowflake) => {
-          const swayAnimation = generateSwayAnimation(snowflake.left, 400);
           return (
             <SnowflakeContainer
               key={snowflake.id}
@@ -238,7 +244,7 @@ const PrecipitationEffect = ({
                   (snowflake.fallDuration * 5 - snowflake.fallDuration * 3) *
                   1.5
                 }
-                animation={swayAnimation}
+                snowflake={snowflake}
                 left={snowflake.left}
                 top={-75}
                 animation_delay={snowflake.delay}
