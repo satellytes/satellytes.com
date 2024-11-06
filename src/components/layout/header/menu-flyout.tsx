@@ -92,11 +92,11 @@ export const NavigationFlyout: React.FC<NavigationFlyoutProp> = (props) => {
           event.preventDefault();
         }
         if (shiftKeyPressed && activeElement === firstFocusableElement) {
-          props.burgerRef.current?.focus();
+          burgerElement?.focus();
           event.preventDefault();
         }
         if (!shiftKeyPressed && activeElement === lastFocusableElement) {
-          props.burgerRef.current?.focus();
+          burgerElement?.focus();
           event.preventDefault();
         }
       };
