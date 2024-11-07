@@ -87,12 +87,12 @@ const SiteMenu = styled.button<{ $lightTheme: boolean }>`
    */
   height: calc(12px + ${() => GRID_GAP_MOBILE});
   width: calc(12px + ${() => GRID_GAP_MOBILE});
-  transform: translate(calc(${() => GRID_GAP_MOBILE} / 2), calc(-1 * ${() => GRID_GAP_MOBILE} / 2));
+  transformY: translate(calc(${() => GRID_GAP_MOBILE} / 2));
   
   ${up('md')} {
     height: calc(12px + ${() => GRID_GAP_DESKTOP});
     width: calc(12px + ${() => GRID_GAP_DESKTOP});
-    transform: translate(calc(${() => GRID_GAP_DESKTOP} / 2), calc(-1 * ${() => GRID_GAP_DESKTOP} / 2));
+    transform: translateY(calc(${() => GRID_GAP_DESKTOP} / 2));
   }
 
   .bar {
