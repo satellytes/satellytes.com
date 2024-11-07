@@ -22,6 +22,10 @@ const YoutubeEmbedWrapper = styled.div`
     border-radius: 30px;
     cursor: pointer;
     background: linear-gradient(275.41deg, #543fd7 0%, #2756fd 100%);
+
+    @media (max-width: 768px) {
+      padding: 8px 8px;
+    }
   }
 `;
 
