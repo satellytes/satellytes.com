@@ -19,7 +19,7 @@
       },
       {
         "title": "Performance and Analytics Cookies",
-        "description": "These cookies help us analyze how visitors interact with our website, allowing us to measure and improve performance. They collect information in an anonymous form.",
+        "description": "Leadinfo cookies help us analyze how visitors interact with our website, allowing us to measure and improve performance. They collect information in an anonymous form. YouTube may set cookies to track video views and user interactions.",
         "linkedCategory": "analytics",
         "cookieTable": {
           "headers": {
