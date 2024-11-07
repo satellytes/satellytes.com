@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { GRID_GAP_DESKTOP, GRID_GAP_MOBILE } from '../../../layout/theme';
-import { up } from '../../../support/breakpoint';
 
 interface BurgerMenuProps {
   transition: boolean;
   setHoverTransition: () => void;
 }
+
 export const BurgerMenu = ({
   transition,
   setHoverTransition,
