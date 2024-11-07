@@ -21,22 +21,16 @@ export const BurgerMenu = ({
 };
 
 const Wrapper = styled.div<{ $transition: boolean }>`
+  height: 12px;
+  width: 12px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  padding: 3px 0px;
-
-  margin-right: -${() => GRID_GAP_MOBILE};
-  padding-right: ${() => GRID_GAP_MOBILE};
-
-  ${up('md')} {
-    margin-right: -${() => GRID_GAP_DESKTOP};
-    padding-right: ${() => GRID_GAP_DESKTOP};
-  }
-
+  justify-content: center;
+  gap: 2px;
+  
   .bar {
     height: 2px;
-    margin-bottom: 2px;
     background-color: white;
     border-radius: 2px;
   }
