@@ -62,6 +62,7 @@ export const CookieConsent = () => {
     if (!im) {
       return;
     }
+    CookieConsentLib.reset();
     CookieConsentLib.run({
       categories: {
         analytics: {
