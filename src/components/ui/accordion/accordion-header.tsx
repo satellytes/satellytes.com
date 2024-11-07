@@ -58,8 +58,10 @@ export const AccordionHeader = (props: AccordionHeaderProps) => {
   const { isExpanded } = useAccordionItemContext();
 
   return (
-    <AccordionButton>
-      <AccordionTitleHeadline>{props.children}</AccordionTitleHeadline>
+    <AccordionButton aria-labelledby={props.children}>
+      <AccordionTitleHeadline id={props.children}>
+        {props.children}
+      </AccordionTitleHeadline>
       <StyledIcon open={isExpanded} show="chevron_up" ariaHidden={true} />
     </AccordionButton>
   );
