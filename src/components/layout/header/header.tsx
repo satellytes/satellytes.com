@@ -87,8 +87,8 @@ const SiteMenu = styled.button<{ $lightTheme: boolean }>`
    */
   height: calc(12px + ${() => GRID_GAP_MOBILE});
   width: calc(12px + ${() => GRID_GAP_MOBILE});
-  transformY: translate(calc(${() => GRID_GAP_MOBILE} / 2));
-  
+  transform: translateY(calc(${() => GRID_GAP_MOBILE} / 2));
+
   ${up('md')} {
     height: calc(12px + ${() => GRID_GAP_DESKTOP});
     width: calc(12px + ${() => GRID_GAP_DESKTOP});
