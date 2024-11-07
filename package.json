@@ -23,7 +23,7 @@
     "format": "prettier \"**/*.{tsx,ts,md}\" --write",
     "test:types": "tsc --noEmit",
     "test:lint": "eslint \"**/*.{tsx,ts}\"",
-    "test:format": "prettier \"**/*.{tsx,ts,md}\" --check",
+    "test:format": "prettier \"**/*.{tsx,ts,md}\" --check --log-level=debug",
     "postinstall": "husky install",
     "precommit": "lint-staged"
   },
