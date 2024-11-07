@@ -10,6 +10,19 @@ const YoutubeEmbedWrapper = styled.div`
   padding-bottom: 56.25%; /* 16:9 */
   padding-top: 25px;
   height: 0;
+
+  --im-font-family: 'CocoGothic', sans-serif;
+
+  div[data-service] .cll .c-l-b,
+  div[data-service] .cll .c-la-b {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    color: #ffffff;
+    border-radius: 30px;
+    cursor: pointer;
+    background: linear-gradient(275.41deg, #543fd7 0%, #2756fd 100%);
+  }
 `;
 
 export const YoutubeEmbed = ({ videoId }: YoutubeEmbedProps) => {
