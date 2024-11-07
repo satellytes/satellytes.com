@@ -27,7 +27,7 @@ const Wrapper = styled.div<{ $transition: boolean }>`
   align-items: flex-end;
   justify-content: center;
   gap: 2px;
-  
+
   .bar {
     height: 2px;
     background-color: white;
