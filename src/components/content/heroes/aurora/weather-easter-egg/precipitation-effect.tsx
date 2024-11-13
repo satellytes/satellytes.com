@@ -18,7 +18,6 @@ interface SnowflakeProps {
   left: number;
   top: number;
   animation_delay: number;
-  snowflake?: PrecipitationData;
 }
 
 interface SnowflakeContainerProps {
@@ -244,7 +243,6 @@ const PrecipitationEffect = ({
                   (snowflake.fallDuration * 5 - snowflake.fallDuration * 3) *
                   1.5
                 }
-                snowflake={snowflake}
                 left={snowflake.left}
                 top={-75}
                 animation_delay={snowflake.delay}
