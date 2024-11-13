@@ -13,6 +13,13 @@ const YoutubeEmbedWrapper = styled.div`
 
   --im-font-family: 'CocoGothic', sans-serif;
 
+  div[data-service] .cll .c-n-a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
   div[data-service] .cll .c-l-b,
   div[data-service] .cll .c-la-b {
     display: inline-flex;
@@ -22,9 +29,12 @@ const YoutubeEmbedWrapper = styled.div`
     border-radius: 30px;
     cursor: pointer;
     background: linear-gradient(275.41deg, #543fd7 0%, #2756fd 100%);
+    text-wrap: nowrap;
+    width: fit-content;
 
     @media (max-width: 768px) {
-      padding: 8px 8px;
+      margin-left: 0;
+      margin-bottom: 8px;
     }
   }
 `;
