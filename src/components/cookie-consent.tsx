@@ -13,26 +13,23 @@ export const CookieConsent = () => {
   // @ts-expect-error - iframemanager is defined at runtime
   const im = typeof iframemanager !== 'undefined' ? iframemanager() : null;
 
-  React.useEffect(() => {
-    if (!im) {
-      return;
+  // Code partially from https://cookieconsent.orestbida.com/advanced/iframemanager-setup.html
+  const iframeManagerOnChange = ({ changedServices, eventSource }) => {
+    if (eventSource.type === 'click') {
+      const servicesToAccept = [
+        ...CookieConsentLib.getUserPreferences().acceptedServices['analytics'],
+        ...changedServices,
+      ];
+
+      CookieConsentLib.acceptService(servicesToAccept, 'analytics');
     }
+  };
+
+  const setupIframeManager = () => {
     im.reset();
     im.run({
       currLang: i18n.language,
-      onChange: ({ changedServices, eventSource }) => {
-        if (eventSource.type === 'click') {
-          const servicesToAccept = [
-            ...CookieConsentLib.getUserPreferences().acceptedServices[
-              'analytics'
-            ],
-            ...changedServices,
-          ];
-
-          CookieConsentLib.acceptService(servicesToAccept, 'analytics');
-        }
-      },
-
+      onChange: iframeManagerOnChange,
       services: {
         youtube: {
           embedUrl: 'https://www.youtube-nocookie.com/embed/{data-id}',
@@ -56,12 +53,9 @@ export const CookieConsent = () => {
         },
       },
     });
-  }, [i18n.language]);
+  };
 
-  React.useEffect(() => {
-    if (!im) {
-      return;
-    }
+  const setupCookieConsent = () => {
     CookieConsentLib.reset();
     CookieConsentLib.run({
       categories: {
@@ -83,6 +77,12 @@ export const CookieConsent = () => {
         },
       },
     }).then();
+  };
+
+  React.useEffect(() => {
+    if (!im) return;
+    setupIframeManager();
+    setupCookieConsent();
   }, [i18n.language]);
 
   return <LeadinfoScript />;
