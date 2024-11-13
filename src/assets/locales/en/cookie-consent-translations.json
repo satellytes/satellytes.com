@@ -32,13 +32,13 @@
             {
               "name": "_li_id",
               "domain": "Leadinfo.com",
-              "description": "Leadinfo places two cookies that only provides Satellytes insights into the behaviour on the website. These cookies will not be shared with other parties. Privacy statement of <a href=\"https://www.leadinfo.com/en/privacy/\">Leadinfo</a>",
+              "description": "Leadinfo places two cookies that only provides Satellytes insights into the behaviour on the website. These cookies will not be shared with other parties. Privacy statement of <a href=\"https://www.leadinfo.com/en/privacy/\" target=\"_blank\">Leadinfo</a>",
               "expiration": "_li_id will be saved for two years"
             },
             {
               "name": "_li_ses",
               "domain": "Leadinfo.com",
-              "description": "Leadinfo places two cookies that only provides Satellytes insights into the behaviour on the website. These cookies will not be shared with other parties. Privacy statement of <a href=\"https://www.leadinfo.com/en/privacy/\">Leadinfo</a>",
+              "description": "Leadinfo places two cookies that only provides Satellytes insights into the behaviour on the website. These cookies will not be shared with other parties. Privacy statement of <a href=\"https://www.leadinfo.com/en/privacy/\" target=\"_blank\">Leadinfo</a>",
               "expiration": "_li_ses is only used for the current session"
             }
           ]
@@ -46,7 +46,7 @@
       },
       {
         "title": "More information",
-        "description": "For any queries in relation to our policy on cookies and your choices, please <a class=\"cc-link\" href=\"/contact/\" target=\"_blank\">contact us</a>."
+        "description": "For any queries in relation to our policy on cookies and your choices, please <a class=\"cc-link\" href=\"/contact/\">contact us</a>."
       }
     ]
   }

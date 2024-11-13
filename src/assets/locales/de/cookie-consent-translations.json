@@ -32,13 +32,13 @@
             {
               "name": "_li_id",
               "domain": "Leadinfo.com",
-              "description": "Leadinfo platziert zwei Cookies, die Satellytes nur Einblicke in das Verhalten auf der Website geben. Diese Cookies werden nicht mit anderen Parteien geteilt. Datenschutzerklärung von <a href=\"https://www.leadinfo.com/de/rechtliches/datenschutz/\">Leadinfo</a>",
+              "description": "Leadinfo platziert zwei Cookies, die Satellytes nur Einblicke in das Verhalten auf der Website geben. Diese Cookies werden nicht mit anderen Parteien geteilt. Datenschutzerklärung von <a href=\"https://www.leadinfo.com/de/rechtliches/datenschutz/\" target=\"_blank\">Leadinfo</a>",
               "expiration": "_li_id wird für zwei Jahre gespeichert"
             },
             {
               "name": "_li_ses",
               "domain": "Leadinfo.com",
-              "description": "Leadinfo platziert zwei Cookies, die Satellytes nur Einblicke in das Verhalten auf der Website geben. Diese Cookies werden nicht mit anderen Parteien geteilt. Datenschutzerklärung von <a href=\"https://www.leadinfo.com/de/rechtliches/datenschutz/\">Leadinfo</a>",
+              "description": "Leadinfo platziert zwei Cookies, die Satellytes nur Einblicke in das Verhalten auf der Website geben. Diese Cookies werden nicht mit anderen Parteien geteilt. Datenschutzerklärung von <a href=\"https://www.leadinfo.com/de/rechtliches/datenschutz/\" target=\"_blank\">Leadinfo</a>",
               "expiration": "_li_ses wird nur für die aktuelle Sitzung verwendet"
             }
           ]
@@ -46,7 +46,7 @@
       },
       {
         "title": "Weitere Informationen",
-        "description": "Bei Fragen zu unserer Cookie-Richtlinie oder Ihren Auswahlmöglichkeiten wenden Sie sich bitte an <a class=\"cc-link\" href=\"/de/contact/\" target=\"_blank\">uns</a>."
+        "description": "Bei Fragen zu unserer Cookie-Richtlinie oder Ihren Auswahlmöglichkeiten wenden Sie sich bitte an <a class=\"cc-link\" href=\"/de/contact/\">uns</a>."
       }
     ]
   }
