@@ -77,21 +77,22 @@ const SiteTitle = styled(Link)<{ $lightTheme: boolean }>`
 const SiteMenu = styled.button<{ $lightTheme: boolean }>`
   all: unset;
   cursor: pointer;
-  z-index: ${FLYOUT_Z_INDEX};
+  z-index: ${FLYOUT_Z_INDEX + 1};
 
+  display: grid;
+  place-items: center;
   /**
    * to make it simpler to click (especially on mobile),
    * we make the button extra large
    */
-  height: 16px;
-  width: 35px;
-  text-align: right;
-  margin-right: -${() => GRID_GAP_MOBILE};
-  padding-right: ${() => GRID_GAP_MOBILE};
+  height: calc(12px + ${() => GRID_GAP_MOBILE});
+  width: calc(12px + ${() => GRID_GAP_MOBILE});
+  transform: translateY(calc(${() => GRID_GAP_MOBILE} / 2));
 
   ${up('md')} {
-    margin-right: -${() => GRID_GAP_DESKTOP};
-    padding-right: ${() => GRID_GAP_DESKTOP};
+    height: calc(12px + ${() => GRID_GAP_DESKTOP});
+    width: calc(12px + ${() => GRID_GAP_DESKTOP});
+    transform: translateY(calc(${() => GRID_GAP_DESKTOP} / 2));
   }
 
   .bar {
@@ -137,6 +138,7 @@ const Header: React.FC<HeaderProps> = (props) => {
     Boolean(props.transparent),
   );
   const [hoverWithTransition, setHoverWithTransition] = useState(true);
+  const burgerMenuRef = React.createRef<HTMLButtonElement>();
 
   const transparent = Boolean(props.transparent);
 
@@ -186,6 +188,7 @@ const Header: React.FC<HeaderProps> = (props) => {
             setIsNavigationVisible(!isNavigationVisible);
             setHoverWithTransition(false);
           }}
+          ref={burgerMenuRef}
         >
           {!isNavigationVisible ? (
             <BurgerMenu
@@ -204,6 +207,7 @@ const Header: React.FC<HeaderProps> = (props) => {
         )}
         translation={props.translation}
         setIsNavigationVisible={setIsNavigationVisible}
+        burgerRef={burgerMenuRef}
       />
     </StyledHeader>
   );
