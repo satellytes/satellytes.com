@@ -27,7 +27,7 @@ export const SmallTitle = styled.h5`
  * Text
  *
  */
-export const Text = styled.div`
+export const Text = styled.p`
   ${TextStyles.textSR}
   ${up('md')} {
     ${TextStyles.textR}
