@@ -32,13 +32,13 @@
             {
               "name": "_li_id",
               "domain": "Leadinfo.com",
-              "description": "Leadinfo platziert zwei Cookies, die Satellytes nur Einblicke in das Verhalten auf der Website geben. Diese Cookies werden nicht mit anderen Parteien geteilt. Datenschutzerklärung von <a href=\"https://www.leadinfo.com/de/rechtliches/datenschutz/\" target=\"_blank\">Leadinfo</a>",
+              "description": "Leadinfo platziert zwei Cookies, die Satellytes nur Einblicke in das Verhalten auf der Website geben. Diese Cookies werden nicht mit anderen Parteien geteilt. <a href=\"https://www.leadinfo.com/de/rechtliches/datenschutz/\" target=\"_blank\">Datenschutzerklärung von Leadinfo</a>",
               "expiration": "_li_id wird für zwei Jahre gespeichert"
             },
             {
               "name": "_li_ses",
               "domain": "Leadinfo.com",
-              "description": "Leadinfo platziert zwei Cookies, die Satellytes nur Einblicke in das Verhalten auf der Website geben. Diese Cookies werden nicht mit anderen Parteien geteilt. Datenschutzerklärung von <a href=\"https://www.leadinfo.com/de/rechtliches/datenschutz/\" target=\"_blank\">Leadinfo</a>",
+              "description": "Leadinfo platziert zwei Cookies, die Satellytes nur Einblicke in das Verhalten auf der Website geben. Diese Cookies werden nicht mit anderen Parteien geteilt. <a href=\"https://www.leadinfo.com/de/rechtliches/datenschutz/\" target=\"_blank\">Datenschutzerklärung von Leadinfo</a>",
               "expiration": "_li_ses wird nur für die aktuelle Sitzung verwendet"
             }
           ]
