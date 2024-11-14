@@ -18,24 +18,30 @@ const YoutubeEmbedWrapper = styled.div`
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  div[data-service] .cll .c-n-t {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
   }
 
   div[data-service] .cll .c-l-b,
   div[data-service] .cll .c-la-b {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
     display: inline-flex;
     align-items: center;
-    padding: 8px 12px;
+    padding: 8px 16px;
     color: #ffffff;
     border-radius: 30px;
     cursor: pointer;
     background: linear-gradient(275.41deg, #543fd7 0%, #2756fd 100%);
     text-wrap: nowrap;
     width: fit-content;
-
-    @media (max-width: 768px) {
-      margin-left: 0;
-      margin-bottom: 8px;
-    }
+    margin: 0;
   }
 `;
 
