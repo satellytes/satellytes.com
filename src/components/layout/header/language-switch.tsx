@@ -50,7 +50,11 @@ export const LanguageSwitch = ({
 
   return (
     <StyledNav className={className}>
-      <StyledChevron isEnglish={language === 'en'} show="caret_squared_down" />
+      <StyledChevron
+        isEnglish={language === 'en'}
+        show="caret_squared_down"
+        ariaHidden={true}
+      />
       <StyledSelection
         onChange={(event) => {
           changeLanguage(event.target.value);
