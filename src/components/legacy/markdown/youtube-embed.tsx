@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { TextStyles } from '../../typography';
 
 interface YoutubeEmbedProps {
   videoId: string;
@@ -11,8 +12,17 @@ const YoutubeEmbedWrapper = styled.div`
   padding-top: 25px;
   margin-bottom: 24px;
   height: 0;
+  max-width: 100%;
+
+  @media (max-width: 480px) {
+    padding-top: 75px;
+  }
 
   --im-font-family: 'CocoGothic', sans-serif;
+
+  div[data-service] {
+    overflow: visible;
+  }
 
   div[data-service] .cll .c-n-a {
     display: flex;
@@ -23,16 +33,20 @@ const YoutubeEmbedWrapper = styled.div`
   }
 
   div[data-service] .cll .c-n-t {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
+    ${TextStyles.textSR}
+    @media (max-width: 480px) {
+      ${TextStyles.textS}
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 0;
+      text-align: left;
+      color: black;
+    }
   }
 
   div[data-service] .cll .c-l-b,
   div[data-service] .cll .c-la-b {
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 24px;
+    ${TextStyles.textSR}
     display: inline-flex;
     align-items: center;
     padding: 8px 16px;
@@ -43,6 +57,10 @@ const YoutubeEmbedWrapper = styled.div`
     text-wrap: nowrap;
     width: fit-content;
     margin: 0;
+
+    @media (max-width: 768px) {
+      ${TextStyles.textS}
+    }
   }
 `;
 
