@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '@orestbida/iframemanager/dist/iframemanager.css';
 import '@orestbida/iframemanager/dist/iframemanager.js';
 import 'vanilla-cookieconsent/dist/cookieconsent.css';
@@ -79,7 +79,7 @@ export const CookieConsent = () => {
     }).then();
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!im) return;
     setupIframeManager();
     setupCookieConsent();
