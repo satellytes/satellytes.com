@@ -9,6 +9,7 @@ const YoutubeEmbedWrapper = styled.div`
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
   padding-top: 25px;
+  margin-bottom: 24px;
   height: 0;
 
   --im-font-family: 'CocoGothic', sans-serif;
