@@ -90,5 +90,6 @@
   "image.attribution": "Foto von ",
   "iframemanager.youtube.notice": "Dieser Inhalt wird von einer externen Quelle gehostet. Durch das Laden des Inhalts akzeptieren Sie die <a rel=\"noreferrer noopener\" href=\"https://www.youtube.com/t/terms\" target=\"_blank\">Nutzungsbedingungen</a> von youtube.com und stimmen einer möglichen Übertragung Ihrer Daten in Drittländer zu.",
   "iframemanager.youtube.load-button": "Inhalt laden",
-  "iframemanager.youtube.load-all-button": "Inhalt laden und nicht mehr fragen"
+  "iframemanager.youtube.load-all-button": "Inhalt laden und nicht mehr fragen",
+  "dataprivacy.reopen-cookie-consent": "Cookie-Einstellungen erneut öffnen"
 }
