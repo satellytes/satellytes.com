@@ -5,7 +5,6 @@ import { Layout } from '../components/layout/layout';
 import { ContentBlockContainer } from '../components/layout/content-block-container';
 import { ContentfulRichText } from '../components/content/rich-text/rich-text';
 import { ContentfulPage, ContentfulRichTextType } from '../types';
-import * as CookieConsentLib from 'vanilla-cookieconsent';
 import { Button } from '../components/ui/buttons/button';
 import { useTranslation } from 'react-i18next';
 
@@ -18,17 +17,10 @@ const DataPrivacyPage = ({
   data,
 }: PageProps<DataPrivacyPageQueryProps>): JSX.Element => {
   const { t } = useTranslation();
-
-  const reopenCookieConsent = () => {
-    if (CookieConsentLib && CookieConsentLib.showPreferences) {
-      CookieConsentLib.showPreferences();
-    }
-  };
-
   return (
     <Layout light={true}>
       <ContentBlockContainer>
-        <Button onClick={reopenCookieConsent}>
+        <Button type="button" data-cc="show-preferencesModal">
           {t('dataprivacy.reopen-cookie-consent')}
         </Button>
         <ContentfulRichText
