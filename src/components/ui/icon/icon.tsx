@@ -64,6 +64,10 @@ const IconContainer = styled.span<IconContainerProps>`
 export const Icon = (props: IconProps) => {
   const IconSvg = IconSet[props.show];
 
+  if (!IconSvg) {
+    return null;
+  }
+
   return (
     <IconContainer
       size={props.size ?? DEFAULT_ICON_SIZE}
