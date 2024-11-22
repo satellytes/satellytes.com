@@ -25,7 +25,7 @@ export const theme: DefaultTheme = {
         light: '#3E61EE',
         hover: '#202840',
       },
-      breadcrumb: 'rgba(0, 0, 0, 0.5)',
+      breadcrumb: 'rgba(0, 0, 0, 0.65)',
       link: {
         default: '#3E61EE',
         hover: '#4D79FF',
