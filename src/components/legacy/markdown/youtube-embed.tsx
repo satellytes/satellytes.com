@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { TextStyles } from '../../typography';
+import { resetButton } from '../../support/css-helpers';
 
 interface YoutubeEmbedProps {
   videoId: string;
@@ -12,54 +13,45 @@ const YoutubeEmbedWrapper = styled.div`
   padding-top: 25px;
   margin-bottom: 24px;
   height: 0;
-  max-width: 100%;
 
-  @media (max-width: 480px) {
-    padding-top: 75px;
-  }
-
-  --im-font-family: 'CocoGothic', sans-serif;
-
-  div[data-service] {
-    overflow: visible;
-  }
-
+  /* button container */
   div[data-service] .cll .c-n-a {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 8px;
+    margin-top: 18px;
   }
 
-  div[data-service] .cll .c-n-t {
-    ${TextStyles.textSR}
-    @media (max-width: 480px) {
-      ${TextStyles.textS}
-      position: absolute;
-      bottom: calc(100% + 8px);
-      left: 0;
-      text-align: left;
-      color: black;
-    }
+  /* legal text */
+  .cc-text {
+    font-family: 'CocoGothic', sans-serif;
+    ${TextStyles.textXS};
   }
 
+  /* buttons */
   div[data-service] .cll .c-l-b,
   div[data-service] .cll .c-la-b {
-    ${TextStyles.textSR}
+    ${resetButton}
+    ${TextStyles.toplineS}  
+    font-family: 'CocoGothic', sans-serif;
     display: inline-flex;
     align-items: center;
     padding: 8px 16px;
-    color: #ffffff;
     border-radius: 30px;
-    cursor: pointer;
     background: linear-gradient(275.41deg, #543fd7 0%, #2756fd 100%);
     text-wrap: nowrap;
-    width: fit-content;
-    margin: 0;
+    color: #ffffff;
 
-    @media (max-width: 768px) {
-      ${TextStyles.textS}
+    transition: unset;
+
+    &:hover {
+      background: #3e61ee;
+    }
+
+    &::before {
+      content: unset;
     }
   }
 `;
