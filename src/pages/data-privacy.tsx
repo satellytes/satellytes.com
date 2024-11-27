@@ -7,11 +7,18 @@ import { ContentfulRichText } from '../components/content/rich-text/rich-text';
 import { ContentfulPage, ContentfulRichTextType } from '../types';
 import { Button } from '../components/ui/buttons/button';
 import { useTranslation } from 'react-i18next';
+import Callout from '../components/ui/callout/callout';
+import styled from 'styled-components';
 
 interface DataPrivacyPageQueryProps {
   contentfulPage: ContentfulPage;
   locales: LocalesQueryProps;
 }
+
+const StyledText = styled.p`
+  margin: 0;
+  margin-bottom: 1rem;
+`;
 
 const DataPrivacyPage = ({
   data,
@@ -20,9 +27,12 @@ const DataPrivacyPage = ({
   return (
     <Layout light={true}>
       <ContentBlockContainer>
-        <Button type="button" data-cc="show-preferencesModal">
-          {t('dataprivacy.reopen-cookie-consent')}
-        </Button>
+        <Callout>
+          <StyledText>{t('dataprivacy.cookie-consent-notice')}</StyledText>
+          <Button type="button" data-cc="show-preferencesModal">
+            {t('dataprivacy.reopen-cookie-consent')}
+          </Button>
+        </Callout>
         <ContentfulRichText
           data={data.contentfulPage.content as ContentfulRichTextType}
         />
