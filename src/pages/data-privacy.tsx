@@ -27,7 +27,7 @@ const DataPrivacyPage = ({
   return (
     <Layout light={true}>
       <ContentBlockContainer>
-        <Callout>
+        <Callout illustration="selfOrganization_066">
           <StyledText>{t('dataprivacy.cookie-consent-notice')}</StyledText>
           <Button type="button" data-cc="show-preferencesModal">
             {t('dataprivacy.reopen-cookie-consent')}
