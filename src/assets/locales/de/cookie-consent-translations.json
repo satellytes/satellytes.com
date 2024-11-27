@@ -1,7 +1,7 @@
 {
   "consentModal": {
     "title": "Ihre Datenschutzoptionen",
-    "description": "Wir verwenden Cookies, um Ihre Erfahrung zu verbessern, den Datenverkehr zu analysieren und personalisierte Inhalte bereitzustellen. Sie können entweder alle Cookies akzeptieren oder Ihre Präferenzen für verschiedene Kategorien verwalten.",
+    "description": "Wir verwenden Cookies und ähnliche Technologien, um die Website fehlerfrei zu betreiben und für die unten beschriebenen Zwecke. Durch Klicken auf 'Alle Cookies akzeptieren' stimmen Sie der Verwendung aller Cookies zu. Wenn Sie auf 'Alle ablehnen' klicken, lehnen Sie alle Cookies ab, die eine Zustimmung erfordern. Details zu einzelnen Cookies finden Sie im Modal 'Cookie-Präferenzen verwalten'. Sie haben auch die Möglichkeit, Cookie-Kategorien einzeln in diesem Modal auszuwählen. Sie können Ihre Cookie-Einstellungen jederzeit auf der <a href=\"/de/data-privacy\" target=\"_blank\">Datenschutzseite</a> ändern oder widerrufen.",
     "acceptAllBtn": "Alle Cookies akzeptieren",
     "acceptNecessaryBtn": "Nur notwendige Cookies akzeptieren",
     "showPreferencesBtn": "Cookie-Präferenzen verwalten"
@@ -15,11 +15,32 @@
     "sections": [
       {
         "title": "Verwendung von Cookies",
-        "description": "Unsere Website verwendet Cookies, um wesentliche Funktionen sicherzustellen, Ihr Surferlebnis zu verbessern und personalisierte Inhalte bereitzustellen. Einige Cookies sind erforderlich, wie z. B. der, der zur Speicherung Ihrer Zustimmungspräferenzen verwendet wird, während andere uns helfen, unsere Dienste zu verbessern."
+        "description": "Wir verwenden Cookies und ähnliche Technologien, um sicherzustellen, dass die Website ordnungsgemäß funktioniert, Ihre Präferenzen zu speichern und zu analysieren, wie Besucher mit der Website interagieren. Durch Klicken auf 'Alle Cookies akzeptieren' stimmen Sie der Verwendung aller Cookies zu. Wenn Sie auf 'Alle ablehnen' klicken, lehnen Sie alle Cookies ab, die eine Zustimmung erfordern. Durch Klicken auf 'Präferenzen speichern' akzeptieren Sie nur die ausgewählten Cookies. Sie können Ihre Cookie-Einstellungen jederzeit auf der <a href=\"/data-privacy\" target=\"_blank\">Datenschutzseite</a> ändern oder widerrufen."
       },
       {
-        "title": "Leistungs- und Analyse-Cookies",
-        "description": "Leadinfo Cookies helfen uns zu analysieren, wie Besucher mit unserer Website interagieren, und ermöglichen es uns, die Leistung zu messen und zu verbessern. Sie sammeln Informationen in anonymer Form. YouTube kann Cookies setzen, um Videoaufrufe und Benutzerinteraktionen zu verfolgen.",
+        "title": "Notwendige Cookies",
+        "description": "Diese Cookies sind notwendig, damit die Website ordnungsgemäß funktioniert und können in unseren Systemen nicht deaktiviert werden. Sie werden nur verwendet, um Ihre Datenschutzeinstellungen zu speichern.",
+        "linkedCategory": "necessary",
+        "cookieTable": {
+          "headers": {
+            "name": "Name",
+            "domain": "Dienst",
+            "description": "Beschreibung",
+            "expiration": "Ablauf"
+          },
+          "body": [
+            {
+              "name": "cc_cookie",
+              "domain": "satellyte.com",
+              "description": "Speichert den Cookie-Zustimmungsstatus des Benutzers für die aktuelle Domain",
+              "expiration": "1 Jahr"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Analyse-Cookies",
+        "description": "Leadinfo-Cookies helfen uns zu analysieren, wie Besucher mit unserer Website interagieren, und ermöglichen es uns, die Leistung zu messen und zu verbessern. Sie sammeln Informationen in anonymer Form.",
         "linkedCategory": "analytics",
         "cookieTable": {
           "headers": {
@@ -43,6 +64,11 @@
             }
           ]
         }
+      },
+      {
+        "title": "Soziale Einbettungen",
+        "description": "Soziale Einbettungen sind Inhalte von sozialen Netzwerken (Facebook, Instagram, X, YouTube und LinkedIn), die wir in unsere Website integrieren, damit Sie die Inhalte ansehen können, ohne die Seite zu verlassen. Dieser Prozess wird als 'Einbettung' bezeichnet. Sie können soziale Einbettungen jetzt oder später aktivieren, wenn Sie eine soziale Einbettung auf der Website ansehen möchten. </br></br> Google ist datenschutzrechtlich für die YouTube-Plattform verantwortlich. Google verwendet Cookies und ähnliche Technologien, damit Sie YouTube-Inhalte auf dieser Website ansehen können. Diese Technologien können von Google erst verwendet werden, nachdem Sie soziale Einbettungen aktiviert haben. Bis dahin bleiben Sie für Google unsichtbar.</br>Dieser Dienst wird auf dieser Website verwendet. </br></br> Unternehmen, das die Daten verarbeitet </br>Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, D04E5W5, Irland. Personenbezogene Daten können jedoch auch von Google LLC, 1600 Amphitheater Parkway, Mountain View, CA 94043, USA (Datenübertragungsmechanismus: EU-US Data Protection Framework-Zertifizierung; EU-Standardvertrag) verarbeitet werden.</br></br>Erhobene Daten </br>Diese Liste stellt alle (personenbezogenen) Daten dar, die durch die Nutzung dieses Dienstes erhoben werden. </br> Nach unserem Kenntnisstand verarbeitet Google Ihre IP-Adresse und Informationen darüber, welche soziale Einbettung Sie auf unserer Seite aktiviert haben. Weitere Informationen zur Verarbeitung Ihrer personenbezogenen Daten durch Google finden Sie in der Google-Datenschutzerklärung unter: <a href=\"https://policies.google.com/privacy?hl=de\" target=\"_blank\">https://policies.google.com/privacy?hl=de</a>. </br></br> Lesen Sie die Datenschutzerklärung des Datenverarbeiters: <a href=\"https://policies.google.com/privacy?hl=de\" target=\"_blank\">https://policies.google.com/privacy?hl=de</a>",
+        "linkedCategory": "social"
       },
       {
         "title": "Weitere Informationen",
