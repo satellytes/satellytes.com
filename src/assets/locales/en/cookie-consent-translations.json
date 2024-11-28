@@ -1,0 +1,53 @@
+{
+  "consentModal": {
+    "title": "Your Privacy Choices",
+    "description": "We use cookies to enhance your experience, analyze traffic, and deliver personalized content. You can choose to accept all cookies or manage your preferences for different categories.",
+    "acceptAllBtn": "Accept All Cookies",
+    "acceptNecessaryBtn": "Reject all",
+    "showPreferencesBtn": "Manage Cookie Preferences"
+  },
+  "preferencesModal": {
+    "title": "Manage Your Cookie Preferences",
+    "acceptAllBtn": "Accept All Cookies",
+    "acceptNecessaryBtn": "Reject all",
+    "savePreferencesBtn": "Save Preferences",
+    "closeIconLabel": "Close",
+    "sections": [
+      {
+        "title": "Cookie Usage",
+        "description": "Our website uses cookies to ensure essential functionality, enhance your browsing experience, and provide personalized content. Some cookies are required, such as the one used to store your consent preferences, while others help us improve our services."
+      },
+      {
+        "title": "Performance and Analytics Cookies",
+        "description": "Leadinfo cookies help us analyze how visitors interact with our website, allowing us to measure and improve performance. They collect information in an anonymous form. YouTube may set cookies to track video views and user interactions.",
+        "linkedCategory": "analytics",
+        "cookieTable": {
+          "headers": {
+            "name": "Name",
+            "domain": "Service",
+            "description": "Description",
+            "expiration": "Expiration"
+          },
+          "body": [
+            {
+              "name": "_li_id",
+              "domain": "Leadinfo.com",
+              "description": "Leadinfo places two cookies that only provides Satellytes insights into the behaviour on the website. These cookies will not be shared with other parties. <a href=\"https://www.leadinfo.com/en/privacy/\" target=\"_blank\">Privacy statement of Leadinfo</a>",
+              "expiration": "_li_id will be saved for two years"
+            },
+            {
+              "name": "_li_ses",
+              "domain": "Leadinfo.com",
+              "description": "Leadinfo places two cookies that only provides Satellytes insights into the behaviour on the website. These cookies will not be shared with other parties. <a href=\"https://www.leadinfo.com/en/privacy/\" target=\"_blank\">Privacy statement of Leadinfo</a>",
+              "expiration": "_li_ses is only used for the current session"
+            }
+          ]
+        }
+      },
+      {
+        "title": "More information",
+        "description": "For any queries in relation to our policy on cookies and your choices, please <a class=\"cc-link\" href=\"/contact/\">contact us</a>."
+      }
+    ]
+  }
+}

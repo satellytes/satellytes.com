@@ -87,5 +87,8 @@
   "blog.copied": "Kopiert",
   "blog.follow": "Blog abonnieren",
   "blog.pagination": "Seite",
-  "image.attribution": "Foto von "
+  "image.attribution": "Foto von ",
+  "iframemanager.youtube.notice": "Dieser Inhalt wird von einer externen Quelle gehostet. Durch das Laden des Inhalts akzeptieren Sie die <a rel=\"noreferrer noopener\" href=\"https://www.youtube.com/t/terms\" target=\"_blank\">Nutzungsbedingungen</a> von youtube.com und stimmen einer möglichen Übertragung Ihrer Daten in Drittländer zu.",
+  "iframemanager.youtube.load-button": "Inhalt laden",
+  "iframemanager.youtube.load-all-button": "Inhalt immer laden"
 }

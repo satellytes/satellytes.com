@@ -214,6 +214,12 @@ const customSatellytesComponents = {
     );
   },
   p(props) {
+    const hasVideo = React.Children.toArray(props.children).some(
+      (child) => React.isValidElement(child) && child.props?.videoId,
+    );
+    if (hasVideo) {
+      return <>{props.children}</>;
+    }
     return <Text>{props.children}</Text>;
   },
   em(props) {

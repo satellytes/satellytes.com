@@ -87,5 +87,8 @@
   "blog.copied": "Copied",
   "blog.follow": "Subscribe to blog",
   "blog.pagination": "Page",
-  "image.attribution": "Photo by "
+  "image.attribution": "Photo by ",
+  "iframemanager.youtube.notice": "This content is hosted by a third party. By showing the external content you accept the <a rel=\"noreferrer noopener\" href=\"https://www.youtube.com/t/terms\" target=\"_blank\">terms and conditions</a> of youtube.com and agree to a possible transfer of your data to third countries.",
+  "iframemanager.youtube.load-button": "Load video",
+  "iframemanager.youtube.load-all-button": "Load & don't ask again"
 }

@@ -3,6 +3,10 @@ import { useEffect } from 'react';
 const LeadinfoScript = () => {
   useEffect(() => {
     const script = document.createElement('script');
+    script.setAttribute('type', 'text/plain');
+    script.setAttribute('data-category', 'analytics');
+    script.setAttribute('data-service', 'Leadinfo');
+
     script.innerHTML = `
       (function(l,e,a,d,i,n,f,o){if(!l[i]){l.GlobalLeadinfoNamespace=l.GlobalLeadinfoNamespace||[];
         l.GlobalLeadinfoNamespace.push(i);l[i]=function(){(l[i].q=l[i].q||[]).push(arguments)};l[i].t=l[i].t||n;
@@ -12,7 +16,12 @@ const LeadinfoScript = () => {
     document.head.appendChild(script);
 
     return () => {
-      document.head.removeChild(script);
+      const existingScript = document.querySelector(
+        'script[data-service="Leadinfo"]',
+      );
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
     };
   }, []);
 
