@@ -17,7 +17,7 @@ interface DataPrivacyPageQueryProps {
 
 const StyledText = styled.p`
   margin: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 `;
 
 const DataPrivacyPage = ({
