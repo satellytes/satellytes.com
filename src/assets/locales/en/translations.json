@@ -90,5 +90,7 @@
   "image.attribution": "Photo by ",
   "iframemanager.youtube.notice": "This content is hosted by a third party. By showing the external content you accept the <a rel=\"noreferrer noopener\" href=\"https://www.youtube.com/t/terms\" target=\"_blank\">terms and conditions</a> of youtube.com and agree to a possible transfer of your data to third countries.",
   "iframemanager.youtube.load-button": "Load video",
-  "iframemanager.youtube.load-all-button": "Load & don't ask again"
+  "iframemanager.youtube.load-all-button": "Load & don't ask again",
+  "dataprivacy.reopen-cookie-consent": "Reopen cookie consent preferences",
+  "dataprivacy.cookie-consent-notice": "We respect your privacy and want to give you full control over the data we process on this website. By clicking the button below, you can open our cookie settings and make detailed selections about which cookies you want to enable or disable. You’ll also find a comprehensive list of all the cookies we use, along with information about the data collected and its purposes."
 }
