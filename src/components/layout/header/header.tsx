@@ -79,20 +79,19 @@ const SiteMenu = styled.button<{ $lightTheme: boolean }>`
   cursor: pointer;
   z-index: ${FLYOUT_Z_INDEX + 1};
 
-  display: grid;
-  place-items: center;
   /**
    * to make it simpler to click (especially on mobile),
    * we make the button extra large
    */
-  height: calc(12px + ${() => GRID_GAP_MOBILE});
-  width: calc(12px + ${() => GRID_GAP_MOBILE});
-  transform: translateY(calc(${() => GRID_GAP_MOBILE} / 2));
+  height: 16px;
+  width: 35px;
+  text-align: right;
+  margin-right: -${() => GRID_GAP_MOBILE};
+  padding-right: ${() => GRID_GAP_MOBILE};
 
   ${up('md')} {
-    height: calc(12px + ${() => GRID_GAP_DESKTOP});
-    width: calc(12px + ${() => GRID_GAP_DESKTOP});
-    transform: translateY(calc(${() => GRID_GAP_DESKTOP} / 2));
+    margin-right: -${() => GRID_GAP_DESKTOP};
+    padding-right: ${() => GRID_GAP_DESKTOP};
   }
 
   .bar {
