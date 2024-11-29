@@ -40,9 +40,9 @@ const UnorderedList = styled.ul`
   }
 `;
 
-const OrderedList = styled.ol<{ doubleDigit: boolean }>`
+const OrderedList = styled.ol<{ $doubleDigit: boolean }>`
   line-height: 150%;
-  padding-left: ${(props) => (props.doubleDigit ? '26px' : '18px')};
+  padding-left: ${(props) => (props.$doubleDigit ? '26px' : '18px')};
   margin: 0 0 16px;
 
   > li > p {
@@ -194,7 +194,7 @@ const customSatellytesComponents = {
   },
   ol(props) {
     return (
-      <OrderedList doubleDigit={props.children.length > 9}>
+      <OrderedList $doubleDigit={props.children.length > 9}>
         {props.children}
       </OrderedList>
     );
