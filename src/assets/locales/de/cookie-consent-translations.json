@@ -1,11 +1,11 @@
 {
   "consentModal": {
     "title": "Ihre Datenschutzoptionen",
-    "description": "Wir verwenden Cookies und ähnliche Technologien, um die Website fehlerfrei zu betreiben und für die unten beschriebenen Zwecke. Durch Klicken auf 'Alle Cookies akzeptieren' stimmen Sie der Verwendung aller Cookies zu. Wenn Sie auf 'Alle ablehnen' klicken, lehnen Sie alle Cookies ab, die eine Zustimmung erfordern. Details zu einzelnen Cookies finden Sie im Modal 'Cookie-Präferenzen verwalten'. Sie haben auch die Möglichkeit, Cookie-Kategorien einzeln in diesem Modal auszuwählen. Sie können Ihre Cookie-Einstellungen jederzeit auf der <a href=\"/de/data-privacy\" target=\"_blank\">Datenschutzseite</a> ändern oder widerrufen.",
+    "description": "Wir verwenden Cookies und ähnliche Technologien, um die Website fehlerfrei zu betreiben und für die unten beschriebenen Zwecke. Durch Klicken auf 'Alle Cookies akzeptieren' stimmen Sie der Verwendung aller Cookies zu. Wenn Sie auf 'Alle ablehnen' klicken, lehnen Sie alle Cookies ab, die eine Zustimmung erfordern. Details zu einzelnen Cookies finden Sie im Modal 'Cookie-Präferenzen verwalten'. Sie haben auch die Möglichkeit, Cookie-Kategorien einzeln in diesem Modal auszuwählen. Sie können Ihre Cookie-Einstellungen jederzeit auf der <a href=\"/de/data-privacy\">Datenschutzseite</a> ändern oder widerrufen.",
     "acceptAllBtn": "Alle Cookies akzeptieren",
     "acceptNecessaryBtn": "Nur notwendige Cookies akzeptieren",
     "showPreferencesBtn": "Cookie-Präferenzen verwalten",
-    "footer": "<a href=\"/de/data-privacy\" target=\"_blank\">Datenschutz</a><a href=\"/de/imprint\" target=\"_blank\">Impressum</a><div id=\"cookie-consent-modal-language-switch\"></div>"
+    "footer": "<a href=\"/de/data-privacy\">Datenschutz</a><a href=\"/de/imprint\">Impressum</a><div id=\"cookie-consent-modal-language-switch\"></div>"
   },
   "preferencesModal": {
     "title": "Verwalten Sie Ihre Cookie-Präferenzen",
@@ -16,7 +16,7 @@
     "sections": [
       {
         "title": "Verwendung von Cookies",
-        "description": "Wir verwenden Cookies und ähnliche Technologien, um sicherzustellen, dass die Website ordnungsgemäß funktioniert, Ihre Präferenzen zu speichern und zu analysieren, wie Besucher mit der Website interagieren. Durch Klicken auf 'Alle Cookies akzeptieren' stimmen Sie der Verwendung aller Cookies zu. Wenn Sie auf 'Alle ablehnen' klicken, lehnen Sie alle Cookies ab, die eine Zustimmung erfordern. Durch Klicken auf 'Präferenzen speichern' akzeptieren Sie nur die ausgewählten Cookies. Sie können Ihre Cookie-Einstellungen jederzeit auf der <a href=\"/data-privacy\" target=\"_blank\">Datenschutzseite</a> ändern oder widerrufen."
+        "description": "Wir verwenden Cookies und ähnliche Technologien, um sicherzustellen, dass die Website ordnungsgemäß funktioniert, Ihre Präferenzen zu speichern und zu analysieren, wie Besucher mit der Website interagieren. Durch Klicken auf 'Alle Cookies akzeptieren' stimmen Sie der Verwendung aller Cookies zu. Wenn Sie auf 'Alle ablehnen' klicken, lehnen Sie alle Cookies ab, die eine Zustimmung erfordern. Durch Klicken auf 'Präferenzen speichern' akzeptieren Sie nur die ausgewählten Cookies. Sie können Ihre Cookie-Einstellungen jederzeit auf der <a href=\"/data-privacy\">Datenschutzseite</a> ändern oder widerrufen."
       },
       {
         "title": "Notwendige Cookies",

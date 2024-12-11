@@ -1,11 +1,11 @@
 {
   "consentModal": {
     "title": "Your Privacy Choices",
-    "description": "We use cookies and similar technologies to operate the website error-free and for the purposes described below. By clicking 'Accept all cookies', you consent to the use of all cookies. If you click 'Reject all', you reject all cookies that require consent. Details on individual Cookies can be found in the 'Manage cookie preferences' modal. You also have the option of selecting Cookie categories individually in that modal. You can change or revoke your cookie settings at any time on <a href=\"/data-privacy\" target=\"_blank\">the data privacy page</a>.",
+    "description": "We use cookies and similar technologies to operate the website error-free and for the purposes described below. By clicking 'Accept all cookies', you consent to the use of all cookies. If you click 'Reject all', you reject all cookies that require consent. Details on individual Cookies can be found in the 'Manage cookie preferences' modal. You also have the option of selecting Cookie categories individually in that modal. You can change or revoke your cookie settings at any time on <a href=\"/data-privacy\">the data privacy page</a>.",
     "acceptAllBtn": "Accept all cookies",
     "acceptNecessaryBtn": "Reject all",
     "showPreferencesBtn": "Manage cookie preferences",
-    "footer": "<a href=\"/data-privacy\" target=\"_blank\">Data Privacy</a><a href=\"/imprint\" target=\"_blank\">Imprint</a><div id=\"cookie-consent-modal-language-switch\"></div>"
+    "footer": "<a href=\"/data-privacy\">Data Privacy</a><a href=\"/imprint\">Imprint</a><div id=\"cookie-consent-modal-language-switch\"></div>"
   },
   "preferencesModal": {
     "title": "Manage Your Cookie Preferences",
@@ -16,7 +16,7 @@
     "sections": [
       {
         "title": "Cookie Usage",
-        "description": "We use cookies and similar technologies to ensure the website functions properly, to store your preferences, and to analyze how visitors interact with the website. By clicking 'Accept all cookies', you consent to the use of all cookies. If you click 'Reject all', you reject all cookies that require consent. By clicking on 'Save Preferences' you only accept the selected Cookies. You can change or revoke your cookie settings at any time on <a href=\"/data-privacy\" target=\"_blank\">the data privacy page</a>."
+        "description": "We use cookies and similar technologies to ensure the website functions properly, to store your preferences, and to analyze how visitors interact with the website. By clicking 'Accept all cookies', you consent to the use of all cookies. If you click 'Reject all', you reject all cookies that require consent. By clicking on 'Save Preferences' you only accept the selected Cookies. You can change or revoke your cookie settings at any time on <a href=\"/data-privacy\">the data privacy page</a>."
       },
       {
         "title": "Necessary Cookies",
