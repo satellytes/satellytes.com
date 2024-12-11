@@ -81,6 +81,11 @@ export const CookieConsent = () => {
           de: deCookieConsentTranslations,
         },
       },
+      guiOptions: {
+        consentModal: {
+          position: 'bottom left',
+        },
+      },
     }).then();
   };
 
