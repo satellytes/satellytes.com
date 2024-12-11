@@ -7,30 +7,9 @@ import enCookieConsentTranslations from '../assets/locales/en/cookie-consent-tra
 import deCookieConsentTranslations from '../assets/locales/de/cookie-consent-translations.json';
 import { useTranslation } from 'react-i18next';
 import LeadinfoScript from './layout/leadinfo-script';
-import { LanguageSwitch } from './layout/header/language-switch';
-import ReactDOM from 'react-dom';
-import { styled } from 'styled-components';
-
-// fix style that get broken by the cookieconsent css
-const StyledLanguageSwitch = styled(LanguageSwitch)`
-  display: flex;
-  align-items: center;
-
-  svg {
-    width: 20px;
-    height: 20px;
-    vertical-align: middle;
-  }
-
-  select {
-    text-align: left;
-    padding-left: 0;
-  }
-`;
 
 export const CookieConsent = () => {
   const { t, i18n } = useTranslation();
-  const [showLanguageSwitch, setShowLanguageSwitch] = React.useState(false);
   // @ts-expect-error - iframemanager is defined at runtime
   const im = typeof iframemanager !== 'undefined' ? iframemanager() : null;
 
@@ -102,9 +81,6 @@ export const CookieConsent = () => {
           de: deCookieConsentTranslations,
         },
       },
-      onModalShow: () => {
-        setShowLanguageSwitch(true); // wait for the modal to be rendered so the container for the language switch is available
-      },
     }).then();
   };
 
@@ -117,14 +93,6 @@ export const CookieConsent = () => {
   return (
     <>
       <LeadinfoScript />
-      {showLanguageSwitch &&
-        ReactDOM.createPortal(
-          <StyledLanguageSwitch
-            translation={undefined}
-            className="cookie-consent-modal-language-switch-componet"
-          />,
-          document.getElementById('cookie-consent-modal-language-switch')!,
-        )}
     </>
   );
 };

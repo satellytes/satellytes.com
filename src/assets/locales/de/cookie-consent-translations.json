@@ -5,7 +5,7 @@
     "acceptAllBtn": "Alle Cookies akzeptieren",
     "acceptNecessaryBtn": "Nur notwendige Cookies akzeptieren",
     "showPreferencesBtn": "Cookie-Präferenzen verwalten",
-    "footer": "<a href=\"/de/data-privacy\">Datenschutz</a><a href=\"/de/imprint\">Impressum</a><div id=\"cookie-consent-modal-language-switch\"></div>"
+    "footer": "<a href=\"/de/data-privacy\">Datenschutz</a><a href=\"/de/imprint\">Impressum</a>"
   },
   "preferencesModal": {
     "title": "Verwalten Sie Ihre Cookie-Präferenzen",

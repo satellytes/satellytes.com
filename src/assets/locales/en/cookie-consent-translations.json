@@ -5,7 +5,7 @@
     "acceptAllBtn": "Accept all cookies",
     "acceptNecessaryBtn": "Reject all",
     "showPreferencesBtn": "Manage cookie preferences",
-    "footer": "<a href=\"/data-privacy\">Data Privacy</a><a href=\"/imprint\">Imprint</a><div id=\"cookie-consent-modal-language-switch\"></div>"
+    "footer": "<a href=\"/data-privacy\">Data Privacy</a><a href=\"/imprint\">Imprint</a>"
   },
   "preferencesModal": {
     "title": "Manage Your Cookie Preferences",
