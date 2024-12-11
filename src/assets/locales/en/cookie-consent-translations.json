@@ -32,7 +32,7 @@
           "body": [
             {
               "name": "cc_cookie",
-              "domain": "satellyte.com",
+              "domain": "satellytes.com",
               "description": "Stores the user's cookie consent state for the current domain",
               "expiration": "1 year"
             }
