@@ -59,7 +59,12 @@ export const CookieConsent = () => {
     CookieConsentLib.reset();
     CookieConsentLib.run({
       categories: {
-        analytics: {
+        necessary: {
+          enabled: true,
+          readOnly: true,
+        },
+        analytics: {},
+        social: {
           services: {
             youtube: {
               label: 'YouTube Embeds',
@@ -74,6 +79,11 @@ export const CookieConsent = () => {
         translations: {
           en: enCookieConsentTranslations,
           de: deCookieConsentTranslations,
+        },
+      },
+      guiOptions: {
+        consentModal: {
+          position: 'bottom left',
         },
       },
     }).then();

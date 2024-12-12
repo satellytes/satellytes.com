@@ -1,25 +1,47 @@
 {
   "consentModal": {
     "title": "Your Privacy Choices",
-    "description": "We use cookies to enhance your experience, analyze traffic, and deliver personalized content. You can choose to accept all cookies or manage your preferences for different categories.",
-    "acceptAllBtn": "Accept All Cookies",
+    "description": "We use cookies and similar technologies to operate the website error-free and for the purposes described below. By clicking 'Accept all cookies', you consent to the use of all cookies. If you click 'Reject all', you reject all cookies that require consent. Details on individual Cookies can be found in the 'Manage cookie preferences' modal. You also have the option of selecting Cookie categories individually in that modal. You can change or revoke your cookie settings at any time on <a href=\"/data-privacy\">the data privacy page</a>.",
+    "acceptAllBtn": "Accept all cookies",
     "acceptNecessaryBtn": "Reject all",
-    "showPreferencesBtn": "Manage Cookie Preferences"
+    "showPreferencesBtn": "Manage cookie preferences",
+    "footer": "<a href=\"/data-privacy\">Data Privacy</a><a href=\"/imprint\">Imprint</a>"
   },
   "preferencesModal": {
     "title": "Manage Your Cookie Preferences",
-    "acceptAllBtn": "Accept All Cookies",
+    "acceptAllBtn": "Accept all cookies",
     "acceptNecessaryBtn": "Reject all",
     "savePreferencesBtn": "Save Preferences",
     "closeIconLabel": "Close",
     "sections": [
       {
         "title": "Cookie Usage",
-        "description": "Our website uses cookies to ensure essential functionality, enhance your browsing experience, and provide personalized content. Some cookies are required, such as the one used to store your consent preferences, while others help us improve our services."
+        "description": "We use cookies and similar technologies to ensure the website functions properly, to store your preferences, and to analyze how visitors interact with the website. By clicking 'Accept all cookies', you consent to the use of all cookies. If you click 'Reject all', you reject all cookies that require consent. By clicking on 'Save Preferences' you only accept the selected Cookies. You can change or revoke your cookie settings at any time on <a href=\"/data-privacy\">the data privacy page</a>."
       },
       {
-        "title": "Performance and Analytics Cookies",
-        "description": "Leadinfo cookies help us analyze how visitors interact with our website, allowing us to measure and improve performance. They collect information in an anonymous form. YouTube may set cookies to track video views and user interactions.",
+        "title": "Necessary Cookies",
+        "description": "These cookies are necessary for the website to function properly and cannot be switched off in our systems. They are only used to store your privacy preferences.",
+        "linkedCategory": "necessary",
+        "cookieTable": {
+          "headers": {
+            "name": "Name",
+            "domain": "Service",
+            "description": "Description",
+            "expiration": "Expiration"
+          },
+          "body": [
+            {
+              "name": "cc_cookie",
+              "domain": "satellytes.com",
+              "description": "Stores the user's cookie consent state for the current domain",
+              "expiration": "1 year"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Analytics Cookies",
+        "description": "Leadinfo cookies help us analyze how visitors interact with our website, allowing us to measure and improve performance. They collect information in an anonymous form.",
         "linkedCategory": "analytics",
         "cookieTable": {
           "headers": {
@@ -43,6 +65,11 @@
             }
           ]
         }
+      },
+      {
+        "title": "Social Embeds",
+        "description": "YouTube embeds are video content from YouTube that we integrate into our website, allowing you to view the content directly on our site without needing to navigate to YouTube. This process is known as “embedding.” You can enable YouTube embeds through this cookie consent solution now or later when you decide to view a YouTube embed on our website. </br></br> Google is responsible for the YouTube platform under data protection law. Google uses cookies and similar technologies so that you can view YouTube content on this website. These technologies can only be used by Google after you have activated social embeds. Until then, you will remain invisible to Google.</br>This service is used on this website. </br></br> Company which processes the data </br>Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, D04E5W5, Ireland. However, personal data may also be processed by Google LLC, 1600 Amphitheater Parkway, Mountain View, CA 94043, USA (data transfer mechanism: EU-US Data Protection Framework certification; EU standard contract).</br></br>Collected data </br>This list represents all (personal) data that is collected by or through the use of this service. </br> To our knowledge, Google processes your IP address and information about which social embed you have activated on our site. Further information on the processing of your personal data by Google can be found in the Google privacy policy at: <a href=\"https://policies.google.com/privacy?hl=en\" target=\"_blank\">https://policies.google.com/privacy?hl=en</a>. </br></br> Read the privacy policy of the data processor: <a href=\"https://policies.google.com/privacy?hl=en\" target=\"_blank\">https://policies.google.com/privacy?hl=en</a>",
+        "linkedCategory": "social"
       },
       {
         "title": "More information",
