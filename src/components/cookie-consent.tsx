@@ -95,5 +95,5 @@ export const CookieConsent = () => {
     setupCookieConsent();
   }, [i18n.language]);
 
-  return <LeadinfoScript />
+  return <LeadinfoScript />;
 };
