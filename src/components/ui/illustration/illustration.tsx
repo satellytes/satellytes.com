@@ -59,6 +59,10 @@ const IllustrationLayout = styled.div<Pick<IllustrationProps, 'size'>>`
 export const Illustration = (props: IllustrationProps) => {
   const IllustrationSvg = IllustrationSet[props.show];
 
+  if (!IllustrationSvg) {
+    return null;
+  }
+
   return (
     <IllustrationLayout
       className={props.className}

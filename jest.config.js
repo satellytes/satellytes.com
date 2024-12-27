@@ -16,7 +16,8 @@ module.exports = {
     '\\.(css|less|woff|woff2|ttf|eot)$': 'identity-obj-proxy',
   },
   transform: {
-    '^.+\\.tsx?$': 'ts-jest',
-    '^.+\\.svg$': '<rootDir>/jest/svg-transform.js',
+    '\\.[jt]sx?$': 'babel-jest',
+    // '^.+\\.svg$': '<rootDir>/jest/svg-transform.js',
+    '\\.(jpg|jpeg|png|gif|webp|svg)$': '<rootDir>/jest/fileMock.js',
   },
 };
