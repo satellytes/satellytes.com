@@ -8,8 +8,9 @@ const BreadcrumbContainer = styled.ol`
   list-style: none;
   display: flex;
   flex-wrap: nowrap;
-  overflow: hidden;
-  padding: 0;
+  overflow-x: clip;
+  padding-left: 4px;
+  transform: translateX(-4px);
 `;
 
 const BreadcrumbListItem = styled.li`
@@ -32,6 +33,10 @@ const BreadcrumbListItem = styled.li`
   }
 `;
 
+const BreadcrumbLink = styled(Link)`
+  display: inline-block;
+`;
+
 interface BreadcrumbProps {
   breadcrumbEntries: BreadcrumbEntry[];
 }
@@ -45,14 +50,18 @@ export const Breadcrumb = ({
   breadcrumbEntries,
 }: BreadcrumbProps): JSX.Element => {
   return (
-    <BreadcrumbContainer>
-      {breadcrumbEntries.map((breadcrumbEntry) => {
-        return (
-          <BreadcrumbListItem key={breadcrumbEntry.label}>
-            <Link to={breadcrumbEntry.pathname}>{breadcrumbEntry.label}</Link>
-          </BreadcrumbListItem>
-        );
-      })}
-    </BreadcrumbContainer>
+    <nav aria-label="breadcrumbs">
+      <BreadcrumbContainer aria-label="breadcumbs">
+        {breadcrumbEntries.map((breadcrumbEntry) => {
+          return (
+            <BreadcrumbListItem key={breadcrumbEntry.label}>
+              <BreadcrumbLink to={breadcrumbEntry.pathname}>
+                {breadcrumbEntry.label}
+              </BreadcrumbLink>
+            </BreadcrumbListItem>
+          );
+        })}
+      </BreadcrumbContainer>
+    </nav>
   );
 };
