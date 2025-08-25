@@ -24,9 +24,9 @@ export const Address = () => {
     >
       Satellytes Digital Consulting GmbH
       <br />
-      Sendlinger Straße 52
+      Jahnstraße 21
       <br />
-      80331 München
+      83093 München
       <br />
       <br />
       <StyledLink

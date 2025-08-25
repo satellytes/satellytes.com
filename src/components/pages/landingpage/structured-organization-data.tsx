@@ -13,10 +13,10 @@ export const StructuredOrganizationData = () => {
     name: 'Satellytes Digital Consulting GmbH',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Sendlinger Straße 52',
-      addressLocality: 'München',
+      streetAddress: 'Jahnstr. 21',
+      addressLocality: 'Bad Endorf',
       addressRegion: 'Bayern',
-      postalCode: '80331',
+      postalCode: '83093',
       addressCountry: 'DE',
     },
     email: 'info@satellytes.com',
